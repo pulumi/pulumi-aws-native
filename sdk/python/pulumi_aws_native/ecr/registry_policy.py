@@ -26,8 +26,14 @@ class RegistryPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_text: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_text: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_text is None and 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+        if policy_text is None:
+            raise TypeError("Missing 'policy_text' argument")
+
         _setter("policy_text", policy_text)
 
     @property

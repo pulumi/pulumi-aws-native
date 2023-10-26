@@ -38,12 +38,24 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role: pulumi.Input[str],
-             s3_location: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             role: Optional[pulumi.Input[str]] = None,
+             s3_location: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if s3_location is None and 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+        if s3_location is None:
+            raise TypeError("Missing 's3_location' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+
         _setter("role", role)
         _setter("s3_location", s3_location)
         _setter("workspace_id", workspace_id)

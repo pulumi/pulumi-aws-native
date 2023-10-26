@@ -42,14 +42,26 @@ class AnalysisTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             format: pulumi.Input['AnalysisTemplateFormat'],
-             membership_identifier: pulumi.Input[str],
-             source: pulumi.Input['AnalysisTemplateAnalysisSourceArgs'],
+             format: Optional[pulumi.Input['AnalysisTemplateFormat']] = None,
+             membership_identifier: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['AnalysisTemplateAnalysisSourceArgs']] = None,
              analysis_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if membership_identifier is None and 'membershipIdentifier' in kwargs:
+            membership_identifier = kwargs['membershipIdentifier']
+        if membership_identifier is None:
+            raise TypeError("Missing 'membership_identifier' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if analysis_parameters is None and 'analysisParameters' in kwargs:
+            analysis_parameters = kwargs['analysisParameters']
+
         _setter("format", format)
         _setter("membership_identifier", membership_identifier)
         _setter("source", source)
@@ -206,11 +218,7 @@ class AnalysisTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'membership_identifier'")
             __props__.__dict__["membership_identifier"] = membership_identifier
             __props__.__dict__["name"] = name
-            if source is not None and not isinstance(source, AnalysisTemplateAnalysisSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                AnalysisTemplateAnalysisSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, AnalysisTemplateAnalysisSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

@@ -42,13 +42,21 @@ class RobotApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             robot_software_suite: pulumi.Input['RobotApplicationRobotSoftwareSuiteArgs'],
+             robot_software_suite: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteArgs']] = None,
              current_revision_id: Optional[pulumi.Input[str]] = None,
              environment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['RobotApplicationSourceConfigArgs']]]] = None,
              tags: Optional[pulumi.Input['RobotApplicationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if robot_software_suite is None and 'robotSoftwareSuite' in kwargs:
+            robot_software_suite = kwargs['robotSoftwareSuite']
+        if robot_software_suite is None:
+            raise TypeError("Missing 'robot_software_suite' argument")
+        if current_revision_id is None and 'currentRevisionId' in kwargs:
+            current_revision_id = kwargs['currentRevisionId']
+
         _setter("robot_software_suite", robot_software_suite)
         if current_revision_id is not None:
             _setter("current_revision_id", current_revision_id)
@@ -196,20 +204,12 @@ class RobotApplication(pulumi.CustomResource):
             __props__.__dict__["current_revision_id"] = current_revision_id
             __props__.__dict__["environment"] = environment
             __props__.__dict__["name"] = name
-            if robot_software_suite is not None and not isinstance(robot_software_suite, RobotApplicationRobotSoftwareSuiteArgs):
-                robot_software_suite = robot_software_suite or {}
-                def _setter(key, value):
-                    robot_software_suite[key] = value
-                RobotApplicationRobotSoftwareSuiteArgs._configure(_setter, **robot_software_suite)
+            robot_software_suite = _utilities.configure(robot_software_suite, RobotApplicationRobotSoftwareSuiteArgs, True)
             if robot_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'robot_software_suite'")
             __props__.__dict__["robot_software_suite"] = robot_software_suite
             __props__.__dict__["sources"] = sources
-            if tags is not None and not isinstance(tags, RobotApplicationTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                RobotApplicationTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, RobotApplicationTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

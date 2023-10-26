@@ -42,13 +42,27 @@ class AssetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             asset_model_id: pulumi.Input[str],
+             asset_model_id: Optional[pulumi.Input[str]] = None,
              asset_description: Optional[pulumi.Input[str]] = None,
              asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]] = None,
              asset_name: Optional[pulumi.Input[str]] = None,
              asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_model_id is None and 'assetModelId' in kwargs:
+            asset_model_id = kwargs['assetModelId']
+        if asset_model_id is None:
+            raise TypeError("Missing 'asset_model_id' argument")
+        if asset_description is None and 'assetDescription' in kwargs:
+            asset_description = kwargs['assetDescription']
+        if asset_hierarchies is None and 'assetHierarchies' in kwargs:
+            asset_hierarchies = kwargs['assetHierarchies']
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_properties is None and 'assetProperties' in kwargs:
+            asset_properties = kwargs['assetProperties']
+
         _setter("asset_model_id", asset_model_id)
         if asset_description is not None:
             _setter("asset_description", asset_description)

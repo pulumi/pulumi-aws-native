@@ -52,7 +52,7 @@ class RoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assume_role_policy_document: Any,
+             assume_role_policy_document: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              max_session_duration: Optional[pulumi.Input[int]] = None,
@@ -61,7 +61,21 @@ class RoleArgs:
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['RolePolicyArgs']]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assume_role_policy_document is None and 'assumeRolePolicyDocument' in kwargs:
+            assume_role_policy_document = kwargs['assumeRolePolicyDocument']
+        if assume_role_policy_document is None:
+            raise TypeError("Missing 'assume_role_policy_document' argument")
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if max_session_duration is None and 'maxSessionDuration' in kwargs:
+            max_session_duration = kwargs['maxSessionDuration']
+        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         _setter("assume_role_policy_document", assume_role_policy_document)
         if description is not None:
             _setter("description", description)

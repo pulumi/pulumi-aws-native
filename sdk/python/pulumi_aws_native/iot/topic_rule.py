@@ -32,10 +32,18 @@ class TopicRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_rule_payload: pulumi.Input['TopicRulePayloadArgs'],
+             topic_rule_payload: Optional[pulumi.Input['TopicRulePayloadArgs']] = None,
              rule_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_rule_payload is None and 'topicRulePayload' in kwargs:
+            topic_rule_payload = kwargs['topicRulePayload']
+        if topic_rule_payload is None:
+            raise TypeError("Missing 'topic_rule_payload' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("topic_rule_payload", topic_rule_payload)
         if rule_name is not None:
             _setter("rule_name", rule_name)
@@ -127,11 +135,7 @@ class TopicRule(pulumi.CustomResource):
 
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["tags"] = tags
-            if topic_rule_payload is not None and not isinstance(topic_rule_payload, TopicRulePayloadArgs):
-                topic_rule_payload = topic_rule_payload or {}
-                def _setter(key, value):
-                    topic_rule_payload[key] = value
-                TopicRulePayloadArgs._configure(_setter, **topic_rule_payload)
+            topic_rule_payload = _utilities.configure(topic_rule_payload, TopicRulePayloadArgs, True)
             if topic_rule_payload is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_rule_payload'")
             __props__.__dict__["topic_rule_payload"] = topic_rule_payload

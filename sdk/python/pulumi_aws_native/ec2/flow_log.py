@@ -61,8 +61,8 @@ class FlowLogArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: pulumi.Input[str],
-             resource_type: pulumi.Input['FlowLogResourceType'],
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
              deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
              deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
              destination_options: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']] = None,
@@ -73,7 +73,35 @@ class FlowLogArgs:
              max_aggregation_interval: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]]] = None,
              traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if deliver_cross_account_role is None and 'deliverCrossAccountRole' in kwargs:
+            deliver_cross_account_role = kwargs['deliverCrossAccountRole']
+        if deliver_logs_permission_arn is None and 'deliverLogsPermissionArn' in kwargs:
+            deliver_logs_permission_arn = kwargs['deliverLogsPermissionArn']
+        if destination_options is None and 'destinationOptions' in kwargs:
+            destination_options = kwargs['destinationOptions']
+        if log_destination is None and 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if log_destination_type is None and 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if log_format is None and 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if max_aggregation_interval is None and 'maxAggregationInterval' in kwargs:
+            max_aggregation_interval = kwargs['maxAggregationInterval']
+        if traffic_type is None and 'trafficType' in kwargs:
+            traffic_type = kwargs['trafficType']
+
         _setter("resource_id", resource_id)
         _setter("resource_type", resource_type)
         if deliver_cross_account_role is not None:
@@ -325,11 +353,7 @@ class FlowLog(pulumi.CustomResource):
 
             __props__.__dict__["deliver_cross_account_role"] = deliver_cross_account_role
             __props__.__dict__["deliver_logs_permission_arn"] = deliver_logs_permission_arn
-            if destination_options is not None and not isinstance(destination_options, DestinationOptionsPropertiesArgs):
-                destination_options = destination_options or {}
-                def _setter(key, value):
-                    destination_options[key] = value
-                DestinationOptionsPropertiesArgs._configure(_setter, **destination_options)
+            destination_options = _utilities.configure(destination_options, DestinationOptionsPropertiesArgs, True)
             __props__.__dict__["destination_options"] = destination_options
             __props__.__dict__["log_destination"] = log_destination
             __props__.__dict__["log_destination_type"] = log_destination_type

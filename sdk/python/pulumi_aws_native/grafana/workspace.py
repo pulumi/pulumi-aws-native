@@ -69,9 +69,9 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_access_type: pulumi.Input['WorkspaceAccountAccessType'],
-             authentication_providers: pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]],
-             permission_type: pulumi.Input['WorkspacePermissionType'],
+             account_access_type: Optional[pulumi.Input['WorkspaceAccountAccessType']] = None,
+             authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceAuthenticationProviderTypes']]]] = None,
+             permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
              client_token: Optional[pulumi.Input[str]] = None,
              data_sources: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceDataSourceType']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -85,7 +85,43 @@ class WorkspaceArgs:
              saml_configuration: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']] = None,
              stack_set_name: Optional[pulumi.Input[str]] = None,
              vpc_configuration: Optional[pulumi.Input['WorkspaceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_access_type is None and 'accountAccessType' in kwargs:
+            account_access_type = kwargs['accountAccessType']
+        if account_access_type is None:
+            raise TypeError("Missing 'account_access_type' argument")
+        if authentication_providers is None and 'authenticationProviders' in kwargs:
+            authentication_providers = kwargs['authenticationProviders']
+        if authentication_providers is None:
+            raise TypeError("Missing 'authentication_providers' argument")
+        if permission_type is None and 'permissionType' in kwargs:
+            permission_type = kwargs['permissionType']
+        if permission_type is None:
+            raise TypeError("Missing 'permission_type' argument")
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if data_sources is None and 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if grafana_version is None and 'grafanaVersion' in kwargs:
+            grafana_version = kwargs['grafanaVersion']
+        if network_access_control is None and 'networkAccessControl' in kwargs:
+            network_access_control = kwargs['networkAccessControl']
+        if notification_destinations is None and 'notificationDestinations' in kwargs:
+            notification_destinations = kwargs['notificationDestinations']
+        if organization_role_name is None and 'organizationRoleName' in kwargs:
+            organization_role_name = kwargs['organizationRoleName']
+        if organizational_units is None and 'organizationalUnits' in kwargs:
+            organizational_units = kwargs['organizationalUnits']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if saml_configuration is None and 'samlConfiguration' in kwargs:
+            saml_configuration = kwargs['samlConfiguration']
+        if stack_set_name is None and 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("account_access_type", account_access_type)
         _setter("authentication_providers", authentication_providers)
         _setter("permission_type", permission_type)
@@ -397,11 +433,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["grafana_version"] = grafana_version
             __props__.__dict__["name"] = name
-            if network_access_control is not None and not isinstance(network_access_control, WorkspaceNetworkAccessControlArgs):
-                network_access_control = network_access_control or {}
-                def _setter(key, value):
-                    network_access_control[key] = value
-                WorkspaceNetworkAccessControlArgs._configure(_setter, **network_access_control)
+            network_access_control = _utilities.configure(network_access_control, WorkspaceNetworkAccessControlArgs, True)
             __props__.__dict__["network_access_control"] = network_access_control
             __props__.__dict__["notification_destinations"] = notification_destinations
             __props__.__dict__["organization_role_name"] = organization_role_name
@@ -410,18 +442,10 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'permission_type'")
             __props__.__dict__["permission_type"] = permission_type
             __props__.__dict__["role_arn"] = role_arn
-            if saml_configuration is not None and not isinstance(saml_configuration, WorkspaceSamlConfigurationArgs):
-                saml_configuration = saml_configuration or {}
-                def _setter(key, value):
-                    saml_configuration[key] = value
-                WorkspaceSamlConfigurationArgs._configure(_setter, **saml_configuration)
+            saml_configuration = _utilities.configure(saml_configuration, WorkspaceSamlConfigurationArgs, True)
             __props__.__dict__["saml_configuration"] = saml_configuration
             __props__.__dict__["stack_set_name"] = stack_set_name
-            if vpc_configuration is not None and not isinstance(vpc_configuration, WorkspaceVpcConfigurationArgs):
-                vpc_configuration = vpc_configuration or {}
-                def _setter(key, value):
-                    vpc_configuration[key] = value
-                WorkspaceVpcConfigurationArgs._configure(_setter, **vpc_configuration)
+            vpc_configuration = _utilities.configure(vpc_configuration, WorkspaceVpcConfigurationArgs, True)
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["endpoint"] = None

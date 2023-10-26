@@ -40,7 +40,13 @@ class RepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
              triggers: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTriggerArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_description is None and 'repositoryDescription' in kwargs:
+            repository_description = kwargs['repositoryDescription']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         if code is not None:
             _setter("code", code)
         if repository_description is not None:
@@ -163,11 +169,7 @@ class Repository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
-            if code is not None and not isinstance(code, RepositoryCodeArgs):
-                code = code or {}
-                def _setter(key, value):
-                    code[key] = value
-                RepositoryCodeArgs._configure(_setter, **code)
+            code = _utilities.configure(code, RepositoryCodeArgs, True)
             __props__.__dict__["code"] = code
             __props__.__dict__["repository_description"] = repository_description
             __props__.__dict__["repository_name"] = repository_name

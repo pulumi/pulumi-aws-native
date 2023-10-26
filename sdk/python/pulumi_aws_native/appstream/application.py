@@ -49,11 +49,11 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_block_arn: pulumi.Input[str],
-             icon_s3_location: pulumi.Input['ApplicationS3LocationArgs'],
-             instance_families: pulumi.Input[Sequence[pulumi.Input[str]]],
-             launch_path: pulumi.Input[str],
-             platforms: pulumi.Input[Sequence[pulumi.Input[str]]],
+             app_block_arn: Optional[pulumi.Input[str]] = None,
+             icon_s3_location: Optional[pulumi.Input['ApplicationS3LocationArgs']] = None,
+             instance_families: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             launch_path: Optional[pulumi.Input[str]] = None,
+             platforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              attributes_to_delete: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,35 @@ class ApplicationArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_block_arn is None and 'appBlockArn' in kwargs:
+            app_block_arn = kwargs['appBlockArn']
+        if app_block_arn is None:
+            raise TypeError("Missing 'app_block_arn' argument")
+        if icon_s3_location is None and 'iconS3Location' in kwargs:
+            icon_s3_location = kwargs['iconS3Location']
+        if icon_s3_location is None:
+            raise TypeError("Missing 'icon_s3_location' argument")
+        if instance_families is None and 'instanceFamilies' in kwargs:
+            instance_families = kwargs['instanceFamilies']
+        if instance_families is None:
+            raise TypeError("Missing 'instance_families' argument")
+        if launch_path is None and 'launchPath' in kwargs:
+            launch_path = kwargs['launchPath']
+        if launch_path is None:
+            raise TypeError("Missing 'launch_path' argument")
+        if platforms is None:
+            raise TypeError("Missing 'platforms' argument")
+        if attributes_to_delete is None and 'attributesToDelete' in kwargs:
+            attributes_to_delete = kwargs['attributesToDelete']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if launch_parameters is None and 'launchParameters' in kwargs:
+            launch_parameters = kwargs['launchParameters']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         _setter("app_block_arn", app_block_arn)
         _setter("icon_s3_location", icon_s3_location)
         _setter("instance_families", instance_families)
@@ -270,11 +298,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["attributes_to_delete"] = attributes_to_delete
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            if icon_s3_location is not None and not isinstance(icon_s3_location, ApplicationS3LocationArgs):
-                icon_s3_location = icon_s3_location or {}
-                def _setter(key, value):
-                    icon_s3_location[key] = value
-                ApplicationS3LocationArgs._configure(_setter, **icon_s3_location)
+            icon_s3_location = _utilities.configure(icon_s3_location, ApplicationS3LocationArgs, True)
             if icon_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'icon_s3_location'")
             __props__.__dict__["icon_s3_location"] = icon_s3_location

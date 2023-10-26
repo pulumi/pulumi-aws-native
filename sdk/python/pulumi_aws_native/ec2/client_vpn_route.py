@@ -31,11 +31,25 @@ class ClientVpnRouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_vpn_endpoint_id: pulumi.Input[str],
-             destination_cidr_block: pulumi.Input[str],
-             target_vpc_subnet_id: pulumi.Input[str],
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             target_vpc_subnet_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if client_vpn_endpoint_id is None:
+            raise TypeError("Missing 'client_vpn_endpoint_id' argument")
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_cidr_block is None:
+            raise TypeError("Missing 'destination_cidr_block' argument")
+        if target_vpc_subnet_id is None and 'targetVpcSubnetId' in kwargs:
+            target_vpc_subnet_id = kwargs['targetVpcSubnetId']
+        if target_vpc_subnet_id is None:
+            raise TypeError("Missing 'target_vpc_subnet_id' argument")
+
         _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         _setter("destination_cidr_block", destination_cidr_block)
         _setter("target_vpc_subnet_id", target_vpc_subnet_id)

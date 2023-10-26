@@ -59,10 +59,16 @@ class AliasRoutingStrategyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['AliasRoutingStrategyType'],
+             type: Optional[pulumi.Input['AliasRoutingStrategyType']] = None,
              fleet_id: Optional[pulumi.Input[str]] = None,
              message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if fleet_id is None and 'fleetId' in kwargs:
+            fleet_id = kwargs['fleetId']
+
         _setter("type", type)
         if fleet_id is not None:
             _setter("fleet_id", fleet_id)
@@ -129,11 +135,23 @@ class BuildStorageLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if object_version is None and 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -204,8 +222,12 @@ class FleetAnywhereConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cost: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cost: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cost is None:
+            raise TypeError("Missing 'cost' argument")
+
         _setter("cost", cost)
 
     @property
@@ -235,8 +257,14 @@ class FleetCertificateConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_type: pulumi.Input['FleetCertificateConfigurationCertificateType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             certificate_type: Optional[pulumi.Input['FleetCertificateConfigurationCertificateType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_type is None and 'certificateType' in kwargs:
+            certificate_type = kwargs['certificateType']
+        if certificate_type is None:
+            raise TypeError("Missing 'certificate_type' argument")
+
         _setter("certificate_type", certificate_type)
 
     @property
@@ -273,11 +301,27 @@ class FleetIpPermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_port: pulumi.Input[int],
-             ip_range: pulumi.Input[str],
-             protocol: pulumi.Input['FleetIpPermissionProtocol'],
-             to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             from_port: Optional[pulumi.Input[int]] = None,
+             ip_range: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input['FleetIpPermissionProtocol']] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if from_port is None:
+            raise TypeError("Missing 'from_port' argument")
+        if ip_range is None and 'ipRange' in kwargs:
+            ip_range = kwargs['ipRange']
+        if ip_range is None:
+            raise TypeError("Missing 'ip_range' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+        if to_port is None:
+            raise TypeError("Missing 'to_port' argument")
+
         _setter("from_port", from_port)
         _setter("ip_range", ip_range)
         _setter("protocol", protocol)
@@ -353,10 +397,24 @@ class FleetLocationCapacityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             desired_ec2_instances: pulumi.Input[int],
-             max_size: pulumi.Input[int],
-             min_size: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             desired_ec2_instances: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             min_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if desired_ec2_instances is None and 'desiredEc2Instances' in kwargs:
+            desired_ec2_instances = kwargs['desiredEc2Instances']
+        if desired_ec2_instances is None:
+            raise TypeError("Missing 'desired_ec2_instances' argument")
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if max_size is None:
+            raise TypeError("Missing 'max_size' argument")
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if min_size is None:
+            raise TypeError("Missing 'min_size' argument")
+
         _setter("desired_ec2_instances", desired_ec2_instances)
         _setter("max_size", max_size)
         _setter("min_size", min_size)
@@ -414,9 +472,15 @@ class FleetLocationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
              location_capacity: Optional[pulumi.Input['FleetLocationCapacityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if location_capacity is None and 'locationCapacity' in kwargs:
+            location_capacity = kwargs['locationCapacity']
+
         _setter("location", location)
         if location_capacity is not None:
             _setter("location_capacity", location_capacity)
@@ -462,7 +526,13 @@ class FleetResourceCreationLimitPolicyArgs:
              _setter: Callable[[Any, Any], None],
              new_game_sessions_per_creator: Optional[pulumi.Input[int]] = None,
              policy_period_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if new_game_sessions_per_creator is None and 'newGameSessionsPerCreator' in kwargs:
+            new_game_sessions_per_creator = kwargs['newGameSessionsPerCreator']
+        if policy_period_in_minutes is None and 'policyPeriodInMinutes' in kwargs:
+            policy_period_in_minutes = kwargs['policyPeriodInMinutes']
+
         if new_game_sessions_per_creator is not None:
             _setter("new_game_sessions_per_creator", new_game_sessions_per_creator)
         if policy_period_in_minutes is not None:
@@ -521,7 +591,15 @@ class FleetRuntimeConfigurationArgs:
              game_session_activation_timeout_seconds: Optional[pulumi.Input[int]] = None,
              max_concurrent_game_session_activations: Optional[pulumi.Input[int]] = None,
              server_processes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetServerProcessArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if game_session_activation_timeout_seconds is None and 'gameSessionActivationTimeoutSeconds' in kwargs:
+            game_session_activation_timeout_seconds = kwargs['gameSessionActivationTimeoutSeconds']
+        if max_concurrent_game_session_activations is None and 'maxConcurrentGameSessionActivations' in kwargs:
+            max_concurrent_game_session_activations = kwargs['maxConcurrentGameSessionActivations']
+        if server_processes is None and 'serverProcesses' in kwargs:
+            server_processes = kwargs['serverProcesses']
+
         if game_session_activation_timeout_seconds is not None:
             _setter("game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
         if max_concurrent_game_session_activations is not None:
@@ -591,10 +669,20 @@ class FleetServerProcessArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             concurrent_executions: pulumi.Input[int],
-             launch_path: pulumi.Input[str],
+             concurrent_executions: Optional[pulumi.Input[int]] = None,
+             launch_path: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if concurrent_executions is None and 'concurrentExecutions' in kwargs:
+            concurrent_executions = kwargs['concurrentExecutions']
+        if concurrent_executions is None:
+            raise TypeError("Missing 'concurrent_executions' argument")
+        if launch_path is None and 'launchPath' in kwargs:
+            launch_path = kwargs['launchPath']
+        if launch_path is None:
+            raise TypeError("Missing 'launch_path' argument")
+
         _setter("concurrent_executions", concurrent_executions)
         _setter("launch_path", launch_path)
         if parameters is not None:
@@ -657,9 +745,17 @@ class GameServerGroupAutoScalingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_tracking_configuration: pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs'],
+             target_tracking_configuration: Optional[pulumi.Input['GameServerGroupTargetTrackingConfigurationArgs']] = None,
              estimated_instance_warmup: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_tracking_configuration is None and 'targetTrackingConfiguration' in kwargs:
+            target_tracking_configuration = kwargs['targetTrackingConfiguration']
+        if target_tracking_configuration is None:
+            raise TypeError("Missing 'target_tracking_configuration' argument")
+        if estimated_instance_warmup is None and 'estimatedInstanceWarmup' in kwargs:
+            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
+
         _setter("target_tracking_configuration", target_tracking_configuration)
         if estimated_instance_warmup is not None:
             _setter("estimated_instance_warmup", estimated_instance_warmup)
@@ -699,9 +795,17 @@ class GameServerGroupInstanceDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
              weighted_capacity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("instance_type", instance_type)
         if weighted_capacity is not None:
             _setter("weighted_capacity", weighted_capacity)
@@ -746,7 +850,13 @@ class GameServerGroupLaunchTemplateArgs:
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -801,7 +911,9 @@ class GameServerGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -846,8 +958,14 @@ class GameServerGroupTargetTrackingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             target_value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_value is None and 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if target_value is None:
+            raise TypeError("Missing 'target_value' argument")
+
         _setter("target_value", target_value)
 
     @property
@@ -872,7 +990,11 @@ class GameSessionQueueDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
 
@@ -898,7 +1020,11 @@ class GameSessionQueueFilterConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allowed_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_locations is None and 'allowedLocations' in kwargs:
+            allowed_locations = kwargs['allowedLocations']
+
         if allowed_locations is not None:
             _setter("allowed_locations", allowed_locations)
 
@@ -927,7 +1053,13 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
              _setter: Callable[[Any, Any], None],
              maximum_individual_player_latency_milliseconds: Optional[pulumi.Input[int]] = None,
              policy_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_individual_player_latency_milliseconds is None and 'maximumIndividualPlayerLatencyMilliseconds' in kwargs:
+            maximum_individual_player_latency_milliseconds = kwargs['maximumIndividualPlayerLatencyMilliseconds']
+        if policy_duration_seconds is None and 'policyDurationSeconds' in kwargs:
+            policy_duration_seconds = kwargs['policyDurationSeconds']
+
         if maximum_individual_player_latency_milliseconds is not None:
             _setter("maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
         if policy_duration_seconds is not None:
@@ -967,7 +1099,13 @@ class GameSessionQueuePriorityConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              location_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              priority_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location_order is None and 'locationOrder' in kwargs:
+            location_order = kwargs['locationOrder']
+        if priority_order is None and 'priorityOrder' in kwargs:
+            priority_order = kwargs['priorityOrder']
+
         if location_order is not None:
             _setter("location_order", location_order)
         if priority_order is not None:
@@ -1005,9 +1143,15 @@ class GameSessionQueueTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1048,9 +1192,15 @@ class LocationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1092,9 +1242,15 @@ class MatchmakingConfigurationGamePropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1130,9 +1286,15 @@ class MatchmakingConfigurationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1168,9 +1330,15 @@ class MatchmakingRuleSetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1210,11 +1378,23 @@ class ScriptS3LocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if object_version is None and 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -1271,9 +1451,15 @@ class ScriptTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

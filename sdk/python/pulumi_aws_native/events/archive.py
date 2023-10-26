@@ -33,12 +33,24 @@ class ArchiveArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_arn: pulumi.Input[str],
+             source_arn: Optional[pulumi.Input[str]] = None,
              archive_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              event_pattern: Optional[Any] = None,
              retention_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if source_arn is None:
+            raise TypeError("Missing 'source_arn' argument")
+        if archive_name is None and 'archiveName' in kwargs:
+            archive_name = kwargs['archiveName']
+        if event_pattern is None and 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+
         _setter("source_arn", source_arn)
         if archive_name is not None:
             _setter("archive_name", archive_name)

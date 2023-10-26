@@ -29,10 +29,16 @@ class AccessKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             user_name: pulumi.Input[str],
+             user_name: Optional[pulumi.Input[str]] = None,
              serial: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+
         _setter("user_name", user_name)
         if serial is not None:
             _setter("serial", serial)

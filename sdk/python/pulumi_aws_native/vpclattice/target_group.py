@@ -36,12 +36,16 @@ class TargetGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['TargetGroupType'],
+             type: Optional[pulumi.Input['TargetGroupType']] = None,
              config: Optional[pulumi.Input['TargetGroupConfigArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTagArgs']]]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if config is not None:
             _setter("config", config)
@@ -157,11 +161,7 @@ class TargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TargetGroupArgs.__new__(TargetGroupArgs)
 
-            if config is not None and not isinstance(config, TargetGroupConfigArgs):
-                config = config or {}
-                def _setter(key, value):
-                    config[key] = value
-                TargetGroupConfigArgs._configure(_setter, **config)
+            config = _utilities.configure(config, TargetGroupConfigArgs, True)
             __props__.__dict__["config"] = config
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

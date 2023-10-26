@@ -43,7 +43,17 @@ class RunGroupArgs:
              max_runs: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['RunGroupTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_cpus is None and 'maxCpus' in kwargs:
+            max_cpus = kwargs['maxCpus']
+        if max_duration is None and 'maxDuration' in kwargs:
+            max_duration = kwargs['maxDuration']
+        if max_gpus is None and 'maxGpus' in kwargs:
+            max_gpus = kwargs['maxGpus']
+        if max_runs is None and 'maxRuns' in kwargs:
+            max_runs = kwargs['maxRuns']
+
         if max_cpus is not None:
             _setter("max_cpus", max_cpus)
         if max_duration is not None:
@@ -178,11 +188,7 @@ class RunGroup(pulumi.CustomResource):
             __props__.__dict__["max_gpus"] = max_gpus
             __props__.__dict__["max_runs"] = max_runs
             __props__.__dict__["name"] = name
-            if tags is not None and not isinstance(tags, RunGroupTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                RunGroupTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, RunGroupTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

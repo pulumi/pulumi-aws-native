@@ -35,12 +35,26 @@ class EventInvokeConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
-             qualifier: pulumi.Input[str],
+             function_name: Optional[pulumi.Input[str]] = None,
+             qualifier: Optional[pulumi.Input[str]] = None,
              destination_config: Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']] = None,
              maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
              maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+        if destination_config is None and 'destinationConfig' in kwargs:
+            destination_config = kwargs['destinationConfig']
+        if maximum_event_age_in_seconds is None and 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         _setter("function_name", function_name)
         _setter("qualifier", qualifier)
         if destination_config is not None:
@@ -155,11 +169,7 @@ class EventInvokeConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventInvokeConfigArgs.__new__(EventInvokeConfigArgs)
 
-            if destination_config is not None and not isinstance(destination_config, EventInvokeConfigDestinationConfigArgs):
-                destination_config = destination_config or {}
-                def _setter(key, value):
-                    destination_config[key] = value
-                EventInvokeConfigDestinationConfigArgs._configure(_setter, **destination_config)
+            destination_config = _utilities.configure(destination_config, EventInvokeConfigDestinationConfigArgs, True)
             __props__.__dict__["destination_config"] = destination_config
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")

@@ -42,13 +42,29 @@ class RotationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             recurrence: pulumi.Input['RotationRecurrenceSettingsArgs'],
-             start_time: pulumi.Input[str],
-             time_zone_id: pulumi.Input[str],
+             contact_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             recurrence: Optional[pulumi.Input['RotationRecurrenceSettingsArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             time_zone_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RotationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_ids is None and 'contactIds' in kwargs:
+            contact_ids = kwargs['contactIds']
+        if contact_ids is None:
+            raise TypeError("Missing 'contact_ids' argument")
+        if recurrence is None:
+            raise TypeError("Missing 'recurrence' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if time_zone_id is None and 'timeZoneId' in kwargs:
+            time_zone_id = kwargs['timeZoneId']
+        if time_zone_id is None:
+            raise TypeError("Missing 'time_zone_id' argument")
+
         _setter("contact_ids", contact_ids)
         _setter("recurrence", recurrence)
         _setter("start_time", start_time)
@@ -194,11 +210,7 @@ class Rotation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'contact_ids'")
             __props__.__dict__["contact_ids"] = contact_ids
             __props__.__dict__["name"] = name
-            if recurrence is not None and not isinstance(recurrence, RotationRecurrenceSettingsArgs):
-                recurrence = recurrence or {}
-                def _setter(key, value):
-                    recurrence[key] = value
-                RotationRecurrenceSettingsArgs._configure(_setter, **recurrence)
+            recurrence = _utilities.configure(recurrence, RotationRecurrenceSettingsArgs, True)
             if recurrence is None and not opts.urn:
                 raise TypeError("Missing required property 'recurrence'")
             __props__.__dict__["recurrence"] = recurrence

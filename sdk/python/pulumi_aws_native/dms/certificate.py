@@ -32,7 +32,15 @@ class CertificateArgs:
              certificate_identifier: Optional[pulumi.Input[str]] = None,
              certificate_pem: Optional[pulumi.Input[str]] = None,
              certificate_wallet: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_identifier is None and 'certificateIdentifier' in kwargs:
+            certificate_identifier = kwargs['certificateIdentifier']
+        if certificate_pem is None and 'certificatePem' in kwargs:
+            certificate_pem = kwargs['certificatePem']
+        if certificate_wallet is None and 'certificateWallet' in kwargs:
+            certificate_wallet = kwargs['certificateWallet']
+
         if certificate_identifier is not None:
             _setter("certificate_identifier", certificate_identifier)
         if certificate_pem is not None:

@@ -85,7 +85,47 @@ class BucketArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
              versioning_configuration: Optional[pulumi.Input['BucketVersioningConfigurationArgs']] = None,
              website_configuration: Optional[pulumi.Input['BucketWebsiteConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerate_configuration is None and 'accelerateConfiguration' in kwargs:
+            accelerate_configuration = kwargs['accelerateConfiguration']
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if analytics_configurations is None and 'analyticsConfigurations' in kwargs:
+            analytics_configurations = kwargs['analyticsConfigurations']
+        if bucket_encryption is None and 'bucketEncryption' in kwargs:
+            bucket_encryption = kwargs['bucketEncryption']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if intelligent_tiering_configurations is None and 'intelligentTieringConfigurations' in kwargs:
+            intelligent_tiering_configurations = kwargs['intelligentTieringConfigurations']
+        if inventory_configurations is None and 'inventoryConfigurations' in kwargs:
+            inventory_configurations = kwargs['inventoryConfigurations']
+        if lifecycle_configuration is None and 'lifecycleConfiguration' in kwargs:
+            lifecycle_configuration = kwargs['lifecycleConfiguration']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if metrics_configurations is None and 'metricsConfigurations' in kwargs:
+            metrics_configurations = kwargs['metricsConfigurations']
+        if notification_configuration is None and 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if object_lock_configuration is None and 'objectLockConfiguration' in kwargs:
+            object_lock_configuration = kwargs['objectLockConfiguration']
+        if object_lock_enabled is None and 'objectLockEnabled' in kwargs:
+            object_lock_enabled = kwargs['objectLockEnabled']
+        if ownership_controls is None and 'ownershipControls' in kwargs:
+            ownership_controls = kwargs['ownershipControls']
+        if public_access_block_configuration is None and 'publicAccessBlockConfiguration' in kwargs:
+            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if versioning_configuration is None and 'versioningConfiguration' in kwargs:
+            versioning_configuration = kwargs['versioningConfiguration']
+        if website_configuration is None and 'websiteConfiguration' in kwargs:
+            website_configuration = kwargs['websiteConfiguration']
+
         if accelerate_configuration is not None:
             _setter("accelerate_configuration", accelerate_configuration)
         if access_control is not None:
@@ -397,85 +437,37 @@ class Bucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketArgs.__new__(BucketArgs)
 
-            if accelerate_configuration is not None and not isinstance(accelerate_configuration, BucketAccelerateConfigurationArgs):
-                accelerate_configuration = accelerate_configuration or {}
-                def _setter(key, value):
-                    accelerate_configuration[key] = value
-                BucketAccelerateConfigurationArgs._configure(_setter, **accelerate_configuration)
+            accelerate_configuration = _utilities.configure(accelerate_configuration, BucketAccelerateConfigurationArgs, True)
             __props__.__dict__["accelerate_configuration"] = accelerate_configuration
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["analytics_configurations"] = analytics_configurations
-            if bucket_encryption is not None and not isinstance(bucket_encryption, BucketEncryptionArgs):
-                bucket_encryption = bucket_encryption or {}
-                def _setter(key, value):
-                    bucket_encryption[key] = value
-                BucketEncryptionArgs._configure(_setter, **bucket_encryption)
+            bucket_encryption = _utilities.configure(bucket_encryption, BucketEncryptionArgs, True)
             __props__.__dict__["bucket_encryption"] = bucket_encryption
             __props__.__dict__["bucket_name"] = bucket_name
-            if cors_configuration is not None and not isinstance(cors_configuration, BucketCorsConfigurationArgs):
-                cors_configuration = cors_configuration or {}
-                def _setter(key, value):
-                    cors_configuration[key] = value
-                BucketCorsConfigurationArgs._configure(_setter, **cors_configuration)
+            cors_configuration = _utilities.configure(cors_configuration, BucketCorsConfigurationArgs, True)
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["intelligent_tiering_configurations"] = intelligent_tiering_configurations
             __props__.__dict__["inventory_configurations"] = inventory_configurations
-            if lifecycle_configuration is not None and not isinstance(lifecycle_configuration, BucketLifecycleConfigurationArgs):
-                lifecycle_configuration = lifecycle_configuration or {}
-                def _setter(key, value):
-                    lifecycle_configuration[key] = value
-                BucketLifecycleConfigurationArgs._configure(_setter, **lifecycle_configuration)
+            lifecycle_configuration = _utilities.configure(lifecycle_configuration, BucketLifecycleConfigurationArgs, True)
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
-            if logging_configuration is not None and not isinstance(logging_configuration, BucketLoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                BucketLoggingConfigurationArgs._configure(_setter, **logging_configuration)
+            logging_configuration = _utilities.configure(logging_configuration, BucketLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["metrics_configurations"] = metrics_configurations
-            if notification_configuration is not None and not isinstance(notification_configuration, BucketNotificationConfigurationArgs):
-                notification_configuration = notification_configuration or {}
-                def _setter(key, value):
-                    notification_configuration[key] = value
-                BucketNotificationConfigurationArgs._configure(_setter, **notification_configuration)
+            notification_configuration = _utilities.configure(notification_configuration, BucketNotificationConfigurationArgs, True)
             __props__.__dict__["notification_configuration"] = notification_configuration
-            if object_lock_configuration is not None and not isinstance(object_lock_configuration, BucketObjectLockConfigurationArgs):
-                object_lock_configuration = object_lock_configuration or {}
-                def _setter(key, value):
-                    object_lock_configuration[key] = value
-                BucketObjectLockConfigurationArgs._configure(_setter, **object_lock_configuration)
+            object_lock_configuration = _utilities.configure(object_lock_configuration, BucketObjectLockConfigurationArgs, True)
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
             __props__.__dict__["object_lock_enabled"] = object_lock_enabled
-            if ownership_controls is not None and not isinstance(ownership_controls, BucketOwnershipControlsArgs):
-                ownership_controls = ownership_controls or {}
-                def _setter(key, value):
-                    ownership_controls[key] = value
-                BucketOwnershipControlsArgs._configure(_setter, **ownership_controls)
+            ownership_controls = _utilities.configure(ownership_controls, BucketOwnershipControlsArgs, True)
             __props__.__dict__["ownership_controls"] = ownership_controls
-            if public_access_block_configuration is not None and not isinstance(public_access_block_configuration, BucketPublicAccessBlockConfigurationArgs):
-                public_access_block_configuration = public_access_block_configuration or {}
-                def _setter(key, value):
-                    public_access_block_configuration[key] = value
-                BucketPublicAccessBlockConfigurationArgs._configure(_setter, **public_access_block_configuration)
+            public_access_block_configuration = _utilities.configure(public_access_block_configuration, BucketPublicAccessBlockConfigurationArgs, True)
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
-            if replication_configuration is not None and not isinstance(replication_configuration, BucketReplicationConfigurationArgs):
-                replication_configuration = replication_configuration or {}
-                def _setter(key, value):
-                    replication_configuration[key] = value
-                BucketReplicationConfigurationArgs._configure(_setter, **replication_configuration)
+            replication_configuration = _utilities.configure(replication_configuration, BucketReplicationConfigurationArgs, True)
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["tags"] = tags
-            if versioning_configuration is not None and not isinstance(versioning_configuration, BucketVersioningConfigurationArgs):
-                versioning_configuration = versioning_configuration or {}
-                def _setter(key, value):
-                    versioning_configuration[key] = value
-                BucketVersioningConfigurationArgs._configure(_setter, **versioning_configuration)
+            versioning_configuration = _utilities.configure(versioning_configuration, BucketVersioningConfigurationArgs, True)
             __props__.__dict__["versioning_configuration"] = versioning_configuration
-            if website_configuration is not None and not isinstance(website_configuration, BucketWebsiteConfigurationArgs):
-                website_configuration = website_configuration or {}
-                def _setter(key, value):
-                    website_configuration[key] = value
-                BucketWebsiteConfigurationArgs._configure(_setter, **website_configuration)
+            website_configuration = _utilities.configure(website_configuration, BucketWebsiteConfigurationArgs, True)
             __props__.__dict__["website_configuration"] = website_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None

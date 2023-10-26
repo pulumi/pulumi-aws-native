@@ -28,9 +28,15 @@ class RobotApplicationVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
+             application: Optional[pulumi.Input[str]] = None,
              current_revision_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if current_revision_id is None and 'currentRevisionId' in kwargs:
+            current_revision_id = kwargs['currentRevisionId']
+
         _setter("application", application)
         if current_revision_id is not None:
             _setter("current_revision_id", current_revision_id)

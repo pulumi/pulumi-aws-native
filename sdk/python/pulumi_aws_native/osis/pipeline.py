@@ -44,14 +44,34 @@ class PipelineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_units: pulumi.Input[int],
-             min_units: pulumi.Input[int],
-             pipeline_configuration_body: pulumi.Input[str],
+             max_units: Optional[pulumi.Input[int]] = None,
+             min_units: Optional[pulumi.Input[int]] = None,
+             pipeline_configuration_body: Optional[pulumi.Input[str]] = None,
              log_publishing_options: Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']] = None,
              pipeline_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
              vpc_options: Optional[pulumi.Input['PipelineVpcOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_units is None and 'maxUnits' in kwargs:
+            max_units = kwargs['maxUnits']
+        if max_units is None:
+            raise TypeError("Missing 'max_units' argument")
+        if min_units is None and 'minUnits' in kwargs:
+            min_units = kwargs['minUnits']
+        if min_units is None:
+            raise TypeError("Missing 'min_units' argument")
+        if pipeline_configuration_body is None and 'pipelineConfigurationBody' in kwargs:
+            pipeline_configuration_body = kwargs['pipelineConfigurationBody']
+        if pipeline_configuration_body is None:
+            raise TypeError("Missing 'pipeline_configuration_body' argument")
+        if log_publishing_options is None and 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if pipeline_name is None and 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if vpc_options is None and 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         _setter("max_units", max_units)
         _setter("min_units", min_units)
         _setter("pipeline_configuration_body", pipeline_configuration_body)
@@ -211,11 +231,7 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            if log_publishing_options is not None and not isinstance(log_publishing_options, PipelineLogPublishingOptionsArgs):
-                log_publishing_options = log_publishing_options or {}
-                def _setter(key, value):
-                    log_publishing_options[key] = value
-                PipelineLogPublishingOptionsArgs._configure(_setter, **log_publishing_options)
+            log_publishing_options = _utilities.configure(log_publishing_options, PipelineLogPublishingOptionsArgs, True)
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             if max_units is None and not opts.urn:
                 raise TypeError("Missing required property 'max_units'")
@@ -228,11 +244,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["pipeline_configuration_body"] = pipeline_configuration_body
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["tags"] = tags
-            if vpc_options is not None and not isinstance(vpc_options, PipelineVpcOptionsArgs):
-                vpc_options = vpc_options or {}
-                def _setter(key, value):
-                    vpc_options[key] = value
-                PipelineVpcOptionsArgs._configure(_setter, **vpc_options)
+            vpc_options = _utilities.configure(vpc_options, PipelineVpcOptionsArgs, True)
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["pipeline_arn"] = None

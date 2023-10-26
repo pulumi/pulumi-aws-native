@@ -37,9 +37,15 @@ class ActivityTagsEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -88,12 +94,20 @@ class StateMachineAliasDeploymentPreferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             state_machine_version_arn: pulumi.Input[str],
-             type: pulumi.Input['StateMachineAliasDeploymentPreferenceType'],
+             state_machine_version_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['StateMachineAliasDeploymentPreferenceType']] = None,
              alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              interval: Optional[pulumi.Input[int]] = None,
              percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state_machine_version_arn is None and 'stateMachineVersionArn' in kwargs:
+            state_machine_version_arn = kwargs['stateMachineVersionArn']
+        if state_machine_version_arn is None:
+            raise TypeError("Missing 'state_machine_version_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("state_machine_version_arn", state_machine_version_arn)
         _setter("type", type)
         if alarms is not None:
@@ -178,9 +192,17 @@ class StateMachineAliasRoutingConfigurationVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             state_machine_version_arn: pulumi.Input[str],
-             weight: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             state_machine_version_arn: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state_machine_version_arn is None and 'stateMachineVersionArn' in kwargs:
+            state_machine_version_arn = kwargs['stateMachineVersionArn']
+        if state_machine_version_arn is None:
+            raise TypeError("Missing 'state_machine_version_arn' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+
         _setter("state_machine_version_arn", state_machine_version_arn)
         _setter("weight", weight)
 
@@ -221,7 +243,11 @@ class StateMachineCloudWatchLogsLogGroupArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_arn is None and 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+
         if log_group_arn is not None:
             _setter("log_group_arn", log_group_arn)
 
@@ -242,8 +268,10 @@ class StateMachineDefinitionSubstitutionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -253,8 +281,10 @@ class StateMachineDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -269,7 +299,11 @@ class StateMachineLogDestinationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_log_group: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs_log_group is None and 'cloudWatchLogsLogGroup' in kwargs:
+            cloud_watch_logs_log_group = kwargs['cloudWatchLogsLogGroup']
+
         if cloud_watch_logs_log_group is not None:
             _setter("cloud_watch_logs_log_group", cloud_watch_logs_log_group)
 
@@ -301,7 +335,11 @@ class StateMachineLoggingConfigurationArgs:
              destinations: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]] = None,
              include_execution_data: Optional[pulumi.Input[bool]] = None,
              level: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_execution_data is None and 'includeExecutionData' in kwargs:
+            include_execution_data = kwargs['includeExecutionData']
+
         if destinations is not None:
             _setter("destinations", destinations)
         if include_execution_data is not None:
@@ -352,10 +390,16 @@ class StateMachineS3LocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("bucket", bucket)
         _setter("key", key)
         if version is not None:
@@ -402,9 +446,15 @@ class StateMachineTagsEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -439,7 +489,9 @@ class StateMachineTracingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 

@@ -31,11 +31,27 @@ class StackUserAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: pulumi.Input[str],
-             stack_name: pulumi.Input[str],
-             user_name: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
              send_email_notification: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if stack_name is None:
+            raise TypeError("Missing 'stack_name' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if send_email_notification is None and 'sendEmailNotification' in kwargs:
+            send_email_notification = kwargs['sendEmailNotification']
+
         _setter("authentication_type", authentication_type)
         _setter("stack_name", stack_name)
         _setter("user_name", user_name)

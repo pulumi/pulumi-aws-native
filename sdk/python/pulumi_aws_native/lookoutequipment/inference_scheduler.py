@@ -53,16 +53,44 @@ class InferenceSchedulerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_input_configuration: pulumi.Input['DataInputConfigurationPropertiesArgs'],
-             data_output_configuration: pulumi.Input['DataOutputConfigurationPropertiesArgs'],
-             data_upload_frequency: pulumi.Input['InferenceSchedulerDataUploadFrequency'],
-             model_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             data_input_configuration: Optional[pulumi.Input['DataInputConfigurationPropertiesArgs']] = None,
+             data_output_configuration: Optional[pulumi.Input['DataOutputConfigurationPropertiesArgs']] = None,
+             data_upload_frequency: Optional[pulumi.Input['InferenceSchedulerDataUploadFrequency']] = None,
+             model_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              data_delay_offset_in_minutes: Optional[pulumi.Input[int]] = None,
              inference_scheduler_name: Optional[pulumi.Input[str]] = None,
              server_side_kms_key_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_input_configuration is None and 'dataInputConfiguration' in kwargs:
+            data_input_configuration = kwargs['dataInputConfiguration']
+        if data_input_configuration is None:
+            raise TypeError("Missing 'data_input_configuration' argument")
+        if data_output_configuration is None and 'dataOutputConfiguration' in kwargs:
+            data_output_configuration = kwargs['dataOutputConfiguration']
+        if data_output_configuration is None:
+            raise TypeError("Missing 'data_output_configuration' argument")
+        if data_upload_frequency is None and 'dataUploadFrequency' in kwargs:
+            data_upload_frequency = kwargs['dataUploadFrequency']
+        if data_upload_frequency is None:
+            raise TypeError("Missing 'data_upload_frequency' argument")
+        if model_name is None and 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if model_name is None:
+            raise TypeError("Missing 'model_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if data_delay_offset_in_minutes is None and 'dataDelayOffsetInMinutes' in kwargs:
+            data_delay_offset_in_minutes = kwargs['dataDelayOffsetInMinutes']
+        if inference_scheduler_name is None and 'inferenceSchedulerName' in kwargs:
+            inference_scheduler_name = kwargs['inferenceSchedulerName']
+        if server_side_kms_key_id is None and 'serverSideKmsKeyId' in kwargs:
+            server_side_kms_key_id = kwargs['serverSideKmsKeyId']
+
         _setter("data_input_configuration", data_input_configuration)
         _setter("data_output_configuration", data_output_configuration)
         _setter("data_upload_frequency", data_upload_frequency)
@@ -269,19 +297,11 @@ class InferenceScheduler(pulumi.CustomResource):
             __props__ = InferenceSchedulerArgs.__new__(InferenceSchedulerArgs)
 
             __props__.__dict__["data_delay_offset_in_minutes"] = data_delay_offset_in_minutes
-            if data_input_configuration is not None and not isinstance(data_input_configuration, DataInputConfigurationPropertiesArgs):
-                data_input_configuration = data_input_configuration or {}
-                def _setter(key, value):
-                    data_input_configuration[key] = value
-                DataInputConfigurationPropertiesArgs._configure(_setter, **data_input_configuration)
+            data_input_configuration = _utilities.configure(data_input_configuration, DataInputConfigurationPropertiesArgs, True)
             if data_input_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_input_configuration'")
             __props__.__dict__["data_input_configuration"] = data_input_configuration
-            if data_output_configuration is not None and not isinstance(data_output_configuration, DataOutputConfigurationPropertiesArgs):
-                data_output_configuration = data_output_configuration or {}
-                def _setter(key, value):
-                    data_output_configuration[key] = value
-                DataOutputConfigurationPropertiesArgs._configure(_setter, **data_output_configuration)
+            data_output_configuration = _utilities.configure(data_output_configuration, DataOutputConfigurationPropertiesArgs, True)
             if data_output_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_output_configuration'")
             __props__.__dict__["data_output_configuration"] = data_output_configuration

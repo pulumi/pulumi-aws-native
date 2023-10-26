@@ -41,7 +41,15 @@ class TopicArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              topic_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if data_sets is None and 'dataSets' in kwargs:
+            data_sets = kwargs['dataSets']
+        if topic_id is None and 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if data_sets is not None:

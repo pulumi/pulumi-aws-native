@@ -37,8 +37,10 @@ class AnnotationStoreFormatToHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -52,8 +54,14 @@ class AnnotationStoreReferenceItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             reference_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             reference_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reference_arn is None and 'referenceArn' in kwargs:
+            reference_arn = kwargs['referenceArn']
+        if reference_arn is None:
+            raise TypeError("Missing 'reference_arn' argument")
+
         _setter("reference_arn", reference_arn)
 
     @property
@@ -73,8 +81,10 @@ class AnnotationStoreSchemaItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -90,9 +100,15 @@ class AnnotationStoreSseConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['AnnotationStoreEncryptionType'],
+             type: Optional[pulumi.Input['AnnotationStoreEncryptionType']] = None,
              key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_arn is None and 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         _setter("type", type)
         if key_arn is not None:
             _setter("key_arn", key_arn)
@@ -127,8 +143,14 @@ class AnnotationStoreStoreOptionsPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tsv_store_options: pulumi.Input['AnnotationStoreTsvStoreOptionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             tsv_store_options: Optional[pulumi.Input['AnnotationStoreTsvStoreOptionsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tsv_store_options is None and 'tsvStoreOptions' in kwargs:
+            tsv_store_options = kwargs['tsvStoreOptions']
+        if tsv_store_options is None:
+            raise TypeError("Missing 'tsv_store_options' argument")
+
         _setter("tsv_store_options", tsv_store_options)
 
     @property
@@ -148,8 +170,10 @@ class AnnotationStoreTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -170,7 +194,13 @@ class AnnotationStoreTsvStoreOptionsArgs:
              annotation_type: Optional[pulumi.Input['AnnotationStoreAnnotationType']] = None,
              format_to_header: Optional[pulumi.Input['AnnotationStoreFormatToHeaderArgs']] = None,
              schema: Optional[pulumi.Input[Sequence[pulumi.Input['AnnotationStoreSchemaItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if annotation_type is None and 'annotationType' in kwargs:
+            annotation_type = kwargs['annotationType']
+        if format_to_header is None and 'formatToHeader' in kwargs:
+            format_to_header = kwargs['formatToHeader']
+
         if annotation_type is not None:
             _setter("annotation_type", annotation_type)
         if format_to_header is not None:
@@ -223,9 +253,15 @@ class ReferenceStoreSseConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['ReferenceStoreEncryptionType'],
+             type: Optional[pulumi.Input['ReferenceStoreEncryptionType']] = None,
              key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_arn is None and 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         _setter("type", type)
         if key_arn is not None:
             _setter("key_arn", key_arn)
@@ -259,8 +295,10 @@ class ReferenceStoreTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -273,8 +311,10 @@ class RunGroupTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -294,9 +334,15 @@ class SequenceStoreSseConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['SequenceStoreEncryptionType'],
+             type: Optional[pulumi.Input['SequenceStoreEncryptionType']] = None,
              key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_arn is None and 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         _setter("type", type)
         if key_arn is not None:
             _setter("key_arn", key_arn)
@@ -330,8 +376,10 @@ class SequenceStoreTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -345,8 +393,14 @@ class VariantStoreReferenceItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             reference_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             reference_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reference_arn is None and 'referenceArn' in kwargs:
+            reference_arn = kwargs['referenceArn']
+        if reference_arn is None:
+            raise TypeError("Missing 'reference_arn' argument")
+
         _setter("reference_arn", reference_arn)
 
     @property
@@ -372,9 +426,15 @@ class VariantStoreSseConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['VariantStoreEncryptionType'],
+             type: Optional[pulumi.Input['VariantStoreEncryptionType']] = None,
              key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if key_arn is None and 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         _setter("type", type)
         if key_arn is not None:
             _setter("key_arn", key_arn)
@@ -405,8 +465,10 @@ class VariantStoreTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -416,8 +478,10 @@ class WorkflowParameterTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -430,7 +494,9 @@ class WorkflowTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

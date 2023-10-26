@@ -35,11 +35,25 @@ class DestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             target_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
              destination_name: Optional[pulumi.Input[str]] = None,
              destination_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+        if destination_name is None and 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if destination_policy is None and 'destinationPolicy' in kwargs:
+            destination_policy = kwargs['destinationPolicy']
+
         _setter("role_arn", role_arn)
         _setter("target_arn", target_arn)
         if destination_name is not None:

@@ -33,11 +33,23 @@ class LinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_types: pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]],
-             sink_identifier: pulumi.Input[str],
+             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['LinkResourceType']]]] = None,
+             sink_identifier: Optional[pulumi.Input[str]] = None,
              label_template: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if resource_types is None:
+            raise TypeError("Missing 'resource_types' argument")
+        if sink_identifier is None and 'sinkIdentifier' in kwargs:
+            sink_identifier = kwargs['sinkIdentifier']
+        if sink_identifier is None:
+            raise TypeError("Missing 'sink_identifier' argument")
+        if label_template is None and 'labelTemplate' in kwargs:
+            label_template = kwargs['labelTemplate']
+
         _setter("resource_types", resource_types)
         _setter("sink_identifier", sink_identifier)
         if label_template is not None:

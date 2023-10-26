@@ -69,9 +69,17 @@ class ConnectorApacheKafkaCluster(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bootstrap_servers: str,
-             vpc: 'outputs.ConnectorVpc',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bootstrap_servers: Optional[str] = None,
+             vpc: Optional['outputs.ConnectorVpc'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bootstrap_servers is None and 'bootstrapServers' in kwargs:
+            bootstrap_servers = kwargs['bootstrapServers']
+        if bootstrap_servers is None:
+            raise TypeError("Missing 'bootstrap_servers' argument")
+        if vpc is None:
+            raise TypeError("Missing 'vpc' argument")
+
         _setter("bootstrap_servers", bootstrap_servers)
         _setter("vpc", vpc)
 
@@ -142,12 +150,34 @@ class ConnectorAutoScaling(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_worker_count: int,
-             mcu_count: int,
-             min_worker_count: int,
-             scale_in_policy: 'outputs.ConnectorScaleInPolicy',
-             scale_out_policy: 'outputs.ConnectorScaleOutPolicy',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             max_worker_count: Optional[int] = None,
+             mcu_count: Optional[int] = None,
+             min_worker_count: Optional[int] = None,
+             scale_in_policy: Optional['outputs.ConnectorScaleInPolicy'] = None,
+             scale_out_policy: Optional['outputs.ConnectorScaleOutPolicy'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_worker_count is None and 'maxWorkerCount' in kwargs:
+            max_worker_count = kwargs['maxWorkerCount']
+        if max_worker_count is None:
+            raise TypeError("Missing 'max_worker_count' argument")
+        if mcu_count is None and 'mcuCount' in kwargs:
+            mcu_count = kwargs['mcuCount']
+        if mcu_count is None:
+            raise TypeError("Missing 'mcu_count' argument")
+        if min_worker_count is None and 'minWorkerCount' in kwargs:
+            min_worker_count = kwargs['minWorkerCount']
+        if min_worker_count is None:
+            raise TypeError("Missing 'min_worker_count' argument")
+        if scale_in_policy is None and 'scaleInPolicy' in kwargs:
+            scale_in_policy = kwargs['scaleInPolicy']
+        if scale_in_policy is None:
+            raise TypeError("Missing 'scale_in_policy' argument")
+        if scale_out_policy is None and 'scaleOutPolicy' in kwargs:
+            scale_out_policy = kwargs['scaleOutPolicy']
+        if scale_out_policy is None:
+            raise TypeError("Missing 'scale_out_policy' argument")
+
         _setter("max_worker_count", max_worker_count)
         _setter("mcu_count", mcu_count)
         _setter("min_worker_count", min_worker_count)
@@ -229,7 +259,13 @@ class ConnectorCapacity(dict):
              _setter: Callable[[Any, Any], None],
              auto_scaling: Optional['outputs.ConnectorAutoScaling'] = None,
              provisioned_capacity: Optional['outputs.ConnectorProvisionedCapacity'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling is None and 'autoScaling' in kwargs:
+            auto_scaling = kwargs['autoScaling']
+        if provisioned_capacity is None and 'provisionedCapacity' in kwargs:
+            provisioned_capacity = kwargs['provisionedCapacity']
+
         if auto_scaling is not None:
             _setter("auto_scaling", auto_scaling)
         if provisioned_capacity is not None:
@@ -284,9 +320,15 @@ class ConnectorCloudWatchLogsLogDelivery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              log_group: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         _setter("enabled", enabled)
         if log_group is not None:
             _setter("log_group", log_group)
@@ -346,9 +388,17 @@ class ConnectorCustomPlugin(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_plugin_arn: str,
-             revision: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom_plugin_arn: Optional[str] = None,
+             revision: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_plugin_arn is None and 'customPluginArn' in kwargs:
+            custom_plugin_arn = kwargs['customPluginArn']
+        if custom_plugin_arn is None:
+            raise TypeError("Missing 'custom_plugin_arn' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+
         _setter("custom_plugin_arn", custom_plugin_arn)
         _setter("revision", revision)
 
@@ -407,9 +457,15 @@ class ConnectorFirehoseLogDelivery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              delivery_stream: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         _setter("enabled", enabled)
         if delivery_stream is not None:
             _setter("delivery_stream", delivery_stream)
@@ -465,8 +521,14 @@ class ConnectorKafkaCluster(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             apache_kafka_cluster: 'outputs.ConnectorApacheKafkaCluster',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             apache_kafka_cluster: Optional['outputs.ConnectorApacheKafkaCluster'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apache_kafka_cluster is None and 'apacheKafkaCluster' in kwargs:
+            apache_kafka_cluster = kwargs['apacheKafkaCluster']
+        if apache_kafka_cluster is None:
+            raise TypeError("Missing 'apache_kafka_cluster' argument")
+
         _setter("apache_kafka_cluster", apache_kafka_cluster)
 
     @property
@@ -509,8 +571,14 @@ class ConnectorKafkaClusterClientAuthentication(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: 'ConnectorKafkaClusterClientAuthenticationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             authentication_type: Optional['ConnectorKafkaClusterClientAuthenticationType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+
         _setter("authentication_type", authentication_type)
 
     @property
@@ -553,8 +621,14 @@ class ConnectorKafkaClusterEncryptionInTransit(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_type: 'ConnectorKafkaClusterEncryptionInTransitType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             encryption_type: Optional['ConnectorKafkaClusterEncryptionInTransitType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+
         _setter("encryption_type", encryption_type)
 
     @property
@@ -597,8 +671,14 @@ class ConnectorLogDelivery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             worker_log_delivery: 'outputs.ConnectorWorkerLogDelivery',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             worker_log_delivery: Optional['outputs.ConnectorWorkerLogDelivery'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if worker_log_delivery is None and 'workerLogDelivery' in kwargs:
+            worker_log_delivery = kwargs['workerLogDelivery']
+        if worker_log_delivery is None:
+            raise TypeError("Missing 'worker_log_delivery' argument")
+
         _setter("worker_log_delivery", worker_log_delivery)
 
     @property
@@ -641,8 +721,14 @@ class ConnectorPlugin(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_plugin: 'outputs.ConnectorCustomPlugin',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom_plugin: Optional['outputs.ConnectorCustomPlugin'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_plugin is None and 'customPlugin' in kwargs:
+            custom_plugin = kwargs['customPlugin']
+        if custom_plugin is None:
+            raise TypeError("Missing 'custom_plugin' argument")
+
         _setter("custom_plugin", custom_plugin)
 
     @property
@@ -691,9 +777,17 @@ class ConnectorProvisionedCapacity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             worker_count: int,
+             worker_count: Optional[int] = None,
              mcu_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if worker_count is None and 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if worker_count is None:
+            raise TypeError("Missing 'worker_count' argument")
+        if mcu_count is None and 'mcuCount' in kwargs:
+            mcu_count = kwargs['mcuCount']
+
         _setter("worker_count", worker_count)
         if mcu_count is not None:
             _setter("mcu_count", mcu_count)
@@ -739,10 +833,14 @@ class ConnectorS3LogDelivery(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              bucket: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
         if bucket is not None:
             _setter("bucket", bucket)
@@ -809,8 +907,14 @@ class ConnectorScaleInPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cpu_utilization_percentage: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cpu_utilization_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_utilization_percentage is None and 'cpuUtilizationPercentage' in kwargs:
+            cpu_utilization_percentage = kwargs['cpuUtilizationPercentage']
+        if cpu_utilization_percentage is None:
+            raise TypeError("Missing 'cpu_utilization_percentage' argument")
+
         _setter("cpu_utilization_percentage", cpu_utilization_percentage)
 
     @property
@@ -857,8 +961,14 @@ class ConnectorScaleOutPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cpu_utilization_percentage: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cpu_utilization_percentage: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_utilization_percentage is None and 'cpuUtilizationPercentage' in kwargs:
+            cpu_utilization_percentage = kwargs['cpuUtilizationPercentage']
+        if cpu_utilization_percentage is None:
+            raise TypeError("Missing 'cpu_utilization_percentage' argument")
+
         _setter("cpu_utilization_percentage", cpu_utilization_percentage)
 
     @property
@@ -908,9 +1018,17 @@ class ConnectorVpc(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_groups: Sequence[str],
-             subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_groups: Optional[Sequence[str]] = None,
+             subnets: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if security_groups is None:
+            raise TypeError("Missing 'security_groups' argument")
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+
         _setter("security_groups", security_groups)
         _setter("subnets", subnets)
 
@@ -969,9 +1087,17 @@ class ConnectorWorkerConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             revision: int,
-             worker_configuration_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             revision: Optional[int] = None,
+             worker_configuration_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+        if worker_configuration_arn is None and 'workerConfigurationArn' in kwargs:
+            worker_configuration_arn = kwargs['workerConfigurationArn']
+        if worker_configuration_arn is None:
+            raise TypeError("Missing 'worker_configuration_arn' argument")
+
         _setter("revision", revision)
         _setter("worker_configuration_arn", worker_configuration_arn)
 
@@ -1033,7 +1159,11 @@ class ConnectorWorkerLogDelivery(dict):
              cloud_watch_logs: Optional['outputs.ConnectorCloudWatchLogsLogDelivery'] = None,
              firehose: Optional['outputs.ConnectorFirehoseLogDelivery'] = None,
              s3: Optional['outputs.ConnectorS3LogDelivery'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs is None and 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:

@@ -34,11 +34,25 @@ class ServerlessClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_authentication: pulumi.Input['ServerlessClusterClientAuthenticationArgs'],
-             cluster_name: pulumi.Input[str],
-             vpc_configs: pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]],
+             client_authentication: Optional[pulumi.Input['ServerlessClusterClientAuthenticationArgs']] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             vpc_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ServerlessClusterVpcConfigArgs']]]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_authentication is None and 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+        if client_authentication is None:
+            raise TypeError("Missing 'client_authentication' argument")
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if vpc_configs is None and 'vpcConfigs' in kwargs:
+            vpc_configs = kwargs['vpcConfigs']
+        if vpc_configs is None:
+            raise TypeError("Missing 'vpc_configs' argument")
+
         _setter("client_authentication", client_authentication)
         _setter("cluster_name", cluster_name)
         _setter("vpc_configs", vpc_configs)
@@ -143,11 +157,7 @@ class ServerlessCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerlessClusterArgs.__new__(ServerlessClusterArgs)
 
-            if client_authentication is not None and not isinstance(client_authentication, ServerlessClusterClientAuthenticationArgs):
-                client_authentication = client_authentication or {}
-                def _setter(key, value):
-                    client_authentication[key] = value
-                ServerlessClusterClientAuthenticationArgs._configure(_setter, **client_authentication)
+            client_authentication = _utilities.configure(client_authentication, ServerlessClusterClientAuthenticationArgs, True)
             if client_authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'client_authentication'")
             __props__.__dict__["client_authentication"] = client_authentication

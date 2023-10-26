@@ -247,7 +247,107 @@ class DbClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocated_storage is None and 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if associated_roles is None and 'associatedRoles' in kwargs:
+            associated_roles = kwargs['associatedRoles']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if backtrack_window is None and 'backtrackWindow' in kwargs:
+            backtrack_window = kwargs['backtrackWindow']
+        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_cluster_instance_class is None and 'dbClusterInstanceClass' in kwargs:
+            db_cluster_instance_class = kwargs['dbClusterInstanceClass']
+        if db_cluster_parameter_group_name is None and 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if db_instance_parameter_group_name is None and 'dbInstanceParameterGroupName' in kwargs:
+            db_instance_parameter_group_name = kwargs['dbInstanceParameterGroupName']
+        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if db_system_id is None and 'dbSystemId' in kwargs:
+            db_system_id = kwargs['dbSystemId']
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if domain_iam_role_name is None and 'domainIamRoleName' in kwargs:
+            domain_iam_role_name = kwargs['domainIamRoleName']
+        if enable_cloudwatch_logs_exports is None and 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if enable_http_endpoint is None and 'enableHttpEndpoint' in kwargs:
+            enable_http_endpoint = kwargs['enableHttpEndpoint']
+        if enable_iam_database_authentication is None and 'enableIamDatabaseAuthentication' in kwargs:
+            enable_iam_database_authentication = kwargs['enableIamDatabaseAuthentication']
+        if engine_mode is None and 'engineMode' in kwargs:
+            engine_mode = kwargs['engineMode']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if global_cluster_identifier is None and 'globalClusterIdentifier' in kwargs:
+            global_cluster_identifier = kwargs['globalClusterIdentifier']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if manage_master_user_password is None and 'manageMasterUserPassword' in kwargs:
+            manage_master_user_password = kwargs['manageMasterUserPassword']
+        if master_user_password is None and 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if master_user_secret is None and 'masterUserSecret' in kwargs:
+            master_user_secret = kwargs['masterUserSecret']
+        if master_username is None and 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if monitoring_interval is None and 'monitoringInterval' in kwargs:
+            monitoring_interval = kwargs['monitoringInterval']
+        if monitoring_role_arn is None and 'monitoringRoleArn' in kwargs:
+            monitoring_role_arn = kwargs['monitoringRoleArn']
+        if network_type is None and 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if performance_insights_enabled is None and 'performanceInsightsEnabled' in kwargs:
+            performance_insights_enabled = kwargs['performanceInsightsEnabled']
+        if performance_insights_kms_key_id is None and 'performanceInsightsKmsKeyId' in kwargs:
+            performance_insights_kms_key_id = kwargs['performanceInsightsKmsKeyId']
+        if performance_insights_retention_period is None and 'performanceInsightsRetentionPeriod' in kwargs:
+            performance_insights_retention_period = kwargs['performanceInsightsRetentionPeriod']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if read_endpoint is None and 'readEndpoint' in kwargs:
+            read_endpoint = kwargs['readEndpoint']
+        if replication_source_identifier is None and 'replicationSourceIdentifier' in kwargs:
+            replication_source_identifier = kwargs['replicationSourceIdentifier']
+        if restore_to_time is None and 'restoreToTime' in kwargs:
+            restore_to_time = kwargs['restoreToTime']
+        if restore_type is None and 'restoreType' in kwargs:
+            restore_type = kwargs['restoreType']
+        if scaling_configuration is None and 'scalingConfiguration' in kwargs:
+            scaling_configuration = kwargs['scalingConfiguration']
+        if serverless_v2_scaling_configuration is None and 'serverlessV2ScalingConfiguration' in kwargs:
+            serverless_v2_scaling_configuration = kwargs['serverlessV2ScalingConfiguration']
+        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if source_db_cluster_identifier is None and 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if source_region is None and 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if use_latest_restorable_time is None and 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if allocated_storage is not None:
             _setter("allocated_storage", allocated_storage)
         if associated_roles is not None:
@@ -1255,11 +1355,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_user_password"] = master_user_password
-            if master_user_secret is not None and not isinstance(master_user_secret, DbClusterMasterUserSecretArgs):
-                master_user_secret = master_user_secret or {}
-                def _setter(key, value):
-                    master_user_secret[key] = value
-                DbClusterMasterUserSecretArgs._configure(_setter, **master_user_secret)
+            master_user_secret = _utilities.configure(master_user_secret, DbClusterMasterUserSecretArgs, True)
             __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["monitoring_interval"] = monitoring_interval
@@ -1272,26 +1368,14 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
-            if read_endpoint is not None and not isinstance(read_endpoint, DbClusterReadEndpointArgs):
-                read_endpoint = read_endpoint or {}
-                def _setter(key, value):
-                    read_endpoint[key] = value
-                DbClusterReadEndpointArgs._configure(_setter, **read_endpoint)
+            read_endpoint = _utilities.configure(read_endpoint, DbClusterReadEndpointArgs, True)
             __props__.__dict__["read_endpoint"] = read_endpoint
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["restore_to_time"] = restore_to_time
             __props__.__dict__["restore_type"] = restore_type
-            if scaling_configuration is not None and not isinstance(scaling_configuration, DbClusterScalingConfigurationArgs):
-                scaling_configuration = scaling_configuration or {}
-                def _setter(key, value):
-                    scaling_configuration[key] = value
-                DbClusterScalingConfigurationArgs._configure(_setter, **scaling_configuration)
+            scaling_configuration = _utilities.configure(scaling_configuration, DbClusterScalingConfigurationArgs, True)
             __props__.__dict__["scaling_configuration"] = scaling_configuration
-            if serverless_v2_scaling_configuration is not None and not isinstance(serverless_v2_scaling_configuration, DbClusterServerlessV2ScalingConfigurationArgs):
-                serverless_v2_scaling_configuration = serverless_v2_scaling_configuration or {}
-                def _setter(key, value):
-                    serverless_v2_scaling_configuration[key] = value
-                DbClusterServerlessV2ScalingConfigurationArgs._configure(_setter, **serverless_v2_scaling_configuration)
+            serverless_v2_scaling_configuration = _utilities.configure(serverless_v2_scaling_configuration, DbClusterServerlessV2ScalingConfigurationArgs, True)
             __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier

@@ -44,13 +44,27 @@ class ScheduledAuditArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: pulumi.Input['ScheduledAuditFrequency'],
-             target_check_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             frequency: Optional[pulumi.Input['ScheduledAuditFrequency']] = None,
+             target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              day_of_month: Optional[pulumi.Input[str]] = None,
              day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
              scheduled_audit_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if target_check_names is None and 'targetCheckNames' in kwargs:
+            target_check_names = kwargs['targetCheckNames']
+        if target_check_names is None:
+            raise TypeError("Missing 'target_check_names' argument")
+        if day_of_month is None and 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if scheduled_audit_name is None and 'scheduledAuditName' in kwargs:
+            scheduled_audit_name = kwargs['scheduledAuditName']
+
         _setter("frequency", frequency)
         _setter("target_check_names", target_check_names)
         if day_of_month is not None:

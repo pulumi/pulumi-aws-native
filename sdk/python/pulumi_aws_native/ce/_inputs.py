@@ -34,9 +34,15 @@ class AnomalyMonitorResourceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -83,9 +89,15 @@ class AnomalySubscriptionResourceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -129,10 +141,16 @@ class AnomalySubscriptionSubscriberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: pulumi.Input[str],
-             type: pulumi.Input['AnomalySubscriptionSubscriberType'],
+             address: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['AnomalySubscriptionSubscriberType']] = None,
              status: Optional[pulumi.Input['AnomalySubscriptionSubscriberStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("address", address)
         _setter("type", type)
         if status is not None:

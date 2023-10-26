@@ -43,13 +43,33 @@ class RouteResponseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             route_id: pulumi.Input[str],
-             route_response_key: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             route_id: Optional[pulumi.Input[str]] = None,
+             route_response_key: Optional[pulumi.Input[str]] = None,
              model_selection_expression: Optional[pulumi.Input[str]] = None,
              response_models: Optional[Any] = None,
              response_parameters: Optional[pulumi.Input['RouteResponseRouteParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if route_id is None and 'routeId' in kwargs:
+            route_id = kwargs['routeId']
+        if route_id is None:
+            raise TypeError("Missing 'route_id' argument")
+        if route_response_key is None and 'routeResponseKey' in kwargs:
+            route_response_key = kwargs['routeResponseKey']
+        if route_response_key is None:
+            raise TypeError("Missing 'route_response_key' argument")
+        if model_selection_expression is None and 'modelSelectionExpression' in kwargs:
+            model_selection_expression = kwargs['modelSelectionExpression']
+        if response_models is None and 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+
         _setter("api_id", api_id)
         _setter("route_id", route_id)
         _setter("route_response_key", route_response_key)
@@ -205,11 +225,7 @@ class RouteResponse(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["model_selection_expression"] = model_selection_expression
             __props__.__dict__["response_models"] = response_models
-            if response_parameters is not None and not isinstance(response_parameters, RouteResponseRouteParametersArgs):
-                response_parameters = response_parameters or {}
-                def _setter(key, value):
-                    response_parameters[key] = value
-                RouteResponseRouteParametersArgs._configure(_setter, **response_parameters)
+            response_parameters = _utilities.configure(response_parameters, RouteResponseRouteParametersArgs, True)
             __props__.__dict__["response_parameters"] = response_parameters
             if route_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_id'")

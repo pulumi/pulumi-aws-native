@@ -36,11 +36,23 @@ class KeySigningKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hosted_zone_id: pulumi.Input[str],
-             key_management_service_arn: pulumi.Input[str],
-             status: pulumi.Input['KeySigningKeyStatus'],
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             key_management_service_arn: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['KeySigningKeyStatus']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_id is None:
+            raise TypeError("Missing 'hosted_zone_id' argument")
+        if key_management_service_arn is None and 'keyManagementServiceArn' in kwargs:
+            key_management_service_arn = kwargs['keyManagementServiceArn']
+        if key_management_service_arn is None:
+            raise TypeError("Missing 'key_management_service_arn' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("hosted_zone_id", hosted_zone_id)
         _setter("key_management_service_arn", key_management_service_arn)
         _setter("status", status)

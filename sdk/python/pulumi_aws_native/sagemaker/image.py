@@ -36,12 +36,24 @@ class ImageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_role_arn: pulumi.Input[str],
+             image_role_arn: Optional[pulumi.Input[str]] = None,
              image_description: Optional[pulumi.Input[str]] = None,
              image_display_name: Optional[pulumi.Input[str]] = None,
              image_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ImageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_role_arn is None and 'imageRoleArn' in kwargs:
+            image_role_arn = kwargs['imageRoleArn']
+        if image_role_arn is None:
+            raise TypeError("Missing 'image_role_arn' argument")
+        if image_description is None and 'imageDescription' in kwargs:
+            image_description = kwargs['imageDescription']
+        if image_display_name is None and 'imageDisplayName' in kwargs:
+            image_display_name = kwargs['imageDisplayName']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+
         _setter("image_role_arn", image_role_arn)
         if image_description is not None:
             _setter("image_description", image_description)

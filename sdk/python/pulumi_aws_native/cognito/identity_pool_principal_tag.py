@@ -31,11 +31,25 @@ class IdentityPoolPrincipalTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_pool_id: pulumi.Input[str],
-             identity_provider_name: pulumi.Input[str],
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
+             identity_provider_name: Optional[pulumi.Input[str]] = None,
              principal_tags: Optional[Any] = None,
              use_defaults: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if identity_pool_id is None:
+            raise TypeError("Missing 'identity_pool_id' argument")
+        if identity_provider_name is None and 'identityProviderName' in kwargs:
+            identity_provider_name = kwargs['identityProviderName']
+        if identity_provider_name is None:
+            raise TypeError("Missing 'identity_provider_name' argument")
+        if principal_tags is None and 'principalTags' in kwargs:
+            principal_tags = kwargs['principalTags']
+        if use_defaults is None and 'useDefaults' in kwargs:
+            use_defaults = kwargs['useDefaults']
+
         _setter("identity_pool_id", identity_pool_id)
         _setter("identity_provider_name", identity_provider_name)
         if principal_tags is not None:

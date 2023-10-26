@@ -33,11 +33,21 @@ class PermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_lake_principal: pulumi.Input['PermissionsDataLakePrincipalArgs'],
-             resource: pulumi.Input['PermissionsResourceArgs'],
+             data_lake_principal: Optional[pulumi.Input['PermissionsDataLakePrincipalArgs']] = None,
+             resource: Optional[pulumi.Input['PermissionsResourceArgs']] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              permissions_with_grant_option: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_lake_principal is None and 'dataLakePrincipal' in kwargs:
+            data_lake_principal = kwargs['dataLakePrincipal']
+        if data_lake_principal is None:
+            raise TypeError("Missing 'data_lake_principal' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+        if permissions_with_grant_option is None and 'permissionsWithGrantOption' in kwargs:
+            permissions_with_grant_option = kwargs['permissionsWithGrantOption']
+
         _setter("data_lake_principal", data_lake_principal)
         _setter("resource", resource)
         if permissions is not None:
@@ -145,21 +155,13 @@ class Permissions(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PermissionsArgs.__new__(PermissionsArgs)
 
-            if data_lake_principal is not None and not isinstance(data_lake_principal, PermissionsDataLakePrincipalArgs):
-                data_lake_principal = data_lake_principal or {}
-                def _setter(key, value):
-                    data_lake_principal[key] = value
-                PermissionsDataLakePrincipalArgs._configure(_setter, **data_lake_principal)
+            data_lake_principal = _utilities.configure(data_lake_principal, PermissionsDataLakePrincipalArgs, True)
             if data_lake_principal is None and not opts.urn:
                 raise TypeError("Missing required property 'data_lake_principal'")
             __props__.__dict__["data_lake_principal"] = data_lake_principal
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["permissions_with_grant_option"] = permissions_with_grant_option
-            if resource is not None and not isinstance(resource, PermissionsResourceArgs):
-                resource = resource or {}
-                def _setter(key, value):
-                    resource[key] = value
-                PermissionsResourceArgs._configure(_setter, **resource)
+            resource = _utilities.configure(resource, PermissionsResourceArgs, True)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

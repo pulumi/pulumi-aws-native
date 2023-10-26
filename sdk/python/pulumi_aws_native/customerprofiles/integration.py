@@ -43,13 +43,25 @@ class IntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
              flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
              object_type_name: Optional[pulumi.Input[str]] = None,
              object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if flow_definition is None and 'flowDefinition' in kwargs:
+            flow_definition = kwargs['flowDefinition']
+        if object_type_name is None and 'objectTypeName' in kwargs:
+            object_type_name = kwargs['objectTypeName']
+        if object_type_names is None and 'objectTypeNames' in kwargs:
+            object_type_names = kwargs['objectTypeNames']
+
         _setter("domain_name", domain_name)
         if flow_definition is not None:
             _setter("flow_definition", flow_definition)
@@ -201,11 +213,7 @@ class Integration(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
-            if flow_definition is not None and not isinstance(flow_definition, IntegrationFlowDefinitionArgs):
-                flow_definition = flow_definition or {}
-                def _setter(key, value):
-                    flow_definition[key] = value
-                IntegrationFlowDefinitionArgs._configure(_setter, **flow_definition)
+            flow_definition = _utilities.configure(flow_definition, IntegrationFlowDefinitionArgs, True)
             __props__.__dict__["flow_definition"] = flow_definition
             __props__.__dict__["object_type_name"] = object_type_name
             __props__.__dict__["object_type_names"] = object_type_names

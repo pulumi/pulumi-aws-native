@@ -41,7 +41,7 @@ class ProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              duration_seconds: Optional[pulumi.Input[float]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -49,7 +49,21 @@ class ProfileArgs:
              require_instance_properties: Optional[pulumi.Input[bool]] = None,
              session_policy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arns is None and 'roleArns' in kwargs:
+            role_arns = kwargs['roleArns']
+        if role_arns is None:
+            raise TypeError("Missing 'role_arns' argument")
+        if duration_seconds is None and 'durationSeconds' in kwargs:
+            duration_seconds = kwargs['durationSeconds']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if require_instance_properties is None and 'requireInstanceProperties' in kwargs:
+            require_instance_properties = kwargs['requireInstanceProperties']
+        if session_policy is None and 'sessionPolicy' in kwargs:
+            session_policy = kwargs['sessionPolicy']
+
         _setter("role_arns", role_arns)
         if duration_seconds is not None:
             _setter("duration_seconds", duration_seconds)

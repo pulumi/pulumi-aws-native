@@ -36,11 +36,21 @@ class BridgeSourceInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bridge_arn: pulumi.Input[str],
+             bridge_arn: Optional[pulumi.Input[str]] = None,
              flow_source: Optional[pulumi.Input['BridgeSourceBridgeFlowSourceArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_source: Optional[pulumi.Input['BridgeSourceBridgeNetworkSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bridge_arn is None and 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if bridge_arn is None:
+            raise TypeError("Missing 'bridge_arn' argument")
+        if flow_source is None and 'flowSource' in kwargs:
+            flow_source = kwargs['flowSource']
+        if network_source is None and 'networkSource' in kwargs:
+            network_source = kwargs['networkSource']
+
         _setter("bridge_arn", bridge_arn)
         if flow_source is not None:
             _setter("flow_source", flow_source)
@@ -154,18 +164,10 @@ class BridgeSource(pulumi.CustomResource):
             if bridge_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'bridge_arn'")
             __props__.__dict__["bridge_arn"] = bridge_arn
-            if flow_source is not None and not isinstance(flow_source, BridgeSourceBridgeFlowSourceArgs):
-                flow_source = flow_source or {}
-                def _setter(key, value):
-                    flow_source[key] = value
-                BridgeSourceBridgeFlowSourceArgs._configure(_setter, **flow_source)
+            flow_source = _utilities.configure(flow_source, BridgeSourceBridgeFlowSourceArgs, True)
             __props__.__dict__["flow_source"] = flow_source
             __props__.__dict__["name"] = name
-            if network_source is not None and not isinstance(network_source, BridgeSourceBridgeNetworkSourceArgs):
-                network_source = network_source or {}
-                def _setter(key, value):
-                    network_source[key] = value
-                BridgeSourceBridgeNetworkSourceArgs._configure(_setter, **network_source)
+            network_source = _utilities.configure(network_source, BridgeSourceBridgeNetworkSourceArgs, True)
             __props__.__dict__["network_source"] = network_source
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bridge_arn", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

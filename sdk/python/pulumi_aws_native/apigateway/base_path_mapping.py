@@ -35,11 +35,21 @@ class BasePathMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
              base_path: Optional[pulumi.Input[str]] = None,
              rest_api_id: Optional[pulumi.Input[str]] = None,
              stage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if base_path is None and 'basePath' in kwargs:
+            base_path = kwargs['basePath']
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+
         _setter("domain_name", domain_name)
         if base_path is not None:
             _setter("base_path", base_path)

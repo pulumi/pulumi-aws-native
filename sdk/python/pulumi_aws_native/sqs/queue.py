@@ -89,7 +89,39 @@ class QueueArgs:
              sqs_managed_sse_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
              visibility_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_based_deduplication is None and 'contentBasedDeduplication' in kwargs:
+            content_based_deduplication = kwargs['contentBasedDeduplication']
+        if deduplication_scope is None and 'deduplicationScope' in kwargs:
+            deduplication_scope = kwargs['deduplicationScope']
+        if delay_seconds is None and 'delaySeconds' in kwargs:
+            delay_seconds = kwargs['delaySeconds']
+        if fifo_queue is None and 'fifoQueue' in kwargs:
+            fifo_queue = kwargs['fifoQueue']
+        if fifo_throughput_limit is None and 'fifoThroughputLimit' in kwargs:
+            fifo_throughput_limit = kwargs['fifoThroughputLimit']
+        if kms_data_key_reuse_period_seconds is None and 'kmsDataKeyReusePeriodSeconds' in kwargs:
+            kms_data_key_reuse_period_seconds = kwargs['kmsDataKeyReusePeriodSeconds']
+        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+        if maximum_message_size is None and 'maximumMessageSize' in kwargs:
+            maximum_message_size = kwargs['maximumMessageSize']
+        if message_retention_period is None and 'messageRetentionPeriod' in kwargs:
+            message_retention_period = kwargs['messageRetentionPeriod']
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if receive_message_wait_time_seconds is None and 'receiveMessageWaitTimeSeconds' in kwargs:
+            receive_message_wait_time_seconds = kwargs['receiveMessageWaitTimeSeconds']
+        if redrive_allow_policy is None and 'redriveAllowPolicy' in kwargs:
+            redrive_allow_policy = kwargs['redriveAllowPolicy']
+        if redrive_policy is None and 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+        if sqs_managed_sse_enabled is None and 'sqsManagedSseEnabled' in kwargs:
+            sqs_managed_sse_enabled = kwargs['sqsManagedSseEnabled']
+        if visibility_timeout is None and 'visibilityTimeout' in kwargs:
+            visibility_timeout = kwargs['visibilityTimeout']
+
         if content_based_deduplication is not None:
             _setter("content_based_deduplication", content_based_deduplication)
         if deduplication_scope is not None:

@@ -29,10 +29,18 @@ class GraphQlSchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
              definition: Optional[pulumi.Input[str]] = None,
              definition_s3_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if definition_s3_location is None and 'definitionS3Location' in kwargs:
+            definition_s3_location = kwargs['definitionS3Location']
+
         _setter("api_id", api_id)
         if definition is not None:
             _setter("definition", definition)

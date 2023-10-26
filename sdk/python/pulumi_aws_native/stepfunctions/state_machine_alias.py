@@ -40,7 +40,13 @@ class StateMachineAliasArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              routing_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineAliasRoutingConfigurationVersionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_preference is None and 'deploymentPreference' in kwargs:
+            deployment_preference = kwargs['deploymentPreference']
+        if routing_configuration is None and 'routingConfiguration' in kwargs:
+            routing_configuration = kwargs['routingConfiguration']
+
         if deployment_preference is not None:
             _setter("deployment_preference", deployment_preference)
         if description is not None:
@@ -152,11 +158,7 @@ class StateMachineAlias(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StateMachineAliasArgs.__new__(StateMachineAliasArgs)
 
-            if deployment_preference is not None and not isinstance(deployment_preference, StateMachineAliasDeploymentPreferenceArgs):
-                deployment_preference = deployment_preference or {}
-                def _setter(key, value):
-                    deployment_preference[key] = value
-                StateMachineAliasDeploymentPreferenceArgs._configure(_setter, **deployment_preference)
+            deployment_preference = _utilities.configure(deployment_preference, StateMachineAliasDeploymentPreferenceArgs, True)
             __props__.__dict__["deployment_preference"] = deployment_preference
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

@@ -50,14 +50,30 @@ class DetectorModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detector_model_definition: pulumi.Input['DetectorModelDefinitionArgs'],
-             role_arn: pulumi.Input[str],
+             detector_model_definition: Optional[pulumi.Input['DetectorModelDefinitionArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              detector_model_description: Optional[pulumi.Input[str]] = None,
              detector_model_name: Optional[pulumi.Input[str]] = None,
              evaluation_method: Optional[pulumi.Input['DetectorModelEvaluationMethod']] = None,
              key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detector_model_definition is None and 'detectorModelDefinition' in kwargs:
+            detector_model_definition = kwargs['detectorModelDefinition']
+        if detector_model_definition is None:
+            raise TypeError("Missing 'detector_model_definition' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if detector_model_description is None and 'detectorModelDescription' in kwargs:
+            detector_model_description = kwargs['detectorModelDescription']
+        if detector_model_name is None and 'detectorModelName' in kwargs:
+            detector_model_name = kwargs['detectorModelName']
+        if evaluation_method is None and 'evaluationMethod' in kwargs:
+            evaluation_method = kwargs['evaluationMethod']
+
         _setter("detector_model_definition", detector_model_definition)
         _setter("role_arn", role_arn)
         if detector_model_description is not None:
@@ -230,11 +246,7 @@ class DetectorModel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorModelArgs.__new__(DetectorModelArgs)
 
-            if detector_model_definition is not None and not isinstance(detector_model_definition, DetectorModelDefinitionArgs):
-                detector_model_definition = detector_model_definition or {}
-                def _setter(key, value):
-                    detector_model_definition[key] = value
-                DetectorModelDefinitionArgs._configure(_setter, **detector_model_definition)
+            detector_model_definition = _utilities.configure(detector_model_definition, DetectorModelDefinitionArgs, True)
             if detector_model_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_model_definition'")
             __props__.__dict__["detector_model_definition"] = detector_model_definition

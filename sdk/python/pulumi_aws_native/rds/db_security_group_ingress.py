@@ -33,12 +33,24 @@ class DbSecurityGroupIngressInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_security_group_name: pulumi.Input[str],
+             db_security_group_name: Optional[pulumi.Input[str]] = None,
              cidrip: Optional[pulumi.Input[str]] = None,
              ec2_security_group_id: Optional[pulumi.Input[str]] = None,
              ec2_security_group_name: Optional[pulumi.Input[str]] = None,
              ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_security_group_name is None and 'dbSecurityGroupName' in kwargs:
+            db_security_group_name = kwargs['dbSecurityGroupName']
+        if db_security_group_name is None:
+            raise TypeError("Missing 'db_security_group_name' argument")
+        if ec2_security_group_id is None and 'ec2SecurityGroupId' in kwargs:
+            ec2_security_group_id = kwargs['ec2SecurityGroupId']
+        if ec2_security_group_name is None and 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if ec2_security_group_owner_id is None and 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         _setter("db_security_group_name", db_security_group_name)
         if cidrip is not None:
             _setter("cidrip", cidrip)

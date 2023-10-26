@@ -27,9 +27,19 @@ class TrackerConsumerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_arn: pulumi.Input[str],
-             tracker_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             consumer_arn: Optional[pulumi.Input[str]] = None,
+             tracker_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_arn is None and 'consumerArn' in kwargs:
+            consumer_arn = kwargs['consumerArn']
+        if consumer_arn is None:
+            raise TypeError("Missing 'consumer_arn' argument")
+        if tracker_name is None and 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+        if tracker_name is None:
+            raise TypeError("Missing 'tracker_name' argument")
+
         _setter("consumer_arn", consumer_arn)
         _setter("tracker_name", tracker_name)
 

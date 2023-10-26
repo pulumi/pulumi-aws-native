@@ -47,14 +47,32 @@ class ReplicatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kafka_clusters: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]],
-             replication_info_list: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]],
-             service_execution_role_arn: pulumi.Input[str],
+             kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
+             replication_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]]] = None,
+             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
              current_version: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              replicator_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kafka_clusters is None and 'kafkaClusters' in kwargs:
+            kafka_clusters = kwargs['kafkaClusters']
+        if kafka_clusters is None:
+            raise TypeError("Missing 'kafka_clusters' argument")
+        if replication_info_list is None and 'replicationInfoList' in kwargs:
+            replication_info_list = kwargs['replicationInfoList']
+        if replication_info_list is None:
+            raise TypeError("Missing 'replication_info_list' argument")
+        if service_execution_role_arn is None and 'serviceExecutionRoleArn' in kwargs:
+            service_execution_role_arn = kwargs['serviceExecutionRoleArn']
+        if service_execution_role_arn is None:
+            raise TypeError("Missing 'service_execution_role_arn' argument")
+        if current_version is None and 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if replicator_name is None and 'replicatorName' in kwargs:
+            replicator_name = kwargs['replicatorName']
+
         _setter("kafka_clusters", kafka_clusters)
         _setter("replication_info_list", replication_info_list)
         _setter("service_execution_role_arn", service_execution_role_arn)

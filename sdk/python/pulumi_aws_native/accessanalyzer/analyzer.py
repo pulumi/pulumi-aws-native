@@ -36,11 +36,19 @@ class AnalyzerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              analyzer_name: Optional[pulumi.Input[str]] = None,
              archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if analyzer_name is None and 'analyzerName' in kwargs:
+            analyzer_name = kwargs['analyzerName']
+        if archive_rules is None and 'archiveRules' in kwargs:
+            archive_rules = kwargs['archiveRules']
+
         _setter("type", type)
         if analyzer_name is not None:
             _setter("analyzer_name", analyzer_name)

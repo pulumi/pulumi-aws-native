@@ -36,12 +36,20 @@ class DetectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: pulumi.Input[bool],
+             enable: Optional[pulumi.Input[bool]] = None,
              data_sources: Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']] = None,
              features: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]] = None,
              finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+        if data_sources is None and 'dataSources' in kwargs:
+            data_sources = kwargs['dataSources']
+        if finding_publishing_frequency is None and 'findingPublishingFrequency' in kwargs:
+            finding_publishing_frequency = kwargs['findingPublishingFrequency']
+
         _setter("enable", enable)
         if data_sources is not None:
             _setter("data_sources", data_sources)
@@ -157,11 +165,7 @@ class Detector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorArgs.__new__(DetectorArgs)
 
-            if data_sources is not None and not isinstance(data_sources, DetectorCfnDataSourceConfigurationsArgs):
-                data_sources = data_sources or {}
-                def _setter(key, value):
-                    data_sources[key] = value
-                DetectorCfnDataSourceConfigurationsArgs._configure(_setter, **data_sources)
+            data_sources = _utilities.configure(data_sources, DetectorCfnDataSourceConfigurationsArgs, True)
             __props__.__dict__["data_sources"] = data_sources
             if enable is None and not opts.urn:
                 raise TypeError("Missing required property 'enable'")

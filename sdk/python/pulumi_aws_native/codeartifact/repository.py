@@ -49,7 +49,7 @@ class RepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              domain_owner: Optional[pulumi.Input[str]] = None,
              external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -57,7 +57,21 @@ class RepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
              upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_owner is None and 'domainOwner' in kwargs:
+            domain_owner = kwargs['domainOwner']
+        if external_connections is None and 'externalConnections' in kwargs:
+            external_connections = kwargs['externalConnections']
+        if permissions_policy_document is None and 'permissionsPolicyDocument' in kwargs:
+            permissions_policy_document = kwargs['permissionsPolicyDocument']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+
         _setter("domain_name", domain_name)
         if description is not None:
             _setter("description", description)

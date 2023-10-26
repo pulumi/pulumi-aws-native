@@ -35,11 +35,21 @@ class RequestValidatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rest_api_id: pulumi.Input[str],
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              validate_request_body: Optional[pulumi.Input[bool]] = None,
              validate_request_parameters: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if validate_request_body is None and 'validateRequestBody' in kwargs:
+            validate_request_body = kwargs['validateRequestBody']
+        if validate_request_parameters is None and 'validateRequestParameters' in kwargs:
+            validate_request_parameters = kwargs['validateRequestParameters']
+
         _setter("rest_api_id", rest_api_id)
         if name is not None:
             _setter("name", name)

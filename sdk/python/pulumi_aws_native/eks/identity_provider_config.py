@@ -40,12 +40,22 @@ class IdentityProviderConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             type: pulumi.Input['IdentityProviderConfigType'],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
              identity_provider_config_name: Optional[pulumi.Input[str]] = None,
              oidc: Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_provider_config_name is None and 'identityProviderConfigName' in kwargs:
+            identity_provider_config_name = kwargs['identityProviderConfigName']
+
         _setter("cluster_name", cluster_name)
         _setter("type", type)
         if identity_provider_config_name is not None:
@@ -180,11 +190,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["identity_provider_config_name"] = identity_provider_config_name
-            if oidc is not None and not isinstance(oidc, IdentityProviderConfigOidcIdentityProviderConfigArgs):
-                oidc = oidc or {}
-                def _setter(key, value):
-                    oidc[key] = value
-                IdentityProviderConfigOidcIdentityProviderConfigArgs._configure(_setter, **oidc)
+            oidc = _utilities.configure(oidc, IdentityProviderConfigOidcIdentityProviderConfigArgs, True)
             __props__.__dict__["oidc"] = oidc
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:

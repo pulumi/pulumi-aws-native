@@ -145,7 +145,79 @@ class InstanceArgs:
              tenancy: Optional[pulumi.Input[str]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if cpu_options is None and 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if credit_specification is None and 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if disable_api_termination is None and 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if elastic_gpu_specifications is None and 'elasticGpuSpecifications' in kwargs:
+            elastic_gpu_specifications = kwargs['elasticGpuSpecifications']
+        if elastic_inference_accelerators is None and 'elasticInferenceAccelerators' in kwargs:
+            elastic_inference_accelerators = kwargs['elasticInferenceAccelerators']
+        if enclave_options is None and 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if hibernation_options is None and 'hibernationOptions' in kwargs:
+            hibernation_options = kwargs['hibernationOptions']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if host_resource_group_arn is None and 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if instance_initiated_shutdown_behavior is None and 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if kernel_id is None and 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if license_specifications is None and 'licenseSpecifications' in kwargs:
+            license_specifications = kwargs['licenseSpecifications']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if placement_group_name is None and 'placementGroupName' in kwargs:
+            placement_group_name = kwargs['placementGroupName']
+        if private_dns_name_options is None and 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if propagate_tags_to_volume_on_creation is None and 'propagateTagsToVolumeOnCreation' in kwargs:
+            propagate_tags_to_volume_on_creation = kwargs['propagateTagsToVolumeOnCreation']
+        if ramdisk_id is None and 'ramdiskId' in kwargs:
+            ramdisk_id = kwargs['ramdiskId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if source_dest_check is None and 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+        if ssm_associations is None and 'ssmAssociations' in kwargs:
+            ssm_associations = kwargs['ssmAssociations']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         if additional_info is not None:
             _setter("additional_info", additional_info)
         if affinity is not None:
@@ -727,33 +799,17 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["affinity"] = affinity
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["block_device_mappings"] = block_device_mappings
-            if cpu_options is not None and not isinstance(cpu_options, InstanceCpuOptionsArgs):
-                cpu_options = cpu_options or {}
-                def _setter(key, value):
-                    cpu_options[key] = value
-                InstanceCpuOptionsArgs._configure(_setter, **cpu_options)
+            cpu_options = _utilities.configure(cpu_options, InstanceCpuOptionsArgs, True)
             __props__.__dict__["cpu_options"] = cpu_options
-            if credit_specification is not None and not isinstance(credit_specification, InstanceCreditSpecificationArgs):
-                credit_specification = credit_specification or {}
-                def _setter(key, value):
-                    credit_specification[key] = value
-                InstanceCreditSpecificationArgs._configure(_setter, **credit_specification)
+            credit_specification = _utilities.configure(credit_specification, InstanceCreditSpecificationArgs, True)
             __props__.__dict__["credit_specification"] = credit_specification
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_optimized"] = ebs_optimized
             __props__.__dict__["elastic_gpu_specifications"] = elastic_gpu_specifications
             __props__.__dict__["elastic_inference_accelerators"] = elastic_inference_accelerators
-            if enclave_options is not None and not isinstance(enclave_options, InstanceEnclaveOptionsArgs):
-                enclave_options = enclave_options or {}
-                def _setter(key, value):
-                    enclave_options[key] = value
-                InstanceEnclaveOptionsArgs._configure(_setter, **enclave_options)
+            enclave_options = _utilities.configure(enclave_options, InstanceEnclaveOptionsArgs, True)
             __props__.__dict__["enclave_options"] = enclave_options
-            if hibernation_options is not None and not isinstance(hibernation_options, InstanceHibernationOptionsArgs):
-                hibernation_options = hibernation_options or {}
-                def _setter(key, value):
-                    hibernation_options[key] = value
-                InstanceHibernationOptionsArgs._configure(_setter, **hibernation_options)
+            hibernation_options = _utilities.configure(hibernation_options, InstanceHibernationOptionsArgs, True)
             __props__.__dict__["hibernation_options"] = hibernation_options
             __props__.__dict__["host_id"] = host_id
             __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
@@ -765,21 +821,13 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
-            if launch_template is not None and not isinstance(launch_template, InstanceLaunchTemplateSpecificationArgs):
-                launch_template = launch_template or {}
-                def _setter(key, value):
-                    launch_template[key] = value
-                InstanceLaunchTemplateSpecificationArgs._configure(_setter, **launch_template)
+            launch_template = _utilities.configure(launch_template, InstanceLaunchTemplateSpecificationArgs, True)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["license_specifications"] = license_specifications
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group_name"] = placement_group_name
-            if private_dns_name_options is not None and not isinstance(private_dns_name_options, InstancePrivateDnsNameOptionsArgs):
-                private_dns_name_options = private_dns_name_options or {}
-                def _setter(key, value):
-                    private_dns_name_options[key] = value
-                InstancePrivateDnsNameOptionsArgs._configure(_setter, **private_dns_name_options)
+            private_dns_name_options = _utilities.configure(private_dns_name_options, InstancePrivateDnsNameOptionsArgs, True)
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["propagate_tags_to_volume_on_creation"] = propagate_tags_to_volume_on_creation

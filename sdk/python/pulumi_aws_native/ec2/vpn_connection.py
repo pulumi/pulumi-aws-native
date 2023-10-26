@@ -46,14 +46,30 @@ class VpnConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             customer_gateway_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             customer_gateway_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              static_routes_only: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionTagArgs']]]] = None,
              transit_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_tunnel_options_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_gateway_id is None and 'customerGatewayId' in kwargs:
+            customer_gateway_id = kwargs['customerGatewayId']
+        if customer_gateway_id is None:
+            raise TypeError("Missing 'customer_gateway_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if static_routes_only is None and 'staticRoutesOnly' in kwargs:
+            static_routes_only = kwargs['staticRoutesOnly']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if vpn_tunnel_options_specifications is None and 'vpnTunnelOptionsSpecifications' in kwargs:
+            vpn_tunnel_options_specifications = kwargs['vpnTunnelOptionsSpecifications']
+
         _setter("customer_gateway_id", customer_gateway_id)
         _setter("type", type)
         if static_routes_only is not None:

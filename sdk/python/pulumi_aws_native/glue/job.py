@@ -65,8 +65,8 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             command: pulumi.Input['JobCommandArgs'],
-             role: pulumi.Input[str],
+             command: Optional[pulumi.Input['JobCommandArgs']] = None,
+             role: Optional[pulumi.Input[str]] = None,
              allocated_capacity: Optional[pulumi.Input[float]] = None,
              connections: Optional[pulumi.Input['JobConnectionsListArgs']] = None,
              default_arguments: Optional[Any] = None,
@@ -85,7 +85,39 @@ class JobArgs:
              tags: Optional[Any] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if command is None:
+            raise TypeError("Missing 'command' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if allocated_capacity is None and 'allocatedCapacity' in kwargs:
+            allocated_capacity = kwargs['allocatedCapacity']
+        if default_arguments is None and 'defaultArguments' in kwargs:
+            default_arguments = kwargs['defaultArguments']
+        if execution_class is None and 'executionClass' in kwargs:
+            execution_class = kwargs['executionClass']
+        if execution_property is None and 'executionProperty' in kwargs:
+            execution_property = kwargs['executionProperty']
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if log_uri is None and 'logUri' in kwargs:
+            log_uri = kwargs['logUri']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if non_overridable_arguments is None and 'nonOverridableArguments' in kwargs:
+            non_overridable_arguments = kwargs['nonOverridableArguments']
+        if notification_property is None and 'notificationProperty' in kwargs:
+            notification_property = kwargs['notificationProperty']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         _setter("command", command)
         _setter("role", role)
         if allocated_capacity is not None:
@@ -402,28 +434,16 @@ class Job(pulumi.CustomResource):
             __props__ = JobArgs.__new__(JobArgs)
 
             __props__.__dict__["allocated_capacity"] = allocated_capacity
-            if command is not None and not isinstance(command, JobCommandArgs):
-                command = command or {}
-                def _setter(key, value):
-                    command[key] = value
-                JobCommandArgs._configure(_setter, **command)
+            command = _utilities.configure(command, JobCommandArgs, True)
             if command is None and not opts.urn:
                 raise TypeError("Missing required property 'command'")
             __props__.__dict__["command"] = command
-            if connections is not None and not isinstance(connections, JobConnectionsListArgs):
-                connections = connections or {}
-                def _setter(key, value):
-                    connections[key] = value
-                JobConnectionsListArgs._configure(_setter, **connections)
+            connections = _utilities.configure(connections, JobConnectionsListArgs, True)
             __props__.__dict__["connections"] = connections
             __props__.__dict__["default_arguments"] = default_arguments
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_class"] = execution_class
-            if execution_property is not None and not isinstance(execution_property, JobExecutionPropertyArgs):
-                execution_property = execution_property or {}
-                def _setter(key, value):
-                    execution_property[key] = value
-                JobExecutionPropertyArgs._configure(_setter, **execution_property)
+            execution_property = _utilities.configure(execution_property, JobExecutionPropertyArgs, True)
             __props__.__dict__["execution_property"] = execution_property
             __props__.__dict__["glue_version"] = glue_version
             __props__.__dict__["log_uri"] = log_uri
@@ -431,11 +451,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
             __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
-            if notification_property is not None and not isinstance(notification_property, JobNotificationPropertyArgs):
-                notification_property = notification_property or {}
-                def _setter(key, value):
-                    notification_property[key] = value
-                JobNotificationPropertyArgs._configure(_setter, **notification_property)
+            notification_property = _utilities.configure(notification_property, JobNotificationPropertyArgs, True)
             __props__.__dict__["notification_property"] = notification_property
             __props__.__dict__["number_of_workers"] = number_of_workers
             if role is None and not opts.urn:

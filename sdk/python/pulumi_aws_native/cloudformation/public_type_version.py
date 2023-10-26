@@ -46,7 +46,15 @@ class PublicTypeVersionArgs:
              public_version_number: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['PublicTypeVersionType']] = None,
              type_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_delivery_bucket is None and 'logDeliveryBucket' in kwargs:
+            log_delivery_bucket = kwargs['logDeliveryBucket']
+        if public_version_number is None and 'publicVersionNumber' in kwargs:
+            public_version_number = kwargs['publicVersionNumber']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         if arn is not None:
             _setter("arn", arn)
         if log_delivery_bucket is not None:

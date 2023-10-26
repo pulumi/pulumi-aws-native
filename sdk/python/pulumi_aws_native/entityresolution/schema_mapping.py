@@ -37,11 +37,21 @@ class SchemaMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mapped_input_fields: pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]],
-             schema_name: pulumi.Input[str],
+             mapped_input_fields: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]]] = None,
+             schema_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mapped_input_fields is None and 'mappedInputFields' in kwargs:
+            mapped_input_fields = kwargs['mappedInputFields']
+        if mapped_input_fields is None:
+            raise TypeError("Missing 'mapped_input_fields' argument")
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+        if schema_name is None:
+            raise TypeError("Missing 'schema_name' argument")
+
         _setter("mapped_input_fields", mapped_input_fields)
         _setter("schema_name", schema_name)
         if description is not None:

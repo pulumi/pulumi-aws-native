@@ -27,9 +27,19 @@ class ElasticLoadBalancerAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             elastic_load_balancer_name: pulumi.Input[str],
-             layer_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             elastic_load_balancer_name: Optional[pulumi.Input[str]] = None,
+             layer_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elastic_load_balancer_name is None and 'elasticLoadBalancerName' in kwargs:
+            elastic_load_balancer_name = kwargs['elasticLoadBalancerName']
+        if elastic_load_balancer_name is None:
+            raise TypeError("Missing 'elastic_load_balancer_name' argument")
+        if layer_id is None and 'layerId' in kwargs:
+            layer_id = kwargs['layerId']
+        if layer_id is None:
+            raise TypeError("Missing 'layer_id' argument")
+
         _setter("elastic_load_balancer_name", elastic_load_balancer_name)
         _setter("layer_id", layer_id)
 

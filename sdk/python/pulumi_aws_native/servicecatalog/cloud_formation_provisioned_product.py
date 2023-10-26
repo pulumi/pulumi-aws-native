@@ -62,7 +62,31 @@ class CloudFormationProvisionedProductArgs:
              provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]]] = None,
              provisioning_preferences: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if notification_arns is None and 'notificationArns' in kwargs:
+            notification_arns = kwargs['notificationArns']
+        if path_id is None and 'pathId' in kwargs:
+            path_id = kwargs['pathId']
+        if path_name is None and 'pathName' in kwargs:
+            path_name = kwargs['pathName']
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if provisioned_product_name is None and 'provisionedProductName' in kwargs:
+            provisioned_product_name = kwargs['provisionedProductName']
+        if provisioning_artifact_id is None and 'provisioningArtifactId' in kwargs:
+            provisioning_artifact_id = kwargs['provisioningArtifactId']
+        if provisioning_artifact_name is None and 'provisioningArtifactName' in kwargs:
+            provisioning_artifact_name = kwargs['provisioningArtifactName']
+        if provisioning_parameters is None and 'provisioningParameters' in kwargs:
+            provisioning_parameters = kwargs['provisioningParameters']
+        if provisioning_preferences is None and 'provisioningPreferences' in kwargs:
+            provisioning_preferences = kwargs['provisioningPreferences']
+
         if accept_language is not None:
             _setter("accept_language", accept_language)
         if notification_arns is not None:
@@ -280,11 +304,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioning_artifact_id"] = provisioning_artifact_id
             __props__.__dict__["provisioning_artifact_name"] = provisioning_artifact_name
             __props__.__dict__["provisioning_parameters"] = provisioning_parameters
-            if provisioning_preferences is not None and not isinstance(provisioning_preferences, CloudFormationProvisionedProductProvisioningPreferencesArgs):
-                provisioning_preferences = provisioning_preferences or {}
-                def _setter(key, value):
-                    provisioning_preferences[key] = value
-                CloudFormationProvisionedProductProvisioningPreferencesArgs._configure(_setter, **provisioning_preferences)
+            provisioning_preferences = _utilities.configure(provisioning_preferences, CloudFormationProvisionedProductProvisioningPreferencesArgs, True)
             __props__.__dict__["provisioning_preferences"] = provisioning_preferences
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloudformation_stack_arn"] = None

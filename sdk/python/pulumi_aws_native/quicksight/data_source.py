@@ -74,7 +74,23 @@ class DataSourceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
              type: Optional[pulumi.Input['DataSourceType']] = None,
              vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alternate_data_source_parameters is None and 'alternateDataSourceParameters' in kwargs:
+            alternate_data_source_parameters = kwargs['alternateDataSourceParameters']
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if data_source_id is None and 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if data_source_parameters is None and 'dataSourceParameters' in kwargs:
+            data_source_parameters = kwargs['dataSourceParameters']
+        if error_info is None and 'errorInfo' in kwargs:
+            error_info = kwargs['errorInfo']
+        if ssl_properties is None and 'sslProperties' in kwargs:
+            ssl_properties = kwargs['sslProperties']
+        if vpc_connection_properties is None and 'vpcConnectionProperties' in kwargs:
+            vpc_connection_properties = kwargs['vpcConnectionProperties']
+
         if alternate_data_source_parameters is not None:
             _setter("alternate_data_source_parameters", alternate_data_source_parameters)
         if aws_account_id is not None:
@@ -316,40 +332,20 @@ class DataSource(pulumi.CustomResource):
 
             __props__.__dict__["alternate_data_source_parameters"] = alternate_data_source_parameters
             __props__.__dict__["aws_account_id"] = aws_account_id
-            if credentials is not None and not isinstance(credentials, DataSourceCredentialsArgs):
-                credentials = credentials or {}
-                def _setter(key, value):
-                    credentials[key] = value
-                DataSourceCredentialsArgs._configure(_setter, **credentials)
+            credentials = _utilities.configure(credentials, DataSourceCredentialsArgs, True)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["data_source_id"] = data_source_id
-            if data_source_parameters is not None and not isinstance(data_source_parameters, DataSourceParametersArgs):
-                data_source_parameters = data_source_parameters or {}
-                def _setter(key, value):
-                    data_source_parameters[key] = value
-                DataSourceParametersArgs._configure(_setter, **data_source_parameters)
+            data_source_parameters = _utilities.configure(data_source_parameters, DataSourceParametersArgs, True)
             __props__.__dict__["data_source_parameters"] = data_source_parameters
-            if error_info is not None and not isinstance(error_info, DataSourceErrorInfoArgs):
-                error_info = error_info or {}
-                def _setter(key, value):
-                    error_info[key] = value
-                DataSourceErrorInfoArgs._configure(_setter, **error_info)
+            error_info = _utilities.configure(error_info, DataSourceErrorInfoArgs, True)
             __props__.__dict__["error_info"] = error_info
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
-            if ssl_properties is not None and not isinstance(ssl_properties, DataSourceSslPropertiesArgs):
-                ssl_properties = ssl_properties or {}
-                def _setter(key, value):
-                    ssl_properties[key] = value
-                DataSourceSslPropertiesArgs._configure(_setter, **ssl_properties)
+            ssl_properties = _utilities.configure(ssl_properties, DataSourceSslPropertiesArgs, True)
             __props__.__dict__["ssl_properties"] = ssl_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
-            if vpc_connection_properties is not None and not isinstance(vpc_connection_properties, DataSourceVpcConnectionPropertiesArgs):
-                vpc_connection_properties = vpc_connection_properties or {}
-                def _setter(key, value):
-                    vpc_connection_properties[key] = value
-                DataSourceVpcConnectionPropertiesArgs._configure(_setter, **vpc_connection_properties)
+            vpc_connection_properties = _utilities.configure(vpc_connection_properties, DataSourceVpcConnectionPropertiesArgs, True)
             __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None

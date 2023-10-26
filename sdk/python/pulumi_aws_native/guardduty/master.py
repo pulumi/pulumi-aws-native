@@ -29,10 +29,22 @@ class MasterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detector_id: pulumi.Input[str],
-             master_id: pulumi.Input[str],
+             detector_id: Optional[pulumi.Input[str]] = None,
+             master_id: Optional[pulumi.Input[str]] = None,
              invitation_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if master_id is None and 'masterId' in kwargs:
+            master_id = kwargs['masterId']
+        if master_id is None:
+            raise TypeError("Missing 'master_id' argument")
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+
         _setter("detector_id", detector_id)
         _setter("master_id", master_id)
         if invitation_id is not None:

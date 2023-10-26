@@ -52,10 +52,24 @@ class SkillAuthenticationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: str,
-             client_secret: str,
-             refresh_token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+        if refresh_token is None:
+            raise TypeError("Missing 'refresh_token' argument")
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
         _setter("refresh_token", refresh_token)
@@ -88,7 +102,9 @@ class SkillOverrides(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              manifest: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if manifest is not None:
             _setter("manifest", manifest)
 
@@ -140,12 +156,26 @@ class SkillPackage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket: str,
-             s3_key: str,
+             s3_bucket: Optional[str] = None,
+             s3_key: Optional[str] = None,
              overrides: Optional['outputs.SkillOverrides'] = None,
              s3_bucket_role: Optional[str] = None,
              s3_object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_key is None:
+            raise TypeError("Missing 's3_key' argument")
+        if s3_bucket_role is None and 's3BucketRole' in kwargs:
+            s3_bucket_role = kwargs['s3BucketRole']
+        if s3_object_version is None and 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
         if overrides is not None:

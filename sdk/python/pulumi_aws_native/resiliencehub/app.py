@@ -51,8 +51,8 @@ class AppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_template_body: pulumi.Input[str],
-             resource_mappings: pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]],
+             app_template_body: Optional[pulumi.Input[str]] = None,
+             resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['AppResourceMappingArgs']]]] = None,
              app_assessment_schedule: Optional[pulumi.Input['AppAssessmentSchedule']] = None,
              description: Optional[pulumi.Input[str]] = None,
              event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]] = None,
@@ -60,7 +60,25 @@ class AppArgs:
              permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
              resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['AppTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_template_body is None and 'appTemplateBody' in kwargs:
+            app_template_body = kwargs['appTemplateBody']
+        if app_template_body is None:
+            raise TypeError("Missing 'app_template_body' argument")
+        if resource_mappings is None and 'resourceMappings' in kwargs:
+            resource_mappings = kwargs['resourceMappings']
+        if resource_mappings is None:
+            raise TypeError("Missing 'resource_mappings' argument")
+        if app_assessment_schedule is None and 'appAssessmentSchedule' in kwargs:
+            app_assessment_schedule = kwargs['appAssessmentSchedule']
+        if event_subscriptions is None and 'eventSubscriptions' in kwargs:
+            event_subscriptions = kwargs['eventSubscriptions']
+        if permission_model is None and 'permissionModel' in kwargs:
+            permission_model = kwargs['permissionModel']
+        if resiliency_policy_arn is None and 'resiliencyPolicyArn' in kwargs:
+            resiliency_policy_arn = kwargs['resiliencyPolicyArn']
+
         _setter("app_template_body", app_template_body)
         _setter("resource_mappings", resource_mappings)
         if app_assessment_schedule is not None:
@@ -262,21 +280,13 @@ class App(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["event_subscriptions"] = event_subscriptions
             __props__.__dict__["name"] = name
-            if permission_model is not None and not isinstance(permission_model, AppPermissionModelArgs):
-                permission_model = permission_model or {}
-                def _setter(key, value):
-                    permission_model[key] = value
-                AppPermissionModelArgs._configure(_setter, **permission_model)
+            permission_model = _utilities.configure(permission_model, AppPermissionModelArgs, True)
             __props__.__dict__["permission_model"] = permission_model
             __props__.__dict__["resiliency_policy_arn"] = resiliency_policy_arn
             if resource_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_mappings'")
             __props__.__dict__["resource_mappings"] = resource_mappings
-            if tags is not None and not isinstance(tags, AppTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                AppTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, AppTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_arn"] = None
             __props__.__dict__["drift_status"] = None

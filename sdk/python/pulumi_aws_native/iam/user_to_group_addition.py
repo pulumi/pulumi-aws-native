@@ -27,9 +27,17 @@ class UserToGroupAdditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_name: pulumi.Input[str],
-             users: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_name: Optional[pulumi.Input[str]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if users is None:
+            raise TypeError("Missing 'users' argument")
+
         _setter("group_name", group_name)
         _setter("users", users)
 

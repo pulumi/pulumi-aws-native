@@ -43,13 +43,27 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset_name: pulumi.Input[str],
-             recipe_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             dataset_name: Optional[pulumi.Input[str]] = None,
+             recipe_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sample: Optional[pulumi.Input['ProjectSampleArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataset_name is None and 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if dataset_name is None:
+            raise TypeError("Missing 'dataset_name' argument")
+        if recipe_name is None and 'recipeName' in kwargs:
+            recipe_name = kwargs['recipeName']
+        if recipe_name is None:
+            raise TypeError("Missing 'recipe_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("dataset_name", dataset_name)
         _setter("recipe_name", recipe_name)
         _setter("role_arn", role_arn)
@@ -206,11 +220,7 @@ class Project(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if sample is not None and not isinstance(sample, ProjectSampleArgs):
-                sample = sample or {}
-                def _setter(key, value):
-                    sample[key] = value
-                ProjectSampleArgs._configure(_setter, **sample)
+            sample = _utilities.configure(sample, ProjectSampleArgs, True)
             __props__.__dict__["sample"] = sample
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])

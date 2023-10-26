@@ -56,9 +56,17 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             user_pool_arn: str,
+             user_pool_arn: Optional[str] = None,
              client_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_pool_arn is None and 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+        if user_pool_arn is None:
+            raise TypeError("Missing 'user_pool_arn' argument")
+        if client_ids is None and 'clientIds' in kwargs:
+            client_ids = kwargs['clientIds']
+
         _setter("user_pool_arn", user_pool_arn)
         if client_ids is not None:
             _setter("client_ids", client_ids)
@@ -102,8 +110,14 @@ class IdentitySourceConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cognito_user_pool_configuration: 'outputs.IdentitySourceCognitoUserPoolConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cognito_user_pool_configuration: Optional['outputs.IdentitySourceCognitoUserPoolConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cognito_user_pool_configuration is None and 'cognitoUserPoolConfiguration' in kwargs:
+            cognito_user_pool_configuration = kwargs['cognitoUserPoolConfiguration']
+        if cognito_user_pool_configuration is None:
+            raise TypeError("Missing 'cognito_user_pool_configuration' argument")
+
         _setter("cognito_user_pool_configuration", cognito_user_pool_configuration)
 
     @property
@@ -156,7 +170,17 @@ class IdentitySourceDetails(dict):
              discovery_url: Optional[str] = None,
              open_id_issuer: Optional['IdentitySourceOpenIdIssuer'] = None,
              user_pool_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_ids is None and 'clientIds' in kwargs:
+            client_ids = kwargs['clientIds']
+        if discovery_url is None and 'discoveryUrl' in kwargs:
+            discovery_url = kwargs['discoveryUrl']
+        if open_id_issuer is None and 'openIdIssuer' in kwargs:
+            open_id_issuer = kwargs['openIdIssuer']
+        if user_pool_arn is None and 'userPoolArn' in kwargs:
+            user_pool_arn = kwargs['userPoolArn']
+
         if client_ids is not None:
             _setter("client_ids", client_ids)
         if discovery_url is not None:
@@ -198,8 +222,12 @@ class PolicyDefinition0Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             static: 'outputs.PolicyStaticPolicyDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             static: Optional['outputs.PolicyStaticPolicyDefinition'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if static is None:
+            raise TypeError("Missing 'static' argument")
+
         _setter("static", static)
 
     @property
@@ -236,8 +264,14 @@ class PolicyDefinition1Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template_linked: 'outputs.PolicyTemplateLinkedPolicyDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             template_linked: Optional['outputs.PolicyTemplateLinkedPolicyDefinition'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_linked is None and 'templateLinked' in kwargs:
+            template_linked = kwargs['templateLinked']
+        if template_linked is None:
+            raise TypeError("Missing 'template_linked' argument")
+
         _setter("template_linked", template_linked)
 
     @property
@@ -278,9 +312,19 @@ class PolicyEntityIdentifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity_id: str,
-             entity_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             entity_id: Optional[str] = None,
+             entity_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if entity_id is None:
+            raise TypeError("Missing 'entity_id' argument")
+        if entity_type is None and 'entityType' in kwargs:
+            entity_type = kwargs['entityType']
+        if entity_type is None:
+            raise TypeError("Missing 'entity_type' argument")
+
         _setter("entity_id", entity_id)
         _setter("entity_type", entity_type)
 
@@ -308,9 +352,13 @@ class PolicyStaticPolicyDefinition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statement: str,
+             statement: Optional[str] = None,
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+
         _setter("statement", statement)
         if description is not None:
             _setter("description", description)
@@ -355,7 +403,11 @@ class PolicyStoreSchemaDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              cedar_json: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cedar_json is None and 'cedarJson' in kwargs:
+            cedar_json = kwargs['cedarJson']
+
         if cedar_json is not None:
             _setter("cedar_json", cedar_json)
 
@@ -376,8 +428,12 @@ class PolicyStoreValidationSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: 'PolicyStoreValidationMode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             mode: Optional['PolicyStoreValidationMode'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+
         _setter("mode", mode)
 
     @property
@@ -418,10 +474,16 @@ class PolicyTemplateLinkedPolicyDefinition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_template_id: str,
+             policy_template_id: Optional[str] = None,
              principal: Optional['outputs.PolicyEntityIdentifier'] = None,
              resource: Optional['outputs.PolicyEntityIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_template_id is None and 'policyTemplateId' in kwargs:
+            policy_template_id = kwargs['policyTemplateId']
+        if policy_template_id is None:
+            raise TypeError("Missing 'policy_template_id' argument")
+
         _setter("policy_template_id", policy_template_id)
         if principal is not None:
             _setter("principal", principal)

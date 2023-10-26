@@ -47,14 +47,28 @@ class EvaluationFormArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             items: pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]],
-             status: pulumi.Input['EvaluationFormStatus'],
-             title: pulumi.Input[str],
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormBaseItemArgs']]]] = None,
+             status: Optional[pulumi.Input['EvaluationFormStatus']] = None,
+             title: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              scoring_strategy: Optional[pulumi.Input['EvaluationFormScoringStrategyArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if scoring_strategy is None and 'scoringStrategy' in kwargs:
+            scoring_strategy = kwargs['scoringStrategy']
+
         _setter("instance_arn", instance_arn)
         _setter("items", items)
         _setter("status", status)
@@ -228,11 +242,7 @@ class EvaluationForm(pulumi.CustomResource):
             if items is None and not opts.urn:
                 raise TypeError("Missing required property 'items'")
             __props__.__dict__["items"] = items
-            if scoring_strategy is not None and not isinstance(scoring_strategy, EvaluationFormScoringStrategyArgs):
-                scoring_strategy = scoring_strategy or {}
-                def _setter(key, value):
-                    scoring_strategy[key] = value
-                EvaluationFormScoringStrategyArgs._configure(_setter, **scoring_strategy)
+            scoring_strategy = _utilities.configure(scoring_strategy, EvaluationFormScoringStrategyArgs, True)
             __props__.__dict__["scoring_strategy"] = scoring_strategy
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")

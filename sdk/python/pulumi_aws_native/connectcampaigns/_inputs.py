@@ -35,7 +35,11 @@ class CampaignAgentlessDialerConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              dialing_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dialing_capacity is None and 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
 
@@ -67,8 +71,14 @@ class CampaignAnswerMachineDetectionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable_answer_machine_detection: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable_answer_machine_detection: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_answer_machine_detection is None and 'enableAnswerMachineDetection' in kwargs:
+            enable_answer_machine_detection = kwargs['enableAnswerMachineDetection']
+        if enable_answer_machine_detection is None:
+            raise TypeError("Missing 'enable_answer_machine_detection' argument")
+
         _setter("enable_answer_machine_detection", enable_answer_machine_detection)
 
     @property
@@ -105,7 +115,15 @@ class CampaignDialerConfigArgs:
              agentless_dialer_config: Optional[pulumi.Input['CampaignAgentlessDialerConfigArgs']] = None,
              predictive_dialer_config: Optional[pulumi.Input['CampaignPredictiveDialerConfigArgs']] = None,
              progressive_dialer_config: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agentless_dialer_config is None and 'agentlessDialerConfig' in kwargs:
+            agentless_dialer_config = kwargs['agentlessDialerConfig']
+        if predictive_dialer_config is None and 'predictiveDialerConfig' in kwargs:
+            predictive_dialer_config = kwargs['predictiveDialerConfig']
+        if progressive_dialer_config is None and 'progressiveDialerConfig' in kwargs:
+            progressive_dialer_config = kwargs['progressiveDialerConfig']
+
         if agentless_dialer_config is not None:
             _setter("agentless_dialer_config", agentless_dialer_config)
         if predictive_dialer_config is not None:
@@ -164,11 +182,23 @@ class CampaignOutboundCallConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connect_contact_flow_arn: pulumi.Input[str],
+             connect_contact_flow_arn: Optional[pulumi.Input[str]] = None,
              answer_machine_detection_config: Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']] = None,
              connect_queue_arn: Optional[pulumi.Input[str]] = None,
              connect_source_phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connect_contact_flow_arn is None and 'connectContactFlowArn' in kwargs:
+            connect_contact_flow_arn = kwargs['connectContactFlowArn']
+        if connect_contact_flow_arn is None:
+            raise TypeError("Missing 'connect_contact_flow_arn' argument")
+        if answer_machine_detection_config is None and 'answerMachineDetectionConfig' in kwargs:
+            answer_machine_detection_config = kwargs['answerMachineDetectionConfig']
+        if connect_queue_arn is None and 'connectQueueArn' in kwargs:
+            connect_queue_arn = kwargs['connectQueueArn']
+        if connect_source_phone_number is None and 'connectSourcePhoneNumber' in kwargs:
+            connect_source_phone_number = kwargs['connectSourcePhoneNumber']
+
         _setter("connect_contact_flow_arn", connect_contact_flow_arn)
         if answer_machine_detection_config is not None:
             _setter("answer_machine_detection_config", answer_machine_detection_config)
@@ -241,9 +271,17 @@ class CampaignPredictiveDialerConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bandwidth_allocation: pulumi.Input[float],
+             bandwidth_allocation: Optional[pulumi.Input[float]] = None,
              dialing_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth_allocation is None and 'bandwidthAllocation' in kwargs:
+            bandwidth_allocation = kwargs['bandwidthAllocation']
+        if bandwidth_allocation is None:
+            raise TypeError("Missing 'bandwidth_allocation' argument")
+        if dialing_capacity is None and 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         _setter("bandwidth_allocation", bandwidth_allocation)
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
@@ -291,9 +329,17 @@ class CampaignProgressiveDialerConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bandwidth_allocation: pulumi.Input[float],
+             bandwidth_allocation: Optional[pulumi.Input[float]] = None,
              dialing_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth_allocation is None and 'bandwidthAllocation' in kwargs:
+            bandwidth_allocation = kwargs['bandwidthAllocation']
+        if bandwidth_allocation is None:
+            raise TypeError("Missing 'bandwidth_allocation' argument")
+        if dialing_capacity is None and 'dialingCapacity' in kwargs:
+            dialing_capacity = kwargs['dialingCapacity']
+
         _setter("bandwidth_allocation", bandwidth_allocation)
         if dialing_capacity is not None:
             _setter("dialing_capacity", dialing_capacity)
@@ -341,9 +387,15 @@ class CampaignTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

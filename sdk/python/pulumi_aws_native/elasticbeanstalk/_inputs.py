@@ -45,7 +45,13 @@ class ApplicationMaxAgeRuleArgs:
              delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              max_age_in_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_source_from_s3 is None and 'deleteSourceFromS3' in kwargs:
+            delete_source_from_s3 = kwargs['deleteSourceFromS3']
+        if max_age_in_days is None and 'maxAgeInDays' in kwargs:
+            max_age_in_days = kwargs['maxAgeInDays']
+
         if delete_source_from_s3 is not None:
             _setter("delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
@@ -113,7 +119,13 @@ class ApplicationMaxCountRuleArgs:
              delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              max_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_source_from_s3 is None and 'deleteSourceFromS3' in kwargs:
+            delete_source_from_s3 = kwargs['deleteSourceFromS3']
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+
         if delete_source_from_s3 is not None:
             _setter("delete_source_from_s3", delete_source_from_s3)
         if enabled is not None:
@@ -177,7 +189,13 @@ class ApplicationResourceLifecycleConfigArgs:
              _setter: Callable[[Any, Any], None],
              service_role: Optional[pulumi.Input[str]] = None,
              version_lifecycle_config: Optional[pulumi.Input['ApplicationVersionLifecycleConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if version_lifecycle_config is None and 'versionLifecycleConfig' in kwargs:
+            version_lifecycle_config = kwargs['versionLifecycleConfig']
+
         if service_role is not None:
             _setter("service_role", service_role)
         if version_lifecycle_config is not None:
@@ -227,7 +245,13 @@ class ApplicationVersionLifecycleConfigArgs:
              _setter: Callable[[Any, Any], None],
              max_age_rule: Optional[pulumi.Input['ApplicationMaxAgeRuleArgs']] = None,
              max_count_rule: Optional[pulumi.Input['ApplicationMaxCountRuleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_age_rule is None and 'maxAgeRule' in kwargs:
+            max_age_rule = kwargs['maxAgeRule']
+        if max_count_rule is None and 'maxCountRule' in kwargs:
+            max_count_rule = kwargs['maxCountRule']
+
         if max_age_rule is not None:
             _setter("max_age_rule", max_age_rule)
         if max_count_rule is not None:
@@ -275,9 +299,19 @@ class ApplicationVersionSourceBundleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket: pulumi.Input[str],
-             s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_key is None:
+            raise TypeError("Missing 's3_key' argument")
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
 
@@ -329,11 +363,21 @@ class ConfigurationTemplateConfigurationOptionSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace: pulumi.Input[str],
-             option_name: pulumi.Input[str],
+             namespace: Optional[pulumi.Input[str]] = None,
+             option_name: Optional[pulumi.Input[str]] = None,
              resource_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if option_name is None and 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if option_name is None:
+            raise TypeError("Missing 'option_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         _setter("namespace", namespace)
         _setter("option_name", option_name)
         if resource_name is not None:
@@ -407,9 +451,19 @@ class ConfigurationTemplateSourceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
-             template_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_name: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+
         _setter("application_name", application_name)
         _setter("template_name", template_name)
 
@@ -461,11 +515,21 @@ class EnvironmentOptionSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace: pulumi.Input[str],
-             option_name: pulumi.Input[str],
+             namespace: Optional[pulumi.Input[str]] = None,
+             option_name: Optional[pulumi.Input[str]] = None,
              resource_name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if option_name is None and 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if option_name is None:
+            raise TypeError("Missing 'option_name' argument")
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+
         _setter("namespace", namespace)
         _setter("option_name", option_name)
         if resource_name is not None:
@@ -539,9 +603,15 @@ class EnvironmentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -593,7 +663,9 @@ class EnvironmentTierArgs:
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if type is not None:

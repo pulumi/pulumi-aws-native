@@ -68,7 +68,27 @@ class TypeActivationArgs:
              type_name: Optional[pulumi.Input[str]] = None,
              type_name_alias: Optional[pulumi.Input[str]] = None,
              version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_update is None and 'autoUpdate' in kwargs:
+            auto_update = kwargs['autoUpdate']
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if logging_config is None and 'loggingConfig' in kwargs:
+            logging_config = kwargs['loggingConfig']
+        if major_version is None and 'majorVersion' in kwargs:
+            major_version = kwargs['majorVersion']
+        if public_type_arn is None and 'publicTypeArn' in kwargs:
+            public_type_arn = kwargs['publicTypeArn']
+        if publisher_id is None and 'publisherId' in kwargs:
+            publisher_id = kwargs['publisherId']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_name_alias is None and 'typeNameAlias' in kwargs:
+            type_name_alias = kwargs['typeNameAlias']
+        if version_bump is None and 'versionBump' in kwargs:
+            version_bump = kwargs['versionBump']
+
         if auto_update is not None:
             _setter("auto_update", auto_update)
         if execution_role_arn is not None:
@@ -296,11 +316,7 @@ class TypeActivation(pulumi.CustomResource):
 
             __props__.__dict__["auto_update"] = auto_update
             __props__.__dict__["execution_role_arn"] = execution_role_arn
-            if logging_config is not None and not isinstance(logging_config, TypeActivationLoggingConfigArgs):
-                logging_config = logging_config or {}
-                def _setter(key, value):
-                    logging_config[key] = value
-                TypeActivationLoggingConfigArgs._configure(_setter, **logging_config)
+            logging_config = _utilities.configure(logging_config, TypeActivationLoggingConfigArgs, True)
             __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["major_version"] = major_version
             __props__.__dict__["public_type_arn"] = public_type_arn

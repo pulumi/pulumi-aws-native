@@ -29,9 +29,19 @@ class VpcdhcpOptionsAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dhcp_options_id: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dhcp_options_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dhcp_options_id is None and 'dhcpOptionsId' in kwargs:
+            dhcp_options_id = kwargs['dhcpOptionsId']
+        if dhcp_options_id is None:
+            raise TypeError("Missing 'dhcp_options_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
         _setter("dhcp_options_id", dhcp_options_id)
         _setter("vpc_id", vpc_id)
 

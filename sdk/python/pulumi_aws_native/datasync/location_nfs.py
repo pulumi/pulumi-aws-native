@@ -39,12 +39,22 @@ class LocationNfsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             on_prem_config: pulumi.Input['LocationNfsOnPremConfigArgs'],
+             on_prem_config: Optional[pulumi.Input['LocationNfsOnPremConfigArgs']] = None,
              mount_options: Optional[pulumi.Input['LocationNfsMountOptionsArgs']] = None,
              server_hostname: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationNfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_prem_config is None and 'onPremConfig' in kwargs:
+            on_prem_config = kwargs['onPremConfig']
+        if on_prem_config is None:
+            raise TypeError("Missing 'on_prem_config' argument")
+        if mount_options is None and 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if server_hostname is None and 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+
         _setter("on_prem_config", on_prem_config)
         if mount_options is not None:
             _setter("mount_options", mount_options)
@@ -172,17 +182,9 @@ class LocationNfs(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationNfsArgs.__new__(LocationNfsArgs)
 
-            if mount_options is not None and not isinstance(mount_options, LocationNfsMountOptionsArgs):
-                mount_options = mount_options or {}
-                def _setter(key, value):
-                    mount_options[key] = value
-                LocationNfsMountOptionsArgs._configure(_setter, **mount_options)
+            mount_options = _utilities.configure(mount_options, LocationNfsMountOptionsArgs, True)
             __props__.__dict__["mount_options"] = mount_options
-            if on_prem_config is not None and not isinstance(on_prem_config, LocationNfsOnPremConfigArgs):
-                on_prem_config = on_prem_config or {}
-                def _setter(key, value):
-                    on_prem_config[key] = value
-                LocationNfsOnPremConfigArgs._configure(_setter, **on_prem_config)
+            on_prem_config = _utilities.configure(on_prem_config, LocationNfsOnPremConfigArgs, True)
             if on_prem_config is None and not opts.urn:
                 raise TypeError("Missing required property 'on_prem_config'")
             __props__.__dict__["on_prem_config"] = on_prem_config

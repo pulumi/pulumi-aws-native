@@ -47,9 +47,9 @@ class AppBlockBuilderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
-             platform: pulumi.Input[str],
-             vpc_config: pulumi.Input['AppBlockBuilderVpcConfigArgs'],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             platform: Optional[pulumi.Input[str]] = None,
+             vpc_config: Optional[pulumi.Input['AppBlockBuilderVpcConfigArgs']] = None,
              access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]] = None,
              app_block_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,29 @@ class AppBlockBuilderArgs:
              iam_role_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if platform is None:
+            raise TypeError("Missing 'platform' argument")
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+        if vpc_config is None:
+            raise TypeError("Missing 'vpc_config' argument")
+        if access_endpoints is None and 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if app_block_arns is None and 'appBlockArns' in kwargs:
+            app_block_arns = kwargs['appBlockArns']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if enable_default_internet_access is None and 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+
         _setter("instance_type", instance_type)
         _setter("platform", platform)
         _setter("vpc_config", vpc_config)
@@ -264,11 +286,7 @@ class AppBlockBuilder(pulumi.CustomResource):
                 raise TypeError("Missing required property 'platform'")
             __props__.__dict__["platform"] = platform
             __props__.__dict__["tags"] = tags
-            if vpc_config is not None and not isinstance(vpc_config, AppBlockBuilderVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                AppBlockBuilderVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, AppBlockBuilderVpcConfigArgs, True)
             if vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_config'")
             __props__.__dict__["vpc_config"] = vpc_config

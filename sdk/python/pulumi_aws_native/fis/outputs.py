@@ -32,8 +32,10 @@ class ExperimentTemplateActionMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -72,10 +74,20 @@ class ExperimentTemplateLogConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_schema_version: int,
+             log_schema_version: Optional[int] = None,
              cloud_watch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties'] = None,
              s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3ConfigurationProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_schema_version is None and 'logSchemaVersion' in kwargs:
+            log_schema_version = kwargs['logSchemaVersion']
+        if log_schema_version is None:
+            raise TypeError("Missing 'log_schema_version' argument")
+        if cloud_watch_logs_configuration is None and 'cloudWatchLogsConfiguration' in kwargs:
+            cloud_watch_logs_configuration = kwargs['cloudWatchLogsConfiguration']
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+
         _setter("log_schema_version", log_schema_version)
         if cloud_watch_logs_configuration is not None:
             _setter("cloud_watch_logs_configuration", cloud_watch_logs_configuration)
@@ -126,8 +138,14 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties(di
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_group_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_group_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_arn is None and 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+        if log_group_arn is None:
+            raise TypeError("Missing 'log_group_arn' argument")
+
         _setter("log_group_arn", log_group_arn)
 
     @property
@@ -166,9 +184,15 @@ class ExperimentTemplateLogConfigurationS3ConfigurationProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
+             bucket_name: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+
         _setter("bucket_name", bucket_name)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -197,9 +221,13 @@ class ExperimentTemplateStopCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: str,
+             source: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("source", source)
         if value is not None:
             _setter("value", value)
@@ -228,7 +256,9 @@ class ExperimentTemplateTargetMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

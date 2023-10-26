@@ -41,15 +41,31 @@ class PipelineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             stages: pulumi.Input[Sequence[pulumi.Input['PipelineStageDeclarationArgs']]],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             stages: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageDeclarationArgs']]]] = None,
              artifact_store: Optional[pulumi.Input['PipelineArtifactStoreArgs']] = None,
              artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreMapArgs']]]] = None,
              disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageTransitionArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if stages is None:
+            raise TypeError("Missing 'stages' argument")
+        if artifact_store is None and 'artifactStore' in kwargs:
+            artifact_store = kwargs['artifactStore']
+        if artifact_stores is None and 'artifactStores' in kwargs:
+            artifact_stores = kwargs['artifactStores']
+        if disable_inbound_stage_transitions is None and 'disableInboundStageTransitions' in kwargs:
+            disable_inbound_stage_transitions = kwargs['disableInboundStageTransitions']
+        if restart_execution_on_update is None and 'restartExecutionOnUpdate' in kwargs:
+            restart_execution_on_update = kwargs['restartExecutionOnUpdate']
+
         _setter("role_arn", role_arn)
         _setter("stages", stages)
         if artifact_store is not None:
@@ -209,11 +225,7 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            if artifact_store is not None and not isinstance(artifact_store, PipelineArtifactStoreArgs):
-                artifact_store = artifact_store or {}
-                def _setter(key, value):
-                    artifact_store[key] = value
-                PipelineArtifactStoreArgs._configure(_setter, **artifact_store)
+            artifact_store = _utilities.configure(artifact_store, PipelineArtifactStoreArgs, True)
             __props__.__dict__["artifact_store"] = artifact_store
             __props__.__dict__["artifact_stores"] = artifact_stores
             __props__.__dict__["disable_inbound_stage_transitions"] = disable_inbound_stage_transitions

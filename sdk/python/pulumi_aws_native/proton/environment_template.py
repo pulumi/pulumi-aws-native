@@ -50,7 +50,13 @@ class EnvironmentTemplateArgs:
              name: Optional[pulumi.Input[str]] = None,
              provisioning: Optional[pulumi.Input['EnvironmentTemplateProvisioning']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+
         if description is not None:
             _setter("description", description)
         if display_name is not None:

@@ -43,7 +43,7 @@ class NatGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              allocation_id: Optional[pulumi.Input[str]] = None,
              connectivity_type: Optional[pulumi.Input[str]] = None,
              max_drain_duration_seconds: Optional[pulumi.Input[int]] = None,
@@ -52,7 +52,27 @@ class NatGatewayArgs:
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              secondary_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NatGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if allocation_id is None and 'allocationId' in kwargs:
+            allocation_id = kwargs['allocationId']
+        if connectivity_type is None and 'connectivityType' in kwargs:
+            connectivity_type = kwargs['connectivityType']
+        if max_drain_duration_seconds is None and 'maxDrainDurationSeconds' in kwargs:
+            max_drain_duration_seconds = kwargs['maxDrainDurationSeconds']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if secondary_allocation_ids is None and 'secondaryAllocationIds' in kwargs:
+            secondary_allocation_ids = kwargs['secondaryAllocationIds']
+        if secondary_private_ip_address_count is None and 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if secondary_private_ip_addresses is None and 'secondaryPrivateIpAddresses' in kwargs:
+            secondary_private_ip_addresses = kwargs['secondaryPrivateIpAddresses']
+
         _setter("subnet_id", subnet_id)
         if allocation_id is not None:
             _setter("allocation_id", allocation_id)

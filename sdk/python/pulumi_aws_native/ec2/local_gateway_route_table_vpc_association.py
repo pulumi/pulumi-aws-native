@@ -34,10 +34,20 @@ class LocalGatewayRouteTableVpcAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             local_gateway_route_table_id: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
+             local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableVpcAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_gateway_route_table_id is None and 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if local_gateway_route_table_id is None:
+            raise TypeError("Missing 'local_gateway_route_table_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
         _setter("local_gateway_route_table_id", local_gateway_route_table_id)
         _setter("vpc_id", vpc_id)
         if tags is not None:

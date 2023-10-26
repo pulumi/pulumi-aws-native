@@ -36,11 +36,23 @@ class VpcIngressConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ingress_vpc_configuration: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'],
-             service_arn: pulumi.Input[str],
+             ingress_vpc_configuration: Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']] = None,
+             service_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIngressConnectionTagArgs']]]] = None,
              vpc_ingress_connection_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ingress_vpc_configuration is None and 'ingressVpcConfiguration' in kwargs:
+            ingress_vpc_configuration = kwargs['ingressVpcConfiguration']
+        if ingress_vpc_configuration is None:
+            raise TypeError("Missing 'ingress_vpc_configuration' argument")
+        if service_arn is None and 'serviceArn' in kwargs:
+            service_arn = kwargs['serviceArn']
+        if service_arn is None:
+            raise TypeError("Missing 'service_arn' argument")
+        if vpc_ingress_connection_name is None and 'vpcIngressConnectionName' in kwargs:
+            vpc_ingress_connection_name = kwargs['vpcIngressConnectionName']
+
         _setter("ingress_vpc_configuration", ingress_vpc_configuration)
         _setter("service_arn", service_arn)
         if tags is not None:
@@ -150,11 +162,7 @@ class VpcIngressConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcIngressConnectionArgs.__new__(VpcIngressConnectionArgs)
 
-            if ingress_vpc_configuration is not None and not isinstance(ingress_vpc_configuration, VpcIngressConnectionIngressVpcConfigurationArgs):
-                ingress_vpc_configuration = ingress_vpc_configuration or {}
-                def _setter(key, value):
-                    ingress_vpc_configuration[key] = value
-                VpcIngressConnectionIngressVpcConfigurationArgs._configure(_setter, **ingress_vpc_configuration)
+            ingress_vpc_configuration = _utilities.configure(ingress_vpc_configuration, VpcIngressConnectionIngressVpcConfigurationArgs, True)
             if ingress_vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ingress_vpc_configuration'")
             __props__.__dict__["ingress_vpc_configuration"] = ingress_vpc_configuration

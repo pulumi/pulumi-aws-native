@@ -59,7 +59,15 @@ class AssessmentArgs:
              scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
              status: Optional[pulumi.Input['AssessmentStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_reports_destination is None and 'assessmentReportsDestination' in kwargs:
+            assessment_reports_destination = kwargs['assessmentReportsDestination']
+        if aws_account is None and 'awsAccount' in kwargs:
+            aws_account = kwargs['awsAccount']
+        if framework_id is None and 'frameworkId' in kwargs:
+            framework_id = kwargs['frameworkId']
+
         if assessment_reports_destination is not None:
             _setter("assessment_reports_destination", assessment_reports_destination)
         if aws_account is not None:
@@ -253,28 +261,16 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-            if assessment_reports_destination is not None and not isinstance(assessment_reports_destination, AssessmentReportsDestinationArgs):
-                assessment_reports_destination = assessment_reports_destination or {}
-                def _setter(key, value):
-                    assessment_reports_destination[key] = value
-                AssessmentReportsDestinationArgs._configure(_setter, **assessment_reports_destination)
+            assessment_reports_destination = _utilities.configure(assessment_reports_destination, AssessmentReportsDestinationArgs, True)
             __props__.__dict__["assessment_reports_destination"] = assessment_reports_destination
-            if aws_account is not None and not isinstance(aws_account, AssessmentAwsAccountArgs):
-                aws_account = aws_account or {}
-                def _setter(key, value):
-                    aws_account[key] = value
-                AssessmentAwsAccountArgs._configure(_setter, **aws_account)
+            aws_account = _utilities.configure(aws_account, AssessmentAwsAccountArgs, True)
             __props__.__dict__["aws_account"] = aws_account
             __props__.__dict__["delegations"] = delegations
             __props__.__dict__["description"] = description
             __props__.__dict__["framework_id"] = framework_id
             __props__.__dict__["name"] = name
             __props__.__dict__["roles"] = roles
-            if scope is not None and not isinstance(scope, AssessmentScopeArgs):
-                scope = scope or {}
-                def _setter(key, value):
-                    scope[key] = value
-                AssessmentScopeArgs._configure(_setter, **scope)
+            scope = _utilities.configure(scope, AssessmentScopeArgs, True)
             __props__.__dict__["scope"] = scope
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags

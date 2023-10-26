@@ -40,12 +40,24 @@ class UrlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_type: pulumi.Input['UrlAuthType'],
-             target_function_arn: pulumi.Input[str],
+             auth_type: Optional[pulumi.Input['UrlAuthType']] = None,
+             target_function_arn: Optional[pulumi.Input[str]] = None,
              cors: Optional[pulumi.Input['UrlCorsArgs']] = None,
              invoke_mode: Optional[pulumi.Input['UrlInvokeMode']] = None,
              qualifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if auth_type is None:
+            raise TypeError("Missing 'auth_type' argument")
+        if target_function_arn is None and 'targetFunctionArn' in kwargs:
+            target_function_arn = kwargs['targetFunctionArn']
+        if target_function_arn is None:
+            raise TypeError("Missing 'target_function_arn' argument")
+        if invoke_mode is None and 'invokeMode' in kwargs:
+            invoke_mode = kwargs['invokeMode']
+
         _setter("auth_type", auth_type)
         _setter("target_function_arn", target_function_arn)
         if cors is not None:
@@ -179,11 +191,7 @@ class Url(pulumi.CustomResource):
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
-            if cors is not None and not isinstance(cors, UrlCorsArgs):
-                cors = cors or {}
-                def _setter(key, value):
-                    cors[key] = value
-                UrlCorsArgs._configure(_setter, **cors)
+            cors = _utilities.configure(cors, UrlCorsArgs, True)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["invoke_mode"] = invoke_mode
             __props__.__dict__["qualifier"] = qualifier

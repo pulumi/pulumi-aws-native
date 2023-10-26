@@ -58,8 +58,8 @@ class PricingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input['PricingRuleScope'],
-             type: pulumi.Input['PricingRuleType'],
+             scope: Optional[pulumi.Input['PricingRuleScope']] = None,
+             type: Optional[pulumi.Input['PricingRuleType']] = None,
              billing_entity: Optional[pulumi.Input['PricingRuleBillingEntity']] = None,
              description: Optional[pulumi.Input[str]] = None,
              modifier_percentage: Optional[pulumi.Input[float]] = None,
@@ -69,7 +69,19 @@ class PricingRuleArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None,
              tiering: Optional[pulumi.Input['TieringPropertiesArgs']] = None,
              usage_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if billing_entity is None and 'billingEntity' in kwargs:
+            billing_entity = kwargs['billingEntity']
+        if modifier_percentage is None and 'modifierPercentage' in kwargs:
+            modifier_percentage = kwargs['modifierPercentage']
+        if usage_type is None and 'usageType' in kwargs:
+            usage_type = kwargs['usageType']
+
         _setter("scope", scope)
         _setter("type", type)
         if billing_entity is not None:
@@ -318,11 +330,7 @@ class PricingRule(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["service"] = service
             __props__.__dict__["tags"] = tags
-            if tiering is not None and not isinstance(tiering, TieringPropertiesArgs):
-                tiering = tiering or {}
-                def _setter(key, value):
-                    tiering[key] = value
-                TieringPropertiesArgs._configure(_setter, **tiering)
+            tiering = _utilities.configure(tiering, TieringPropertiesArgs, True)
             __props__.__dict__["tiering"] = tiering
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

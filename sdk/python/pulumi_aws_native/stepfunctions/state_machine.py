@@ -46,7 +46,7 @@ class StateMachineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              definition: Optional[pulumi.Input['StateMachineDefinitionArgs']] = None,
              definition_s3_location: Optional[pulumi.Input['StateMachineS3LocationArgs']] = None,
              definition_string: Optional[pulumi.Input[str]] = None,
@@ -56,7 +56,27 @@ class StateMachineArgs:
              state_machine_type: Optional[pulumi.Input['StateMachineType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineTagsEntryArgs']]]] = None,
              tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if definition_s3_location is None and 'definitionS3Location' in kwargs:
+            definition_s3_location = kwargs['definitionS3Location']
+        if definition_string is None and 'definitionString' in kwargs:
+            definition_string = kwargs['definitionString']
+        if definition_substitutions is None and 'definitionSubstitutions' in kwargs:
+            definition_substitutions = kwargs['definitionSubstitutions']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if state_machine_name is None and 'stateMachineName' in kwargs:
+            state_machine_name = kwargs['stateMachineName']
+        if state_machine_type is None and 'stateMachineType' in kwargs:
+            state_machine_type = kwargs['stateMachineType']
+        if tracing_configuration is None and 'tracingConfiguration' in kwargs:
+            tracing_configuration = kwargs['tracingConfiguration']
+
         _setter("role_arn", role_arn)
         if definition is not None:
             _setter("definition", definition)
@@ -237,30 +257,14 @@ class StateMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StateMachineArgs.__new__(StateMachineArgs)
 
-            if definition is not None and not isinstance(definition, StateMachineDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                StateMachineDefinitionArgs._configure(_setter, **definition)
+            definition = _utilities.configure(definition, StateMachineDefinitionArgs, True)
             __props__.__dict__["definition"] = definition
-            if definition_s3_location is not None and not isinstance(definition_s3_location, StateMachineS3LocationArgs):
-                definition_s3_location = definition_s3_location or {}
-                def _setter(key, value):
-                    definition_s3_location[key] = value
-                StateMachineS3LocationArgs._configure(_setter, **definition_s3_location)
+            definition_s3_location = _utilities.configure(definition_s3_location, StateMachineS3LocationArgs, True)
             __props__.__dict__["definition_s3_location"] = definition_s3_location
             __props__.__dict__["definition_string"] = definition_string
-            if definition_substitutions is not None and not isinstance(definition_substitutions, StateMachineDefinitionSubstitutionsArgs):
-                definition_substitutions = definition_substitutions or {}
-                def _setter(key, value):
-                    definition_substitutions[key] = value
-                StateMachineDefinitionSubstitutionsArgs._configure(_setter, **definition_substitutions)
+            definition_substitutions = _utilities.configure(definition_substitutions, StateMachineDefinitionSubstitutionsArgs, True)
             __props__.__dict__["definition_substitutions"] = definition_substitutions
-            if logging_configuration is not None and not isinstance(logging_configuration, StateMachineLoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                StateMachineLoggingConfigurationArgs._configure(_setter, **logging_configuration)
+            logging_configuration = _utilities.configure(logging_configuration, StateMachineLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -268,11 +272,7 @@ class StateMachine(pulumi.CustomResource):
             __props__.__dict__["state_machine_name"] = state_machine_name
             __props__.__dict__["state_machine_type"] = state_machine_type
             __props__.__dict__["tags"] = tags
-            if tracing_configuration is not None and not isinstance(tracing_configuration, StateMachineTracingConfigurationArgs):
-                tracing_configuration = tracing_configuration or {}
-                def _setter(key, value):
-                    tracing_configuration[key] = value
-                StateMachineTracingConfigurationArgs._configure(_setter, **tracing_configuration)
+            tracing_configuration = _utilities.configure(tracing_configuration, StateMachineTracingConfigurationArgs, True)
             __props__.__dict__["tracing_configuration"] = tracing_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["name"] = None

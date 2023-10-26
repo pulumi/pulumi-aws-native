@@ -49,7 +49,23 @@ class DomainNameArgs:
              regional_certificate_arn: Optional[pulumi.Input[str]] = None,
              security_policy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if endpoint_configuration is None and 'endpointConfiguration' in kwargs:
+            endpoint_configuration = kwargs['endpointConfiguration']
+        if mutual_tls_authentication is None and 'mutualTlsAuthentication' in kwargs:
+            mutual_tls_authentication = kwargs['mutualTlsAuthentication']
+        if ownership_verification_certificate_arn is None and 'ownershipVerificationCertificateArn' in kwargs:
+            ownership_verification_certificate_arn = kwargs['ownershipVerificationCertificateArn']
+        if regional_certificate_arn is None and 'regionalCertificateArn' in kwargs:
+            regional_certificate_arn = kwargs['regionalCertificateArn']
+        if security_policy is None and 'securityPolicy' in kwargs:
+            security_policy = kwargs['securityPolicy']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
         if domain_name is not None:
@@ -207,17 +223,9 @@ class DomainName(pulumi.CustomResource):
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["domain_name"] = domain_name
-            if endpoint_configuration is not None and not isinstance(endpoint_configuration, DomainNameEndpointConfigurationArgs):
-                endpoint_configuration = endpoint_configuration or {}
-                def _setter(key, value):
-                    endpoint_configuration[key] = value
-                DomainNameEndpointConfigurationArgs._configure(_setter, **endpoint_configuration)
+            endpoint_configuration = _utilities.configure(endpoint_configuration, DomainNameEndpointConfigurationArgs, True)
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
-            if mutual_tls_authentication is not None and not isinstance(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs):
-                mutual_tls_authentication = mutual_tls_authentication or {}
-                def _setter(key, value):
-                    mutual_tls_authentication[key] = value
-                DomainNameMutualTlsAuthenticationArgs._configure(_setter, **mutual_tls_authentication)
+            mutual_tls_authentication = _utilities.configure(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs, True)
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["ownership_verification_certificate_arn"] = ownership_verification_certificate_arn
             __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn

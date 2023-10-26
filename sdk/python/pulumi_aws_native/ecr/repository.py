@@ -54,7 +54,23 @@ class RepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              repository_policy_text: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if empty_on_delete is None and 'emptyOnDelete' in kwargs:
+            empty_on_delete = kwargs['emptyOnDelete']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if image_tag_mutability is None and 'imageTagMutability' in kwargs:
+            image_tag_mutability = kwargs['imageTagMutability']
+        if lifecycle_policy is None and 'lifecyclePolicy' in kwargs:
+            lifecycle_policy = kwargs['lifecyclePolicy']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_policy_text is None and 'repositoryPolicyText' in kwargs:
+            repository_policy_text = kwargs['repositoryPolicyText']
+
         if empty_on_delete is not None:
             _setter("empty_on_delete", empty_on_delete)
         if encryption_configuration is not None:
@@ -227,24 +243,12 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["empty_on_delete"] = empty_on_delete
-            if encryption_configuration is not None and not isinstance(encryption_configuration, RepositoryEncryptionConfigurationArgs):
-                encryption_configuration = encryption_configuration or {}
-                def _setter(key, value):
-                    encryption_configuration[key] = value
-                RepositoryEncryptionConfigurationArgs._configure(_setter, **encryption_configuration)
+            encryption_configuration = _utilities.configure(encryption_configuration, RepositoryEncryptionConfigurationArgs, True)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
-            if image_scanning_configuration is not None and not isinstance(image_scanning_configuration, RepositoryImageScanningConfigurationArgs):
-                image_scanning_configuration = image_scanning_configuration or {}
-                def _setter(key, value):
-                    image_scanning_configuration[key] = value
-                RepositoryImageScanningConfigurationArgs._configure(_setter, **image_scanning_configuration)
+            image_scanning_configuration = _utilities.configure(image_scanning_configuration, RepositoryImageScanningConfigurationArgs, True)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
-            if lifecycle_policy is not None and not isinstance(lifecycle_policy, RepositoryLifecyclePolicyArgs):
-                lifecycle_policy = lifecycle_policy or {}
-                def _setter(key, value):
-                    lifecycle_policy[key] = value
-                RepositoryLifecyclePolicyArgs._configure(_setter, **lifecycle_policy)
+            lifecycle_policy = _utilities.configure(lifecycle_policy, RepositoryLifecyclePolicyArgs, True)
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["repository_policy_text"] = repository_policy_text

@@ -56,7 +56,7 @@ class DocumentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: Any,
+             content: Optional[Any] = None,
              attachments: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]]] = None,
              document_format: Optional[pulumi.Input['DocumentFormat']] = None,
              document_type: Optional[pulumi.Input['DocumentType']] = None,
@@ -66,7 +66,21 @@ class DocumentArgs:
              target_type: Optional[pulumi.Input[str]] = None,
              update_method: Optional[pulumi.Input['DocumentUpdateMethod']] = None,
              version_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if document_format is None and 'documentFormat' in kwargs:
+            document_format = kwargs['documentFormat']
+        if document_type is None and 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if update_method is None and 'updateMethod' in kwargs:
+            update_method = kwargs['updateMethod']
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
         _setter("content", content)
         if attachments is not None:
             _setter("attachments", attachments)

@@ -70,11 +70,11 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             master_database_name: pulumi.Input[str],
-             master_username: pulumi.Input[str],
-             relational_database_blueprint_id: pulumi.Input[str],
-             relational_database_bundle_id: pulumi.Input[str],
-             relational_database_name: pulumi.Input[str],
+             master_database_name: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             relational_database_blueprint_id: Optional[pulumi.Input[str]] = None,
+             relational_database_bundle_id: Optional[pulumi.Input[str]] = None,
+             relational_database_name: Optional[pulumi.Input[str]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              backup_retention: Optional[pulumi.Input[bool]] = None,
              ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
@@ -85,7 +85,47 @@ class DatabaseArgs:
              relational_database_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRelationalDatabaseParameterArgs']]]] = None,
              rotate_master_user_password: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if master_database_name is None and 'masterDatabaseName' in kwargs:
+            master_database_name = kwargs['masterDatabaseName']
+        if master_database_name is None:
+            raise TypeError("Missing 'master_database_name' argument")
+        if master_username is None and 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if master_username is None:
+            raise TypeError("Missing 'master_username' argument")
+        if relational_database_blueprint_id is None and 'relationalDatabaseBlueprintId' in kwargs:
+            relational_database_blueprint_id = kwargs['relationalDatabaseBlueprintId']
+        if relational_database_blueprint_id is None:
+            raise TypeError("Missing 'relational_database_blueprint_id' argument")
+        if relational_database_bundle_id is None and 'relationalDatabaseBundleId' in kwargs:
+            relational_database_bundle_id = kwargs['relationalDatabaseBundleId']
+        if relational_database_bundle_id is None:
+            raise TypeError("Missing 'relational_database_bundle_id' argument")
+        if relational_database_name is None and 'relationalDatabaseName' in kwargs:
+            relational_database_name = kwargs['relationalDatabaseName']
+        if relational_database_name is None:
+            raise TypeError("Missing 'relational_database_name' argument")
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if backup_retention is None and 'backupRetention' in kwargs:
+            backup_retention = kwargs['backupRetention']
+        if ca_certificate_identifier is None and 'caCertificateIdentifier' in kwargs:
+            ca_certificate_identifier = kwargs['caCertificateIdentifier']
+        if master_user_password is None and 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if relational_database_parameters is None and 'relationalDatabaseParameters' in kwargs:
+            relational_database_parameters = kwargs['relationalDatabaseParameters']
+        if rotate_master_user_password is None and 'rotateMasterUserPassword' in kwargs:
+            rotate_master_user_password = kwargs['rotateMasterUserPassword']
+
         _setter("master_database_name", master_database_name)
         _setter("master_username", master_username)
         _setter("relational_database_blueprint_id", relational_database_blueprint_id)

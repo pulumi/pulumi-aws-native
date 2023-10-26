@@ -45,7 +45,11 @@ class ListArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]]] = None,
              variable_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if variable_type is None and 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         if description is not None:
             _setter("description", description)
         if elements is not None:

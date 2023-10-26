@@ -40,14 +40,32 @@ class TransitGatewayVpcAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             transit_gateway_id: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              add_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
              remove_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayVpcAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transit_gateway_id is None:
+            raise TypeError("Missing 'transit_gateway_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if add_subnet_ids is None and 'addSubnetIds' in kwargs:
+            add_subnet_ids = kwargs['addSubnetIds']
+        if remove_subnet_ids is None and 'removeSubnetIds' in kwargs:
+            remove_subnet_ids = kwargs['removeSubnetIds']
+
         _setter("subnet_ids", subnet_ids)
         _setter("transit_gateway_id", transit_gateway_id)
         _setter("vpc_id", vpc_id)
@@ -192,11 +210,7 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
             __props__ = TransitGatewayVpcAttachmentArgs.__new__(TransitGatewayVpcAttachmentArgs)
 
             __props__.__dict__["add_subnet_ids"] = add_subnet_ids
-            if options is not None and not isinstance(options, OptionsPropertiesArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                OptionsPropertiesArgs._configure(_setter, **options)
+            options = _utilities.configure(options, OptionsPropertiesArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["remove_subnet_ids"] = remove_subnet_ids
             if subnet_ids is None and not opts.urn:

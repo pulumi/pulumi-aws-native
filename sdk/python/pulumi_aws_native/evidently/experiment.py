@@ -52,10 +52,10 @@ class ExperimentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_goals: pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]],
-             online_ab_config: pulumi.Input['ExperimentOnlineAbConfigObjectArgs'],
-             project: pulumi.Input[str],
-             treatments: pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]],
+             metric_goals: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]]] = None,
+             online_ab_config: Optional[pulumi.Input['ExperimentOnlineAbConfigObjectArgs']] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             treatments: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              randomization_salt: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,29 @@ class ExperimentArgs:
              sampling_rate: Optional[pulumi.Input[int]] = None,
              segment: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_goals is None and 'metricGoals' in kwargs:
+            metric_goals = kwargs['metricGoals']
+        if metric_goals is None:
+            raise TypeError("Missing 'metric_goals' argument")
+        if online_ab_config is None and 'onlineAbConfig' in kwargs:
+            online_ab_config = kwargs['onlineAbConfig']
+        if online_ab_config is None:
+            raise TypeError("Missing 'online_ab_config' argument")
+        if project is None:
+            raise TypeError("Missing 'project' argument")
+        if treatments is None:
+            raise TypeError("Missing 'treatments' argument")
+        if randomization_salt is None and 'randomizationSalt' in kwargs:
+            randomization_salt = kwargs['randomizationSalt']
+        if remove_segment is None and 'removeSegment' in kwargs:
+            remove_segment = kwargs['removeSegment']
+        if running_status is None and 'runningStatus' in kwargs:
+            running_status = kwargs['runningStatus']
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         _setter("metric_goals", metric_goals)
         _setter("online_ab_config", online_ab_config)
         _setter("project", project)
@@ -281,11 +303,7 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'metric_goals'")
             __props__.__dict__["metric_goals"] = metric_goals
             __props__.__dict__["name"] = name
-            if online_ab_config is not None and not isinstance(online_ab_config, ExperimentOnlineAbConfigObjectArgs):
-                online_ab_config = online_ab_config or {}
-                def _setter(key, value):
-                    online_ab_config[key] = value
-                ExperimentOnlineAbConfigObjectArgs._configure(_setter, **online_ab_config)
+            online_ab_config = _utilities.configure(online_ab_config, ExperimentOnlineAbConfigObjectArgs, True)
             if online_ab_config is None and not opts.urn:
                 raise TypeError("Missing required property 'online_ab_config'")
             __props__.__dict__["online_ab_config"] = online_ab_config
@@ -294,11 +312,7 @@ class Experiment(pulumi.CustomResource):
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
             __props__.__dict__["remove_segment"] = remove_segment
-            if running_status is not None and not isinstance(running_status, ExperimentRunningStatusObjectArgs):
-                running_status = running_status or {}
-                def _setter(key, value):
-                    running_status[key] = value
-                ExperimentRunningStatusObjectArgs._configure(_setter, **running_status)
+            running_status = _utilities.configure(running_status, ExperimentRunningStatusObjectArgs, True)
             __props__.__dict__["running_status"] = running_status
             __props__.__dict__["sampling_rate"] = sampling_rate
             __props__.__dict__["segment"] = segment

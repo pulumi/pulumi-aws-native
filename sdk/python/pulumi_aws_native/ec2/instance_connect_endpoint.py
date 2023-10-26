@@ -40,12 +40,24 @@ class InstanceConnectEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              client_token: Optional[pulumi.Input[str]] = None,
              preserve_client_ip: Optional[pulumi.Input[bool]] = None,
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceConnectEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if preserve_client_ip is None and 'preserveClientIp' in kwargs:
+            preserve_client_ip = kwargs['preserveClientIp']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("subnet_id", subnet_id)
         if client_token is not None:
             _setter("client_token", client_token)

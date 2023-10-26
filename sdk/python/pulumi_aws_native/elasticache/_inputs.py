@@ -50,9 +50,13 @@ class AuthenticationModePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['UserAuthenticationModePropertiesType'],
+             type: Optional[pulumi.Input['UserAuthenticationModePropertiesType']] = None,
              passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if passwords is not None:
             _setter("passwords", passwords)
@@ -93,8 +97,14 @@ class CacheClusterCloudWatchLogsDestinationDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+        if log_group is None:
+            raise TypeError("Missing 'log_group' argument")
+
         _setter("log_group", log_group)
 
     @property
@@ -122,7 +132,13 @@ class CacheClusterDestinationDetailsArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
              kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs_details is None and 'cloudWatchLogsDetails' in kwargs:
+            cloud_watch_logs_details = kwargs['cloudWatchLogsDetails']
+        if kinesis_firehose_details is None and 'kinesisFirehoseDetails' in kwargs:
+            kinesis_firehose_details = kwargs['kinesisFirehoseDetails']
+
         if cloud_watch_logs_details is not None:
             _setter("cloud_watch_logs_details", cloud_watch_logs_details)
         if kinesis_firehose_details is not None:
@@ -158,8 +174,14 @@ class CacheClusterKinesisFirehoseDestinationDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delivery_stream: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             delivery_stream: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+        if delivery_stream is None:
+            raise TypeError("Missing 'delivery_stream' argument")
+
         _setter("delivery_stream", delivery_stream)
 
     @property
@@ -189,11 +211,29 @@ class CacheClusterLogDeliveryConfigurationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_details: pulumi.Input['CacheClusterDestinationDetailsArgs'],
-             destination_type: pulumi.Input[str],
-             log_format: pulumi.Input[str],
-             log_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination_details: Optional[pulumi.Input['CacheClusterDestinationDetailsArgs']] = None,
+             destination_type: Optional[pulumi.Input[str]] = None,
+             log_format: Optional[pulumi.Input[str]] = None,
+             log_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_details is None and 'destinationDetails' in kwargs:
+            destination_details = kwargs['destinationDetails']
+        if destination_details is None:
+            raise TypeError("Missing 'destination_details' argument")
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if destination_type is None:
+            raise TypeError("Missing 'destination_type' argument")
+        if log_format is None and 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if log_format is None:
+            raise TypeError("Missing 'log_format' argument")
+        if log_type is None and 'logType' in kwargs:
+            log_type = kwargs['logType']
+        if log_type is None:
+            raise TypeError("Missing 'log_type' argument")
+
         _setter("destination_details", destination_details)
         _setter("destination_type", destination_type)
         _setter("log_format", log_format)
@@ -249,9 +289,15 @@ class CacheClusterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -297,7 +343,13 @@ class GlobalReplicationGroupMemberArgs:
              replication_group_id: Optional[pulumi.Input[str]] = None,
              replication_group_region: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_group_id is None and 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if replication_group_region is None and 'replicationGroupRegion' in kwargs:
+            replication_group_region = kwargs['replicationGroupRegion']
+
         if replication_group_id is not None:
             _setter("replication_group_id", replication_group_id)
         if replication_group_region is not None:
@@ -365,7 +417,15 @@ class GlobalReplicationGroupRegionalConfigurationArgs:
              replication_group_id: Optional[pulumi.Input[str]] = None,
              replication_group_region: Optional[pulumi.Input[str]] = None,
              resharding_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_group_id is None and 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if replication_group_region is None and 'replicationGroupRegion' in kwargs:
+            replication_group_region = kwargs['replicationGroupRegion']
+        if resharding_configurations is None and 'reshardingConfigurations' in kwargs:
+            resharding_configurations = kwargs['reshardingConfigurations']
+
         if replication_group_id is not None:
             _setter("replication_group_id", replication_group_id)
         if replication_group_region is not None:
@@ -429,7 +489,13 @@ class GlobalReplicationGroupReshardingConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              node_group_id: Optional[pulumi.Input[str]] = None,
              preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_group_id is None and 'nodeGroupId' in kwargs:
+            node_group_id = kwargs['nodeGroupId']
+        if preferred_availability_zones is None and 'preferredAvailabilityZones' in kwargs:
+            preferred_availability_zones = kwargs['preferredAvailabilityZones']
+
         if node_group_id is not None:
             _setter("node_group_id", node_group_id)
         if preferred_availability_zones is not None:
@@ -473,9 +539,15 @@ class ParameterGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -509,8 +581,14 @@ class ReplicationGroupCloudWatchLogsDestinationDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+        if log_group is None:
+            raise TypeError("Missing 'log_group' argument")
+
         _setter("log_group", log_group)
 
     @property
@@ -538,7 +616,13 @@ class ReplicationGroupDestinationDetailsArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
              kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs_details is None and 'cloudWatchLogsDetails' in kwargs:
+            cloud_watch_logs_details = kwargs['cloudWatchLogsDetails']
+        if kinesis_firehose_details is None and 'kinesisFirehoseDetails' in kwargs:
+            kinesis_firehose_details = kwargs['kinesisFirehoseDetails']
+
         if cloud_watch_logs_details is not None:
             _setter("cloud_watch_logs_details", cloud_watch_logs_details)
         if kinesis_firehose_details is not None:
@@ -574,8 +658,14 @@ class ReplicationGroupKinesisFirehoseDestinationDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delivery_stream: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             delivery_stream: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+        if delivery_stream is None:
+            raise TypeError("Missing 'delivery_stream' argument")
+
         _setter("delivery_stream", delivery_stream)
 
     @property
@@ -605,11 +695,29 @@ class ReplicationGroupLogDeliveryConfigurationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_details: pulumi.Input['ReplicationGroupDestinationDetailsArgs'],
-             destination_type: pulumi.Input[str],
-             log_format: pulumi.Input[str],
-             log_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination_details: Optional[pulumi.Input['ReplicationGroupDestinationDetailsArgs']] = None,
+             destination_type: Optional[pulumi.Input[str]] = None,
+             log_format: Optional[pulumi.Input[str]] = None,
+             log_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_details is None and 'destinationDetails' in kwargs:
+            destination_details = kwargs['destinationDetails']
+        if destination_details is None:
+            raise TypeError("Missing 'destination_details' argument")
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+        if destination_type is None:
+            raise TypeError("Missing 'destination_type' argument")
+        if log_format is None and 'logFormat' in kwargs:
+            log_format = kwargs['logFormat']
+        if log_format is None:
+            raise TypeError("Missing 'log_format' argument")
+        if log_type is None and 'logType' in kwargs:
+            log_type = kwargs['logType']
+        if log_type is None:
+            raise TypeError("Missing 'log_type' argument")
+
         _setter("destination_details", destination_details)
         _setter("destination_type", destination_type)
         _setter("log_format", log_format)
@@ -676,7 +784,17 @@ class ReplicationGroupNodeGroupConfigurationArgs:
              replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replica_count: Optional[pulumi.Input[int]] = None,
              slots: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_group_id is None and 'nodeGroupId' in kwargs:
+            node_group_id = kwargs['nodeGroupId']
+        if primary_availability_zone is None and 'primaryAvailabilityZone' in kwargs:
+            primary_availability_zone = kwargs['primaryAvailabilityZone']
+        if replica_availability_zones is None and 'replicaAvailabilityZones' in kwargs:
+            replica_availability_zones = kwargs['replicaAvailabilityZones']
+        if replica_count is None and 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+
         if node_group_id is not None:
             _setter("node_group_id", node_group_id)
         if primary_availability_zone is not None:
@@ -747,9 +865,15 @@ class ReplicationGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -785,9 +909,15 @@ class SecurityGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -826,9 +956,15 @@ class SubnetGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -869,9 +1005,13 @@ class UserGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -919,9 +1059,13 @@ class UserTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)

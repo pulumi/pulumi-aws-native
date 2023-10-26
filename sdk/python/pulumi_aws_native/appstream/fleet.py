@@ -69,7 +69,7 @@ class FleetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
              compute_capacity: Optional[pulumi.Input['FleetComputeCapacityArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              disconnect_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -91,7 +91,47 @@ class FleetArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
              usb_device_filter_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if compute_capacity is None and 'computeCapacity' in kwargs:
+            compute_capacity = kwargs['computeCapacity']
+        if disconnect_timeout_in_seconds is None and 'disconnectTimeoutInSeconds' in kwargs:
+            disconnect_timeout_in_seconds = kwargs['disconnectTimeoutInSeconds']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if domain_join_info is None and 'domainJoinInfo' in kwargs:
+            domain_join_info = kwargs['domainJoinInfo']
+        if enable_default_internet_access is None and 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if fleet_type is None and 'fleetType' in kwargs:
+            fleet_type = kwargs['fleetType']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if idle_disconnect_timeout_in_seconds is None and 'idleDisconnectTimeoutInSeconds' in kwargs:
+            idle_disconnect_timeout_in_seconds = kwargs['idleDisconnectTimeoutInSeconds']
+        if image_arn is None and 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if max_concurrent_sessions is None and 'maxConcurrentSessions' in kwargs:
+            max_concurrent_sessions = kwargs['maxConcurrentSessions']
+        if max_sessions_per_instance is None and 'maxSessionsPerInstance' in kwargs:
+            max_sessions_per_instance = kwargs['maxSessionsPerInstance']
+        if max_user_duration_in_seconds is None and 'maxUserDurationInSeconds' in kwargs:
+            max_user_duration_in_seconds = kwargs['maxUserDurationInSeconds']
+        if session_script_s3_location is None and 'sessionScriptS3Location' in kwargs:
+            session_script_s3_location = kwargs['sessionScriptS3Location']
+        if stream_view is None and 'streamView' in kwargs:
+            stream_view = kwargs['streamView']
+        if usb_device_filter_strings is None and 'usbDeviceFilterStrings' in kwargs:
+            usb_device_filter_strings = kwargs['usbDeviceFilterStrings']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("instance_type", instance_type)
         if compute_capacity is not None:
             _setter("compute_capacity", compute_capacity)
@@ -434,20 +474,12 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
-            if compute_capacity is not None and not isinstance(compute_capacity, FleetComputeCapacityArgs):
-                compute_capacity = compute_capacity or {}
-                def _setter(key, value):
-                    compute_capacity[key] = value
-                FleetComputeCapacityArgs._configure(_setter, **compute_capacity)
+            compute_capacity = _utilities.configure(compute_capacity, FleetComputeCapacityArgs, True)
             __props__.__dict__["compute_capacity"] = compute_capacity
             __props__.__dict__["description"] = description
             __props__.__dict__["disconnect_timeout_in_seconds"] = disconnect_timeout_in_seconds
             __props__.__dict__["display_name"] = display_name
-            if domain_join_info is not None and not isinstance(domain_join_info, FleetDomainJoinInfoArgs):
-                domain_join_info = domain_join_info or {}
-                def _setter(key, value):
-                    domain_join_info[key] = value
-                FleetDomainJoinInfoArgs._configure(_setter, **domain_join_info)
+            domain_join_info = _utilities.configure(domain_join_info, FleetDomainJoinInfoArgs, True)
             __props__.__dict__["domain_join_info"] = domain_join_info
             __props__.__dict__["enable_default_internet_access"] = enable_default_internet_access
             __props__.__dict__["fleet_type"] = fleet_type
@@ -463,20 +495,12 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["max_user_duration_in_seconds"] = max_user_duration_in_seconds
             __props__.__dict__["name"] = name
             __props__.__dict__["platform"] = platform
-            if session_script_s3_location is not None and not isinstance(session_script_s3_location, FleetS3LocationArgs):
-                session_script_s3_location = session_script_s3_location or {}
-                def _setter(key, value):
-                    session_script_s3_location[key] = value
-                FleetS3LocationArgs._configure(_setter, **session_script_s3_location)
+            session_script_s3_location = _utilities.configure(session_script_s3_location, FleetS3LocationArgs, True)
             __props__.__dict__["session_script_s3_location"] = session_script_s3_location
             __props__.__dict__["stream_view"] = stream_view
             __props__.__dict__["tags"] = tags
             __props__.__dict__["usb_device_filter_strings"] = usb_device_filter_strings
-            if vpc_config is not None and not isinstance(vpc_config, FleetVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                FleetVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, FleetVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fleet_type", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

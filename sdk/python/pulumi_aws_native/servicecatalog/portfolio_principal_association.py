@@ -31,11 +31,27 @@ class PortfolioPrincipalAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             portfolio_id: pulumi.Input[str],
-             principal_arn: pulumi.Input[str],
-             principal_type: pulumi.Input[str],
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             principal_arn: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if principal_arn is None and 'principalArn' in kwargs:
+            principal_arn = kwargs['principalArn']
+        if principal_arn is None:
+            raise TypeError("Missing 'principal_arn' argument")
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("portfolio_id", portfolio_id)
         _setter("principal_arn", principal_arn)
         _setter("principal_type", principal_type)

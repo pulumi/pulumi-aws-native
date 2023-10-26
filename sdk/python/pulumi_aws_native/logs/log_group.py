@@ -51,7 +51,17 @@ class LogGroupArgs:
              log_group_name: Optional[pulumi.Input[str]] = None,
              retention_in_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_protection_policy is None and 'dataProtectionPolicy' in kwargs:
+            data_protection_policy = kwargs['dataProtectionPolicy']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+
         if data_protection_policy is not None:
             _setter("data_protection_policy", data_protection_policy)
         if kms_key_id is not None:

@@ -47,14 +47,24 @@ class ContactFlowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             instance_arn: pulumi.Input[str],
-             type: pulumi.Input['ContactFlowType'],
+             content: Optional[pulumi.Input[str]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ContactFlowType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['ContactFlowState']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContactFlowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("content", content)
         _setter("instance_arn", instance_arn)
         _setter("type", type)

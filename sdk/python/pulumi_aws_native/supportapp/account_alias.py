@@ -26,8 +26,14 @@ class AccountAliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_alias: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_alias: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_alias is None and 'accountAlias' in kwargs:
+            account_alias = kwargs['accountAlias']
+        if account_alias is None:
+            raise TypeError("Missing 'account_alias' argument")
+
         _setter("account_alias", account_alias)
 
     @property

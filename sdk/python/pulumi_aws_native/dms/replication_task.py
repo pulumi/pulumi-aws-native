@@ -51,11 +51,11 @@ class ReplicationTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             migration_type: pulumi.Input[str],
-             replication_instance_arn: pulumi.Input[str],
-             source_endpoint_arn: pulumi.Input[str],
-             table_mappings: pulumi.Input[str],
-             target_endpoint_arn: pulumi.Input[str],
+             migration_type: Optional[pulumi.Input[str]] = None,
+             replication_instance_arn: Optional[pulumi.Input[str]] = None,
+             source_endpoint_arn: Optional[pulumi.Input[str]] = None,
+             table_mappings: Optional[pulumi.Input[str]] = None,
+             target_endpoint_arn: Optional[pulumi.Input[str]] = None,
              cdc_start_position: Optional[pulumi.Input[str]] = None,
              cdc_start_time: Optional[pulumi.Input[float]] = None,
              cdc_stop_position: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,43 @@ class ReplicationTaskArgs:
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationTaskTagArgs']]]] = None,
              task_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if migration_type is None and 'migrationType' in kwargs:
+            migration_type = kwargs['migrationType']
+        if migration_type is None:
+            raise TypeError("Missing 'migration_type' argument")
+        if replication_instance_arn is None and 'replicationInstanceArn' in kwargs:
+            replication_instance_arn = kwargs['replicationInstanceArn']
+        if replication_instance_arn is None:
+            raise TypeError("Missing 'replication_instance_arn' argument")
+        if source_endpoint_arn is None and 'sourceEndpointArn' in kwargs:
+            source_endpoint_arn = kwargs['sourceEndpointArn']
+        if source_endpoint_arn is None:
+            raise TypeError("Missing 'source_endpoint_arn' argument")
+        if table_mappings is None and 'tableMappings' in kwargs:
+            table_mappings = kwargs['tableMappings']
+        if table_mappings is None:
+            raise TypeError("Missing 'table_mappings' argument")
+        if target_endpoint_arn is None and 'targetEndpointArn' in kwargs:
+            target_endpoint_arn = kwargs['targetEndpointArn']
+        if target_endpoint_arn is None:
+            raise TypeError("Missing 'target_endpoint_arn' argument")
+        if cdc_start_position is None and 'cdcStartPosition' in kwargs:
+            cdc_start_position = kwargs['cdcStartPosition']
+        if cdc_start_time is None and 'cdcStartTime' in kwargs:
+            cdc_start_time = kwargs['cdcStartTime']
+        if cdc_stop_position is None and 'cdcStopPosition' in kwargs:
+            cdc_stop_position = kwargs['cdcStopPosition']
+        if replication_task_identifier is None and 'replicationTaskIdentifier' in kwargs:
+            replication_task_identifier = kwargs['replicationTaskIdentifier']
+        if replication_task_settings is None and 'replicationTaskSettings' in kwargs:
+            replication_task_settings = kwargs['replicationTaskSettings']
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if task_data is None and 'taskData' in kwargs:
+            task_data = kwargs['taskData']
+
         _setter("migration_type", migration_type)
         _setter("replication_instance_arn", replication_instance_arn)
         _setter("source_endpoint_arn", source_endpoint_arn)

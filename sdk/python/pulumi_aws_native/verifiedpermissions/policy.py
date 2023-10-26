@@ -30,9 +30,15 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             definition: pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']],
+             definition: Optional[pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']]] = None,
              policy_store_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if policy_store_id is None and 'policyStoreId' in kwargs:
+            policy_store_id = kwargs['policyStoreId']
+
         _setter("definition", definition)
         if policy_store_id is not None:
             _setter("policy_store_id", policy_store_id)

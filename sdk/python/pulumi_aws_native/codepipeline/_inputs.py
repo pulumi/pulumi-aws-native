@@ -47,9 +47,19 @@ class CustomActionTypeArtifactDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maximum_count: pulumi.Input[int],
-             minimum_count: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             maximum_count: Optional[pulumi.Input[int]] = None,
+             minimum_count: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_count is None and 'maximumCount' in kwargs:
+            maximum_count = kwargs['maximumCount']
+        if maximum_count is None:
+            raise TypeError("Missing 'maximum_count' argument")
+        if minimum_count is None and 'minimumCount' in kwargs:
+            minimum_count = kwargs['minimumCount']
+        if minimum_count is None:
+            raise TypeError("Missing 'minimum_count' argument")
+
         _setter("maximum_count", maximum_count)
         _setter("minimum_count", minimum_count)
 
@@ -111,14 +121,24 @@ class CustomActionTypeConfigurationPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[bool],
-             name: pulumi.Input[str],
-             required: pulumi.Input[bool],
-             secret: pulumi.Input[bool],
+             key: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             required: Optional[pulumi.Input[bool]] = None,
+             secret: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              queryable: Optional[pulumi.Input[bool]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if required is None:
+            raise TypeError("Missing 'required' argument")
+        if secret is None:
+            raise TypeError("Missing 'secret' argument")
+
         _setter("key", key)
         _setter("name", name)
         _setter("required", required)
@@ -243,7 +263,17 @@ class CustomActionTypeSettingsArgs:
              execution_url_template: Optional[pulumi.Input[str]] = None,
              revision_url_template: Optional[pulumi.Input[str]] = None,
              third_party_configuration_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_url_template is None and 'entityUrlTemplate' in kwargs:
+            entity_url_template = kwargs['entityUrlTemplate']
+        if execution_url_template is None and 'executionUrlTemplate' in kwargs:
+            execution_url_template = kwargs['executionUrlTemplate']
+        if revision_url_template is None and 'revisionUrlTemplate' in kwargs:
+            revision_url_template = kwargs['revisionUrlTemplate']
+        if third_party_configuration_url is None and 'thirdPartyConfigurationUrl' in kwargs:
+            third_party_configuration_url = kwargs['thirdPartyConfigurationUrl']
+
         if entity_url_template is not None:
             _setter("entity_url_template", entity_url_template)
         if execution_url_template is not None:
@@ -315,9 +345,15 @@ class CustomActionTypeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -367,8 +403,8 @@ class PipelineActionDeclarationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_type_id: pulumi.Input['PipelineActionTypeIdArgs'],
-             name: pulumi.Input[str],
+             action_type_id: Optional[pulumi.Input['PipelineActionTypeIdArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
              configuration: Optional[Any] = None,
              input_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineInputArtifactArgs']]]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
@@ -376,7 +412,23 @@ class PipelineActionDeclarationArgs:
              region: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              run_order: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_type_id is None and 'actionTypeId' in kwargs:
+            action_type_id = kwargs['actionTypeId']
+        if action_type_id is None:
+            raise TypeError("Missing 'action_type_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if input_artifacts is None and 'inputArtifacts' in kwargs:
+            input_artifacts = kwargs['inputArtifacts']
+        if output_artifacts is None and 'outputArtifacts' in kwargs:
+            output_artifacts = kwargs['outputArtifacts']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if run_order is None and 'runOrder' in kwargs:
+            run_order = kwargs['runOrder']
+
         _setter("action_type_id", action_type_id)
         _setter("name", name)
         if configuration is not None:
@@ -493,11 +545,21 @@ class PipelineActionTypeIdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             owner: pulumi.Input[str],
-             provider: pulumi.Input[str],
-             version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             category: Optional[pulumi.Input[str]] = None,
+             owner: Optional[pulumi.Input[str]] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
         _setter("category", category)
         _setter("owner", owner)
         _setter("provider", provider)
@@ -553,9 +615,17 @@ class PipelineArtifactStoreMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             artifact_store: pulumi.Input['PipelineArtifactStoreArgs'],
-             region: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             artifact_store: Optional[pulumi.Input['PipelineArtifactStoreArgs']] = None,
+             region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if artifact_store is None and 'artifactStore' in kwargs:
+            artifact_store = kwargs['artifactStore']
+        if artifact_store is None:
+            raise TypeError("Missing 'artifact_store' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
         _setter("artifact_store", artifact_store)
         _setter("region", region)
 
@@ -593,10 +663,18 @@ class PipelineArtifactStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input[str],
-             type: pulumi.Input[str],
+             location: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              encryption_key: Optional[pulumi.Input['PipelineEncryptionKeyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+
         _setter("location", location)
         _setter("type", type)
         if encryption_key is not None:
@@ -643,9 +721,15 @@ class PipelineBlockerDeclarationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("name", name)
         _setter("type", type)
 
@@ -681,9 +765,15 @@ class PipelineEncryptionKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("id", id)
         _setter("type", type)
 
@@ -717,8 +807,12 @@ class PipelineInputArtifactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -742,8 +836,12 @@ class PipelineOutputArtifactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -771,10 +869,16 @@ class PipelineStageDeclarationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['PipelineActionDeclarationArgs']]],
-             name: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineActionDeclarationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              blockers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineBlockerDeclarationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("actions", actions)
         _setter("name", name)
         if blockers is not None:
@@ -821,9 +925,17 @@ class PipelineStageTransitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             reason: pulumi.Input[str],
-             stage_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             reason: Optional[pulumi.Input[str]] = None,
+             stage_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reason is None:
+            raise TypeError("Missing 'reason' argument")
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_name is None:
+            raise TypeError("Missing 'stage_name' argument")
+
         _setter("reason", reason)
         _setter("stage_name", stage_name)
 
@@ -859,9 +971,15 @@ class PipelineTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -899,7 +1017,13 @@ class WebhookAuthConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              allowed_ip_range: Optional[pulumi.Input[str]] = None,
              secret_token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_ip_range is None and 'allowedIpRange' in kwargs:
+            allowed_ip_range = kwargs['allowedIpRange']
+        if secret_token is None and 'secretToken' in kwargs:
+            secret_token = kwargs['secretToken']
+
         if allowed_ip_range is not None:
             _setter("allowed_ip_range", allowed_ip_range)
         if secret_token is not None:
@@ -937,9 +1061,17 @@ class WebhookFilterRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             json_path: pulumi.Input[str],
+             json_path: Optional[pulumi.Input[str]] = None,
              match_equals: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_path is None and 'jsonPath' in kwargs:
+            json_path = kwargs['jsonPath']
+        if json_path is None:
+            raise TypeError("Missing 'json_path' argument")
+        if match_equals is None and 'matchEquals' in kwargs:
+            match_equals = kwargs['matchEquals']
+
         _setter("json_path", json_path)
         if match_equals is not None:
             _setter("match_equals", match_equals)

@@ -44,13 +44,29 @@ class DbProxyEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_proxy_name: pulumi.Input[str],
-             vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             db_proxy_name: Optional[pulumi.Input[str]] = None,
+             vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyEndpointTagFormatArgs']]]] = None,
              target_role: Optional[pulumi.Input['DbProxyEndpointTargetRole']] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_proxy_name is None and 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if db_proxy_name is None:
+            raise TypeError("Missing 'db_proxy_name' argument")
+        if vpc_subnet_ids is None and 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+        if vpc_subnet_ids is None:
+            raise TypeError("Missing 'vpc_subnet_ids' argument")
+        if db_proxy_endpoint_name is None and 'dbProxyEndpointName' in kwargs:
+            db_proxy_endpoint_name = kwargs['dbProxyEndpointName']
+        if target_role is None and 'targetRole' in kwargs:
+            target_role = kwargs['targetRole']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("db_proxy_name", db_proxy_name)
         _setter("vpc_subnet_ids", vpc_subnet_ids)
         if db_proxy_endpoint_name is not None:

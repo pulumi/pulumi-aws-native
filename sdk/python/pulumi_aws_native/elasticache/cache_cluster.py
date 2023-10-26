@@ -83,9 +83,9 @@ class CacheClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_node_type: pulumi.Input[str],
-             engine: pulumi.Input[str],
-             num_cache_nodes: pulumi.Input[int],
+             cache_node_type: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             num_cache_nodes: Optional[pulumi.Input[int]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
              az_mode: Optional[pulumi.Input[str]] = None,
              cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,67 @@ class CacheClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CacheClusterTagArgs']]]] = None,
              transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_node_type is None and 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if cache_node_type is None:
+            raise TypeError("Missing 'cache_node_type' argument")
+        if engine is None:
+            raise TypeError("Missing 'engine' argument")
+        if num_cache_nodes is None and 'numCacheNodes' in kwargs:
+            num_cache_nodes = kwargs['numCacheNodes']
+        if num_cache_nodes is None:
+            raise TypeError("Missing 'num_cache_nodes' argument")
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if az_mode is None and 'azMode' in kwargs:
+            az_mode = kwargs['azMode']
+        if cache_parameter_group_name is None and 'cacheParameterGroupName' in kwargs:
+            cache_parameter_group_name = kwargs['cacheParameterGroupName']
+        if cache_security_group_names is None and 'cacheSecurityGroupNames' in kwargs:
+            cache_security_group_names = kwargs['cacheSecurityGroupNames']
+        if cache_subnet_group_name is None and 'cacheSubnetGroupName' in kwargs:
+            cache_subnet_group_name = kwargs['cacheSubnetGroupName']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if configuration_endpoint_address is None and 'configurationEndpointAddress' in kwargs:
+            configuration_endpoint_address = kwargs['configurationEndpointAddress']
+        if configuration_endpoint_port is None and 'configurationEndpointPort' in kwargs:
+            configuration_endpoint_port = kwargs['configurationEndpointPort']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if ip_discovery is None and 'ipDiscovery' in kwargs:
+            ip_discovery = kwargs['ipDiscovery']
+        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
+            log_delivery_configurations = kwargs['logDeliveryConfigurations']
+        if network_type is None and 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if preferred_availability_zone is None and 'preferredAvailabilityZone' in kwargs:
+            preferred_availability_zone = kwargs['preferredAvailabilityZone']
+        if preferred_availability_zones is None and 'preferredAvailabilityZones' in kwargs:
+            preferred_availability_zones = kwargs['preferredAvailabilityZones']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if redis_endpoint_address is None and 'redisEndpointAddress' in kwargs:
+            redis_endpoint_address = kwargs['redisEndpointAddress']
+        if redis_endpoint_port is None and 'redisEndpointPort' in kwargs:
+            redis_endpoint_port = kwargs['redisEndpointPort']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("cache_node_type", cache_node_type)
         _setter("engine", engine)
         _setter("num_cache_nodes", num_cache_nodes)

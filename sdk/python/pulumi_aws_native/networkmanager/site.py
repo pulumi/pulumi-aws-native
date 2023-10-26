@@ -37,11 +37,17 @@ class SiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             global_network_id: pulumi.Input[str],
+             global_network_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input['SiteLocationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+
         _setter("global_network_id", global_network_id)
         if description is not None:
             _setter("description", description)
@@ -164,11 +170,7 @@ class Site(pulumi.CustomResource):
             if global_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'global_network_id'")
             __props__.__dict__["global_network_id"] = global_network_id
-            if location is not None and not isinstance(location, SiteLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                SiteLocationArgs._configure(_setter, **location)
+            location = _utilities.configure(location, SiteLocationArgs, True)
             __props__.__dict__["location"] = location
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None

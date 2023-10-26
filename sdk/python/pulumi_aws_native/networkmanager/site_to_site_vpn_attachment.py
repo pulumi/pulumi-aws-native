@@ -37,11 +37,23 @@ class SiteToSiteVpnAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             core_network_id: pulumi.Input[str],
-             vpn_connection_arn: pulumi.Input[str],
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             vpn_connection_arn: Optional[pulumi.Input[str]] = None,
              proposed_segment_change: Optional[pulumi.Input['SiteToSiteVpnAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_network_id is None and 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if core_network_id is None:
+            raise TypeError("Missing 'core_network_id' argument")
+        if vpn_connection_arn is None and 'vpnConnectionArn' in kwargs:
+            vpn_connection_arn = kwargs['vpnConnectionArn']
+        if vpn_connection_arn is None:
+            raise TypeError("Missing 'vpn_connection_arn' argument")
+        if proposed_segment_change is None and 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("core_network_id", core_network_id)
         _setter("vpn_connection_arn", vpn_connection_arn)
         if proposed_segment_change is not None:
@@ -162,11 +174,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
-            if proposed_segment_change is not None and not isinstance(proposed_segment_change, SiteToSiteVpnAttachmentProposedSegmentChangeArgs):
-                proposed_segment_change = proposed_segment_change or {}
-                def _setter(key, value):
-                    proposed_segment_change[key] = value
-                SiteToSiteVpnAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
+            proposed_segment_change = _utilities.configure(proposed_segment_change, SiteToSiteVpnAttachmentProposedSegmentChangeArgs, True)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if vpn_connection_arn is None and not opts.urn:

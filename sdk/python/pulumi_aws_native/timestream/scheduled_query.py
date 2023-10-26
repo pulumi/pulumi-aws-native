@@ -46,17 +46,47 @@ class ScheduledQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             error_report_configuration: pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'],
-             notification_configuration: pulumi.Input['ScheduledQueryNotificationConfigurationArgs'],
-             query_string: pulumi.Input[str],
-             schedule_configuration: pulumi.Input['ScheduledQueryScheduleConfigurationArgs'],
-             scheduled_query_execution_role_arn: pulumi.Input[str],
+             error_report_configuration: Optional[pulumi.Input['ScheduledQueryErrorReportConfigurationArgs']] = None,
+             notification_configuration: Optional[pulumi.Input['ScheduledQueryNotificationConfigurationArgs']] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
+             schedule_configuration: Optional[pulumi.Input['ScheduledQueryScheduleConfigurationArgs']] = None,
+             scheduled_query_execution_role_arn: Optional[pulumi.Input[str]] = None,
              client_token: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              scheduled_query_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryTagArgs']]]] = None,
              target_configuration: Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_report_configuration is None and 'errorReportConfiguration' in kwargs:
+            error_report_configuration = kwargs['errorReportConfiguration']
+        if error_report_configuration is None:
+            raise TypeError("Missing 'error_report_configuration' argument")
+        if notification_configuration is None and 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if notification_configuration is None:
+            raise TypeError("Missing 'notification_configuration' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if schedule_configuration is None and 'scheduleConfiguration' in kwargs:
+            schedule_configuration = kwargs['scheduleConfiguration']
+        if schedule_configuration is None:
+            raise TypeError("Missing 'schedule_configuration' argument")
+        if scheduled_query_execution_role_arn is None and 'scheduledQueryExecutionRoleArn' in kwargs:
+            scheduled_query_execution_role_arn = kwargs['scheduledQueryExecutionRoleArn']
+        if scheduled_query_execution_role_arn is None:
+            raise TypeError("Missing 'scheduled_query_execution_role_arn' argument")
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if scheduled_query_name is None and 'scheduledQueryName' in kwargs:
+            scheduled_query_name = kwargs['scheduledQueryName']
+        if target_configuration is None and 'targetConfiguration' in kwargs:
+            target_configuration = kwargs['targetConfiguration']
+
         _setter("error_report_configuration", error_report_configuration)
         _setter("notification_configuration", notification_configuration)
         _setter("query_string", query_string)
@@ -234,31 +264,19 @@ class ScheduledQuery(pulumi.CustomResource):
             __props__ = ScheduledQueryArgs.__new__(ScheduledQueryArgs)
 
             __props__.__dict__["client_token"] = client_token
-            if error_report_configuration is not None and not isinstance(error_report_configuration, ScheduledQueryErrorReportConfigurationArgs):
-                error_report_configuration = error_report_configuration or {}
-                def _setter(key, value):
-                    error_report_configuration[key] = value
-                ScheduledQueryErrorReportConfigurationArgs._configure(_setter, **error_report_configuration)
+            error_report_configuration = _utilities.configure(error_report_configuration, ScheduledQueryErrorReportConfigurationArgs, True)
             if error_report_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'error_report_configuration'")
             __props__.__dict__["error_report_configuration"] = error_report_configuration
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if notification_configuration is not None and not isinstance(notification_configuration, ScheduledQueryNotificationConfigurationArgs):
-                notification_configuration = notification_configuration or {}
-                def _setter(key, value):
-                    notification_configuration[key] = value
-                ScheduledQueryNotificationConfigurationArgs._configure(_setter, **notification_configuration)
+            notification_configuration = _utilities.configure(notification_configuration, ScheduledQueryNotificationConfigurationArgs, True)
             if notification_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_configuration'")
             __props__.__dict__["notification_configuration"] = notification_configuration
             if query_string is None and not opts.urn:
                 raise TypeError("Missing required property 'query_string'")
             __props__.__dict__["query_string"] = query_string
-            if schedule_configuration is not None and not isinstance(schedule_configuration, ScheduledQueryScheduleConfigurationArgs):
-                schedule_configuration = schedule_configuration or {}
-                def _setter(key, value):
-                    schedule_configuration[key] = value
-                ScheduledQueryScheduleConfigurationArgs._configure(_setter, **schedule_configuration)
+            schedule_configuration = _utilities.configure(schedule_configuration, ScheduledQueryScheduleConfigurationArgs, True)
             if schedule_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_configuration'")
             __props__.__dict__["schedule_configuration"] = schedule_configuration
@@ -267,11 +285,7 @@ class ScheduledQuery(pulumi.CustomResource):
             __props__.__dict__["scheduled_query_execution_role_arn"] = scheduled_query_execution_role_arn
             __props__.__dict__["scheduled_query_name"] = scheduled_query_name
             __props__.__dict__["tags"] = tags
-            if target_configuration is not None and not isinstance(target_configuration, ScheduledQueryTargetConfigurationArgs):
-                target_configuration = target_configuration or {}
-                def _setter(key, value):
-                    target_configuration[key] = value
-                ScheduledQueryTargetConfigurationArgs._configure(_setter, **target_configuration)
+            target_configuration = _utilities.configure(target_configuration, ScheduledQueryTargetConfigurationArgs, True)
             __props__.__dict__["target_configuration"] = target_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["sq_error_report_configuration"] = None

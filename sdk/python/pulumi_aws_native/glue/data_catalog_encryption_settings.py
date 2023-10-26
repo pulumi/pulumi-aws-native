@@ -29,9 +29,19 @@ class DataCatalogEncryptionSettingsInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             data_catalog_encryption_settings: pulumi.Input['DataCatalogEncryptionSettingsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             data_catalog_encryption_settings: Optional[pulumi.Input['DataCatalogEncryptionSettingsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if data_catalog_encryption_settings is None and 'dataCatalogEncryptionSettings' in kwargs:
+            data_catalog_encryption_settings = kwargs['dataCatalogEncryptionSettings']
+        if data_catalog_encryption_settings is None:
+            raise TypeError("Missing 'data_catalog_encryption_settings' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("data_catalog_encryption_settings", data_catalog_encryption_settings)
 
@@ -116,11 +126,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             if catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_id'")
             __props__.__dict__["catalog_id"] = catalog_id
-            if data_catalog_encryption_settings is not None and not isinstance(data_catalog_encryption_settings, DataCatalogEncryptionSettingsArgs):
-                data_catalog_encryption_settings = data_catalog_encryption_settings or {}
-                def _setter(key, value):
-                    data_catalog_encryption_settings[key] = value
-                DataCatalogEncryptionSettingsArgs._configure(_setter, **data_catalog_encryption_settings)
+            data_catalog_encryption_settings = _utilities.configure(data_catalog_encryption_settings, DataCatalogEncryptionSettingsArgs, True)
             if data_catalog_encryption_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'data_catalog_encryption_settings'")
             __props__.__dict__["data_catalog_encryption_settings"] = data_catalog_encryption_settings

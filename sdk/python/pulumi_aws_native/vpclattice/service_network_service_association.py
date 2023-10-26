@@ -38,7 +38,15 @@ class ServiceNetworkServiceAssociationArgs:
              service_identifier: Optional[pulumi.Input[str]] = None,
              service_network_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_entry is None and 'dnsEntry' in kwargs:
+            dns_entry = kwargs['dnsEntry']
+        if service_identifier is None and 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+        if service_network_identifier is None and 'serviceNetworkIdentifier' in kwargs:
+            service_network_identifier = kwargs['serviceNetworkIdentifier']
+
         if dns_entry is not None:
             _setter("dns_entry", dns_entry)
         if service_identifier is not None:
@@ -142,11 +150,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceNetworkServiceAssociationArgs.__new__(ServiceNetworkServiceAssociationArgs)
 
-            if dns_entry is not None and not isinstance(dns_entry, ServiceNetworkServiceAssociationDnsEntryArgs):
-                dns_entry = dns_entry or {}
-                def _setter(key, value):
-                    dns_entry[key] = value
-                ServiceNetworkServiceAssociationDnsEntryArgs._configure(_setter, **dns_entry)
+            dns_entry = _utilities.configure(dns_entry, ServiceNetworkServiceAssociationDnsEntryArgs, True)
             __props__.__dict__["dns_entry"] = dns_entry
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["service_network_identifier"] = service_network_identifier

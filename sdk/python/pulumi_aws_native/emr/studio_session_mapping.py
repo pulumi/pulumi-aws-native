@@ -36,11 +36,29 @@ class StudioSessionMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_name: pulumi.Input[str],
-             identity_type: pulumi.Input['StudioSessionMappingIdentityType'],
-             session_policy_arn: pulumi.Input[str],
-             studio_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             identity_name: Optional[pulumi.Input[str]] = None,
+             identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
+             session_policy_arn: Optional[pulumi.Input[str]] = None,
+             studio_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_name is None and 'identityName' in kwargs:
+            identity_name = kwargs['identityName']
+        if identity_name is None:
+            raise TypeError("Missing 'identity_name' argument")
+        if identity_type is None and 'identityType' in kwargs:
+            identity_type = kwargs['identityType']
+        if identity_type is None:
+            raise TypeError("Missing 'identity_type' argument")
+        if session_policy_arn is None and 'sessionPolicyArn' in kwargs:
+            session_policy_arn = kwargs['sessionPolicyArn']
+        if session_policy_arn is None:
+            raise TypeError("Missing 'session_policy_arn' argument")
+        if studio_id is None and 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+        if studio_id is None:
+            raise TypeError("Missing 'studio_id' argument")
+
         _setter("identity_name", identity_name)
         _setter("identity_type", identity_type)
         _setter("session_policy_arn", session_policy_arn)

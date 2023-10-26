@@ -35,11 +35,23 @@ class PermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             certificate_authority_arn: pulumi.Input[str],
-             principal: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
              source_account: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_authority_arn is None:
+            raise TypeError("Missing 'certificate_authority_arn' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if source_account is None and 'sourceAccount' in kwargs:
+            source_account = kwargs['sourceAccount']
+
         _setter("actions", actions)
         _setter("certificate_authority_arn", certificate_authority_arn)
         _setter("principal", principal)

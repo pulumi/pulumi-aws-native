@@ -92,7 +92,47 @@ class ServiceArgs:
              service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
              task_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_provider_strategy is None and 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if deployment_configuration is None and 'deploymentConfiguration' in kwargs:
+            deployment_configuration = kwargs['deploymentConfiguration']
+        if deployment_controller is None and 'deploymentController' in kwargs:
+            deployment_controller = kwargs['deploymentController']
+        if desired_count is None and 'desiredCount' in kwargs:
+            desired_count = kwargs['desiredCount']
+        if enable_ecs_managed_tags is None and 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if enable_execute_command is None and 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if health_check_grace_period_seconds is None and 'healthCheckGracePeriodSeconds' in kwargs:
+            health_check_grace_period_seconds = kwargs['healthCheckGracePeriodSeconds']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if placement_strategies is None and 'placementStrategies' in kwargs:
+            placement_strategies = kwargs['placementStrategies']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if scheduling_strategy is None and 'schedulingStrategy' in kwargs:
+            scheduling_strategy = kwargs['schedulingStrategy']
+        if service_connect_configuration is None and 'serviceConnectConfiguration' in kwargs:
+            service_connect_configuration = kwargs['serviceConnectConfiguration']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_registries is None and 'serviceRegistries' in kwargs:
+            service_registries = kwargs['serviceRegistries']
+        if task_definition is None and 'taskDefinition' in kwargs:
+            task_definition = kwargs['taskDefinition']
+
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
         if cluster is not None:
@@ -432,17 +472,9 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["capacity_provider_strategy"] = capacity_provider_strategy
             __props__.__dict__["cluster"] = cluster
-            if deployment_configuration is not None and not isinstance(deployment_configuration, ServiceDeploymentConfigurationArgs):
-                deployment_configuration = deployment_configuration or {}
-                def _setter(key, value):
-                    deployment_configuration[key] = value
-                ServiceDeploymentConfigurationArgs._configure(_setter, **deployment_configuration)
+            deployment_configuration = _utilities.configure(deployment_configuration, ServiceDeploymentConfigurationArgs, True)
             __props__.__dict__["deployment_configuration"] = deployment_configuration
-            if deployment_controller is not None and not isinstance(deployment_controller, ServiceDeploymentControllerArgs):
-                deployment_controller = deployment_controller or {}
-                def _setter(key, value):
-                    deployment_controller[key] = value
-                ServiceDeploymentControllerArgs._configure(_setter, **deployment_controller)
+            deployment_controller = _utilities.configure(deployment_controller, ServiceDeploymentControllerArgs, True)
             __props__.__dict__["deployment_controller"] = deployment_controller
             __props__.__dict__["desired_count"] = desired_count
             __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
@@ -450,11 +482,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
-            if network_configuration is not None and not isinstance(network_configuration, ServiceNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                ServiceNetworkConfigurationArgs._configure(_setter, **network_configuration)
+            network_configuration = _utilities.configure(network_configuration, ServiceNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["placement_strategies"] = placement_strategies
@@ -462,11 +490,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["role"] = role
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
-            if service_connect_configuration is not None and not isinstance(service_connect_configuration, ServiceConnectConfigurationArgs):
-                service_connect_configuration = service_connect_configuration or {}
-                def _setter(key, value):
-                    service_connect_configuration[key] = value
-                ServiceConnectConfigurationArgs._configure(_setter, **service_connect_configuration)
+            service_connect_configuration = _utilities.configure(service_connect_configuration, ServiceConnectConfigurationArgs, True)
             __props__.__dict__["service_connect_configuration"] = service_connect_configuration
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_registries"] = service_registries

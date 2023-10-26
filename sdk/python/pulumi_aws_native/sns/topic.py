@@ -82,7 +82,27 @@ class TopicArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]] = None,
              topic_name: Optional[pulumi.Input[str]] = None,
              tracing_config: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if archive_policy is None and 'archivePolicy' in kwargs:
+            archive_policy = kwargs['archivePolicy']
+        if content_based_deduplication is None and 'contentBasedDeduplication' in kwargs:
+            content_based_deduplication = kwargs['contentBasedDeduplication']
+        if data_protection_policy is None and 'dataProtectionPolicy' in kwargs:
+            data_protection_policy = kwargs['dataProtectionPolicy']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if fifo_topic is None and 'fifoTopic' in kwargs:
+            fifo_topic = kwargs['fifoTopic']
+        if kms_master_key_id is None and 'kmsMasterKeyId' in kwargs:
+            kms_master_key_id = kwargs['kmsMasterKeyId']
+        if signature_version is None and 'signatureVersion' in kwargs:
+            signature_version = kwargs['signatureVersion']
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if tracing_config is None and 'tracingConfig' in kwargs:
+            tracing_config = kwargs['tracingConfig']
+
         if archive_policy is not None:
             _setter("archive_policy", archive_policy)
         if content_based_deduplication is not None:

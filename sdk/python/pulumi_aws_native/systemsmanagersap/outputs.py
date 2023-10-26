@@ -54,7 +54,15 @@ class ApplicationCredential(dict):
              credential_type: Optional['ApplicationCredentialCredentialType'] = None,
              database_name: Optional[str] = None,
              secret_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credential_type is None and 'credentialType' in kwargs:
+            credential_type = kwargs['credentialType']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if secret_id is None and 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+
         if credential_type is not None:
             _setter("credential_type", credential_type)
         if database_name is not None:
@@ -99,9 +107,15 @@ class ApplicationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

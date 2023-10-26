@@ -58,12 +58,26 @@ class SuiteDefinitionConfigurationProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_permission_role_arn: str,
-             root_group: str,
+             device_permission_role_arn: Optional[str] = None,
+             root_group: Optional[str] = None,
              devices: Optional[Sequence['outputs.SuiteDefinitionDeviceUnderTest']] = None,
              intended_for_qualification: Optional[bool] = None,
              suite_definition_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_permission_role_arn is None and 'devicePermissionRoleArn' in kwargs:
+            device_permission_role_arn = kwargs['devicePermissionRoleArn']
+        if device_permission_role_arn is None:
+            raise TypeError("Missing 'device_permission_role_arn' argument")
+        if root_group is None and 'rootGroup' in kwargs:
+            root_group = kwargs['rootGroup']
+        if root_group is None:
+            raise TypeError("Missing 'root_group' argument")
+        if intended_for_qualification is None and 'intendedForQualification' in kwargs:
+            intended_for_qualification = kwargs['intendedForQualification']
+        if suite_definition_name is None and 'suiteDefinitionName' in kwargs:
+            suite_definition_name = kwargs['suiteDefinitionName']
+
         _setter("device_permission_role_arn", device_permission_role_arn)
         _setter("root_group", root_group)
         if devices is not None:
@@ -133,7 +147,13 @@ class SuiteDefinitionDeviceUnderTest(dict):
              _setter: Callable[[Any, Any], None],
              certificate_arn: Optional[str] = None,
              thing_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
         if thing_arn is not None:
@@ -171,9 +191,15 @@ class SuiteDefinitionTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

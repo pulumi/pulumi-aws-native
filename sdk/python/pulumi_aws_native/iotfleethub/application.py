@@ -37,11 +37,21 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              application_description: Optional[pulumi.Input[str]] = None,
              application_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if application_description is None and 'applicationDescription' in kwargs:
+            application_description = kwargs['applicationDescription']
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+
         _setter("role_arn", role_arn)
         if application_description is not None:
             _setter("application_description", application_description)

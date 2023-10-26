@@ -44,13 +44,23 @@ class DestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             expression_type: pulumi.Input['DestinationExpressionType'],
+             expression: Optional[pulumi.Input[str]] = None,
+             expression_type: Optional[pulumi.Input['DestinationExpressionType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DestinationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if expression_type is None and 'expressionType' in kwargs:
+            expression_type = kwargs['expressionType']
+        if expression_type is None:
+            raise TypeError("Missing 'expression_type' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("expression", expression)
         _setter("expression_type", expression_type)
         if description is not None:

@@ -39,7 +39,15 @@ class GroupArgs:
              group_name: Optional[pulumi.Input[str]] = None,
              insights_configuration: Optional[pulumi.Input['GroupInsightsConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_expression is None and 'filterExpression' in kwargs:
+            filter_expression = kwargs['filterExpression']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if insights_configuration is None and 'insightsConfiguration' in kwargs:
+            insights_configuration = kwargs['insightsConfiguration']
+
         if filter_expression is not None:
             _setter("filter_expression", filter_expression)
         if group_name is not None:
@@ -153,11 +161,7 @@ class Group(pulumi.CustomResource):
 
             __props__.__dict__["filter_expression"] = filter_expression
             __props__.__dict__["group_name"] = group_name
-            if insights_configuration is not None and not isinstance(insights_configuration, GroupInsightsConfigurationArgs):
-                insights_configuration = insights_configuration or {}
-                def _setter(key, value):
-                    insights_configuration[key] = value
-                GroupInsightsConfigurationArgs._configure(_setter, **insights_configuration)
+            insights_configuration = _utilities.configure(insights_configuration, GroupInsightsConfigurationArgs, True)
             __props__.__dict__["insights_configuration"] = insights_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["group_arn"] = None

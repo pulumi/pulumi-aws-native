@@ -84,7 +84,37 @@ class AssociationArgs:
              sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
              wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_only_at_cron_interval is None and 'applyOnlyAtCronInterval' in kwargs:
+            apply_only_at_cron_interval = kwargs['applyOnlyAtCronInterval']
+        if association_name is None and 'associationName' in kwargs:
+            association_name = kwargs['associationName']
+        if automation_target_parameter_name is None and 'automationTargetParameterName' in kwargs:
+            automation_target_parameter_name = kwargs['automationTargetParameterName']
+        if calendar_names is None and 'calendarNames' in kwargs:
+            calendar_names = kwargs['calendarNames']
+        if compliance_severity is None and 'complianceSeverity' in kwargs:
+            compliance_severity = kwargs['complianceSeverity']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if max_errors is None and 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_offset is None and 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if sync_compliance is None and 'syncCompliance' in kwargs:
+            sync_compliance = kwargs['syncCompliance']
+        if wait_for_success_timeout_seconds is None and 'waitForSuccessTimeoutSeconds' in kwargs:
+            wait_for_success_timeout_seconds = kwargs['waitForSuccessTimeoutSeconds']
+
         if apply_only_at_cron_interval is not None:
             _setter("apply_only_at_cron_interval", apply_only_at_cron_interval)
         if association_name is not None:
@@ -395,11 +425,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
-            if output_location is not None and not isinstance(output_location, AssociationInstanceAssociationOutputLocationArgs):
-                output_location = output_location or {}
-                def _setter(key, value):
-                    output_location[key] = value
-                AssociationInstanceAssociationOutputLocationArgs._configure(_setter, **output_location)
+            output_location = _utilities.configure(output_location, AssociationInstanceAssociationOutputLocationArgs, True)
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["schedule_expression"] = schedule_expression

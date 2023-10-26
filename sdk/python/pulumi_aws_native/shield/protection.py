@@ -40,12 +40,22 @@ class ProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
+             resource_arn: Optional[pulumi.Input[str]] = None,
              application_layer_automatic_response_configuration: Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationArgs']] = None,
              health_check_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if application_layer_automatic_response_configuration is None and 'applicationLayerAutomaticResponseConfiguration' in kwargs:
+            application_layer_automatic_response_configuration = kwargs['applicationLayerAutomaticResponseConfiguration']
+        if health_check_arns is None and 'healthCheckArns' in kwargs:
+            health_check_arns = kwargs['healthCheckArns']
+
         _setter("resource_arn", resource_arn)
         if application_layer_automatic_response_configuration is not None:
             _setter("application_layer_automatic_response_configuration", application_layer_automatic_response_configuration)
@@ -177,11 +187,7 @@ class Protection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProtectionArgs.__new__(ProtectionArgs)
 
-            if application_layer_automatic_response_configuration is not None and not isinstance(application_layer_automatic_response_configuration, ProtectionApplicationLayerAutomaticResponseConfigurationArgs):
-                application_layer_automatic_response_configuration = application_layer_automatic_response_configuration or {}
-                def _setter(key, value):
-                    application_layer_automatic_response_configuration[key] = value
-                ProtectionApplicationLayerAutomaticResponseConfigurationArgs._configure(_setter, **application_layer_automatic_response_configuration)
+            application_layer_automatic_response_configuration = _utilities.configure(application_layer_automatic_response_configuration, ProtectionApplicationLayerAutomaticResponseConfigurationArgs, True)
             __props__.__dict__["application_layer_automatic_response_configuration"] = application_layer_automatic_response_configuration
             __props__.__dict__["health_check_arns"] = health_check_arns
             __props__.__dict__["name"] = name

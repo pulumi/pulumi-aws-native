@@ -45,7 +45,7 @@ class JobTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             settings_json: Any,
+             settings_json: Optional[Any] = None,
              acceleration_settings: Optional[pulumi.Input['JobTemplateAccelerationSettingsArgs']] = None,
              category: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,19 @@ class JobTemplateArgs:
              queue: Optional[pulumi.Input[str]] = None,
              status_update_interval: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if settings_json is None and 'settingsJson' in kwargs:
+            settings_json = kwargs['settingsJson']
+        if settings_json is None:
+            raise TypeError("Missing 'settings_json' argument")
+        if acceleration_settings is None and 'accelerationSettings' in kwargs:
+            acceleration_settings = kwargs['accelerationSettings']
+        if hop_destinations is None and 'hopDestinations' in kwargs:
+            hop_destinations = kwargs['hopDestinations']
+        if status_update_interval is None and 'statusUpdateInterval' in kwargs:
+            status_update_interval = kwargs['statusUpdateInterval']
+
         _setter("settings_json", settings_json)
         if acceleration_settings is not None:
             _setter("acceleration_settings", acceleration_settings)
@@ -242,11 +254,7 @@ class JobTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobTemplateArgs.__new__(JobTemplateArgs)
 
-            if acceleration_settings is not None and not isinstance(acceleration_settings, JobTemplateAccelerationSettingsArgs):
-                acceleration_settings = acceleration_settings or {}
-                def _setter(key, value):
-                    acceleration_settings[key] = value
-                JobTemplateAccelerationSettingsArgs._configure(_setter, **acceleration_settings)
+            acceleration_settings = _utilities.configure(acceleration_settings, JobTemplateAccelerationSettingsArgs, True)
             __props__.__dict__["acceleration_settings"] = acceleration_settings
             __props__.__dict__["category"] = category
             __props__.__dict__["description"] = description

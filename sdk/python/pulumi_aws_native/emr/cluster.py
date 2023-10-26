@@ -73,9 +73,9 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instances: pulumi.Input['ClusterJobFlowInstancesConfigArgs'],
-             job_flow_role: pulumi.Input[str],
-             service_role: pulumi.Input[str],
+             instances: Optional[pulumi.Input['ClusterJobFlowInstancesConfigArgs']] = None,
+             job_flow_role: Optional[pulumi.Input[str]] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
              additional_info: Optional[Any] = None,
              applications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterApplicationArgs']]]] = None,
              auto_scaling_role: Optional[pulumi.Input[str]] = None,
@@ -97,7 +97,51 @@ class ClusterArgs:
              steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepConfigArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              visible_to_all_users: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instances is None:
+            raise TypeError("Missing 'instances' argument")
+        if job_flow_role is None and 'jobFlowRole' in kwargs:
+            job_flow_role = kwargs['jobFlowRole']
+        if job_flow_role is None:
+            raise TypeError("Missing 'job_flow_role' argument")
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if service_role is None:
+            raise TypeError("Missing 'service_role' argument")
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+        if auto_scaling_role is None and 'autoScalingRole' in kwargs:
+            auto_scaling_role = kwargs['autoScalingRole']
+        if auto_termination_policy is None and 'autoTerminationPolicy' in kwargs:
+            auto_termination_policy = kwargs['autoTerminationPolicy']
+        if bootstrap_actions is None and 'bootstrapActions' in kwargs:
+            bootstrap_actions = kwargs['bootstrapActions']
+        if custom_ami_id is None and 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if ebs_root_volume_size is None and 'ebsRootVolumeSize' in kwargs:
+            ebs_root_volume_size = kwargs['ebsRootVolumeSize']
+        if kerberos_attributes is None and 'kerberosAttributes' in kwargs:
+            kerberos_attributes = kwargs['kerberosAttributes']
+        if log_encryption_kms_key_id is None and 'logEncryptionKmsKeyId' in kwargs:
+            log_encryption_kms_key_id = kwargs['logEncryptionKmsKeyId']
+        if log_uri is None and 'logUri' in kwargs:
+            log_uri = kwargs['logUri']
+        if managed_scaling_policy is None and 'managedScalingPolicy' in kwargs:
+            managed_scaling_policy = kwargs['managedScalingPolicy']
+        if os_release_label is None and 'osReleaseLabel' in kwargs:
+            os_release_label = kwargs['osReleaseLabel']
+        if release_label is None and 'releaseLabel' in kwargs:
+            release_label = kwargs['releaseLabel']
+        if scale_down_behavior is None and 'scaleDownBehavior' in kwargs:
+            scale_down_behavior = kwargs['scaleDownBehavior']
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if step_concurrency_level is None and 'stepConcurrencyLevel' in kwargs:
+            step_concurrency_level = kwargs['stepConcurrencyLevel']
+        if visible_to_all_users is None and 'visibleToAllUsers' in kwargs:
+            visible_to_all_users = kwargs['visibleToAllUsers']
+
         _setter("instances", instances)
         _setter("job_flow_role", job_flow_role)
         _setter("service_role", service_role)
@@ -467,40 +511,24 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["additional_info"] = additional_info
             __props__.__dict__["applications"] = applications
             __props__.__dict__["auto_scaling_role"] = auto_scaling_role
-            if auto_termination_policy is not None and not isinstance(auto_termination_policy, ClusterAutoTerminationPolicyArgs):
-                auto_termination_policy = auto_termination_policy or {}
-                def _setter(key, value):
-                    auto_termination_policy[key] = value
-                ClusterAutoTerminationPolicyArgs._configure(_setter, **auto_termination_policy)
+            auto_termination_policy = _utilities.configure(auto_termination_policy, ClusterAutoTerminationPolicyArgs, True)
             __props__.__dict__["auto_termination_policy"] = auto_termination_policy
             __props__.__dict__["bootstrap_actions"] = bootstrap_actions
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["custom_ami_id"] = custom_ami_id
             __props__.__dict__["ebs_root_volume_size"] = ebs_root_volume_size
-            if instances is not None and not isinstance(instances, ClusterJobFlowInstancesConfigArgs):
-                instances = instances or {}
-                def _setter(key, value):
-                    instances[key] = value
-                ClusterJobFlowInstancesConfigArgs._configure(_setter, **instances)
+            instances = _utilities.configure(instances, ClusterJobFlowInstancesConfigArgs, True)
             if instances is None and not opts.urn:
                 raise TypeError("Missing required property 'instances'")
             __props__.__dict__["instances"] = instances
             if job_flow_role is None and not opts.urn:
                 raise TypeError("Missing required property 'job_flow_role'")
             __props__.__dict__["job_flow_role"] = job_flow_role
-            if kerberos_attributes is not None and not isinstance(kerberos_attributes, ClusterKerberosAttributesArgs):
-                kerberos_attributes = kerberos_attributes or {}
-                def _setter(key, value):
-                    kerberos_attributes[key] = value
-                ClusterKerberosAttributesArgs._configure(_setter, **kerberos_attributes)
+            kerberos_attributes = _utilities.configure(kerberos_attributes, ClusterKerberosAttributesArgs, True)
             __props__.__dict__["kerberos_attributes"] = kerberos_attributes
             __props__.__dict__["log_encryption_kms_key_id"] = log_encryption_kms_key_id
             __props__.__dict__["log_uri"] = log_uri
-            if managed_scaling_policy is not None and not isinstance(managed_scaling_policy, ClusterManagedScalingPolicyArgs):
-                managed_scaling_policy = managed_scaling_policy or {}
-                def _setter(key, value):
-                    managed_scaling_policy[key] = value
-                ClusterManagedScalingPolicyArgs._configure(_setter, **managed_scaling_policy)
+            managed_scaling_policy = _utilities.configure(managed_scaling_policy, ClusterManagedScalingPolicyArgs, True)
             __props__.__dict__["managed_scaling_policy"] = managed_scaling_policy
             __props__.__dict__["name"] = name
             __props__.__dict__["os_release_label"] = os_release_label

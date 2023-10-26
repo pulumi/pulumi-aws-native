@@ -27,9 +27,17 @@ class BatchScramSecretArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_arn: pulumi.Input[str],
+             cluster_arn: Optional[pulumi.Input[str]] = None,
              secret_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if cluster_arn is None:
+            raise TypeError("Missing 'cluster_arn' argument")
+        if secret_arn_list is None and 'secretArnList' in kwargs:
+            secret_arn_list = kwargs['secretArnList']
+
         _setter("cluster_arn", cluster_arn)
         if secret_arn_list is not None:
             _setter("secret_arn_list", secret_arn_list)

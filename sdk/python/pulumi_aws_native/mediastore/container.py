@@ -46,7 +46,19 @@ class ContainerArgs:
              metric_policy: Optional[pulumi.Input['ContainerMetricPolicyArgs']] = None,
              policy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_logging_enabled is None and 'accessLoggingEnabled' in kwargs:
+            access_logging_enabled = kwargs['accessLoggingEnabled']
+        if container_name is None and 'containerName' in kwargs:
+            container_name = kwargs['containerName']
+        if cors_policy is None and 'corsPolicy' in kwargs:
+            cors_policy = kwargs['corsPolicy']
+        if lifecycle_policy is None and 'lifecyclePolicy' in kwargs:
+            lifecycle_policy = kwargs['lifecyclePolicy']
+        if metric_policy is None and 'metricPolicy' in kwargs:
+            metric_policy = kwargs['metricPolicy']
+
         if access_logging_enabled is not None:
             _setter("access_logging_enabled", access_logging_enabled)
         if container_name is not None:
@@ -199,11 +211,7 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["cors_policy"] = cors_policy
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
-            if metric_policy is not None and not isinstance(metric_policy, ContainerMetricPolicyArgs):
-                metric_policy = metric_policy or {}
-                def _setter(key, value):
-                    metric_policy[key] = value
-                ContainerMetricPolicyArgs._configure(_setter, **metric_policy)
+            metric_policy = _utilities.configure(metric_policy, ContainerMetricPolicyArgs, True)
             __props__.__dict__["metric_policy"] = metric_policy
             __props__.__dict__["policy"] = policy
             __props__.__dict__["tags"] = tags

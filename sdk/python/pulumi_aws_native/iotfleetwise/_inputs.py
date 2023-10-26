@@ -57,8 +57,14 @@ class CampaignCollectionScheme0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             time_based_collection_scheme: Optional[pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_based_collection_scheme is None and 'timeBasedCollectionScheme' in kwargs:
+            time_based_collection_scheme = kwargs['timeBasedCollectionScheme']
+        if time_based_collection_scheme is None:
+            raise TypeError("Missing 'time_based_collection_scheme' argument")
+
         _setter("time_based_collection_scheme", time_based_collection_scheme)
 
     @property
@@ -82,8 +88,14 @@ class CampaignCollectionScheme1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             condition_based_collection_scheme: Optional[pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition_based_collection_scheme is None and 'conditionBasedCollectionScheme' in kwargs:
+            condition_based_collection_scheme = kwargs['conditionBasedCollectionScheme']
+        if condition_based_collection_scheme is None:
+            raise TypeError("Missing 'condition_based_collection_scheme' argument")
+
         _setter("condition_based_collection_scheme", condition_based_collection_scheme)
 
     @property
@@ -113,11 +125,21 @@ class CampaignConditionBasedCollectionSchemeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
+             expression: Optional[pulumi.Input[str]] = None,
              condition_language_version: Optional[pulumi.Input[int]] = None,
              minimum_trigger_interval_ms: Optional[pulumi.Input[float]] = None,
              trigger_mode: Optional[pulumi.Input['CampaignTriggerMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if condition_language_version is None and 'conditionLanguageVersion' in kwargs:
+            condition_language_version = kwargs['conditionLanguageVersion']
+        if minimum_trigger_interval_ms is None and 'minimumTriggerIntervalMs' in kwargs:
+            minimum_trigger_interval_ms = kwargs['minimumTriggerIntervalMs']
+        if trigger_mode is None and 'triggerMode' in kwargs:
+            trigger_mode = kwargs['triggerMode']
+
         _setter("expression", expression)
         if condition_language_version is not None:
             _setter("condition_language_version", condition_language_version)
@@ -174,8 +196,14 @@ class CampaignDataDestinationConfig0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_config: pulumi.Input['CampaignS3ConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_config: Optional[pulumi.Input['CampaignS3ConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_config is None and 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+        if s3_config is None:
+            raise TypeError("Missing 's3_config' argument")
+
         _setter("s3_config", s3_config)
 
     @property
@@ -199,8 +227,14 @@ class CampaignDataDestinationConfig1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timestream_config: pulumi.Input['CampaignTimestreamConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             timestream_config: Optional[pulumi.Input['CampaignTimestreamConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timestream_config is None and 'timestreamConfig' in kwargs:
+            timestream_config = kwargs['timestreamConfig']
+        if timestream_config is None:
+            raise TypeError("Missing 'timestream_config' argument")
+
         _setter("timestream_config", timestream_config)
 
     @property
@@ -230,11 +264,21 @@ class CampaignS3ConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
+             bucket_arn: Optional[pulumi.Input[str]] = None,
              data_format: Optional[pulumi.Input['CampaignDataFormat']] = None,
              prefix: Optional[pulumi.Input[str]] = None,
              storage_compression_format: Optional[pulumi.Input['CampaignStorageCompressionFormat']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_arn is None and 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if bucket_arn is None:
+            raise TypeError("Missing 'bucket_arn' argument")
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if storage_compression_format is None and 'storageCompressionFormat' in kwargs:
+            storage_compression_format = kwargs['storageCompressionFormat']
+
         _setter("bucket_arn", bucket_arn)
         if data_format is not None:
             _setter("data_format", data_format)
@@ -295,10 +339,18 @@ class CampaignSignalInformationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              max_sample_count: Optional[pulumi.Input[float]] = None,
              minimum_sampling_interval_ms: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if max_sample_count is None and 'maxSampleCount' in kwargs:
+            max_sample_count = kwargs['maxSampleCount']
+        if minimum_sampling_interval_ms is None and 'minimumSamplingIntervalMs' in kwargs:
+            minimum_sampling_interval_ms = kwargs['minimumSamplingIntervalMs']
+
         _setter("name", name)
         if max_sample_count is not None:
             _setter("max_sample_count", max_sample_count)
@@ -346,9 +398,15 @@ class CampaignTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -382,8 +440,14 @@ class CampaignTimeBasedCollectionSchemeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             period_ms: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             period_ms: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if period_ms is None and 'periodMs' in kwargs:
+            period_ms = kwargs['periodMs']
+        if period_ms is None:
+            raise TypeError("Missing 'period_ms' argument")
+
         _setter("period_ms", period_ms)
 
     @property
@@ -409,9 +473,19 @@ class CampaignTimestreamConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             execution_role_arn: pulumi.Input[str],
-             timestream_table_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
+             timestream_table_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if execution_role_arn is None:
+            raise TypeError("Missing 'execution_role_arn' argument")
+        if timestream_table_arn is None and 'timestreamTableArn' in kwargs:
+            timestream_table_arn = kwargs['timestreamTableArn']
+        if timestream_table_arn is None:
+            raise TypeError("Missing 'timestream_table_arn' argument")
+
         _setter("execution_role_arn", execution_role_arn)
         _setter("timestream_table_arn", timestream_table_arn)
 
@@ -449,10 +523,18 @@ class DecoderManifestCanInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              protocol_name: Optional[pulumi.Input[str]] = None,
              protocol_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol_name is None and 'protocolName' in kwargs:
+            protocol_name = kwargs['protocolName']
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+
         _setter("name", name)
         if protocol_name is not None:
             _setter("protocol_name", protocol_name)
@@ -502,10 +584,22 @@ class DecoderManifestCanNetworkInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             can_interface: pulumi.Input['DecoderManifestCanInterfaceArgs'],
-             interface_id: pulumi.Input[str],
-             type: pulumi.Input['DecoderManifestCanNetworkInterfaceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             can_interface: Optional[pulumi.Input['DecoderManifestCanInterfaceArgs']] = None,
+             interface_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['DecoderManifestCanNetworkInterfaceType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if can_interface is None and 'canInterface' in kwargs:
+            can_interface = kwargs['canInterface']
+        if can_interface is None:
+            raise TypeError("Missing 'can_interface' argument")
+        if interface_id is None and 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+        if interface_id is None:
+            raise TypeError("Missing 'interface_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("can_interface", can_interface)
         _setter("interface_id", interface_id)
         _setter("type", type)
@@ -555,11 +649,27 @@ class DecoderManifestCanSignalDecoderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             can_signal: pulumi.Input['DecoderManifestCanSignalArgs'],
-             fully_qualified_name: pulumi.Input[str],
-             interface_id: pulumi.Input[str],
-             type: pulumi.Input['DecoderManifestCanSignalDecoderType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             can_signal: Optional[pulumi.Input['DecoderManifestCanSignalArgs']] = None,
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
+             interface_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['DecoderManifestCanSignalDecoderType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if can_signal is None and 'canSignal' in kwargs:
+            can_signal = kwargs['canSignal']
+        if can_signal is None:
+            raise TypeError("Missing 'can_signal' argument")
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+        if interface_id is None and 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+        if interface_id is None:
+            raise TypeError("Missing 'interface_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("can_signal", can_signal)
         _setter("fully_qualified_name", fully_qualified_name)
         _setter("interface_id", interface_id)
@@ -627,15 +737,39 @@ class DecoderManifestCanSignalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             factor: pulumi.Input[float],
-             is_big_endian: pulumi.Input[bool],
-             is_signed: pulumi.Input[bool],
-             length: pulumi.Input[int],
-             message_id: pulumi.Input[int],
-             offset: pulumi.Input[float],
-             start_bit: pulumi.Input[int],
+             factor: Optional[pulumi.Input[float]] = None,
+             is_big_endian: Optional[pulumi.Input[bool]] = None,
+             is_signed: Optional[pulumi.Input[bool]] = None,
+             length: Optional[pulumi.Input[int]] = None,
+             message_id: Optional[pulumi.Input[int]] = None,
+             offset: Optional[pulumi.Input[float]] = None,
+             start_bit: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if factor is None:
+            raise TypeError("Missing 'factor' argument")
+        if is_big_endian is None and 'isBigEndian' in kwargs:
+            is_big_endian = kwargs['isBigEndian']
+        if is_big_endian is None:
+            raise TypeError("Missing 'is_big_endian' argument")
+        if is_signed is None and 'isSigned' in kwargs:
+            is_signed = kwargs['isSigned']
+        if is_signed is None:
+            raise TypeError("Missing 'is_signed' argument")
+        if length is None:
+            raise TypeError("Missing 'length' argument")
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if message_id is None:
+            raise TypeError("Missing 'message_id' argument")
+        if offset is None:
+            raise TypeError("Missing 'offset' argument")
+        if start_bit is None and 'startBit' in kwargs:
+            start_bit = kwargs['startBit']
+        if start_bit is None:
+            raise TypeError("Missing 'start_bit' argument")
+
         _setter("factor", factor)
         _setter("is_big_endian", is_big_endian)
         _setter("is_signed", is_signed)
@@ -742,14 +876,32 @@ class DecoderManifestObdInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             request_message_id: pulumi.Input[int],
+             name: Optional[pulumi.Input[str]] = None,
+             request_message_id: Optional[pulumi.Input[int]] = None,
              dtc_request_interval_seconds: Optional[pulumi.Input[int]] = None,
              has_transmission_ecu: Optional[pulumi.Input[bool]] = None,
              obd_standard: Optional[pulumi.Input[str]] = None,
              pid_request_interval_seconds: Optional[pulumi.Input[int]] = None,
              use_extended_ids: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if request_message_id is None and 'requestMessageId' in kwargs:
+            request_message_id = kwargs['requestMessageId']
+        if request_message_id is None:
+            raise TypeError("Missing 'request_message_id' argument")
+        if dtc_request_interval_seconds is None and 'dtcRequestIntervalSeconds' in kwargs:
+            dtc_request_interval_seconds = kwargs['dtcRequestIntervalSeconds']
+        if has_transmission_ecu is None and 'hasTransmissionEcu' in kwargs:
+            has_transmission_ecu = kwargs['hasTransmissionEcu']
+        if obd_standard is None and 'obdStandard' in kwargs:
+            obd_standard = kwargs['obdStandard']
+        if pid_request_interval_seconds is None and 'pidRequestIntervalSeconds' in kwargs:
+            pid_request_interval_seconds = kwargs['pidRequestIntervalSeconds']
+        if use_extended_ids is None and 'useExtendedIds' in kwargs:
+            use_extended_ids = kwargs['useExtendedIds']
+
         _setter("name", name)
         _setter("request_message_id", request_message_id)
         if dtc_request_interval_seconds is not None:
@@ -842,10 +994,22 @@ class DecoderManifestObdNetworkInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interface_id: pulumi.Input[str],
-             obd_interface: pulumi.Input['DecoderManifestObdInterfaceArgs'],
-             type: pulumi.Input['DecoderManifestObdNetworkInterfaceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             interface_id: Optional[pulumi.Input[str]] = None,
+             obd_interface: Optional[pulumi.Input['DecoderManifestObdInterfaceArgs']] = None,
+             type: Optional[pulumi.Input['DecoderManifestObdNetworkInterfaceType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interface_id is None and 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+        if interface_id is None:
+            raise TypeError("Missing 'interface_id' argument")
+        if obd_interface is None and 'obdInterface' in kwargs:
+            obd_interface = kwargs['obdInterface']
+        if obd_interface is None:
+            raise TypeError("Missing 'obd_interface' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("interface_id", interface_id)
         _setter("obd_interface", obd_interface)
         _setter("type", type)
@@ -895,11 +1059,27 @@ class DecoderManifestObdSignalDecoderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fully_qualified_name: pulumi.Input[str],
-             interface_id: pulumi.Input[str],
-             obd_signal: pulumi.Input['DecoderManifestObdSignalArgs'],
-             type: pulumi.Input['DecoderManifestObdSignalDecoderType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
+             interface_id: Optional[pulumi.Input[str]] = None,
+             obd_signal: Optional[pulumi.Input['DecoderManifestObdSignalArgs']] = None,
+             type: Optional[pulumi.Input['DecoderManifestObdSignalDecoderType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+        if interface_id is None and 'interfaceId' in kwargs:
+            interface_id = kwargs['interfaceId']
+        if interface_id is None:
+            raise TypeError("Missing 'interface_id' argument")
+        if obd_signal is None and 'obdSignal' in kwargs:
+            obd_signal = kwargs['obdSignal']
+        if obd_signal is None:
+            raise TypeError("Missing 'obd_signal' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("fully_qualified_name", fully_qualified_name)
         _setter("interface_id", interface_id)
         _setter("obd_signal", obd_signal)
@@ -969,16 +1149,44 @@ class DecoderManifestObdSignalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             byte_length: pulumi.Input[int],
-             offset: pulumi.Input[float],
-             pid: pulumi.Input[int],
-             pid_response_length: pulumi.Input[int],
-             scaling: pulumi.Input[float],
-             service_mode: pulumi.Input[int],
-             start_byte: pulumi.Input[int],
+             byte_length: Optional[pulumi.Input[int]] = None,
+             offset: Optional[pulumi.Input[float]] = None,
+             pid: Optional[pulumi.Input[int]] = None,
+             pid_response_length: Optional[pulumi.Input[int]] = None,
+             scaling: Optional[pulumi.Input[float]] = None,
+             service_mode: Optional[pulumi.Input[int]] = None,
+             start_byte: Optional[pulumi.Input[int]] = None,
              bit_mask_length: Optional[pulumi.Input[int]] = None,
              bit_right_shift: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if byte_length is None and 'byteLength' in kwargs:
+            byte_length = kwargs['byteLength']
+        if byte_length is None:
+            raise TypeError("Missing 'byte_length' argument")
+        if offset is None:
+            raise TypeError("Missing 'offset' argument")
+        if pid is None:
+            raise TypeError("Missing 'pid' argument")
+        if pid_response_length is None and 'pidResponseLength' in kwargs:
+            pid_response_length = kwargs['pidResponseLength']
+        if pid_response_length is None:
+            raise TypeError("Missing 'pid_response_length' argument")
+        if scaling is None:
+            raise TypeError("Missing 'scaling' argument")
+        if service_mode is None and 'serviceMode' in kwargs:
+            service_mode = kwargs['serviceMode']
+        if service_mode is None:
+            raise TypeError("Missing 'service_mode' argument")
+        if start_byte is None and 'startByte' in kwargs:
+            start_byte = kwargs['startByte']
+        if start_byte is None:
+            raise TypeError("Missing 'start_byte' argument")
+        if bit_mask_length is None and 'bitMaskLength' in kwargs:
+            bit_mask_length = kwargs['bitMaskLength']
+        if bit_right_shift is None and 'bitRightShift' in kwargs:
+            bit_right_shift = kwargs['bitRightShift']
+
         _setter("byte_length", byte_length)
         _setter("offset", offset)
         _setter("pid", pid)
@@ -1086,9 +1294,15 @@ class DecoderManifestTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1124,9 +1338,15 @@ class FleetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1162,9 +1382,15 @@ class ModelManifestTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1212,15 +1438,29 @@ class SignalCatalogActuatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['SignalCatalogNodeDataType'],
-             fully_qualified_name: pulumi.Input[str],
+             data_type: Optional[pulumi.Input['SignalCatalogNodeDataType']] = None,
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
              allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              assigned_value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+        if allowed_values is None and 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+        if assigned_value is None and 'assignedValue' in kwargs:
+            assigned_value = kwargs['assignedValue']
+
         _setter("data_type", data_type)
         _setter("fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
@@ -1336,8 +1576,8 @@ class SignalCatalogAttributeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['SignalCatalogNodeDataType'],
-             fully_qualified_name: pulumi.Input[str],
+             data_type: Optional[pulumi.Input['SignalCatalogNodeDataType']] = None,
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
              allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              assigned_value: Optional[pulumi.Input[str]] = None,
              default_value: Optional[pulumi.Input[str]] = None,
@@ -1345,7 +1585,23 @@ class SignalCatalogAttributeArgs:
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+        if allowed_values is None and 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+        if assigned_value is None and 'assignedValue' in kwargs:
+            assigned_value = kwargs['assignedValue']
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("data_type", data_type)
         _setter("fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
@@ -1458,9 +1714,15 @@ class SignalCatalogBranchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fully_qualified_name: pulumi.Input[str],
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+
         _setter("fully_qualified_name", fully_qualified_name)
         if description is not None:
             _setter("description", description)
@@ -1496,7 +1758,9 @@ class SignalCatalogNode0PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if branch is not None:
             _setter("branch", branch)
 
@@ -1522,7 +1786,9 @@ class SignalCatalogNode1PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if sensor is not None:
             _setter("sensor", sensor)
 
@@ -1548,7 +1814,9 @@ class SignalCatalogNode2PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if actuator is not None:
             _setter("actuator", actuator)
 
@@ -1574,7 +1842,9 @@ class SignalCatalogNode3PropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if attribute is not None:
             _setter("attribute", attribute)
 
@@ -1612,7 +1882,19 @@ class SignalCatalogNodeCountsArgs:
              total_branches: Optional[pulumi.Input[float]] = None,
              total_nodes: Optional[pulumi.Input[float]] = None,
              total_sensors: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if total_actuators is None and 'totalActuators' in kwargs:
+            total_actuators = kwargs['totalActuators']
+        if total_attributes is None and 'totalAttributes' in kwargs:
+            total_attributes = kwargs['totalAttributes']
+        if total_branches is None and 'totalBranches' in kwargs:
+            total_branches = kwargs['totalBranches']
+        if total_nodes is None and 'totalNodes' in kwargs:
+            total_nodes = kwargs['totalNodes']
+        if total_sensors is None and 'totalSensors' in kwargs:
+            total_sensors = kwargs['totalSensors']
+
         if total_actuators is not None:
             _setter("total_actuators", total_actuators)
         if total_attributes is not None:
@@ -1693,14 +1975,26 @@ class SignalCatalogSensorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['SignalCatalogNodeDataType'],
-             fully_qualified_name: pulumi.Input[str],
+             data_type: Optional[pulumi.Input['SignalCatalogNodeDataType']] = None,
+             fully_qualified_name: Optional[pulumi.Input[str]] = None,
              allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if fully_qualified_name is None and 'fullyQualifiedName' in kwargs:
+            fully_qualified_name = kwargs['fullyQualifiedName']
+        if fully_qualified_name is None:
+            raise TypeError("Missing 'fully_qualified_name' argument")
+        if allowed_values is None and 'allowedValues' in kwargs:
+            allowed_values = kwargs['allowedValues']
+
         _setter("data_type", data_type)
         _setter("fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
@@ -1791,9 +2085,15 @@ class SignalCatalogTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1829,9 +2129,15 @@ class VehicleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1861,7 +2167,9 @@ class VehicleattributesMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

@@ -27,9 +27,19 @@ class ApplicationFleetAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_arn: pulumi.Input[str],
-             fleet_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_arn: Optional[pulumi.Input[str]] = None,
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_arn is None and 'applicationArn' in kwargs:
+            application_arn = kwargs['applicationArn']
+        if application_arn is None:
+            raise TypeError("Missing 'application_arn' argument")
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if fleet_name is None:
+            raise TypeError("Missing 'fleet_name' argument")
+
         _setter("application_arn", application_arn)
         _setter("fleet_name", fleet_name)
 

@@ -67,7 +67,7 @@ class StageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rest_api_id: pulumi.Input[str],
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              access_log_setting: Optional[pulumi.Input['StageAccessLogSettingArgs']] = None,
              cache_cluster_enabled: Optional[pulumi.Input[bool]] = None,
              cache_cluster_size: Optional[pulumi.Input[str]] = None,
@@ -81,7 +81,33 @@ class StageArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]]] = None,
              tracing_enabled: Optional[pulumi.Input[bool]] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if access_log_setting is None and 'accessLogSetting' in kwargs:
+            access_log_setting = kwargs['accessLogSetting']
+        if cache_cluster_enabled is None and 'cacheClusterEnabled' in kwargs:
+            cache_cluster_enabled = kwargs['cacheClusterEnabled']
+        if cache_cluster_size is None and 'cacheClusterSize' in kwargs:
+            cache_cluster_size = kwargs['cacheClusterSize']
+        if canary_setting is None and 'canarySetting' in kwargs:
+            canary_setting = kwargs['canarySetting']
+        if client_certificate_id is None and 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if deployment_id is None and 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if documentation_version is None and 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if method_settings is None and 'methodSettings' in kwargs:
+            method_settings = kwargs['methodSettings']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if tracing_enabled is None and 'tracingEnabled' in kwargs:
+            tracing_enabled = kwargs['tracingEnabled']
+
         _setter("rest_api_id", rest_api_id)
         if access_log_setting is not None:
             _setter("access_log_setting", access_log_setting)
@@ -370,19 +396,11 @@ class Stage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StageArgs.__new__(StageArgs)
 
-            if access_log_setting is not None and not isinstance(access_log_setting, StageAccessLogSettingArgs):
-                access_log_setting = access_log_setting or {}
-                def _setter(key, value):
-                    access_log_setting[key] = value
-                StageAccessLogSettingArgs._configure(_setter, **access_log_setting)
+            access_log_setting = _utilities.configure(access_log_setting, StageAccessLogSettingArgs, True)
             __props__.__dict__["access_log_setting"] = access_log_setting
             __props__.__dict__["cache_cluster_enabled"] = cache_cluster_enabled
             __props__.__dict__["cache_cluster_size"] = cache_cluster_size
-            if canary_setting is not None and not isinstance(canary_setting, StageCanarySettingArgs):
-                canary_setting = canary_setting or {}
-                def _setter(key, value):
-                    canary_setting[key] = value
-                StageCanarySettingArgs._configure(_setter, **canary_setting)
+            canary_setting = _utilities.configure(canary_setting, StageCanarySettingArgs, True)
             __props__.__dict__["canary_setting"] = canary_setting
             __props__.__dict__["client_certificate_id"] = client_certificate_id
             __props__.__dict__["deployment_id"] = deployment_id

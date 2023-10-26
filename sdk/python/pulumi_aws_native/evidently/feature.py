@@ -43,15 +43,27 @@ class FeatureArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             project: pulumi.Input[str],
-             variations: pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]],
+             project: Optional[pulumi.Input[str]] = None,
+             variations: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]]] = None,
              default_variation: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              entity_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]] = None,
              evaluation_strategy: Optional[pulumi.Input['FeatureEvaluationStrategy']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project is None:
+            raise TypeError("Missing 'project' argument")
+        if variations is None:
+            raise TypeError("Missing 'variations' argument")
+        if default_variation is None and 'defaultVariation' in kwargs:
+            default_variation = kwargs['defaultVariation']
+        if entity_overrides is None and 'entityOverrides' in kwargs:
+            entity_overrides = kwargs['entityOverrides']
+        if evaluation_strategy is None and 'evaluationStrategy' in kwargs:
+            evaluation_strategy = kwargs['evaluationStrategy']
+
         _setter("project", project)
         _setter("variations", variations)
         if default_variation is not None:

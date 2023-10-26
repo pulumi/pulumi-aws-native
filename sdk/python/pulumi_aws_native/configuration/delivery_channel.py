@@ -37,13 +37,27 @@ class DeliveryChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket_name: pulumi.Input[str],
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
              config_snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              s3_key_prefix: Optional[pulumi.Input[str]] = None,
              s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
              sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if config_snapshot_delivery_properties is None and 'configSnapshotDeliveryProperties' in kwargs:
+            config_snapshot_delivery_properties = kwargs['configSnapshotDeliveryProperties']
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+        if s3_kms_key_arn is None and 's3KmsKeyArn' in kwargs:
+            s3_kms_key_arn = kwargs['s3KmsKeyArn']
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("s3_bucket_name", s3_bucket_name)
         if config_snapshot_delivery_properties is not None:
             _setter("config_snapshot_delivery_properties", config_snapshot_delivery_properties)
@@ -178,11 +192,7 @@ class DeliveryChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeliveryChannelArgs.__new__(DeliveryChannelArgs)
 
-            if config_snapshot_delivery_properties is not None and not isinstance(config_snapshot_delivery_properties, DeliveryChannelConfigSnapshotDeliveryPropertiesArgs):
-                config_snapshot_delivery_properties = config_snapshot_delivery_properties or {}
-                def _setter(key, value):
-                    config_snapshot_delivery_properties[key] = value
-                DeliveryChannelConfigSnapshotDeliveryPropertiesArgs._configure(_setter, **config_snapshot_delivery_properties)
+            config_snapshot_delivery_properties = _utilities.configure(config_snapshot_delivery_properties, DeliveryChannelConfigSnapshotDeliveryPropertiesArgs, True)
             __props__.__dict__["config_snapshot_delivery_properties"] = config_snapshot_delivery_properties
             __props__.__dict__["name"] = name
             if s3_bucket_name is None and not opts.urn:

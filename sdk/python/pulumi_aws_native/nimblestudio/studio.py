@@ -42,13 +42,31 @@ class StudioArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_role_arn: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             user_role_arn: pulumi.Input[str],
+             admin_role_arn: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             user_role_arn: Optional[pulumi.Input[str]] = None,
              studio_encryption_configuration: Optional[pulumi.Input['StudioEncryptionConfigurationArgs']] = None,
              studio_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['StudioTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_role_arn is None and 'adminRoleArn' in kwargs:
+            admin_role_arn = kwargs['adminRoleArn']
+        if admin_role_arn is None:
+            raise TypeError("Missing 'admin_role_arn' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if user_role_arn is None and 'userRoleArn' in kwargs:
+            user_role_arn = kwargs['userRoleArn']
+        if user_role_arn is None:
+            raise TypeError("Missing 'user_role_arn' argument")
+        if studio_encryption_configuration is None and 'studioEncryptionConfiguration' in kwargs:
+            studio_encryption_configuration = kwargs['studioEncryptionConfiguration']
+        if studio_name is None and 'studioName' in kwargs:
+            studio_name = kwargs['studioName']
+
         _setter("admin_role_arn", admin_role_arn)
         _setter("display_name", display_name)
         _setter("user_role_arn", user_role_arn)
@@ -197,18 +215,10 @@ class Studio(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if studio_encryption_configuration is not None and not isinstance(studio_encryption_configuration, StudioEncryptionConfigurationArgs):
-                studio_encryption_configuration = studio_encryption_configuration or {}
-                def _setter(key, value):
-                    studio_encryption_configuration[key] = value
-                StudioEncryptionConfigurationArgs._configure(_setter, **studio_encryption_configuration)
+            studio_encryption_configuration = _utilities.configure(studio_encryption_configuration, StudioEncryptionConfigurationArgs, True)
             __props__.__dict__["studio_encryption_configuration"] = studio_encryption_configuration
             __props__.__dict__["studio_name"] = studio_name
-            if tags is not None and not isinstance(tags, StudioTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                StudioTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, StudioTagsArgs, True)
             __props__.__dict__["tags"] = tags
             if user_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'user_role_arn'")

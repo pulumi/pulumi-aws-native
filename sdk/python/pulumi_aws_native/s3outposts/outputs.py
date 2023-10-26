@@ -56,7 +56,11 @@ class AccessPointVpcConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if vpc_id is not None:
             _setter("vpc_id", vpc_id)
 
@@ -104,8 +108,14 @@ class BucketAbortIncompleteMultipartUpload(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             days_after_initiation: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             days_after_initiation: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_after_initiation is None and 'daysAfterInitiation' in kwargs:
+            days_after_initiation = kwargs['daysAfterInitiation']
+        if days_after_initiation is None:
+            raise TypeError("Missing 'days_after_initiation' argument")
+
         _setter("days_after_initiation", days_after_initiation)
 
     @property
@@ -134,9 +144,13 @@ class BucketFilterAndOperatorProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tags: Sequence['outputs.BucketFilterTag'],
+             tags: Optional[Sequence['outputs.BucketFilterTag']] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+
         _setter("tags", tags)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -177,9 +191,15 @@ class BucketFilterTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -208,8 +228,12 @@ class BucketLifecycleConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: Sequence['outputs.BucketRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rules: Optional[Sequence['outputs.BucketRule']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
         _setter("rules", rules)
 
     @property
@@ -280,7 +304,15 @@ class BucketRule(dict):
              filter: Optional['outputs.BucketRuleFilterProperties'] = None,
              id: Optional[str] = None,
              status: Optional['BucketRuleStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if abort_incomplete_multipart_upload is None and 'abortIncompleteMultipartUpload' in kwargs:
+            abort_incomplete_multipart_upload = kwargs['abortIncompleteMultipartUpload']
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if expiration_in_days is None and 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+
         if abort_incomplete_multipart_upload is not None:
             _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
         if expiration_date is not None:
@@ -384,7 +416,11 @@ class BucketRuleFilterProperties(dict):
              and_operator: Optional['outputs.BucketFilterAndOperatorProperties'] = None,
              prefix: Optional[str] = None,
              tag: Optional['outputs.BucketFilterTag'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_operator is None and 'andOperator' in kwargs:
+            and_operator = kwargs['andOperator']
+
         if and_operator is not None:
             _setter("and_operator", and_operator)
         if prefix is not None:
@@ -430,9 +466,15 @@ class BucketTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -483,7 +525,11 @@ class EndpointFailedReason(dict):
              _setter: Callable[[Any, Any], None],
              error_code: Optional[str] = None,
              message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+
         if error_code is not None:
             _setter("error_code", error_code)
         if message is not None:
@@ -540,8 +586,14 @@ class EndpointNetworkInterface(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_interface_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             network_interface_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+
         _setter("network_interface_id", network_interface_id)
 
     @property

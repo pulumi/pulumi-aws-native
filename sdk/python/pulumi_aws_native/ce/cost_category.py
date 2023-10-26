@@ -37,12 +37,24 @@ class CostCategoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_version: pulumi.Input['CostCategoryRuleVersion'],
-             rules: pulumi.Input[str],
+             rule_version: Optional[pulumi.Input['CostCategoryRuleVersion']] = None,
+             rules: Optional[pulumi.Input[str]] = None,
              default_value: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              split_charge_rules: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_version is None and 'ruleVersion' in kwargs:
+            rule_version = kwargs['ruleVersion']
+        if rule_version is None:
+            raise TypeError("Missing 'rule_version' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if split_charge_rules is None and 'splitChargeRules' in kwargs:
+            split_charge_rules = kwargs['splitChargeRules']
+
         _setter("rule_version", rule_version)
         _setter("rules", rules)
         if default_value is not None:

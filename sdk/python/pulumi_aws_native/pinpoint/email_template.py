@@ -37,14 +37,30 @@ class EmailTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subject: pulumi.Input[str],
-             template_name: pulumi.Input[str],
+             subject: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
              default_substitutions: Optional[pulumi.Input[str]] = None,
              html_part: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
              text_part: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+        if default_substitutions is None and 'defaultSubstitutions' in kwargs:
+            default_substitutions = kwargs['defaultSubstitutions']
+        if html_part is None and 'htmlPart' in kwargs:
+            html_part = kwargs['htmlPart']
+        if template_description is None and 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+        if text_part is None and 'textPart' in kwargs:
+            text_part = kwargs['textPart']
+
         _setter("subject", subject)
         _setter("template_name", template_name)
         if default_substitutions is not None:

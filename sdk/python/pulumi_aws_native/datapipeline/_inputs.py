@@ -38,10 +38,18 @@ class PipelineFieldArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              ref_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if ref_value is None and 'refValue' in kwargs:
+            ref_value = kwargs['refValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("key", key)
         if ref_value is not None:
             _setter("ref_value", ref_value)
@@ -105,10 +113,18 @@ class PipelineObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fields: pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]],
-             id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineFieldArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("fields", fields)
         _setter("id", id)
         _setter("name", name)
@@ -167,9 +183,17 @@ class PipelineParameterAttributeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             string_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             string_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+        if string_value is None:
+            raise TypeError("Missing 'string_value' argument")
+
         _setter("key", key)
         _setter("string_value", string_value)
 
@@ -215,9 +239,15 @@ class PipelineParameterObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: pulumi.Input[Sequence[pulumi.Input['PipelineParameterAttributeArgs']]],
-             id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterAttributeArgs']]]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("attributes", attributes)
         _setter("id", id)
 
@@ -263,9 +293,17 @@ class PipelineParameterValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             string_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[str]] = None,
+             string_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+        if string_value is None:
+            raise TypeError("Missing 'string_value' argument")
+
         _setter("id", id)
         _setter("string_value", string_value)
 
@@ -311,9 +349,15 @@ class PipelineTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

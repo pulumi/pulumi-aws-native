@@ -33,11 +33,27 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             table_input: pulumi.Input['TableInputArgs'],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             table_input: Optional[pulumi.Input['TableInputArgs']] = None,
              open_table_format_input: Optional[pulumi.Input['TableOpenTableFormatInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_input is None and 'tableInput' in kwargs:
+            table_input = kwargs['tableInput']
+        if table_input is None:
+            raise TypeError("Missing 'table_input' argument")
+        if open_table_format_input is None and 'openTableFormatInput' in kwargs:
+            open_table_format_input = kwargs['openTableFormatInput']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         _setter("table_input", table_input)
@@ -150,17 +166,9 @@ class Table(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if open_table_format_input is not None and not isinstance(open_table_format_input, TableOpenTableFormatInputArgs):
-                open_table_format_input = open_table_format_input or {}
-                def _setter(key, value):
-                    open_table_format_input[key] = value
-                TableOpenTableFormatInputArgs._configure(_setter, **open_table_format_input)
+            open_table_format_input = _utilities.configure(open_table_format_input, TableOpenTableFormatInputArgs, True)
             __props__.__dict__["open_table_format_input"] = open_table_format_input
-            if table_input is not None and not isinstance(table_input, TableInputArgs):
-                table_input = table_input or {}
-                def _setter(key, value):
-                    table_input[key] = value
-                TableInputArgs._configure(_setter, **table_input)
+            table_input = _utilities.configure(table_input, TableInputArgs, True)
             if table_input is None and not opts.urn:
                 raise TypeError("Missing required property 'table_input'")
             __props__.__dict__["table_input"] = table_input

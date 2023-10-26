@@ -28,9 +28,15 @@ class LedgerTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -68,7 +74,13 @@ class StreamKinesisConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              aggregation_enabled: Optional[pulumi.Input[bool]] = None,
              stream_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregation_enabled is None and 'aggregationEnabled' in kwargs:
+            aggregation_enabled = kwargs['aggregationEnabled']
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+
         if aggregation_enabled is not None:
             _setter("aggregation_enabled", aggregation_enabled)
         if stream_arn is not None:
@@ -111,9 +123,15 @@ class StreamTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

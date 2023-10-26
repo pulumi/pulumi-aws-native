@@ -38,7 +38,15 @@ class ServiceNetworkVpcAssociationArgs:
              service_network_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkVpcAssociationTagArgs']]]] = None,
              vpc_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if service_network_identifier is None and 'serviceNetworkIdentifier' in kwargs:
+            service_network_identifier = kwargs['serviceNetworkIdentifier']
+        if vpc_identifier is None and 'vpcIdentifier' in kwargs:
+            vpc_identifier = kwargs['vpcIdentifier']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if service_network_identifier is not None:

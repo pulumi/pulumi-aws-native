@@ -27,9 +27,17 @@ class AcceptedPortfolioShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             portfolio_id: pulumi.Input[str],
+             portfolio_id: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("portfolio_id", portfolio_id)
         if accept_language is not None:
             _setter("accept_language", accept_language)

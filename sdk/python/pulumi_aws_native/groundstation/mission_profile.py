@@ -49,16 +49,38 @@ class MissionProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataflow_edges: pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]],
-             minimum_viable_contact_duration_seconds: pulumi.Input[int],
-             tracking_config_arn: pulumi.Input[str],
+             dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]]] = None,
+             minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
+             tracking_config_arn: Optional[pulumi.Input[str]] = None,
              contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
              contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              streams_kms_key: Optional[pulumi.Input['MissionProfileStreamsKmsKeyArgs']] = None,
              streams_kms_role: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataflow_edges is None and 'dataflowEdges' in kwargs:
+            dataflow_edges = kwargs['dataflowEdges']
+        if dataflow_edges is None:
+            raise TypeError("Missing 'dataflow_edges' argument")
+        if minimum_viable_contact_duration_seconds is None and 'minimumViableContactDurationSeconds' in kwargs:
+            minimum_viable_contact_duration_seconds = kwargs['minimumViableContactDurationSeconds']
+        if minimum_viable_contact_duration_seconds is None:
+            raise TypeError("Missing 'minimum_viable_contact_duration_seconds' argument")
+        if tracking_config_arn is None and 'trackingConfigArn' in kwargs:
+            tracking_config_arn = kwargs['trackingConfigArn']
+        if tracking_config_arn is None:
+            raise TypeError("Missing 'tracking_config_arn' argument")
+        if contact_post_pass_duration_seconds is None and 'contactPostPassDurationSeconds' in kwargs:
+            contact_post_pass_duration_seconds = kwargs['contactPostPassDurationSeconds']
+        if contact_pre_pass_duration_seconds is None and 'contactPrePassDurationSeconds' in kwargs:
+            contact_pre_pass_duration_seconds = kwargs['contactPrePassDurationSeconds']
+        if streams_kms_key is None and 'streamsKmsKey' in kwargs:
+            streams_kms_key = kwargs['streamsKmsKey']
+        if streams_kms_role is None and 'streamsKmsRole' in kwargs:
+            streams_kms_role = kwargs['streamsKmsRole']
+
         _setter("dataflow_edges", dataflow_edges)
         _setter("minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
         _setter("tracking_config_arn", tracking_config_arn)
@@ -257,11 +279,7 @@ class MissionProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'minimum_viable_contact_duration_seconds'")
             __props__.__dict__["minimum_viable_contact_duration_seconds"] = minimum_viable_contact_duration_seconds
             __props__.__dict__["name"] = name
-            if streams_kms_key is not None and not isinstance(streams_kms_key, MissionProfileStreamsKmsKeyArgs):
-                streams_kms_key = streams_kms_key or {}
-                def _setter(key, value):
-                    streams_kms_key[key] = value
-                MissionProfileStreamsKmsKeyArgs._configure(_setter, **streams_kms_key)
+            streams_kms_key = _utilities.configure(streams_kms_key, MissionProfileStreamsKmsKeyArgs, True)
             __props__.__dict__["streams_kms_key"] = streams_kms_key
             __props__.__dict__["streams_kms_role"] = streams_kms_role
             __props__.__dict__["tags"] = tags

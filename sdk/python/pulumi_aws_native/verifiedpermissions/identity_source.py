@@ -32,10 +32,18 @@ class IdentitySourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
+             configuration: Optional[pulumi.Input['IdentitySourceConfigurationArgs']] = None,
              policy_store_id: Optional[pulumi.Input[str]] = None,
              principal_entity_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if policy_store_id is None and 'policyStoreId' in kwargs:
+            policy_store_id = kwargs['policyStoreId']
+        if principal_entity_type is None and 'principalEntityType' in kwargs:
+            principal_entity_type = kwargs['principalEntityType']
+
         _setter("configuration", configuration)
         if policy_store_id is not None:
             _setter("policy_store_id", policy_store_id)
@@ -125,11 +133,7 @@ class IdentitySource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentitySourceArgs.__new__(IdentitySourceArgs)
 
-            if configuration is not None and not isinstance(configuration, IdentitySourceConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                IdentitySourceConfigurationArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, IdentitySourceConfigurationArgs, True)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

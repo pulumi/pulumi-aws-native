@@ -33,11 +33,19 @@ class ParameterGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cache_parameter_group_family: pulumi.Input[str],
-             description: pulumi.Input[str],
+             cache_parameter_group_family: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
              properties: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_parameter_group_family is None and 'cacheParameterGroupFamily' in kwargs:
+            cache_parameter_group_family = kwargs['cacheParameterGroupFamily']
+        if cache_parameter_group_family is None:
+            raise TypeError("Missing 'cache_parameter_group_family' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+
         _setter("cache_parameter_group_family", cache_parameter_group_family)
         _setter("description", description)
         if properties is not None:

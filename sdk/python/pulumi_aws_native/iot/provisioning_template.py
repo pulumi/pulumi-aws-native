@@ -42,15 +42,31 @@ class ProvisioningTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provisioning_role_arn: pulumi.Input[str],
-             template_body: pulumi.Input[str],
+             provisioning_role_arn: Optional[pulumi.Input[str]] = None,
+             template_body: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              pre_provisioning_hook: Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProvisioningTemplateTagArgs']]]] = None,
              template_name: Optional[pulumi.Input[str]] = None,
              template_type: Optional[pulumi.Input['ProvisioningTemplateTemplateType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioning_role_arn is None and 'provisioningRoleArn' in kwargs:
+            provisioning_role_arn = kwargs['provisioningRoleArn']
+        if provisioning_role_arn is None:
+            raise TypeError("Missing 'provisioning_role_arn' argument")
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_body is None:
+            raise TypeError("Missing 'template_body' argument")
+        if pre_provisioning_hook is None and 'preProvisioningHook' in kwargs:
+            pre_provisioning_hook = kwargs['preProvisioningHook']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_type is None and 'templateType' in kwargs:
+            template_type = kwargs['templateType']
+
         _setter("provisioning_role_arn", provisioning_role_arn)
         _setter("template_body", template_body)
         if description is not None:
@@ -206,11 +222,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["enabled"] = enabled
-            if pre_provisioning_hook is not None and not isinstance(pre_provisioning_hook, ProvisioningTemplateProvisioningHookArgs):
-                pre_provisioning_hook = pre_provisioning_hook or {}
-                def _setter(key, value):
-                    pre_provisioning_hook[key] = value
-                ProvisioningTemplateProvisioningHookArgs._configure(_setter, **pre_provisioning_hook)
+            pre_provisioning_hook = _utilities.configure(pre_provisioning_hook, ProvisioningTemplateProvisioningHookArgs, True)
             __props__.__dict__["pre_provisioning_hook"] = pre_provisioning_hook
             if provisioning_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioning_role_arn'")

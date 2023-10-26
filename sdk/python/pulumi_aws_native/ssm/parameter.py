@@ -51,8 +51,8 @@ class ParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['ParameterType'],
-             value: pulumi.Input[str],
+             type: Optional[pulumi.Input['ParameterType']] = None,
+             value: Optional[pulumi.Input[str]] = None,
              allowed_pattern: Optional[pulumi.Input[str]] = None,
              data_type: Optional[pulumi.Input['ParameterDataType']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -60,7 +60,17 @@ class ParameterArgs:
              policies: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              tier: Optional[pulumi.Input['ParameterTier']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if allowed_pattern is None and 'allowedPattern' in kwargs:
+            allowed_pattern = kwargs['allowedPattern']
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+
         _setter("type", type)
         _setter("value", value)
         if allowed_pattern is not None:

@@ -29,9 +29,17 @@ class LoggerDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logger_definition_id: pulumi.Input[str],
-             loggers: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionVersionLoggerArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             logger_definition_id: Optional[pulumi.Input[str]] = None,
+             loggers: Optional[pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionVersionLoggerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logger_definition_id is None and 'loggerDefinitionId' in kwargs:
+            logger_definition_id = kwargs['loggerDefinitionId']
+        if logger_definition_id is None:
+            raise TypeError("Missing 'logger_definition_id' argument")
+        if loggers is None:
+            raise TypeError("Missing 'loggers' argument")
+
         _setter("logger_definition_id", logger_definition_id)
         _setter("loggers", loggers)
 

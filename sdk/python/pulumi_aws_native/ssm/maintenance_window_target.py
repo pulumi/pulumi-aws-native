@@ -37,13 +37,27 @@ class MaintenanceWindowTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_type: pulumi.Input[str],
-             targets: pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetsArgs']]],
-             window_id: pulumi.Input[str],
+             resource_type: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTargetTargetsArgs']]]] = None,
+             window_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner_information: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+        if window_id is None and 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if window_id is None:
+            raise TypeError("Missing 'window_id' argument")
+        if owner_information is None and 'ownerInformation' in kwargs:
+            owner_information = kwargs['ownerInformation']
+
         _setter("resource_type", resource_type)
         _setter("targets", targets)
         _setter("window_id", window_id)

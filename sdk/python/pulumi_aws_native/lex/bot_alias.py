@@ -44,7 +44,7 @@ class BotAliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_id: pulumi.Input[str],
+             bot_id: Optional[pulumi.Input[str]] = None,
              bot_alias_locale_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasLocaleSettingsItemArgs']]]] = None,
              bot_alias_name: Optional[pulumi.Input[str]] = None,
              bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]]] = None,
@@ -52,7 +52,25 @@ class BotAliasArgs:
              conversation_log_settings: Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              sentiment_analysis_settings: Optional[pulumi.Input['SentimentAnalysisSettingsPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_id is None and 'botId' in kwargs:
+            bot_id = kwargs['botId']
+        if bot_id is None:
+            raise TypeError("Missing 'bot_id' argument")
+        if bot_alias_locale_settings is None and 'botAliasLocaleSettings' in kwargs:
+            bot_alias_locale_settings = kwargs['botAliasLocaleSettings']
+        if bot_alias_name is None and 'botAliasName' in kwargs:
+            bot_alias_name = kwargs['botAliasName']
+        if bot_alias_tags is None and 'botAliasTags' in kwargs:
+            bot_alias_tags = kwargs['botAliasTags']
+        if bot_version is None and 'botVersion' in kwargs:
+            bot_version = kwargs['botVersion']
+        if conversation_log_settings is None and 'conversationLogSettings' in kwargs:
+            conversation_log_settings = kwargs['conversationLogSettings']
+        if sentiment_analysis_settings is None and 'sentimentAnalysisSettings' in kwargs:
+            sentiment_analysis_settings = kwargs['sentimentAnalysisSettings']
+
         _setter("bot_id", bot_id)
         if bot_alias_locale_settings is not None:
             _setter("bot_alias_locale_settings", bot_alias_locale_settings)
@@ -222,18 +240,10 @@ class BotAlias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bot_id'")
             __props__.__dict__["bot_id"] = bot_id
             __props__.__dict__["bot_version"] = bot_version
-            if conversation_log_settings is not None and not isinstance(conversation_log_settings, BotAliasConversationLogSettingsArgs):
-                conversation_log_settings = conversation_log_settings or {}
-                def _setter(key, value):
-                    conversation_log_settings[key] = value
-                BotAliasConversationLogSettingsArgs._configure(_setter, **conversation_log_settings)
+            conversation_log_settings = _utilities.configure(conversation_log_settings, BotAliasConversationLogSettingsArgs, True)
             __props__.__dict__["conversation_log_settings"] = conversation_log_settings
             __props__.__dict__["description"] = description
-            if sentiment_analysis_settings is not None and not isinstance(sentiment_analysis_settings, SentimentAnalysisSettingsPropertiesArgs):
-                sentiment_analysis_settings = sentiment_analysis_settings or {}
-                def _setter(key, value):
-                    sentiment_analysis_settings[key] = value
-                SentimentAnalysisSettingsPropertiesArgs._configure(_setter, **sentiment_analysis_settings)
+            sentiment_analysis_settings = _utilities.configure(sentiment_analysis_settings, SentimentAnalysisSettingsPropertiesArgs, True)
             __props__.__dict__["sentiment_analysis_settings"] = sentiment_analysis_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["bot_alias_id"] = None

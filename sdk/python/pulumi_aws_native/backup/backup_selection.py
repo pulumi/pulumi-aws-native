@@ -29,9 +29,19 @@ class BackupSelectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_plan_id: pulumi.Input[str],
-             backup_selection: pulumi.Input['BackupSelectionResourceTypeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             backup_plan_id: Optional[pulumi.Input[str]] = None,
+             backup_selection: Optional[pulumi.Input['BackupSelectionResourceTypeArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_plan_id is None and 'backupPlanId' in kwargs:
+            backup_plan_id = kwargs['backupPlanId']
+        if backup_plan_id is None:
+            raise TypeError("Missing 'backup_plan_id' argument")
+        if backup_selection is None and 'backupSelection' in kwargs:
+            backup_selection = kwargs['backupSelection']
+        if backup_selection is None:
+            raise TypeError("Missing 'backup_selection' argument")
+
         _setter("backup_plan_id", backup_plan_id)
         _setter("backup_selection", backup_selection)
 
@@ -110,11 +120,7 @@ class BackupSelection(pulumi.CustomResource):
             if backup_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_plan_id'")
             __props__.__dict__["backup_plan_id"] = backup_plan_id
-            if backup_selection is not None and not isinstance(backup_selection, BackupSelectionResourceTypeArgs):
-                backup_selection = backup_selection or {}
-                def _setter(key, value):
-                    backup_selection[key] = value
-                BackupSelectionResourceTypeArgs._configure(_setter, **backup_selection)
+            backup_selection = _utilities.configure(backup_selection, BackupSelectionResourceTypeArgs, True)
             if backup_selection is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_selection'")
             __props__.__dict__["backup_selection"] = backup_selection

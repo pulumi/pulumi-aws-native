@@ -33,10 +33,24 @@ class LoggingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             default_log_level: pulumi.Input['LoggingDefaultLogLevel'],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_id: Optional[pulumi.Input[str]] = None,
+             default_log_level: Optional[pulumi.Input['LoggingDefaultLogLevel']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if default_log_level is None and 'defaultLogLevel' in kwargs:
+            default_log_level = kwargs['defaultLogLevel']
+        if default_log_level is None:
+            raise TypeError("Missing 'default_log_level' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("account_id", account_id)
         _setter("default_log_level", default_log_level)
         _setter("role_arn", role_arn)

@@ -52,18 +52,44 @@ class LicenseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumption_configuration: pulumi.Input['LicenseConsumptionConfigurationArgs'],
-             entitlements: pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]],
-             home_region: pulumi.Input[str],
-             issuer: pulumi.Input['LicenseIssuerDataArgs'],
-             product_name: pulumi.Input[str],
-             validity: pulumi.Input['LicenseValidityDateFormatArgs'],
+             consumption_configuration: Optional[pulumi.Input['LicenseConsumptionConfigurationArgs']] = None,
+             entitlements: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]]] = None,
+             home_region: Optional[pulumi.Input[str]] = None,
+             issuer: Optional[pulumi.Input['LicenseIssuerDataArgs']] = None,
+             product_name: Optional[pulumi.Input[str]] = None,
+             validity: Optional[pulumi.Input['LicenseValidityDateFormatArgs']] = None,
              beneficiary: Optional[pulumi.Input[str]] = None,
              license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]] = None,
              license_name: Optional[pulumi.Input[str]] = None,
              product_sku: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumption_configuration is None and 'consumptionConfiguration' in kwargs:
+            consumption_configuration = kwargs['consumptionConfiguration']
+        if consumption_configuration is None:
+            raise TypeError("Missing 'consumption_configuration' argument")
+        if entitlements is None:
+            raise TypeError("Missing 'entitlements' argument")
+        if home_region is None and 'homeRegion' in kwargs:
+            home_region = kwargs['homeRegion']
+        if home_region is None:
+            raise TypeError("Missing 'home_region' argument")
+        if issuer is None:
+            raise TypeError("Missing 'issuer' argument")
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if product_name is None:
+            raise TypeError("Missing 'product_name' argument")
+        if validity is None:
+            raise TypeError("Missing 'validity' argument")
+        if license_metadata is None and 'licenseMetadata' in kwargs:
+            license_metadata = kwargs['licenseMetadata']
+        if license_name is None and 'licenseName' in kwargs:
+            license_name = kwargs['licenseName']
+        if product_sku is None and 'productSku' in kwargs:
+            product_sku = kwargs['productSku']
+
         _setter("consumption_configuration", consumption_configuration)
         _setter("entitlements", entitlements)
         _setter("home_region", home_region)
@@ -273,11 +299,7 @@ class License(pulumi.CustomResource):
             __props__ = LicenseArgs.__new__(LicenseArgs)
 
             __props__.__dict__["beneficiary"] = beneficiary
-            if consumption_configuration is not None and not isinstance(consumption_configuration, LicenseConsumptionConfigurationArgs):
-                consumption_configuration = consumption_configuration or {}
-                def _setter(key, value):
-                    consumption_configuration[key] = value
-                LicenseConsumptionConfigurationArgs._configure(_setter, **consumption_configuration)
+            consumption_configuration = _utilities.configure(consumption_configuration, LicenseConsumptionConfigurationArgs, True)
             if consumption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'consumption_configuration'")
             __props__.__dict__["consumption_configuration"] = consumption_configuration
@@ -287,11 +309,7 @@ class License(pulumi.CustomResource):
             if home_region is None and not opts.urn:
                 raise TypeError("Missing required property 'home_region'")
             __props__.__dict__["home_region"] = home_region
-            if issuer is not None and not isinstance(issuer, LicenseIssuerDataArgs):
-                issuer = issuer or {}
-                def _setter(key, value):
-                    issuer[key] = value
-                LicenseIssuerDataArgs._configure(_setter, **issuer)
+            issuer = _utilities.configure(issuer, LicenseIssuerDataArgs, True)
             if issuer is None and not opts.urn:
                 raise TypeError("Missing required property 'issuer'")
             __props__.__dict__["issuer"] = issuer
@@ -302,11 +320,7 @@ class License(pulumi.CustomResource):
             __props__.__dict__["product_name"] = product_name
             __props__.__dict__["product_sku"] = product_sku
             __props__.__dict__["status"] = status
-            if validity is not None and not isinstance(validity, LicenseValidityDateFormatArgs):
-                validity = validity or {}
-                def _setter(key, value):
-                    validity[key] = value
-                LicenseValidityDateFormatArgs._configure(_setter, **validity)
+            validity = _utilities.configure(validity, LicenseValidityDateFormatArgs, True)
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity

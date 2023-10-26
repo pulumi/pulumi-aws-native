@@ -62,7 +62,11 @@ class FirewallPolicyActionDefinitionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              publish_metric_action: Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if publish_metric_action is None and 'publishMetricAction' in kwargs:
+            publish_metric_action = kwargs['publishMetricAction']
+
         if publish_metric_action is not None:
             _setter("publish_metric_action", publish_metric_action)
 
@@ -89,9 +93,19 @@ class FirewallPolicyCustomActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_definition: pulumi.Input['FirewallPolicyActionDefinitionArgs'],
-             action_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action_definition: Optional[pulumi.Input['FirewallPolicyActionDefinitionArgs']] = None,
+             action_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_definition is None and 'actionDefinition' in kwargs:
+            action_definition = kwargs['actionDefinition']
+        if action_definition is None:
+            raise TypeError("Missing 'action_definition' argument")
+        if action_name is None and 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if action_name is None:
+            raise TypeError("Missing 'action_name' argument")
+
         _setter("action_definition", action_definition)
         _setter("action_name", action_name)
 
@@ -125,8 +139,12 @@ class FirewallPolicyDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
 
     @property
@@ -151,7 +169,11 @@ class FirewallPolicyPolicyVariablesPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rule_variables: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_variables is None and 'ruleVariables' in kwargs:
+            rule_variables = kwargs['ruleVariables']
+
         if rule_variables is not None:
             _setter("rule_variables", rule_variables)
 
@@ -176,8 +198,12 @@ class FirewallPolicyPublishMetricActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimensions is None:
+            raise TypeError("Missing 'dimensions' argument")
+
         _setter("dimensions", dimensions)
 
     @property
@@ -197,8 +223,10 @@ class FirewallPolicyRuleVariablesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -216,7 +244,13 @@ class FirewallPolicyStatefulEngineOptionsArgs:
              _setter: Callable[[Any, Any], None],
              rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None,
              stream_exception_policy: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_order is None and 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+        if stream_exception_policy is None and 'streamExceptionPolicy' in kwargs:
+            stream_exception_policy = kwargs['streamExceptionPolicy']
+
         if rule_order is not None:
             _setter("rule_order", rule_order)
         if stream_exception_policy is not None:
@@ -253,7 +287,9 @@ class FirewallPolicyStatefulRuleGroupOverrideArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: Optional[pulumi.Input['FirewallPolicyOverrideAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if action is not None:
             _setter("action", action)
 
@@ -282,10 +318,16 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
+             resource_arn: Optional[pulumi.Input[str]] = None,
              override: Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']] = None,
              priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
         _setter("resource_arn", resource_arn)
         if override is not None:
             _setter("override", override)
@@ -333,9 +375,17 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: pulumi.Input[int],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             priority: Optional[pulumi.Input[int]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
         _setter("priority", priority)
         _setter("resource_arn", resource_arn)
 
@@ -371,9 +421,15 @@ class FirewallPolicyTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -421,15 +477,37 @@ class FirewallPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             stateless_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             stateless_fragment_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              policy_variables: Optional[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs']] = None,
              stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              stateful_engine_options: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs']] = None,
              stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
              stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None,
              stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stateless_default_actions is None and 'statelessDefaultActions' in kwargs:
+            stateless_default_actions = kwargs['statelessDefaultActions']
+        if stateless_default_actions is None:
+            raise TypeError("Missing 'stateless_default_actions' argument")
+        if stateless_fragment_default_actions is None and 'statelessFragmentDefaultActions' in kwargs:
+            stateless_fragment_default_actions = kwargs['statelessFragmentDefaultActions']
+        if stateless_fragment_default_actions is None:
+            raise TypeError("Missing 'stateless_fragment_default_actions' argument")
+        if policy_variables is None and 'policyVariables' in kwargs:
+            policy_variables = kwargs['policyVariables']
+        if stateful_default_actions is None and 'statefulDefaultActions' in kwargs:
+            stateful_default_actions = kwargs['statefulDefaultActions']
+        if stateful_engine_options is None and 'statefulEngineOptions' in kwargs:
+            stateful_engine_options = kwargs['statefulEngineOptions']
+        if stateful_rule_group_references is None and 'statefulRuleGroupReferences' in kwargs:
+            stateful_rule_group_references = kwargs['statefulRuleGroupReferences']
+        if stateless_custom_actions is None and 'statelessCustomActions' in kwargs:
+            stateless_custom_actions = kwargs['statelessCustomActions']
+        if stateless_rule_group_references is None and 'statelessRuleGroupReferences' in kwargs:
+            stateless_rule_group_references = kwargs['statelessRuleGroupReferences']
+
         _setter("stateless_default_actions", stateless_default_actions)
         _setter("stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
@@ -535,9 +613,17 @@ class FirewallSubnetMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              ip_address_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+
         _setter("subnet_id", subnet_id)
         if ip_address_type is not None:
             _setter("ip_address_type", ip_address_type)
@@ -580,9 +666,15 @@ class FirewallTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -623,10 +715,24 @@ class LoggingConfigurationLogDestinationConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_destination: Any,
-             log_destination_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType'],
-             log_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_destination: Optional[Any] = None,
+             log_destination_type: Optional[pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType']] = None,
+             log_type: Optional[pulumi.Input['LoggingConfigurationLogDestinationConfigLogType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_destination is None and 'logDestination' in kwargs:
+            log_destination = kwargs['logDestination']
+        if log_destination is None:
+            raise TypeError("Missing 'log_destination' argument")
+        if log_destination_type is None and 'logDestinationType' in kwargs:
+            log_destination_type = kwargs['logDestinationType']
+        if log_destination_type is None:
+            raise TypeError("Missing 'log_destination_type' argument")
+        if log_type is None and 'logType' in kwargs:
+            log_type = kwargs['logType']
+        if log_type is None:
+            raise TypeError("Missing 'log_type' argument")
+
         _setter("log_destination", log_destination)
         _setter("log_destination_type", log_destination_type)
         _setter("log_type", log_type)
@@ -673,8 +779,14 @@ class LoggingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_destination_configs is None and 'logDestinationConfigs' in kwargs:
+            log_destination_configs = kwargs['logDestinationConfigs']
+        if log_destination_configs is None:
+            raise TypeError("Missing 'log_destination_configs' argument")
+
         _setter("log_destination_configs", log_destination_configs)
 
     @property
@@ -699,7 +811,11 @@ class RuleGroupActionDefinitionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              publish_metric_action: Optional[pulumi.Input['RuleGroupPublishMetricActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if publish_metric_action is None and 'publishMetricAction' in kwargs:
+            publish_metric_action = kwargs['publishMetricAction']
+
         if publish_metric_action is not None:
             _setter("publish_metric_action", publish_metric_action)
 
@@ -724,8 +840,14 @@ class RuleGroupAddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_definition: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             address_definition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_definition is None and 'addressDefinition' in kwargs:
+            address_definition = kwargs['addressDefinition']
+        if address_definition is None:
+            raise TypeError("Missing 'address_definition' argument")
+
         _setter("address_definition", address_definition)
 
     @property
@@ -751,9 +873,19 @@ class RuleGroupCustomActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_definition: pulumi.Input['RuleGroupActionDefinitionArgs'],
-             action_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action_definition: Optional[pulumi.Input['RuleGroupActionDefinitionArgs']] = None,
+             action_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_definition is None and 'actionDefinition' in kwargs:
+            action_definition = kwargs['actionDefinition']
+        if action_definition is None:
+            raise TypeError("Missing 'action_definition' argument")
+        if action_name is None and 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if action_name is None:
+            raise TypeError("Missing 'action_name' argument")
+
         _setter("action_definition", action_definition)
         _setter("action_name", action_name)
 
@@ -787,8 +919,12 @@ class RuleGroupDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
 
     @property
@@ -822,13 +958,31 @@ class RuleGroupHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             destination_port: pulumi.Input[str],
-             direction: pulumi.Input['RuleGroupHeaderDirection'],
-             protocol: pulumi.Input['RuleGroupHeaderProtocol'],
-             source: pulumi.Input[str],
-             source_port: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[str]] = None,
+             direction: Optional[pulumi.Input['RuleGroupHeaderDirection']] = None,
+             protocol: Optional[pulumi.Input['RuleGroupHeaderProtocol']] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             source_port: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if destination_port is None:
+            raise TypeError("Missing 'destination_port' argument")
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+        if source_port is None:
+            raise TypeError("Missing 'source_port' argument")
+
         _setter("destination", destination)
         _setter("destination_port", destination_port)
         _setter("direction", direction)
@@ -918,7 +1072,15 @@ class RuleGroupMatchAttributesArgs:
              source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
              tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_ports is None and 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if source_ports is None and 'sourcePorts' in kwargs:
+            source_ports = kwargs['sourcePorts']
+        if tcp_flags is None and 'tcpFlags' in kwargs:
+            tcp_flags = kwargs['tcpFlags']
+
         if destination_ports is not None:
             _setter("destination_ports", destination_ports)
         if destinations is not None:
@@ -1000,9 +1162,19 @@ class RuleGroupPortRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_port: pulumi.Input[int],
-             to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             from_port: Optional[pulumi.Input[int]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if from_port is None:
+            raise TypeError("Missing 'from_port' argument")
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+        if to_port is None:
+            raise TypeError("Missing 'to_port' argument")
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 
@@ -1036,8 +1208,12 @@ class RuleGroupPublishMetricActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimensions is None:
+            raise TypeError("Missing 'dimensions' argument")
+
         _setter("dimensions", dimensions)
 
     @property
@@ -1062,7 +1238,11 @@ class RuleGroupReferenceSetsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ip_set_references: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_set_references is None and 'ipSetReferences' in kwargs:
+            ip_set_references = kwargs['ipSetReferences']
+
         if ip_set_references is not None:
             _setter("ip_set_references", ip_set_references)
 
@@ -1089,9 +1269,17 @@ class RuleGroupRuleDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             match_attributes: pulumi.Input['RuleGroupMatchAttributesArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             match_attributes: Optional[pulumi.Input['RuleGroupMatchAttributesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if match_attributes is None and 'matchAttributes' in kwargs:
+            match_attributes = kwargs['matchAttributes']
+        if match_attributes is None:
+            raise TypeError("Missing 'match_attributes' argument")
+
         _setter("actions", actions)
         _setter("match_attributes", match_attributes)
 
@@ -1127,9 +1315,13 @@ class RuleGroupRuleOptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             keyword: pulumi.Input[str],
+             keyword: Optional[pulumi.Input[str]] = None,
              settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if keyword is None:
+            raise TypeError("Missing 'keyword' argument")
+
         _setter("keyword", keyword)
         if settings is not None:
             _setter("settings", settings)
@@ -1168,7 +1360,13 @@ class RuleGroupRuleVariablesArgs:
              _setter: Callable[[Any, Any], None],
              ip_sets: Optional[Any] = None,
              port_sets: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_sets is None and 'ipSets' in kwargs:
+            ip_sets = kwargs['ipSets']
+        if port_sets is None and 'portSets' in kwargs:
+            port_sets = kwargs['portSets']
+
         if ip_sets is not None:
             _setter("ip_sets", ip_sets)
         if port_sets is not None:
@@ -1208,10 +1406,22 @@ class RuleGroupRulesSourceListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             generated_rules_type: pulumi.Input['RuleGroupGeneratedRulesType'],
-             target_types: pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]],
-             targets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             generated_rules_type: Optional[pulumi.Input['RuleGroupGeneratedRulesType']] = None,
+             target_types: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if generated_rules_type is None and 'generatedRulesType' in kwargs:
+            generated_rules_type = kwargs['generatedRulesType']
+        if generated_rules_type is None:
+            raise TypeError("Missing 'generated_rules_type' argument")
+        if target_types is None and 'targetTypes' in kwargs:
+            target_types = kwargs['targetTypes']
+        if target_types is None:
+            raise TypeError("Missing 'target_types' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+
         _setter("generated_rules_type", generated_rules_type)
         _setter("target_types", target_types)
         _setter("targets", targets)
@@ -1265,7 +1475,17 @@ class RuleGroupRulesSourceArgs:
              rules_string: Optional[pulumi.Input[str]] = None,
              stateful_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]] = None,
              stateless_rules_and_custom_actions: Optional[pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules_source_list is None and 'rulesSourceList' in kwargs:
+            rules_source_list = kwargs['rulesSourceList']
+        if rules_string is None and 'rulesString' in kwargs:
+            rules_string = kwargs['rulesString']
+        if stateful_rules is None and 'statefulRules' in kwargs:
+            stateful_rules = kwargs['statefulRules']
+        if stateless_rules_and_custom_actions is None and 'statelessRulesAndCustomActions' in kwargs:
+            stateless_rules_and_custom_actions = kwargs['statelessRulesAndCustomActions']
+
         if rules_source_list is not None:
             _setter("rules_source_list", rules_source_list)
         if rules_string is not None:
@@ -1324,7 +1544,11 @@ class RuleGroupStatefulRuleOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rule_order: Optional[pulumi.Input['RuleGroupRuleOrder']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_order is None and 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+
         if rule_order is not None:
             _setter("rule_order", rule_order)
 
@@ -1353,10 +1577,20 @@ class RuleGroupStatefulRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['RuleGroupStatefulRuleAction'],
-             header: pulumi.Input['RuleGroupHeaderArgs'],
-             rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action: Optional[pulumi.Input['RuleGroupStatefulRuleAction']] = None,
+             header: Optional[pulumi.Input['RuleGroupHeaderArgs']] = None,
+             rule_options: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if rule_options is None and 'ruleOptions' in kwargs:
+            rule_options = kwargs['ruleOptions']
+        if rule_options is None:
+            raise TypeError("Missing 'rule_options' argument")
+
         _setter("action", action)
         _setter("header", header)
         _setter("rule_options", rule_options)
@@ -1402,9 +1636,17 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]],
+             stateless_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]] = None,
              custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stateless_rules is None and 'statelessRules' in kwargs:
+            stateless_rules = kwargs['statelessRules']
+        if stateless_rules is None:
+            raise TypeError("Missing 'stateless_rules' argument")
+        if custom_actions is None and 'customActions' in kwargs:
+            custom_actions = kwargs['customActions']
+
         _setter("stateless_rules", stateless_rules)
         if custom_actions is not None:
             _setter("custom_actions", custom_actions)
@@ -1441,9 +1683,17 @@ class RuleGroupStatelessRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: pulumi.Input[int],
-             rule_definition: pulumi.Input['RuleGroupRuleDefinitionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_definition: Optional[pulumi.Input['RuleGroupRuleDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rule_definition is None and 'ruleDefinition' in kwargs:
+            rule_definition = kwargs['ruleDefinition']
+        if rule_definition is None:
+            raise TypeError("Missing 'rule_definition' argument")
+
         _setter("priority", priority)
         _setter("rule_definition", rule_definition)
 
@@ -1479,9 +1729,15 @@ class RuleGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1517,9 +1773,13 @@ class RuleGroupTcpFlagFieldArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]],
+             flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]] = None,
              masks: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flags is None:
+            raise TypeError("Missing 'flags' argument")
+
         _setter("flags", flags)
         if masks is not None:
             _setter("masks", masks)
@@ -1560,11 +1820,23 @@ class RuleGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules_source: pulumi.Input['RuleGroupRulesSourceArgs'],
+             rules_source: Optional[pulumi.Input['RuleGroupRulesSourceArgs']] = None,
              reference_sets: Optional[pulumi.Input['RuleGroupReferenceSetsArgs']] = None,
              rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None,
              stateful_rule_options: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules_source is None and 'rulesSource' in kwargs:
+            rules_source = kwargs['rulesSource']
+        if rules_source is None:
+            raise TypeError("Missing 'rules_source' argument")
+        if reference_sets is None and 'referenceSets' in kwargs:
+            reference_sets = kwargs['referenceSets']
+        if rule_variables is None and 'ruleVariables' in kwargs:
+            rule_variables = kwargs['ruleVariables']
+        if stateful_rule_options is None and 'statefulRuleOptions' in kwargs:
+            stateful_rule_options = kwargs['statefulRuleOptions']
+
         _setter("rules_source", rules_source)
         if reference_sets is not None:
             _setter("reference_sets", reference_sets)

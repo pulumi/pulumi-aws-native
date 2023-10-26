@@ -40,12 +40,22 @@ class EventIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_bridge_bus: pulumi.Input[str],
-             event_filter: pulumi.Input['EventIntegrationEventFilterArgs'],
+             event_bridge_bus: Optional[pulumi.Input[str]] = None,
+             event_filter: Optional[pulumi.Input['EventIntegrationEventFilterArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_bridge_bus is None and 'eventBridgeBus' in kwargs:
+            event_bridge_bus = kwargs['eventBridgeBus']
+        if event_bridge_bus is None:
+            raise TypeError("Missing 'event_bridge_bus' argument")
+        if event_filter is None and 'eventFilter' in kwargs:
+            event_filter = kwargs['eventFilter']
+        if event_filter is None:
+            raise TypeError("Missing 'event_filter' argument")
+
         _setter("event_bridge_bus", event_bridge_bus)
         _setter("event_filter", event_filter)
         if description is not None:
@@ -184,11 +194,7 @@ class EventIntegration(pulumi.CustomResource):
             if event_bridge_bus is None and not opts.urn:
                 raise TypeError("Missing required property 'event_bridge_bus'")
             __props__.__dict__["event_bridge_bus"] = event_bridge_bus
-            if event_filter is not None and not isinstance(event_filter, EventIntegrationEventFilterArgs):
-                event_filter = event_filter or {}
-                def _setter(key, value):
-                    event_filter[key] = value
-                EventIntegrationEventFilterArgs._configure(_setter, **event_filter)
+            event_filter = _utilities.configure(event_filter, EventIntegrationEventFilterArgs, True)
             if event_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'event_filter'")
             __props__.__dict__["event_filter"] = event_filter

@@ -34,10 +34,16 @@ class DeviceInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_fleet_name: pulumi.Input[str],
+             device_fleet_name: Optional[pulumi.Input[str]] = None,
              device: Optional[pulumi.Input['DeviceArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_fleet_name is None and 'deviceFleetName' in kwargs:
+            device_fleet_name = kwargs['deviceFleetName']
+        if device_fleet_name is None:
+            raise TypeError("Missing 'device_fleet_name' argument")
+
         _setter("device_fleet_name", device_fleet_name)
         if device is not None:
             _setter("device", device)
@@ -139,11 +145,7 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceInitArgs.__new__(DeviceInitArgs)
 
-            if device is not None and not isinstance(device, DeviceArgs):
-                device = device or {}
-                def _setter(key, value):
-                    device[key] = value
-                DeviceArgs._configure(_setter, **device)
+            device = _utilities.configure(device, DeviceArgs, True)
             __props__.__dict__["device"] = device
             if device_fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_fleet_name'")

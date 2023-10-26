@@ -27,9 +27,17 @@ class VpcEndpointServicePermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_id: pulumi.Input[str],
+             service_id: Optional[pulumi.Input[str]] = None,
              allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+        if allowed_principals is None and 'allowedPrincipals' in kwargs:
+            allowed_principals = kwargs['allowedPrincipals']
+
         _setter("service_id", service_id)
         if allowed_principals is not None:
             _setter("allowed_principals", allowed_principals)

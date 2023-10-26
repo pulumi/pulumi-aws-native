@@ -37,7 +37,13 @@ class AclArgs:
              acl_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AclTagArgs']]]] = None,
              user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acl_name is None and 'aclName' in kwargs:
+            acl_name = kwargs['aclName']
+        if user_names is None and 'userNames' in kwargs:
+            user_names = kwargs['userNames']
+
         if acl_name is not None:
             _setter("acl_name", acl_name)
         if tags is not None:

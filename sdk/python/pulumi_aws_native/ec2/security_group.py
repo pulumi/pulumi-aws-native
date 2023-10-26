@@ -37,13 +37,27 @@ class SecurityGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_description: pulumi.Input[str],
+             group_description: Optional[pulumi.Input[str]] = None,
              group_name: Optional[pulumi.Input[str]] = None,
              security_group_egress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupEgressArgs']]]] = None,
              security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupIngressArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityGroupTagArgs']]]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_description is None and 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if group_description is None:
+            raise TypeError("Missing 'group_description' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if security_group_egress is None and 'securityGroupEgress' in kwargs:
+            security_group_egress = kwargs['securityGroupEgress']
+        if security_group_ingress is None and 'securityGroupIngress' in kwargs:
+            security_group_ingress = kwargs['securityGroupIngress']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("group_description", group_description)
         if group_name is not None:
             _setter("group_name", group_name)

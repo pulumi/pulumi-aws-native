@@ -77,7 +77,13 @@ class ApplicationSettingsCampaignHookArgs:
              lambda_function_name: Optional[pulumi.Input[str]] = None,
              mode: Optional[pulumi.Input[str]] = None,
              web_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_function_name is None and 'lambdaFunctionName' in kwargs:
+            lambda_function_name = kwargs['lambdaFunctionName']
+        if web_url is None and 'webUrl' in kwargs:
+            web_url = kwargs['webUrl']
+
         if lambda_function_name is not None:
             _setter("lambda_function_name", lambda_function_name)
         if mode is not None:
@@ -134,7 +140,13 @@ class ApplicationSettingsLimitsArgs:
              maximum_duration: Optional[pulumi.Input[int]] = None,
              messages_per_second: Optional[pulumi.Input[int]] = None,
              total: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_duration is None and 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+        if messages_per_second is None and 'messagesPerSecond' in kwargs:
+            messages_per_second = kwargs['messagesPerSecond']
+
         if daily is not None:
             _setter("daily", daily)
         if maximum_duration is not None:
@@ -194,9 +206,15 @@ class ApplicationSettingsQuietTimeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end: pulumi.Input[str],
-             start: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             end: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end is None:
+            raise TypeError("Missing 'end' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+
         _setter("end", end)
         _setter("start", start)
 
@@ -234,7 +252,13 @@ class CampaignCustomDeliveryConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              delivery_uri: Optional[pulumi.Input[str]] = None,
              endpoint_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_uri is None and 'deliveryUri' in kwargs:
+            delivery_uri = kwargs['deliveryUri']
+        if endpoint_types is None and 'endpointTypes' in kwargs:
+            endpoint_types = kwargs['endpointTypes']
+
         if delivery_uri is not None:
             _setter("delivery_uri", delivery_uri)
         if endpoint_types is not None:
@@ -271,7 +295,9 @@ class CampaignCustomMessageArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if data is not None:
             _setter("data", data)
 
@@ -312,7 +338,17 @@ class CampaignDefaultButtonConfigurationArgs:
              link: Optional[pulumi.Input[str]] = None,
              text: Optional[pulumi.Input[str]] = None,
              text_color: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if background_color is None and 'backgroundColor' in kwargs:
+            background_color = kwargs['backgroundColor']
+        if border_radius is None and 'borderRadius' in kwargs:
+            border_radius = kwargs['borderRadius']
+        if button_action is None and 'buttonAction' in kwargs:
+            button_action = kwargs['buttonAction']
+        if text_color is None and 'textColor' in kwargs:
+            text_color = kwargs['textColor']
+
         if background_color is not None:
             _setter("background_color", background_color)
         if border_radius is not None:
@@ -402,7 +438,13 @@ class CampaignEmailMessageArgs:
              from_address: Optional[pulumi.Input[str]] = None,
              html_body: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if html_body is None and 'htmlBody' in kwargs:
+            html_body = kwargs['htmlBody']
+
         if body is not None:
             _setter("body", body)
         if from_address is not None:
@@ -467,7 +509,11 @@ class CampaignEventDimensionsArgs:
              attributes: Optional[Any] = None,
              event_type: Optional[pulumi.Input['CampaignSetDimensionArgs']] = None,
              metrics: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+
         if attributes is not None:
             _setter("attributes", attributes)
         if event_type is not None:
@@ -518,7 +564,11 @@ class CampaignEventFilterArgs:
              _setter: Callable[[Any, Any], None],
              dimensions: Optional[pulumi.Input['CampaignEventDimensionsArgs']] = None,
              filter_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if filter_type is not None:
@@ -561,7 +611,13 @@ class CampaignHookArgs:
              lambda_function_name: Optional[pulumi.Input[str]] = None,
              mode: Optional[pulumi.Input[str]] = None,
              web_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_function_name is None and 'lambdaFunctionName' in kwargs:
+            lambda_function_name = kwargs['lambdaFunctionName']
+        if web_url is None and 'webUrl' in kwargs:
+            web_url = kwargs['webUrl']
+
         if lambda_function_name is not None:
             _setter("lambda_function_name", lambda_function_name)
         if mode is not None:
@@ -615,7 +671,11 @@ class CampaignInAppMessageBodyConfigArgs:
              alignment: Optional[pulumi.Input[str]] = None,
              body: Optional[pulumi.Input[str]] = None,
              text_color: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_color is None and 'textColor' in kwargs:
+            text_color = kwargs['textColor']
+
         if alignment is not None:
             _setter("alignment", alignment)
         if body is not None:
@@ -672,7 +732,11 @@ class CampaignInAppMessageButtonArgs:
              default_config: Optional[pulumi.Input['CampaignDefaultButtonConfigurationArgs']] = None,
              ios: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
              web: Optional[pulumi.Input['CampaignOverrideButtonConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_config is None and 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+
         if android is not None:
             _setter("android", android)
         if default_config is not None:
@@ -746,7 +810,21 @@ class CampaignInAppMessageContentArgs:
              image_url: Optional[pulumi.Input[str]] = None,
              primary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None,
              secondary_btn: Optional[pulumi.Input['CampaignInAppMessageButtonArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if background_color is None and 'backgroundColor' in kwargs:
+            background_color = kwargs['backgroundColor']
+        if body_config is None and 'bodyConfig' in kwargs:
+            body_config = kwargs['bodyConfig']
+        if header_config is None and 'headerConfig' in kwargs:
+            header_config = kwargs['headerConfig']
+        if image_url is None and 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+        if primary_btn is None and 'primaryBtn' in kwargs:
+            primary_btn = kwargs['primaryBtn']
+        if secondary_btn is None and 'secondaryBtn' in kwargs:
+            secondary_btn = kwargs['secondaryBtn']
+
         if background_color is not None:
             _setter("background_color", background_color)
         if body_config is not None:
@@ -833,7 +911,11 @@ class CampaignInAppMessageHeaderConfigArgs:
              alignment: Optional[pulumi.Input[str]] = None,
              header: Optional[pulumi.Input[str]] = None,
              text_color: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_color is None and 'textColor' in kwargs:
+            text_color = kwargs['textColor']
+
         if alignment is not None:
             _setter("alignment", alignment)
         if header is not None:
@@ -887,7 +969,11 @@ class CampaignInAppMessageArgs:
              content: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignInAppMessageContentArgs']]]] = None,
              custom_config: Optional[Any] = None,
              layout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_config is None and 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+
         if content is not None:
             _setter("content", content)
         if custom_config is not None:
@@ -947,7 +1033,13 @@ class CampaignLimitsArgs:
              messages_per_second: Optional[pulumi.Input[int]] = None,
              session: Optional[pulumi.Input[int]] = None,
              total: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_duration is None and 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+        if messages_per_second is None and 'messagesPerSecond' in kwargs:
+            messages_per_second = kwargs['messagesPerSecond']
+
         if daily is not None:
             _setter("daily", daily)
         if maximum_duration is not None:
@@ -1041,7 +1133,27 @@ class CampaignMessageConfigurationArgs:
              gcm_message: Optional[pulumi.Input['CampaignMessageArgs']] = None,
              in_app_message: Optional[pulumi.Input['CampaignInAppMessageArgs']] = None,
              sms_message: Optional[pulumi.Input['CampaignSmsMessageArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if adm_message is None and 'admMessage' in kwargs:
+            adm_message = kwargs['admMessage']
+        if apns_message is None and 'apnsMessage' in kwargs:
+            apns_message = kwargs['apnsMessage']
+        if baidu_message is None and 'baiduMessage' in kwargs:
+            baidu_message = kwargs['baiduMessage']
+        if custom_message is None and 'customMessage' in kwargs:
+            custom_message = kwargs['customMessage']
+        if default_message is None and 'defaultMessage' in kwargs:
+            default_message = kwargs['defaultMessage']
+        if email_message is None and 'emailMessage' in kwargs:
+            email_message = kwargs['emailMessage']
+        if gcm_message is None and 'gcmMessage' in kwargs:
+            gcm_message = kwargs['gcmMessage']
+        if in_app_message is None and 'inAppMessage' in kwargs:
+            in_app_message = kwargs['inAppMessage']
+        if sms_message is None and 'smsMessage' in kwargs:
+            sms_message = kwargs['smsMessage']
+
         if adm_message is not None:
             _setter("adm_message", adm_message)
         if apns_message is not None:
@@ -1188,7 +1300,25 @@ class CampaignMessageArgs:
              time_to_live: Optional[pulumi.Input[int]] = None,
              title: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_icon_url is None and 'imageIconUrl' in kwargs:
+            image_icon_url = kwargs['imageIconUrl']
+        if image_small_icon_url is None and 'imageSmallIconUrl' in kwargs:
+            image_small_icon_url = kwargs['imageSmallIconUrl']
+        if image_url is None and 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+        if json_body is None and 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if media_url is None and 'mediaUrl' in kwargs:
+            media_url = kwargs['mediaUrl']
+        if raw_content is None and 'rawContent' in kwargs:
+            raw_content = kwargs['rawContent']
+        if silent_push is None and 'silentPush' in kwargs:
+            silent_push = kwargs['silentPush']
+        if time_to_live is None and 'timeToLive' in kwargs:
+            time_to_live = kwargs['timeToLive']
+
         if action is not None:
             _setter("action", action)
         if body is not None:
@@ -1338,7 +1468,11 @@ class CampaignOverrideButtonConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              button_action: Optional[pulumi.Input[str]] = None,
              link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if button_action is None and 'buttonAction' in kwargs:
+            button_action = kwargs['buttonAction']
+
         if button_action is not None:
             _setter("button_action", button_action)
         if link is not None:
@@ -1376,9 +1510,15 @@ class CampaignQuietTimeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end: pulumi.Input[str],
-             start: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             end: Optional[pulumi.Input[str]] = None,
+             start: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end is None:
+            raise TypeError("Missing 'end' argument")
+        if start is None:
+            raise TypeError("Missing 'start' argument")
+
         _setter("end", end)
         _setter("start", start)
 
@@ -1431,7 +1571,21 @@ class CampaignScheduleArgs:
              quiet_time: Optional[pulumi.Input['CampaignQuietTimeArgs']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if event_filter is None and 'eventFilter' in kwargs:
+            event_filter = kwargs['eventFilter']
+        if is_local_time is None and 'isLocalTime' in kwargs:
+            is_local_time = kwargs['isLocalTime']
+        if quiet_time is None and 'quietTime' in kwargs:
+            quiet_time = kwargs['quietTime']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if end_time is not None:
             _setter("end_time", end_time)
         if event_filter is not None:
@@ -1526,7 +1680,11 @@ class CampaignSetDimensionArgs:
              _setter: Callable[[Any, Any], None],
              dimension_type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimension_type is None and 'dimensionType' in kwargs:
+            dimension_type = kwargs['dimensionType']
+
         if dimension_type is not None:
             _setter("dimension_type", dimension_type)
         if values is not None:
@@ -1578,7 +1736,19 @@ class CampaignSmsMessageArgs:
              origination_number: Optional[pulumi.Input[str]] = None,
              sender_id: Optional[pulumi.Input[str]] = None,
              template_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if message_type is None and 'messageType' in kwargs:
+            message_type = kwargs['messageType']
+        if origination_number is None and 'originationNumber' in kwargs:
+            origination_number = kwargs['originationNumber']
+        if sender_id is None and 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+
         if body is not None:
             _setter("body", body)
         if entity_id is not None:
@@ -1668,7 +1838,17 @@ class CampaignTemplateConfigurationArgs:
              push_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
              sms_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
              voice_template: Optional[pulumi.Input['CampaignTemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_template is None and 'emailTemplate' in kwargs:
+            email_template = kwargs['emailTemplate']
+        if push_template is None and 'pushTemplate' in kwargs:
+            push_template = kwargs['pushTemplate']
+        if sms_template is None and 'smsTemplate' in kwargs:
+            sms_template = kwargs['smsTemplate']
+        if voice_template is None and 'voiceTemplate' in kwargs:
+            voice_template = kwargs['voiceTemplate']
+
         if email_template is not None:
             _setter("email_template", email_template)
         if push_template is not None:
@@ -1730,7 +1910,9 @@ class CampaignTemplateArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if version is not None:
@@ -1785,7 +1967,21 @@ class CampaignWriteTreatmentResourceArgs:
              template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
              treatment_description: Optional[pulumi.Input[str]] = None,
              treatment_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_delivery_configuration is None and 'customDeliveryConfiguration' in kwargs:
+            custom_delivery_configuration = kwargs['customDeliveryConfiguration']
+        if message_configuration is None and 'messageConfiguration' in kwargs:
+            message_configuration = kwargs['messageConfiguration']
+        if size_percent is None and 'sizePercent' in kwargs:
+            size_percent = kwargs['sizePercent']
+        if template_configuration is None and 'templateConfiguration' in kwargs:
+            template_configuration = kwargs['templateConfiguration']
+        if treatment_description is None and 'treatmentDescription' in kwargs:
+            treatment_description = kwargs['treatmentDescription']
+        if treatment_name is None and 'treatmentName' in kwargs:
+            treatment_name = kwargs['treatmentName']
+
         if custom_delivery_configuration is not None:
             _setter("custom_delivery_configuration", custom_delivery_configuration)
         if message_configuration is not None:
@@ -1886,7 +2082,13 @@ class GroupsArgs:
              source_segments: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentSourceSegmentsArgs']]]] = None,
              source_type: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_segments is None and 'sourceSegments' in kwargs:
+            source_segments = kwargs['sourceSegments']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if source_segments is not None:
@@ -1951,7 +2153,11 @@ class InAppTemplateBodyConfigArgs:
              alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
              body: Optional[pulumi.Input[str]] = None,
              text_color: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_color is None and 'textColor' in kwargs:
+            text_color = kwargs['textColor']
+
         if alignment is not None:
             _setter("alignment", alignment)
         if body is not None:
@@ -2008,7 +2214,11 @@ class InAppTemplateButtonConfigArgs:
              default_config: Optional[pulumi.Input['InAppTemplateDefaultButtonConfigurationArgs']] = None,
              ios: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
              web: Optional[pulumi.Input['InAppTemplateOverrideButtonConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_config is None and 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+
         if android is not None:
             _setter("android", android)
         if default_config is not None:
@@ -2082,7 +2292,17 @@ class InAppTemplateDefaultButtonConfigurationArgs:
              link: Optional[pulumi.Input[str]] = None,
              text: Optional[pulumi.Input[str]] = None,
              text_color: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if background_color is None and 'backgroundColor' in kwargs:
+            background_color = kwargs['backgroundColor']
+        if border_radius is None and 'borderRadius' in kwargs:
+            border_radius = kwargs['borderRadius']
+        if button_action is None and 'buttonAction' in kwargs:
+            button_action = kwargs['buttonAction']
+        if text_color is None and 'textColor' in kwargs:
+            text_color = kwargs['textColor']
+
         if background_color is not None:
             _setter("background_color", background_color)
         if border_radius is not None:
@@ -2169,7 +2389,11 @@ class InAppTemplateHeaderConfigArgs:
              alignment: Optional[pulumi.Input['InAppTemplateAlignment']] = None,
              header: Optional[pulumi.Input[str]] = None,
              text_color: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_color is None and 'textColor' in kwargs:
+            text_color = kwargs['textColor']
+
         if alignment is not None:
             _setter("alignment", alignment)
         if header is not None:
@@ -2232,7 +2456,21 @@ class InAppTemplateInAppMessageContentArgs:
              image_url: Optional[pulumi.Input[str]] = None,
              primary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None,
              secondary_btn: Optional[pulumi.Input['InAppTemplateButtonConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if background_color is None and 'backgroundColor' in kwargs:
+            background_color = kwargs['backgroundColor']
+        if body_config is None and 'bodyConfig' in kwargs:
+            body_config = kwargs['bodyConfig']
+        if header_config is None and 'headerConfig' in kwargs:
+            header_config = kwargs['headerConfig']
+        if image_url is None and 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+        if primary_btn is None and 'primaryBtn' in kwargs:
+            primary_btn = kwargs['primaryBtn']
+        if secondary_btn is None and 'secondaryBtn' in kwargs:
+            secondary_btn = kwargs['secondaryBtn']
+
         if background_color is not None:
             _setter("background_color", background_color)
         if body_config is not None:
@@ -2316,7 +2554,11 @@ class InAppTemplateOverrideButtonConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              button_action: Optional[pulumi.Input['InAppTemplateButtonAction']] = None,
              link: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if button_action is None and 'buttonAction' in kwargs:
+            button_action = kwargs['buttonAction']
+
         if button_action is not None:
             _setter("button_action", button_action)
         if link is not None:
@@ -2374,7 +2616,15 @@ class PushTemplateAndroidPushNotificationTemplateArgs:
              sound: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_icon_url is None and 'imageIconUrl' in kwargs:
+            image_icon_url = kwargs['imageIconUrl']
+        if image_url is None and 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+        if small_image_icon_url is None and 'smallImageIconUrl' in kwargs:
+            small_image_icon_url = kwargs['smallImageIconUrl']
+
         if action is not None:
             _setter("action", action)
         if body is not None:
@@ -2492,7 +2742,11 @@ class PushTemplateApnsPushNotificationTemplateArgs:
              sound: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if media_url is None and 'mediaUrl' in kwargs:
+            media_url = kwargs['mediaUrl']
+
         if action is not None:
             _setter("action", action)
         if body is not None:
@@ -2585,7 +2839,9 @@ class PushTemplateDefaultPushNotificationTemplateArgs:
              sound: Optional[pulumi.Input[str]] = None,
              title: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if action is not None:
             _setter("action", action)
         if body is not None:
@@ -2655,7 +2911,9 @@ class SegmentBehaviorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              recency: Optional[pulumi.Input['SegmentRecencyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if recency is not None:
             _setter("recency", recency)
 
@@ -2682,9 +2940,15 @@ class SegmentCoordinatesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             latitude: pulumi.Input[float],
-             longitude: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             latitude: Optional[pulumi.Input[float]] = None,
+             longitude: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if latitude is None:
+            raise TypeError("Missing 'latitude' argument")
+        if longitude is None:
+            raise TypeError("Missing 'longitude' argument")
+
         _setter("latitude", latitude)
         _setter("longitude", longitude)
 
@@ -2734,7 +2998,13 @@ class SegmentDemographicArgs:
              make: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
              model: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
              platform: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_version is None and 'appVersion' in kwargs:
+            app_version = kwargs['appVersion']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+
         if app_version is not None:
             _setter("app_version", app_version)
         if channel is not None:
@@ -2830,7 +3100,11 @@ class SegmentDimensionsArgs:
              location: Optional[pulumi.Input['SegmentLocationArgs']] = None,
              metrics: Optional[Any] = None,
              user_attributes: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_attributes is None and 'userAttributes' in kwargs:
+            user_attributes = kwargs['userAttributes']
+
         if attributes is not None:
             _setter("attributes", attributes)
         if behavior is not None:
@@ -2912,9 +3186,17 @@ class SegmentGpsPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             coordinates: pulumi.Input['SegmentCoordinatesArgs'],
-             range_in_kilometers: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             coordinates: Optional[pulumi.Input['SegmentCoordinatesArgs']] = None,
+             range_in_kilometers: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if coordinates is None:
+            raise TypeError("Missing 'coordinates' argument")
+        if range_in_kilometers is None and 'rangeInKilometers' in kwargs:
+            range_in_kilometers = kwargs['rangeInKilometers']
+        if range_in_kilometers is None:
+            raise TypeError("Missing 'range_in_kilometers' argument")
+
         _setter("coordinates", coordinates)
         _setter("range_in_kilometers", range_in_kilometers)
 
@@ -2952,7 +3234,9 @@ class SegmentGroupsArgs:
              _setter: Callable[[Any, Any], None],
              groups: Optional[pulumi.Input[Sequence[pulumi.Input['GroupsArgs']]]] = None,
              include: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if groups is not None:
             _setter("groups", groups)
         if include is not None:
@@ -2992,7 +3276,11 @@ class SegmentLocationArgs:
              _setter: Callable[[Any, Any], None],
              country: Optional[pulumi.Input['SegmentSetDimensionArgs']] = None,
              gps_point: Optional[pulumi.Input['SegmentGpsPointArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gps_point is None and 'gpsPoint' in kwargs:
+            gps_point = kwargs['gpsPoint']
+
         if country is not None:
             _setter("country", country)
         if gps_point is not None:
@@ -3030,9 +3318,17 @@ class SegmentRecencyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration: pulumi.Input[str],
-             recency_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             duration: Optional[pulumi.Input[str]] = None,
+             recency_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if recency_type is None and 'recencyType' in kwargs:
+            recency_type = kwargs['recencyType']
+        if recency_type is None:
+            raise TypeError("Missing 'recency_type' argument")
+
         _setter("duration", duration)
         _setter("recency_type", recency_type)
 
@@ -3070,7 +3366,11 @@ class SegmentSetDimensionArgs:
              _setter: Callable[[Any, Any], None],
              dimension_type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimension_type is None and 'dimensionType' in kwargs:
+            dimension_type = kwargs['dimensionType']
+
         if dimension_type is not None:
             _setter("dimension_type", dimension_type)
         if values is not None:
@@ -3108,9 +3408,13 @@ class SegmentSourceSegmentsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("id", id)
         if version is not None:
             _setter("version", version)

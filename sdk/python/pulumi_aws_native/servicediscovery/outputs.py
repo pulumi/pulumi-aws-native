@@ -40,9 +40,15 @@ class HttpNamespaceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -69,7 +75,9 @@ class PrivateDnsNamespacePrivateDnsPropertiesMutable(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              soa: Optional['outputs.PrivateDnsNamespaceSoa'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if soa is not None:
             _setter("soa", soa)
 
@@ -108,7 +116,11 @@ class PrivateDnsNamespaceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_properties: Optional['outputs.PrivateDnsNamespacePrivateDnsPropertiesMutable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_properties is None and 'dnsProperties' in kwargs:
+            dns_properties = kwargs['dnsProperties']
+
         if dns_properties is not None:
             _setter("dns_properties", dns_properties)
 
@@ -130,7 +142,9 @@ class PrivateDnsNamespaceSoa(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ttl: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ttl is not None:
             _setter("ttl", ttl)
 
@@ -153,9 +167,15 @@ class PrivateDnsNamespaceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -199,7 +219,11 @@ class PublicDnsNamespaceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dns_properties: Optional['outputs.PublicDnsNamespacePublicDnsPropertiesMutable'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_properties is None and 'dnsProperties' in kwargs:
+            dns_properties = kwargs['dnsProperties']
+
         if dns_properties is not None:
             _setter("dns_properties", dns_properties)
 
@@ -221,7 +245,9 @@ class PublicDnsNamespacePublicDnsPropertiesMutable(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              soa: Optional['outputs.PublicDnsNamespaceSoa'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if soa is not None:
             _setter("soa", soa)
 
@@ -243,7 +269,9 @@ class PublicDnsNamespaceSoa(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ttl: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ttl is not None:
             _setter("ttl", ttl)
 
@@ -266,9 +294,15 @@ class PublicDnsNamespaceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -319,10 +353,20 @@ class ServiceDnsConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_records: Sequence['outputs.ServiceDnsRecord'],
+             dns_records: Optional[Sequence['outputs.ServiceDnsRecord']] = None,
              namespace_id: Optional[str] = None,
              routing_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_records is None and 'dnsRecords' in kwargs:
+            dns_records = kwargs['dnsRecords']
+        if dns_records is None:
+            raise TypeError("Missing 'dns_records' argument")
+        if namespace_id is None and 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if routing_policy is None and 'routingPolicy' in kwargs:
+            routing_policy = kwargs['routingPolicy']
+
         _setter("dns_records", dns_records)
         if namespace_id is not None:
             _setter("namespace_id", namespace_id)
@@ -358,9 +402,15 @@ class ServiceDnsRecord(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ttl: float,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ttl: Optional[float] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("ttl", ttl)
         _setter("type", type)
 
@@ -409,10 +459,18 @@ class ServiceHealthCheckConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              failure_threshold: Optional[float] = None,
              resource_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if failure_threshold is None and 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if resource_path is None and 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+
         _setter("type", type)
         if failure_threshold is not None:
             _setter("failure_threshold", failure_threshold)
@@ -464,7 +522,11 @@ class ServiceHealthCheckCustomConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              failure_threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_threshold is None and 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+
         if failure_threshold is not None:
             _setter("failure_threshold", failure_threshold)
 
@@ -487,9 +549,15 @@ class ServiceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

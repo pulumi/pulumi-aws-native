@@ -44,13 +44,23 @@ class AccessPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
              bucket_account_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              policy: Optional[Any] = None,
              public_access_block_configuration: Optional[pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs']] = None,
              vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if bucket_account_id is None and 'bucketAccountId' in kwargs:
+            bucket_account_id = kwargs['bucketAccountId']
+        if public_access_block_configuration is None and 'publicAccessBlockConfiguration' in kwargs:
+            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("bucket", bucket)
         if bucket_account_id is not None:
             _setter("bucket_account_id", bucket_account_id)
@@ -209,17 +219,9 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["bucket_account_id"] = bucket_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
-            if public_access_block_configuration is not None and not isinstance(public_access_block_configuration, AccessPointPublicAccessBlockConfigurationArgs):
-                public_access_block_configuration = public_access_block_configuration or {}
-                def _setter(key, value):
-                    public_access_block_configuration[key] = value
-                AccessPointPublicAccessBlockConfigurationArgs._configure(_setter, **public_access_block_configuration)
+            public_access_block_configuration = _utilities.configure(public_access_block_configuration, AccessPointPublicAccessBlockConfigurationArgs, True)
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
-            if vpc_configuration is not None and not isinstance(vpc_configuration, AccessPointVpcConfigurationArgs):
-                vpc_configuration = vpc_configuration or {}
-                def _setter(key, value):
-                    vpc_configuration[key] = value
-                AccessPointVpcConfigurationArgs._configure(_setter, **vpc_configuration)
+            vpc_configuration = _utilities.configure(vpc_configuration, AccessPointVpcConfigurationArgs, True)
             __props__.__dict__["vpc_configuration"] = vpc_configuration
             __props__.__dict__["alias"] = None
             __props__.__dict__["arn"] = None

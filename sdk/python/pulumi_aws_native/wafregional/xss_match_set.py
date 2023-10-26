@@ -31,7 +31,11 @@ class XssMatchSetArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if xss_match_tuples is None and 'xssMatchTuples' in kwargs:
+            xss_match_tuples = kwargs['xssMatchTuples']
+
         if name is not None:
             _setter("name", name)
         if xss_match_tuples is not None:

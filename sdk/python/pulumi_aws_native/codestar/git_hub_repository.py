@@ -41,15 +41,35 @@ class GitHubRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             repository_name: pulumi.Input[str],
-             repository_owner: pulumi.Input[str],
+             repository_name: Optional[pulumi.Input[str]] = None,
+             repository_owner: Optional[pulumi.Input[str]] = None,
              code: Optional[pulumi.Input['GitHubRepositoryCodeArgs']] = None,
              connection_arn: Optional[pulumi.Input[str]] = None,
              enable_issues: Optional[pulumi.Input[bool]] = None,
              is_private: Optional[pulumi.Input[bool]] = None,
              repository_access_token: Optional[pulumi.Input[str]] = None,
              repository_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if repository_owner is None and 'repositoryOwner' in kwargs:
+            repository_owner = kwargs['repositoryOwner']
+        if repository_owner is None:
+            raise TypeError("Missing 'repository_owner' argument")
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+        if enable_issues is None and 'enableIssues' in kwargs:
+            enable_issues = kwargs['enableIssues']
+        if is_private is None and 'isPrivate' in kwargs:
+            is_private = kwargs['isPrivate']
+        if repository_access_token is None and 'repositoryAccessToken' in kwargs:
+            repository_access_token = kwargs['repositoryAccessToken']
+        if repository_description is None and 'repositoryDescription' in kwargs:
+            repository_description = kwargs['repositoryDescription']
+
         _setter("repository_name", repository_name)
         _setter("repository_owner", repository_owner)
         if code is not None:
@@ -209,11 +229,7 @@ class GitHubRepository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GitHubRepositoryArgs.__new__(GitHubRepositoryArgs)
 
-            if code is not None and not isinstance(code, GitHubRepositoryCodeArgs):
-                code = code or {}
-                def _setter(key, value):
-                    code[key] = value
-                GitHubRepositoryCodeArgs._configure(_setter, **code)
+            code = _utilities.configure(code, GitHubRepositoryCodeArgs, True)
             __props__.__dict__["code"] = code
             __props__.__dict__["connection_arn"] = connection_arn
             __props__.__dict__["enable_issues"] = enable_issues

@@ -40,7 +40,13 @@ class LifecyclePolicyArgs:
              policy_details: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsArgs']] = None,
              state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if policy_details is None and 'policyDetails' in kwargs:
+            policy_details = kwargs['policyDetails']
+
         if description is not None:
             _setter("description", description)
         if execution_role_arn is not None:
@@ -165,11 +171,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_arn"] = execution_role_arn
-            if policy_details is not None and not isinstance(policy_details, LifecyclePolicyPolicyDetailsArgs):
-                policy_details = policy_details or {}
-                def _setter(key, value):
-                    policy_details[key] = value
-                LifecyclePolicyPolicyDetailsArgs._configure(_setter, **policy_details)
+            policy_details = _utilities.configure(policy_details, LifecyclePolicyPolicyDetailsArgs, True)
             __props__.__dict__["policy_details"] = policy_details
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags

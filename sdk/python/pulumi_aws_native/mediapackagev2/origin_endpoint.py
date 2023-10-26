@@ -50,7 +50,7 @@ class OriginEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_type: pulumi.Input['OriginEndpointContainerType'],
+             container_type: Optional[pulumi.Input['OriginEndpointContainerType']] = None,
              channel_group_name: Optional[pulumi.Input[str]] = None,
              channel_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -60,7 +60,25 @@ class OriginEndpointArgs:
              segment: Optional[pulumi.Input['OriginEndpointSegmentArgs']] = None,
              startover_window_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_type is None and 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if container_type is None:
+            raise TypeError("Missing 'container_type' argument")
+        if channel_group_name is None and 'channelGroupName' in kwargs:
+            channel_group_name = kwargs['channelGroupName']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if hls_manifests is None and 'hlsManifests' in kwargs:
+            hls_manifests = kwargs['hlsManifests']
+        if low_latency_hls_manifests is None and 'lowLatencyHlsManifests' in kwargs:
+            low_latency_hls_manifests = kwargs['lowLatencyHlsManifests']
+        if origin_endpoint_name is None and 'originEndpointName' in kwargs:
+            origin_endpoint_name = kwargs['originEndpointName']
+        if startover_window_seconds is None and 'startoverWindowSeconds' in kwargs:
+            startover_window_seconds = kwargs['startoverWindowSeconds']
+
         _setter("container_type", container_type)
         if channel_group_name is not None:
             _setter("channel_group_name", channel_group_name)
@@ -266,11 +284,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["hls_manifests"] = hls_manifests
             __props__.__dict__["low_latency_hls_manifests"] = low_latency_hls_manifests
             __props__.__dict__["origin_endpoint_name"] = origin_endpoint_name
-            if segment is not None and not isinstance(segment, OriginEndpointSegmentArgs):
-                segment = segment or {}
-                def _setter(key, value):
-                    segment[key] = value
-                OriginEndpointSegmentArgs._configure(_setter, **segment)
+            segment = _utilities.configure(segment, OriginEndpointSegmentArgs, True)
             __props__.__dict__["segment"] = segment
             __props__.__dict__["startover_window_seconds"] = startover_window_seconds
             __props__.__dict__["tags"] = tags

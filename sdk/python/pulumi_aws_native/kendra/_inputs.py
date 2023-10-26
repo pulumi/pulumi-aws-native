@@ -87,7 +87,11 @@ class DataSourceAccessControlListConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              key_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_path is None and 'keyPath' in kwargs:
+            key_path = kwargs['keyPath']
+
         if key_path is not None:
             _setter("key_path", key_path)
 
@@ -112,8 +116,14 @@ class DataSourceAclConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_groups_column_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allowed_groups_column_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_groups_column_name is None and 'allowedGroupsColumnName' in kwargs:
+            allowed_groups_column_name = kwargs['allowedGroupsColumnName']
+        if allowed_groups_column_name is None:
+            raise TypeError("Missing 'allowed_groups_column_name' argument")
+
         _setter("allowed_groups_column_name", allowed_groups_column_name)
 
     @property
@@ -145,12 +155,30 @@ class DataSourceColumnConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             change_detecting_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             document_data_column_name: pulumi.Input[str],
-             document_id_column_name: pulumi.Input[str],
+             change_detecting_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             document_data_column_name: Optional[pulumi.Input[str]] = None,
+             document_id_column_name: Optional[pulumi.Input[str]] = None,
              document_title_column_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if change_detecting_columns is None and 'changeDetectingColumns' in kwargs:
+            change_detecting_columns = kwargs['changeDetectingColumns']
+        if change_detecting_columns is None:
+            raise TypeError("Missing 'change_detecting_columns' argument")
+        if document_data_column_name is None and 'documentDataColumnName' in kwargs:
+            document_data_column_name = kwargs['documentDataColumnName']
+        if document_data_column_name is None:
+            raise TypeError("Missing 'document_data_column_name' argument")
+        if document_id_column_name is None and 'documentIdColumnName' in kwargs:
+            document_id_column_name = kwargs['documentIdColumnName']
+        if document_id_column_name is None:
+            raise TypeError("Missing 'document_id_column_name' argument")
+        if document_title_column_name is None and 'documentTitleColumnName' in kwargs:
+            document_title_column_name = kwargs['documentTitleColumnName']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("change_detecting_columns", change_detecting_columns)
         _setter("document_data_column_name", document_data_column_name)
         _setter("document_id_column_name", document_id_column_name)
@@ -244,7 +272,29 @@ class DataSourceConfigurationArgs:
              share_point_configuration: Optional[pulumi.Input['DataSourceSharePointConfigurationArgs']] = None,
              web_crawler_configuration: Optional[pulumi.Input['DataSourceWebCrawlerConfigurationArgs']] = None,
              work_docs_configuration: Optional[pulumi.Input['DataSourceWorkDocsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if confluence_configuration is None and 'confluenceConfiguration' in kwargs:
+            confluence_configuration = kwargs['confluenceConfiguration']
+        if database_configuration is None and 'databaseConfiguration' in kwargs:
+            database_configuration = kwargs['databaseConfiguration']
+        if google_drive_configuration is None and 'googleDriveConfiguration' in kwargs:
+            google_drive_configuration = kwargs['googleDriveConfiguration']
+        if one_drive_configuration is None and 'oneDriveConfiguration' in kwargs:
+            one_drive_configuration = kwargs['oneDriveConfiguration']
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if salesforce_configuration is None and 'salesforceConfiguration' in kwargs:
+            salesforce_configuration = kwargs['salesforceConfiguration']
+        if service_now_configuration is None and 'serviceNowConfiguration' in kwargs:
+            service_now_configuration = kwargs['serviceNowConfiguration']
+        if share_point_configuration is None and 'sharePointConfiguration' in kwargs:
+            share_point_configuration = kwargs['sharePointConfiguration']
+        if web_crawler_configuration is None and 'webCrawlerConfiguration' in kwargs:
+            web_crawler_configuration = kwargs['webCrawlerConfiguration']
+        if work_docs_configuration is None and 'workDocsConfiguration' in kwargs:
+            work_docs_configuration = kwargs['workDocsConfiguration']
+
         if confluence_configuration is not None:
             _setter("confluence_configuration", confluence_configuration)
         if database_configuration is not None:
@@ -372,7 +422,13 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              attachment_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceAttachmentToIndexFieldMappingArgs']]]] = None,
              crawl_attachments: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attachment_field_mappings is None and 'attachmentFieldMappings' in kwargs:
+            attachment_field_mappings = kwargs['attachmentFieldMappings']
+        if crawl_attachments is None and 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+
         if attachment_field_mappings is not None:
             _setter("attachment_field_mappings", attachment_field_mappings)
         if crawl_attachments is not None:
@@ -412,10 +468,22 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source_field_name: pulumi.Input['DataSourceConfluenceAttachmentFieldName'],
-             index_field_name: pulumi.Input[str],
+             data_source_field_name: Optional[pulumi.Input['DataSourceConfluenceAttachmentFieldName']] = None,
+             index_field_name: Optional[pulumi.Input[str]] = None,
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_field_name is None and 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if data_source_field_name is None:
+            raise TypeError("Missing 'data_source_field_name' argument")
+        if index_field_name is None and 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if index_field_name is None:
+            raise TypeError("Missing 'index_field_name' argument")
+        if date_field_format is None and 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -461,7 +529,11 @@ class DataSourceConfluenceBlogConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              blog_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceBlogToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blog_field_mappings is None and 'blogFieldMappings' in kwargs:
+            blog_field_mappings = kwargs['blogFieldMappings']
+
         if blog_field_mappings is not None:
             _setter("blog_field_mappings", blog_field_mappings)
 
@@ -490,10 +562,22 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source_field_name: pulumi.Input['DataSourceConfluenceBlogFieldName'],
-             index_field_name: pulumi.Input[str],
+             data_source_field_name: Optional[pulumi.Input['DataSourceConfluenceBlogFieldName']] = None,
+             index_field_name: Optional[pulumi.Input[str]] = None,
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_field_name is None and 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if data_source_field_name is None:
+            raise TypeError("Missing 'data_source_field_name' argument")
+        if index_field_name is None and 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if index_field_name is None:
+            raise TypeError("Missing 'index_field_name' argument")
+        if date_field_format is None and 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -556,9 +640,9 @@ class DataSourceConfluenceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_arn: pulumi.Input[str],
-             server_url: pulumi.Input[str],
-             version: pulumi.Input['DataSourceConfluenceVersion'],
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             server_url: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input['DataSourceConfluenceVersion']] = None,
              attachment_configuration: Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']] = None,
              blog_configuration: Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']] = None,
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -566,7 +650,33 @@ class DataSourceConfluenceConfigurationArgs:
              page_configuration: Optional[pulumi.Input['DataSourceConfluencePageConfigurationArgs']] = None,
              space_configuration: Optional[pulumi.Input['DataSourceConfluenceSpaceConfigurationArgs']] = None,
              vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if server_url is None and 'serverUrl' in kwargs:
+            server_url = kwargs['serverUrl']
+        if server_url is None:
+            raise TypeError("Missing 'server_url' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if attachment_configuration is None and 'attachmentConfiguration' in kwargs:
+            attachment_configuration = kwargs['attachmentConfiguration']
+        if blog_configuration is None and 'blogConfiguration' in kwargs:
+            blog_configuration = kwargs['blogConfiguration']
+        if exclusion_patterns is None and 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if inclusion_patterns is None and 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if page_configuration is None and 'pageConfiguration' in kwargs:
+            page_configuration = kwargs['pageConfiguration']
+        if space_configuration is None and 'spaceConfiguration' in kwargs:
+            space_configuration = kwargs['spaceConfiguration']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("secret_arn", secret_arn)
         _setter("server_url", server_url)
         _setter("version", version)
@@ -688,7 +798,11 @@ class DataSourceConfluencePageConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              page_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluencePageToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if page_field_mappings is None and 'pageFieldMappings' in kwargs:
+            page_field_mappings = kwargs['pageFieldMappings']
+
         if page_field_mappings is not None:
             _setter("page_field_mappings", page_field_mappings)
 
@@ -717,10 +831,22 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source_field_name: pulumi.Input['DataSourceConfluencePageFieldName'],
-             index_field_name: pulumi.Input[str],
+             data_source_field_name: Optional[pulumi.Input['DataSourceConfluencePageFieldName']] = None,
+             index_field_name: Optional[pulumi.Input[str]] = None,
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_field_name is None and 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if data_source_field_name is None:
+            raise TypeError("Missing 'data_source_field_name' argument")
+        if index_field_name is None and 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if index_field_name is None:
+            raise TypeError("Missing 'index_field_name' argument")
+        if date_field_format is None and 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -778,7 +904,19 @@ class DataSourceConfluenceSpaceConfigurationArgs:
              exclude_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              include_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              space_field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfluenceSpaceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crawl_archived_spaces is None and 'crawlArchivedSpaces' in kwargs:
+            crawl_archived_spaces = kwargs['crawlArchivedSpaces']
+        if crawl_personal_spaces is None and 'crawlPersonalSpaces' in kwargs:
+            crawl_personal_spaces = kwargs['crawlPersonalSpaces']
+        if exclude_spaces is None and 'excludeSpaces' in kwargs:
+            exclude_spaces = kwargs['excludeSpaces']
+        if include_spaces is None and 'includeSpaces' in kwargs:
+            include_spaces = kwargs['includeSpaces']
+        if space_field_mappings is None and 'spaceFieldMappings' in kwargs:
+            space_field_mappings = kwargs['spaceFieldMappings']
+
         if crawl_archived_spaces is not None:
             _setter("crawl_archived_spaces", crawl_archived_spaces)
         if crawl_personal_spaces is not None:
@@ -851,10 +989,22 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source_field_name: pulumi.Input['DataSourceConfluenceSpaceFieldName'],
-             index_field_name: pulumi.Input[str],
+             data_source_field_name: Optional[pulumi.Input['DataSourceConfluenceSpaceFieldName']] = None,
+             index_field_name: Optional[pulumi.Input[str]] = None,
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_field_name is None and 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if data_source_field_name is None:
+            raise TypeError("Missing 'data_source_field_name' argument")
+        if index_field_name is None and 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if index_field_name is None:
+            raise TypeError("Missing 'index_field_name' argument")
+        if date_field_format is None and 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -907,12 +1057,34 @@ class DataSourceConnectionConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_host: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             database_port: pulumi.Input[int],
-             secret_arn: pulumi.Input[str],
-             table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             database_host: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             database_port: Optional[pulumi.Input[int]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_host is None and 'databaseHost' in kwargs:
+            database_host = kwargs['databaseHost']
+        if database_host is None:
+            raise TypeError("Missing 'database_host' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if database_port is None and 'databasePort' in kwargs:
+            database_port = kwargs['databasePort']
+        if database_port is None:
+            raise TypeError("Missing 'database_port' argument")
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("database_host", database_host)
         _setter("database_name", database_name)
         _setter("database_port", database_port)
@@ -986,7 +1158,17 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
              post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
              pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceHookConfigurationArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inline_configurations is None and 'inlineConfigurations' in kwargs:
+            inline_configurations = kwargs['inlineConfigurations']
+        if post_extraction_hook_configuration is None and 'postExtractionHookConfiguration' in kwargs:
+            post_extraction_hook_configuration = kwargs['postExtractionHookConfiguration']
+        if pre_extraction_hook_configuration is None and 'preExtractionHookConfiguration' in kwargs:
+            pre_extraction_hook_configuration = kwargs['preExtractionHookConfiguration']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if inline_configurations is not None:
             _setter("inline_configurations", inline_configurations)
         if post_extraction_hook_configuration is not None:
@@ -1054,13 +1236,33 @@ class DataSourceDatabaseConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_configuration: pulumi.Input['DataSourceColumnConfigurationArgs'],
-             connection_configuration: pulumi.Input['DataSourceConnectionConfigurationArgs'],
-             database_engine_type: pulumi.Input['DataSourceDatabaseEngineType'],
+             column_configuration: Optional[pulumi.Input['DataSourceColumnConfigurationArgs']] = None,
+             connection_configuration: Optional[pulumi.Input['DataSourceConnectionConfigurationArgs']] = None,
+             database_engine_type: Optional[pulumi.Input['DataSourceDatabaseEngineType']] = None,
              acl_configuration: Optional[pulumi.Input['DataSourceAclConfigurationArgs']] = None,
              sql_configuration: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']] = None,
              vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_configuration is None and 'columnConfiguration' in kwargs:
+            column_configuration = kwargs['columnConfiguration']
+        if column_configuration is None:
+            raise TypeError("Missing 'column_configuration' argument")
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
+            connection_configuration = kwargs['connectionConfiguration']
+        if connection_configuration is None:
+            raise TypeError("Missing 'connection_configuration' argument")
+        if database_engine_type is None and 'databaseEngineType' in kwargs:
+            database_engine_type = kwargs['databaseEngineType']
+        if database_engine_type is None:
+            raise TypeError("Missing 'database_engine_type' argument")
+        if acl_configuration is None and 'aclConfiguration' in kwargs:
+            acl_configuration = kwargs['aclConfiguration']
+        if sql_configuration is None and 'sqlConfiguration' in kwargs:
+            sql_configuration = kwargs['sqlConfiguration']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("column_configuration", column_configuration)
         _setter("connection_configuration", connection_configuration)
         _setter("database_engine_type", database_engine_type)
@@ -1141,10 +1343,20 @@ class DataSourceDocumentAttributeConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             condition_document_attribute_key: pulumi.Input[str],
-             operator: pulumi.Input['DataSourceConditionOperator'],
+             condition_document_attribute_key: Optional[pulumi.Input[str]] = None,
+             operator: Optional[pulumi.Input['DataSourceConditionOperator']] = None,
              condition_on_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition_document_attribute_key is None and 'conditionDocumentAttributeKey' in kwargs:
+            condition_document_attribute_key = kwargs['conditionDocumentAttributeKey']
+        if condition_document_attribute_key is None:
+            raise TypeError("Missing 'condition_document_attribute_key' argument")
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if condition_on_value is None and 'conditionOnValue' in kwargs:
+            condition_on_value = kwargs['conditionOnValue']
+
         _setter("condition_document_attribute_key", condition_document_attribute_key)
         _setter("operator", operator)
         if condition_on_value is not None:
@@ -1193,10 +1405,20 @@ class DataSourceDocumentAttributeTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_document_attribute_key: pulumi.Input[str],
+             target_document_attribute_key: Optional[pulumi.Input[str]] = None,
              target_document_attribute_value: Optional[pulumi.Input['DataSourceDocumentAttributeValueArgs']] = None,
              target_document_attribute_value_deletion: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_document_attribute_key is None and 'targetDocumentAttributeKey' in kwargs:
+            target_document_attribute_key = kwargs['targetDocumentAttributeKey']
+        if target_document_attribute_key is None:
+            raise TypeError("Missing 'target_document_attribute_key' argument")
+        if target_document_attribute_value is None and 'targetDocumentAttributeValue' in kwargs:
+            target_document_attribute_value = kwargs['targetDocumentAttributeValue']
+        if target_document_attribute_value_deletion is None and 'targetDocumentAttributeValueDeletion' in kwargs:
+            target_document_attribute_value_deletion = kwargs['targetDocumentAttributeValueDeletion']
+
         _setter("target_document_attribute_key", target_document_attribute_key)
         if target_document_attribute_value is not None:
             _setter("target_document_attribute_value", target_document_attribute_value)
@@ -1252,7 +1474,17 @@ class DataSourceDocumentAttributeValueArgs:
              long_value: Optional[pulumi.Input[int]] = None,
              string_list_value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if date_value is None and 'dateValue' in kwargs:
+            date_value = kwargs['dateValue']
+        if long_value is None and 'longValue' in kwargs:
+            long_value = kwargs['longValue']
+        if string_list_value is None and 'stringListValue' in kwargs:
+            string_list_value = kwargs['stringListValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if date_value is not None:
             _setter("date_value", date_value)
         if long_value is not None:
@@ -1311,7 +1543,11 @@ class DataSourceDocumentsMetadataConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_prefix is None and 's3Prefix' in kwargs:
+            s3_prefix = kwargs['s3Prefix']
+
         if s3_prefix is not None:
             _setter("s3_prefix", s3_prefix)
 
@@ -1348,14 +1584,32 @@ class DataSourceGoogleDriveConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_arn: pulumi.Input[str],
+             secret_arn: Optional[pulumi.Input[str]] = None,
              exclude_mime_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              exclude_shared_drives: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              exclude_user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if exclude_mime_types is None and 'excludeMimeTypes' in kwargs:
+            exclude_mime_types = kwargs['excludeMimeTypes']
+        if exclude_shared_drives is None and 'excludeSharedDrives' in kwargs:
+            exclude_shared_drives = kwargs['excludeSharedDrives']
+        if exclude_user_accounts is None and 'excludeUserAccounts' in kwargs:
+            exclude_user_accounts = kwargs['excludeUserAccounts']
+        if exclusion_patterns is None and 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if inclusion_patterns is None and 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+
         _setter("secret_arn", secret_arn)
         if exclude_mime_types is not None:
             _setter("exclude_mime_types", exclude_mime_types)
@@ -1449,10 +1703,22 @@ class DataSourceHookConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lambda_arn: pulumi.Input[str],
-             s3_bucket: pulumi.Input[str],
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
              invocation_condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if invocation_condition is None and 'invocationCondition' in kwargs:
+            invocation_condition = kwargs['invocationCondition']
+
         _setter("lambda_arn", lambda_arn)
         _setter("s3_bucket", s3_bucket)
         if invocation_condition is not None:
@@ -1504,7 +1770,11 @@ class DataSourceInlineCustomDocumentEnrichmentConfigurationArgs:
              condition: Optional[pulumi.Input['DataSourceDocumentAttributeConditionArgs']] = None,
              document_content_deletion: Optional[pulumi.Input[bool]] = None,
              target: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_content_deletion is None and 'documentContentDeletion' in kwargs:
+            document_content_deletion = kwargs['documentContentDeletion']
+
         if condition is not None:
             _setter("condition", condition)
         if document_content_deletion is not None:
@@ -1563,14 +1833,36 @@ class DataSourceOneDriveConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             one_drive_users: pulumi.Input['DataSourceOneDriveUsersArgs'],
-             secret_arn: pulumi.Input[str],
-             tenant_domain: pulumi.Input[str],
+             one_drive_users: Optional[pulumi.Input['DataSourceOneDriveUsersArgs']] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             tenant_domain: Optional[pulumi.Input[str]] = None,
              disable_local_groups: Optional[pulumi.Input[bool]] = None,
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if one_drive_users is None and 'oneDriveUsers' in kwargs:
+            one_drive_users = kwargs['oneDriveUsers']
+        if one_drive_users is None:
+            raise TypeError("Missing 'one_drive_users' argument")
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if tenant_domain is None and 'tenantDomain' in kwargs:
+            tenant_domain = kwargs['tenantDomain']
+        if tenant_domain is None:
+            raise TypeError("Missing 'tenant_domain' argument")
+        if disable_local_groups is None and 'disableLocalGroups' in kwargs:
+            disable_local_groups = kwargs['disableLocalGroups']
+        if exclusion_patterns is None and 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if inclusion_patterns is None and 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+
         _setter("one_drive_users", one_drive_users)
         _setter("secret_arn", secret_arn)
         _setter("tenant_domain", tenant_domain)
@@ -1662,7 +1954,13 @@ class DataSourceOneDriveUsersArgs:
              _setter: Callable[[Any, Any], None],
              one_drive_user_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              one_drive_user_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if one_drive_user_list is None and 'oneDriveUserList' in kwargs:
+            one_drive_user_list = kwargs['oneDriveUserList']
+        if one_drive_user_s3_path is None and 'oneDriveUserS3Path' in kwargs:
+            one_drive_user_s3_path = kwargs['oneDriveUserS3Path']
+
         if one_drive_user_list is not None:
             _setter("one_drive_user_list", one_drive_user_list)
         if one_drive_user_s3_path is not None:
@@ -1702,10 +2000,16 @@ class DataSourceProxyConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host: pulumi.Input[str],
-             port: pulumi.Input[int],
+             host: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
              credentials: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("host", host)
         _setter("port", port)
         if credentials is not None:
@@ -1763,13 +2067,29 @@ class DataSourceS3DataSourceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
              access_control_list_configuration: Optional[pulumi.Input['DataSourceAccessControlListConfigurationArgs']] = None,
              documents_metadata_configuration: Optional[pulumi.Input['DataSourceDocumentsMetadataConfigurationArgs']] = None,
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if access_control_list_configuration is None and 'accessControlListConfiguration' in kwargs:
+            access_control_list_configuration = kwargs['accessControlListConfiguration']
+        if documents_metadata_configuration is None and 'documentsMetadataConfiguration' in kwargs:
+            documents_metadata_configuration = kwargs['documentsMetadataConfiguration']
+        if exclusion_patterns is None and 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if inclusion_patterns is None and 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if inclusion_prefixes is None and 'inclusionPrefixes' in kwargs:
+            inclusion_prefixes = kwargs['inclusionPrefixes']
+
         _setter("bucket_name", bucket_name)
         if access_control_list_configuration is not None:
             _setter("access_control_list_configuration", access_control_list_configuration)
@@ -1850,9 +2170,15 @@ class DataSourceS3PathArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("bucket", bucket)
         _setter("key", key)
 
@@ -1892,11 +2218,23 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_data_field_name: pulumi.Input[str],
+             document_data_field_name: Optional[pulumi.Input[str]] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_data_field_name is None and 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if document_data_field_name is None:
+            raise TypeError("Missing 'document_data_field_name' argument")
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if include_filter_types is None and 'includeFilterTypes' in kwargs:
+            include_filter_types = kwargs['includeFilterTypes']
+
         _setter("document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             _setter("document_title_field_name", document_title_field_name)
@@ -1969,8 +2307,8 @@ class DataSourceSalesforceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_arn: pulumi.Input[str],
-             server_url: pulumi.Input[str],
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             server_url: Optional[pulumi.Input[str]] = None,
              chatter_feed_configuration: Optional[pulumi.Input['DataSourceSalesforceChatterFeedConfigurationArgs']] = None,
              crawl_attachments: Optional[pulumi.Input[bool]] = None,
              exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1978,7 +2316,31 @@ class DataSourceSalesforceConfigurationArgs:
              knowledge_article_configuration: Optional[pulumi.Input['DataSourceSalesforceKnowledgeArticleConfigurationArgs']] = None,
              standard_object_attachment_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardObjectAttachmentConfigurationArgs']] = None,
              standard_object_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceStandardObjectConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if server_url is None and 'serverUrl' in kwargs:
+            server_url = kwargs['serverUrl']
+        if server_url is None:
+            raise TypeError("Missing 'server_url' argument")
+        if chatter_feed_configuration is None and 'chatterFeedConfiguration' in kwargs:
+            chatter_feed_configuration = kwargs['chatterFeedConfiguration']
+        if crawl_attachments is None and 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if exclude_attachment_file_patterns is None and 'excludeAttachmentFilePatterns' in kwargs:
+            exclude_attachment_file_patterns = kwargs['excludeAttachmentFilePatterns']
+        if include_attachment_file_patterns is None and 'includeAttachmentFilePatterns' in kwargs:
+            include_attachment_file_patterns = kwargs['includeAttachmentFilePatterns']
+        if knowledge_article_configuration is None and 'knowledgeArticleConfiguration' in kwargs:
+            knowledge_article_configuration = kwargs['knowledgeArticleConfiguration']
+        if standard_object_attachment_configuration is None and 'standardObjectAttachmentConfiguration' in kwargs:
+            standard_object_attachment_configuration = kwargs['standardObjectAttachmentConfiguration']
+        if standard_object_configurations is None and 'standardObjectConfigurations' in kwargs:
+            standard_object_configurations = kwargs['standardObjectConfigurations']
+
         _setter("secret_arn", secret_arn)
         _setter("server_url", server_url)
         if chatter_feed_configuration is not None:
@@ -2095,11 +2457,23 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_data_field_name: pulumi.Input[str],
-             name: pulumi.Input[str],
+             document_data_field_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_data_field_name is None and 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if document_data_field_name is None:
+            raise TypeError("Missing 'document_data_field_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("document_data_field_name", document_data_field_name)
         _setter("name", name)
         if document_title_field_name is not None:
@@ -2159,10 +2533,20 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             included_states: pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]],
+             included_states: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]]] = None,
              custom_knowledge_article_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None,
              standard_knowledge_article_type_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if included_states is None and 'includedStates' in kwargs:
+            included_states = kwargs['includedStates']
+        if included_states is None:
+            raise TypeError("Missing 'included_states' argument")
+        if custom_knowledge_article_type_configurations is None and 'customKnowledgeArticleTypeConfigurations' in kwargs:
+            custom_knowledge_article_type_configurations = kwargs['customKnowledgeArticleTypeConfigurations']
+        if standard_knowledge_article_type_configuration is None and 'standardKnowledgeArticleTypeConfiguration' in kwargs:
+            standard_knowledge_article_type_configuration = kwargs['standardKnowledgeArticleTypeConfiguration']
+
         _setter("included_states", included_states)
         if custom_knowledge_article_type_configurations is not None:
             _setter("custom_knowledge_article_type_configurations", custom_knowledge_article_type_configurations)
@@ -2212,10 +2596,20 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_data_field_name: pulumi.Input[str],
+             document_data_field_name: Optional[pulumi.Input[str]] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_data_field_name is None and 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if document_data_field_name is None:
+            raise TypeError("Missing 'document_data_field_name' argument")
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             _setter("document_title_field_name", document_title_field_name)
@@ -2265,7 +2659,13 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         if document_title_field_name is not None:
             _setter("document_title_field_name", document_title_field_name)
         if field_mappings is not None:
@@ -2307,11 +2707,23 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_data_field_name: pulumi.Input[str],
-             name: pulumi.Input['DataSourceSalesforceStandardObjectName'],
+             document_data_field_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input['DataSourceSalesforceStandardObjectName']] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_data_field_name is None and 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if document_data_field_name is None:
+            raise TypeError("Missing 'document_data_field_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+
         _setter("document_data_field_name", document_data_field_name)
         _setter("name", name)
         if document_title_field_name is not None:
@@ -2377,13 +2789,33 @@ class DataSourceServiceNowConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             host_url: pulumi.Input[str],
-             secret_arn: pulumi.Input[str],
-             service_now_build_version: pulumi.Input['DataSourceServiceNowBuildVersionType'],
+             host_url: Optional[pulumi.Input[str]] = None,
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             service_now_build_version: Optional[pulumi.Input['DataSourceServiceNowBuildVersionType']] = None,
              authentication_type: Optional[pulumi.Input['DataSourceServiceNowAuthenticationType']] = None,
              knowledge_article_configuration: Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']] = None,
              service_catalog_configuration: Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_url is None and 'hostUrl' in kwargs:
+            host_url = kwargs['hostUrl']
+        if host_url is None:
+            raise TypeError("Missing 'host_url' argument")
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if service_now_build_version is None and 'serviceNowBuildVersion' in kwargs:
+            service_now_build_version = kwargs['serviceNowBuildVersion']
+        if service_now_build_version is None:
+            raise TypeError("Missing 'service_now_build_version' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if knowledge_article_configuration is None and 'knowledgeArticleConfiguration' in kwargs:
+            knowledge_article_configuration = kwargs['knowledgeArticleConfiguration']
+        if service_catalog_configuration is None and 'serviceCatalogConfiguration' in kwargs:
+            service_catalog_configuration = kwargs['serviceCatalogConfiguration']
+
         _setter("host_url", host_url)
         _setter("secret_arn", secret_arn)
         _setter("service_now_build_version", service_now_build_version)
@@ -2472,14 +2904,32 @@ class DataSourceServiceNowKnowledgeArticleConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_data_field_name: pulumi.Input[str],
+             document_data_field_name: Optional[pulumi.Input[str]] = None,
              crawl_attachments: Optional[pulumi.Input[bool]] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              filter_query: Optional[pulumi.Input[str]] = None,
              include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_data_field_name is None and 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if document_data_field_name is None:
+            raise TypeError("Missing 'document_data_field_name' argument")
+        if crawl_attachments is None and 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if exclude_attachment_file_patterns is None and 'excludeAttachmentFilePatterns' in kwargs:
+            exclude_attachment_file_patterns = kwargs['excludeAttachmentFilePatterns']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if filter_query is None and 'filterQuery' in kwargs:
+            filter_query = kwargs['filterQuery']
+        if include_attachment_file_patterns is None and 'includeAttachmentFilePatterns' in kwargs:
+            include_attachment_file_patterns = kwargs['includeAttachmentFilePatterns']
+
         _setter("document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
             _setter("crawl_attachments", crawl_attachments)
@@ -2579,13 +3029,29 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_data_field_name: pulumi.Input[str],
+             document_data_field_name: Optional[pulumi.Input[str]] = None,
              crawl_attachments: Optional[pulumi.Input[bool]] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
              exclude_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              include_attachment_file_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_data_field_name is None and 'documentDataFieldName' in kwargs:
+            document_data_field_name = kwargs['documentDataFieldName']
+        if document_data_field_name is None:
+            raise TypeError("Missing 'document_data_field_name' argument")
+        if crawl_attachments is None and 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if exclude_attachment_file_patterns is None and 'excludeAttachmentFilePatterns' in kwargs:
+            exclude_attachment_file_patterns = kwargs['excludeAttachmentFilePatterns']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if include_attachment_file_patterns is None and 'includeAttachmentFilePatterns' in kwargs:
+            include_attachment_file_patterns = kwargs['includeAttachmentFilePatterns']
+
         _setter("document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
             _setter("crawl_attachments", crawl_attachments)
@@ -2689,9 +3155,9 @@ class DataSourceSharePointConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_arn: pulumi.Input[str],
-             share_point_version: pulumi.Input['DataSourceSharePointConfigurationSharePointVersion'],
-             urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+             secret_arn: Optional[pulumi.Input[str]] = None,
+             share_point_version: Optional[pulumi.Input['DataSourceSharePointConfigurationSharePointVersion']] = None,
+             urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              crawl_attachments: Optional[pulumi.Input[bool]] = None,
              disable_local_groups: Optional[pulumi.Input[bool]] = None,
              document_title_field_name: Optional[pulumi.Input[str]] = None,
@@ -2701,7 +3167,37 @@ class DataSourceSharePointConfigurationArgs:
              ssl_certificate_s3_path: Optional[pulumi.Input['DataSourceS3PathArgs']] = None,
              use_change_log: Optional[pulumi.Input[bool]] = None,
              vpc_configuration: Optional[pulumi.Input['DataSourceVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if share_point_version is None and 'sharePointVersion' in kwargs:
+            share_point_version = kwargs['sharePointVersion']
+        if share_point_version is None:
+            raise TypeError("Missing 'share_point_version' argument")
+        if urls is None:
+            raise TypeError("Missing 'urls' argument")
+        if crawl_attachments is None and 'crawlAttachments' in kwargs:
+            crawl_attachments = kwargs['crawlAttachments']
+        if disable_local_groups is None and 'disableLocalGroups' in kwargs:
+            disable_local_groups = kwargs['disableLocalGroups']
+        if document_title_field_name is None and 'documentTitleFieldName' in kwargs:
+            document_title_field_name = kwargs['documentTitleFieldName']
+        if exclusion_patterns is None and 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if inclusion_patterns is None and 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if ssl_certificate_s3_path is None and 'sslCertificateS3Path' in kwargs:
+            ssl_certificate_s3_path = kwargs['sslCertificateS3Path']
+        if use_change_log is None and 'useChangeLog' in kwargs:
+            use_change_log = kwargs['useChangeLog']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("secret_arn", secret_arn)
         _setter("share_point_version", share_point_version)
         _setter("urls", urls)
@@ -2845,7 +3341,11 @@ class DataSourceSqlConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              query_identifiers_enclosing_option: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_identifiers_enclosing_option is None and 'queryIdentifiersEnclosingOption' in kwargs:
+            query_identifiers_enclosing_option = kwargs['queryIdentifiersEnclosingOption']
+
         if query_identifiers_enclosing_option is not None:
             _setter("query_identifiers_enclosing_option", query_identifiers_enclosing_option)
 
@@ -2877,9 +3377,15 @@ class DataSourceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2923,10 +3429,22 @@ class DataSourceToIndexFieldMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source_field_name: pulumi.Input[str],
-             index_field_name: pulumi.Input[str],
+             data_source_field_name: Optional[pulumi.Input[str]] = None,
+             index_field_name: Optional[pulumi.Input[str]] = None,
              date_field_format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source_field_name is None and 'dataSourceFieldName' in kwargs:
+            data_source_field_name = kwargs['dataSourceFieldName']
+        if data_source_field_name is None:
+            raise TypeError("Missing 'data_source_field_name' argument")
+        if index_field_name is None and 'indexFieldName' in kwargs:
+            index_field_name = kwargs['indexFieldName']
+        if index_field_name is None:
+            raise TypeError("Missing 'index_field_name' argument")
+        if date_field_format is None and 'dateFieldFormat' in kwargs:
+            date_field_format = kwargs['dateFieldFormat']
+
         _setter("data_source_field_name", data_source_field_name)
         _setter("index_field_name", index_field_name)
         if date_field_format is not None:
@@ -2973,9 +3491,19 @@ class DataSourceVpcConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
 
@@ -3010,7 +3538,11 @@ class DataSourceWebCrawlerAuthenticationConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              basic_authentication: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceWebCrawlerBasicAuthenticationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if basic_authentication is None and 'basicAuthentication' in kwargs:
+            basic_authentication = kwargs['basicAuthentication']
+
         if basic_authentication is not None:
             _setter("basic_authentication", basic_authentication)
 
@@ -3039,10 +3571,18 @@ class DataSourceWebCrawlerBasicAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             credentials: pulumi.Input[str],
-             host: pulumi.Input[str],
-             port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             credentials: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("credentials", credentials)
         _setter("host", host)
         _setter("port", port)
@@ -3102,7 +3642,7 @@ class DataSourceWebCrawlerConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             urls: pulumi.Input['DataSourceWebCrawlerUrlsArgs'],
+             urls: Optional[pulumi.Input['DataSourceWebCrawlerUrlsArgs']] = None,
              authentication_configuration: Optional[pulumi.Input['DataSourceWebCrawlerAuthenticationConfigurationArgs']] = None,
              crawl_depth: Optional[pulumi.Input[int]] = None,
              max_content_size_per_page_in_mega_bytes: Optional[pulumi.Input[float]] = None,
@@ -3111,7 +3651,27 @@ class DataSourceWebCrawlerConfigurationArgs:
              proxy_configuration: Optional[pulumi.Input['DataSourceProxyConfigurationArgs']] = None,
              url_exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              url_inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if urls is None:
+            raise TypeError("Missing 'urls' argument")
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if crawl_depth is None and 'crawlDepth' in kwargs:
+            crawl_depth = kwargs['crawlDepth']
+        if max_content_size_per_page_in_mega_bytes is None and 'maxContentSizePerPageInMegaBytes' in kwargs:
+            max_content_size_per_page_in_mega_bytes = kwargs['maxContentSizePerPageInMegaBytes']
+        if max_links_per_page is None and 'maxLinksPerPage' in kwargs:
+            max_links_per_page = kwargs['maxLinksPerPage']
+        if max_urls_per_minute_crawl_rate is None and 'maxUrlsPerMinuteCrawlRate' in kwargs:
+            max_urls_per_minute_crawl_rate = kwargs['maxUrlsPerMinuteCrawlRate']
+        if proxy_configuration is None and 'proxyConfiguration' in kwargs:
+            proxy_configuration = kwargs['proxyConfiguration']
+        if url_exclusion_patterns is None and 'urlExclusionPatterns' in kwargs:
+            url_exclusion_patterns = kwargs['urlExclusionPatterns']
+        if url_inclusion_patterns is None and 'urlInclusionPatterns' in kwargs:
+            url_inclusion_patterns = kwargs['urlInclusionPatterns']
+
         _setter("urls", urls)
         if authentication_configuration is not None:
             _setter("authentication_configuration", authentication_configuration)
@@ -3225,9 +3785,17 @@ class DataSourceWebCrawlerSeedUrlConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             seed_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
+             seed_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              web_crawler_mode: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if seed_urls is None and 'seedUrls' in kwargs:
+            seed_urls = kwargs['seedUrls']
+        if seed_urls is None:
+            raise TypeError("Missing 'seed_urls' argument")
+        if web_crawler_mode is None and 'webCrawlerMode' in kwargs:
+            web_crawler_mode = kwargs['webCrawlerMode']
+
         _setter("seed_urls", seed_urls)
         if web_crawler_mode is not None:
             _setter("web_crawler_mode", web_crawler_mode)
@@ -3262,8 +3830,14 @@ class DataSourceWebCrawlerSiteMapsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             site_maps: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             site_maps: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if site_maps is None and 'siteMaps' in kwargs:
+            site_maps = kwargs['siteMaps']
+        if site_maps is None:
+            raise TypeError("Missing 'site_maps' argument")
+
         _setter("site_maps", site_maps)
 
     @property
@@ -3291,7 +3865,13 @@ class DataSourceWebCrawlerUrlsArgs:
              _setter: Callable[[Any, Any], None],
              seed_url_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSeedUrlConfigurationArgs']] = None,
              site_maps_configuration: Optional[pulumi.Input['DataSourceWebCrawlerSiteMapsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if seed_url_configuration is None and 'seedUrlConfiguration' in kwargs:
+            seed_url_configuration = kwargs['seedUrlConfiguration']
+        if site_maps_configuration is None and 'siteMapsConfiguration' in kwargs:
+            site_maps_configuration = kwargs['siteMapsConfiguration']
+
         if seed_url_configuration is not None:
             _setter("seed_url_configuration", seed_url_configuration)
         if site_maps_configuration is not None:
@@ -3337,13 +3917,29 @@ class DataSourceWorkDocsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             organization_id: pulumi.Input[str],
+             organization_id: Optional[pulumi.Input[str]] = None,
              crawl_comments: Optional[pulumi.Input[bool]] = None,
              exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceToIndexFieldMappingArgs']]]] = None,
              inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              use_change_log: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if organization_id is None:
+            raise TypeError("Missing 'organization_id' argument")
+        if crawl_comments is None and 'crawlComments' in kwargs:
+            crawl_comments = kwargs['crawlComments']
+        if exclusion_patterns is None and 'exclusionPatterns' in kwargs:
+            exclusion_patterns = kwargs['exclusionPatterns']
+        if field_mappings is None and 'fieldMappings' in kwargs:
+            field_mappings = kwargs['fieldMappings']
+        if inclusion_patterns is None and 'inclusionPatterns' in kwargs:
+            inclusion_patterns = kwargs['inclusionPatterns']
+        if use_change_log is None and 'useChangeLog' in kwargs:
+            use_change_log = kwargs['useChangeLog']
+
         _setter("organization_id", organization_id)
         if crawl_comments is not None:
             _setter("crawl_comments", crawl_comments)
@@ -3424,9 +4020,15 @@ class FaqS3PathArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("bucket", bucket)
         _setter("key", key)
 
@@ -3467,9 +4069,15 @@ class FaqTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3511,9 +4119,19 @@ class IndexCapacityUnitsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_capacity_units: pulumi.Input[int],
-             storage_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             query_capacity_units: Optional[pulumi.Input[int]] = None,
+             storage_capacity_units: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_capacity_units is None and 'queryCapacityUnits' in kwargs:
+            query_capacity_units = kwargs['queryCapacityUnits']
+        if query_capacity_units is None:
+            raise TypeError("Missing 'query_capacity_units' argument")
+        if storage_capacity_units is None and 'storageCapacityUnits' in kwargs:
+            storage_capacity_units = kwargs['storageCapacityUnits']
+        if storage_capacity_units is None:
+            raise TypeError("Missing 'storage_capacity_units' argument")
+
         _setter("query_capacity_units", query_capacity_units)
         _setter("storage_capacity_units", storage_capacity_units)
 
@@ -3553,11 +4171,17 @@ class IndexDocumentMetadataConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input['IndexDocumentAttributeValueType'],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['IndexDocumentAttributeValueType']] = None,
              relevance: Optional[pulumi.Input['IndexRelevanceArgs']] = None,
              search: Optional[pulumi.Input['IndexSearchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("name", name)
         _setter("type", type)
         if relevance is not None:
@@ -3615,9 +4239,19 @@ class IndexJsonTokenTypeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_attribute_field: pulumi.Input[str],
-             user_name_attribute_field: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_attribute_field: Optional[pulumi.Input[str]] = None,
+             user_name_attribute_field: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_attribute_field is None and 'groupAttributeField' in kwargs:
+            group_attribute_field = kwargs['groupAttributeField']
+        if group_attribute_field is None:
+            raise TypeError("Missing 'group_attribute_field' argument")
+        if user_name_attribute_field is None and 'userNameAttributeField' in kwargs:
+            user_name_attribute_field = kwargs['userNameAttributeField']
+        if user_name_attribute_field is None:
+            raise TypeError("Missing 'user_name_attribute_field' argument")
+
         _setter("group_attribute_field", group_attribute_field)
         _setter("user_name_attribute_field", user_name_attribute_field)
 
@@ -3663,14 +4297,28 @@ class IndexJwtTokenTypeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_location: pulumi.Input['IndexKeyLocation'],
+             key_location: Optional[pulumi.Input['IndexKeyLocation']] = None,
              claim_regex: Optional[pulumi.Input[str]] = None,
              group_attribute_field: Optional[pulumi.Input[str]] = None,
              issuer: Optional[pulumi.Input[str]] = None,
              secret_manager_arn: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
              user_name_attribute_field: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_location is None and 'keyLocation' in kwargs:
+            key_location = kwargs['keyLocation']
+        if key_location is None:
+            raise TypeError("Missing 'key_location' argument")
+        if claim_regex is None and 'claimRegex' in kwargs:
+            claim_regex = kwargs['claimRegex']
+        if group_attribute_field is None and 'groupAttributeField' in kwargs:
+            group_attribute_field = kwargs['groupAttributeField']
+        if secret_manager_arn is None and 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if user_name_attribute_field is None and 'userNameAttributeField' in kwargs:
+            user_name_attribute_field = kwargs['userNameAttributeField']
+
         _setter("key_location", key_location)
         if claim_regex is not None:
             _setter("claim_regex", claim_regex)
@@ -3773,7 +4421,13 @@ class IndexRelevanceArgs:
              importance: Optional[pulumi.Input[int]] = None,
              rank_order: Optional[pulumi.Input['IndexOrder']] = None,
              value_importance_items: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rank_order is None and 'rankOrder' in kwargs:
+            rank_order = kwargs['rankOrder']
+        if value_importance_items is None and 'valueImportanceItems' in kwargs:
+            value_importance_items = kwargs['valueImportanceItems']
+
         if duration is not None:
             _setter("duration", duration)
         if freshness is not None:
@@ -3852,7 +4506,9 @@ class IndexSearchArgs:
              facetable: Optional[pulumi.Input[bool]] = None,
              searchable: Optional[pulumi.Input[bool]] = None,
              sortable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if displayable is not None:
             _setter("displayable", displayable)
         if facetable is not None:
@@ -3911,7 +4567,11 @@ class IndexServerSideEncryptionConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -3943,9 +4603,15 @@ class IndexTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3989,7 +4655,13 @@ class IndexUserTokenConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              json_token_type_configuration: Optional[pulumi.Input['IndexJsonTokenTypeConfigurationArgs']] = None,
              jwt_token_type_configuration: Optional[pulumi.Input['IndexJwtTokenTypeConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_token_type_configuration is None and 'jsonTokenTypeConfiguration' in kwargs:
+            json_token_type_configuration = kwargs['jsonTokenTypeConfiguration']
+        if jwt_token_type_configuration is None and 'jwtTokenTypeConfiguration' in kwargs:
+            jwt_token_type_configuration = kwargs['jwtTokenTypeConfiguration']
+
         if json_token_type_configuration is not None:
             _setter("json_token_type_configuration", json_token_type_configuration)
         if jwt_token_type_configuration is not None:
@@ -4029,7 +4701,9 @@ class IndexValueImportanceItemArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

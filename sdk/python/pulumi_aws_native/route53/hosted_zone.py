@@ -47,7 +47,15 @@ class HostedZoneArgs:
              name: Optional[pulumi.Input[str]] = None,
              query_logging_config: Optional[pulumi.Input['HostedZoneQueryLoggingConfigArgs']] = None,
              vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['HostedZoneVpcArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_config is None and 'hostedZoneConfig' in kwargs:
+            hosted_zone_config = kwargs['hostedZoneConfig']
+        if hosted_zone_tags is None and 'hostedZoneTags' in kwargs:
+            hosted_zone_tags = kwargs['hostedZoneTags']
+        if query_logging_config is None and 'queryLoggingConfig' in kwargs:
+            query_logging_config = kwargs['queryLoggingConfig']
+
         if hosted_zone_config is not None:
             _setter("hosted_zone_config", hosted_zone_config)
         if hosted_zone_tags is not None:
@@ -184,19 +192,11 @@ class HostedZone(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HostedZoneArgs.__new__(HostedZoneArgs)
 
-            if hosted_zone_config is not None and not isinstance(hosted_zone_config, HostedZoneConfigArgs):
-                hosted_zone_config = hosted_zone_config or {}
-                def _setter(key, value):
-                    hosted_zone_config[key] = value
-                HostedZoneConfigArgs._configure(_setter, **hosted_zone_config)
+            hosted_zone_config = _utilities.configure(hosted_zone_config, HostedZoneConfigArgs, True)
             __props__.__dict__["hosted_zone_config"] = hosted_zone_config
             __props__.__dict__["hosted_zone_tags"] = hosted_zone_tags
             __props__.__dict__["name"] = name
-            if query_logging_config is not None and not isinstance(query_logging_config, HostedZoneQueryLoggingConfigArgs):
-                query_logging_config = query_logging_config or {}
-                def _setter(key, value):
-                    query_logging_config[key] = value
-                HostedZoneQueryLoggingConfigArgs._configure(_setter, **query_logging_config)
+            query_logging_config = _utilities.configure(query_logging_config, HostedZoneQueryLoggingConfigArgs, True)
             __props__.__dict__["query_logging_config"] = query_logging_config
             __props__.__dict__["vpcs"] = vpcs
             __props__.__dict__["name_servers"] = None

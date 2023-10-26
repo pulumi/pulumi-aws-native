@@ -44,14 +44,30 @@ class SceneArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_location: pulumi.Input[str],
-             scene_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             content_location: Optional[pulumi.Input[str]] = None,
+             scene_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              scene_metadata: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_location is None and 'contentLocation' in kwargs:
+            content_location = kwargs['contentLocation']
+        if content_location is None:
+            raise TypeError("Missing 'content_location' argument")
+        if scene_id is None and 'sceneId' in kwargs:
+            scene_id = kwargs['sceneId']
+        if scene_id is None:
+            raise TypeError("Missing 'scene_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if scene_metadata is None and 'sceneMetadata' in kwargs:
+            scene_metadata = kwargs['sceneMetadata']
+
         _setter("content_location", content_location)
         _setter("scene_id", scene_id)
         _setter("workspace_id", workspace_id)

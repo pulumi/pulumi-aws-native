@@ -45,16 +45,36 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_identifier: pulumi.Input[str],
-             endpoint_type: pulumi.Input['ServiceEndpointType'],
-             environment_identifier: pulumi.Input[str],
+             application_identifier: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input['ServiceEndpointType']] = None,
+             environment_identifier: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              lambda_endpoint: Optional[pulumi.Input['ServiceLambdaEndpointInputArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
              url_endpoint: Optional[pulumi.Input['ServiceUrlEndpointInputArgs']] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_identifier is None and 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if application_identifier is None:
+            raise TypeError("Missing 'application_identifier' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if environment_identifier is None and 'environmentIdentifier' in kwargs:
+            environment_identifier = kwargs['environmentIdentifier']
+        if environment_identifier is None:
+            raise TypeError("Missing 'environment_identifier' argument")
+        if lambda_endpoint is None and 'lambdaEndpoint' in kwargs:
+            lambda_endpoint = kwargs['lambdaEndpoint']
+        if url_endpoint is None and 'urlEndpoint' in kwargs:
+            url_endpoint = kwargs['urlEndpoint']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("application_identifier", application_identifier)
         _setter("endpoint_type", endpoint_type)
         _setter("environment_identifier", environment_identifier)
@@ -234,19 +254,11 @@ class Service(pulumi.CustomResource):
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
-            if lambda_endpoint is not None and not isinstance(lambda_endpoint, ServiceLambdaEndpointInputArgs):
-                lambda_endpoint = lambda_endpoint or {}
-                def _setter(key, value):
-                    lambda_endpoint[key] = value
-                ServiceLambdaEndpointInputArgs._configure(_setter, **lambda_endpoint)
+            lambda_endpoint = _utilities.configure(lambda_endpoint, ServiceLambdaEndpointInputArgs, True)
             __props__.__dict__["lambda_endpoint"] = lambda_endpoint
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            if url_endpoint is not None and not isinstance(url_endpoint, ServiceUrlEndpointInputArgs):
-                url_endpoint = url_endpoint or {}
-                def _setter(key, value):
-                    url_endpoint[key] = value
-                ServiceUrlEndpointInputArgs._configure(_setter, **url_endpoint)
+            url_endpoint = _utilities.configure(url_endpoint, ServiceUrlEndpointInputArgs, True)
             __props__.__dict__["url_endpoint"] = url_endpoint
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["arn"] = None

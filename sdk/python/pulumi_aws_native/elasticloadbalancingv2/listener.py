@@ -39,14 +39,28 @@ class ListenerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_actions: pulumi.Input[Sequence[pulumi.Input['ListenerActionArgs']]],
-             load_balancer_arn: pulumi.Input[str],
+             default_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerActionArgs']]]] = None,
+             load_balancer_arn: Optional[pulumi.Input[str]] = None,
              alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]]] = None,
              port: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              ssl_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_actions is None and 'defaultActions' in kwargs:
+            default_actions = kwargs['defaultActions']
+        if default_actions is None:
+            raise TypeError("Missing 'default_actions' argument")
+        if load_balancer_arn is None and 'loadBalancerArn' in kwargs:
+            load_balancer_arn = kwargs['loadBalancerArn']
+        if load_balancer_arn is None:
+            raise TypeError("Missing 'load_balancer_arn' argument")
+        if alpn_policy is None and 'alpnPolicy' in kwargs:
+            alpn_policy = kwargs['alpnPolicy']
+        if ssl_policy is None and 'sslPolicy' in kwargs:
+            ssl_policy = kwargs['sslPolicy']
+
         _setter("default_actions", default_actions)
         _setter("load_balancer_arn", load_balancer_arn)
         if alpn_policy is not None:

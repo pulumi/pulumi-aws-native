@@ -56,7 +56,17 @@ class AutomationRuleArgs:
              rule_order: Optional[pulumi.Input[int]] = None,
              rule_status: Optional[pulumi.Input['AutomationRuleRuleStatus']] = None,
              tags: Optional[pulumi.Input['AutomationRuleTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_terminal is None and 'isTerminal' in kwargs:
+            is_terminal = kwargs['isTerminal']
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_order is None and 'ruleOrder' in kwargs:
+            rule_order = kwargs['ruleOrder']
+        if rule_status is None and 'ruleStatus' in kwargs:
+            rule_status = kwargs['ruleStatus']
+
         if actions is not None:
             _setter("actions", actions)
         if criteria is not None:
@@ -237,22 +247,14 @@ class AutomationRule(pulumi.CustomResource):
             __props__ = AutomationRuleArgs.__new__(AutomationRuleArgs)
 
             __props__.__dict__["actions"] = actions
-            if criteria is not None and not isinstance(criteria, AutomationRulesFindingFiltersArgs):
-                criteria = criteria or {}
-                def _setter(key, value):
-                    criteria[key] = value
-                AutomationRulesFindingFiltersArgs._configure(_setter, **criteria)
+            criteria = _utilities.configure(criteria, AutomationRulesFindingFiltersArgs, True)
             __props__.__dict__["criteria"] = criteria
             __props__.__dict__["description"] = description
             __props__.__dict__["is_terminal"] = is_terminal
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["rule_order"] = rule_order
             __props__.__dict__["rule_status"] = rule_status
-            if tags is not None and not isinstance(tags, AutomationRuleTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                AutomationRuleTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, AutomationRuleTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["created_by"] = None

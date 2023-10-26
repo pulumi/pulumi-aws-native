@@ -40,12 +40,24 @@ class DeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rest_api_id: pulumi.Input[str],
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              deployment_canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              stage_description: Optional[pulumi.Input['DeploymentStageDescriptionArgs']] = None,
              stage_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if deployment_canary_settings is None and 'deploymentCanarySettings' in kwargs:
+            deployment_canary_settings = kwargs['deploymentCanarySettings']
+        if stage_description is None and 'stageDescription' in kwargs:
+            stage_description = kwargs['stageDescription']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         _setter("rest_api_id", rest_api_id)
         if deployment_canary_settings is not None:
             _setter("deployment_canary_settings", deployment_canary_settings)
@@ -181,21 +193,13 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
-            if deployment_canary_settings is not None and not isinstance(deployment_canary_settings, DeploymentCanarySettingsArgs):
-                deployment_canary_settings = deployment_canary_settings or {}
-                def _setter(key, value):
-                    deployment_canary_settings[key] = value
-                DeploymentCanarySettingsArgs._configure(_setter, **deployment_canary_settings)
+            deployment_canary_settings = _utilities.configure(deployment_canary_settings, DeploymentCanarySettingsArgs, True)
             __props__.__dict__["deployment_canary_settings"] = deployment_canary_settings
             __props__.__dict__["description"] = description
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
-            if stage_description is not None and not isinstance(stage_description, DeploymentStageDescriptionArgs):
-                stage_description = stage_description or {}
-                def _setter(key, value):
-                    stage_description[key] = value
-                DeploymentStageDescriptionArgs._configure(_setter, **stage_description)
+            stage_description = _utilities.configure(stage_description, DeploymentStageDescriptionArgs, True)
             __props__.__dict__["stage_description"] = stage_description
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["deployment_id"] = None

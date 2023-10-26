@@ -37,11 +37,17 @@ class VpcLinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             target_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcLinkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_arns is None and 'targetArns' in kwargs:
+            target_arns = kwargs['targetArns']
+        if target_arns is None:
+            raise TypeError("Missing 'target_arns' argument")
+
         _setter("target_arns", target_arns)
         if description is not None:
             _setter("description", description)

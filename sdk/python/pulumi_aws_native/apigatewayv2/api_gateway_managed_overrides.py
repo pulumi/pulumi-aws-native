@@ -33,11 +33,17 @@ class ApiGatewayManagedOverridesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
              integration: Optional[pulumi.Input['ApiGatewayManagedOverridesIntegrationOverridesArgs']] = None,
              route: Optional[pulumi.Input['ApiGatewayManagedOverridesRouteOverridesArgs']] = None,
              stage: Optional[pulumi.Input['ApiGatewayManagedOverridesStageOverridesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+
         _setter("api_id", api_id)
         if integration is not None:
             _setter("integration", integration)
@@ -149,23 +155,11 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
-            if integration is not None and not isinstance(integration, ApiGatewayManagedOverridesIntegrationOverridesArgs):
-                integration = integration or {}
-                def _setter(key, value):
-                    integration[key] = value
-                ApiGatewayManagedOverridesIntegrationOverridesArgs._configure(_setter, **integration)
+            integration = _utilities.configure(integration, ApiGatewayManagedOverridesIntegrationOverridesArgs, True)
             __props__.__dict__["integration"] = integration
-            if route is not None and not isinstance(route, ApiGatewayManagedOverridesRouteOverridesArgs):
-                route = route or {}
-                def _setter(key, value):
-                    route[key] = value
-                ApiGatewayManagedOverridesRouteOverridesArgs._configure(_setter, **route)
+            route = _utilities.configure(route, ApiGatewayManagedOverridesRouteOverridesArgs, True)
             __props__.__dict__["route"] = route
-            if stage is not None and not isinstance(stage, ApiGatewayManagedOverridesStageOverridesArgs):
-                stage = stage or {}
-                def _setter(key, value):
-                    stage[key] = value
-                ApiGatewayManagedOverridesStageOverridesArgs._configure(_setter, **stage)
+            stage = _utilities.configure(stage, ApiGatewayManagedOverridesStageOverridesArgs, True)
             __props__.__dict__["stage"] = stage
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

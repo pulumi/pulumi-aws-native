@@ -47,9 +47,9 @@ class GlobalTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_definitions: pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]],
-             key_schema: pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]],
-             replicas: pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]],
+             attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]] = None,
+             key_schema: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]]] = None,
              billing_mode: Optional[pulumi.Input[str]] = None,
              global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
              local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
@@ -58,7 +58,35 @@ class GlobalTableArgs:
              table_name: Optional[pulumi.Input[str]] = None,
              time_to_live_specification: Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']] = None,
              write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_definitions is None and 'attributeDefinitions' in kwargs:
+            attribute_definitions = kwargs['attributeDefinitions']
+        if attribute_definitions is None:
+            raise TypeError("Missing 'attribute_definitions' argument")
+        if key_schema is None and 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+        if key_schema is None:
+            raise TypeError("Missing 'key_schema' argument")
+        if replicas is None:
+            raise TypeError("Missing 'replicas' argument")
+        if billing_mode is None and 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if global_secondary_indexes is None and 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if local_secondary_indexes is None and 'localSecondaryIndexes' in kwargs:
+            local_secondary_indexes = kwargs['localSecondaryIndexes']
+        if sse_specification is None and 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if stream_specification is None and 'streamSpecification' in kwargs:
+            stream_specification = kwargs['streamSpecification']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if time_to_live_specification is None and 'timeToLiveSpecification' in kwargs:
+            time_to_live_specification = kwargs['timeToLiveSpecification']
+        if write_provisioned_throughput_settings is None and 'writeProvisionedThroughputSettings' in kwargs:
+            write_provisioned_throughput_settings = kwargs['writeProvisionedThroughputSettings']
+
         _setter("attribute_definitions", attribute_definitions)
         _setter("key_schema", key_schema)
         _setter("replicas", replicas)
@@ -262,30 +290,14 @@ class GlobalTable(pulumi.CustomResource):
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
-            if sse_specification is not None and not isinstance(sse_specification, GlobalTableSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                GlobalTableSseSpecificationArgs._configure(_setter, **sse_specification)
+            sse_specification = _utilities.configure(sse_specification, GlobalTableSseSpecificationArgs, True)
             __props__.__dict__["sse_specification"] = sse_specification
-            if stream_specification is not None and not isinstance(stream_specification, GlobalTableStreamSpecificationArgs):
-                stream_specification = stream_specification or {}
-                def _setter(key, value):
-                    stream_specification[key] = value
-                GlobalTableStreamSpecificationArgs._configure(_setter, **stream_specification)
+            stream_specification = _utilities.configure(stream_specification, GlobalTableStreamSpecificationArgs, True)
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_name"] = table_name
-            if time_to_live_specification is not None and not isinstance(time_to_live_specification, GlobalTableTimeToLiveSpecificationArgs):
-                time_to_live_specification = time_to_live_specification or {}
-                def _setter(key, value):
-                    time_to_live_specification[key] = value
-                GlobalTableTimeToLiveSpecificationArgs._configure(_setter, **time_to_live_specification)
+            time_to_live_specification = _utilities.configure(time_to_live_specification, GlobalTableTimeToLiveSpecificationArgs, True)
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
-            if write_provisioned_throughput_settings is not None and not isinstance(write_provisioned_throughput_settings, GlobalTableWriteProvisionedThroughputSettingsArgs):
-                write_provisioned_throughput_settings = write_provisioned_throughput_settings or {}
-                def _setter(key, value):
-                    write_provisioned_throughput_settings[key] = value
-                GlobalTableWriteProvisionedThroughputSettingsArgs._configure(_setter, **write_provisioned_throughput_settings)
+            write_provisioned_throughput_settings = _utilities.configure(write_provisioned_throughput_settings, GlobalTableWriteProvisionedThroughputSettingsArgs, True)
             __props__.__dict__["write_provisioned_throughput_settings"] = write_provisioned_throughput_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None

@@ -46,7 +46,7 @@ class ServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_configuration: pulumi.Input['ServiceSourceConfigurationArgs'],
+             source_configuration: Optional[pulumi.Input['ServiceSourceConfigurationArgs']] = None,
              auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
              encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
              health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
@@ -55,7 +55,27 @@ class ServiceArgs:
              observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
              service_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_configuration is None and 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+        if source_configuration is None:
+            raise TypeError("Missing 'source_configuration' argument")
+        if auto_scaling_configuration_arn is None and 'autoScalingConfigurationArn' in kwargs:
+            auto_scaling_configuration_arn = kwargs['autoScalingConfigurationArn']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if health_check_configuration is None and 'healthCheckConfiguration' in kwargs:
+            health_check_configuration = kwargs['healthCheckConfiguration']
+        if instance_configuration is None and 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if observability_configuration is None and 'observabilityConfiguration' in kwargs:
+            observability_configuration = kwargs['observabilityConfiguration']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         _setter("source_configuration", source_configuration)
         if auto_scaling_configuration_arn is not None:
             _setter("auto_scaling_configuration_arn", auto_scaling_configuration_arn)
@@ -232,42 +252,18 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
-            if encryption_configuration is not None and not isinstance(encryption_configuration, ServiceEncryptionConfigurationArgs):
-                encryption_configuration = encryption_configuration or {}
-                def _setter(key, value):
-                    encryption_configuration[key] = value
-                ServiceEncryptionConfigurationArgs._configure(_setter, **encryption_configuration)
+            encryption_configuration = _utilities.configure(encryption_configuration, ServiceEncryptionConfigurationArgs, True)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
-            if health_check_configuration is not None and not isinstance(health_check_configuration, ServiceHealthCheckConfigurationArgs):
-                health_check_configuration = health_check_configuration or {}
-                def _setter(key, value):
-                    health_check_configuration[key] = value
-                ServiceHealthCheckConfigurationArgs._configure(_setter, **health_check_configuration)
+            health_check_configuration = _utilities.configure(health_check_configuration, ServiceHealthCheckConfigurationArgs, True)
             __props__.__dict__["health_check_configuration"] = health_check_configuration
-            if instance_configuration is not None and not isinstance(instance_configuration, ServiceInstanceConfigurationArgs):
-                instance_configuration = instance_configuration or {}
-                def _setter(key, value):
-                    instance_configuration[key] = value
-                ServiceInstanceConfigurationArgs._configure(_setter, **instance_configuration)
+            instance_configuration = _utilities.configure(instance_configuration, ServiceInstanceConfigurationArgs, True)
             __props__.__dict__["instance_configuration"] = instance_configuration
-            if network_configuration is not None and not isinstance(network_configuration, ServiceNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                ServiceNetworkConfigurationArgs._configure(_setter, **network_configuration)
+            network_configuration = _utilities.configure(network_configuration, ServiceNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
-            if observability_configuration is not None and not isinstance(observability_configuration, ServiceObservabilityConfigurationArgs):
-                observability_configuration = observability_configuration or {}
-                def _setter(key, value):
-                    observability_configuration[key] = value
-                ServiceObservabilityConfigurationArgs._configure(_setter, **observability_configuration)
+            observability_configuration = _utilities.configure(observability_configuration, ServiceObservabilityConfigurationArgs, True)
             __props__.__dict__["observability_configuration"] = observability_configuration
             __props__.__dict__["service_name"] = service_name
-            if source_configuration is not None and not isinstance(source_configuration, ServiceSourceConfigurationArgs):
-                source_configuration = source_configuration or {}
-                def _setter(key, value):
-                    source_configuration[key] = value
-                ServiceSourceConfigurationArgs._configure(_setter, **source_configuration)
+            source_configuration = _utilities.configure(source_configuration, ServiceSourceConfigurationArgs, True)
             if source_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'source_configuration'")
             __props__.__dict__["source_configuration"] = source_configuration

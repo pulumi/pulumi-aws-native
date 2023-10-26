@@ -29,9 +29,15 @@ class DirectoryRegistrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             directory_id: pulumi.Input[str],
+             directory_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['DirectoryRegistrationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_id is None:
+            raise TypeError("Missing 'directory_id' argument")
+
         _setter("directory_id", directory_id)
         if tags is not None:
             _setter("tags", tags)
@@ -111,11 +117,7 @@ class DirectoryRegistration(pulumi.CustomResource):
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
-            if tags is not None and not isinstance(tags, DirectoryRegistrationTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                DirectoryRegistrationTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, DirectoryRegistrationTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["directory_registration_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["directory_id"])

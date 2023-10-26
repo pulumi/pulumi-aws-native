@@ -67,8 +67,8 @@ class FunctionConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             data_source_name: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             data_source_name: Optional[pulumi.Input[str]] = None,
              code: Optional[pulumi.Input[str]] = None,
              code_s3_location: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -81,7 +81,33 @@ class FunctionConfigurationArgs:
              response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
              runtime: Optional[pulumi.Input['FunctionConfigurationAppSyncRuntimeArgs']] = None,
              sync_config: Optional[pulumi.Input['FunctionConfigurationSyncConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if data_source_name is None and 'dataSourceName' in kwargs:
+            data_source_name = kwargs['dataSourceName']
+        if data_source_name is None:
+            raise TypeError("Missing 'data_source_name' argument")
+        if code_s3_location is None and 'codeS3Location' in kwargs:
+            code_s3_location = kwargs['codeS3Location']
+        if function_version is None and 'functionVersion' in kwargs:
+            function_version = kwargs['functionVersion']
+        if max_batch_size is None and 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+        if request_mapping_template is None and 'requestMappingTemplate' in kwargs:
+            request_mapping_template = kwargs['requestMappingTemplate']
+        if request_mapping_template_s3_location is None and 'requestMappingTemplateS3Location' in kwargs:
+            request_mapping_template_s3_location = kwargs['requestMappingTemplateS3Location']
+        if response_mapping_template is None and 'responseMappingTemplate' in kwargs:
+            response_mapping_template = kwargs['responseMappingTemplate']
+        if response_mapping_template_s3_location is None and 'responseMappingTemplateS3Location' in kwargs:
+            response_mapping_template_s3_location = kwargs['responseMappingTemplateS3Location']
+        if sync_config is None and 'syncConfig' in kwargs:
+            sync_config = kwargs['syncConfig']
+
         _setter("api_id", api_id)
         _setter("data_source_name", data_source_name)
         if code is not None:
@@ -385,17 +411,9 @@ class FunctionConfiguration(pulumi.CustomResource):
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
             __props__.__dict__["response_mapping_template"] = response_mapping_template
             __props__.__dict__["response_mapping_template_s3_location"] = response_mapping_template_s3_location
-            if runtime is not None and not isinstance(runtime, FunctionConfigurationAppSyncRuntimeArgs):
-                runtime = runtime or {}
-                def _setter(key, value):
-                    runtime[key] = value
-                FunctionConfigurationAppSyncRuntimeArgs._configure(_setter, **runtime)
+            runtime = _utilities.configure(runtime, FunctionConfigurationAppSyncRuntimeArgs, True)
             __props__.__dict__["runtime"] = runtime
-            if sync_config is not None and not isinstance(sync_config, FunctionConfigurationSyncConfigArgs):
-                sync_config = sync_config or {}
-                def _setter(key, value):
-                    sync_config[key] = value
-                FunctionConfigurationSyncConfigArgs._configure(_setter, **sync_config)
+            sync_config = _utilities.configure(sync_config, FunctionConfigurationSyncConfigArgs, True)
             __props__.__dict__["sync_config"] = sync_config
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_id"] = None

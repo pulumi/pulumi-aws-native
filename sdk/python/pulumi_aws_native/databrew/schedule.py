@@ -35,11 +35,19 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cron_expression: pulumi.Input[str],
+             cron_expression: Optional[pulumi.Input[str]] = None,
              job_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cron_expression is None and 'cronExpression' in kwargs:
+            cron_expression = kwargs['cronExpression']
+        if cron_expression is None:
+            raise TypeError("Missing 'cron_expression' argument")
+        if job_names is None and 'jobNames' in kwargs:
+            job_names = kwargs['jobNames']
+
         _setter("cron_expression", cron_expression)
         if job_names is not None:
             _setter("job_names", job_names)

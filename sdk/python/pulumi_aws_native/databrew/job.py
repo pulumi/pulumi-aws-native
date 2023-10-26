@@ -81,8 +81,8 @@ class JobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             type: pulumi.Input['JobType'],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['JobType']] = None,
              data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]] = None,
              database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]] = None,
              dataset_name: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,41 @@ class JobArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
              validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if data_catalog_outputs is None and 'dataCatalogOutputs' in kwargs:
+            data_catalog_outputs = kwargs['dataCatalogOutputs']
+        if database_outputs is None and 'databaseOutputs' in kwargs:
+            database_outputs = kwargs['databaseOutputs']
+        if dataset_name is None and 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if encryption_key_arn is None and 'encryptionKeyArn' in kwargs:
+            encryption_key_arn = kwargs['encryptionKeyArn']
+        if encryption_mode is None and 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if job_sample is None and 'jobSample' in kwargs:
+            job_sample = kwargs['jobSample']
+        if log_subscription is None and 'logSubscription' in kwargs:
+            log_subscription = kwargs['logSubscription']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if profile_configuration is None and 'profileConfiguration' in kwargs:
+            profile_configuration = kwargs['profileConfiguration']
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if validation_configurations is None and 'validationConfigurations' in kwargs:
+            validation_configurations = kwargs['validationConfigurations']
+
         _setter("role_arn", role_arn)
         _setter("type", type)
         if data_catalog_outputs is not None:
@@ -476,35 +510,19 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             __props__.__dict__["encryption_mode"] = encryption_mode
-            if job_sample is not None and not isinstance(job_sample, JobSampleArgs):
-                job_sample = job_sample or {}
-                def _setter(key, value):
-                    job_sample[key] = value
-                JobSampleArgs._configure(_setter, **job_sample)
+            job_sample = _utilities.configure(job_sample, JobSampleArgs, True)
             __props__.__dict__["job_sample"] = job_sample
             __props__.__dict__["log_subscription"] = log_subscription
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
-            if output_location is not None and not isinstance(output_location, JobOutputLocationArgs):
-                output_location = output_location or {}
-                def _setter(key, value):
-                    output_location[key] = value
-                JobOutputLocationArgs._configure(_setter, **output_location)
+            output_location = _utilities.configure(output_location, JobOutputLocationArgs, True)
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["outputs"] = outputs
-            if profile_configuration is not None and not isinstance(profile_configuration, JobProfileConfigurationArgs):
-                profile_configuration = profile_configuration or {}
-                def _setter(key, value):
-                    profile_configuration[key] = value
-                JobProfileConfigurationArgs._configure(_setter, **profile_configuration)
+            profile_configuration = _utilities.configure(profile_configuration, JobProfileConfigurationArgs, True)
             __props__.__dict__["profile_configuration"] = profile_configuration
             __props__.__dict__["project_name"] = project_name
-            if recipe is not None and not isinstance(recipe, JobRecipeArgs):
-                recipe = recipe or {}
-                def _setter(key, value):
-                    recipe[key] = value
-                JobRecipeArgs._configure(_setter, **recipe)
+            recipe = _utilities.configure(recipe, JobRecipeArgs, True)
             __props__.__dict__["recipe"] = recipe
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

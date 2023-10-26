@@ -95,10 +95,18 @@ class ConnectorDefinitionConnector(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connector_arn: str,
-             id: str,
+             connector_arn: Optional[str] = None,
+             id: Optional[str] = None,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_arn is None and 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+        if connector_arn is None:
+            raise TypeError("Missing 'connector_arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("connector_arn", connector_arn)
         _setter("id", id)
         if parameters is not None:
@@ -131,8 +139,12 @@ class ConnectorDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connectors: Sequence['outputs.ConnectorDefinitionConnector'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             connectors: Optional[Sequence['outputs.ConnectorDefinitionConnector']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connectors is None:
+            raise TypeError("Missing 'connectors' argument")
+
         _setter("connectors", connectors)
 
     @property
@@ -173,10 +185,18 @@ class ConnectorDefinitionVersionConnector(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connector_arn: str,
-             id: str,
+             connector_arn: Optional[str] = None,
+             id: Optional[str] = None,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_arn is None and 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+        if connector_arn is None:
+            raise TypeError("Missing 'connector_arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("connector_arn", connector_arn)
         _setter("id", id)
         if parameters is not None:
@@ -236,11 +256,25 @@ class CoreDefinitionCore(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_arn: str,
-             id: str,
-             thing_arn: str,
+             certificate_arn: Optional[str] = None,
+             id: Optional[str] = None,
+             thing_arn: Optional[str] = None,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if thing_arn is None:
+            raise TypeError("Missing 'thing_arn' argument")
+        if sync_shadow is None and 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -279,8 +313,12 @@ class CoreDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cores: Sequence['outputs.CoreDefinitionCore'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cores: Optional[Sequence['outputs.CoreDefinitionCore']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cores is None:
+            raise TypeError("Missing 'cores' argument")
+
         _setter("cores", cores)
 
     @property
@@ -327,11 +365,25 @@ class CoreDefinitionVersionCore(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_arn: str,
-             id: str,
-             thing_arn: str,
+             certificate_arn: Optional[str] = None,
+             id: Optional[str] = None,
+             thing_arn: Optional[str] = None,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if thing_arn is None:
+            raise TypeError("Missing 'thing_arn' argument")
+        if sync_shadow is None and 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -397,11 +449,25 @@ class DeviceDefinitionDevice(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_arn: str,
-             id: str,
-             thing_arn: str,
+             certificate_arn: Optional[str] = None,
+             id: Optional[str] = None,
+             thing_arn: Optional[str] = None,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if thing_arn is None:
+            raise TypeError("Missing 'thing_arn' argument")
+        if sync_shadow is None and 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -440,8 +506,12 @@ class DeviceDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             devices: Sequence['outputs.DeviceDefinitionDevice'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             devices: Optional[Sequence['outputs.DeviceDefinitionDevice']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if devices is None:
+            raise TypeError("Missing 'devices' argument")
+
         _setter("devices", devices)
 
     @property
@@ -488,11 +558,25 @@ class DeviceDefinitionVersionDevice(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_arn: str,
-             id: str,
-             thing_arn: str,
+             certificate_arn: Optional[str] = None,
+             id: Optional[str] = None,
+             thing_arn: Optional[str] = None,
              sync_shadow: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if thing_arn is None:
+            raise TypeError("Missing 'thing_arn' argument")
+        if sync_shadow is None and 'syncShadow' in kwargs:
+            sync_shadow = kwargs['syncShadow']
+
         _setter("certificate_arn", certificate_arn)
         _setter("id", id)
         _setter("thing_arn", thing_arn)
@@ -531,8 +615,12 @@ class FunctionDefinitionDefaultConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             execution: 'outputs.FunctionDefinitionExecution',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             execution: Optional['outputs.FunctionDefinitionExecution'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution is None:
+            raise TypeError("Missing 'execution' argument")
+
         _setter("execution", execution)
 
     @property
@@ -581,7 +669,13 @@ class FunctionDefinitionEnvironment(dict):
              execution: Optional['outputs.FunctionDefinitionExecution'] = None,
              resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionResourceAccessPolicy']] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_sysfs is None and 'accessSysfs' in kwargs:
+            access_sysfs = kwargs['accessSysfs']
+        if resource_access_policies is None and 'resourceAccessPolicies' in kwargs:
+            resource_access_policies = kwargs['resourceAccessPolicies']
+
         if access_sysfs is not None:
             _setter("access_sysfs", access_sysfs)
         if execution is not None:
@@ -646,7 +740,13 @@ class FunctionDefinitionExecution(dict):
              _setter: Callable[[Any, Any], None],
              isolation_mode: Optional[str] = None,
              run_as: Optional['outputs.FunctionDefinitionRunAs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if isolation_mode is None and 'isolationMode' in kwargs:
+            isolation_mode = kwargs['isolationMode']
+        if run_as is None and 'runAs' in kwargs:
+            run_as = kwargs['runAs']
+
         if isolation_mode is not None:
             _setter("isolation_mode", isolation_mode)
         if run_as is not None:
@@ -697,10 +797,22 @@ class FunctionDefinitionFunction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_arn: str,
-             function_configuration: 'outputs.FunctionDefinitionFunctionConfiguration',
-             id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             function_arn: Optional[str] = None,
+             function_configuration: Optional['outputs.FunctionDefinitionFunctionConfiguration'] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+        if function_configuration is None and 'functionConfiguration' in kwargs:
+            function_configuration = kwargs['functionConfiguration']
+        if function_configuration is None:
+            raise TypeError("Missing 'function_configuration' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("function_arn", function_arn)
         _setter("function_configuration", function_configuration)
         _setter("id", id)
@@ -772,7 +884,15 @@ class FunctionDefinitionFunctionConfiguration(dict):
              memory_size: Optional[int] = None,
              pinned: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encoding_type is None and 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if exec_args is None and 'execArgs' in kwargs:
+            exec_args = kwargs['execArgs']
+        if memory_size is None and 'memorySize' in kwargs:
+            memory_size = kwargs['memorySize']
+
         if encoding_type is not None:
             _setter("encoding_type", encoding_type)
         if environment is not None:
@@ -854,9 +974,15 @@ class FunctionDefinitionResourceAccessPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: str,
+             resource_id: Optional[str] = None,
              permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
         _setter("resource_id", resource_id)
         if permission is not None:
             _setter("permission", permission)
@@ -887,7 +1013,9 @@ class FunctionDefinitionRunAs(dict):
              _setter: Callable[[Any, Any], None],
              gid: Optional[int] = None,
              uid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if gid is not None:
             _setter("gid", gid)
         if uid is not None:
@@ -934,9 +1062,15 @@ class FunctionDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             functions: Sequence['outputs.FunctionDefinitionFunction'],
+             functions: Optional[Sequence['outputs.FunctionDefinitionFunction']] = None,
              default_config: Optional['outputs.FunctionDefinitionDefaultConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if functions is None:
+            raise TypeError("Missing 'functions' argument")
+        if default_config is None and 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+
         _setter("functions", functions)
         if default_config is not None:
             _setter("default_config", default_config)
@@ -963,8 +1097,12 @@ class FunctionDefinitionVersionDefaultConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             execution: 'outputs.FunctionDefinitionVersionExecution',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             execution: Optional['outputs.FunctionDefinitionVersionExecution'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution is None:
+            raise TypeError("Missing 'execution' argument")
+
         _setter("execution", execution)
 
     @property
@@ -1013,7 +1151,13 @@ class FunctionDefinitionVersionEnvironment(dict):
              execution: Optional['outputs.FunctionDefinitionVersionExecution'] = None,
              resource_access_policies: Optional[Sequence['outputs.FunctionDefinitionVersionResourceAccessPolicy']] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_sysfs is None and 'accessSysfs' in kwargs:
+            access_sysfs = kwargs['accessSysfs']
+        if resource_access_policies is None and 'resourceAccessPolicies' in kwargs:
+            resource_access_policies = kwargs['resourceAccessPolicies']
+
         if access_sysfs is not None:
             _setter("access_sysfs", access_sysfs)
         if execution is not None:
@@ -1078,7 +1222,13 @@ class FunctionDefinitionVersionExecution(dict):
              _setter: Callable[[Any, Any], None],
              isolation_mode: Optional[str] = None,
              run_as: Optional['outputs.FunctionDefinitionVersionRunAs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if isolation_mode is None and 'isolationMode' in kwargs:
+            isolation_mode = kwargs['isolationMode']
+        if run_as is None and 'runAs' in kwargs:
+            run_as = kwargs['runAs']
+
         if isolation_mode is not None:
             _setter("isolation_mode", isolation_mode)
         if run_as is not None:
@@ -1129,10 +1279,22 @@ class FunctionDefinitionVersionFunction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_arn: str,
-             function_configuration: 'outputs.FunctionDefinitionVersionFunctionConfiguration',
-             id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             function_arn: Optional[str] = None,
+             function_configuration: Optional['outputs.FunctionDefinitionVersionFunctionConfiguration'] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+        if function_configuration is None and 'functionConfiguration' in kwargs:
+            function_configuration = kwargs['functionConfiguration']
+        if function_configuration is None:
+            raise TypeError("Missing 'function_configuration' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("function_arn", function_arn)
         _setter("function_configuration", function_configuration)
         _setter("id", id)
@@ -1204,7 +1366,15 @@ class FunctionDefinitionVersionFunctionConfiguration(dict):
              memory_size: Optional[int] = None,
              pinned: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encoding_type is None and 'encodingType' in kwargs:
+            encoding_type = kwargs['encodingType']
+        if exec_args is None and 'execArgs' in kwargs:
+            exec_args = kwargs['execArgs']
+        if memory_size is None and 'memorySize' in kwargs:
+            memory_size = kwargs['memorySize']
+
         if encoding_type is not None:
             _setter("encoding_type", encoding_type)
         if environment is not None:
@@ -1286,9 +1456,15 @@ class FunctionDefinitionVersionResourceAccessPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: str,
+             resource_id: Optional[str] = None,
              permission: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
         _setter("resource_id", resource_id)
         if permission is not None:
             _setter("permission", permission)
@@ -1319,7 +1495,9 @@ class FunctionDefinitionVersionRunAs(dict):
              _setter: Callable[[Any, Any], None],
              gid: Optional[int] = None,
              uid: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if gid is not None:
             _setter("gid", gid)
         if uid is not None:
@@ -1395,7 +1573,23 @@ class GroupVersion(dict):
              logger_definition_version_arn: Optional[str] = None,
              resource_definition_version_arn: Optional[str] = None,
              subscription_definition_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_definition_version_arn is None and 'connectorDefinitionVersionArn' in kwargs:
+            connector_definition_version_arn = kwargs['connectorDefinitionVersionArn']
+        if core_definition_version_arn is None and 'coreDefinitionVersionArn' in kwargs:
+            core_definition_version_arn = kwargs['coreDefinitionVersionArn']
+        if device_definition_version_arn is None and 'deviceDefinitionVersionArn' in kwargs:
+            device_definition_version_arn = kwargs['deviceDefinitionVersionArn']
+        if function_definition_version_arn is None and 'functionDefinitionVersionArn' in kwargs:
+            function_definition_version_arn = kwargs['functionDefinitionVersionArn']
+        if logger_definition_version_arn is None and 'loggerDefinitionVersionArn' in kwargs:
+            logger_definition_version_arn = kwargs['loggerDefinitionVersionArn']
+        if resource_definition_version_arn is None and 'resourceDefinitionVersionArn' in kwargs:
+            resource_definition_version_arn = kwargs['resourceDefinitionVersionArn']
+        if subscription_definition_version_arn is None and 'subscriptionDefinitionVersionArn' in kwargs:
+            subscription_definition_version_arn = kwargs['subscriptionDefinitionVersionArn']
+
         if connector_definition_version_arn is not None:
             _setter("connector_definition_version_arn", connector_definition_version_arn)
         if core_definition_version_arn is not None:
@@ -1466,12 +1660,22 @@ class LoggerDefinitionLogger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component: str,
-             id: str,
-             level: str,
-             type: str,
+             component: Optional[str] = None,
+             id: Optional[str] = None,
+             level: Optional[str] = None,
+             type: Optional[str] = None,
              space: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component is None:
+            raise TypeError("Missing 'component' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("component", component)
         _setter("id", id)
         _setter("level", level)
@@ -1516,8 +1720,12 @@ class LoggerDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             loggers: Sequence['outputs.LoggerDefinitionLogger'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             loggers: Optional[Sequence['outputs.LoggerDefinitionLogger']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if loggers is None:
+            raise TypeError("Missing 'loggers' argument")
+
         _setter("loggers", loggers)
 
     @property
@@ -1545,12 +1753,22 @@ class LoggerDefinitionVersionLogger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component: str,
-             id: str,
-             level: str,
-             type: str,
+             component: Optional[str] = None,
+             id: Optional[str] = None,
+             level: Optional[str] = None,
+             type: Optional[str] = None,
              space: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component is None:
+            raise TypeError("Missing 'component' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if level is None:
+            raise TypeError("Missing 'level' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("component", component)
         _setter("id", id)
         _setter("level", level)
@@ -1616,9 +1834,17 @@ class ResourceDefinitionGroupOwnerSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_add_group_owner: bool,
+             auto_add_group_owner: Optional[bool] = None,
              group_owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_add_group_owner is None and 'autoAddGroupOwner' in kwargs:
+            auto_add_group_owner = kwargs['autoAddGroupOwner']
+        if auto_add_group_owner is None:
+            raise TypeError("Missing 'auto_add_group_owner' argument")
+        if group_owner is None and 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+
         _setter("auto_add_group_owner", auto_add_group_owner)
         if group_owner is not None:
             _setter("group_owner", group_owner)
@@ -1666,9 +1892,17 @@ class ResourceDefinitionLocalDeviceResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_path: str,
+             source_path: Optional[str] = None,
              group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if source_path is None:
+            raise TypeError("Missing 'source_path' argument")
+        if group_owner_setting is None and 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("source_path", source_path)
         if group_owner_setting is not None:
             _setter("group_owner_setting", group_owner_setting)
@@ -1720,10 +1954,22 @@ class ResourceDefinitionLocalVolumeResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_path: str,
-             source_path: str,
+             destination_path: Optional[str] = None,
+             source_path: Optional[str] = None,
              group_owner_setting: Optional['outputs.ResourceDefinitionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if destination_path is None:
+            raise TypeError("Missing 'destination_path' argument")
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if source_path is None:
+            raise TypeError("Missing 'source_path' argument")
+        if group_owner_setting is None and 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("destination_path", destination_path)
         _setter("source_path", source_path)
         if group_owner_setting is not None:
@@ -1794,7 +2040,19 @@ class ResourceDefinitionResourceDataContainer(dict):
              s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionS3MachineLearningModelResourceData'] = None,
              sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionSageMakerMachineLearningModelResourceData'] = None,
              secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionSecretsManagerSecretResourceData'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_device_resource_data is None and 'localDeviceResourceData' in kwargs:
+            local_device_resource_data = kwargs['localDeviceResourceData']
+        if local_volume_resource_data is None and 'localVolumeResourceData' in kwargs:
+            local_volume_resource_data = kwargs['localVolumeResourceData']
+        if s3_machine_learning_model_resource_data is None and 's3MachineLearningModelResourceData' in kwargs:
+            s3_machine_learning_model_resource_data = kwargs['s3MachineLearningModelResourceData']
+        if sage_maker_machine_learning_model_resource_data is None and 'sageMakerMachineLearningModelResourceData' in kwargs:
+            sage_maker_machine_learning_model_resource_data = kwargs['sageMakerMachineLearningModelResourceData']
+        if secrets_manager_secret_resource_data is None and 'secretsManagerSecretResourceData' in kwargs:
+            secrets_manager_secret_resource_data = kwargs['secretsManagerSecretResourceData']
+
         if local_device_resource_data is not None:
             _setter("local_device_resource_data", local_device_resource_data)
         if local_volume_resource_data is not None:
@@ -1864,9 +2122,19 @@ class ResourceDefinitionResourceDownloadOwnerSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_owner: str,
-             group_permission: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_owner: Optional[str] = None,
+             group_permission: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_owner is None and 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+        if group_owner is None:
+            raise TypeError("Missing 'group_owner' argument")
+        if group_permission is None and 'groupPermission' in kwargs:
+            group_permission = kwargs['groupPermission']
+        if group_permission is None:
+            raise TypeError("Missing 'group_permission' argument")
+
         _setter("group_owner", group_owner)
         _setter("group_permission", group_permission)
 
@@ -1913,10 +2181,20 @@ class ResourceDefinitionResourceInstance(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             name: str,
-             resource_data_container: 'outputs.ResourceDefinitionResourceDataContainer',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             resource_data_container: Optional['outputs.ResourceDefinitionResourceDataContainer'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_data_container is None and 'resourceDataContainer' in kwargs:
+            resource_data_container = kwargs['resourceDataContainer']
+        if resource_data_container is None:
+            raise TypeError("Missing 'resource_data_container' argument")
+
         _setter("id", id)
         _setter("name", name)
         _setter("resource_data_container", resource_data_container)
@@ -1973,10 +2251,22 @@ class ResourceDefinitionS3MachineLearningModelResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_path: str,
-             s3_uri: str,
+             destination_path: Optional[str] = None,
+             s3_uri: Optional[str] = None,
              owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if destination_path is None:
+            raise TypeError("Missing 'destination_path' argument")
+        if s3_uri is None and 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if s3_uri is None:
+            raise TypeError("Missing 's3_uri' argument")
+        if owner_setting is None and 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("s3_uri", s3_uri)
         if owner_setting is not None:
@@ -2034,10 +2324,22 @@ class ResourceDefinitionSageMakerMachineLearningModelResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_path: str,
-             sage_maker_job_arn: str,
+             destination_path: Optional[str] = None,
+             sage_maker_job_arn: Optional[str] = None,
              owner_setting: Optional['outputs.ResourceDefinitionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if destination_path is None:
+            raise TypeError("Missing 'destination_path' argument")
+        if sage_maker_job_arn is None and 'sageMakerJobArn' in kwargs:
+            sage_maker_job_arn = kwargs['sageMakerJobArn']
+        if sage_maker_job_arn is None:
+            raise TypeError("Missing 'sage_maker_job_arn' argument")
+        if owner_setting is None and 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("sage_maker_job_arn", sage_maker_job_arn)
         if owner_setting is not None:
@@ -2089,9 +2391,15 @@ class ResourceDefinitionSecretsManagerSecretResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
+             arn: Optional[str] = None,
              additional_staging_labels_to_download: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if additional_staging_labels_to_download is None and 'additionalStagingLabelsToDownload' in kwargs:
+            additional_staging_labels_to_download = kwargs['additionalStagingLabelsToDownload']
+
         _setter("arn", arn)
         if additional_staging_labels_to_download is not None:
             _setter("additional_staging_labels_to_download", additional_staging_labels_to_download)
@@ -2118,8 +2426,12 @@ class ResourceDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resources: Sequence['outputs.ResourceDefinitionResourceInstance'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resources: Optional[Sequence['outputs.ResourceDefinitionResourceInstance']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+
         _setter("resources", resources)
 
     @property
@@ -2160,9 +2472,17 @@ class ResourceDefinitionVersionGroupOwnerSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_add_group_owner: bool,
+             auto_add_group_owner: Optional[bool] = None,
              group_owner: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_add_group_owner is None and 'autoAddGroupOwner' in kwargs:
+            auto_add_group_owner = kwargs['autoAddGroupOwner']
+        if auto_add_group_owner is None:
+            raise TypeError("Missing 'auto_add_group_owner' argument")
+        if group_owner is None and 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+
         _setter("auto_add_group_owner", auto_add_group_owner)
         if group_owner is not None:
             _setter("group_owner", group_owner)
@@ -2210,9 +2530,17 @@ class ResourceDefinitionVersionLocalDeviceResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_path: str,
+             source_path: Optional[str] = None,
              group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if source_path is None:
+            raise TypeError("Missing 'source_path' argument")
+        if group_owner_setting is None and 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("source_path", source_path)
         if group_owner_setting is not None:
             _setter("group_owner_setting", group_owner_setting)
@@ -2264,10 +2592,22 @@ class ResourceDefinitionVersionLocalVolumeResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_path: str,
-             source_path: str,
+             destination_path: Optional[str] = None,
+             source_path: Optional[str] = None,
              group_owner_setting: Optional['outputs.ResourceDefinitionVersionGroupOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if destination_path is None:
+            raise TypeError("Missing 'destination_path' argument")
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+        if source_path is None:
+            raise TypeError("Missing 'source_path' argument")
+        if group_owner_setting is None and 'groupOwnerSetting' in kwargs:
+            group_owner_setting = kwargs['groupOwnerSetting']
+
         _setter("destination_path", destination_path)
         _setter("source_path", source_path)
         if group_owner_setting is not None:
@@ -2338,7 +2678,19 @@ class ResourceDefinitionVersionResourceDataContainer(dict):
              s3_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionS3MachineLearningModelResourceData'] = None,
              sage_maker_machine_learning_model_resource_data: Optional['outputs.ResourceDefinitionVersionSageMakerMachineLearningModelResourceData'] = None,
              secrets_manager_secret_resource_data: Optional['outputs.ResourceDefinitionVersionSecretsManagerSecretResourceData'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_device_resource_data is None and 'localDeviceResourceData' in kwargs:
+            local_device_resource_data = kwargs['localDeviceResourceData']
+        if local_volume_resource_data is None and 'localVolumeResourceData' in kwargs:
+            local_volume_resource_data = kwargs['localVolumeResourceData']
+        if s3_machine_learning_model_resource_data is None and 's3MachineLearningModelResourceData' in kwargs:
+            s3_machine_learning_model_resource_data = kwargs['s3MachineLearningModelResourceData']
+        if sage_maker_machine_learning_model_resource_data is None and 'sageMakerMachineLearningModelResourceData' in kwargs:
+            sage_maker_machine_learning_model_resource_data = kwargs['sageMakerMachineLearningModelResourceData']
+        if secrets_manager_secret_resource_data is None and 'secretsManagerSecretResourceData' in kwargs:
+            secrets_manager_secret_resource_data = kwargs['secretsManagerSecretResourceData']
+
         if local_device_resource_data is not None:
             _setter("local_device_resource_data", local_device_resource_data)
         if local_volume_resource_data is not None:
@@ -2408,9 +2760,19 @@ class ResourceDefinitionVersionResourceDownloadOwnerSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_owner: str,
-             group_permission: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_owner: Optional[str] = None,
+             group_permission: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_owner is None and 'groupOwner' in kwargs:
+            group_owner = kwargs['groupOwner']
+        if group_owner is None:
+            raise TypeError("Missing 'group_owner' argument")
+        if group_permission is None and 'groupPermission' in kwargs:
+            group_permission = kwargs['groupPermission']
+        if group_permission is None:
+            raise TypeError("Missing 'group_permission' argument")
+
         _setter("group_owner", group_owner)
         _setter("group_permission", group_permission)
 
@@ -2457,10 +2819,20 @@ class ResourceDefinitionVersionResourceInstance(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             name: str,
-             resource_data_container: 'outputs.ResourceDefinitionVersionResourceDataContainer',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             resource_data_container: Optional['outputs.ResourceDefinitionVersionResourceDataContainer'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if resource_data_container is None and 'resourceDataContainer' in kwargs:
+            resource_data_container = kwargs['resourceDataContainer']
+        if resource_data_container is None:
+            raise TypeError("Missing 'resource_data_container' argument")
+
         _setter("id", id)
         _setter("name", name)
         _setter("resource_data_container", resource_data_container)
@@ -2517,10 +2889,22 @@ class ResourceDefinitionVersionS3MachineLearningModelResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_path: str,
-             s3_uri: str,
+             destination_path: Optional[str] = None,
+             s3_uri: Optional[str] = None,
              owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if destination_path is None:
+            raise TypeError("Missing 'destination_path' argument")
+        if s3_uri is None and 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if s3_uri is None:
+            raise TypeError("Missing 's3_uri' argument")
+        if owner_setting is None and 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("s3_uri", s3_uri)
         if owner_setting is not None:
@@ -2578,10 +2962,22 @@ class ResourceDefinitionVersionSageMakerMachineLearningModelResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_path: str,
-             sage_maker_job_arn: str,
+             destination_path: Optional[str] = None,
+             sage_maker_job_arn: Optional[str] = None,
              owner_setting: Optional['outputs.ResourceDefinitionVersionResourceDownloadOwnerSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if destination_path is None:
+            raise TypeError("Missing 'destination_path' argument")
+        if sage_maker_job_arn is None and 'sageMakerJobArn' in kwargs:
+            sage_maker_job_arn = kwargs['sageMakerJobArn']
+        if sage_maker_job_arn is None:
+            raise TypeError("Missing 'sage_maker_job_arn' argument")
+        if owner_setting is None and 'ownerSetting' in kwargs:
+            owner_setting = kwargs['ownerSetting']
+
         _setter("destination_path", destination_path)
         _setter("sage_maker_job_arn", sage_maker_job_arn)
         if owner_setting is not None:
@@ -2633,9 +3029,15 @@ class ResourceDefinitionVersionSecretsManagerSecretResourceData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
+             arn: Optional[str] = None,
              additional_staging_labels_to_download: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if additional_staging_labels_to_download is None and 'additionalStagingLabelsToDownload' in kwargs:
+            additional_staging_labels_to_download = kwargs['additionalStagingLabelsToDownload']
+
         _setter("arn", arn)
         if additional_staging_labels_to_download is not None:
             _setter("additional_staging_labels_to_download", additional_staging_labels_to_download)
@@ -2668,11 +3070,21 @@ class SubscriptionDefinitionSubscription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             source: str,
-             subject: str,
-             target: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             source: Optional[str] = None,
+             subject: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+
         _setter("id", id)
         _setter("source", source)
         _setter("subject", subject)
@@ -2710,8 +3122,12 @@ class SubscriptionDefinitionVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subscriptions: Sequence['outputs.SubscriptionDefinitionSubscription'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             subscriptions: Optional[Sequence['outputs.SubscriptionDefinitionSubscription']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subscriptions is None:
+            raise TypeError("Missing 'subscriptions' argument")
+
         _setter("subscriptions", subscriptions)
 
     @property
@@ -2737,11 +3153,21 @@ class SubscriptionDefinitionVersionSubscription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             source: str,
-             subject: str,
-             target: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             source: Optional[str] = None,
+             subject: Optional[str] = None,
+             target: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+
         _setter("id", id)
         _setter("source", source)
         _setter("subject", subject)

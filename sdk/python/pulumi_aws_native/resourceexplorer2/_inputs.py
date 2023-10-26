@@ -24,8 +24,10 @@ class IndexTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -39,8 +41,14 @@ class ViewFiltersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter_string: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             filter_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_string is None and 'filterString' in kwargs:
+            filter_string = kwargs['filterString']
+        if filter_string is None:
+            raise TypeError("Missing 'filter_string' argument")
+
         _setter("filter_string", filter_string)
 
     @property
@@ -64,8 +72,12 @@ class ViewIncludedPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -85,7 +97,9 @@ class ViewTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

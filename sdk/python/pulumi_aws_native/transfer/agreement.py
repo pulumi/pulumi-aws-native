@@ -50,15 +50,37 @@ class AgreementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_role: pulumi.Input[str],
-             base_directory: pulumi.Input[str],
-             local_profile_id: pulumi.Input[str],
-             partner_profile_id: pulumi.Input[str],
-             server_id: pulumi.Input[str],
+             access_role: Optional[pulumi.Input[str]] = None,
+             base_directory: Optional[pulumi.Input[str]] = None,
+             local_profile_id: Optional[pulumi.Input[str]] = None,
+             partner_profile_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['AgreementStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_role is None and 'accessRole' in kwargs:
+            access_role = kwargs['accessRole']
+        if access_role is None:
+            raise TypeError("Missing 'access_role' argument")
+        if base_directory is None and 'baseDirectory' in kwargs:
+            base_directory = kwargs['baseDirectory']
+        if base_directory is None:
+            raise TypeError("Missing 'base_directory' argument")
+        if local_profile_id is None and 'localProfileId' in kwargs:
+            local_profile_id = kwargs['localProfileId']
+        if local_profile_id is None:
+            raise TypeError("Missing 'local_profile_id' argument")
+        if partner_profile_id is None and 'partnerProfileId' in kwargs:
+            partner_profile_id = kwargs['partnerProfileId']
+        if partner_profile_id is None:
+            raise TypeError("Missing 'partner_profile_id' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+
         _setter("access_role", access_role)
         _setter("base_directory", base_directory)
         _setter("local_profile_id", local_profile_id)

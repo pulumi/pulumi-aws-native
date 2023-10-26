@@ -35,11 +35,15 @@ class AttributeGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Any,
+             attributes: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['AttributeGroupTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+
         _setter("attributes", attributes)
         if description is not None:
             _setter("description", description)
@@ -155,11 +159,7 @@ class AttributeGroup(pulumi.CustomResource):
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if tags is not None and not isinstance(tags, AttributeGroupTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                AttributeGroupTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, AttributeGroupTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(AttributeGroup, __self__).__init__(

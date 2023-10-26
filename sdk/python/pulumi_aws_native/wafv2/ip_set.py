@@ -39,13 +39,23 @@ class IpSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             ip_address_version: pulumi.Input['IpSetIpAddressVersion'],
-             scope: pulumi.Input['IpSetScope'],
+             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_address_version: Optional[pulumi.Input['IpSetIpAddressVersion']] = None,
+             scope: Optional[pulumi.Input['IpSetScope']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if ip_address_version is None and 'ipAddressVersion' in kwargs:
+            ip_address_version = kwargs['ipAddressVersion']
+        if ip_address_version is None:
+            raise TypeError("Missing 'ip_address_version' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+
         _setter("addresses", addresses)
         _setter("ip_address_version", ip_address_version)
         _setter("scope", scope)

@@ -32,10 +32,20 @@ class PrimaryTaskSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster: pulumi.Input[str],
-             service: pulumi.Input[str],
-             task_set_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cluster: Optional[pulumi.Input[str]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             task_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster is None:
+            raise TypeError("Missing 'cluster' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if task_set_id is None and 'taskSetId' in kwargs:
+            task_set_id = kwargs['taskSetId']
+        if task_set_id is None:
+            raise TypeError("Missing 'task_set_id' argument")
+
         _setter("cluster", cluster)
         _setter("service", service)
         _setter("task_set_id", task_set_id)

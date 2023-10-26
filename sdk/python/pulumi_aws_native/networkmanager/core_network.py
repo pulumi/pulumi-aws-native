@@ -37,11 +37,19 @@ class CoreNetworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             global_network_id: pulumi.Input[str],
+             global_network_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              policy_document: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("global_network_id", global_network_id)
         if description is not None:
             _setter("description", description)

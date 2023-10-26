@@ -33,11 +33,21 @@ class ListenerRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]],
-             conditions: pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]],
-             priority: pulumi.Input[int],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionArgs']]]] = None,
+             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleRuleConditionArgs']]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
              listener_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if conditions is None:
+            raise TypeError("Missing 'conditions' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+
         _setter("actions", actions)
         _setter("conditions", conditions)
         _setter("priority", priority)

@@ -53,16 +53,32 @@ class ImageRecipeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             components: pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]],
-             parent_image: pulumi.Input[str],
-             version: pulumi.Input[str],
+             components: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]] = None,
+             parent_image: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
              block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if components is None:
+            raise TypeError("Missing 'components' argument")
+        if parent_image is None and 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if parent_image is None:
+            raise TypeError("Missing 'parent_image' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if additional_instance_configuration is None and 'additionalInstanceConfiguration' in kwargs:
+            additional_instance_configuration = kwargs['additionalInstanceConfiguration']
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         _setter("components", components)
         _setter("parent_image", parent_image)
         _setter("version", version)
@@ -264,11 +280,7 @@ class ImageRecipe(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImageRecipeArgs.__new__(ImageRecipeArgs)
 
-            if additional_instance_configuration is not None and not isinstance(additional_instance_configuration, ImageRecipeAdditionalInstanceConfigurationArgs):
-                additional_instance_configuration = additional_instance_configuration or {}
-                def _setter(key, value):
-                    additional_instance_configuration[key] = value
-                ImageRecipeAdditionalInstanceConfigurationArgs._configure(_setter, **additional_instance_configuration)
+            additional_instance_configuration = _utilities.configure(additional_instance_configuration, ImageRecipeAdditionalInstanceConfigurationArgs, True)
             __props__.__dict__["additional_instance_configuration"] = additional_instance_configuration
             __props__.__dict__["block_device_mappings"] = block_device_mappings
             if components is None and not opts.urn:

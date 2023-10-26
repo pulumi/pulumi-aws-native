@@ -48,15 +48,35 @@ class PermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             function_name: pulumi.Input[str],
-             principal: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             function_name: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
              event_source_token: Optional[pulumi.Input[str]] = None,
              function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
              principal_org_id: Optional[pulumi.Input[str]] = None,
              source_account: Optional[pulumi.Input[str]] = None,
              source_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if event_source_token is None and 'eventSourceToken' in kwargs:
+            event_source_token = kwargs['eventSourceToken']
+        if function_url_auth_type is None and 'functionUrlAuthType' in kwargs:
+            function_url_auth_type = kwargs['functionUrlAuthType']
+        if principal_org_id is None and 'principalOrgId' in kwargs:
+            principal_org_id = kwargs['principalOrgId']
+        if source_account is None and 'sourceAccount' in kwargs:
+            source_account = kwargs['sourceAccount']
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+
         _setter("action", action)
         _setter("function_name", function_name)
         _setter("principal", principal)

@@ -59,7 +59,29 @@ class PortalArgs:
              trust_store_arn: Optional[pulumi.Input[str]] = None,
              user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
              user_settings_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_encryption_context is None and 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if browser_settings_arn is None and 'browserSettingsArn' in kwargs:
+            browser_settings_arn = kwargs['browserSettingsArn']
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if ip_access_settings_arn is None and 'ipAccessSettingsArn' in kwargs:
+            ip_access_settings_arn = kwargs['ipAccessSettingsArn']
+        if network_settings_arn is None and 'networkSettingsArn' in kwargs:
+            network_settings_arn = kwargs['networkSettingsArn']
+        if trust_store_arn is None and 'trustStoreArn' in kwargs:
+            trust_store_arn = kwargs['trustStoreArn']
+        if user_access_logging_settings_arn is None and 'userAccessLoggingSettingsArn' in kwargs:
+            user_access_logging_settings_arn = kwargs['userAccessLoggingSettingsArn']
+        if user_settings_arn is None and 'userSettingsArn' in kwargs:
+            user_settings_arn = kwargs['userSettingsArn']
+
         if additional_encryption_context is not None:
             _setter("additional_encryption_context", additional_encryption_context)
         if authentication_type is not None:
@@ -254,11 +276,7 @@ class Portal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PortalArgs.__new__(PortalArgs)
 
-            if additional_encryption_context is not None and not isinstance(additional_encryption_context, PortalEncryptionContextMapArgs):
-                additional_encryption_context = additional_encryption_context or {}
-                def _setter(key, value):
-                    additional_encryption_context[key] = value
-                PortalEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
+            additional_encryption_context = _utilities.configure(additional_encryption_context, PortalEncryptionContextMapArgs, True)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["browser_settings_arn"] = browser_settings_arn

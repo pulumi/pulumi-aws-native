@@ -49,7 +49,7 @@ class StageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
              access_log_settings: Optional[pulumi.Input['StageAccessLogSettingsArgs']] = None,
              access_policy_id: Optional[pulumi.Input[str]] = None,
              auto_deploy: Optional[pulumi.Input[bool]] = None,
@@ -61,7 +61,31 @@ class StageArgs:
              stage_name: Optional[pulumi.Input[str]] = None,
              stage_variables: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if access_log_settings is None and 'accessLogSettings' in kwargs:
+            access_log_settings = kwargs['accessLogSettings']
+        if access_policy_id is None and 'accessPolicyId' in kwargs:
+            access_policy_id = kwargs['accessPolicyId']
+        if auto_deploy is None and 'autoDeploy' in kwargs:
+            auto_deploy = kwargs['autoDeploy']
+        if client_certificate_id is None and 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if default_route_settings is None and 'defaultRouteSettings' in kwargs:
+            default_route_settings = kwargs['defaultRouteSettings']
+        if deployment_id is None and 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if route_settings is None and 'routeSettings' in kwargs:
+            route_settings = kwargs['routeSettings']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+        if stage_variables is None and 'stageVariables' in kwargs:
+            stage_variables = kwargs['stageVariables']
+
         _setter("api_id", api_id)
         if access_log_settings is not None:
             _setter("access_log_settings", access_log_settings)
@@ -274,11 +298,7 @@ class Stage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StageArgs.__new__(StageArgs)
 
-            if access_log_settings is not None and not isinstance(access_log_settings, StageAccessLogSettingsArgs):
-                access_log_settings = access_log_settings or {}
-                def _setter(key, value):
-                    access_log_settings[key] = value
-                StageAccessLogSettingsArgs._configure(_setter, **access_log_settings)
+            access_log_settings = _utilities.configure(access_log_settings, StageAccessLogSettingsArgs, True)
             __props__.__dict__["access_log_settings"] = access_log_settings
             __props__.__dict__["access_policy_id"] = access_policy_id
             if api_id is None and not opts.urn:
@@ -286,11 +306,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["auto_deploy"] = auto_deploy
             __props__.__dict__["client_certificate_id"] = client_certificate_id
-            if default_route_settings is not None and not isinstance(default_route_settings, StageRouteSettingsArgs):
-                default_route_settings = default_route_settings or {}
-                def _setter(key, value):
-                    default_route_settings[key] = value
-                StageRouteSettingsArgs._configure(_setter, **default_route_settings)
+            default_route_settings = _utilities.configure(default_route_settings, StageRouteSettingsArgs, True)
             __props__.__dict__["default_route_settings"] = default_route_settings
             __props__.__dict__["deployment_id"] = deployment_id
             __props__.__dict__["description"] = description

@@ -38,13 +38,23 @@ class ListenerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input['ListenerDefaultActionArgs'],
-             protocol: pulumi.Input['ListenerProtocol'],
+             default_action: Optional[pulumi.Input['ListenerDefaultActionArgs']] = None,
+             protocol: Optional[pulumi.Input['ListenerProtocol']] = None,
              name: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              service_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if service_identifier is None and 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+
         _setter("default_action", default_action)
         _setter("protocol", protocol)
         if name is not None:
@@ -172,11 +182,7 @@ class Listener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ListenerArgs.__new__(ListenerArgs)
 
-            if default_action is not None and not isinstance(default_action, ListenerDefaultActionArgs):
-                default_action = default_action or {}
-                def _setter(key, value):
-                    default_action[key] = value
-                ListenerDefaultActionArgs._configure(_setter, **default_action)
+            default_action = _utilities.configure(default_action, ListenerDefaultActionArgs, True)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action

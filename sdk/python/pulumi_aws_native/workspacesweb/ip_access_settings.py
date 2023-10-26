@@ -37,13 +37,25 @@ class IpAccessSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_rules: pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]],
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsIpRuleArgs']]]] = None,
              additional_encryption_context: Optional[pulumi.Input['IpAccessSettingsEncryptionContextMapArgs']] = None,
              customer_managed_key: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpAccessSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if ip_rules is None:
+            raise TypeError("Missing 'ip_rules' argument")
+        if additional_encryption_context is None and 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("ip_rules", ip_rules)
         if additional_encryption_context is not None:
             _setter("additional_encryption_context", additional_encryption_context)
@@ -172,11 +184,7 @@ class IpAccessSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IpAccessSettingsArgs.__new__(IpAccessSettingsArgs)
 
-            if additional_encryption_context is not None and not isinstance(additional_encryption_context, IpAccessSettingsEncryptionContextMapArgs):
-                additional_encryption_context = additional_encryption_context or {}
-                def _setter(key, value):
-                    additional_encryption_context[key] = value
-                IpAccessSettingsEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
+            additional_encryption_context = _utilities.configure(additional_encryption_context, IpAccessSettingsEncryptionContextMapArgs, True)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["description"] = description

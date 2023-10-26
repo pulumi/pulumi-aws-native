@@ -43,15 +43,35 @@ class CollaborationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             creator_display_name: pulumi.Input[str],
-             creator_member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]],
-             description: pulumi.Input[str],
-             members: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]],
-             query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
+             creator_display_name: Optional[pulumi.Input[str]] = None,
+             creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]] = None,
+             query_log_status: Optional[pulumi.Input['CollaborationQueryLogStatus']] = None,
              data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creator_display_name is None and 'creatorDisplayName' in kwargs:
+            creator_display_name = kwargs['creatorDisplayName']
+        if creator_display_name is None:
+            raise TypeError("Missing 'creator_display_name' argument")
+        if creator_member_abilities is None and 'creatorMemberAbilities' in kwargs:
+            creator_member_abilities = kwargs['creatorMemberAbilities']
+        if creator_member_abilities is None:
+            raise TypeError("Missing 'creator_member_abilities' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if query_log_status is None and 'queryLogStatus' in kwargs:
+            query_log_status = kwargs['queryLogStatus']
+        if query_log_status is None:
+            raise TypeError("Missing 'query_log_status' argument")
+        if data_encryption_metadata is None and 'dataEncryptionMetadata' in kwargs:
+            data_encryption_metadata = kwargs['dataEncryptionMetadata']
+
         _setter("creator_display_name", creator_display_name)
         _setter("creator_member_abilities", creator_member_abilities)
         _setter("description", description)
@@ -212,11 +232,7 @@ class Collaboration(pulumi.CustomResource):
             if creator_member_abilities is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_member_abilities'")
             __props__.__dict__["creator_member_abilities"] = creator_member_abilities
-            if data_encryption_metadata is not None and not isinstance(data_encryption_metadata, CollaborationDataEncryptionMetadataArgs):
-                data_encryption_metadata = data_encryption_metadata or {}
-                def _setter(key, value):
-                    data_encryption_metadata[key] = value
-                CollaborationDataEncryptionMetadataArgs._configure(_setter, **data_encryption_metadata)
+            data_encryption_metadata = _utilities.configure(data_encryption_metadata, CollaborationDataEncryptionMetadataArgs, True)
             __props__.__dict__["data_encryption_metadata"] = data_encryption_metadata
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")

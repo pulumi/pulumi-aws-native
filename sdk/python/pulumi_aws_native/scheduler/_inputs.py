@@ -50,10 +50,18 @@ class ScheduleAwsVpcConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              assign_public_ip: Optional[pulumi.Input['ScheduleAssignPublicIp']] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnets", subnets)
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
@@ -115,10 +123,16 @@ class ScheduleCapacityProviderStrategyItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_provider: pulumi.Input[str],
+             capacity_provider: Optional[pulumi.Input[str]] = None,
              base: Optional[pulumi.Input[float]] = None,
              weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
         _setter("capacity_provider", capacity_provider)
         if base is not None:
             _setter("base", base)
@@ -178,7 +192,9 @@ class ScheduleDeadLetterConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -246,7 +262,7 @@ class ScheduleEcsParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             task_definition_arn: pulumi.Input[str],
+             task_definition_arn: Optional[pulumi.Input[str]] = None,
              capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleCapacityProviderStrategyItemArgs']]]] = None,
              enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
              enable_execute_command: Optional[pulumi.Input[bool]] = None,
@@ -260,7 +276,35 @@ class ScheduleEcsParametersArgs:
              reference_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleTagMapArgs']]]] = None,
              task_count: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_definition_arn is None and 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if task_definition_arn is None:
+            raise TypeError("Missing 'task_definition_arn' argument")
+        if capacity_provider_strategy is None and 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if enable_ecs_managed_tags is None and 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if enable_execute_command is None and 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if placement_strategy is None and 'placementStrategy' in kwargs:
+            placement_strategy = kwargs['placementStrategy']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if reference_id is None and 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+        if task_count is None and 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
         _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
@@ -467,9 +511,17 @@ class ScheduleEventBridgeParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detail_type: pulumi.Input[str],
-             source: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             detail_type: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detail_type is None and 'detailType' in kwargs:
+            detail_type = kwargs['detailType']
+        if detail_type is None:
+            raise TypeError("Missing 'detail_type' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("detail_type", detail_type)
         _setter("source", source)
 
@@ -515,9 +567,15 @@ class ScheduleFlexibleTimeWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input['ScheduleFlexibleTimeWindowMode'],
+             mode: Optional[pulumi.Input['ScheduleFlexibleTimeWindowMode']] = None,
              maximum_window_in_minutes: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if maximum_window_in_minutes is None and 'maximumWindowInMinutes' in kwargs:
+            maximum_window_in_minutes = kwargs['maximumWindowInMinutes']
+
         _setter("mode", mode)
         if maximum_window_in_minutes is not None:
             _setter("maximum_window_in_minutes", maximum_window_in_minutes)
@@ -562,9 +620,15 @@ class ScheduleGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -608,8 +672,14 @@ class ScheduleKinesisParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partition_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             partition_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if partition_key is None:
+            raise TypeError("Missing 'partition_key' argument")
+
         _setter("partition_key", partition_key)
 
     @property
@@ -640,7 +710,11 @@ class ScheduleNetworkConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              awsvpc_configuration: Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if awsvpc_configuration is None and 'awsvpcConfiguration' in kwargs:
+            awsvpc_configuration = kwargs['awsvpcConfiguration']
+
         if awsvpc_configuration is not None:
             _setter("awsvpc_configuration", awsvpc_configuration)
 
@@ -673,7 +747,9 @@ class SchedulePlacementConstraintArgs:
              _setter: Callable[[Any, Any], None],
              expression: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['SchedulePlacementConstraintType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if expression is not None:
             _setter("expression", expression)
         if type is not None:
@@ -720,7 +796,9 @@ class SchedulePlacementStrategyArgs:
              _setter: Callable[[Any, Any], None],
              field: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['SchedulePlacementStrategyType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
             _setter("field", field)
         if type is not None:
@@ -768,7 +846,13 @@ class ScheduleRetryPolicyArgs:
              _setter: Callable[[Any, Any], None],
              maximum_event_age_in_seconds: Optional[pulumi.Input[float]] = None,
              maximum_retry_attempts: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_event_age_in_seconds is None and 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         if maximum_event_age_in_seconds is not None:
             _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -815,7 +899,11 @@ class ScheduleSageMakerPipelineParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduleSageMakerPipelineParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_parameter_list is None and 'pipelineParameterList' in kwargs:
+            pipeline_parameter_list = kwargs['pipelineParameterList']
+
         if pipeline_parameter_list is not None:
             _setter("pipeline_parameter_list", pipeline_parameter_list)
 
@@ -850,9 +938,15 @@ class ScheduleSageMakerPipelineParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -897,7 +991,11 @@ class ScheduleSqsParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              message_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_group_id is None and 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+
         if message_group_id is not None:
             _setter("message_group_id", message_group_id)
 
@@ -921,8 +1019,10 @@ class ScheduleTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -960,8 +1060,8 @@ class ScheduleTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              dead_letter_config: Optional[pulumi.Input['ScheduleDeadLetterConfigArgs']] = None,
              ecs_parameters: Optional[pulumi.Input['ScheduleEcsParametersArgs']] = None,
              event_bridge_parameters: Optional[pulumi.Input['ScheduleEventBridgeParametersArgs']] = None,
@@ -970,7 +1070,29 @@ class ScheduleTargetArgs:
              retry_policy: Optional[pulumi.Input['ScheduleRetryPolicyArgs']] = None,
              sage_maker_pipeline_parameters: Optional[pulumi.Input['ScheduleSageMakerPipelineParametersArgs']] = None,
              sqs_parameters: Optional[pulumi.Input['ScheduleSqsParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if ecs_parameters is None and 'ecsParameters' in kwargs:
+            ecs_parameters = kwargs['ecsParameters']
+        if event_bridge_parameters is None and 'eventBridgeParameters' in kwargs:
+            event_bridge_parameters = kwargs['eventBridgeParameters']
+        if kinesis_parameters is None and 'kinesisParameters' in kwargs:
+            kinesis_parameters = kwargs['kinesisParameters']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if sage_maker_pipeline_parameters is None and 'sageMakerPipelineParameters' in kwargs:
+            sage_maker_pipeline_parameters = kwargs['sageMakerPipelineParameters']
+        if sqs_parameters is None and 'sqsParameters' in kwargs:
+            sqs_parameters = kwargs['sqsParameters']
+
         _setter("arn", arn)
         _setter("role_arn", role_arn)
         if dead_letter_config is not None:

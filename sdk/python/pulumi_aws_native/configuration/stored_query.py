@@ -34,11 +34,23 @@ class StoredQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_expression: pulumi.Input[str],
-             query_name: pulumi.Input[str],
+             query_expression: Optional[pulumi.Input[str]] = None,
+             query_name: Optional[pulumi.Input[str]] = None,
              query_description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StoredQueryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_expression is None and 'queryExpression' in kwargs:
+            query_expression = kwargs['queryExpression']
+        if query_expression is None:
+            raise TypeError("Missing 'query_expression' argument")
+        if query_name is None and 'queryName' in kwargs:
+            query_name = kwargs['queryName']
+        if query_name is None:
+            raise TypeError("Missing 'query_name' argument")
+        if query_description is None and 'queryDescription' in kwargs:
+            query_description = kwargs['queryDescription']
+
         _setter("query_expression", query_expression)
         _setter("query_name", query_name)
         if query_description is not None:

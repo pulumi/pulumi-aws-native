@@ -31,11 +31,27 @@ class MountTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_id: pulumi.Input[str],
-             security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_id: pulumi.Input[str],
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if file_system_id is None:
+            raise TypeError("Missing 'file_system_id' argument")
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if security_groups is None:
+            raise TypeError("Missing 'security_groups' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+
         _setter("file_system_id", file_system_id)
         _setter("security_groups", security_groups)
         _setter("subnet_id", subnet_id)

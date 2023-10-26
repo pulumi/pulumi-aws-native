@@ -31,9 +31,17 @@ class StandardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             standards_arn: pulumi.Input[str],
+             standards_arn: Optional[pulumi.Input[str]] = None,
              disabled_standards_controls: Optional[pulumi.Input[Sequence[pulumi.Input['StandardsControlArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if standards_arn is None and 'standardsArn' in kwargs:
+            standards_arn = kwargs['standardsArn']
+        if standards_arn is None:
+            raise TypeError("Missing 'standards_arn' argument")
+        if disabled_standards_controls is None and 'disabledStandardsControls' in kwargs:
+            disabled_standards_controls = kwargs['disabledStandardsControls']
+
         _setter("standards_arn", standards_arn)
         if disabled_standards_controls is not None:
             _setter("disabled_standards_controls", disabled_standards_controls)

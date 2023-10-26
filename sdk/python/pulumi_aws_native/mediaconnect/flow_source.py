@@ -80,7 +80,7 @@ class FlowSourceInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
              decryption: Optional[pulumi.Input['FlowSourceEncryptionArgs']] = None,
              entitlement_arn: Optional[pulumi.Input[str]] = None,
              flow_arn: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,39 @@ class FlowSourceInitArgs:
              stream_id: Optional[pulumi.Input[str]] = None,
              vpc_interface_name: Optional[pulumi.Input[str]] = None,
              whitelist_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if entitlement_arn is None and 'entitlementArn' in kwargs:
+            entitlement_arn = kwargs['entitlementArn']
+        if flow_arn is None and 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if gateway_bridge_source is None and 'gatewayBridgeSource' in kwargs:
+            gateway_bridge_source = kwargs['gatewayBridgeSource']
+        if ingest_port is None and 'ingestPort' in kwargs:
+            ingest_port = kwargs['ingestPort']
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if max_latency is None and 'maxLatency' in kwargs:
+            max_latency = kwargs['maxLatency']
+        if min_latency is None and 'minLatency' in kwargs:
+            min_latency = kwargs['minLatency']
+        if sender_control_port is None and 'senderControlPort' in kwargs:
+            sender_control_port = kwargs['senderControlPort']
+        if sender_ip_address is None and 'senderIpAddress' in kwargs:
+            sender_ip_address = kwargs['senderIpAddress']
+        if source_listener_address is None and 'sourceListenerAddress' in kwargs:
+            source_listener_address = kwargs['sourceListenerAddress']
+        if source_listener_port is None and 'sourceListenerPort' in kwargs:
+            source_listener_port = kwargs['sourceListenerPort']
+        if stream_id is None and 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+        if whitelist_cidr is None and 'whitelistCidr' in kwargs:
+            whitelist_cidr = kwargs['whitelistCidr']
+
         _setter("description", description)
         if decryption is not None:
             _setter("decryption", decryption)
@@ -455,22 +487,14 @@ class FlowSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FlowSourceInitArgs.__new__(FlowSourceInitArgs)
 
-            if decryption is not None and not isinstance(decryption, FlowSourceEncryptionArgs):
-                decryption = decryption or {}
-                def _setter(key, value):
-                    decryption[key] = value
-                FlowSourceEncryptionArgs._configure(_setter, **decryption)
+            decryption = _utilities.configure(decryption, FlowSourceEncryptionArgs, True)
             __props__.__dict__["decryption"] = decryption
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["entitlement_arn"] = entitlement_arn
             __props__.__dict__["flow_arn"] = flow_arn
-            if gateway_bridge_source is not None and not isinstance(gateway_bridge_source, FlowSourceGatewayBridgeSourceArgs):
-                gateway_bridge_source = gateway_bridge_source or {}
-                def _setter(key, value):
-                    gateway_bridge_source[key] = value
-                FlowSourceGatewayBridgeSourceArgs._configure(_setter, **gateway_bridge_source)
+            gateway_bridge_source = _utilities.configure(gateway_bridge_source, FlowSourceGatewayBridgeSourceArgs, True)
             __props__.__dict__["gateway_bridge_source"] = gateway_bridge_source
             __props__.__dict__["ingest_port"] = ingest_port
             __props__.__dict__["max_bitrate"] = max_bitrate

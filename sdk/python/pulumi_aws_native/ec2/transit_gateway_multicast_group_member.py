@@ -32,10 +32,24 @@ class TransitGatewayMulticastGroupMemberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_ip_address: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
-             transit_gateway_multicast_domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_ip_address: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_ip_address is None and 'groupIpAddress' in kwargs:
+            group_ip_address = kwargs['groupIpAddress']
+        if group_ip_address is None:
+            raise TypeError("Missing 'group_ip_address' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+        if transit_gateway_multicast_domain_id is None and 'transitGatewayMulticastDomainId' in kwargs:
+            transit_gateway_multicast_domain_id = kwargs['transitGatewayMulticastDomainId']
+        if transit_gateway_multicast_domain_id is None:
+            raise TypeError("Missing 'transit_gateway_multicast_domain_id' argument")
+
         _setter("group_ip_address", group_ip_address)
         _setter("network_interface_id", network_interface_id)
         _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)

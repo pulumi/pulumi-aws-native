@@ -42,15 +42,35 @@ class FlywheelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_access_role_arn: pulumi.Input[str],
-             data_lake_s3_uri: pulumi.Input[str],
+             data_access_role_arn: Optional[pulumi.Input[str]] = None,
+             data_lake_s3_uri: Optional[pulumi.Input[str]] = None,
              active_model_arn: Optional[pulumi.Input[str]] = None,
              data_security_config: Optional[pulumi.Input['FlywheelDataSecurityConfigArgs']] = None,
              flywheel_name: Optional[pulumi.Input[str]] = None,
              model_type: Optional[pulumi.Input['FlywheelModelType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlywheelTagArgs']]]] = None,
              task_config: Optional[pulumi.Input['FlywheelTaskConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_access_role_arn is None and 'dataAccessRoleArn' in kwargs:
+            data_access_role_arn = kwargs['dataAccessRoleArn']
+        if data_access_role_arn is None:
+            raise TypeError("Missing 'data_access_role_arn' argument")
+        if data_lake_s3_uri is None and 'dataLakeS3Uri' in kwargs:
+            data_lake_s3_uri = kwargs['dataLakeS3Uri']
+        if data_lake_s3_uri is None:
+            raise TypeError("Missing 'data_lake_s3_uri' argument")
+        if active_model_arn is None and 'activeModelArn' in kwargs:
+            active_model_arn = kwargs['activeModelArn']
+        if data_security_config is None and 'dataSecurityConfig' in kwargs:
+            data_security_config = kwargs['dataSecurityConfig']
+        if flywheel_name is None and 'flywheelName' in kwargs:
+            flywheel_name = kwargs['flywheelName']
+        if model_type is None and 'modelType' in kwargs:
+            model_type = kwargs['modelType']
+        if task_config is None and 'taskConfig' in kwargs:
+            task_config = kwargs['taskConfig']
+
         _setter("data_access_role_arn", data_access_role_arn)
         _setter("data_lake_s3_uri", data_lake_s3_uri)
         if active_model_arn is not None:
@@ -211,20 +231,12 @@ class Flywheel(pulumi.CustomResource):
             if data_lake_s3_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'data_lake_s3_uri'")
             __props__.__dict__["data_lake_s3_uri"] = data_lake_s3_uri
-            if data_security_config is not None and not isinstance(data_security_config, FlywheelDataSecurityConfigArgs):
-                data_security_config = data_security_config or {}
-                def _setter(key, value):
-                    data_security_config[key] = value
-                FlywheelDataSecurityConfigArgs._configure(_setter, **data_security_config)
+            data_security_config = _utilities.configure(data_security_config, FlywheelDataSecurityConfigArgs, True)
             __props__.__dict__["data_security_config"] = data_security_config
             __props__.__dict__["flywheel_name"] = flywheel_name
             __props__.__dict__["model_type"] = model_type
             __props__.__dict__["tags"] = tags
-            if task_config is not None and not isinstance(task_config, FlywheelTaskConfigArgs):
-                task_config = task_config or {}
-                def _setter(key, value):
-                    task_config[key] = value
-                FlywheelTaskConfigArgs._configure(_setter, **task_config)
+            task_config = _utilities.configure(task_config, FlywheelTaskConfigArgs, True)
             __props__.__dict__["task_config"] = task_config
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_lake_s3_uri", "flywheel_name", "model_type", "task_config"])

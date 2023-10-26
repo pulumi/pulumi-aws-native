@@ -27,9 +27,17 @@ class DashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dashboard_body: pulumi.Input[str],
+             dashboard_body: Optional[pulumi.Input[str]] = None,
              dashboard_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_body is None and 'dashboardBody' in kwargs:
+            dashboard_body = kwargs['dashboardBody']
+        if dashboard_body is None:
+            raise TypeError("Missing 'dashboard_body' argument")
+        if dashboard_name is None and 'dashboardName' in kwargs:
+            dashboard_name = kwargs['dashboardName']
+
         _setter("dashboard_body", dashboard_body)
         if dashboard_name is not None:
             _setter("dashboard_name", dashboard_name)

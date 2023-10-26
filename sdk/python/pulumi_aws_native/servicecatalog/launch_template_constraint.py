@@ -33,12 +33,26 @@ class LaunchTemplateConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             portfolio_id: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             rules: pulumi.Input[str],
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("portfolio_id", portfolio_id)
         _setter("product_id", product_id)
         _setter("rules", rules)

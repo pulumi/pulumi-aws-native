@@ -38,11 +38,21 @@ class BucketArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             outpost_id: pulumi.Input[str],
+             outpost_id: Optional[pulumi.Input[str]] = None,
              bucket_name: Optional[pulumi.Input[str]] = None,
              lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if outpost_id is None and 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if outpost_id is None:
+            raise TypeError("Missing 'outpost_id' argument")
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if lifecycle_configuration is None and 'lifecycleConfiguration' in kwargs:
+            lifecycle_configuration = kwargs['lifecycleConfiguration']
+
         _setter("outpost_id", outpost_id)
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
@@ -162,11 +172,7 @@ class Bucket(pulumi.CustomResource):
             __props__ = BucketArgs.__new__(BucketArgs)
 
             __props__.__dict__["bucket_name"] = bucket_name
-            if lifecycle_configuration is not None and not isinstance(lifecycle_configuration, BucketLifecycleConfigurationArgs):
-                lifecycle_configuration = lifecycle_configuration or {}
-                def _setter(key, value):
-                    lifecycle_configuration[key] = value
-                BucketLifecycleConfigurationArgs._configure(_setter, **lifecycle_configuration)
+            lifecycle_configuration = _utilities.configure(lifecycle_configuration, BucketLifecycleConfigurationArgs, True)
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")

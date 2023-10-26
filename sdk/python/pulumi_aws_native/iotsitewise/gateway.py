@@ -37,11 +37,21 @@ class GatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gateway_platform: pulumi.Input['GatewayPlatformArgs'],
+             gateway_platform: Optional[pulumi.Input['GatewayPlatformArgs']] = None,
              gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
              gateway_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_platform is None and 'gatewayPlatform' in kwargs:
+            gateway_platform = kwargs['gatewayPlatform']
+        if gateway_platform is None:
+            raise TypeError("Missing 'gateway_platform' argument")
+        if gateway_capability_summaries is None and 'gatewayCapabilitySummaries' in kwargs:
+            gateway_capability_summaries = kwargs['gatewayCapabilitySummaries']
+        if gateway_name is None and 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+
         _setter("gateway_platform", gateway_platform)
         if gateway_capability_summaries is not None:
             _setter("gateway_capability_summaries", gateway_capability_summaries)
@@ -162,11 +172,7 @@ class Gateway(pulumi.CustomResource):
 
             __props__.__dict__["gateway_capability_summaries"] = gateway_capability_summaries
             __props__.__dict__["gateway_name"] = gateway_name
-            if gateway_platform is not None and not isinstance(gateway_platform, GatewayPlatformArgs):
-                gateway_platform = gateway_platform or {}
-                def _setter(key, value):
-                    gateway_platform[key] = value
-                GatewayPlatformArgs._configure(_setter, **gateway_platform)
+            gateway_platform = _utilities.configure(gateway_platform, GatewayPlatformArgs, True)
             if gateway_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_platform'")
             __props__.__dict__["gateway_platform"] = gateway_platform

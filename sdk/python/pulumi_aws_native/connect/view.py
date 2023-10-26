@@ -43,13 +43,23 @@ class ViewArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             instance_arn: pulumi.Input[str],
-             template: Any,
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             template: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ViewTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
         _setter("actions", actions)
         _setter("instance_arn", instance_arn)
         _setter("template", template)

@@ -100,8 +100,8 @@ class FunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             code: pulumi.Input['FunctionCodeArgs'],
-             role: pulumi.Input[str],
+             code: Optional[pulumi.Input['FunctionCodeArgs']] = None,
+             role: Optional[pulumi.Input[str]] = None,
              architectures: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
              code_signing_config_arn: Optional[pulumi.Input[str]] = None,
              dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
@@ -125,7 +125,41 @@ class FunctionArgs:
              timeout: Optional[pulumi.Input[int]] = None,
              tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
              vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if code_signing_config_arn is None and 'codeSigningConfigArn' in kwargs:
+            code_signing_config_arn = kwargs['codeSigningConfigArn']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if file_system_configs is None and 'fileSystemConfigs' in kwargs:
+            file_system_configs = kwargs['fileSystemConfigs']
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if image_config is None and 'imageConfig' in kwargs:
+            image_config = kwargs['imageConfig']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if memory_size is None and 'memorySize' in kwargs:
+            memory_size = kwargs['memorySize']
+        if package_type is None and 'packageType' in kwargs:
+            package_type = kwargs['packageType']
+        if reserved_concurrent_executions is None and 'reservedConcurrentExecutions' in kwargs:
+            reserved_concurrent_executions = kwargs['reservedConcurrentExecutions']
+        if runtime_management_config is None and 'runtimeManagementConfig' in kwargs:
+            runtime_management_config = kwargs['runtimeManagementConfig']
+        if snap_start is None and 'snapStart' in kwargs:
+            snap_start = kwargs['snapStart']
+        if tracing_config is None and 'tracingConfig' in kwargs:
+            tracing_config = kwargs['tracingConfig']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("code", code)
         _setter("role", role)
         if architectures is not None:
@@ -597,42 +631,22 @@ class Function(pulumi.CustomResource):
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
             __props__.__dict__["architectures"] = architectures
-            if code is not None and not isinstance(code, FunctionCodeArgs):
-                code = code or {}
-                def _setter(key, value):
-                    code[key] = value
-                FunctionCodeArgs._configure(_setter, **code)
+            code = _utilities.configure(code, FunctionCodeArgs, True)
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")
             __props__.__dict__["code"] = code
             __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
-            if dead_letter_config is not None and not isinstance(dead_letter_config, FunctionDeadLetterConfigArgs):
-                dead_letter_config = dead_letter_config or {}
-                def _setter(key, value):
-                    dead_letter_config[key] = value
-                FunctionDeadLetterConfigArgs._configure(_setter, **dead_letter_config)
+            dead_letter_config = _utilities.configure(dead_letter_config, FunctionDeadLetterConfigArgs, True)
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
-            if environment is not None and not isinstance(environment, FunctionEnvironmentArgs):
-                environment = environment or {}
-                def _setter(key, value):
-                    environment[key] = value
-                FunctionEnvironmentArgs._configure(_setter, **environment)
+            environment = _utilities.configure(environment, FunctionEnvironmentArgs, True)
             __props__.__dict__["environment"] = environment
-            if ephemeral_storage is not None and not isinstance(ephemeral_storage, FunctionEphemeralStorageArgs):
-                ephemeral_storage = ephemeral_storage or {}
-                def _setter(key, value):
-                    ephemeral_storage[key] = value
-                FunctionEphemeralStorageArgs._configure(_setter, **ephemeral_storage)
+            ephemeral_storage = _utilities.configure(ephemeral_storage, FunctionEphemeralStorageArgs, True)
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["file_system_configs"] = file_system_configs
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["handler"] = handler
-            if image_config is not None and not isinstance(image_config, FunctionImageConfigArgs):
-                image_config = image_config or {}
-                def _setter(key, value):
-                    image_config[key] = value
-                FunctionImageConfigArgs._configure(_setter, **image_config)
+            image_config = _utilities.configure(image_config, FunctionImageConfigArgs, True)
             __props__.__dict__["image_config"] = image_config
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["layers"] = layers
@@ -644,31 +658,15 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["runtime"] = runtime
-            if runtime_management_config is not None and not isinstance(runtime_management_config, FunctionRuntimeManagementConfigArgs):
-                runtime_management_config = runtime_management_config or {}
-                def _setter(key, value):
-                    runtime_management_config[key] = value
-                FunctionRuntimeManagementConfigArgs._configure(_setter, **runtime_management_config)
+            runtime_management_config = _utilities.configure(runtime_management_config, FunctionRuntimeManagementConfigArgs, True)
             __props__.__dict__["runtime_management_config"] = runtime_management_config
-            if snap_start is not None and not isinstance(snap_start, FunctionSnapStartArgs):
-                snap_start = snap_start or {}
-                def _setter(key, value):
-                    snap_start[key] = value
-                FunctionSnapStartArgs._configure(_setter, **snap_start)
+            snap_start = _utilities.configure(snap_start, FunctionSnapStartArgs, True)
             __props__.__dict__["snap_start"] = snap_start
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
-            if tracing_config is not None and not isinstance(tracing_config, FunctionTracingConfigArgs):
-                tracing_config = tracing_config or {}
-                def _setter(key, value):
-                    tracing_config[key] = value
-                FunctionTracingConfigArgs._configure(_setter, **tracing_config)
+            tracing_config = _utilities.configure(tracing_config, FunctionTracingConfigArgs, True)
             __props__.__dict__["tracing_config"] = tracing_config
-            if vpc_config is not None and not isinstance(vpc_config, FunctionVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                FunctionVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, FunctionVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["snap_start_response"] = None

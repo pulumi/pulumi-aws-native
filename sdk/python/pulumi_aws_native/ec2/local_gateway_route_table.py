@@ -34,10 +34,16 @@ class LocalGatewayRouteTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             local_gateway_id: pulumi.Input[str],
+             local_gateway_id: Optional[pulumi.Input[str]] = None,
              mode: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocalGatewayRouteTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_gateway_id is None and 'localGatewayId' in kwargs:
+            local_gateway_id = kwargs['localGatewayId']
+        if local_gateway_id is None:
+            raise TypeError("Missing 'local_gateway_id' argument")
+
         _setter("local_gateway_id", local_gateway_id)
         if mode is not None:
             _setter("mode", mode)

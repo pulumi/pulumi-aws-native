@@ -40,12 +40,22 @@ class ClusterParameterGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             parameter_group_family: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             parameter_group_family: Optional[pulumi.Input[str]] = None,
              parameter_group_name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if parameter_group_family is None and 'parameterGroupFamily' in kwargs:
+            parameter_group_family = kwargs['parameterGroupFamily']
+        if parameter_group_family is None:
+            raise TypeError("Missing 'parameter_group_family' argument")
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+
         _setter("description", description)
         _setter("parameter_group_family", parameter_group_family)
         if parameter_group_name is not None:

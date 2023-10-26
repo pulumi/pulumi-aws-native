@@ -37,7 +37,9 @@ class PublicDnsNamespaceArgs:
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input['PublicDnsNamespacePropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PublicDnsNamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -149,11 +151,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if properties is not None and not isinstance(properties, PublicDnsNamespacePropertiesArgs):
-                properties = properties or {}
-                def _setter(key, value):
-                    properties[key] = value
-                PublicDnsNamespacePropertiesArgs._configure(_setter, **properties)
+            properties = _utilities.configure(properties, PublicDnsNamespacePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

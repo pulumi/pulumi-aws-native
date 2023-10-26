@@ -36,12 +36,22 @@ class ServiceActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             definition: pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]],
-             definition_type: pulumi.Input['ServiceActionDefinitionType'],
+             definition: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]]] = None,
+             definition_type: Optional[pulumi.Input['ServiceActionDefinitionType']] = None,
              accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if definition_type is None and 'definitionType' in kwargs:
+            definition_type = kwargs['definitionType']
+        if definition_type is None:
+            raise TypeError("Missing 'definition_type' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("definition", definition)
         _setter("definition_type", definition_type)
         if accept_language is not None:

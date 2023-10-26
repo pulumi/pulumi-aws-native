@@ -75,8 +75,8 @@ class StackArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_instance_profile_arn: pulumi.Input[str],
-             service_role_arn: pulumi.Input[str],
+             default_instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
              agent_version: Optional[pulumi.Input[str]] = None,
              attributes: Optional[Any] = None,
              chef_configuration: Optional[pulumi.Input['StackChefConfigurationArgs']] = None,
@@ -100,7 +100,57 @@ class StackArgs:
              use_custom_cookbooks: Optional[pulumi.Input[bool]] = None,
              use_opsworks_security_groups: Optional[pulumi.Input[bool]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_instance_profile_arn is None and 'defaultInstanceProfileArn' in kwargs:
+            default_instance_profile_arn = kwargs['defaultInstanceProfileArn']
+        if default_instance_profile_arn is None:
+            raise TypeError("Missing 'default_instance_profile_arn' argument")
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if service_role_arn is None:
+            raise TypeError("Missing 'service_role_arn' argument")
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if chef_configuration is None and 'chefConfiguration' in kwargs:
+            chef_configuration = kwargs['chefConfiguration']
+        if clone_app_ids is None and 'cloneAppIds' in kwargs:
+            clone_app_ids = kwargs['cloneAppIds']
+        if clone_permissions is None and 'clonePermissions' in kwargs:
+            clone_permissions = kwargs['clonePermissions']
+        if configuration_manager is None and 'configurationManager' in kwargs:
+            configuration_manager = kwargs['configurationManager']
+        if custom_cookbooks_source is None and 'customCookbooksSource' in kwargs:
+            custom_cookbooks_source = kwargs['customCookbooksSource']
+        if custom_json is None and 'customJson' in kwargs:
+            custom_json = kwargs['customJson']
+        if default_availability_zone is None and 'defaultAvailabilityZone' in kwargs:
+            default_availability_zone = kwargs['defaultAvailabilityZone']
+        if default_os is None and 'defaultOs' in kwargs:
+            default_os = kwargs['defaultOs']
+        if default_root_device_type is None and 'defaultRootDeviceType' in kwargs:
+            default_root_device_type = kwargs['defaultRootDeviceType']
+        if default_ssh_key_name is None and 'defaultSshKeyName' in kwargs:
+            default_ssh_key_name = kwargs['defaultSshKeyName']
+        if default_subnet_id is None and 'defaultSubnetId' in kwargs:
+            default_subnet_id = kwargs['defaultSubnetId']
+        if ecs_cluster_arn is None and 'ecsClusterArn' in kwargs:
+            ecs_cluster_arn = kwargs['ecsClusterArn']
+        if elastic_ips is None and 'elasticIps' in kwargs:
+            elastic_ips = kwargs['elasticIps']
+        if hostname_theme is None and 'hostnameTheme' in kwargs:
+            hostname_theme = kwargs['hostnameTheme']
+        if rds_db_instances is None and 'rdsDbInstances' in kwargs:
+            rds_db_instances = kwargs['rdsDbInstances']
+        if source_stack_id is None and 'sourceStackId' in kwargs:
+            source_stack_id = kwargs['sourceStackId']
+        if use_custom_cookbooks is None and 'useCustomCookbooks' in kwargs:
+            use_custom_cookbooks = kwargs['useCustomCookbooks']
+        if use_opsworks_security_groups is None and 'useOpsworksSecurityGroups' in kwargs:
+            use_opsworks_security_groups = kwargs['useOpsworksSecurityGroups']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("default_instance_profile_arn", default_instance_profile_arn)
         _setter("service_role_arn", service_role_arn)
         if agent_version is not None:
@@ -483,25 +533,13 @@ class Stack(pulumi.CustomResource):
 
             __props__.__dict__["agent_version"] = agent_version
             __props__.__dict__["attributes"] = attributes
-            if chef_configuration is not None and not isinstance(chef_configuration, StackChefConfigurationArgs):
-                chef_configuration = chef_configuration or {}
-                def _setter(key, value):
-                    chef_configuration[key] = value
-                StackChefConfigurationArgs._configure(_setter, **chef_configuration)
+            chef_configuration = _utilities.configure(chef_configuration, StackChefConfigurationArgs, True)
             __props__.__dict__["chef_configuration"] = chef_configuration
             __props__.__dict__["clone_app_ids"] = clone_app_ids
             __props__.__dict__["clone_permissions"] = clone_permissions
-            if configuration_manager is not None and not isinstance(configuration_manager, StackConfigurationManagerArgs):
-                configuration_manager = configuration_manager or {}
-                def _setter(key, value):
-                    configuration_manager[key] = value
-                StackConfigurationManagerArgs._configure(_setter, **configuration_manager)
+            configuration_manager = _utilities.configure(configuration_manager, StackConfigurationManagerArgs, True)
             __props__.__dict__["configuration_manager"] = configuration_manager
-            if custom_cookbooks_source is not None and not isinstance(custom_cookbooks_source, StackSourceArgs):
-                custom_cookbooks_source = custom_cookbooks_source or {}
-                def _setter(key, value):
-                    custom_cookbooks_source[key] = value
-                StackSourceArgs._configure(_setter, **custom_cookbooks_source)
+            custom_cookbooks_source = _utilities.configure(custom_cookbooks_source, StackSourceArgs, True)
             __props__.__dict__["custom_cookbooks_source"] = custom_cookbooks_source
             __props__.__dict__["custom_json"] = custom_json
             __props__.__dict__["default_availability_zone"] = default_availability_zone

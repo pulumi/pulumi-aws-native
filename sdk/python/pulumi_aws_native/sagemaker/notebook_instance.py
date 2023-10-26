@@ -57,8 +57,8 @@ class NotebookInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              default_code_repository: Optional[pulumi.Input[str]] = None,
@@ -73,7 +73,43 @@ class NotebookInstanceArgs:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceTagArgs']]]] = None,
              volume_size_in_gb: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if accelerator_types is None and 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if additional_code_repositories is None and 'additionalCodeRepositories' in kwargs:
+            additional_code_repositories = kwargs['additionalCodeRepositories']
+        if default_code_repository is None and 'defaultCodeRepository' in kwargs:
+            default_code_repository = kwargs['defaultCodeRepository']
+        if direct_internet_access is None and 'directInternetAccess' in kwargs:
+            direct_internet_access = kwargs['directInternetAccess']
+        if instance_metadata_service_configuration is None and 'instanceMetadataServiceConfiguration' in kwargs:
+            instance_metadata_service_configuration = kwargs['instanceMetadataServiceConfiguration']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if lifecycle_config_name is None and 'lifecycleConfigName' in kwargs:
+            lifecycle_config_name = kwargs['lifecycleConfigName']
+        if notebook_instance_name is None and 'notebookInstanceName' in kwargs:
+            notebook_instance_name = kwargs['notebookInstanceName']
+        if platform_identifier is None and 'platformIdentifier' in kwargs:
+            platform_identifier = kwargs['platformIdentifier']
+        if root_access is None and 'rootAccess' in kwargs:
+            root_access = kwargs['rootAccess']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if volume_size_in_gb is None and 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+
         _setter("instance_type", instance_type)
         _setter("role_arn", role_arn)
         if accelerator_types is not None:
@@ -341,11 +377,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["additional_code_repositories"] = additional_code_repositories
             __props__.__dict__["default_code_repository"] = default_code_repository
             __props__.__dict__["direct_internet_access"] = direct_internet_access
-            if instance_metadata_service_configuration is not None and not isinstance(instance_metadata_service_configuration, NotebookInstanceInstanceMetadataServiceConfigurationArgs):
-                instance_metadata_service_configuration = instance_metadata_service_configuration or {}
-                def _setter(key, value):
-                    instance_metadata_service_configuration[key] = value
-                NotebookInstanceInstanceMetadataServiceConfigurationArgs._configure(_setter, **instance_metadata_service_configuration)
+            instance_metadata_service_configuration = _utilities.configure(instance_metadata_service_configuration, NotebookInstanceInstanceMetadataServiceConfigurationArgs, True)
             __props__.__dict__["instance_metadata_service_configuration"] = instance_metadata_service_configuration
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")

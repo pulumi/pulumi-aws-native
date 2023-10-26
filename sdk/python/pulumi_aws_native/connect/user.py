@@ -56,17 +56,43 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             phone_config: pulumi.Input['UserPhoneConfigArgs'],
-             routing_profile_arn: pulumi.Input[str],
-             security_profile_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             username: pulumi.Input[str],
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             phone_config: Optional[pulumi.Input['UserPhoneConfigArgs']] = None,
+             routing_profile_arn: Optional[pulumi.Input[str]] = None,
+             security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              directory_user_id: Optional[pulumi.Input[str]] = None,
              hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
              identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if phone_config is None and 'phoneConfig' in kwargs:
+            phone_config = kwargs['phoneConfig']
+        if phone_config is None:
+            raise TypeError("Missing 'phone_config' argument")
+        if routing_profile_arn is None and 'routingProfileArn' in kwargs:
+            routing_profile_arn = kwargs['routingProfileArn']
+        if routing_profile_arn is None:
+            raise TypeError("Missing 'routing_profile_arn' argument")
+        if security_profile_arns is None and 'securityProfileArns' in kwargs:
+            security_profile_arns = kwargs['securityProfileArns']
+        if security_profile_arns is None:
+            raise TypeError("Missing 'security_profile_arns' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if directory_user_id is None and 'directoryUserId' in kwargs:
+            directory_user_id = kwargs['directoryUserId']
+        if hierarchy_group_arn is None and 'hierarchyGroupArn' in kwargs:
+            hierarchy_group_arn = kwargs['hierarchyGroupArn']
+        if identity_info is None and 'identityInfo' in kwargs:
+            identity_info = kwargs['identityInfo']
+
         _setter("instance_arn", instance_arn)
         _setter("phone_config", phone_config)
         _setter("routing_profile_arn", routing_profile_arn)
@@ -285,21 +311,13 @@ class User(pulumi.CustomResource):
 
             __props__.__dict__["directory_user_id"] = directory_user_id
             __props__.__dict__["hierarchy_group_arn"] = hierarchy_group_arn
-            if identity_info is not None and not isinstance(identity_info, UserIdentityInfoArgs):
-                identity_info = identity_info or {}
-                def _setter(key, value):
-                    identity_info[key] = value
-                UserIdentityInfoArgs._configure(_setter, **identity_info)
+            identity_info = _utilities.configure(identity_info, UserIdentityInfoArgs, True)
             __props__.__dict__["identity_info"] = identity_info
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["password"] = password
-            if phone_config is not None and not isinstance(phone_config, UserPhoneConfigArgs):
-                phone_config = phone_config or {}
-                def _setter(key, value):
-                    phone_config[key] = value
-                UserPhoneConfigArgs._configure(_setter, **phone_config)
+            phone_config = _utilities.configure(phone_config, UserPhoneConfigArgs, True)
             if phone_config is None and not opts.urn:
                 raise TypeError("Missing required property 'phone_config'")
             __props__.__dict__["phone_config"] = phone_config

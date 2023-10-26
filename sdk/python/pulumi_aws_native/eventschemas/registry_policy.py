@@ -29,10 +29,20 @@ class RegistryPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: Any,
-             registry_name: pulumi.Input[str],
+             policy: Optional[Any] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
              revision_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if revision_id is None and 'revisionId' in kwargs:
+            revision_id = kwargs['revisionId']
+
         _setter("policy", policy)
         _setter("registry_name", registry_name)
         if revision_id is not None:

@@ -28,9 +28,17 @@ class ChannelPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_name: pulumi.Input[str],
-             policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             channel_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_name is None:
+            raise TypeError("Missing 'channel_name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
         _setter("channel_name", channel_name)
         _setter("policy", policy)
 

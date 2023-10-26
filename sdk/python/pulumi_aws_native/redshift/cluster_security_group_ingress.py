@@ -31,11 +31,21 @@ class ClusterSecurityGroupIngressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_security_group_name: pulumi.Input[str],
+             cluster_security_group_name: Optional[pulumi.Input[str]] = None,
              cidrip: Optional[pulumi.Input[str]] = None,
              ec2_security_group_name: Optional[pulumi.Input[str]] = None,
              ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_security_group_name is None and 'clusterSecurityGroupName' in kwargs:
+            cluster_security_group_name = kwargs['clusterSecurityGroupName']
+        if cluster_security_group_name is None:
+            raise TypeError("Missing 'cluster_security_group_name' argument")
+        if ec2_security_group_name is None and 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if ec2_security_group_owner_id is None and 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         _setter("cluster_security_group_name", cluster_security_group_name)
         if cidrip is not None:
             _setter("cidrip", cidrip)

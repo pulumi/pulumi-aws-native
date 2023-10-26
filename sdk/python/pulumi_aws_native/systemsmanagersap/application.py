@@ -41,14 +41,26 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             application_type: pulumi.Input['ApplicationType'],
+             application_id: Optional[pulumi.Input[str]] = None,
+             application_type: Optional[pulumi.Input['ApplicationType']] = None,
              credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]] = None,
              instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sap_instance_number: Optional[pulumi.Input[str]] = None,
              sid: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if application_type is None and 'applicationType' in kwargs:
+            application_type = kwargs['applicationType']
+        if application_type is None:
+            raise TypeError("Missing 'application_type' argument")
+        if sap_instance_number is None and 'sapInstanceNumber' in kwargs:
+            sap_instance_number = kwargs['sapInstanceNumber']
+
         _setter("application_id", application_id)
         _setter("application_type", application_type)
         if credentials is not None:

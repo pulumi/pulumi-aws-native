@@ -39,9 +39,17 @@ class BillingGroupAccountGroupingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linked_account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             linked_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              auto_associate: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linked_account_ids is None and 'linkedAccountIds' in kwargs:
+            linked_account_ids = kwargs['linkedAccountIds']
+        if linked_account_ids is None:
+            raise TypeError("Missing 'linked_account_ids' argument")
+        if auto_associate is None and 'autoAssociate' in kwargs:
+            auto_associate = kwargs['autoAssociate']
+
         _setter("linked_account_ids", linked_account_ids)
         if auto_associate is not None:
             _setter("auto_associate", auto_associate)
@@ -79,8 +87,14 @@ class BillingGroupComputationPreferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pricing_plan_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             pricing_plan_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pricing_plan_arn is None and 'pricingPlanArn' in kwargs:
+            pricing_plan_arn = kwargs['pricingPlanArn']
+        if pricing_plan_arn is None:
+            raise TypeError("Missing 'pricing_plan_arn' argument")
+
         _setter("pricing_plan_arn", pricing_plan_arn)
 
     @property
@@ -109,9 +123,15 @@ class BillingGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -149,7 +169,13 @@ class CustomLineItemBillingPeriodRangeArgs:
              _setter: Callable[[Any, Any], None],
              exclusive_end_billing_period: Optional[pulumi.Input[str]] = None,
              inclusive_start_billing_period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclusive_end_billing_period is None and 'exclusiveEndBillingPeriod' in kwargs:
+            exclusive_end_billing_period = kwargs['exclusiveEndBillingPeriod']
+        if inclusive_start_billing_period is None and 'inclusiveStartBillingPeriod' in kwargs:
+            inclusive_start_billing_period = kwargs['inclusiveStartBillingPeriod']
+
         if exclusive_end_billing_period is not None:
             _setter("exclusive_end_billing_period", exclusive_end_billing_period)
         if inclusive_start_billing_period is not None:
@@ -191,11 +217,17 @@ class CustomLineItemChargeDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['CustomLineItemType'],
+             type: Optional[pulumi.Input['CustomLineItemType']] = None,
              flat: Optional[pulumi.Input['CustomLineItemFlatChargeDetailsArgs']] = None,
              line_item_filters: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterArgs']]]] = None,
              percentage: Optional[pulumi.Input['CustomLineItemPercentageChargeDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if line_item_filters is None and 'lineItemFilters' in kwargs:
+            line_item_filters = kwargs['lineItemFilters']
+
         _setter("type", type)
         if flat is not None:
             _setter("flat", flat)
@@ -252,8 +284,14 @@ class CustomLineItemFlatChargeDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             charge_value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             charge_value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if charge_value is None and 'chargeValue' in kwargs:
+            charge_value = kwargs['chargeValue']
+        if charge_value is None:
+            raise TypeError("Missing 'charge_value' argument")
+
         _setter("charge_value", charge_value)
 
     @property
@@ -281,10 +319,20 @@ class CustomLineItemLineItemFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: pulumi.Input['CustomLineItemLineItemFilterAttribute'],
-             match_option: pulumi.Input['CustomLineItemLineItemFilterMatchOption'],
-             values: pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterValue']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute: Optional[pulumi.Input['CustomLineItemLineItemFilterAttribute']] = None,
+             match_option: Optional[pulumi.Input['CustomLineItemLineItemFilterMatchOption']] = None,
+             values: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemLineItemFilterValue']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if match_option is None and 'matchOption' in kwargs:
+            match_option = kwargs['matchOption']
+        if match_option is None:
+            raise TypeError("Missing 'match_option' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("attribute", attribute)
         _setter("match_option", match_option)
         _setter("values", values)
@@ -330,9 +378,17 @@ class CustomLineItemPercentageChargeDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             percentage_value: pulumi.Input[float],
+             percentage_value: Optional[pulumi.Input[float]] = None,
              child_associated_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if percentage_value is None and 'percentageValue' in kwargs:
+            percentage_value = kwargs['percentageValue']
+        if percentage_value is None:
+            raise TypeError("Missing 'percentage_value' argument")
+        if child_associated_resources is None and 'childAssociatedResources' in kwargs:
+            child_associated_resources = kwargs['childAssociatedResources']
+
         _setter("percentage_value", percentage_value)
         if child_associated_resources is not None:
             _setter("child_associated_resources", child_associated_resources)
@@ -369,9 +425,15 @@ class CustomLineItemTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -407,9 +469,15 @@ class PricingPlanTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -446,8 +514,12 @@ class PricingRuleFreeTierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             activated: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             activated: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activated is None:
+            raise TypeError("Missing 'activated' argument")
+
         _setter("activated", activated)
 
     @property
@@ -473,9 +545,15 @@ class PricingRuleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -513,7 +591,11 @@ class TieringPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              free_tier: Optional[pulumi.Input['PricingRuleFreeTierArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if free_tier is None and 'freeTier' in kwargs:
+            free_tier = kwargs['freeTier']
+
         if free_tier is not None:
             _setter("free_tier", free_tier)
 

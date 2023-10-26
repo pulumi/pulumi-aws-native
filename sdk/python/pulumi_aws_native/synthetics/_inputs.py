@@ -37,7 +37,11 @@ class CanaryArtifactConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_encryption: Optional[pulumi.Input['CanaryS3EncryptionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_encryption is None and 's3Encryption' in kwargs:
+            s3_encryption = kwargs['s3Encryption']
+
         if s3_encryption is not None:
             _setter("s3_encryption", s3_encryption)
 
@@ -71,9 +75,17 @@ class CanaryBaseScreenshotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             screenshot_name: pulumi.Input[str],
+             screenshot_name: Optional[pulumi.Input[str]] = None,
              ignore_coordinates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if screenshot_name is None and 'screenshotName' in kwargs:
+            screenshot_name = kwargs['screenshotName']
+        if screenshot_name is None:
+            raise TypeError("Missing 'screenshot_name' argument")
+        if ignore_coordinates is None and 'ignoreCoordinates' in kwargs:
+            ignore_coordinates = kwargs['ignoreCoordinates']
+
         _setter("screenshot_name", screenshot_name)
         if ignore_coordinates is not None:
             _setter("ignore_coordinates", ignore_coordinates)
@@ -124,13 +136,25 @@ class CanaryCodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             handler: pulumi.Input[str],
+             handler: Optional[pulumi.Input[str]] = None,
              s3_bucket: Optional[pulumi.Input[str]] = None,
              s3_key: Optional[pulumi.Input[str]] = None,
              s3_object_version: Optional[pulumi.Input[str]] = None,
              script: Optional[pulumi.Input[str]] = None,
              source_location_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if handler is None:
+            raise TypeError("Missing 'handler' argument")
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_object_version is None and 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+        if source_location_arn is None and 'sourceLocationArn' in kwargs:
+            source_location_arn = kwargs['sourceLocationArn']
+
         _setter("handler", handler)
         if s3_bucket is not None:
             _setter("s3_bucket", s3_bucket)
@@ -225,7 +249,17 @@ class CanaryRunConfigArgs:
              environment_variables: Optional[Any] = None,
              memory_in_mb: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_tracing is None and 'activeTracing' in kwargs:
+            active_tracing = kwargs['activeTracing']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if memory_in_mb is None and 'memoryInMb' in kwargs:
+            memory_in_mb = kwargs['memoryInMb']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if active_tracing is not None:
             _setter("active_tracing", active_tracing)
         if environment_variables is not None:
@@ -303,7 +337,13 @@ class CanaryS3EncryptionArgs:
              _setter: Callable[[Any, Any], None],
              encryption_mode: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_mode is None and 'encryptionMode' in kwargs:
+            encryption_mode = kwargs['encryptionMode']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if encryption_mode is not None:
             _setter("encryption_mode", encryption_mode)
         if kms_key_arn is not None:
@@ -347,9 +387,15 @@ class CanaryScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
+             expression: Optional[pulumi.Input[str]] = None,
              duration_in_seconds: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         _setter("expression", expression)
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
@@ -391,9 +437,15 @@ class CanaryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -439,9 +491,17 @@ class CanaryVisualReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_canary_run_id: pulumi.Input[str],
+             base_canary_run_id: Optional[pulumi.Input[str]] = None,
              base_screenshots: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryBaseScreenshotArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_canary_run_id is None and 'baseCanaryRunId' in kwargs:
+            base_canary_run_id = kwargs['baseCanaryRunId']
+        if base_canary_run_id is None:
+            raise TypeError("Missing 'base_canary_run_id' argument")
+        if base_screenshots is None and 'baseScreenshots' in kwargs:
+            base_screenshots = kwargs['baseScreenshots']
+
         _setter("base_canary_run_id", base_canary_run_id)
         if base_screenshots is not None:
             _setter("base_screenshots", base_screenshots)
@@ -486,10 +546,22 @@ class CanaryVpcConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
         if vpc_id is not None:
@@ -541,9 +613,15 @@ class GroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

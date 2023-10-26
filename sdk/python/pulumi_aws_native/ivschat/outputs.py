@@ -56,8 +56,14 @@ class LoggingConfigurationCloudWatchLogsDestinationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_group_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+
         _setter("log_group_name", log_group_name)
 
     @property
@@ -110,7 +116,11 @@ class LoggingConfigurationDestinationConfiguration(dict):
              cloud_watch_logs: Optional['outputs.LoggingConfigurationCloudWatchLogsDestinationConfiguration'] = None,
              firehose: Optional['outputs.LoggingConfigurationFirehoseDestinationConfiguration'] = None,
              s3: Optional['outputs.LoggingConfigurationS3DestinationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs is None and 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:
@@ -169,8 +179,14 @@ class LoggingConfigurationFirehoseDestinationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delivery_stream_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             delivery_stream_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream_name is None and 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if delivery_stream_name is None:
+            raise TypeError("Missing 'delivery_stream_name' argument")
+
         _setter("delivery_stream_name", delivery_stream_name)
 
     @property
@@ -217,8 +233,14 @@ class LoggingConfigurationS3DestinationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+
         _setter("bucket_name", bucket_name)
 
     @property
@@ -251,9 +273,15 @@ class LoggingConfigurationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -314,7 +342,11 @@ class RoomMessageReviewHandler(dict):
              _setter: Callable[[Any, Any], None],
              fallback_result: Optional['RoomMessageReviewHandlerFallbackResult'] = None,
              uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fallback_result is None and 'fallbackResult' in kwargs:
+            fallback_result = kwargs['fallbackResult']
+
         if fallback_result is not None:
             _setter("fallback_result", fallback_result)
         if uri is not None:
@@ -358,9 +390,15 @@ class RoomTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

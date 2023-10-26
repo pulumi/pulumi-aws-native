@@ -37,13 +37,25 @@ class IpSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             activate: pulumi.Input[bool],
-             detector_id: pulumi.Input[str],
-             format: pulumi.Input[str],
-             location: pulumi.Input[str],
+             activate: Optional[pulumi.Input[bool]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             format: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activate is None:
+            raise TypeError("Missing 'activate' argument")
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+
         _setter("activate", activate)
         _setter("detector_id", detector_id)
         _setter("format", format)

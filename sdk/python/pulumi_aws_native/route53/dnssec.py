@@ -26,8 +26,14 @@ class DnssecArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hosted_zone_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             hosted_zone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_id is None:
+            raise TypeError("Missing 'hosted_zone_id' argument")
+
         _setter("hosted_zone_id", hosted_zone_id)
 
     @property

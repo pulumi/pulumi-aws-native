@@ -47,7 +47,7 @@ class ScheduledActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
+             auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
              desired_capacity: Optional[pulumi.Input[int]] = None,
              end_time: Optional[pulumi.Input[str]] = None,
              max_size: Optional[pulumi.Input[int]] = None,
@@ -55,7 +55,25 @@ class ScheduledActionArgs:
              recurrence: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_name is None and 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if auto_scaling_group_name is None:
+            raise TypeError("Missing 'auto_scaling_group_name' argument")
+        if desired_capacity is None and 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         if desired_capacity is not None:
             _setter("desired_capacity", desired_capacity)

@@ -52,7 +52,7 @@ class LoadBalancerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_port: pulumi.Input[int],
+             instance_port: Optional[pulumi.Input[int]] = None,
              attached_instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              health_check_path: Optional[pulumi.Input[str]] = None,
              ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,27 @@ class LoadBalancerArgs:
              session_stickiness_lb_cookie_duration_seconds: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
              tls_policy_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if instance_port is None:
+            raise TypeError("Missing 'instance_port' argument")
+        if attached_instances is None and 'attachedInstances' in kwargs:
+            attached_instances = kwargs['attachedInstances']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if session_stickiness_enabled is None and 'sessionStickinessEnabled' in kwargs:
+            session_stickiness_enabled = kwargs['sessionStickinessEnabled']
+        if session_stickiness_lb_cookie_duration_seconds is None and 'sessionStickinessLbCookieDurationSeconds' in kwargs:
+            session_stickiness_lb_cookie_duration_seconds = kwargs['sessionStickinessLbCookieDurationSeconds']
+        if tls_policy_name is None and 'tlsPolicyName' in kwargs:
+            tls_policy_name = kwargs['tlsPolicyName']
+
         _setter("instance_port", instance_port)
         if attached_instances is not None:
             _setter("attached_instances", attached_instances)

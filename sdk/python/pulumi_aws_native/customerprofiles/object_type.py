@@ -59,7 +59,7 @@ class ObjectTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
              allow_profile_creation: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              encryption_key: Optional[pulumi.Input[str]] = None,
@@ -70,7 +70,25 @@ class ObjectTypeArgs:
              source_last_updated_timestamp_format: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeTagArgs']]]] = None,
              template_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if allow_profile_creation is None and 'allowProfileCreation' in kwargs:
+            allow_profile_creation = kwargs['allowProfileCreation']
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if expiration_days is None and 'expirationDays' in kwargs:
+            expiration_days = kwargs['expirationDays']
+        if object_type_name is None and 'objectTypeName' in kwargs:
+            object_type_name = kwargs['objectTypeName']
+        if source_last_updated_timestamp_format is None and 'sourceLastUpdatedTimestampFormat' in kwargs:
+            source_last_updated_timestamp_format = kwargs['sourceLastUpdatedTimestampFormat']
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+
         _setter("domain_name", domain_name)
         if allow_profile_creation is not None:
             _setter("allow_profile_creation", allow_profile_creation)

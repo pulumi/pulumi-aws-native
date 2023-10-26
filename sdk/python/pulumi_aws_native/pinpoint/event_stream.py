@@ -29,10 +29,24 @@ class EventStreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             destination_stream_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_id: Optional[pulumi.Input[str]] = None,
+             destination_stream_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if destination_stream_arn is None and 'destinationStreamArn' in kwargs:
+            destination_stream_arn = kwargs['destinationStreamArn']
+        if destination_stream_arn is None:
+            raise TypeError("Missing 'destination_stream_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("application_id", application_id)
         _setter("destination_stream_arn", destination_stream_arn)
         _setter("role_arn", role_arn)

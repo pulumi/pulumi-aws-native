@@ -38,13 +38,27 @@ class FhirDatastoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datastore_type_version: pulumi.Input['FhirDatastoreDatastoreTypeVersion'],
+             datastore_type_version: Optional[pulumi.Input['FhirDatastoreDatastoreTypeVersion']] = None,
              datastore_name: Optional[pulumi.Input[str]] = None,
              identity_provider_configuration: Optional[pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs']] = None,
              preload_data_config: Optional[pulumi.Input['FhirDatastorePreloadDataConfigArgs']] = None,
              sse_configuration: Optional[pulumi.Input['FhirDatastoreSseConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FhirDatastoreTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datastore_type_version is None and 'datastoreTypeVersion' in kwargs:
+            datastore_type_version = kwargs['datastoreTypeVersion']
+        if datastore_type_version is None:
+            raise TypeError("Missing 'datastore_type_version' argument")
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if identity_provider_configuration is None and 'identityProviderConfiguration' in kwargs:
+            identity_provider_configuration = kwargs['identityProviderConfiguration']
+        if preload_data_config is None and 'preloadDataConfig' in kwargs:
+            preload_data_config = kwargs['preloadDataConfig']
+        if sse_configuration is None and 'sseConfiguration' in kwargs:
+            sse_configuration = kwargs['sseConfiguration']
+
         _setter("datastore_type_version", datastore_type_version)
         if datastore_name is not None:
             _setter("datastore_name", datastore_name)
@@ -177,23 +191,11 @@ class FhirDatastore(pulumi.CustomResource):
             if datastore_type_version is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_type_version'")
             __props__.__dict__["datastore_type_version"] = datastore_type_version
-            if identity_provider_configuration is not None and not isinstance(identity_provider_configuration, FhirDatastoreIdentityProviderConfigurationArgs):
-                identity_provider_configuration = identity_provider_configuration or {}
-                def _setter(key, value):
-                    identity_provider_configuration[key] = value
-                FhirDatastoreIdentityProviderConfigurationArgs._configure(_setter, **identity_provider_configuration)
+            identity_provider_configuration = _utilities.configure(identity_provider_configuration, FhirDatastoreIdentityProviderConfigurationArgs, True)
             __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
-            if preload_data_config is not None and not isinstance(preload_data_config, FhirDatastorePreloadDataConfigArgs):
-                preload_data_config = preload_data_config or {}
-                def _setter(key, value):
-                    preload_data_config[key] = value
-                FhirDatastorePreloadDataConfigArgs._configure(_setter, **preload_data_config)
+            preload_data_config = _utilities.configure(preload_data_config, FhirDatastorePreloadDataConfigArgs, True)
             __props__.__dict__["preload_data_config"] = preload_data_config
-            if sse_configuration is not None and not isinstance(sse_configuration, FhirDatastoreSseConfigurationArgs):
-                sse_configuration = sse_configuration or {}
-                def _setter(key, value):
-                    sse_configuration[key] = value
-                FhirDatastoreSseConfigurationArgs._configure(_setter, **sse_configuration)
+            sse_configuration = _utilities.configure(sse_configuration, FhirDatastoreSseConfigurationArgs, True)
             __props__.__dict__["sse_configuration"] = sse_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None

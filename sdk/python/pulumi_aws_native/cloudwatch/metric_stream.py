@@ -52,16 +52,38 @@ class MetricStreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firehose_arn: pulumi.Input[str],
-             output_format: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             firehose_arn: Optional[pulumi.Input[str]] = None,
+             output_format: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
              include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamFilterArgs']]]] = None,
              include_linked_accounts_metrics: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              statistics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firehose_arn is None and 'firehoseArn' in kwargs:
+            firehose_arn = kwargs['firehoseArn']
+        if firehose_arn is None:
+            raise TypeError("Missing 'firehose_arn' argument")
+        if output_format is None and 'outputFormat' in kwargs:
+            output_format = kwargs['outputFormat']
+        if output_format is None:
+            raise TypeError("Missing 'output_format' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if exclude_filters is None and 'excludeFilters' in kwargs:
+            exclude_filters = kwargs['excludeFilters']
+        if include_filters is None and 'includeFilters' in kwargs:
+            include_filters = kwargs['includeFilters']
+        if include_linked_accounts_metrics is None and 'includeLinkedAccountsMetrics' in kwargs:
+            include_linked_accounts_metrics = kwargs['includeLinkedAccountsMetrics']
+        if statistics_configurations is None and 'statisticsConfigurations' in kwargs:
+            statistics_configurations = kwargs['statisticsConfigurations']
+
         _setter("firehose_arn", firehose_arn)
         _setter("output_format", output_format)
         _setter("role_arn", role_arn)

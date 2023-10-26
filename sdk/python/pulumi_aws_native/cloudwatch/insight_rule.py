@@ -33,11 +33,25 @@ class InsightRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_body: pulumi.Input[str],
-             rule_name: pulumi.Input[str],
-             rule_state: pulumi.Input[str],
+             rule_body: Optional[pulumi.Input[str]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             rule_state: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['InsightRuleTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_body is None and 'ruleBody' in kwargs:
+            rule_body = kwargs['ruleBody']
+        if rule_body is None:
+            raise TypeError("Missing 'rule_body' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+        if rule_state is None and 'ruleState' in kwargs:
+            rule_state = kwargs['ruleState']
+        if rule_state is None:
+            raise TypeError("Missing 'rule_state' argument")
+
         _setter("rule_body", rule_body)
         _setter("rule_name", rule_name)
         _setter("rule_state", rule_state)
@@ -153,11 +167,7 @@ class InsightRule(pulumi.CustomResource):
             if rule_state is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_state'")
             __props__.__dict__["rule_state"] = rule_state
-            if tags is not None and not isinstance(tags, InsightRuleTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                InsightRuleTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, InsightRuleTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["rule_name"])

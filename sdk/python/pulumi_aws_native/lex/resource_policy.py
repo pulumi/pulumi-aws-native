@@ -29,9 +29,17 @@ class ResourcePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: pulumi.Input['ResourcePolicyPolicyArgs'],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy: Optional[pulumi.Input['ResourcePolicyPolicyArgs']] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
         _setter("policy", policy)
         _setter("resource_arn", resource_arn)
 
@@ -107,11 +115,7 @@ class ResourcePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourcePolicyArgs.__new__(ResourcePolicyArgs)
 
-            if policy is not None and not isinstance(policy, ResourcePolicyPolicyArgs):
-                policy = policy or {}
-                def _setter(key, value):
-                    policy[key] = value
-                ResourcePolicyPolicyArgs._configure(_setter, **policy)
+            policy = _utilities.configure(policy, ResourcePolicyPolicyArgs, True)
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy

@@ -31,11 +31,21 @@ class PlacementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             project_name: pulumi.Input[str],
+             project_name: Optional[pulumi.Input[str]] = None,
              associated_devices: Optional[Any] = None,
              attributes: Optional[Any] = None,
              placement_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+        if project_name is None:
+            raise TypeError("Missing 'project_name' argument")
+        if associated_devices is None and 'associatedDevices' in kwargs:
+            associated_devices = kwargs['associatedDevices']
+        if placement_name is None and 'placementName' in kwargs:
+            placement_name = kwargs['placementName']
+
         _setter("project_name", project_name)
         if associated_devices is not None:
             _setter("associated_devices", associated_devices)

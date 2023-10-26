@@ -40,7 +40,17 @@ class SamplingRuleInitArgs:
              sampling_rule_record: Optional[pulumi.Input['SamplingRuleRecordArgs']] = None,
              sampling_rule_update: Optional[pulumi.Input['SamplingRuleUpdateArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamplingRuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if sampling_rule is None and 'samplingRule' in kwargs:
+            sampling_rule = kwargs['samplingRule']
+        if sampling_rule_record is None and 'samplingRuleRecord' in kwargs:
+            sampling_rule_record = kwargs['samplingRuleRecord']
+        if sampling_rule_update is None and 'samplingRuleUpdate' in kwargs:
+            sampling_rule_update = kwargs['samplingRuleUpdate']
+
         if rule_name is not None:
             _setter("rule_name", rule_name)
         if sampling_rule is not None:
@@ -158,23 +168,11 @@ class SamplingRule(pulumi.CustomResource):
             __props__ = SamplingRuleInitArgs.__new__(SamplingRuleInitArgs)
 
             __props__.__dict__["rule_name"] = rule_name
-            if sampling_rule is not None and not isinstance(sampling_rule, SamplingRuleArgs):
-                sampling_rule = sampling_rule or {}
-                def _setter(key, value):
-                    sampling_rule[key] = value
-                SamplingRuleArgs._configure(_setter, **sampling_rule)
+            sampling_rule = _utilities.configure(sampling_rule, SamplingRuleArgs, True)
             __props__.__dict__["sampling_rule"] = sampling_rule
-            if sampling_rule_record is not None and not isinstance(sampling_rule_record, SamplingRuleRecordArgs):
-                sampling_rule_record = sampling_rule_record or {}
-                def _setter(key, value):
-                    sampling_rule_record[key] = value
-                SamplingRuleRecordArgs._configure(_setter, **sampling_rule_record)
+            sampling_rule_record = _utilities.configure(sampling_rule_record, SamplingRuleRecordArgs, True)
             __props__.__dict__["sampling_rule_record"] = sampling_rule_record
-            if sampling_rule_update is not None and not isinstance(sampling_rule_update, SamplingRuleUpdateArgs):
-                sampling_rule_update = sampling_rule_update or {}
-                def _setter(key, value):
-                    sampling_rule_update[key] = value
-                SamplingRuleUpdateArgs._configure(_setter, **sampling_rule_update)
+            sampling_rule_update = _utilities.configure(sampling_rule_update, SamplingRuleUpdateArgs, True)
             __props__.__dict__["sampling_rule_update"] = sampling_rule_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["rule_arn"] = None

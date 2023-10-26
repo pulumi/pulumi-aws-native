@@ -59,7 +59,7 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_schema: pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]],
+             key_schema: Optional[pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]]] = None,
              attribute_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeDefinitionArgs']]]] = None,
              billing_mode: Optional[pulumi.Input[str]] = None,
              contributor_insights_specification: Optional[pulumi.Input['TableContributorInsightsSpecificationArgs']] = None,
@@ -76,7 +76,43 @@ class TableArgs:
              table_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
              time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_schema is None and 'keySchema' in kwargs:
+            key_schema = kwargs['keySchema']
+        if key_schema is None:
+            raise TypeError("Missing 'key_schema' argument")
+        if attribute_definitions is None and 'attributeDefinitions' in kwargs:
+            attribute_definitions = kwargs['attributeDefinitions']
+        if billing_mode is None and 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if contributor_insights_specification is None and 'contributorInsightsSpecification' in kwargs:
+            contributor_insights_specification = kwargs['contributorInsightsSpecification']
+        if deletion_protection_enabled is None and 'deletionProtectionEnabled' in kwargs:
+            deletion_protection_enabled = kwargs['deletionProtectionEnabled']
+        if global_secondary_indexes is None and 'globalSecondaryIndexes' in kwargs:
+            global_secondary_indexes = kwargs['globalSecondaryIndexes']
+        if import_source_specification is None and 'importSourceSpecification' in kwargs:
+            import_source_specification = kwargs['importSourceSpecification']
+        if kinesis_stream_specification is None and 'kinesisStreamSpecification' in kwargs:
+            kinesis_stream_specification = kwargs['kinesisStreamSpecification']
+        if local_secondary_indexes is None and 'localSecondaryIndexes' in kwargs:
+            local_secondary_indexes = kwargs['localSecondaryIndexes']
+        if point_in_time_recovery_specification is None and 'pointInTimeRecoverySpecification' in kwargs:
+            point_in_time_recovery_specification = kwargs['pointInTimeRecoverySpecification']
+        if provisioned_throughput is None and 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+        if sse_specification is None and 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if stream_specification is None and 'streamSpecification' in kwargs:
+            stream_specification = kwargs['streamSpecification']
+        if table_class is None and 'tableClass' in kwargs:
+            table_class = kwargs['tableClass']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if time_to_live_specification is None and 'timeToLiveSpecification' in kwargs:
+            time_to_live_specification = kwargs['timeToLiveSpecification']
+
         _setter("key_schema", key_schema)
         if attribute_definitions is not None:
             _setter("attribute_definitions", attribute_definitions)
@@ -350,62 +386,30 @@ class Table(pulumi.CustomResource):
 
             __props__.__dict__["attribute_definitions"] = attribute_definitions
             __props__.__dict__["billing_mode"] = billing_mode
-            if contributor_insights_specification is not None and not isinstance(contributor_insights_specification, TableContributorInsightsSpecificationArgs):
-                contributor_insights_specification = contributor_insights_specification or {}
-                def _setter(key, value):
-                    contributor_insights_specification[key] = value
-                TableContributorInsightsSpecificationArgs._configure(_setter, **contributor_insights_specification)
+            contributor_insights_specification = _utilities.configure(contributor_insights_specification, TableContributorInsightsSpecificationArgs, True)
             __props__.__dict__["contributor_insights_specification"] = contributor_insights_specification
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["global_secondary_indexes"] = global_secondary_indexes
-            if import_source_specification is not None and not isinstance(import_source_specification, TableImportSourceSpecificationArgs):
-                import_source_specification = import_source_specification or {}
-                def _setter(key, value):
-                    import_source_specification[key] = value
-                TableImportSourceSpecificationArgs._configure(_setter, **import_source_specification)
+            import_source_specification = _utilities.configure(import_source_specification, TableImportSourceSpecificationArgs, True)
             __props__.__dict__["import_source_specification"] = import_source_specification
             if key_schema is None and not opts.urn:
                 raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
-            if kinesis_stream_specification is not None and not isinstance(kinesis_stream_specification, TableKinesisStreamSpecificationArgs):
-                kinesis_stream_specification = kinesis_stream_specification or {}
-                def _setter(key, value):
-                    kinesis_stream_specification[key] = value
-                TableKinesisStreamSpecificationArgs._configure(_setter, **kinesis_stream_specification)
+            kinesis_stream_specification = _utilities.configure(kinesis_stream_specification, TableKinesisStreamSpecificationArgs, True)
             __props__.__dict__["kinesis_stream_specification"] = kinesis_stream_specification
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
-            if point_in_time_recovery_specification is not None and not isinstance(point_in_time_recovery_specification, TablePointInTimeRecoverySpecificationArgs):
-                point_in_time_recovery_specification = point_in_time_recovery_specification or {}
-                def _setter(key, value):
-                    point_in_time_recovery_specification[key] = value
-                TablePointInTimeRecoverySpecificationArgs._configure(_setter, **point_in_time_recovery_specification)
+            point_in_time_recovery_specification = _utilities.configure(point_in_time_recovery_specification, TablePointInTimeRecoverySpecificationArgs, True)
             __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
-            if provisioned_throughput is not None and not isinstance(provisioned_throughput, TableProvisionedThroughputArgs):
-                provisioned_throughput = provisioned_throughput or {}
-                def _setter(key, value):
-                    provisioned_throughput[key] = value
-                TableProvisionedThroughputArgs._configure(_setter, **provisioned_throughput)
+            provisioned_throughput = _utilities.configure(provisioned_throughput, TableProvisionedThroughputArgs, True)
             __props__.__dict__["provisioned_throughput"] = provisioned_throughput
-            if sse_specification is not None and not isinstance(sse_specification, TableSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                TableSseSpecificationArgs._configure(_setter, **sse_specification)
+            sse_specification = _utilities.configure(sse_specification, TableSseSpecificationArgs, True)
             __props__.__dict__["sse_specification"] = sse_specification
-            if stream_specification is not None and not isinstance(stream_specification, TableStreamSpecificationArgs):
-                stream_specification = stream_specification or {}
-                def _setter(key, value):
-                    stream_specification[key] = value
-                TableStreamSpecificationArgs._configure(_setter, **stream_specification)
+            stream_specification = _utilities.configure(stream_specification, TableStreamSpecificationArgs, True)
             __props__.__dict__["stream_specification"] = stream_specification
             __props__.__dict__["table_class"] = table_class
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
-            if time_to_live_specification is not None and not isinstance(time_to_live_specification, TableTimeToLiveSpecificationArgs):
-                time_to_live_specification = time_to_live_specification or {}
-                def _setter(key, value):
-                    time_to_live_specification[key] = value
-                TableTimeToLiveSpecificationArgs._configure(_setter, **time_to_live_specification)
+            time_to_live_specification = _utilities.configure(time_to_live_specification, TableTimeToLiveSpecificationArgs, True)
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None

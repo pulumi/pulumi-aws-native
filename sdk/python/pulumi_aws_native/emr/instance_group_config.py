@@ -47,10 +47,10 @@ class InstanceGroupConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_count: pulumi.Input[int],
-             instance_role: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
-             job_flow_id: pulumi.Input[str],
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_role: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             job_flow_id: Optional[pulumi.Input[str]] = None,
              auto_scaling_policy: Optional[pulumi.Input['InstanceGroupConfigAutoScalingPolicyArgs']] = None,
              bid_price: Optional[pulumi.Input[str]] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigConfigurationArgs']]]] = None,
@@ -58,7 +58,33 @@ class InstanceGroupConfigArgs:
              ebs_configuration: Optional[pulumi.Input['InstanceGroupConfigEbsConfigurationArgs']] = None,
              market: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_role is None and 'instanceRole' in kwargs:
+            instance_role = kwargs['instanceRole']
+        if instance_role is None:
+            raise TypeError("Missing 'instance_role' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if job_flow_id is None and 'jobFlowId' in kwargs:
+            job_flow_id = kwargs['jobFlowId']
+        if job_flow_id is None:
+            raise TypeError("Missing 'job_flow_id' argument")
+        if auto_scaling_policy is None and 'autoScalingPolicy' in kwargs:
+            auto_scaling_policy = kwargs['autoScalingPolicy']
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if custom_ami_id is None and 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if ebs_configuration is None and 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+
         _setter("instance_count", instance_count)
         _setter("instance_role", instance_role)
         _setter("instance_type", instance_type)
@@ -255,20 +281,12 @@ class InstanceGroupConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceGroupConfigArgs.__new__(InstanceGroupConfigArgs)
 
-            if auto_scaling_policy is not None and not isinstance(auto_scaling_policy, InstanceGroupConfigAutoScalingPolicyArgs):
-                auto_scaling_policy = auto_scaling_policy or {}
-                def _setter(key, value):
-                    auto_scaling_policy[key] = value
-                InstanceGroupConfigAutoScalingPolicyArgs._configure(_setter, **auto_scaling_policy)
+            auto_scaling_policy = _utilities.configure(auto_scaling_policy, InstanceGroupConfigAutoScalingPolicyArgs, True)
             __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
             __props__.__dict__["bid_price"] = bid_price
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["custom_ami_id"] = custom_ami_id
-            if ebs_configuration is not None and not isinstance(ebs_configuration, InstanceGroupConfigEbsConfigurationArgs):
-                ebs_configuration = ebs_configuration or {}
-                def _setter(key, value):
-                    ebs_configuration[key] = value
-                InstanceGroupConfigEbsConfigurationArgs._configure(_setter, **ebs_configuration)
+            ebs_configuration = _utilities.configure(ebs_configuration, InstanceGroupConfigEbsConfigurationArgs, True)
             __props__.__dict__["ebs_configuration"] = ebs_configuration
             if instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_count'")

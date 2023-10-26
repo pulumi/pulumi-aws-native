@@ -30,9 +30,15 @@ class UserAccessLoggingSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kinesis_stream_arn: pulumi.Input[str],
+             kinesis_stream_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccessLoggingSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kinesis_stream_arn is None and 'kinesisStreamArn' in kwargs:
+            kinesis_stream_arn = kwargs['kinesisStreamArn']
+        if kinesis_stream_arn is None:
+            raise TypeError("Missing 'kinesis_stream_arn' argument")
+
         _setter("kinesis_stream_arn", kinesis_stream_arn)
         if tags is not None:
             _setter("tags", tags)

@@ -28,8 +28,12 @@ class NotificationChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config: pulumi.Input['NotificationChannelConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             config: Optional[pulumi.Input['NotificationChannelConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config is None:
+            raise TypeError("Missing 'config' argument")
+
         _setter("config", config)
 
     @property
@@ -93,11 +97,7 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
-            if config is not None and not isinstance(config, NotificationChannelConfigArgs):
-                config = config or {}
-                def _setter(key, value):
-                    config[key] = value
-                NotificationChannelConfigArgs._configure(_setter, **config)
+            config = _utilities.configure(config, NotificationChannelConfigArgs, True)
             if config is None and not opts.urn:
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config

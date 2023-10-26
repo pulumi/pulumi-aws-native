@@ -35,7 +35,13 @@ class BillingGroupArgs:
              billing_group_name: Optional[pulumi.Input[str]] = None,
              billing_group_properties: Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_group_name is None and 'billingGroupName' in kwargs:
+            billing_group_name = kwargs['billingGroupName']
+        if billing_group_properties is None and 'billingGroupProperties' in kwargs:
+            billing_group_properties = kwargs['billingGroupProperties']
+
         if billing_group_name is not None:
             _setter("billing_group_name", billing_group_name)
         if billing_group_properties is not None:
@@ -131,11 +137,7 @@ class BillingGroup(pulumi.CustomResource):
             __props__ = BillingGroupArgs.__new__(BillingGroupArgs)
 
             __props__.__dict__["billing_group_name"] = billing_group_name
-            if billing_group_properties is not None and not isinstance(billing_group_properties, BillingGroupPropertiesPropertiesArgs):
-                billing_group_properties = billing_group_properties or {}
-                def _setter(key, value):
-                    billing_group_properties[key] = value
-                BillingGroupPropertiesPropertiesArgs._configure(_setter, **billing_group_properties)
+            billing_group_properties = _utilities.configure(billing_group_properties, BillingGroupPropertiesPropertiesArgs, True)
             __props__.__dict__["billing_group_properties"] = billing_group_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -44,7 +44,13 @@ class SequenceStoreArgs:
              name: Optional[pulumi.Input[str]] = None,
              sse_config: Optional[pulumi.Input['SequenceStoreSseConfigArgs']] = None,
              tags: Optional[pulumi.Input['SequenceStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fallback_location is None and 'fallbackLocation' in kwargs:
+            fallback_location = kwargs['fallbackLocation']
+        if sse_config is None and 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+
         if description is not None:
             _setter("description", description)
         if fallback_location is not None:
@@ -176,17 +182,9 @@ class SequenceStore(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["fallback_location"] = fallback_location
             __props__.__dict__["name"] = name
-            if sse_config is not None and not isinstance(sse_config, SequenceStoreSseConfigArgs):
-                sse_config = sse_config or {}
-                def _setter(key, value):
-                    sse_config[key] = value
-                SequenceStoreSseConfigArgs._configure(_setter, **sse_config)
+            sse_config = _utilities.configure(sse_config, SequenceStoreSseConfigArgs, True)
             __props__.__dict__["sse_config"] = sse_config
-            if tags is not None and not isinstance(tags, SequenceStoreTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                SequenceStoreTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, SequenceStoreTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

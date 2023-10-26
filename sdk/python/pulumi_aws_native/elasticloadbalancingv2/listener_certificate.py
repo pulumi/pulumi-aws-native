@@ -29,9 +29,17 @@ class ListenerCertificateInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificates: pulumi.Input[Sequence[pulumi.Input['ListenerCertificateCertificateArgs']]],
-             listener_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateCertificateArgs']]]] = None,
+             listener_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificates is None:
+            raise TypeError("Missing 'certificates' argument")
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+        if listener_arn is None:
+            raise TypeError("Missing 'listener_arn' argument")
+
         _setter("certificates", certificates)
         _setter("listener_arn", listener_arn)
 

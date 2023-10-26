@@ -37,7 +37,11 @@ class PackagingGroupArgs:
              authorization: Optional[pulumi.Input['PackagingGroupAuthorizationArgs']] = None,
              egress_access_logs: Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if egress_access_logs is None and 'egressAccessLogs' in kwargs:
+            egress_access_logs = kwargs['egressAccessLogs']
+
         if authorization is not None:
             _setter("authorization", authorization)
         if egress_access_logs is not None:
@@ -140,17 +144,9 @@ class PackagingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PackagingGroupArgs.__new__(PackagingGroupArgs)
 
-            if authorization is not None and not isinstance(authorization, PackagingGroupAuthorizationArgs):
-                authorization = authorization or {}
-                def _setter(key, value):
-                    authorization[key] = value
-                PackagingGroupAuthorizationArgs._configure(_setter, **authorization)
+            authorization = _utilities.configure(authorization, PackagingGroupAuthorizationArgs, True)
             __props__.__dict__["authorization"] = authorization
-            if egress_access_logs is not None and not isinstance(egress_access_logs, PackagingGroupLogConfigurationArgs):
-                egress_access_logs = egress_access_logs or {}
-                def _setter(key, value):
-                    egress_access_logs[key] = value
-                PackagingGroupLogConfigurationArgs._configure(_setter, **egress_access_logs)
+            egress_access_logs = _utilities.configure(egress_access_logs, PackagingGroupLogConfigurationArgs, True)
             __props__.__dict__["egress_access_logs"] = egress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

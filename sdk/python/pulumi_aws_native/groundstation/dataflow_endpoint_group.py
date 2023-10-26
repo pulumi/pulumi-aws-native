@@ -36,11 +36,21 @@ class DataflowEndpointGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_details: pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]],
+             endpoint_details: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupEndpointDetailsArgs']]]] = None,
              contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
              contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowEndpointGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_details is None and 'endpointDetails' in kwargs:
+            endpoint_details = kwargs['endpointDetails']
+        if endpoint_details is None:
+            raise TypeError("Missing 'endpoint_details' argument")
+        if contact_post_pass_duration_seconds is None and 'contactPostPassDurationSeconds' in kwargs:
+            contact_post_pass_duration_seconds = kwargs['contactPostPassDurationSeconds']
+        if contact_pre_pass_duration_seconds is None and 'contactPrePassDurationSeconds' in kwargs:
+            contact_pre_pass_duration_seconds = kwargs['contactPrePassDurationSeconds']
+
         _setter("endpoint_details", endpoint_details)
         if contact_post_pass_duration_seconds is not None:
             _setter("contact_post_pass_duration_seconds", contact_post_pass_duration_seconds)

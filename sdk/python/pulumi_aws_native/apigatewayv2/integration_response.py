@@ -47,14 +47,36 @@ class IntegrationResponseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             integration_id: pulumi.Input[str],
-             integration_response_key: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             integration_id: Optional[pulumi.Input[str]] = None,
+             integration_response_key: Optional[pulumi.Input[str]] = None,
              content_handling_strategy: Optional[pulumi.Input[str]] = None,
              response_parameters: Optional[Any] = None,
              response_templates: Optional[Any] = None,
              template_selection_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if integration_id is None and 'integrationId' in kwargs:
+            integration_id = kwargs['integrationId']
+        if integration_id is None:
+            raise TypeError("Missing 'integration_id' argument")
+        if integration_response_key is None and 'integrationResponseKey' in kwargs:
+            integration_response_key = kwargs['integrationResponseKey']
+        if integration_response_key is None:
+            raise TypeError("Missing 'integration_response_key' argument")
+        if content_handling_strategy is None and 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if template_selection_expression is None and 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+
         _setter("api_id", api_id)
         _setter("integration_id", integration_id)
         _setter("integration_response_key", integration_response_key)

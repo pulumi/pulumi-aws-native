@@ -40,12 +40,24 @@ class VersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
+             function_name: Optional[pulumi.Input[str]] = None,
              code_sha256: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
              runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if code_sha256 is None and 'codeSha256' in kwargs:
+            code_sha256 = kwargs['codeSha256']
+        if provisioned_concurrency_config is None and 'provisionedConcurrencyConfig' in kwargs:
+            provisioned_concurrency_config = kwargs['provisionedConcurrencyConfig']
+        if runtime_policy is None and 'runtimePolicy' in kwargs:
+            runtime_policy = kwargs['runtimePolicy']
+
         _setter("function_name", function_name)
         if code_sha256 is not None:
             _setter("code_sha256", code_sha256)
@@ -186,17 +198,9 @@ class Version(pulumi.CustomResource):
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
-            if provisioned_concurrency_config is not None and not isinstance(provisioned_concurrency_config, VersionProvisionedConcurrencyConfigurationArgs):
-                provisioned_concurrency_config = provisioned_concurrency_config or {}
-                def _setter(key, value):
-                    provisioned_concurrency_config[key] = value
-                VersionProvisionedConcurrencyConfigurationArgs._configure(_setter, **provisioned_concurrency_config)
+            provisioned_concurrency_config = _utilities.configure(provisioned_concurrency_config, VersionProvisionedConcurrencyConfigurationArgs, True)
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
-            if runtime_policy is not None and not isinstance(runtime_policy, VersionRuntimePolicyArgs):
-                runtime_policy = runtime_policy or {}
-                def _setter(key, value):
-                    runtime_policy[key] = value
-                VersionRuntimePolicyArgs._configure(_setter, **runtime_policy)
+            runtime_policy = _utilities.configure(runtime_policy, VersionRuntimePolicyArgs, True)
             __props__.__dict__["runtime_policy"] = runtime_policy
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["version"] = None

@@ -44,13 +44,21 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: Any,
-             type: pulumi.Input['PolicyType'],
+             content: Optional[Any] = None,
+             type: Optional[pulumi.Input['PolicyType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None,
              target_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if target_ids is None and 'targetIds' in kwargs:
+            target_ids = kwargs['targetIds']
+
         _setter("content", content)
         _setter("type", type)
         if description is not None:

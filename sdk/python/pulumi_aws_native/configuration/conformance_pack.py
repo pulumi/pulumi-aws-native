@@ -53,7 +53,23 @@ class ConformancePackArgs:
              template_body: Optional[pulumi.Input[str]] = None,
              template_s3_uri: Optional[pulumi.Input[str]] = None,
              template_ssm_document_details: Optional[pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conformance_pack_input_parameters is None and 'conformancePackInputParameters' in kwargs:
+            conformance_pack_input_parameters = kwargs['conformancePackInputParameters']
+        if conformance_pack_name is None and 'conformancePackName' in kwargs:
+            conformance_pack_name = kwargs['conformancePackName']
+        if delivery_s3_bucket is None and 'deliveryS3Bucket' in kwargs:
+            delivery_s3_bucket = kwargs['deliveryS3Bucket']
+        if delivery_s3_key_prefix is None and 'deliveryS3KeyPrefix' in kwargs:
+            delivery_s3_key_prefix = kwargs['deliveryS3KeyPrefix']
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_s3_uri is None and 'templateS3Uri' in kwargs:
+            template_s3_uri = kwargs['templateS3Uri']
+        if template_ssm_document_details is None and 'templateSsmDocumentDetails' in kwargs:
+            template_ssm_document_details = kwargs['templateSsmDocumentDetails']
+
         if conformance_pack_input_parameters is not None:
             _setter("conformance_pack_input_parameters", conformance_pack_input_parameters)
         if conformance_pack_name is not None:
@@ -230,11 +246,7 @@ class ConformancePack(pulumi.CustomResource):
             __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
-            if template_ssm_document_details is not None and not isinstance(template_ssm_document_details, TemplateSsmDocumentDetailsPropertiesArgs):
-                template_ssm_document_details = template_ssm_document_details or {}
-                def _setter(key, value):
-                    template_ssm_document_details[key] = value
-                TemplateSsmDocumentDetailsPropertiesArgs._configure(_setter, **template_ssm_document_details)
+            template_ssm_document_details = _utilities.configure(template_ssm_document_details, TemplateSsmDocumentDetailsPropertiesArgs, True)
             __props__.__dict__["template_ssm_document_details"] = template_ssm_document_details
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["conformance_pack_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

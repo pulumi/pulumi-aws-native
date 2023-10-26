@@ -34,10 +34,16 @@ class MultiRegionAccessPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              public_access_block_configuration: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regions is None:
+            raise TypeError("Missing 'regions' argument")
+        if public_access_block_configuration is None and 'publicAccessBlockConfiguration' in kwargs:
+            public_access_block_configuration = kwargs['publicAccessBlockConfiguration']
+
         _setter("regions", regions)
         if name is not None:
             _setter("name", name)
@@ -140,11 +146,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             __props__ = MultiRegionAccessPointArgs.__new__(MultiRegionAccessPointArgs)
 
             __props__.__dict__["name"] = name
-            if public_access_block_configuration is not None and not isinstance(public_access_block_configuration, MultiRegionAccessPointPublicAccessBlockConfigurationArgs):
-                public_access_block_configuration = public_access_block_configuration or {}
-                def _setter(key, value):
-                    public_access_block_configuration[key] = value
-                MultiRegionAccessPointPublicAccessBlockConfigurationArgs._configure(_setter, **public_access_block_configuration)
+            public_access_block_configuration = _utilities.configure(public_access_block_configuration, MultiRegionAccessPointPublicAccessBlockConfigurationArgs, True)
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")

@@ -29,9 +29,17 @@ class AccessPointAwsLambdaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_arn: pulumi.Input[str],
+             function_arn: Optional[pulumi.Input[str]] = None,
              function_payload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+        if function_payload is None and 'functionPayload' in kwargs:
+            function_payload = kwargs['functionPayload']
+
         _setter("function_arn", function_arn)
         if function_payload is not None:
             _setter("function_payload", function_payload)
@@ -75,11 +83,25 @@ class AccessPointObjectLambdaConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             supporting_access_point: pulumi.Input[str],
-             transformation_configurations: pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]],
+             supporting_access_point: Optional[pulumi.Input[str]] = None,
+             transformation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]]] = None,
              allowed_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if supporting_access_point is None and 'supportingAccessPoint' in kwargs:
+            supporting_access_point = kwargs['supportingAccessPoint']
+        if supporting_access_point is None:
+            raise TypeError("Missing 'supporting_access_point' argument")
+        if transformation_configurations is None and 'transformationConfigurations' in kwargs:
+            transformation_configurations = kwargs['transformationConfigurations']
+        if transformation_configurations is None:
+            raise TypeError("Missing 'transformation_configurations' argument")
+        if allowed_features is None and 'allowedFeatures' in kwargs:
+            allowed_features = kwargs['allowedFeatures']
+        if cloud_watch_metrics_enabled is None and 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+
         _setter("supporting_access_point", supporting_access_point)
         _setter("transformation_configurations", transformation_configurations)
         if allowed_features is not None:
@@ -135,8 +157,14 @@ class AccessPointTransformationConfigurationContentTransformationPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_lambda: pulumi.Input['AccessPointAwsLambdaArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             aws_lambda: Optional[pulumi.Input['AccessPointAwsLambdaArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_lambda is None and 'awsLambda' in kwargs:
+            aws_lambda = kwargs['awsLambda']
+        if aws_lambda is None:
+            raise TypeError("Missing 'aws_lambda' argument")
+
         _setter("aws_lambda", aws_lambda)
 
     @property
@@ -165,9 +193,17 @@ class AccessPointTransformationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             content_transformation: pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             content_transformation: Optional[pulumi.Input['AccessPointTransformationConfigurationContentTransformationPropertiesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if content_transformation is None and 'contentTransformation' in kwargs:
+            content_transformation = kwargs['contentTransformation']
+        if content_transformation is None:
+            raise TypeError("Missing 'content_transformation' argument")
+
         _setter("actions", actions)
         _setter("content_transformation", content_transformation)
 

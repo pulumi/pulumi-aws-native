@@ -33,12 +33,18 @@ class PresetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             settings_json: Any,
+             settings_json: Optional[Any] = None,
              category: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if settings_json is None and 'settingsJson' in kwargs:
+            settings_json = kwargs['settingsJson']
+        if settings_json is None:
+            raise TypeError("Missing 'settings_json' argument")
+
         _setter("settings_json", settings_json)
         if category is not None:
             _setter("category", category)

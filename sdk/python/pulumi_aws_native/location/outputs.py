@@ -26,8 +26,12 @@ class MapConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             style: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             style: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if style is None:
+            raise TypeError("Missing 'style' argument")
+
         _setter("style", style)
 
     @property
@@ -65,7 +69,11 @@ class PlaceIndexDataSourceConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              intended_use: Optional['PlaceIndexIntendedUse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if intended_use is None and 'intendedUse' in kwargs:
+            intended_use = kwargs['intendedUse']
+
         if intended_use is not None:
             _setter("intended_use", intended_use)
 

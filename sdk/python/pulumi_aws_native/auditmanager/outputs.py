@@ -62,7 +62,11 @@ class AssessmentAwsAccount(dict):
              email_address: Optional[str] = None,
              id: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+
         if email_address is not None:
             _setter("email_address", email_address)
         if id is not None:
@@ -121,7 +125,11 @@ class AssessmentAwsService(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if service_name is not None:
             _setter("service_name", service_name)
 
@@ -210,7 +218,25 @@ class AssessmentDelegation(dict):
              role_arn: Optional[str] = None,
              role_type: Optional['AssessmentRoleType'] = None,
              status: Optional['AssessmentDelegationStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_id is None and 'assessmentId' in kwargs:
+            assessment_id = kwargs['assessmentId']
+        if assessment_name is None and 'assessmentName' in kwargs:
+            assessment_name = kwargs['assessmentName']
+        if control_set_id is None and 'controlSetId' in kwargs:
+            control_set_id = kwargs['controlSetId']
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if last_updated is None and 'lastUpdated' in kwargs:
+            last_updated = kwargs['lastUpdated']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+
         if assessment_id is not None:
             _setter("assessment_id", assessment_id)
         if assessment_name is not None:
@@ -328,7 +354,11 @@ class AssessmentReportsDestination(dict):
              _setter: Callable[[Any, Any], None],
              destination: Optional[str] = None,
              destination_type: Optional['AssessmentReportDestinationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_type is None and 'destinationType' in kwargs:
+            destination_type = kwargs['destinationType']
+
         if destination is not None:
             _setter("destination", destination)
         if destination_type is not None:
@@ -385,7 +415,13 @@ class AssessmentRole(dict):
              _setter: Callable[[Any, Any], None],
              role_arn: Optional[str] = None,
              role_type: Optional['AssessmentRoleType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_type is None and 'roleType' in kwargs:
+            role_type = kwargs['roleType']
+
         if role_arn is not None:
             _setter("role_arn", role_arn)
         if role_type is not None:
@@ -444,7 +480,13 @@ class AssessmentScope(dict):
              _setter: Callable[[Any, Any], None],
              aws_accounts: Optional[Sequence['outputs.AssessmentAwsAccount']] = None,
              aws_services: Optional[Sequence['outputs.AssessmentAwsService']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_accounts is None and 'awsAccounts' in kwargs:
+            aws_accounts = kwargs['awsAccounts']
+        if aws_services is None and 'awsServices' in kwargs:
+            aws_services = kwargs['awsServices']
+
         if aws_accounts is not None:
             _setter("aws_accounts", aws_accounts)
         if aws_services is not None:
@@ -488,9 +530,15 @@ class AssessmentTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

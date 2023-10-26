@@ -34,10 +34,20 @@ class ApplicationVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
-             source_bundle: pulumi.Input['ApplicationVersionSourceBundleArgs'],
+             application_name: Optional[pulumi.Input[str]] = None,
+             source_bundle: Optional[pulumi.Input['ApplicationVersionSourceBundleArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if source_bundle is None and 'sourceBundle' in kwargs:
+            source_bundle = kwargs['sourceBundle']
+        if source_bundle is None:
+            raise TypeError("Missing 'source_bundle' argument")
+
         _setter("application_name", application_name)
         _setter("source_bundle", source_bundle)
         if description is not None:
@@ -142,11 +152,7 @@ class ApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["description"] = description
-            if source_bundle is not None and not isinstance(source_bundle, ApplicationVersionSourceBundleArgs):
-                source_bundle = source_bundle or {}
-                def _setter(key, value):
-                    source_bundle[key] = value
-                ApplicationVersionSourceBundleArgs._configure(_setter, **source_bundle)
+            source_bundle = _utilities.configure(source_bundle, ApplicationVersionSourceBundleArgs, True)
             if source_bundle is None and not opts.urn:
                 raise TypeError("Missing required property 'source_bundle'")
             __props__.__dict__["source_bundle"] = source_bundle

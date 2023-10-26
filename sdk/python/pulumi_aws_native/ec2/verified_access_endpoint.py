@@ -67,12 +67,12 @@ class VerifiedAccessEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_domain: pulumi.Input[str],
-             attachment_type: pulumi.Input[str],
-             domain_certificate_arn: pulumi.Input[str],
-             endpoint_domain_prefix: pulumi.Input[str],
-             endpoint_type: pulumi.Input[str],
-             verified_access_group_id: pulumi.Input[str],
+             application_domain: Optional[pulumi.Input[str]] = None,
+             attachment_type: Optional[pulumi.Input[str]] = None,
+             domain_certificate_arn: Optional[pulumi.Input[str]] = None,
+             endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             verified_access_group_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              load_balancer_options: Optional[pulumi.Input['VerifiedAccessEndpointLoadBalancerOptionsArgs']] = None,
              network_interface_options: Optional[pulumi.Input['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']] = None,
@@ -81,7 +81,45 @@ class VerifiedAccessEndpointArgs:
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sse_specification: Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_domain is None and 'applicationDomain' in kwargs:
+            application_domain = kwargs['applicationDomain']
+        if application_domain is None:
+            raise TypeError("Missing 'application_domain' argument")
+        if attachment_type is None and 'attachmentType' in kwargs:
+            attachment_type = kwargs['attachmentType']
+        if attachment_type is None:
+            raise TypeError("Missing 'attachment_type' argument")
+        if domain_certificate_arn is None and 'domainCertificateArn' in kwargs:
+            domain_certificate_arn = kwargs['domainCertificateArn']
+        if domain_certificate_arn is None:
+            raise TypeError("Missing 'domain_certificate_arn' argument")
+        if endpoint_domain_prefix is None and 'endpointDomainPrefix' in kwargs:
+            endpoint_domain_prefix = kwargs['endpointDomainPrefix']
+        if endpoint_domain_prefix is None:
+            raise TypeError("Missing 'endpoint_domain_prefix' argument")
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if verified_access_group_id is None and 'verifiedAccessGroupId' in kwargs:
+            verified_access_group_id = kwargs['verifiedAccessGroupId']
+        if verified_access_group_id is None:
+            raise TypeError("Missing 'verified_access_group_id' argument")
+        if load_balancer_options is None and 'loadBalancerOptions' in kwargs:
+            load_balancer_options = kwargs['loadBalancerOptions']
+        if network_interface_options is None and 'networkInterfaceOptions' in kwargs:
+            network_interface_options = kwargs['networkInterfaceOptions']
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_enabled is None and 'policyEnabled' in kwargs:
+            policy_enabled = kwargs['policyEnabled']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if sse_specification is None and 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+
         _setter("application_domain", application_domain)
         _setter("attachment_type", attachment_type)
         _setter("domain_certificate_arn", domain_certificate_arn)
@@ -381,26 +419,14 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
             if endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_type'")
             __props__.__dict__["endpoint_type"] = endpoint_type
-            if load_balancer_options is not None and not isinstance(load_balancer_options, VerifiedAccessEndpointLoadBalancerOptionsArgs):
-                load_balancer_options = load_balancer_options or {}
-                def _setter(key, value):
-                    load_balancer_options[key] = value
-                VerifiedAccessEndpointLoadBalancerOptionsArgs._configure(_setter, **load_balancer_options)
+            load_balancer_options = _utilities.configure(load_balancer_options, VerifiedAccessEndpointLoadBalancerOptionsArgs, True)
             __props__.__dict__["load_balancer_options"] = load_balancer_options
-            if network_interface_options is not None and not isinstance(network_interface_options, VerifiedAccessEndpointNetworkInterfaceOptionsArgs):
-                network_interface_options = network_interface_options or {}
-                def _setter(key, value):
-                    network_interface_options[key] = value
-                VerifiedAccessEndpointNetworkInterfaceOptionsArgs._configure(_setter, **network_interface_options)
+            network_interface_options = _utilities.configure(network_interface_options, VerifiedAccessEndpointNetworkInterfaceOptionsArgs, True)
             __props__.__dict__["network_interface_options"] = network_interface_options
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_enabled"] = policy_enabled
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if sse_specification is not None and not isinstance(sse_specification, VerifiedAccessEndpointSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                VerifiedAccessEndpointSseSpecificationArgs._configure(_setter, **sse_specification)
+            sse_specification = _utilities.configure(sse_specification, VerifiedAccessEndpointSseSpecificationArgs, True)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if verified_access_group_id is None and not opts.urn:

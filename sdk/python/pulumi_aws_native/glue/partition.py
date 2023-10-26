@@ -33,11 +33,29 @@ class PartitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             partition_input: pulumi.Input['PartitionInputArgs'],
-             table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             partition_input: Optional[pulumi.Input['PartitionInputArgs']] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if partition_input is None and 'partitionInput' in kwargs:
+            partition_input = kwargs['partitionInput']
+        if partition_input is None:
+            raise TypeError("Missing 'partition_input' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         _setter("partition_input", partition_input)
@@ -149,11 +167,7 @@ class Partition(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if partition_input is not None and not isinstance(partition_input, PartitionInputArgs):
-                partition_input = partition_input or {}
-                def _setter(key, value):
-                    partition_input[key] = value
-                PartitionInputArgs._configure(_setter, **partition_input)
+            partition_input = _utilities.configure(partition_input, PartitionInputArgs, True)
             if partition_input is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_input'")
             __props__.__dict__["partition_input"] = partition_input

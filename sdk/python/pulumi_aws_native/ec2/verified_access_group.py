@@ -43,13 +43,25 @@ class VerifiedAccessGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             verified_access_instance_id: pulumi.Input[str],
+             verified_access_instance_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              policy_document: Optional[pulumi.Input[str]] = None,
              policy_enabled: Optional[pulumi.Input[bool]] = None,
              sse_specification: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if verified_access_instance_id is None and 'verifiedAccessInstanceId' in kwargs:
+            verified_access_instance_id = kwargs['verifiedAccessInstanceId']
+        if verified_access_instance_id is None:
+            raise TypeError("Missing 'verified_access_instance_id' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_enabled is None and 'policyEnabled' in kwargs:
+            policy_enabled = kwargs['policyEnabled']
+        if sse_specification is None and 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+
         _setter("verified_access_instance_id", verified_access_instance_id)
         if description is not None:
             _setter("description", description)
@@ -205,11 +217,7 @@ class VerifiedAccessGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_enabled"] = policy_enabled
-            if sse_specification is not None and not isinstance(sse_specification, VerifiedAccessGroupSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                VerifiedAccessGroupSseSpecificationArgs._configure(_setter, **sse_specification)
+            sse_specification = _utilities.configure(sse_specification, VerifiedAccessGroupSseSpecificationArgs, True)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if verified_access_instance_id is None and not opts.urn:

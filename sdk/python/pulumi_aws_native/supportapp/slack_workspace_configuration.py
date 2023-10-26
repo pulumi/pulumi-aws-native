@@ -29,9 +29,17 @@ class SlackWorkspaceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             team_id: pulumi.Input[str],
+             team_id: Optional[pulumi.Input[str]] = None,
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if version_id is None and 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         _setter("team_id", team_id)
         if version_id is not None:
             _setter("version_id", version_id)

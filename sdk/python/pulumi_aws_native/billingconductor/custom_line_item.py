@@ -39,13 +39,23 @@ class CustomLineItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             billing_group_arn: pulumi.Input[str],
+             billing_group_arn: Optional[pulumi.Input[str]] = None,
              billing_period_range: Optional[pulumi.Input['CustomLineItemBillingPeriodRangeArgs']] = None,
              custom_line_item_charge_details: Optional[pulumi.Input['CustomLineItemChargeDetailsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLineItemTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if billing_group_arn is None and 'billingGroupArn' in kwargs:
+            billing_group_arn = kwargs['billingGroupArn']
+        if billing_group_arn is None:
+            raise TypeError("Missing 'billing_group_arn' argument")
+        if billing_period_range is None and 'billingPeriodRange' in kwargs:
+            billing_period_range = kwargs['billingPeriodRange']
+        if custom_line_item_charge_details is None and 'customLineItemChargeDetails' in kwargs:
+            custom_line_item_charge_details = kwargs['customLineItemChargeDetails']
+
         _setter("billing_group_arn", billing_group_arn)
         if billing_period_range is not None:
             _setter("billing_period_range", billing_period_range)
@@ -187,17 +197,9 @@ class CustomLineItem(pulumi.CustomResource):
             if billing_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_group_arn'")
             __props__.__dict__["billing_group_arn"] = billing_group_arn
-            if billing_period_range is not None and not isinstance(billing_period_range, CustomLineItemBillingPeriodRangeArgs):
-                billing_period_range = billing_period_range or {}
-                def _setter(key, value):
-                    billing_period_range[key] = value
-                CustomLineItemBillingPeriodRangeArgs._configure(_setter, **billing_period_range)
+            billing_period_range = _utilities.configure(billing_period_range, CustomLineItemBillingPeriodRangeArgs, True)
             __props__.__dict__["billing_period_range"] = billing_period_range
-            if custom_line_item_charge_details is not None and not isinstance(custom_line_item_charge_details, CustomLineItemChargeDetailsArgs):
-                custom_line_item_charge_details = custom_line_item_charge_details or {}
-                def _setter(key, value):
-                    custom_line_item_charge_details[key] = value
-                CustomLineItemChargeDetailsArgs._configure(_setter, **custom_line_item_charge_details)
+            custom_line_item_charge_details = _utilities.configure(custom_line_item_charge_details, CustomLineItemChargeDetailsArgs, True)
             __props__.__dict__["custom_line_item_charge_details"] = custom_line_item_charge_details
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

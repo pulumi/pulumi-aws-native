@@ -43,7 +43,7 @@ class PushTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template_name: pulumi.Input[str],
+             template_name: Optional[pulumi.Input[str]] = None,
              adm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
              apns: Optional[pulumi.Input['PushTemplateApnsPushNotificationTemplateArgs']] = None,
              baidu: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
@@ -52,7 +52,17 @@ class PushTemplateArgs:
              gcm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+        if default_substitutions is None and 'defaultSubstitutions' in kwargs:
+            default_substitutions = kwargs['defaultSubstitutions']
+        if template_description is None and 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+
         _setter("template_name", template_name)
         if adm is not None:
             _setter("adm", adm)
@@ -226,36 +236,16 @@ class PushTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PushTemplateArgs.__new__(PushTemplateArgs)
 
-            if adm is not None and not isinstance(adm, PushTemplateAndroidPushNotificationTemplateArgs):
-                adm = adm or {}
-                def _setter(key, value):
-                    adm[key] = value
-                PushTemplateAndroidPushNotificationTemplateArgs._configure(_setter, **adm)
+            adm = _utilities.configure(adm, PushTemplateAndroidPushNotificationTemplateArgs, True)
             __props__.__dict__["adm"] = adm
-            if apns is not None and not isinstance(apns, PushTemplateApnsPushNotificationTemplateArgs):
-                apns = apns or {}
-                def _setter(key, value):
-                    apns[key] = value
-                PushTemplateApnsPushNotificationTemplateArgs._configure(_setter, **apns)
+            apns = _utilities.configure(apns, PushTemplateApnsPushNotificationTemplateArgs, True)
             __props__.__dict__["apns"] = apns
-            if baidu is not None and not isinstance(baidu, PushTemplateAndroidPushNotificationTemplateArgs):
-                baidu = baidu or {}
-                def _setter(key, value):
-                    baidu[key] = value
-                PushTemplateAndroidPushNotificationTemplateArgs._configure(_setter, **baidu)
+            baidu = _utilities.configure(baidu, PushTemplateAndroidPushNotificationTemplateArgs, True)
             __props__.__dict__["baidu"] = baidu
-            if default is not None and not isinstance(default, PushTemplateDefaultPushNotificationTemplateArgs):
-                default = default or {}
-                def _setter(key, value):
-                    default[key] = value
-                PushTemplateDefaultPushNotificationTemplateArgs._configure(_setter, **default)
+            default = _utilities.configure(default, PushTemplateDefaultPushNotificationTemplateArgs, True)
             __props__.__dict__["default"] = default
             __props__.__dict__["default_substitutions"] = default_substitutions
-            if gcm is not None and not isinstance(gcm, PushTemplateAndroidPushNotificationTemplateArgs):
-                gcm = gcm or {}
-                def _setter(key, value):
-                    gcm[key] = value
-                PushTemplateAndroidPushNotificationTemplateArgs._configure(_setter, **gcm)
+            gcm = _utilities.configure(gcm, PushTemplateAndroidPushNotificationTemplateArgs, True)
             __props__.__dict__["gcm"] = gcm
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_description"] = template_description

@@ -52,7 +52,19 @@ class DomainArgs:
              matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
              rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dead_letter_queue_url is None and 'deadLetterQueueUrl' in kwargs:
+            dead_letter_queue_url = kwargs['deadLetterQueueUrl']
+        if default_encryption_key is None and 'defaultEncryptionKey' in kwargs:
+            default_encryption_key = kwargs['defaultEncryptionKey']
+        if default_expiration_days is None and 'defaultExpirationDays' in kwargs:
+            default_expiration_days = kwargs['defaultExpirationDays']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if rule_based_matching is None and 'ruleBasedMatching' in kwargs:
+            rule_based_matching = kwargs['ruleBasedMatching']
+
         if dead_letter_queue_url is not None:
             _setter("dead_letter_queue_url", dead_letter_queue_url)
         if default_encryption_key is not None:
@@ -219,17 +231,9 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["default_encryption_key"] = default_encryption_key
             __props__.__dict__["default_expiration_days"] = default_expiration_days
             __props__.__dict__["domain_name"] = domain_name
-            if matching is not None and not isinstance(matching, DomainMatchingArgs):
-                matching = matching or {}
-                def _setter(key, value):
-                    matching[key] = value
-                DomainMatchingArgs._configure(_setter, **matching)
+            matching = _utilities.configure(matching, DomainMatchingArgs, True)
             __props__.__dict__["matching"] = matching
-            if rule_based_matching is not None and not isinstance(rule_based_matching, DomainRuleBasedMatchingArgs):
-                rule_based_matching = rule_based_matching or {}
-                def _setter(key, value):
-                    rule_based_matching[key] = value
-                DomainRuleBasedMatchingArgs._configure(_setter, **rule_based_matching)
+            rule_based_matching = _utilities.configure(rule_based_matching, DomainRuleBasedMatchingArgs, True)
             __props__.__dict__["rule_based_matching"] = rule_based_matching
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None

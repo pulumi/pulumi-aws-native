@@ -40,12 +40,22 @@ class StreamingImageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ec2_image_id: pulumi.Input[str],
-             studio_id: pulumi.Input[str],
+             ec2_image_id: Optional[pulumi.Input[str]] = None,
+             studio_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['StreamingImageTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_image_id is None and 'ec2ImageId' in kwargs:
+            ec2_image_id = kwargs['ec2ImageId']
+        if ec2_image_id is None:
+            raise TypeError("Missing 'ec2_image_id' argument")
+        if studio_id is None and 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+        if studio_id is None:
+            raise TypeError("Missing 'studio_id' argument")
+
         _setter("ec2_image_id", ec2_image_id)
         _setter("studio_id", studio_id)
         if description is not None:
@@ -184,11 +194,7 @@ class StreamingImage(pulumi.CustomResource):
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
-            if tags is not None and not isinstance(tags, StreamingImageTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                StreamingImageTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, StreamingImageTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["encryption_configuration"] = None
             __props__.__dict__["eula_ids"] = None

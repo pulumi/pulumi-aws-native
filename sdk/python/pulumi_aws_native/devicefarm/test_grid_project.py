@@ -37,7 +37,11 @@ class TestGridProjectArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TestGridProjectTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['TestGridProjectVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -144,11 +148,7 @@ class TestGridProject(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            if vpc_config is not None and not isinstance(vpc_config, TestGridProjectVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                TestGridProjectVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, TestGridProjectVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
         super(TestGridProject, __self__).__init__(

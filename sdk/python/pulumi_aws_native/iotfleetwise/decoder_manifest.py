@@ -40,14 +40,24 @@ class DecoderManifestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             model_manifest_arn: pulumi.Input[str],
+             model_manifest_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanNetworkInterfaceArgs', 'DecoderManifestObdNetworkInterfaceArgs']]]]] = None,
              signal_decoders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanSignalDecoderArgs', 'DecoderManifestObdSignalDecoderArgs']]]]] = None,
              status: Optional[pulumi.Input['DecoderManifestManifestStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DecoderManifestTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if model_manifest_arn is None and 'modelManifestArn' in kwargs:
+            model_manifest_arn = kwargs['modelManifestArn']
+        if model_manifest_arn is None:
+            raise TypeError("Missing 'model_manifest_arn' argument")
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if signal_decoders is None and 'signalDecoders' in kwargs:
+            signal_decoders = kwargs['signalDecoders']
+
         _setter("model_manifest_arn", model_manifest_arn)
         if description is not None:
             _setter("description", description)

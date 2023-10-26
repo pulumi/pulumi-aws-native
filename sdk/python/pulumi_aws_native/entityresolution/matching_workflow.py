@@ -42,14 +42,36 @@ class MatchingWorkflowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_source_config: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]],
-             output_source_config: pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]],
-             resolution_techniques: pulumi.Input['MatchingWorkflowResolutionTechniquesArgs'],
-             role_arn: pulumi.Input[str],
-             workflow_name: pulumi.Input[str],
+             input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowInputSourceArgs']]]] = None,
+             output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowOutputSourceArgs']]]] = None,
+             resolution_techniques: Optional[pulumi.Input['MatchingWorkflowResolutionTechniquesArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchingWorkflowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_source_config is None and 'inputSourceConfig' in kwargs:
+            input_source_config = kwargs['inputSourceConfig']
+        if input_source_config is None:
+            raise TypeError("Missing 'input_source_config' argument")
+        if output_source_config is None and 'outputSourceConfig' in kwargs:
+            output_source_config = kwargs['outputSourceConfig']
+        if output_source_config is None:
+            raise TypeError("Missing 'output_source_config' argument")
+        if resolution_techniques is None and 'resolutionTechniques' in kwargs:
+            resolution_techniques = kwargs['resolutionTechniques']
+        if resolution_techniques is None:
+            raise TypeError("Missing 'resolution_techniques' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if workflow_name is None and 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+        if workflow_name is None:
+            raise TypeError("Missing 'workflow_name' argument")
+
         _setter("input_source_config", input_source_config)
         _setter("output_source_config", output_source_config)
         _setter("resolution_techniques", resolution_techniques)
@@ -202,11 +224,7 @@ class MatchingWorkflow(pulumi.CustomResource):
             if output_source_config is None and not opts.urn:
                 raise TypeError("Missing required property 'output_source_config'")
             __props__.__dict__["output_source_config"] = output_source_config
-            if resolution_techniques is not None and not isinstance(resolution_techniques, MatchingWorkflowResolutionTechniquesArgs):
-                resolution_techniques = resolution_techniques or {}
-                def _setter(key, value):
-                    resolution_techniques[key] = value
-                MatchingWorkflowResolutionTechniquesArgs._configure(_setter, **resolution_techniques)
+            resolution_techniques = _utilities.configure(resolution_techniques, MatchingWorkflowResolutionTechniquesArgs, True)
             if resolution_techniques is None and not opts.urn:
                 raise TypeError("Missing required property 'resolution_techniques'")
             __props__.__dict__["resolution_techniques"] = resolution_techniques

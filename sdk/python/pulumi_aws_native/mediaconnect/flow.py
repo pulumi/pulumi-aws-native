@@ -38,11 +38,19 @@ class FlowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input['FlowSourceArgs'],
+             source: Optional[pulumi.Input['FlowSourceArgs']] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              source_failover_config: Optional[pulumi.Input['FlowFailoverConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if source_failover_config is None and 'sourceFailoverConfig' in kwargs:
+            source_failover_config = kwargs['sourceFailoverConfig']
+
         _setter("source", source)
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
@@ -163,19 +171,11 @@ class Flow(pulumi.CustomResource):
 
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["name"] = name
-            if source is not None and not isinstance(source, FlowSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                FlowSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, FlowSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
-            if source_failover_config is not None and not isinstance(source_failover_config, FlowFailoverConfigArgs):
-                source_failover_config = source_failover_config or {}
-                def _setter(key, value):
-                    source_failover_config[key] = value
-                FlowFailoverConfigArgs._configure(_setter, **source_failover_config)
+            source_failover_config = _utilities.configure(source_failover_config, FlowFailoverConfigArgs, True)
             __props__.__dict__["source_failover_config"] = source_failover_config
             __props__.__dict__["flow_arn"] = None
             __props__.__dict__["flow_availability_zone"] = None

@@ -39,14 +39,28 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data: pulumi.Input[str],
-             engine_type: pulumi.Input[str],
-             engine_version: pulumi.Input[str],
+             data: Optional[pulumi.Input[str]] = None,
+             engine_type: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
              authentication_strategy: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data is None:
+            raise TypeError("Missing 'data' argument")
+        if engine_type is None and 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if engine_type is None:
+            raise TypeError("Missing 'engine_type' argument")
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if engine_version is None:
+            raise TypeError("Missing 'engine_version' argument")
+        if authentication_strategy is None and 'authenticationStrategy' in kwargs:
+            authentication_strategy = kwargs['authenticationStrategy']
+
         _setter("data", data)
         _setter("engine_type", engine_type)
         _setter("engine_version", engine_version)

@@ -29,10 +29,20 @@ class VpcGatewayAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             vpc_id: pulumi.Input[str],
+             vpc_id: Optional[pulumi.Input[str]] = None,
              internet_gateway_id: Optional[pulumi.Input[str]] = None,
              vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if internet_gateway_id is None and 'internetGatewayId' in kwargs:
+            internet_gateway_id = kwargs['internetGatewayId']
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+
         _setter("vpc_id", vpc_id)
         if internet_gateway_id is not None:
             _setter("internet_gateway_id", internet_gateway_id)

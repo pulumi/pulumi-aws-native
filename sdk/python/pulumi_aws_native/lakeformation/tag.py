@@ -32,10 +32,22 @@ class TagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tag_key: pulumi.Input[str],
-             tag_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+             tag_key: Optional[pulumi.Input[str]] = None,
+             tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              catalog_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_key is None:
+            raise TypeError("Missing 'tag_key' argument")
+        if tag_values is None and 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+        if tag_values is None:
+            raise TypeError("Missing 'tag_values' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
         _setter("tag_key", tag_key)
         _setter("tag_values", tag_values)
         if catalog_id is not None:

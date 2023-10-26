@@ -32,10 +32,16 @@ class ConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config_data: pulumi.Input['ConfigDataArgs'],
+             config_data: Optional[pulumi.Input['ConfigDataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_data is None and 'configData' in kwargs:
+            config_data = kwargs['configData']
+        if config_data is None:
+            raise TypeError("Missing 'config_data' argument")
+
         _setter("config_data", config_data)
         if name is not None:
             _setter("name", name)
@@ -125,11 +131,7 @@ class Config(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigArgs.__new__(ConfigArgs)
 
-            if config_data is not None and not isinstance(config_data, ConfigDataArgs):
-                config_data = config_data or {}
-                def _setter(key, value):
-                    config_data[key] = value
-                ConfigDataArgs._configure(_setter, **config_data)
+            config_data = _utilities.configure(config_data, ConfigDataArgs, True)
             if config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'config_data'")
             __props__.__dict__["config_data"] = config_data

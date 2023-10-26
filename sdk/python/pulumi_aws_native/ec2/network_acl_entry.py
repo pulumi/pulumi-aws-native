@@ -43,16 +43,38 @@ class NetworkAclEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_acl_id: pulumi.Input[str],
-             protocol: pulumi.Input[int],
-             rule_action: pulumi.Input[str],
-             rule_number: pulumi.Input[int],
+             network_acl_id: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[int]] = None,
+             rule_action: Optional[pulumi.Input[str]] = None,
+             rule_number: Optional[pulumi.Input[int]] = None,
              cidr_block: Optional[pulumi.Input[str]] = None,
              egress: Optional[pulumi.Input[bool]] = None,
              icmp: Optional[pulumi.Input['NetworkAclEntryIcmpArgs']] = None,
              ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
              port_range: Optional[pulumi.Input['NetworkAclEntryPortRangeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_acl_id is None and 'networkAclId' in kwargs:
+            network_acl_id = kwargs['networkAclId']
+        if network_acl_id is None:
+            raise TypeError("Missing 'network_acl_id' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if rule_action is None and 'ruleAction' in kwargs:
+            rule_action = kwargs['ruleAction']
+        if rule_action is None:
+            raise TypeError("Missing 'rule_action' argument")
+        if rule_number is None and 'ruleNumber' in kwargs:
+            rule_number = kwargs['ruleNumber']
+        if rule_number is None:
+            raise TypeError("Missing 'rule_number' argument")
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if ipv6_cidr_block is None and 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if port_range is None and 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+
         _setter("network_acl_id", network_acl_id)
         _setter("protocol", protocol)
         _setter("rule_action", rule_action)
@@ -225,21 +247,13 @@ class NetworkAclEntry(pulumi.CustomResource):
 
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["egress"] = egress
-            if icmp is not None and not isinstance(icmp, NetworkAclEntryIcmpArgs):
-                icmp = icmp or {}
-                def _setter(key, value):
-                    icmp[key] = value
-                NetworkAclEntryIcmpArgs._configure(_setter, **icmp)
+            icmp = _utilities.configure(icmp, NetworkAclEntryIcmpArgs, True)
             __props__.__dict__["icmp"] = icmp
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
             if network_acl_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_acl_id'")
             __props__.__dict__["network_acl_id"] = network_acl_id
-            if port_range is not None and not isinstance(port_range, NetworkAclEntryPortRangeArgs):
-                port_range = port_range or {}
-                def _setter(key, value):
-                    port_range[key] = value
-                NetworkAclEntryPortRangeArgs._configure(_setter, **port_range)
+            port_range = _utilities.configure(port_range, NetworkAclEntryPortRangeArgs, True)
             __props__.__dict__["port_range"] = port_range
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")

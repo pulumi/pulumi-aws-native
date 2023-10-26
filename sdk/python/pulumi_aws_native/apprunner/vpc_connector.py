@@ -37,11 +37,19 @@ class VpcConnectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcConnectorTagArgs']]]] = None,
              vpc_connector_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if vpc_connector_name is None and 'vpcConnectorName' in kwargs:
+            vpc_connector_name = kwargs['vpcConnectorName']
+
         _setter("subnets", subnets)
         if security_groups is not None:
             _setter("security_groups", security_groups)

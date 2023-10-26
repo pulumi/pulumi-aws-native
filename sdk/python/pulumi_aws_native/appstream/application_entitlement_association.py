@@ -29,10 +29,24 @@ class ApplicationEntitlementAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_identifier: pulumi.Input[str],
-             entitlement_name: pulumi.Input[str],
-             stack_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_identifier: Optional[pulumi.Input[str]] = None,
+             entitlement_name: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_identifier is None and 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if application_identifier is None:
+            raise TypeError("Missing 'application_identifier' argument")
+        if entitlement_name is None and 'entitlementName' in kwargs:
+            entitlement_name = kwargs['entitlementName']
+        if entitlement_name is None:
+            raise TypeError("Missing 'entitlement_name' argument")
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if stack_name is None:
+            raise TypeError("Missing 'stack_name' argument")
+
         _setter("application_identifier", application_identifier)
         _setter("entitlement_name", entitlement_name)
         _setter("stack_name", stack_name)

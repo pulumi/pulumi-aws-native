@@ -60,7 +60,13 @@ class ApiKeyStageKeyArgs:
              _setter: Callable[[Any, Any], None],
              rest_api_id: Optional[pulumi.Input[str]] = None,
              stage_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if rest_api_id is not None:
             _setter("rest_api_id", rest_api_id)
         if stage_name is not None:
@@ -108,9 +114,15 @@ class ApiKeyTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -152,9 +164,15 @@ class ClientCertificateTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -198,7 +216,11 @@ class DeploymentAccessLogSettingArgs:
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[pulumi.Input[str]] = None,
              format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
         if format is not None:
@@ -253,7 +275,15 @@ class DeploymentCanarySettingsArgs:
              percent_traffic: Optional[pulumi.Input[float]] = None,
              stage_variable_overrides: Optional[Any] = None,
              use_stage_cache: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if percent_traffic is None and 'percentTraffic' in kwargs:
+            percent_traffic = kwargs['percentTraffic']
+        if stage_variable_overrides is None and 'stageVariableOverrides' in kwargs:
+            stage_variable_overrides = kwargs['stageVariableOverrides']
+        if use_stage_cache is None and 'useStageCache' in kwargs:
+            use_stage_cache = kwargs['useStageCache']
+
         if percent_traffic is not None:
             _setter("percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
@@ -323,7 +353,15 @@ class DeploymentCanarySettingArgs:
              percent_traffic: Optional[pulumi.Input[float]] = None,
              stage_variable_overrides: Optional[Any] = None,
              use_stage_cache: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if percent_traffic is None and 'percentTraffic' in kwargs:
+            percent_traffic = kwargs['percentTraffic']
+        if stage_variable_overrides is None and 'stageVariableOverrides' in kwargs:
+            stage_variable_overrides = kwargs['stageVariableOverrides']
+        if use_stage_cache is None and 'useStageCache' in kwargs:
+            use_stage_cache = kwargs['useStageCache']
+
         if percent_traffic is not None:
             _setter("percent_traffic", percent_traffic)
         if stage_variable_overrides is not None:
@@ -421,7 +459,29 @@ class DeploymentMethodSettingArgs:
              resource_path: Optional[pulumi.Input[str]] = None,
              throttling_burst_limit: Optional[pulumi.Input[int]] = None,
              throttling_rate_limit: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_data_encrypted is None and 'cacheDataEncrypted' in kwargs:
+            cache_data_encrypted = kwargs['cacheDataEncrypted']
+        if cache_ttl_in_seconds is None and 'cacheTtlInSeconds' in kwargs:
+            cache_ttl_in_seconds = kwargs['cacheTtlInSeconds']
+        if caching_enabled is None and 'cachingEnabled' in kwargs:
+            caching_enabled = kwargs['cachingEnabled']
+        if data_trace_enabled is None and 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if logging_level is None and 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if metrics_enabled is None and 'metricsEnabled' in kwargs:
+            metrics_enabled = kwargs['metricsEnabled']
+        if resource_path is None and 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+        if throttling_burst_limit is None and 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if throttling_rate_limit is None and 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+
         if cache_data_encrypted is not None:
             _setter("cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
@@ -653,7 +713,41 @@ class DeploymentStageDescriptionArgs:
              throttling_rate_limit: Optional[pulumi.Input[float]] = None,
              tracing_enabled: Optional[pulumi.Input[bool]] = None,
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_log_setting is None and 'accessLogSetting' in kwargs:
+            access_log_setting = kwargs['accessLogSetting']
+        if cache_cluster_enabled is None and 'cacheClusterEnabled' in kwargs:
+            cache_cluster_enabled = kwargs['cacheClusterEnabled']
+        if cache_cluster_size is None and 'cacheClusterSize' in kwargs:
+            cache_cluster_size = kwargs['cacheClusterSize']
+        if cache_data_encrypted is None and 'cacheDataEncrypted' in kwargs:
+            cache_data_encrypted = kwargs['cacheDataEncrypted']
+        if cache_ttl_in_seconds is None and 'cacheTtlInSeconds' in kwargs:
+            cache_ttl_in_seconds = kwargs['cacheTtlInSeconds']
+        if caching_enabled is None and 'cachingEnabled' in kwargs:
+            caching_enabled = kwargs['cachingEnabled']
+        if canary_setting is None and 'canarySetting' in kwargs:
+            canary_setting = kwargs['canarySetting']
+        if client_certificate_id is None and 'clientCertificateId' in kwargs:
+            client_certificate_id = kwargs['clientCertificateId']
+        if data_trace_enabled is None and 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if documentation_version is None and 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if logging_level is None and 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if method_settings is None and 'methodSettings' in kwargs:
+            method_settings = kwargs['methodSettings']
+        if metrics_enabled is None and 'metricsEnabled' in kwargs:
+            metrics_enabled = kwargs['metricsEnabled']
+        if throttling_burst_limit is None and 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if throttling_rate_limit is None and 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+        if tracing_enabled is None and 'tracingEnabled' in kwargs:
+            tracing_enabled = kwargs['tracingEnabled']
+
         if access_log_setting is not None:
             _setter("access_log_setting", access_log_setting)
         if cache_cluster_enabled is not None:
@@ -940,9 +1034,15 @@ class DeploymentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1004,7 +1104,11 @@ class DocumentationPartLocationArgs:
              path: Optional[pulumi.Input[str]] = None,
              status_code: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['DocumentationPartLocationType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if method is not None:
             _setter("method", method)
         if name is not None:
@@ -1089,7 +1193,9 @@ class DomainNameEndpointConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if types is not None:
             _setter("types", types)
 
@@ -1118,7 +1224,13 @@ class DomainNameMutualTlsAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              truststore_uri: Optional[pulumi.Input[str]] = None,
              truststore_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if truststore_uri is None and 'truststoreUri' in kwargs:
+            truststore_uri = kwargs['truststoreUri']
+        if truststore_version is None and 'truststoreVersion' in kwargs:
+            truststore_version = kwargs['truststoreVersion']
+
         if truststore_uri is not None:
             _setter("truststore_uri", truststore_uri)
         if truststore_version is not None:
@@ -1158,7 +1270,9 @@ class DomainNameTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1211,12 +1325,26 @@ class MethodIntegrationResponseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status_code: pulumi.Input[str],
+             status_code: Optional[pulumi.Input[str]] = None,
              content_handling: Optional[pulumi.Input['MethodIntegrationResponseContentHandling']] = None,
              response_parameters: Optional[Any] = None,
              response_templates: Optional[Any] = None,
              selection_pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
+        if content_handling is None and 'contentHandling' in kwargs:
+            content_handling = kwargs['contentHandling']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if selection_pattern is None and 'selectionPattern' in kwargs:
+            selection_pattern = kwargs['selectionPattern']
+
         _setter("status_code", status_code)
         if content_handling is not None:
             _setter("content_handling", content_handling)
@@ -1346,7 +1474,7 @@ class MethodIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['MethodIntegrationType'],
+             type: Optional[pulumi.Input['MethodIntegrationType']] = None,
              cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cache_namespace: Optional[pulumi.Input[str]] = None,
              connection_id: Optional[pulumi.Input[str]] = None,
@@ -1360,7 +1488,33 @@ class MethodIntegrationArgs:
              request_templates: Optional[Any] = None,
              timeout_in_millis: Optional[pulumi.Input[int]] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if cache_key_parameters is None and 'cacheKeyParameters' in kwargs:
+            cache_key_parameters = kwargs['cacheKeyParameters']
+        if cache_namespace is None and 'cacheNamespace' in kwargs:
+            cache_namespace = kwargs['cacheNamespace']
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if content_handling is None and 'contentHandling' in kwargs:
+            content_handling = kwargs['contentHandling']
+        if integration_http_method is None and 'integrationHttpMethod' in kwargs:
+            integration_http_method = kwargs['integrationHttpMethod']
+        if integration_responses is None and 'integrationResponses' in kwargs:
+            integration_responses = kwargs['integrationResponses']
+        if passthrough_behavior is None and 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_templates is None and 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if timeout_in_millis is None and 'timeoutInMillis' in kwargs:
+            timeout_in_millis = kwargs['timeoutInMillis']
+
         _setter("type", type)
         if cache_key_parameters is not None:
             _setter("cache_key_parameters", cache_key_parameters)
@@ -1582,10 +1736,20 @@ class MethodResponseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status_code: pulumi.Input[str],
+             status_code: Optional[pulumi.Input[str]] = None,
              response_models: Optional[Any] = None,
              response_parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
+        if response_models is None and 'responseModels' in kwargs:
+            response_models = kwargs['responseModels']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+
         _setter("status_code", status_code)
         if response_models is not None:
             _setter("response_models", response_models)
@@ -1650,7 +1814,11 @@ class RestApiEndpointConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_endpoint_ids is None and 'vpcEndpointIds' in kwargs:
+            vpc_endpoint_ids = kwargs['vpcEndpointIds']
+
         if types is not None:
             _setter("types", types)
         if vpc_endpoint_ids is not None:
@@ -1710,7 +1878,11 @@ class RestApiS3LocationArgs:
              e_tag: Optional[pulumi.Input[str]] = None,
              key: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
         if bucket is not None:
             _setter("bucket", bucket)
         if e_tag is not None:
@@ -1782,9 +1954,15 @@ class RestApiTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1828,7 +2006,11 @@ class StageAccessLogSettingArgs:
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[pulumi.Input[str]] = None,
              format: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
         if format is not None:
@@ -1887,7 +2069,17 @@ class StageCanarySettingArgs:
              percent_traffic: Optional[pulumi.Input[float]] = None,
              stage_variable_overrides: Optional[Any] = None,
              use_stage_cache: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_id is None and 'deploymentId' in kwargs:
+            deployment_id = kwargs['deploymentId']
+        if percent_traffic is None and 'percentTraffic' in kwargs:
+            percent_traffic = kwargs['percentTraffic']
+        if stage_variable_overrides is None and 'stageVariableOverrides' in kwargs:
+            stage_variable_overrides = kwargs['stageVariableOverrides']
+        if use_stage_cache is None and 'useStageCache' in kwargs:
+            use_stage_cache = kwargs['useStageCache']
+
         if deployment_id is not None:
             _setter("deployment_id", deployment_id)
         if percent_traffic is not None:
@@ -1999,7 +2191,29 @@ class StageMethodSettingArgs:
              resource_path: Optional[pulumi.Input[str]] = None,
              throttling_burst_limit: Optional[pulumi.Input[int]] = None,
              throttling_rate_limit: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_data_encrypted is None and 'cacheDataEncrypted' in kwargs:
+            cache_data_encrypted = kwargs['cacheDataEncrypted']
+        if cache_ttl_in_seconds is None and 'cacheTtlInSeconds' in kwargs:
+            cache_ttl_in_seconds = kwargs['cacheTtlInSeconds']
+        if caching_enabled is None and 'cachingEnabled' in kwargs:
+            caching_enabled = kwargs['cachingEnabled']
+        if data_trace_enabled is None and 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if logging_level is None and 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if metrics_enabled is None and 'metricsEnabled' in kwargs:
+            metrics_enabled = kwargs['metricsEnabled']
+        if resource_path is None and 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+        if throttling_burst_limit is None and 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if throttling_rate_limit is None and 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+
         if cache_data_encrypted is not None:
             _setter("cache_data_encrypted", cache_data_encrypted)
         if cache_ttl_in_seconds is not None:
@@ -2160,9 +2374,15 @@ class StageTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2214,7 +2434,11 @@ class UsagePlanApiStageArgs:
              api_id: Optional[pulumi.Input[str]] = None,
              stage: Optional[pulumi.Input[str]] = None,
              throttle: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         if api_id is not None:
             _setter("api_id", api_id)
         if stage is not None:
@@ -2282,7 +2506,9 @@ class UsagePlanQuotaSettingsArgs:
              limit: Optional[pulumi.Input[int]] = None,
              offset: Optional[pulumi.Input[int]] = None,
              period: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if limit is not None:
             _setter("limit", limit)
         if offset is not None:
@@ -2344,9 +2570,15 @@ class UsagePlanTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2394,7 +2626,13 @@ class UsagePlanThrottleSettingsArgs:
              _setter: Callable[[Any, Any], None],
              burst_limit: Optional[pulumi.Input[int]] = None,
              rate_limit: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if burst_limit is None and 'burstLimit' in kwargs:
+            burst_limit = kwargs['burstLimit']
+        if rate_limit is None and 'rateLimit' in kwargs:
+            rate_limit = kwargs['rateLimit']
+
         if burst_limit is not None:
             _setter("burst_limit", burst_limit)
         if rate_limit is not None:
@@ -2438,9 +2676,15 @@ class VpcLinkTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

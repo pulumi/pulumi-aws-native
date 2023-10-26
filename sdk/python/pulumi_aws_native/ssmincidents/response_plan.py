@@ -48,7 +48,7 @@ class ResponsePlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             incident_template: pulumi.Input['ResponsePlanIncidentTemplateArgs'],
+             incident_template: Optional[pulumi.Input['ResponsePlanIncidentTemplateArgs']] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]]] = None,
              chat_channel: Optional[pulumi.Input['ResponsePlanChatChannelArgs']] = None,
              display_name: Optional[pulumi.Input[str]] = None,
@@ -56,7 +56,17 @@ class ResponsePlanArgs:
              integrations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if incident_template is None and 'incidentTemplate' in kwargs:
+            incident_template = kwargs['incidentTemplate']
+        if incident_template is None:
+            raise TypeError("Missing 'incident_template' argument")
+        if chat_channel is None and 'chatChannel' in kwargs:
+            chat_channel = kwargs['chatChannel']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("incident_template", incident_template)
         if actions is not None:
             _setter("actions", actions)
@@ -236,19 +246,11 @@ class ResponsePlan(pulumi.CustomResource):
             __props__ = ResponsePlanArgs.__new__(ResponsePlanArgs)
 
             __props__.__dict__["actions"] = actions
-            if chat_channel is not None and not isinstance(chat_channel, ResponsePlanChatChannelArgs):
-                chat_channel = chat_channel or {}
-                def _setter(key, value):
-                    chat_channel[key] = value
-                ResponsePlanChatChannelArgs._configure(_setter, **chat_channel)
+            chat_channel = _utilities.configure(chat_channel, ResponsePlanChatChannelArgs, True)
             __props__.__dict__["chat_channel"] = chat_channel
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["engagements"] = engagements
-            if incident_template is not None and not isinstance(incident_template, ResponsePlanIncidentTemplateArgs):
-                incident_template = incident_template or {}
-                def _setter(key, value):
-                    incident_template[key] = value
-                ResponsePlanIncidentTemplateArgs._configure(_setter, **incident_template)
+            incident_template = _utilities.configure(incident_template, ResponsePlanIncidentTemplateArgs, True)
             if incident_template is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_template'")
             __props__.__dict__["incident_template"] = incident_template

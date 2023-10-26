@@ -32,7 +32,9 @@ class FleetArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['FleetTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if tags is not None:
@@ -115,11 +117,7 @@ class Fleet(pulumi.CustomResource):
             __props__ = FleetArgs.__new__(FleetArgs)
 
             __props__.__dict__["name"] = name
-            if tags is not None and not isinstance(tags, FleetTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                FleetTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, FleetTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

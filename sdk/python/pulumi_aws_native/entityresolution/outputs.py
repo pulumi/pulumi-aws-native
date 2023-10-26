@@ -65,7 +65,13 @@ class IdMappingWorkflowIdMappingTechniques(dict):
              _setter: Callable[[Any, Any], None],
              id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
              provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id_mapping_type is None and 'idMappingType' in kwargs:
+            id_mapping_type = kwargs['idMappingType']
+        if provider_properties is None and 'providerProperties' in kwargs:
+            provider_properties = kwargs['providerProperties']
+
         if id_mapping_type is not None:
             _setter("id_mapping_type", id_mapping_type)
         if provider_properties is not None:
@@ -117,9 +123,19 @@ class IdMappingWorkflowInputSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_source_arn: str,
-             schema_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             input_source_arn: Optional[str] = None,
+             schema_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_source_arn is None and 'inputSourceArn' in kwargs:
+            input_source_arn = kwargs['inputSourceArn']
+        if input_source_arn is None:
+            raise TypeError("Missing 'input_source_arn' argument")
+        if schema_arn is None and 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if schema_arn is None:
+            raise TypeError("Missing 'schema_arn' argument")
+
         _setter("input_source_arn", input_source_arn)
         _setter("schema_arn", schema_arn)
 
@@ -168,8 +184,14 @@ class IdMappingWorkflowIntermediateSourceConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             intermediate_s3_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             intermediate_s3_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if intermediate_s3_path is None and 'intermediateS3Path' in kwargs:
+            intermediate_s3_path = kwargs['intermediateS3Path']
+        if intermediate_s3_path is None:
+            raise TypeError("Missing 'intermediate_s3_path' argument")
+
         _setter("intermediate_s3_path", intermediate_s3_path)
 
     @property
@@ -216,9 +238,17 @@ class IdMappingWorkflowOutputSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             output_s3_path: str,
+             output_s3_path: Optional[str] = None,
              kms_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output_s3_path is None and 'outputS3Path' in kwargs:
+            output_s3_path = kwargs['outputS3Path']
+        if output_s3_path is None:
+            raise TypeError("Missing 'output_s3_path' argument")
+        if kms_arn is None and 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
         _setter("output_s3_path", output_s3_path)
         if kms_arn is not None:
             _setter("kms_arn", kms_arn)
@@ -277,10 +307,20 @@ class IdMappingWorkflowProviderProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provider_service_arn: str,
+             provider_service_arn: Optional[str] = None,
              intermediate_source_configuration: Optional['outputs.IdMappingWorkflowIntermediateSourceConfiguration'] = None,
              provider_configuration: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_service_arn is None and 'providerServiceArn' in kwargs:
+            provider_service_arn = kwargs['providerServiceArn']
+        if provider_service_arn is None:
+            raise TypeError("Missing 'provider_service_arn' argument")
+        if intermediate_source_configuration is None and 'intermediateSourceConfiguration' in kwargs:
+            intermediate_source_configuration = kwargs['intermediateSourceConfiguration']
+        if provider_configuration is None and 'providerConfiguration' in kwargs:
+            provider_configuration = kwargs['providerConfiguration']
+
         _setter("provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
             _setter("intermediate_source_configuration", intermediate_source_configuration)
@@ -330,9 +370,15 @@ class IdMappingWorkflowTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -392,10 +438,22 @@ class MatchingWorkflowInputSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_source_arn: str,
-             schema_arn: str,
+             input_source_arn: Optional[str] = None,
+             schema_arn: Optional[str] = None,
              apply_normalization: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_source_arn is None and 'inputSourceArn' in kwargs:
+            input_source_arn = kwargs['inputSourceArn']
+        if input_source_arn is None:
+            raise TypeError("Missing 'input_source_arn' argument")
+        if schema_arn is None and 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if schema_arn is None:
+            raise TypeError("Missing 'schema_arn' argument")
+        if apply_normalization is None and 'applyNormalization' in kwargs:
+            apply_normalization = kwargs['applyNormalization']
+
         _setter("input_source_arn", input_source_arn)
         _setter("schema_arn", schema_arn)
         if apply_normalization is not None:
@@ -451,8 +509,14 @@ class MatchingWorkflowIntermediateSourceConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             intermediate_s3_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             intermediate_s3_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if intermediate_s3_path is None and 'intermediateS3Path' in kwargs:
+            intermediate_s3_path = kwargs['intermediateS3Path']
+        if intermediate_s3_path is None:
+            raise TypeError("Missing 'intermediate_s3_path' argument")
+
         _setter("intermediate_s3_path", intermediate_s3_path)
 
     @property
@@ -477,9 +541,13 @@ class MatchingWorkflowOutputAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              hashed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if hashed is not None:
             _setter("hashed", hashed)
@@ -536,11 +604,23 @@ class MatchingWorkflowOutputSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             output: Sequence['outputs.MatchingWorkflowOutputAttribute'],
-             output_s3_path: str,
+             output: Optional[Sequence['outputs.MatchingWorkflowOutputAttribute']] = None,
+             output_s3_path: Optional[str] = None,
              apply_normalization: Optional[bool] = None,
              kms_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+        if output_s3_path is None and 'outputS3Path' in kwargs:
+            output_s3_path = kwargs['outputS3Path']
+        if output_s3_path is None:
+            raise TypeError("Missing 'output_s3_path' argument")
+        if apply_normalization is None and 'applyNormalization' in kwargs:
+            apply_normalization = kwargs['applyNormalization']
+        if kms_arn is None and 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
         _setter("output", output)
         _setter("output_s3_path", output_s3_path)
         if apply_normalization is not None:
@@ -612,10 +692,20 @@ class MatchingWorkflowProviderProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provider_service_arn: str,
+             provider_service_arn: Optional[str] = None,
              intermediate_source_configuration: Optional['outputs.MatchingWorkflowIntermediateSourceConfiguration'] = None,
              provider_configuration: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_service_arn is None and 'providerServiceArn' in kwargs:
+            provider_service_arn = kwargs['providerServiceArn']
+        if provider_service_arn is None:
+            raise TypeError("Missing 'provider_service_arn' argument")
+        if intermediate_source_configuration is None and 'intermediateSourceConfiguration' in kwargs:
+            intermediate_source_configuration = kwargs['intermediateSourceConfiguration']
+        if provider_configuration is None and 'providerConfiguration' in kwargs:
+            provider_configuration = kwargs['providerConfiguration']
+
         _setter("provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
             _setter("intermediate_source_configuration", intermediate_source_configuration)
@@ -683,7 +773,15 @@ class MatchingWorkflowResolutionTechniques(dict):
              provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
              resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
              rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_properties is None and 'providerProperties' in kwargs:
+            provider_properties = kwargs['providerProperties']
+        if resolution_type is None and 'resolutionType' in kwargs:
+            resolution_type = kwargs['resolutionType']
+        if rule_based_properties is None and 'ruleBasedProperties' in kwargs:
+            rule_based_properties = kwargs['ruleBasedProperties']
+
         if provider_properties is not None:
             _setter("provider_properties", provider_properties)
         if resolution_type is not None:
@@ -739,9 +837,19 @@ class MatchingWorkflowRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             matching_keys: Sequence[str],
-             rule_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             matching_keys: Optional[Sequence[str]] = None,
+             rule_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if matching_keys is None and 'matchingKeys' in kwargs:
+            matching_keys = kwargs['matchingKeys']
+        if matching_keys is None:
+            raise TypeError("Missing 'matching_keys' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+
         _setter("matching_keys", matching_keys)
         _setter("rule_name", rule_name)
 
@@ -786,9 +894,17 @@ class MatchingWorkflowRuleBasedProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_matching_model: 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
-             rules: Sequence['outputs.MatchingWorkflowRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute_matching_model: Optional['MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel'] = None,
+             rules: Optional[Sequence['outputs.MatchingWorkflowRule']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_matching_model is None and 'attributeMatchingModel' in kwargs:
+            attribute_matching_model = kwargs['attributeMatchingModel']
+        if attribute_matching_model is None:
+            raise TypeError("Missing 'attribute_matching_model' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
         _setter("attribute_matching_model", attribute_matching_model)
         _setter("rules", rules)
 
@@ -824,9 +940,15 @@ class MatchingWorkflowTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -892,12 +1014,26 @@ class SchemaMappingSchemaInputAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_name: str,
-             type: 'SchemaMappingSchemaAttributeType',
+             field_name: Optional[str] = None,
+             type: Optional['SchemaMappingSchemaAttributeType'] = None,
              group_name: Optional[str] = None,
              match_key: Optional[str] = None,
              sub_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_name is None and 'fieldName' in kwargs:
+            field_name = kwargs['fieldName']
+        if field_name is None:
+            raise TypeError("Missing 'field_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if match_key is None and 'matchKey' in kwargs:
+            match_key = kwargs['matchKey']
+        if sub_type is None and 'subType' in kwargs:
+            sub_type = kwargs['subType']
+
         _setter("field_name", field_name)
         _setter("type", type)
         if group_name is not None:
@@ -957,9 +1093,15 @@ class SchemaMappingTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

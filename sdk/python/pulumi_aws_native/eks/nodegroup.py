@@ -79,9 +79,9 @@ class NodegroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             node_role: pulumi.Input[str],
-             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             node_role: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ami_type: Optional[pulumi.Input[str]] = None,
              capacity_type: Optional[pulumi.Input[str]] = None,
              disk_size: Optional[pulumi.Input[int]] = None,
@@ -97,7 +97,41 @@ class NodegroupArgs:
              taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodegroupTaintArgs']]]] = None,
              update_config: Optional[pulumi.Input['NodegroupUpdateConfigArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if node_role is None and 'nodeRole' in kwargs:
+            node_role = kwargs['nodeRole']
+        if node_role is None:
+            raise TypeError("Missing 'node_role' argument")
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if ami_type is None and 'amiType' in kwargs:
+            ami_type = kwargs['amiType']
+        if capacity_type is None and 'capacityType' in kwargs:
+            capacity_type = kwargs['capacityType']
+        if disk_size is None and 'diskSize' in kwargs:
+            disk_size = kwargs['diskSize']
+        if force_update_enabled is None and 'forceUpdateEnabled' in kwargs:
+            force_update_enabled = kwargs['forceUpdateEnabled']
+        if instance_types is None and 'instanceTypes' in kwargs:
+            instance_types = kwargs['instanceTypes']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if nodegroup_name is None and 'nodegroupName' in kwargs:
+            nodegroup_name = kwargs['nodegroupName']
+        if release_version is None and 'releaseVersion' in kwargs:
+            release_version = kwargs['releaseVersion']
+        if remote_access is None and 'remoteAccess' in kwargs:
+            remote_access = kwargs['remoteAccess']
+        if scaling_config is None and 'scalingConfig' in kwargs:
+            scaling_config = kwargs['scalingConfig']
+        if update_config is None and 'updateConfig' in kwargs:
+            update_config = kwargs['updateConfig']
+
         _setter("cluster_name", cluster_name)
         _setter("node_role", node_role)
         _setter("subnets", subnets)
@@ -461,39 +495,23 @@ class Nodegroup(pulumi.CustomResource):
             __props__.__dict__["force_update_enabled"] = force_update_enabled
             __props__.__dict__["instance_types"] = instance_types
             __props__.__dict__["labels"] = labels
-            if launch_template is not None and not isinstance(launch_template, NodegroupLaunchTemplateSpecificationArgs):
-                launch_template = launch_template or {}
-                def _setter(key, value):
-                    launch_template[key] = value
-                NodegroupLaunchTemplateSpecificationArgs._configure(_setter, **launch_template)
+            launch_template = _utilities.configure(launch_template, NodegroupLaunchTemplateSpecificationArgs, True)
             __props__.__dict__["launch_template"] = launch_template
             if node_role is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role'")
             __props__.__dict__["node_role"] = node_role
             __props__.__dict__["nodegroup_name"] = nodegroup_name
             __props__.__dict__["release_version"] = release_version
-            if remote_access is not None and not isinstance(remote_access, NodegroupRemoteAccessArgs):
-                remote_access = remote_access or {}
-                def _setter(key, value):
-                    remote_access[key] = value
-                NodegroupRemoteAccessArgs._configure(_setter, **remote_access)
+            remote_access = _utilities.configure(remote_access, NodegroupRemoteAccessArgs, True)
             __props__.__dict__["remote_access"] = remote_access
-            if scaling_config is not None and not isinstance(scaling_config, NodegroupScalingConfigArgs):
-                scaling_config = scaling_config or {}
-                def _setter(key, value):
-                    scaling_config[key] = value
-                NodegroupScalingConfigArgs._configure(_setter, **scaling_config)
+            scaling_config = _utilities.configure(scaling_config, NodegroupScalingConfigArgs, True)
             __props__.__dict__["scaling_config"] = scaling_config
             if subnets is None and not opts.urn:
                 raise TypeError("Missing required property 'subnets'")
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
             __props__.__dict__["taints"] = taints
-            if update_config is not None and not isinstance(update_config, NodegroupUpdateConfigArgs):
-                update_config = update_config or {}
-                def _setter(key, value):
-                    update_config[key] = value
-                NodegroupUpdateConfigArgs._configure(_setter, **update_config)
+            update_config = _utilities.configure(update_config, NodegroupUpdateConfigArgs, True)
             __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None

@@ -29,9 +29,17 @@ class CoreDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             core_definition_id: pulumi.Input[str],
-             cores: pulumi.Input[Sequence[pulumi.Input['CoreDefinitionVersionCoreArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             core_definition_id: Optional[pulumi.Input[str]] = None,
+             cores: Optional[pulumi.Input[Sequence[pulumi.Input['CoreDefinitionVersionCoreArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_definition_id is None and 'coreDefinitionId' in kwargs:
+            core_definition_id = kwargs['coreDefinitionId']
+        if core_definition_id is None:
+            raise TypeError("Missing 'core_definition_id' argument")
+        if cores is None:
+            raise TypeError("Missing 'cores' argument")
+
         _setter("core_definition_id", core_definition_id)
         _setter("cores", cores)
 

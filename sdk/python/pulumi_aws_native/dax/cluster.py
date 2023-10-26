@@ -53,9 +53,9 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iam_role_arn: pulumi.Input[str],
-             node_type: pulumi.Input[str],
-             replication_factor: pulumi.Input[int],
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
+             replication_factor: Optional[pulumi.Input[int]] = None,
              availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cluster_endpoint_encryption_type: Optional[pulumi.Input[str]] = None,
              cluster_name: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,39 @@ class ClusterArgs:
              sse_specification: Optional[pulumi.Input['ClusterSseSpecificationArgs']] = None,
              subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if iam_role_arn is None:
+            raise TypeError("Missing 'iam_role_arn' argument")
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if node_type is None:
+            raise TypeError("Missing 'node_type' argument")
+        if replication_factor is None and 'replicationFactor' in kwargs:
+            replication_factor = kwargs['replicationFactor']
+        if replication_factor is None:
+            raise TypeError("Missing 'replication_factor' argument")
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if cluster_endpoint_encryption_type is None and 'clusterEndpointEncryptionType' in kwargs:
+            cluster_endpoint_encryption_type = kwargs['clusterEndpointEncryptionType']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if sse_specification is None and 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+
         _setter("iam_role_arn", iam_role_arn)
         _setter("node_type", node_type)
         _setter("replication_factor", replication_factor)
@@ -321,11 +353,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'replication_factor'")
             __props__.__dict__["replication_factor"] = replication_factor
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if sse_specification is not None and not isinstance(sse_specification, ClusterSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                ClusterSseSpecificationArgs._configure(_setter, **sse_specification)
+            sse_specification = _utilities.configure(sse_specification, ClusterSseSpecificationArgs, True)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags

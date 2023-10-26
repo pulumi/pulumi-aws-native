@@ -38,12 +38,20 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: Any,
+             policy_document: Optional[Any] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              policy_name: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         _setter("policy_document", policy_document)
         if groups is not None:
             _setter("groups", groups)

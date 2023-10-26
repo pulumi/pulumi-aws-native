@@ -27,9 +27,19 @@ class StackFleetAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fleet_name: pulumi.Input[str],
-             stack_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fleet_name: Optional[pulumi.Input[str]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fleet_name is None and 'fleetName' in kwargs:
+            fleet_name = kwargs['fleetName']
+        if fleet_name is None:
+            raise TypeError("Missing 'fleet_name' argument")
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if stack_name is None:
+            raise TypeError("Missing 'stack_name' argument")
+
         _setter("fleet_name", fleet_name)
         _setter("stack_name", stack_name)
 

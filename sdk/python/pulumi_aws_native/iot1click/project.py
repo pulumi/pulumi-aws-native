@@ -31,10 +31,18 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             placement_template: pulumi.Input['ProjectPlacementTemplateArgs'],
+             placement_template: Optional[pulumi.Input['ProjectPlacementTemplateArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              project_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if placement_template is None and 'placementTemplate' in kwargs:
+            placement_template = kwargs['placementTemplate']
+        if placement_template is None:
+            raise TypeError("Missing 'placement_template' argument")
+        if project_name is None and 'projectName' in kwargs:
+            project_name = kwargs['projectName']
+
         _setter("placement_template", placement_template)
         if description is not None:
             _setter("description", description)
@@ -131,11 +139,7 @@ class Project(pulumi.CustomResource):
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
             __props__.__dict__["description"] = description
-            if placement_template is not None and not isinstance(placement_template, ProjectPlacementTemplateArgs):
-                placement_template = placement_template or {}
-                def _setter(key, value):
-                    placement_template[key] = value
-                ProjectPlacementTemplateArgs._configure(_setter, **placement_template)
+            placement_template = _utilities.configure(placement_template, ProjectPlacementTemplateArgs, True)
             if placement_template is None and not opts.urn:
                 raise TypeError("Missing required property 'placement_template'")
             __props__.__dict__["placement_template"] = placement_template

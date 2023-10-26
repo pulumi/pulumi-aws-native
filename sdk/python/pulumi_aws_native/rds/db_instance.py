@@ -343,7 +343,145 @@ class DbInstanceArgs:
              use_default_processor_features: Optional[pulumi.Input[bool]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocated_storage is None and 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if associated_roles is None and 'associatedRoles' in kwargs:
+            associated_roles = kwargs['associatedRoles']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if automatic_backup_replication_region is None and 'automaticBackupReplicationRegion' in kwargs:
+            automatic_backup_replication_region = kwargs['automaticBackupReplicationRegion']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if ca_certificate_identifier is None and 'caCertificateIdentifier' in kwargs:
+            ca_certificate_identifier = kwargs['caCertificateIdentifier']
+        if certificate_details is None and 'certificateDetails' in kwargs:
+            certificate_details = kwargs['certificateDetails']
+        if certificate_rotation_restart is None and 'certificateRotationRestart' in kwargs:
+            certificate_rotation_restart = kwargs['certificateRotationRestart']
+        if character_set_name is None and 'characterSetName' in kwargs:
+            character_set_name = kwargs['characterSetName']
+        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if custom_iam_instance_profile is None and 'customIamInstanceProfile' in kwargs:
+            custom_iam_instance_profile = kwargs['customIamInstanceProfile']
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_cluster_snapshot_identifier is None and 'dbClusterSnapshotIdentifier' in kwargs:
+            db_cluster_snapshot_identifier = kwargs['dbClusterSnapshotIdentifier']
+        if db_instance_class is None and 'dbInstanceClass' in kwargs:
+            db_instance_class = kwargs['dbInstanceClass']
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if db_name is None and 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if db_parameter_group_name is None and 'dbParameterGroupName' in kwargs:
+            db_parameter_group_name = kwargs['dbParameterGroupName']
+        if db_security_groups is None and 'dbSecurityGroups' in kwargs:
+            db_security_groups = kwargs['dbSecurityGroups']
+        if db_snapshot_identifier is None and 'dbSnapshotIdentifier' in kwargs:
+            db_snapshot_identifier = kwargs['dbSnapshotIdentifier']
+        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if delete_automated_backups is None and 'deleteAutomatedBackups' in kwargs:
+            delete_automated_backups = kwargs['deleteAutomatedBackups']
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if domain_auth_secret_arn is None and 'domainAuthSecretArn' in kwargs:
+            domain_auth_secret_arn = kwargs['domainAuthSecretArn']
+        if domain_dns_ips is None and 'domainDnsIps' in kwargs:
+            domain_dns_ips = kwargs['domainDnsIps']
+        if domain_fqdn is None and 'domainFqdn' in kwargs:
+            domain_fqdn = kwargs['domainFqdn']
+        if domain_iam_role_name is None and 'domainIamRoleName' in kwargs:
+            domain_iam_role_name = kwargs['domainIamRoleName']
+        if domain_ou is None and 'domainOu' in kwargs:
+            domain_ou = kwargs['domainOu']
+        if enable_cloudwatch_logs_exports is None and 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if enable_iam_database_authentication is None and 'enableIamDatabaseAuthentication' in kwargs:
+            enable_iam_database_authentication = kwargs['enableIamDatabaseAuthentication']
+        if enable_performance_insights is None and 'enablePerformanceInsights' in kwargs:
+            enable_performance_insights = kwargs['enablePerformanceInsights']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if license_model is None and 'licenseModel' in kwargs:
+            license_model = kwargs['licenseModel']
+        if manage_master_user_password is None and 'manageMasterUserPassword' in kwargs:
+            manage_master_user_password = kwargs['manageMasterUserPassword']
+        if master_user_password is None and 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if master_user_secret is None and 'masterUserSecret' in kwargs:
+            master_user_secret = kwargs['masterUserSecret']
+        if master_username is None and 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if max_allocated_storage is None and 'maxAllocatedStorage' in kwargs:
+            max_allocated_storage = kwargs['maxAllocatedStorage']
+        if monitoring_interval is None and 'monitoringInterval' in kwargs:
+            monitoring_interval = kwargs['monitoringInterval']
+        if monitoring_role_arn is None and 'monitoringRoleArn' in kwargs:
+            monitoring_role_arn = kwargs['monitoringRoleArn']
+        if multi_az is None and 'multiAz' in kwargs:
+            multi_az = kwargs['multiAz']
+        if nchar_character_set_name is None and 'ncharCharacterSetName' in kwargs:
+            nchar_character_set_name = kwargs['ncharCharacterSetName']
+        if network_type is None and 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if option_group_name is None and 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+        if performance_insights_kms_key_id is None and 'performanceInsightsKmsKeyId' in kwargs:
+            performance_insights_kms_key_id = kwargs['performanceInsightsKmsKeyId']
+        if performance_insights_retention_period is None and 'performanceInsightsRetentionPeriod' in kwargs:
+            performance_insights_retention_period = kwargs['performanceInsightsRetentionPeriod']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if processor_features is None and 'processorFeatures' in kwargs:
+            processor_features = kwargs['processorFeatures']
+        if promotion_tier is None and 'promotionTier' in kwargs:
+            promotion_tier = kwargs['promotionTier']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if replica_mode is None and 'replicaMode' in kwargs:
+            replica_mode = kwargs['replicaMode']
+        if restore_time is None and 'restoreTime' in kwargs:
+            restore_time = kwargs['restoreTime']
+        if source_db_cluster_identifier is None and 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if source_db_instance_automated_backups_arn is None and 'sourceDbInstanceAutomatedBackupsArn' in kwargs:
+            source_db_instance_automated_backups_arn = kwargs['sourceDbInstanceAutomatedBackupsArn']
+        if source_db_instance_identifier is None and 'sourceDbInstanceIdentifier' in kwargs:
+            source_db_instance_identifier = kwargs['sourceDbInstanceIdentifier']
+        if source_dbi_resource_id is None and 'sourceDbiResourceId' in kwargs:
+            source_dbi_resource_id = kwargs['sourceDbiResourceId']
+        if source_region is None and 'sourceRegion' in kwargs:
+            source_region = kwargs['sourceRegion']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if storage_throughput is None and 'storageThroughput' in kwargs:
+            storage_throughput = kwargs['storageThroughput']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if tde_credential_arn is None and 'tdeCredentialArn' in kwargs:
+            tde_credential_arn = kwargs['tdeCredentialArn']
+        if tde_credential_password is None and 'tdeCredentialPassword' in kwargs:
+            tde_credential_password = kwargs['tdeCredentialPassword']
+        if use_default_processor_features is None and 'useDefaultProcessorFeatures' in kwargs:
+            use_default_processor_features = kwargs['useDefaultProcessorFeatures']
+        if use_latest_restorable_time is None and 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if vpc_security_groups is None and 'vpcSecurityGroups' in kwargs:
+            vpc_security_groups = kwargs['vpcSecurityGroups']
+
         if allocated_storage is not None:
             _setter("allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
@@ -1712,11 +1850,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
-            if certificate_details is not None and not isinstance(certificate_details, DbInstanceCertificateDetailsArgs):
-                certificate_details = certificate_details or {}
-                def _setter(key, value):
-                    certificate_details[key] = value
-                DbInstanceCertificateDetailsArgs._configure(_setter, **certificate_details)
+            certificate_details = _utilities.configure(certificate_details, DbInstanceCertificateDetailsArgs, True)
             __props__.__dict__["certificate_details"] = certificate_details
             __props__.__dict__["certificate_rotation_restart"] = certificate_rotation_restart
             __props__.__dict__["character_set_name"] = character_set_name
@@ -1742,11 +1876,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
-            if endpoint is not None and not isinstance(endpoint, DbInstanceEndpointArgs):
-                endpoint = endpoint or {}
-                def _setter(key, value):
-                    endpoint[key] = value
-                DbInstanceEndpointArgs._configure(_setter, **endpoint)
+            endpoint = _utilities.configure(endpoint, DbInstanceEndpointArgs, True)
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
@@ -1755,11 +1885,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_user_password"] = master_user_password
-            if master_user_secret is not None and not isinstance(master_user_secret, DbInstanceMasterUserSecretArgs):
-                master_user_secret = master_user_secret or {}
-                def _setter(key, value):
-                    master_user_secret[key] = value
-                DbInstanceMasterUserSecretArgs._configure(_setter, **master_user_secret)
+            master_user_secret = _utilities.configure(master_user_secret, DbInstanceMasterUserSecretArgs, True)
             __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["max_allocated_storage"] = max_allocated_storage

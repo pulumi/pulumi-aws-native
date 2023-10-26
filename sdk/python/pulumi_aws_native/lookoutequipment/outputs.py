@@ -63,10 +63,20 @@ class DataInputConfigurationProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_input_configuration: 'outputs.InferenceSchedulerS3InputConfiguration',
+             s3_input_configuration: Optional['outputs.InferenceSchedulerS3InputConfiguration'] = None,
              inference_input_name_configuration: Optional['outputs.InferenceSchedulerInputNameConfiguration'] = None,
              input_time_zone_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_input_configuration is None and 's3InputConfiguration' in kwargs:
+            s3_input_configuration = kwargs['s3InputConfiguration']
+        if s3_input_configuration is None:
+            raise TypeError("Missing 's3_input_configuration' argument")
+        if inference_input_name_configuration is None and 'inferenceInputNameConfiguration' in kwargs:
+            inference_input_name_configuration = kwargs['inferenceInputNameConfiguration']
+        if input_time_zone_offset is None and 'inputTimeZoneOffset' in kwargs:
+            input_time_zone_offset = kwargs['inputTimeZoneOffset']
+
         _setter("s3_input_configuration", s3_input_configuration)
         if inference_input_name_configuration is not None:
             _setter("inference_input_name_configuration", inference_input_name_configuration)
@@ -131,9 +141,17 @@ class DataOutputConfigurationProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_output_configuration: 'outputs.InferenceSchedulerS3OutputConfiguration',
+             s3_output_configuration: Optional['outputs.InferenceSchedulerS3OutputConfiguration'] = None,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_output_configuration is None and 's3OutputConfiguration' in kwargs:
+            s3_output_configuration = kwargs['s3OutputConfiguration']
+        if s3_output_configuration is None:
+            raise TypeError("Missing 's3_output_configuration' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("s3_output_configuration", s3_output_configuration)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -194,7 +212,13 @@ class InferenceSchedulerInputNameConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              component_timestamp_delimiter: Optional[str] = None,
              timestamp_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_timestamp_delimiter is None and 'componentTimestampDelimiter' in kwargs:
+            component_timestamp_delimiter = kwargs['componentTimestampDelimiter']
+        if timestamp_format is None and 'timestampFormat' in kwargs:
+            timestamp_format = kwargs['timestampFormat']
+
         if component_timestamp_delimiter is not None:
             _setter("component_timestamp_delimiter", component_timestamp_delimiter)
         if timestamp_format is not None:
@@ -236,9 +260,13 @@ class InferenceSchedulerS3InputConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
+             bucket: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+
         _setter("bucket", bucket)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -273,9 +301,13 @@ class InferenceSchedulerS3OutputConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
+             bucket: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+
         _setter("bucket", bucket)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -312,9 +344,15 @@ class InferenceSchedulerTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

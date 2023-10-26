@@ -34,11 +34,19 @@ class MapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration: pulumi.Input['MapConfigurationArgs'],
+             configuration: Optional[pulumi.Input['MapConfigurationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              map_name: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+        if map_name is None and 'mapName' in kwargs:
+            map_name = kwargs['mapName']
+        if pricing_plan is None and 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         _setter("configuration", configuration)
         if description is not None:
             _setter("description", description)
@@ -141,11 +149,7 @@ class Map(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MapArgs.__new__(MapArgs)
 
-            if configuration is not None and not isinstance(configuration, MapConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                MapConfigurationArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, MapConfigurationArgs, True)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

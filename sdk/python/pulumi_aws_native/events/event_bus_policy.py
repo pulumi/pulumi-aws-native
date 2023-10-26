@@ -37,13 +37,21 @@ class EventBusPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statement_id: pulumi.Input[str],
+             statement_id: Optional[pulumi.Input[str]] = None,
              action: Optional[pulumi.Input[str]] = None,
              condition: Optional[pulumi.Input['EventBusPolicyConditionArgs']] = None,
              event_bus_name: Optional[pulumi.Input[str]] = None,
              principal: Optional[pulumi.Input[str]] = None,
              statement: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statement_id is None and 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if statement_id is None:
+            raise TypeError("Missing 'statement_id' argument")
+        if event_bus_name is None and 'eventBusName' in kwargs:
+            event_bus_name = kwargs['eventBusName']
+
         _setter("statement_id", statement_id)
         if action is not None:
             _setter("action", action)
@@ -179,11 +187,7 @@ class EventBusPolicy(pulumi.CustomResource):
             __props__ = EventBusPolicyArgs.__new__(EventBusPolicyArgs)
 
             __props__.__dict__["action"] = action
-            if condition is not None and not isinstance(condition, EventBusPolicyConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                EventBusPolicyConditionArgs._configure(_setter, **condition)
+            condition = _utilities.configure(condition, EventBusPolicyConditionArgs, True)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["event_bus_name"] = event_bus_name
             __props__.__dict__["principal"] = principal

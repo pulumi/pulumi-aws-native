@@ -47,14 +47,32 @@ class AnomalySubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency: pulumi.Input['AnomalySubscriptionFrequency'],
-             monitor_arn_list: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subscribers: pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]],
-             subscription_name: pulumi.Input[str],
+             frequency: Optional[pulumi.Input['AnomalySubscriptionFrequency']] = None,
+             monitor_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionSubscriberArgs']]]] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
              resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionResourceTagArgs']]]] = None,
              threshold: Optional[pulumi.Input[float]] = None,
              threshold_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if monitor_arn_list is None and 'monitorArnList' in kwargs:
+            monitor_arn_list = kwargs['monitorArnList']
+        if monitor_arn_list is None:
+            raise TypeError("Missing 'monitor_arn_list' argument")
+        if subscribers is None:
+            raise TypeError("Missing 'subscribers' argument")
+        if subscription_name is None and 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if subscription_name is None:
+            raise TypeError("Missing 'subscription_name' argument")
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if threshold_expression is None and 'thresholdExpression' in kwargs:
+            threshold_expression = kwargs['thresholdExpression']
+
         _setter("frequency", frequency)
         _setter("monitor_arn_list", monitor_arn_list)
         _setter("subscribers", subscribers)

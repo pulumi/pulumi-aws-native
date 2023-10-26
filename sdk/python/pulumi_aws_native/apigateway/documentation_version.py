@@ -32,10 +32,20 @@ class DocumentationVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             documentation_version: pulumi.Input[str],
-             rest_api_id: pulumi.Input[str],
+             documentation_version: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if documentation_version is None and 'documentationVersion' in kwargs:
+            documentation_version = kwargs['documentationVersion']
+        if documentation_version is None:
+            raise TypeError("Missing 'documentation_version' argument")
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+
         _setter("documentation_version", documentation_version)
         _setter("rest_api_id", rest_api_id)
         if description is not None:

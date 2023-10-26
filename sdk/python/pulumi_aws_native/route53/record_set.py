@@ -57,7 +57,7 @@ class RecordSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              alias_target: Optional[pulumi.Input['RecordSetAliasTargetArgs']] = None,
              cidr_routing_config: Optional[pulumi.Input['RecordSetCidrRoutingConfigArgs']] = None,
              comment: Optional[pulumi.Input[str]] = None,
@@ -73,7 +73,29 @@ class RecordSetArgs:
              set_identifier: Optional[pulumi.Input[str]] = None,
              ttl: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if alias_target is None and 'aliasTarget' in kwargs:
+            alias_target = kwargs['aliasTarget']
+        if cidr_routing_config is None and 'cidrRoutingConfig' in kwargs:
+            cidr_routing_config = kwargs['cidrRoutingConfig']
+        if geo_location is None and 'geoLocation' in kwargs:
+            geo_location = kwargs['geoLocation']
+        if health_check_id is None and 'healthCheckId' in kwargs:
+            health_check_id = kwargs['healthCheckId']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_name is None and 'hostedZoneName' in kwargs:
+            hosted_zone_name = kwargs['hostedZoneName']
+        if multi_value_answer is None and 'multiValueAnswer' in kwargs:
+            multi_value_answer = kwargs['multiValueAnswer']
+        if resource_records is None and 'resourceRecords' in kwargs:
+            resource_records = kwargs['resourceRecords']
+        if set_identifier is None and 'setIdentifier' in kwargs:
+            set_identifier = kwargs['setIdentifier']
+
         _setter("type", type)
         if alias_target is not None:
             _setter("alias_target", alias_target)
@@ -338,25 +360,13 @@ class RecordSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RecordSetArgs.__new__(RecordSetArgs)
 
-            if alias_target is not None and not isinstance(alias_target, RecordSetAliasTargetArgs):
-                alias_target = alias_target or {}
-                def _setter(key, value):
-                    alias_target[key] = value
-                RecordSetAliasTargetArgs._configure(_setter, **alias_target)
+            alias_target = _utilities.configure(alias_target, RecordSetAliasTargetArgs, True)
             __props__.__dict__["alias_target"] = alias_target
-            if cidr_routing_config is not None and not isinstance(cidr_routing_config, RecordSetCidrRoutingConfigArgs):
-                cidr_routing_config = cidr_routing_config or {}
-                def _setter(key, value):
-                    cidr_routing_config[key] = value
-                RecordSetCidrRoutingConfigArgs._configure(_setter, **cidr_routing_config)
+            cidr_routing_config = _utilities.configure(cidr_routing_config, RecordSetCidrRoutingConfigArgs, True)
             __props__.__dict__["cidr_routing_config"] = cidr_routing_config
             __props__.__dict__["comment"] = comment
             __props__.__dict__["failover"] = failover
-            if geo_location is not None and not isinstance(geo_location, RecordSetGeoLocationArgs):
-                geo_location = geo_location or {}
-                def _setter(key, value):
-                    geo_location[key] = value
-                RecordSetGeoLocationArgs._configure(_setter, **geo_location)
+            geo_location = _utilities.configure(geo_location, RecordSetGeoLocationArgs, True)
             __props__.__dict__["geo_location"] = geo_location
             __props__.__dict__["health_check_id"] = health_check_id
             __props__.__dict__["hosted_zone_id"] = hosted_zone_id

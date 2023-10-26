@@ -116,7 +116,11 @@ class BotAdvancedRecognitionSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              audio_recognition_strategy: Optional[pulumi.Input['BotAudioRecognitionStrategy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audio_recognition_strategy is None and 'audioRecognitionStrategy' in kwargs:
+            audio_recognition_strategy = kwargs['audioRecognitionStrategy']
+
         if audio_recognition_strategy is not None:
             _setter("audio_recognition_strategy", audio_recognition_strategy)
 
@@ -144,8 +148,14 @@ class BotAliasAudioLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket: pulumi.Input['BotAliasS3BucketLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_bucket: Optional[pulumi.Input['BotAliasS3BucketLogDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+
         _setter("s3_bucket", s3_bucket)
 
     @property
@@ -174,9 +184,15 @@ class BotAliasAudioLogSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BotAliasAudioLogDestinationArgs'],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input['BotAliasAudioLogDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -216,9 +232,19 @@ class BotAliasCloudWatchLogGroupLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_log_group_arn: pulumi.Input[str],
-             log_prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             log_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_log_group_arn is None and 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if cloud_watch_log_group_arn is None:
+            raise TypeError("Missing 'cloud_watch_log_group_arn' argument")
+        if log_prefix is None and 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+        if log_prefix is None:
+            raise TypeError("Missing 'log_prefix' argument")
+
         _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         _setter("log_prefix", log_prefix)
 
@@ -261,8 +287,14 @@ class BotAliasCodeHookSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lambda_code_hook: pulumi.Input['BotAliasLambdaCodeHookArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             lambda_code_hook: Optional[pulumi.Input['BotAliasLambdaCodeHookArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_code_hook is None and 'lambdaCodeHook' in kwargs:
+            lambda_code_hook = kwargs['lambdaCodeHook']
+        if lambda_code_hook is None:
+            raise TypeError("Missing 'lambda_code_hook' argument")
+
         _setter("lambda_code_hook", lambda_code_hook)
 
     @property
@@ -293,7 +325,13 @@ class BotAliasConversationLogSettingsArgs:
              _setter: Callable[[Any, Any], None],
              audio_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasAudioLogSettingArgs']]]] = None,
              text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasTextLogSettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audio_log_settings is None and 'audioLogSettings' in kwargs:
+            audio_log_settings = kwargs['audioLogSettings']
+        if text_log_settings is None and 'textLogSettings' in kwargs:
+            text_log_settings = kwargs['textLogSettings']
+
         if audio_log_settings is not None:
             _setter("audio_log_settings", audio_log_settings)
         if text_log_settings is not None:
@@ -336,9 +374,19 @@ class BotAliasLambdaCodeHookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             code_hook_interface_version: pulumi.Input[str],
-             lambda_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             code_hook_interface_version: Optional[pulumi.Input[str]] = None,
+             lambda_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code_hook_interface_version is None and 'codeHookInterfaceVersion' in kwargs:
+            code_hook_interface_version = kwargs['codeHookInterfaceVersion']
+        if code_hook_interface_version is None:
+            raise TypeError("Missing 'code_hook_interface_version' argument")
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+
         _setter("code_hook_interface_version", code_hook_interface_version)
         _setter("lambda_arn", lambda_arn)
 
@@ -384,9 +432,19 @@ class BotAliasLocaleSettingsItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_alias_locale_setting: pulumi.Input['BotAliasLocaleSettingsArgs'],
-             locale_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bot_alias_locale_setting: Optional[pulumi.Input['BotAliasLocaleSettingsArgs']] = None,
+             locale_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_alias_locale_setting is None and 'botAliasLocaleSetting' in kwargs:
+            bot_alias_locale_setting = kwargs['botAliasLocaleSetting']
+        if bot_alias_locale_setting is None:
+            raise TypeError("Missing 'bot_alias_locale_setting' argument")
+        if locale_id is None and 'localeId' in kwargs:
+            locale_id = kwargs['localeId']
+        if locale_id is None:
+            raise TypeError("Missing 'locale_id' argument")
+
         _setter("bot_alias_locale_setting", bot_alias_locale_setting)
         _setter("locale_id", locale_id)
 
@@ -429,9 +487,15 @@ class BotAliasLocaleSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              code_hook_specification: Optional[pulumi.Input['BotAliasCodeHookSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if code_hook_specification is None and 'codeHookSpecification' in kwargs:
+            code_hook_specification = kwargs['codeHookSpecification']
+
         _setter("enabled", enabled)
         if code_hook_specification is not None:
             _setter("code_hook_specification", code_hook_specification)
@@ -479,10 +543,22 @@ class BotAliasS3BucketLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_prefix: pulumi.Input[str],
-             s3_bucket_arn: pulumi.Input[str],
+             log_prefix: Optional[pulumi.Input[str]] = None,
+             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_prefix is None and 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+        if log_prefix is None:
+            raise TypeError("Missing 'log_prefix' argument")
+        if s3_bucket_arn is None and 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if s3_bucket_arn is None:
+            raise TypeError("Missing 's3_bucket_arn' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("log_prefix", log_prefix)
         _setter("s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
@@ -543,9 +619,15 @@ class BotAliasTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -588,8 +670,14 @@ class BotAliasTextLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch: pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch: Optional[pulumi.Input['BotAliasCloudWatchLogGroupLogDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch is None and 'cloudWatch' in kwargs:
+            cloud_watch = kwargs['cloudWatch']
+        if cloud_watch is None:
+            raise TypeError("Missing 'cloud_watch' argument")
+
         _setter("cloud_watch", cloud_watch)
 
     @property
@@ -618,9 +706,15 @@ class BotAliasTextLogSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BotAliasTextLogDestinationArgs'],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input['BotAliasTextLogDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -657,8 +751,14 @@ class BotAudioLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket: pulumi.Input['BotS3BucketLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_bucket: Optional[pulumi.Input['BotS3BucketLogDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+
         _setter("s3_bucket", s3_bucket)
 
     @property
@@ -687,9 +787,15 @@ class BotAudioLogSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BotAudioLogDestinationArgs'],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input['BotAudioLogDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -730,9 +836,15 @@ class BotButtonArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("text", text)
         _setter("value", value)
 
@@ -778,9 +890,19 @@ class BotCloudWatchLogGroupLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_log_group_arn: pulumi.Input[str],
-             log_prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
+             log_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_log_group_arn is None and 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if cloud_watch_log_group_arn is None:
+            raise TypeError("Missing 'cloud_watch_log_group_arn' argument")
+        if log_prefix is None and 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+        if log_prefix is None:
+            raise TypeError("Missing 'log_prefix' argument")
+
         _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         _setter("log_prefix", log_prefix)
 
@@ -833,11 +955,21 @@ class BotConditionalBranchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             condition: pulumi.Input['BotConditionArgs'],
-             name: pulumi.Input[str],
-             next_step: pulumi.Input['BotDialogStateArgs'],
+             condition: Optional[pulumi.Input['BotConditionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition is None:
+            raise TypeError("Missing 'condition' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if next_step is None and 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+        if next_step is None:
+            raise TypeError("Missing 'next_step' argument")
+
         _setter("condition", condition)
         _setter("name", name)
         _setter("next_step", next_step)
@@ -914,10 +1046,24 @@ class BotConditionalSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             conditional_branches: pulumi.Input[Sequence[pulumi.Input['BotConditionalBranchArgs']]],
-             default_branch: pulumi.Input['BotDefaultConditionalBranchArgs'],
-             is_active: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             conditional_branches: Optional[pulumi.Input[Sequence[pulumi.Input['BotConditionalBranchArgs']]]] = None,
+             default_branch: Optional[pulumi.Input['BotDefaultConditionalBranchArgs']] = None,
+             is_active: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conditional_branches is None and 'conditionalBranches' in kwargs:
+            conditional_branches = kwargs['conditionalBranches']
+        if conditional_branches is None:
+            raise TypeError("Missing 'conditional_branches' argument")
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if default_branch is None:
+            raise TypeError("Missing 'default_branch' argument")
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if is_active is None:
+            raise TypeError("Missing 'is_active' argument")
+
         _setter("conditional_branches", conditional_branches)
         _setter("default_branch", default_branch)
         _setter("is_active", is_active)
@@ -974,8 +1120,14 @@ class BotConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression_string: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             expression_string: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression_string is None and 'expressionString' in kwargs:
+            expression_string = kwargs['expressionString']
+        if expression_string is None:
+            raise TypeError("Missing 'expression_string' argument")
+
         _setter("expression_string", expression_string)
 
     @property
@@ -1009,7 +1161,13 @@ class BotConversationLogSettingsArgs:
              _setter: Callable[[Any, Any], None],
              audio_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAudioLogSettingArgs']]]] = None,
              text_log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotTextLogSettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audio_log_settings is None and 'audioLogSettings' in kwargs:
+            audio_log_settings = kwargs['audioLogSettings']
+        if text_log_settings is None and 'textLogSettings' in kwargs:
+            text_log_settings = kwargs['textLogSettings']
+
         if audio_log_settings is not None:
             _setter("audio_log_settings", audio_log_settings)
         if text_log_settings is not None:
@@ -1049,8 +1207,12 @@ class BotCustomPayloadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
 
     @property
@@ -1087,10 +1249,16 @@ class BotCustomVocabularyItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             phrase: pulumi.Input[str],
+             phrase: Optional[pulumi.Input[str]] = None,
              display_as: Optional[pulumi.Input[str]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if phrase is None:
+            raise TypeError("Missing 'phrase' argument")
+        if display_as is None and 'displayAs' in kwargs:
+            display_as = kwargs['displayAs']
+
         _setter("phrase", phrase)
         if display_as is not None:
             _setter("display_as", display_as)
@@ -1148,8 +1316,14 @@ class BotCustomVocabularyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom_vocabulary_items: pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom_vocabulary_items: Optional[pulumi.Input[Sequence[pulumi.Input['BotCustomVocabularyItemArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_vocabulary_items is None and 'customVocabularyItems' in kwargs:
+            custom_vocabulary_items = kwargs['customVocabularyItems']
+        if custom_vocabulary_items is None:
+            raise TypeError("Missing 'custom_vocabulary_items' argument")
+
         _setter("custom_vocabulary_items", custom_vocabulary_items)
 
     @property
@@ -1182,7 +1356,11 @@ class BotDefaultConditionalBranchArgs:
              _setter: Callable[[Any, Any], None],
              next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if next_step is None and 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         if next_step is not None:
             _setter("next_step", next_step)
         if response is not None:
@@ -1234,10 +1412,18 @@ class BotDialogActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['BotDialogActionType'],
+             type: Optional[pulumi.Input['BotDialogActionType']] = None,
              slot_to_elicit: Optional[pulumi.Input[str]] = None,
              suppress_next_message: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if slot_to_elicit is None and 'slotToElicit' in kwargs:
+            slot_to_elicit = kwargs['slotToElicit']
+        if suppress_next_message is None and 'suppressNextMessage' in kwargs:
+            suppress_next_message = kwargs['suppressNextMessage']
+
         _setter("type", type)
         if slot_to_elicit is not None:
             _setter("slot_to_elicit", slot_to_elicit)
@@ -1305,11 +1491,27 @@ class BotDialogCodeHookInvocationSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable_code_hook_invocation: pulumi.Input[bool],
-             is_active: pulumi.Input[bool],
-             post_code_hook_specification: pulumi.Input['BotPostDialogCodeHookInvocationSpecificationArgs'],
+             enable_code_hook_invocation: Optional[pulumi.Input[bool]] = None,
+             is_active: Optional[pulumi.Input[bool]] = None,
+             post_code_hook_specification: Optional[pulumi.Input['BotPostDialogCodeHookInvocationSpecificationArgs']] = None,
              invocation_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_code_hook_invocation is None and 'enableCodeHookInvocation' in kwargs:
+            enable_code_hook_invocation = kwargs['enableCodeHookInvocation']
+        if enable_code_hook_invocation is None:
+            raise TypeError("Missing 'enable_code_hook_invocation' argument")
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if is_active is None:
+            raise TypeError("Missing 'is_active' argument")
+        if post_code_hook_specification is None and 'postCodeHookSpecification' in kwargs:
+            post_code_hook_specification = kwargs['postCodeHookSpecification']
+        if post_code_hook_specification is None:
+            raise TypeError("Missing 'post_code_hook_specification' argument")
+        if invocation_label is None and 'invocationLabel' in kwargs:
+            invocation_label = kwargs['invocationLabel']
+
         _setter("enable_code_hook_invocation", enable_code_hook_invocation)
         _setter("is_active", is_active)
         _setter("post_code_hook_specification", post_code_hook_specification)
@@ -1379,8 +1581,12 @@ class BotDialogCodeHookSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -1417,7 +1623,13 @@ class BotDialogStateArgs:
              dialog_action: Optional[pulumi.Input['BotDialogActionArgs']] = None,
              intent: Optional[pulumi.Input['BotIntentOverrideArgs']] = None,
              session_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['BotSessionAttributeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dialog_action is None and 'dialogAction' in kwargs:
+            dialog_action = kwargs['dialogAction']
+        if session_attributes is None and 'sessionAttributes' in kwargs:
+            session_attributes = kwargs['sessionAttributes']
+
         if dialog_action is not None:
             _setter("dialog_action", dialog_action)
         if intent is not None:
@@ -1480,9 +1692,17 @@ class BotElicitationCodeHookInvocationSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable_code_hook_invocation: pulumi.Input[bool],
+             enable_code_hook_invocation: Optional[pulumi.Input[bool]] = None,
              invocation_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_code_hook_invocation is None and 'enableCodeHookInvocation' in kwargs:
+            enable_code_hook_invocation = kwargs['enableCodeHookInvocation']
+        if enable_code_hook_invocation is None:
+            raise TypeError("Missing 'enable_code_hook_invocation' argument")
+        if invocation_label is None and 'invocationLabel' in kwargs:
+            invocation_label = kwargs['invocationLabel']
+
         _setter("enable_code_hook_invocation", enable_code_hook_invocation)
         if invocation_label is not None:
             _setter("invocation_label", invocation_label)
@@ -1527,7 +1747,11 @@ class BotExternalSourceSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              grammar_slot_type_setting: Optional[pulumi.Input['BotGrammarSlotTypeSettingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if grammar_slot_type_setting is None and 'grammarSlotTypeSetting' in kwargs:
+            grammar_slot_type_setting = kwargs['grammarSlotTypeSetting']
+
         if grammar_slot_type_setting is not None:
             _setter("grammar_slot_type_setting", grammar_slot_type_setting)
 
@@ -1562,11 +1786,21 @@ class BotFulfillmentCodeHookSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              fulfillment_updates_specification: Optional[pulumi.Input['BotFulfillmentUpdatesSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
              post_fulfillment_status_specification: Optional[pulumi.Input['BotPostFulfillmentStatusSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if fulfillment_updates_specification is None and 'fulfillmentUpdatesSpecification' in kwargs:
+            fulfillment_updates_specification = kwargs['fulfillmentUpdatesSpecification']
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if post_fulfillment_status_specification is None and 'postFulfillmentStatusSpecification' in kwargs:
+            post_fulfillment_status_specification = kwargs['postFulfillmentStatusSpecification']
+
         _setter("enabled", enabled)
         if fulfillment_updates_specification is not None:
             _setter("fulfillment_updates_specification", fulfillment_updates_specification)
@@ -1635,10 +1869,22 @@ class BotFulfillmentStartResponseSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delay_in_seconds: pulumi.Input[int],
-             message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
+             delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]] = None,
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delay_in_seconds is None and 'delayInSeconds' in kwargs:
+            delay_in_seconds = kwargs['delayInSeconds']
+        if delay_in_seconds is None:
+            raise TypeError("Missing 'delay_in_seconds' argument")
+        if message_groups is None and 'messageGroups' in kwargs:
+            message_groups = kwargs['messageGroups']
+        if message_groups is None:
+            raise TypeError("Missing 'message_groups' argument")
+        if allow_interrupt is None and 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("delay_in_seconds", delay_in_seconds)
         _setter("message_groups", message_groups)
         if allow_interrupt is not None:
@@ -1698,10 +1944,22 @@ class BotFulfillmentUpdateResponseSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_in_seconds: pulumi.Input[int],
-             message_groups: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
+             frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             message_groups: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]] = None,
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency_in_seconds is None and 'frequencyInSeconds' in kwargs:
+            frequency_in_seconds = kwargs['frequencyInSeconds']
+        if frequency_in_seconds is None:
+            raise TypeError("Missing 'frequency_in_seconds' argument")
+        if message_groups is None and 'messageGroups' in kwargs:
+            message_groups = kwargs['messageGroups']
+        if message_groups is None:
+            raise TypeError("Missing 'message_groups' argument")
+        if allow_interrupt is None and 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("frequency_in_seconds", frequency_in_seconds)
         _setter("message_groups", message_groups)
         if allow_interrupt is not None:
@@ -1763,11 +2021,21 @@ class BotFulfillmentUpdatesSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             active: pulumi.Input[bool],
+             active: Optional[pulumi.Input[bool]] = None,
              start_response: Optional[pulumi.Input['BotFulfillmentStartResponseSpecificationArgs']] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              update_response: Optional[pulumi.Input['BotFulfillmentUpdateResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active is None:
+            raise TypeError("Missing 'active' argument")
+        if start_response is None and 'startResponse' in kwargs:
+            start_response = kwargs['startResponse']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if update_response is None and 'updateResponse' in kwargs:
+            update_response = kwargs['updateResponse']
+
         _setter("active", active)
         if start_response is not None:
             _setter("start_response", start_response)
@@ -1834,7 +2102,9 @@ class BotGrammarSlotTypeSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              source: Optional[pulumi.Input['BotGrammarSlotTypeSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if source is not None:
             _setter("source", source)
 
@@ -1869,10 +2139,22 @@ class BotGrammarSlotTypeSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket_name: pulumi.Input[str],
-             s3_object_key: pulumi.Input[str],
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             s3_object_key: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_object_key is None and 's3ObjectKey' in kwargs:
+            s3_object_key = kwargs['s3ObjectKey']
+        if s3_object_key is None:
+            raise TypeError("Missing 's3_object_key' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("s3_bucket_name", s3_bucket_name)
         _setter("s3_object_key", s3_object_key)
         if kms_key_arn is not None:
@@ -1939,11 +2221,17 @@ class BotImageResponseCardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             title: pulumi.Input[str],
+             title: Optional[pulumi.Input[str]] = None,
              buttons: Optional[pulumi.Input[Sequence[pulumi.Input['BotButtonArgs']]]] = None,
              image_url: Optional[pulumi.Input[str]] = None,
              subtitle: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if image_url is None and 'imageUrl' in kwargs:
+            image_url = kwargs['imageUrl']
+
         _setter("title", title)
         if buttons is not None:
             _setter("buttons", buttons)
@@ -2029,7 +2317,15 @@ class BotInitialResponseSettingArgs:
              conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              initial_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
              next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code_hook is None and 'codeHook' in kwargs:
+            code_hook = kwargs['codeHook']
+        if initial_response is None and 'initialResponse' in kwargs:
+            initial_response = kwargs['initialResponse']
+        if next_step is None and 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         if code_hook is not None:
             _setter("code_hook", code_hook)
         if conditional is not None:
@@ -2103,8 +2399,12 @@ class BotInputContextArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -2148,7 +2448,15 @@ class BotIntentClosingSettingArgs:
              conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
              next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if closing_response is None and 'closingResponse' in kwargs:
+            closing_response = kwargs['closingResponse']
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if next_step is None and 'nextStep' in kwargs:
+            next_step = kwargs['nextStep']
+
         if closing_response is not None:
             _setter("closing_response", closing_response)
         if conditional is not None:
@@ -2258,7 +2566,7 @@ class BotIntentConfirmationSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             prompt_specification: pulumi.Input['BotPromptSpecificationArgs'],
+             prompt_specification: Optional[pulumi.Input['BotPromptSpecificationArgs']] = None,
              code_hook: Optional[pulumi.Input['BotDialogCodeHookInvocationSettingArgs']] = None,
              confirmation_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              confirmation_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
@@ -2271,7 +2579,37 @@ class BotIntentConfirmationSettingArgs:
              failure_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              failure_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prompt_specification is None and 'promptSpecification' in kwargs:
+            prompt_specification = kwargs['promptSpecification']
+        if prompt_specification is None:
+            raise TypeError("Missing 'prompt_specification' argument")
+        if code_hook is None and 'codeHook' in kwargs:
+            code_hook = kwargs['codeHook']
+        if confirmation_conditional is None and 'confirmationConditional' in kwargs:
+            confirmation_conditional = kwargs['confirmationConditional']
+        if confirmation_next_step is None and 'confirmationNextStep' in kwargs:
+            confirmation_next_step = kwargs['confirmationNextStep']
+        if confirmation_response is None and 'confirmationResponse' in kwargs:
+            confirmation_response = kwargs['confirmationResponse']
+        if declination_conditional is None and 'declinationConditional' in kwargs:
+            declination_conditional = kwargs['declinationConditional']
+        if declination_next_step is None and 'declinationNextStep' in kwargs:
+            declination_next_step = kwargs['declinationNextStep']
+        if declination_response is None and 'declinationResponse' in kwargs:
+            declination_response = kwargs['declinationResponse']
+        if elicitation_code_hook is None and 'elicitationCodeHook' in kwargs:
+            elicitation_code_hook = kwargs['elicitationCodeHook']
+        if failure_conditional is None and 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if failure_next_step is None and 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if failure_response is None and 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+
         _setter("prompt_specification", prompt_specification)
         if code_hook is not None:
             _setter("code_hook", code_hook)
@@ -2475,7 +2813,9 @@ class BotIntentOverrideArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              slots: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideMapArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if slots is not None:
@@ -2551,7 +2891,7 @@ class BotIntentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              dialog_code_hook: Optional[pulumi.Input['BotDialogCodeHookSettingArgs']] = None,
              fulfillment_code_hook: Optional[pulumi.Input['BotFulfillmentCodeHookSettingArgs']] = None,
@@ -2565,7 +2905,33 @@ class BotIntentArgs:
              sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]] = None,
              slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotPriorityArgs']]]] = None,
              slots: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dialog_code_hook is None and 'dialogCodeHook' in kwargs:
+            dialog_code_hook = kwargs['dialogCodeHook']
+        if fulfillment_code_hook is None and 'fulfillmentCodeHook' in kwargs:
+            fulfillment_code_hook = kwargs['fulfillmentCodeHook']
+        if initial_response_setting is None and 'initialResponseSetting' in kwargs:
+            initial_response_setting = kwargs['initialResponseSetting']
+        if input_contexts is None and 'inputContexts' in kwargs:
+            input_contexts = kwargs['inputContexts']
+        if intent_closing_setting is None and 'intentClosingSetting' in kwargs:
+            intent_closing_setting = kwargs['intentClosingSetting']
+        if intent_confirmation_setting is None and 'intentConfirmationSetting' in kwargs:
+            intent_confirmation_setting = kwargs['intentConfirmationSetting']
+        if kendra_configuration is None and 'kendraConfiguration' in kwargs:
+            kendra_configuration = kwargs['kendraConfiguration']
+        if output_contexts is None and 'outputContexts' in kwargs:
+            output_contexts = kwargs['outputContexts']
+        if parent_intent_signature is None and 'parentIntentSignature' in kwargs:
+            parent_intent_signature = kwargs['parentIntentSignature']
+        if sample_utterances is None and 'sampleUtterances' in kwargs:
+            sample_utterances = kwargs['sampleUtterances']
+        if slot_priorities is None and 'slotPriorities' in kwargs:
+            slot_priorities = kwargs['slotPriorities']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -2755,10 +3121,20 @@ class BotKendraConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kendra_index: pulumi.Input[str],
+             kendra_index: Optional[pulumi.Input[str]] = None,
              query_filter_string: Optional[pulumi.Input[str]] = None,
              query_filter_string_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kendra_index is None and 'kendraIndex' in kwargs:
+            kendra_index = kwargs['kendraIndex']
+        if kendra_index is None:
+            raise TypeError("Missing 'kendra_index' argument")
+        if query_filter_string is None and 'queryFilterString' in kwargs:
+            query_filter_string = kwargs['queryFilterString']
+        if query_filter_string_enabled is None and 'queryFilterStringEnabled' in kwargs:
+            query_filter_string_enabled = kwargs['queryFilterStringEnabled']
+
         _setter("kendra_index", kendra_index)
         if query_filter_string is not None:
             _setter("query_filter_string", query_filter_string)
@@ -2824,14 +3200,30 @@ class BotLocaleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             locale_id: pulumi.Input[str],
-             nlu_confidence_threshold: pulumi.Input[float],
+             locale_id: Optional[pulumi.Input[str]] = None,
+             nlu_confidence_threshold: Optional[pulumi.Input[float]] = None,
              custom_vocabulary: Optional[pulumi.Input['BotCustomVocabularyArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              intents: Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]] = None,
              slot_types: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeArgs']]]] = None,
              voice_settings: Optional[pulumi.Input['BotVoiceSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if locale_id is None and 'localeId' in kwargs:
+            locale_id = kwargs['localeId']
+        if locale_id is None:
+            raise TypeError("Missing 'locale_id' argument")
+        if nlu_confidence_threshold is None and 'nluConfidenceThreshold' in kwargs:
+            nlu_confidence_threshold = kwargs['nluConfidenceThreshold']
+        if nlu_confidence_threshold is None:
+            raise TypeError("Missing 'nlu_confidence_threshold' argument")
+        if custom_vocabulary is None and 'customVocabulary' in kwargs:
+            custom_vocabulary = kwargs['customVocabulary']
+        if slot_types is None and 'slotTypes' in kwargs:
+            slot_types = kwargs['slotTypes']
+        if voice_settings is None and 'voiceSettings' in kwargs:
+            voice_settings = kwargs['voiceSettings']
+
         _setter("locale_id", locale_id)
         _setter("nlu_confidence_threshold", nlu_confidence_threshold)
         if custom_vocabulary is not None:
@@ -2932,9 +3324,13 @@ class BotMessageGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message: pulumi.Input['BotMessageArgs'],
+             message: Optional[pulumi.Input['BotMessageArgs']] = None,
              variations: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+
         _setter("message", message)
         if variations is not None:
             _setter("variations", variations)
@@ -2985,7 +3381,17 @@ class BotMessageArgs:
              image_response_card: Optional[pulumi.Input['BotImageResponseCardArgs']] = None,
              plain_text_message: Optional[pulumi.Input['BotPlainTextMessageArgs']] = None,
              ssml_message: Optional[pulumi.Input['BotSsmlMessageArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_payload is None and 'customPayload' in kwargs:
+            custom_payload = kwargs['customPayload']
+        if image_response_card is None and 'imageResponseCard' in kwargs:
+            image_response_card = kwargs['imageResponseCard']
+        if plain_text_message is None and 'plainTextMessage' in kwargs:
+            plain_text_message = kwargs['plainTextMessage']
+        if ssml_message is None and 'ssmlMessage' in kwargs:
+            ssml_message = kwargs['ssmlMessage']
+
         if custom_payload is not None:
             _setter("custom_payload", custom_payload)
         if image_response_card is not None:
@@ -3047,7 +3453,11 @@ class BotMultipleValuesSettingArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              allow_multiple_values: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_multiple_values is None and 'allowMultipleValues' in kwargs:
+            allow_multiple_values = kwargs['allowMultipleValues']
+
         if allow_multiple_values is not None:
             _setter("allow_multiple_values", allow_multiple_values)
 
@@ -3076,8 +3486,14 @@ class BotObfuscationSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             obfuscation_setting_type: pulumi.Input['BotObfuscationSettingObfuscationSettingType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             obfuscation_setting_type: Optional[pulumi.Input['BotObfuscationSettingObfuscationSettingType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if obfuscation_setting_type is None and 'obfuscationSettingType' in kwargs:
+            obfuscation_setting_type = kwargs['obfuscationSettingType']
+        if obfuscation_setting_type is None:
+            raise TypeError("Missing 'obfuscation_setting_type' argument")
+
         _setter("obfuscation_setting_type", obfuscation_setting_type)
 
     @property
@@ -3111,10 +3527,22 @@ class BotOutputContextArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             time_to_live_in_seconds: pulumi.Input[int],
-             turns_to_live: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             time_to_live_in_seconds: Optional[pulumi.Input[int]] = None,
+             turns_to_live: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if time_to_live_in_seconds is None and 'timeToLiveInSeconds' in kwargs:
+            time_to_live_in_seconds = kwargs['timeToLiveInSeconds']
+        if time_to_live_in_seconds is None:
+            raise TypeError("Missing 'time_to_live_in_seconds' argument")
+        if turns_to_live is None and 'turnsToLive' in kwargs:
+            turns_to_live = kwargs['turnsToLive']
+        if turns_to_live is None:
+            raise TypeError("Missing 'turns_to_live' argument")
+
         _setter("name", name)
         _setter("time_to_live_in_seconds", time_to_live_in_seconds)
         _setter("turns_to_live", turns_to_live)
@@ -3162,8 +3590,12 @@ class BotPlainTextMessageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
 
     @property
@@ -3227,7 +3659,27 @@ class BotPostDialogCodeHookInvocationSpecificationArgs:
              timeout_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              timeout_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              timeout_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_conditional is None and 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if failure_next_step is None and 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if failure_response is None and 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+        if success_conditional is None and 'successConditional' in kwargs:
+            success_conditional = kwargs['successConditional']
+        if success_next_step is None and 'successNextStep' in kwargs:
+            success_next_step = kwargs['successNextStep']
+        if success_response is None and 'successResponse' in kwargs:
+            success_response = kwargs['successResponse']
+        if timeout_conditional is None and 'timeoutConditional' in kwargs:
+            timeout_conditional = kwargs['timeoutConditional']
+        if timeout_next_step is None and 'timeoutNextStep' in kwargs:
+            timeout_next_step = kwargs['timeoutNextStep']
+        if timeout_response is None and 'timeoutResponse' in kwargs:
+            timeout_response = kwargs['timeoutResponse']
+
         if failure_conditional is not None:
             _setter("failure_conditional", failure_conditional)
         if failure_next_step is not None:
@@ -3404,7 +3856,27 @@ class BotPostFulfillmentStatusSpecificationArgs:
              timeout_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              timeout_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              timeout_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_conditional is None and 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if failure_next_step is None and 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if failure_response is None and 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+        if success_conditional is None and 'successConditional' in kwargs:
+            success_conditional = kwargs['successConditional']
+        if success_next_step is None and 'successNextStep' in kwargs:
+            success_next_step = kwargs['successNextStep']
+        if success_response is None and 'successResponse' in kwargs:
+            success_response = kwargs['successResponse']
+        if timeout_conditional is None and 'timeoutConditional' in kwargs:
+            timeout_conditional = kwargs['timeoutConditional']
+        if timeout_next_step is None and 'timeoutNextStep' in kwargs:
+            timeout_next_step = kwargs['timeoutNextStep']
+        if timeout_response is None and 'timeoutResponse' in kwargs:
+            timeout_response = kwargs['timeoutResponse']
+
         if failure_conditional is not None:
             _setter("failure_conditional", failure_conditional)
         if failure_next_step is not None:
@@ -3557,12 +4029,28 @@ class BotPromptSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_retries: pulumi.Input[int],
-             message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
+             max_retries: Optional[pulumi.Input[int]] = None,
+             message_groups_list: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]] = None,
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
              message_selection_strategy: Optional[pulumi.Input['BotMessageSelectionStrategy']] = None,
              prompt_attempts_specification: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if max_retries is None:
+            raise TypeError("Missing 'max_retries' argument")
+        if message_groups_list is None and 'messageGroupsList' in kwargs:
+            message_groups_list = kwargs['messageGroupsList']
+        if message_groups_list is None:
+            raise TypeError("Missing 'message_groups_list' argument")
+        if allow_interrupt is None and 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+        if message_selection_strategy is None and 'messageSelectionStrategy' in kwargs:
+            message_selection_strategy = kwargs['messageSelectionStrategy']
+        if prompt_attempts_specification is None and 'promptAttemptsSpecification' in kwargs:
+            prompt_attempts_specification = kwargs['promptAttemptsSpecification']
+
         _setter("max_retries", max_retries)
         _setter("message_groups_list", message_groups_list)
         if allow_interrupt is not None:
@@ -3641,9 +4129,17 @@ class BotResponseSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
+             message_groups_list: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]] = None,
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_groups_list is None and 'messageGroupsList' in kwargs:
+            message_groups_list = kwargs['messageGroupsList']
+        if message_groups_list is None:
+            raise TypeError("Missing 'message_groups_list' argument")
+        if allow_interrupt is None and 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("message_groups_list", message_groups_list)
         if allow_interrupt is not None:
             _setter("allow_interrupt", allow_interrupt)
@@ -3691,10 +4187,22 @@ class BotS3BucketLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_prefix: pulumi.Input[str],
-             s3_bucket_arn: pulumi.Input[str],
+             log_prefix: Optional[pulumi.Input[str]] = None,
+             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_prefix is None and 'logPrefix' in kwargs:
+            log_prefix = kwargs['logPrefix']
+        if log_prefix is None:
+            raise TypeError("Missing 'log_prefix' argument")
+        if s3_bucket_arn is None and 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if s3_bucket_arn is None:
+            raise TypeError("Missing 's3_bucket_arn' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("log_prefix", log_prefix)
         _setter("s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
@@ -3758,10 +4266,22 @@ class BotS3LocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket: pulumi.Input[str],
-             s3_object_key: pulumi.Input[str],
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_object_key: Optional[pulumi.Input[str]] = None,
              s3_object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_object_key is None and 's3ObjectKey' in kwargs:
+            s3_object_key = kwargs['s3ObjectKey']
+        if s3_object_key is None:
+            raise TypeError("Missing 's3_object_key' argument")
+        if s3_object_version is None and 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_object_key", s3_object_key)
         if s3_object_version is not None:
@@ -3818,8 +4338,12 @@ class BotSampleUtteranceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             utterance: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             utterance: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if utterance is None:
+            raise TypeError("Missing 'utterance' argument")
+
         _setter("utterance", utterance)
 
     @property
@@ -3847,8 +4371,12 @@ class BotSampleValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
 
     @property
@@ -3880,9 +4408,13 @@ class BotSessionAttributeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -3950,7 +4482,25 @@ class BotSlotCaptureSettingArgs:
              failure_conditional: Optional[pulumi.Input['BotConditionalSpecificationArgs']] = None,
              failure_next_step: Optional[pulumi.Input['BotDialogStateArgs']] = None,
              failure_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capture_conditional is None and 'captureConditional' in kwargs:
+            capture_conditional = kwargs['captureConditional']
+        if capture_next_step is None and 'captureNextStep' in kwargs:
+            capture_next_step = kwargs['captureNextStep']
+        if capture_response is None and 'captureResponse' in kwargs:
+            capture_response = kwargs['captureResponse']
+        if code_hook is None and 'codeHook' in kwargs:
+            code_hook = kwargs['codeHook']
+        if elicitation_code_hook is None and 'elicitationCodeHook' in kwargs:
+            elicitation_code_hook = kwargs['elicitationCodeHook']
+        if failure_conditional is None and 'failureConditional' in kwargs:
+            failure_conditional = kwargs['failureConditional']
+        if failure_next_step is None and 'failureNextStep' in kwargs:
+            failure_next_step = kwargs['failureNextStep']
+        if failure_response is None and 'failureResponse' in kwargs:
+            failure_response = kwargs['failureResponse']
+
         if capture_conditional is not None:
             _setter("capture_conditional", capture_conditional)
         if capture_next_step is not None:
@@ -4080,8 +4630,14 @@ class BotSlotDefaultValueSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_value_list: pulumi.Input[Sequence[pulumi.Input['BotSlotDefaultValueArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_value_list: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotDefaultValueArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_value_list is None and 'defaultValueList' in kwargs:
+            default_value_list = kwargs['defaultValueList']
+        if default_value_list is None:
+            raise TypeError("Missing 'default_value_list' argument")
+
         _setter("default_value_list", default_value_list)
 
     @property
@@ -4112,8 +4668,14 @@ class BotSlotDefaultValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if default_value is None:
+            raise TypeError("Missing 'default_value' argument")
+
         _setter("default_value", default_value)
 
     @property
@@ -4146,9 +4708,17 @@ class BotSlotPriorityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: pulumi.Input[int],
-             slot_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             priority: Optional[pulumi.Input[int]] = None,
+             slot_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if slot_name is None and 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+        if slot_name is None:
+            raise TypeError("Missing 'slot_name' argument")
+
         _setter("priority", priority)
         _setter("slot_name", slot_name)
 
@@ -4190,9 +4760,15 @@ class BotSlotTypeValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sample_value: pulumi.Input['BotSampleValueArgs'],
+             sample_value: Optional[pulumi.Input['BotSampleValueArgs']] = None,
              synonyms: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sample_value is None and 'sampleValue' in kwargs:
+            sample_value = kwargs['sampleValue']
+        if sample_value is None:
+            raise TypeError("Missing 'sample_value' argument")
+
         _setter("sample_value", sample_value)
         if synonyms is not None:
             _setter("synonyms", synonyms)
@@ -4240,13 +4816,25 @@ class BotSlotTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              external_source_setting: Optional[pulumi.Input['BotExternalSourceSettingArgs']] = None,
              parent_slot_type_signature: Optional[pulumi.Input[str]] = None,
              slot_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotTypeValueArgs']]]] = None,
              value_selection_setting: Optional[pulumi.Input['BotSlotValueSelectionSettingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if external_source_setting is None and 'externalSourceSetting' in kwargs:
+            external_source_setting = kwargs['externalSourceSetting']
+        if parent_slot_type_signature is None and 'parentSlotTypeSignature' in kwargs:
+            parent_slot_type_signature = kwargs['parentSlotTypeSignature']
+        if slot_type_values is None and 'slotTypeValues' in kwargs:
+            slot_type_values = kwargs['slotTypeValues']
+        if value_selection_setting is None and 'valueSelectionSetting' in kwargs:
+            value_selection_setting = kwargs['valueSelectionSetting']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -4344,13 +4932,29 @@ class BotSlotValueElicitationSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             slot_constraint: pulumi.Input['BotSlotConstraint'],
+             slot_constraint: Optional[pulumi.Input['BotSlotConstraint']] = None,
              default_value_specification: Optional[pulumi.Input['BotSlotDefaultValueSpecificationArgs']] = None,
              prompt_specification: Optional[pulumi.Input['BotPromptSpecificationArgs']] = None,
              sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['BotSampleUtteranceArgs']]]] = None,
              slot_capture_setting: Optional[pulumi.Input['BotSlotCaptureSettingArgs']] = None,
              wait_and_continue_specification: Optional[pulumi.Input['BotWaitAndContinueSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if slot_constraint is None and 'slotConstraint' in kwargs:
+            slot_constraint = kwargs['slotConstraint']
+        if slot_constraint is None:
+            raise TypeError("Missing 'slot_constraint' argument")
+        if default_value_specification is None and 'defaultValueSpecification' in kwargs:
+            default_value_specification = kwargs['defaultValueSpecification']
+        if prompt_specification is None and 'promptSpecification' in kwargs:
+            prompt_specification = kwargs['promptSpecification']
+        if sample_utterances is None and 'sampleUtterances' in kwargs:
+            sample_utterances = kwargs['sampleUtterances']
+        if slot_capture_setting is None and 'slotCaptureSetting' in kwargs:
+            slot_capture_setting = kwargs['slotCaptureSetting']
+        if wait_and_continue_specification is None and 'waitAndContinueSpecification' in kwargs:
+            wait_and_continue_specification = kwargs['waitAndContinueSpecification']
+
         _setter("slot_constraint", slot_constraint)
         if default_value_specification is not None:
             _setter("default_value_specification", default_value_specification)
@@ -4454,7 +5058,13 @@ class BotSlotValueOverrideMapArgs:
              _setter: Callable[[Any, Any], None],
              slot_name: Optional[pulumi.Input[str]] = None,
              slot_value_override: Optional[pulumi.Input['BotSlotValueOverrideArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if slot_name is None and 'slotName' in kwargs:
+            slot_name = kwargs['slotName']
+        if slot_value_override is None and 'slotValueOverride' in kwargs:
+            slot_value_override = kwargs['slotValueOverride']
+
         if slot_name is not None:
             _setter("slot_name", slot_name)
         if slot_value_override is not None:
@@ -4503,7 +5113,9 @@ class BotSlotValueOverrideArgs:
              shape: Optional[pulumi.Input['BotSlotShape']] = None,
              value: Optional[pulumi.Input['BotSlotValueArgs']] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input['BotSlotValueOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if shape is not None:
             _setter("shape", shape)
         if value is not None:
@@ -4563,8 +5175,12 @@ class BotSlotValueRegexFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pattern: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             pattern: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+
         _setter("pattern", pattern)
 
     @property
@@ -4598,10 +5214,20 @@ class BotSlotValueSelectionSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resolution_strategy: pulumi.Input['BotSlotValueResolutionStrategy'],
+             resolution_strategy: Optional[pulumi.Input['BotSlotValueResolutionStrategy']] = None,
              advanced_recognition_setting: Optional[pulumi.Input['BotAdvancedRecognitionSettingArgs']] = None,
              regex_filter: Optional[pulumi.Input['BotSlotValueRegexFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resolution_strategy is None and 'resolutionStrategy' in kwargs:
+            resolution_strategy = kwargs['resolutionStrategy']
+        if resolution_strategy is None:
+            raise TypeError("Missing 'resolution_strategy' argument")
+        if advanced_recognition_setting is None and 'advancedRecognitionSetting' in kwargs:
+            advanced_recognition_setting = kwargs['advancedRecognitionSetting']
+        if regex_filter is None and 'regexFilter' in kwargs:
+            regex_filter = kwargs['regexFilter']
+
         _setter("resolution_strategy", resolution_strategy)
         if advanced_recognition_setting is not None:
             _setter("advanced_recognition_setting", advanced_recognition_setting)
@@ -4652,7 +5278,11 @@ class BotSlotValueArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              interpreted_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interpreted_value is None and 'interpretedValue' in kwargs:
+            interpreted_value = kwargs['interpretedValue']
+
         if interpreted_value is not None:
             _setter("interpreted_value", interpreted_value)
 
@@ -4693,13 +5323,29 @@ class BotSlotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             slot_type_name: pulumi.Input[str],
-             value_elicitation_setting: pulumi.Input['BotSlotValueElicitationSettingArgs'],
+             name: Optional[pulumi.Input[str]] = None,
+             slot_type_name: Optional[pulumi.Input[str]] = None,
+             value_elicitation_setting: Optional[pulumi.Input['BotSlotValueElicitationSettingArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              multiple_values_setting: Optional[pulumi.Input['BotMultipleValuesSettingArgs']] = None,
              obfuscation_setting: Optional[pulumi.Input['BotObfuscationSettingArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if slot_type_name is None and 'slotTypeName' in kwargs:
+            slot_type_name = kwargs['slotTypeName']
+        if slot_type_name is None:
+            raise TypeError("Missing 'slot_type_name' argument")
+        if value_elicitation_setting is None and 'valueElicitationSetting' in kwargs:
+            value_elicitation_setting = kwargs['valueElicitationSetting']
+        if value_elicitation_setting is None:
+            raise TypeError("Missing 'value_elicitation_setting' argument")
+        if multiple_values_setting is None and 'multipleValuesSetting' in kwargs:
+            multiple_values_setting = kwargs['multipleValuesSetting']
+        if obfuscation_setting is None and 'obfuscationSetting' in kwargs:
+            obfuscation_setting = kwargs['obfuscationSetting']
+
         _setter("name", name)
         _setter("slot_type_name", slot_type_name)
         _setter("value_elicitation_setting", value_elicitation_setting)
@@ -4780,8 +5426,12 @@ class BotSsmlMessageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
 
     @property
@@ -4818,11 +5468,27 @@ class BotStillWaitingResponseSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frequency_in_seconds: pulumi.Input[int],
-             message_groups_list: pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]],
-             timeout_in_seconds: pulumi.Input[int],
+             frequency_in_seconds: Optional[pulumi.Input[int]] = None,
+             message_groups_list: Optional[pulumi.Input[Sequence[pulumi.Input['BotMessageGroupArgs']]]] = None,
+             timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              allow_interrupt: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frequency_in_seconds is None and 'frequencyInSeconds' in kwargs:
+            frequency_in_seconds = kwargs['frequencyInSeconds']
+        if frequency_in_seconds is None:
+            raise TypeError("Missing 'frequency_in_seconds' argument")
+        if message_groups_list is None and 'messageGroupsList' in kwargs:
+            message_groups_list = kwargs['messageGroupsList']
+        if message_groups_list is None:
+            raise TypeError("Missing 'message_groups_list' argument")
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+        if timeout_in_seconds is None:
+            raise TypeError("Missing 'timeout_in_seconds' argument")
+        if allow_interrupt is None and 'allowInterrupt' in kwargs:
+            allow_interrupt = kwargs['allowInterrupt']
+
         _setter("frequency_in_seconds", frequency_in_seconds)
         _setter("message_groups_list", message_groups_list)
         _setter("timeout_in_seconds", timeout_in_seconds)
@@ -4887,9 +5553,15 @@ class BotTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4933,8 +5605,14 @@ class BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detect_sentiment: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             detect_sentiment: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detect_sentiment is None and 'detectSentiment' in kwargs:
+            detect_sentiment = kwargs['detectSentiment']
+        if detect_sentiment is None:
+            raise TypeError("Missing 'detect_sentiment' argument")
+
         _setter("detect_sentiment", detect_sentiment)
 
     @property
@@ -4975,7 +5653,15 @@ class BotTestBotAliasSettingsArgs:
              conversation_log_settings: Optional[pulumi.Input['BotConversationLogSettingsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              sentiment_analysis_settings: Optional[pulumi.Input['BotTestBotAliasSettingsSentimentAnalysisSettingsPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_alias_locale_settings is None and 'botAliasLocaleSettings' in kwargs:
+            bot_alias_locale_settings = kwargs['botAliasLocaleSettings']
+        if conversation_log_settings is None and 'conversationLogSettings' in kwargs:
+            conversation_log_settings = kwargs['conversationLogSettings']
+        if sentiment_analysis_settings is None and 'sentimentAnalysisSettings' in kwargs:
+            sentiment_analysis_settings = kwargs['sentimentAnalysisSettings']
+
         if bot_alias_locale_settings is not None:
             _setter("bot_alias_locale_settings", bot_alias_locale_settings)
         if conversation_log_settings is not None:
@@ -5039,8 +5725,14 @@ class BotTextLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch: pulumi.Input['BotCloudWatchLogGroupLogDestinationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch: Optional[pulumi.Input['BotCloudWatchLogGroupLogDestinationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch is None and 'cloudWatch' in kwargs:
+            cloud_watch = kwargs['cloudWatch']
+        if cloud_watch is None:
+            raise TypeError("Missing 'cloud_watch' argument")
+
         _setter("cloud_watch", cloud_watch)
 
     @property
@@ -5069,9 +5761,15 @@ class BotTextLogSettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BotTextLogDestinationArgs'],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input['BotTextLogDestinationArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("destination", destination)
         _setter("enabled", enabled)
 
@@ -5108,8 +5806,14 @@ class BotVersionLocaleDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_bot_version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             source_bot_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_bot_version is None and 'sourceBotVersion' in kwargs:
+            source_bot_version = kwargs['sourceBotVersion']
+        if source_bot_version is None:
+            raise TypeError("Missing 'source_bot_version' argument")
+
         _setter("source_bot_version", source_bot_version)
 
     @property
@@ -5135,9 +5839,19 @@ class BotVersionLocaleSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_version_locale_details: pulumi.Input['BotVersionLocaleDetailsArgs'],
-             locale_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bot_version_locale_details: Optional[pulumi.Input['BotVersionLocaleDetailsArgs']] = None,
+             locale_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_version_locale_details is None and 'botVersionLocaleDetails' in kwargs:
+            bot_version_locale_details = kwargs['botVersionLocaleDetails']
+        if bot_version_locale_details is None:
+            raise TypeError("Missing 'bot_version_locale_details' argument")
+        if locale_id is None and 'localeId' in kwargs:
+            locale_id = kwargs['localeId']
+        if locale_id is None:
+            raise TypeError("Missing 'locale_id' argument")
+
         _setter("bot_version_locale_details", bot_version_locale_details)
         _setter("locale_id", locale_id)
 
@@ -5178,9 +5892,15 @@ class BotVoiceSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             voice_id: pulumi.Input[str],
+             voice_id: Optional[pulumi.Input[str]] = None,
              engine: Optional[pulumi.Input['BotVoiceSettingsEngine']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if voice_id is None and 'voiceId' in kwargs:
+            voice_id = kwargs['voiceId']
+        if voice_id is None:
+            raise TypeError("Missing 'voice_id' argument")
+
         _setter("voice_id", voice_id)
         if engine is not None:
             _setter("engine", engine)
@@ -5234,11 +5954,25 @@ class BotWaitAndContinueSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             continue_response: pulumi.Input['BotResponseSpecificationArgs'],
-             waiting_response: pulumi.Input['BotResponseSpecificationArgs'],
+             continue_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
+             waiting_response: Optional[pulumi.Input['BotResponseSpecificationArgs']] = None,
              is_active: Optional[pulumi.Input[bool]] = None,
              still_waiting_response: Optional[pulumi.Input['BotStillWaitingResponseSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if continue_response is None and 'continueResponse' in kwargs:
+            continue_response = kwargs['continueResponse']
+        if continue_response is None:
+            raise TypeError("Missing 'continue_response' argument")
+        if waiting_response is None and 'waitingResponse' in kwargs:
+            waiting_response = kwargs['waitingResponse']
+        if waiting_response is None:
+            raise TypeError("Missing 'waiting_response' argument")
+        if is_active is None and 'isActive' in kwargs:
+            is_active = kwargs['isActive']
+        if still_waiting_response is None and 'stillWaitingResponse' in kwargs:
+            still_waiting_response = kwargs['stillWaitingResponse']
+
         _setter("continue_response", continue_response)
         _setter("waiting_response", waiting_response)
         if is_active is not None:
@@ -5309,8 +6043,14 @@ class DataPrivacyPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             child_directed: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             child_directed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if child_directed is None and 'childDirected' in kwargs:
+            child_directed = kwargs['childDirected']
+        if child_directed is None:
+            raise TypeError("Missing 'child_directed' argument")
+
         _setter("child_directed", child_directed)
 
     @property
@@ -5333,8 +6073,10 @@ class ResourcePolicyPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -5352,8 +6094,14 @@ class SentimentAnalysisSettingsPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detect_sentiment: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             detect_sentiment: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detect_sentiment is None and 'detectSentiment' in kwargs:
+            detect_sentiment = kwargs['detectSentiment']
+        if detect_sentiment is None:
+            raise TypeError("Missing 'detect_sentiment' argument")
+
         _setter("detect_sentiment", detect_sentiment)
 
     @property

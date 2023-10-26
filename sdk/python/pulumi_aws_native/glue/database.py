@@ -29,9 +29,19 @@ class DatabaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_input: pulumi.Input['DatabaseInputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_input: Optional[pulumi.Input['DatabaseInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if database_input is None and 'databaseInput' in kwargs:
+            database_input = kwargs['databaseInput']
+        if database_input is None:
+            raise TypeError("Missing 'database_input' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("database_input", database_input)
 
@@ -116,11 +126,7 @@ class Database(pulumi.CustomResource):
             if catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_id'")
             __props__.__dict__["catalog_id"] = catalog_id
-            if database_input is not None and not isinstance(database_input, DatabaseInputArgs):
-                database_input = database_input or {}
-                def _setter(key, value):
-                    database_input[key] = value
-                DatabaseInputArgs._configure(_setter, **database_input)
+            database_input = _utilities.configure(database_input, DatabaseInputArgs, True)
             if database_input is None and not opts.urn:
                 raise TypeError("Missing required property 'database_input'")
             __props__.__dict__["database_input"] = database_input

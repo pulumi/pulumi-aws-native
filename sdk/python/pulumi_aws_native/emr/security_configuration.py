@@ -29,9 +29,15 @@ class SecurityConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_configuration: Any,
+             security_configuration: Optional[Any] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if security_configuration is None:
+            raise TypeError("Missing 'security_configuration' argument")
+
         _setter("security_configuration", security_configuration)
         if name is not None:
             _setter("name", name)

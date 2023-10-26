@@ -43,13 +43,25 @@ class PhoneNumberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             country_code: pulumi.Input[str],
-             target_arn: pulumi.Input[str],
-             type: pulumi.Input[str],
+             country_code: Optional[pulumi.Input[str]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("country_code", country_code)
         _setter("target_arn", target_arn)
         _setter("type", type)

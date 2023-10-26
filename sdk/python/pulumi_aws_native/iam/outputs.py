@@ -58,9 +58,19 @@ class GroupPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: str,
-             policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_document: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
 
@@ -102,9 +112,15 @@ class OidcProviderTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -165,9 +181,19 @@ class RolePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: str,
-             policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_document: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
 
@@ -209,9 +235,15 @@ class RoleTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -253,9 +285,15 @@ class SamlProviderTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -297,9 +335,15 @@ class ServerCertificateTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -350,9 +394,15 @@ class UserLoginProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
+             password: Optional[str] = None,
              password_reset_required: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if password_reset_required is None and 'passwordResetRequired' in kwargs:
+            password_reset_required = kwargs['passwordResetRequired']
+
         _setter("password", password)
         if password_reset_required is not None:
             _setter("password_reset_required", password_reset_required)
@@ -400,9 +450,19 @@ class UserPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: Any,
-             policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_document: Optional[Any] = None,
+             policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+
         _setter("policy_document", policy_document)
         _setter("policy_name", policy_name)
 
@@ -430,9 +490,15 @@ class UserTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -468,9 +534,15 @@ class VirtualMfaDeviceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

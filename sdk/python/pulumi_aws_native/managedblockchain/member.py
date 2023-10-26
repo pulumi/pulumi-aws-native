@@ -33,11 +33,23 @@ class MemberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             member_configuration: pulumi.Input['MemberConfigurationArgs'],
+             member_configuration: Optional[pulumi.Input['MemberConfigurationArgs']] = None,
              invitation_id: Optional[pulumi.Input[str]] = None,
              network_configuration: Optional[pulumi.Input['MemberNetworkConfigurationArgs']] = None,
              network_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if member_configuration is None and 'memberConfiguration' in kwargs:
+            member_configuration = kwargs['memberConfiguration']
+        if member_configuration is None:
+            raise TypeError("Missing 'member_configuration' argument")
+        if invitation_id is None and 'invitationId' in kwargs:
+            invitation_id = kwargs['invitationId']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+
         _setter("member_configuration", member_configuration)
         if invitation_id is not None:
             _setter("invitation_id", invitation_id)
@@ -147,19 +159,11 @@ class Member(pulumi.CustomResource):
             __props__ = MemberArgs.__new__(MemberArgs)
 
             __props__.__dict__["invitation_id"] = invitation_id
-            if member_configuration is not None and not isinstance(member_configuration, MemberConfigurationArgs):
-                member_configuration = member_configuration or {}
-                def _setter(key, value):
-                    member_configuration[key] = value
-                MemberConfigurationArgs._configure(_setter, **member_configuration)
+            member_configuration = _utilities.configure(member_configuration, MemberConfigurationArgs, True)
             if member_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'member_configuration'")
             __props__.__dict__["member_configuration"] = member_configuration
-            if network_configuration is not None and not isinstance(network_configuration, MemberNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                MemberNetworkConfigurationArgs._configure(_setter, **network_configuration)
+            network_configuration = _utilities.configure(network_configuration, MemberNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["network_id"] = network_id
             __props__.__dict__["member_id"] = None

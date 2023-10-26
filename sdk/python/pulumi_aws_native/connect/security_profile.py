@@ -46,14 +46,26 @@ class SecurityProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
+             instance_arn: Optional[pulumi.Input[str]] = None,
              allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_profile_name: Optional[pulumi.Input[str]] = None,
              tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if allowed_access_control_tags is None and 'allowedAccessControlTags' in kwargs:
+            allowed_access_control_tags = kwargs['allowedAccessControlTags']
+        if security_profile_name is None and 'securityProfileName' in kwargs:
+            security_profile_name = kwargs['securityProfileName']
+        if tag_restricted_resources is None and 'tagRestrictedResources' in kwargs:
+            tag_restricted_resources = kwargs['tagRestrictedResources']
+
         _setter("instance_arn", instance_arn)
         if allowed_access_control_tags is not None:
             _setter("allowed_access_control_tags", allowed_access_control_tags)

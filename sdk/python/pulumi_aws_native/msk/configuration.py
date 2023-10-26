@@ -35,12 +35,22 @@ class ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_properties: pulumi.Input[str],
+             server_properties: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              latest_revision: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server_properties is None and 'serverProperties' in kwargs:
+            server_properties = kwargs['serverProperties']
+        if server_properties is None:
+            raise TypeError("Missing 'server_properties' argument")
+        if kafka_versions_list is None and 'kafkaVersionsList' in kwargs:
+            kafka_versions_list = kwargs['kafkaVersionsList']
+        if latest_revision is None and 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+
         _setter("server_properties", server_properties)
         if description is not None:
             _setter("description", description)
@@ -158,11 +168,7 @@ class Configuration(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kafka_versions_list"] = kafka_versions_list
-            if latest_revision is not None and not isinstance(latest_revision, ConfigurationLatestRevisionArgs):
-                latest_revision = latest_revision or {}
-                def _setter(key, value):
-                    latest_revision[key] = value
-                ConfigurationLatestRevisionArgs._configure(_setter, **latest_revision)
+            latest_revision = _utilities.configure(latest_revision, ConfigurationLatestRevisionArgs, True)
             __props__.__dict__["latest_revision"] = latest_revision
             __props__.__dict__["name"] = name
             if server_properties is None and not opts.urn:

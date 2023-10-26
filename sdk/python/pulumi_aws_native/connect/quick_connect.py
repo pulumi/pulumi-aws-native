@@ -41,12 +41,22 @@ class QuickConnectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             quick_connect_config: pulumi.Input['QuickConnectConfigArgs'],
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             quick_connect_config: Optional[pulumi.Input['QuickConnectConfigArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if quick_connect_config is None and 'quickConnectConfig' in kwargs:
+            quick_connect_config = kwargs['quickConnectConfig']
+        if quick_connect_config is None:
+            raise TypeError("Missing 'quick_connect_config' argument")
+
         _setter("instance_arn", instance_arn)
         _setter("quick_connect_config", quick_connect_config)
         if description is not None:
@@ -186,11 +196,7 @@ class QuickConnect(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
-            if quick_connect_config is not None and not isinstance(quick_connect_config, QuickConnectConfigArgs):
-                quick_connect_config = quick_connect_config or {}
-                def _setter(key, value):
-                    quick_connect_config[key] = value
-                QuickConnectConfigArgs._configure(_setter, **quick_connect_config)
+            quick_connect_config = _utilities.configure(quick_connect_config, QuickConnectConfigArgs, True)
             if quick_connect_config is None and not opts.urn:
                 raise TypeError("Missing required property 'quick_connect_config'")
             __props__.__dict__["quick_connect_config"] = quick_connect_config

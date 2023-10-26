@@ -43,13 +43,25 @@ class ReplicaKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_policy: Any,
-             primary_key_arn: pulumi.Input[str],
+             key_policy: Optional[Any] = None,
+             primary_key_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              pending_window_in_days: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_policy is None and 'keyPolicy' in kwargs:
+            key_policy = kwargs['keyPolicy']
+        if key_policy is None:
+            raise TypeError("Missing 'key_policy' argument")
+        if primary_key_arn is None and 'primaryKeyArn' in kwargs:
+            primary_key_arn = kwargs['primaryKeyArn']
+        if primary_key_arn is None:
+            raise TypeError("Missing 'primary_key_arn' argument")
+        if pending_window_in_days is None and 'pendingWindowInDays' in kwargs:
+            pending_window_in_days = kwargs['pendingWindowInDays']
+
         _setter("key_policy", key_policy)
         _setter("primary_key_arn", primary_key_arn)
         if description is not None:

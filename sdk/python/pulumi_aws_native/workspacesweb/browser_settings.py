@@ -37,7 +37,15 @@ class BrowserSettingsArgs:
              browser_policy: Optional[pulumi.Input[str]] = None,
              customer_managed_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrowserSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_encryption_context is None and 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if browser_policy is None and 'browserPolicy' in kwargs:
+            browser_policy = kwargs['browserPolicy']
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+
         if additional_encryption_context is not None:
             _setter("additional_encryption_context", additional_encryption_context)
         if browser_policy is not None:
@@ -141,11 +149,7 @@ class BrowserSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BrowserSettingsArgs.__new__(BrowserSettingsArgs)
 
-            if additional_encryption_context is not None and not isinstance(additional_encryption_context, BrowserSettingsEncryptionContextMapArgs):
-                additional_encryption_context = additional_encryption_context or {}
-                def _setter(key, value):
-                    additional_encryption_context[key] = value
-                BrowserSettingsEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
+            additional_encryption_context = _utilities.configure(additional_encryption_context, BrowserSettingsEncryptionContextMapArgs, True)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
             __props__.__dict__["browser_policy"] = browser_policy
             __props__.__dict__["customer_managed_key"] = customer_managed_key

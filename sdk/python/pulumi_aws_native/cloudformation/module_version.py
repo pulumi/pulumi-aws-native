@@ -32,9 +32,19 @@ class ModuleVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             module_name: pulumi.Input[str],
-             module_package: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             module_name: Optional[pulumi.Input[str]] = None,
+             module_package: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if module_name is None and 'moduleName' in kwargs:
+            module_name = kwargs['moduleName']
+        if module_name is None:
+            raise TypeError("Missing 'module_name' argument")
+        if module_package is None and 'modulePackage' in kwargs:
+            module_package = kwargs['modulePackage']
+        if module_package is None:
+            raise TypeError("Missing 'module_package' argument")
+
         _setter("module_name", module_name)
         _setter("module_package", module_package)
 

@@ -55,7 +55,7 @@ class SubnetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             vpc_id: pulumi.Input[str],
+             vpc_id: Optional[pulumi.Input[str]] = None,
              assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              availability_zone_id: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,37 @@ class SubnetArgs:
              outpost_arn: Optional[pulumi.Input[str]] = None,
              private_dns_name_options_on_launch: Optional[pulumi.Input['PrivateDnsNameOptionsOnLaunchPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if assign_ipv6_address_on_creation is None and 'assignIpv6AddressOnCreation' in kwargs:
+            assign_ipv6_address_on_creation = kwargs['assignIpv6AddressOnCreation']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone_id is None and 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if enable_dns64 is None and 'enableDns64' in kwargs:
+            enable_dns64 = kwargs['enableDns64']
+        if ipv4_netmask_length is None and 'ipv4NetmaskLength' in kwargs:
+            ipv4_netmask_length = kwargs['ipv4NetmaskLength']
+        if ipv6_cidr_block is None and 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if ipv6_native is None and 'ipv6Native' in kwargs:
+            ipv6_native = kwargs['ipv6Native']
+        if ipv6_netmask_length is None and 'ipv6NetmaskLength' in kwargs:
+            ipv6_netmask_length = kwargs['ipv6NetmaskLength']
+        if map_public_ip_on_launch is None and 'mapPublicIpOnLaunch' in kwargs:
+            map_public_ip_on_launch = kwargs['mapPublicIpOnLaunch']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if private_dns_name_options_on_launch is None and 'privateDnsNameOptionsOnLaunch' in kwargs:
+            private_dns_name_options_on_launch = kwargs['privateDnsNameOptionsOnLaunch']
+
         _setter("vpc_id", vpc_id)
         if assign_ipv6_address_on_creation is not None:
             _setter("assign_ipv6_address_on_creation", assign_ipv6_address_on_creation)
@@ -321,11 +351,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["outpost_arn"] = outpost_arn
-            if private_dns_name_options_on_launch is not None and not isinstance(private_dns_name_options_on_launch, PrivateDnsNameOptionsOnLaunchPropertiesArgs):
-                private_dns_name_options_on_launch = private_dns_name_options_on_launch or {}
-                def _setter(key, value):
-                    private_dns_name_options_on_launch[key] = value
-                PrivateDnsNameOptionsOnLaunchPropertiesArgs._configure(_setter, **private_dns_name_options_on_launch)
+            private_dns_name_options_on_launch = _utilities.configure(private_dns_name_options_on_launch, PrivateDnsNameOptionsOnLaunchPropertiesArgs, True)
             __props__.__dict__["private_dns_name_options_on_launch"] = private_dns_name_options_on_launch
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:

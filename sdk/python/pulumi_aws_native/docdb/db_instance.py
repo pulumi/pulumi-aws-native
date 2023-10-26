@@ -41,15 +41,35 @@ class DbInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_cluster_identifier: pulumi.Input[str],
-             db_instance_class: pulumi.Input[str],
+             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
+             db_instance_class: Optional[pulumi.Input[str]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              db_instance_identifier: Optional[pulumi.Input[str]] = None,
              enable_performance_insights: Optional[pulumi.Input[bool]] = None,
              preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_cluster_identifier is None:
+            raise TypeError("Missing 'db_cluster_identifier' argument")
+        if db_instance_class is None and 'dbInstanceClass' in kwargs:
+            db_instance_class = kwargs['dbInstanceClass']
+        if db_instance_class is None:
+            raise TypeError("Missing 'db_instance_class' argument")
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if enable_performance_insights is None and 'enablePerformanceInsights' in kwargs:
+            enable_performance_insights = kwargs['enablePerformanceInsights']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+
         _setter("db_cluster_identifier", db_cluster_identifier)
         _setter("db_instance_class", db_instance_class)
         if auto_minor_version_upgrade is not None:

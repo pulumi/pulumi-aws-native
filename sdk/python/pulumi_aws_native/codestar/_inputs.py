@@ -25,8 +25,12 @@ class GitHubRepositoryCodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3: pulumi.Input['GitHubRepositoryS3Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3: Optional[pulumi.Input['GitHubRepositoryS3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3 is None:
+            raise TypeError("Missing 's3' argument")
+
         _setter("s3", s3)
 
     @property
@@ -54,10 +58,18 @@ class GitHubRepositoryS3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
              object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if object_version is None and 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if object_version is not None:

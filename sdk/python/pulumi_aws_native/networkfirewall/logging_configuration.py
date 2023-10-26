@@ -32,10 +32,22 @@ class LoggingConfigurationInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_arn: pulumi.Input[str],
-             logging_configuration: pulumi.Input['LoggingConfigurationArgs'],
+             firewall_arn: Optional[pulumi.Input[str]] = None,
+             logging_configuration: Optional[pulumi.Input['LoggingConfigurationArgs']] = None,
              firewall_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_arn is None and 'firewallArn' in kwargs:
+            firewall_arn = kwargs['firewallArn']
+        if firewall_arn is None:
+            raise TypeError("Missing 'firewall_arn' argument")
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if logging_configuration is None:
+            raise TypeError("Missing 'logging_configuration' argument")
+        if firewall_name is None and 'firewallName' in kwargs:
+            firewall_name = kwargs['firewallName']
+
         _setter("firewall_arn", firewall_arn)
         _setter("logging_configuration", logging_configuration)
         if firewall_name is not None:
@@ -128,11 +140,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firewall_arn'")
             __props__.__dict__["firewall_arn"] = firewall_arn
             __props__.__dict__["firewall_name"] = firewall_name
-            if logging_configuration is not None and not isinstance(logging_configuration, LoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                LoggingConfigurationArgs._configure(_setter, **logging_configuration)
+            logging_configuration = _utilities.configure(logging_configuration, LoggingConfigurationArgs, True)
             if logging_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'logging_configuration'")
             __props__.__dict__["logging_configuration"] = logging_configuration

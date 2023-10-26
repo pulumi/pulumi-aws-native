@@ -49,15 +49,33 @@ class CustomActionTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             input_artifact_details: pulumi.Input['CustomActionTypeArtifactDetailsArgs'],
-             output_artifact_details: pulumi.Input['CustomActionTypeArtifactDetailsArgs'],
-             provider: pulumi.Input[str],
-             version: pulumi.Input[str],
+             category: Optional[pulumi.Input[str]] = None,
+             input_artifact_details: Optional[pulumi.Input['CustomActionTypeArtifactDetailsArgs']] = None,
+             output_artifact_details: Optional[pulumi.Input['CustomActionTypeArtifactDetailsArgs']] = None,
+             provider: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
              configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertiesArgs']]]] = None,
              settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if input_artifact_details is None and 'inputArtifactDetails' in kwargs:
+            input_artifact_details = kwargs['inputArtifactDetails']
+        if input_artifact_details is None:
+            raise TypeError("Missing 'input_artifact_details' argument")
+        if output_artifact_details is None and 'outputArtifactDetails' in kwargs:
+            output_artifact_details = kwargs['outputArtifactDetails']
+        if output_artifact_details is None:
+            raise TypeError("Missing 'output_artifact_details' argument")
+        if provider is None:
+            raise TypeError("Missing 'provider' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if configuration_properties is None and 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         _setter("category", category)
         _setter("input_artifact_details", input_artifact_details)
         _setter("output_artifact_details", output_artifact_details)
@@ -244,30 +262,18 @@ class CustomActionType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'category'")
             __props__.__dict__["category"] = category
             __props__.__dict__["configuration_properties"] = configuration_properties
-            if input_artifact_details is not None and not isinstance(input_artifact_details, CustomActionTypeArtifactDetailsArgs):
-                input_artifact_details = input_artifact_details or {}
-                def _setter(key, value):
-                    input_artifact_details[key] = value
-                CustomActionTypeArtifactDetailsArgs._configure(_setter, **input_artifact_details)
+            input_artifact_details = _utilities.configure(input_artifact_details, CustomActionTypeArtifactDetailsArgs, True)
             if input_artifact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'input_artifact_details'")
             __props__.__dict__["input_artifact_details"] = input_artifact_details
-            if output_artifact_details is not None and not isinstance(output_artifact_details, CustomActionTypeArtifactDetailsArgs):
-                output_artifact_details = output_artifact_details or {}
-                def _setter(key, value):
-                    output_artifact_details[key] = value
-                CustomActionTypeArtifactDetailsArgs._configure(_setter, **output_artifact_details)
+            output_artifact_details = _utilities.configure(output_artifact_details, CustomActionTypeArtifactDetailsArgs, True)
             if output_artifact_details is None and not opts.urn:
                 raise TypeError("Missing required property 'output_artifact_details'")
             __props__.__dict__["output_artifact_details"] = output_artifact_details
             if provider is None and not opts.urn:
                 raise TypeError("Missing required property 'provider'")
             __props__.__dict__["provider"] = provider
-            if settings is not None and not isinstance(settings, CustomActionTypeSettingsArgs):
-                settings = settings or {}
-                def _setter(key, value):
-                    settings[key] = value
-                CustomActionTypeSettingsArgs._configure(_setter, **settings)
+            settings = _utilities.configure(settings, CustomActionTypeSettingsArgs, True)
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:

@@ -39,13 +39,27 @@ class BillingGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_grouping: pulumi.Input['BillingGroupAccountGroupingArgs'],
-             computation_preference: pulumi.Input['BillingGroupComputationPreferenceArgs'],
-             primary_account_id: pulumi.Input[str],
+             account_grouping: Optional[pulumi.Input['BillingGroupAccountGroupingArgs']] = None,
+             computation_preference: Optional[pulumi.Input['BillingGroupComputationPreferenceArgs']] = None,
+             primary_account_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_grouping is None and 'accountGrouping' in kwargs:
+            account_grouping = kwargs['accountGrouping']
+        if account_grouping is None:
+            raise TypeError("Missing 'account_grouping' argument")
+        if computation_preference is None and 'computationPreference' in kwargs:
+            computation_preference = kwargs['computationPreference']
+        if computation_preference is None:
+            raise TypeError("Missing 'computation_preference' argument")
+        if primary_account_id is None and 'primaryAccountId' in kwargs:
+            primary_account_id = kwargs['primaryAccountId']
+        if primary_account_id is None:
+            raise TypeError("Missing 'primary_account_id' argument")
+
         _setter("account_grouping", account_grouping)
         _setter("computation_preference", computation_preference)
         _setter("primary_account_id", primary_account_id)
@@ -182,19 +196,11 @@ class BillingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BillingGroupArgs.__new__(BillingGroupArgs)
 
-            if account_grouping is not None and not isinstance(account_grouping, BillingGroupAccountGroupingArgs):
-                account_grouping = account_grouping or {}
-                def _setter(key, value):
-                    account_grouping[key] = value
-                BillingGroupAccountGroupingArgs._configure(_setter, **account_grouping)
+            account_grouping = _utilities.configure(account_grouping, BillingGroupAccountGroupingArgs, True)
             if account_grouping is None and not opts.urn:
                 raise TypeError("Missing required property 'account_grouping'")
             __props__.__dict__["account_grouping"] = account_grouping
-            if computation_preference is not None and not isinstance(computation_preference, BillingGroupComputationPreferenceArgs):
-                computation_preference = computation_preference or {}
-                def _setter(key, value):
-                    computation_preference[key] = value
-                BillingGroupComputationPreferenceArgs._configure(_setter, **computation_preference)
+            computation_preference = _utilities.configure(computation_preference, BillingGroupComputationPreferenceArgs, True)
             if computation_preference is None and not opts.urn:
                 raise TypeError("Missing required property 'computation_preference'")
             __props__.__dict__["computation_preference"] = computation_preference

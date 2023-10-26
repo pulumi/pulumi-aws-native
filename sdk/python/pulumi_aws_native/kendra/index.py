@@ -51,8 +51,8 @@ class IndexArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             edition: pulumi.Input['IndexEdition'],
-             role_arn: pulumi.Input[str],
+             edition: Optional[pulumi.Input['IndexEdition']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              capacity_units: Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
@@ -61,7 +61,25 @@ class IndexArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]] = None,
              user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
              user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if edition is None:
+            raise TypeError("Missing 'edition' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if capacity_units is None and 'capacityUnits' in kwargs:
+            capacity_units = kwargs['capacityUnits']
+        if document_metadata_configurations is None and 'documentMetadataConfigurations' in kwargs:
+            document_metadata_configurations = kwargs['documentMetadataConfigurations']
+        if server_side_encryption_configuration is None and 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if user_context_policy is None and 'userContextPolicy' in kwargs:
+            user_context_policy = kwargs['userContextPolicy']
+        if user_token_configurations is None and 'userTokenConfigurations' in kwargs:
+            user_token_configurations = kwargs['userTokenConfigurations']
+
         _setter("edition", edition)
         _setter("role_arn", role_arn)
         if capacity_units is not None:
@@ -261,11 +279,7 @@ class Index(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IndexArgs.__new__(IndexArgs)
 
-            if capacity_units is not None and not isinstance(capacity_units, IndexCapacityUnitsConfigurationArgs):
-                capacity_units = capacity_units or {}
-                def _setter(key, value):
-                    capacity_units[key] = value
-                IndexCapacityUnitsConfigurationArgs._configure(_setter, **capacity_units)
+            capacity_units = _utilities.configure(capacity_units, IndexCapacityUnitsConfigurationArgs, True)
             __props__.__dict__["capacity_units"] = capacity_units
             __props__.__dict__["description"] = description
             __props__.__dict__["document_metadata_configurations"] = document_metadata_configurations
@@ -276,11 +290,7 @@ class Index(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if server_side_encryption_configuration is not None and not isinstance(server_side_encryption_configuration, IndexServerSideEncryptionConfigurationArgs):
-                server_side_encryption_configuration = server_side_encryption_configuration or {}
-                def _setter(key, value):
-                    server_side_encryption_configuration[key] = value
-                IndexServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
+            server_side_encryption_configuration = _utilities.configure(server_side_encryption_configuration, IndexServerSideEncryptionConfigurationArgs, True)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_context_policy"] = user_context_policy

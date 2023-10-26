@@ -53,7 +53,7 @@ class GlobalReplicationGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             members: pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupMemberArgs']]],
+             members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupMemberArgs']]]] = None,
              automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
              cache_node_type: Optional[pulumi.Input[str]] = None,
              cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
@@ -62,7 +62,27 @@ class GlobalReplicationGroupArgs:
              global_replication_group_description: Optional[pulumi.Input[str]] = None,
              global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
              regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if automatic_failover_enabled is None and 'automaticFailoverEnabled' in kwargs:
+            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
+        if cache_node_type is None and 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if cache_parameter_group_name is None and 'cacheParameterGroupName' in kwargs:
+            cache_parameter_group_name = kwargs['cacheParameterGroupName']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if global_node_group_count is None and 'globalNodeGroupCount' in kwargs:
+            global_node_group_count = kwargs['globalNodeGroupCount']
+        if global_replication_group_description is None and 'globalReplicationGroupDescription' in kwargs:
+            global_replication_group_description = kwargs['globalReplicationGroupDescription']
+        if global_replication_group_id_suffix is None and 'globalReplicationGroupIdSuffix' in kwargs:
+            global_replication_group_id_suffix = kwargs['globalReplicationGroupIdSuffix']
+        if regional_configurations is None and 'regionalConfigurations' in kwargs:
+            regional_configurations = kwargs['regionalConfigurations']
+
         _setter("members", members)
         if automatic_failover_enabled is not None:
             _setter("automatic_failover_enabled", automatic_failover_enabled)

@@ -33,8 +33,10 @@ class FleetTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -55,9 +57,13 @@ class RobotApplicationRobotSoftwareSuiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['RobotApplicationRobotSoftwareSuiteName'],
+             name: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteName']] = None,
              version: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -107,10 +113,22 @@ class RobotApplicationSourceConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             architecture: pulumi.Input['RobotApplicationSourceConfigArchitecture'],
-             s3_bucket: pulumi.Input[str],
-             s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             architecture: Optional[pulumi.Input['RobotApplicationSourceConfigArchitecture']] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if architecture is None:
+            raise TypeError("Missing 'architecture' argument")
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_key is None:
+            raise TypeError("Missing 's3_key' argument")
+
         _setter("architecture", architecture)
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
@@ -162,8 +180,10 @@ class RobotApplicationTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -176,8 +196,10 @@ class RobotTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -198,9 +220,15 @@ class SimulationApplicationRenderingEngineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['SimulationApplicationRenderingEngineName'],
-             version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input['SimulationApplicationRenderingEngineName']] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
         _setter("name", name)
         _setter("version", version)
 
@@ -247,9 +275,13 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'],
+             name: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteName']] = None,
              version: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -297,9 +329,13 @@ class SimulationApplicationSimulationSoftwareSuiteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'],
+             name: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName']] = None,
              version: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if version is not None:
             _setter("version", version)
@@ -350,10 +386,22 @@ class SimulationApplicationSourceConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             architecture: pulumi.Input['SimulationApplicationSourceConfigArchitecture'],
-             s3_bucket: pulumi.Input[str],
-             s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             architecture: Optional[pulumi.Input['SimulationApplicationSourceConfigArchitecture']] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if architecture is None:
+            raise TypeError("Missing 'architecture' argument")
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_key is None:
+            raise TypeError("Missing 's3_key' argument")
+
         _setter("architecture", architecture)
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
@@ -405,7 +453,9 @@ class SimulationApplicationTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

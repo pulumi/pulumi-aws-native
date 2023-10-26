@@ -58,10 +58,10 @@ class DomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_mode: pulumi.Input['DomainAuthMode'],
-             default_user_settings: pulumi.Input['DomainUserSettingsArgs'],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             vpc_id: pulumi.Input[str],
+             auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
+             default_user_settings: Optional[pulumi.Input['DomainUserSettingsArgs']] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
              app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
              default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
@@ -69,7 +69,37 @@ class DomainArgs:
              domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_mode is None and 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if auth_mode is None:
+            raise TypeError("Missing 'auth_mode' argument")
+        if default_user_settings is None and 'defaultUserSettings' in kwargs:
+            default_user_settings = kwargs['defaultUserSettings']
+        if default_user_settings is None:
+            raise TypeError("Missing 'default_user_settings' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if app_network_access_type is None and 'appNetworkAccessType' in kwargs:
+            app_network_access_type = kwargs['appNetworkAccessType']
+        if app_security_group_management is None and 'appSecurityGroupManagement' in kwargs:
+            app_security_group_management = kwargs['appSecurityGroupManagement']
+        if default_space_settings is None and 'defaultSpaceSettings' in kwargs:
+            default_space_settings = kwargs['defaultSpaceSettings']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_settings is None and 'domainSettings' in kwargs:
+            domain_settings = kwargs['domainSettings']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("auth_mode", auth_mode)
         _setter("default_user_settings", default_user_settings)
         _setter("subnet_ids", subnet_ids)
@@ -305,26 +335,14 @@ class Domain(pulumi.CustomResource):
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
-            if default_space_settings is not None and not isinstance(default_space_settings, DomainDefaultSpaceSettingsArgs):
-                default_space_settings = default_space_settings or {}
-                def _setter(key, value):
-                    default_space_settings[key] = value
-                DomainDefaultSpaceSettingsArgs._configure(_setter, **default_space_settings)
+            default_space_settings = _utilities.configure(default_space_settings, DomainDefaultSpaceSettingsArgs, True)
             __props__.__dict__["default_space_settings"] = default_space_settings
-            if default_user_settings is not None and not isinstance(default_user_settings, DomainUserSettingsArgs):
-                default_user_settings = default_user_settings or {}
-                def _setter(key, value):
-                    default_user_settings[key] = value
-                DomainUserSettingsArgs._configure(_setter, **default_user_settings)
+            default_user_settings = _utilities.configure(default_user_settings, DomainUserSettingsArgs, True)
             if default_user_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'default_user_settings'")
             __props__.__dict__["default_user_settings"] = default_user_settings
             __props__.__dict__["domain_name"] = domain_name
-            if domain_settings is not None and not isinstance(domain_settings, DomainSettingsArgs):
-                domain_settings = domain_settings or {}
-                def _setter(key, value):
-                    domain_settings[key] = value
-                DomainSettingsArgs._configure(_setter, **domain_settings)
+            domain_settings = _utilities.configure(domain_settings, DomainSettingsArgs, True)
             __props__.__dict__["domain_settings"] = domain_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
             if subnet_ids is None and not opts.urn:

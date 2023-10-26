@@ -41,7 +41,7 @@ class ModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             execution_role_arn: pulumi.Input[str],
+             execution_role_arn: Optional[pulumi.Input[str]] = None,
              containers: Optional[pulumi.Input[Sequence[pulumi.Input['ModelContainerDefinitionArgs']]]] = None,
              enable_network_isolation: Optional[pulumi.Input[bool]] = None,
              inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
@@ -49,7 +49,23 @@ class ModelArgs:
              primary_container: Optional[pulumi.Input['ModelContainerDefinitionArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['ModelVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if execution_role_arn is None:
+            raise TypeError("Missing 'execution_role_arn' argument")
+        if enable_network_isolation is None and 'enableNetworkIsolation' in kwargs:
+            enable_network_isolation = kwargs['enableNetworkIsolation']
+        if inference_execution_config is None and 'inferenceExecutionConfig' in kwargs:
+            inference_execution_config = kwargs['inferenceExecutionConfig']
+        if model_name is None and 'modelName' in kwargs:
+            model_name = kwargs['modelName']
+        if primary_container is None and 'primaryContainer' in kwargs:
+            primary_container = kwargs['primaryContainer']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("execution_role_arn", execution_role_arn)
         if containers is not None:
             _setter("containers", containers)
@@ -215,25 +231,13 @@ class Model(pulumi.CustomResource):
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
-            if inference_execution_config is not None and not isinstance(inference_execution_config, ModelInferenceExecutionConfigArgs):
-                inference_execution_config = inference_execution_config or {}
-                def _setter(key, value):
-                    inference_execution_config[key] = value
-                ModelInferenceExecutionConfigArgs._configure(_setter, **inference_execution_config)
+            inference_execution_config = _utilities.configure(inference_execution_config, ModelInferenceExecutionConfigArgs, True)
             __props__.__dict__["inference_execution_config"] = inference_execution_config
             __props__.__dict__["model_name"] = model_name
-            if primary_container is not None and not isinstance(primary_container, ModelContainerDefinitionArgs):
-                primary_container = primary_container or {}
-                def _setter(key, value):
-                    primary_container[key] = value
-                ModelContainerDefinitionArgs._configure(_setter, **primary_container)
+            primary_container = _utilities.configure(primary_container, ModelContainerDefinitionArgs, True)
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["tags"] = tags
-            if vpc_config is not None and not isinstance(vpc_config, ModelVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                ModelVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, ModelVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containers[*]", "enable_network_isolation", "execution_role_arn", "inference_execution_config", "model_name", "primary_container", "vpc_config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

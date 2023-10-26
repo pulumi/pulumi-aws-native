@@ -36,9 +36,15 @@ class CollectionTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -107,11 +113,21 @@ class SecurityConfigSamlConfigOptions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metadata: str,
+             metadata: Optional[str] = None,
              group_attribute: Optional[str] = None,
              session_timeout: Optional[int] = None,
              user_attribute: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metadata is None:
+            raise TypeError("Missing 'metadata' argument")
+        if group_attribute is None and 'groupAttribute' in kwargs:
+            group_attribute = kwargs['groupAttribute']
+        if session_timeout is None and 'sessionTimeout' in kwargs:
+            session_timeout = kwargs['sessionTimeout']
+        if user_attribute is None and 'userAttribute' in kwargs:
+            user_attribute = kwargs['userAttribute']
+
         _setter("metadata", metadata)
         if group_attribute is not None:
             _setter("group_attribute", group_attribute)

@@ -35,11 +35,21 @@ class CertificateAuthorityActivationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate: pulumi.Input[str],
-             certificate_authority_arn: pulumi.Input[str],
+             certificate: Optional[pulumi.Input[str]] = None,
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
              certificate_chain: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_authority_arn is None:
+            raise TypeError("Missing 'certificate_authority_arn' argument")
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+
         _setter("certificate", certificate)
         _setter("certificate_authority_arn", certificate_authority_arn)
         if certificate_chain is not None:

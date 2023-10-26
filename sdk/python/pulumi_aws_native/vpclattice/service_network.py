@@ -35,7 +35,11 @@ class ServiceNetworkArgs:
              auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+
         if auth_type is not None:
             _setter("auth_type", auth_type)
         if name is not None:

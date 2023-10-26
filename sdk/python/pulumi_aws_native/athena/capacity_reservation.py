@@ -37,11 +37,19 @@ class CapacityReservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_dpus: pulumi.Input[int],
+             target_dpus: Optional[pulumi.Input[int]] = None,
              capacity_assignment_configuration: Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_dpus is None and 'targetDpus' in kwargs:
+            target_dpus = kwargs['targetDpus']
+        if target_dpus is None:
+            raise TypeError("Missing 'target_dpus' argument")
+        if capacity_assignment_configuration is None and 'capacityAssignmentConfiguration' in kwargs:
+            capacity_assignment_configuration = kwargs['capacityAssignmentConfiguration']
+
         _setter("target_dpus", target_dpus)
         if capacity_assignment_configuration is not None:
             _setter("capacity_assignment_configuration", capacity_assignment_configuration)
@@ -156,11 +164,7 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
 
-            if capacity_assignment_configuration is not None and not isinstance(capacity_assignment_configuration, CapacityReservationCapacityAssignmentConfigurationArgs):
-                capacity_assignment_configuration = capacity_assignment_configuration or {}
-                def _setter(key, value):
-                    capacity_assignment_configuration[key] = value
-                CapacityReservationCapacityAssignmentConfigurationArgs._configure(_setter, **capacity_assignment_configuration)
+            capacity_assignment_configuration = _utilities.configure(capacity_assignment_configuration, CapacityReservationCapacityAssignmentConfigurationArgs, True)
             __props__.__dict__["capacity_assignment_configuration"] = capacity_assignment_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

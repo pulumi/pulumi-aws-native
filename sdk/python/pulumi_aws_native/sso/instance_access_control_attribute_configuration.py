@@ -33,10 +33,20 @@ class InstanceAccessControlAttributeConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
+             instance_arn: Optional[pulumi.Input[str]] = None,
              access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
              instance_access_control_attribute_configuration: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if access_control_attributes is None and 'accessControlAttributes' in kwargs:
+            access_control_attributes = kwargs['accessControlAttributes']
+        if instance_access_control_attribute_configuration is None and 'instanceAccessControlAttributeConfiguration' in kwargs:
+            instance_access_control_attribute_configuration = kwargs['instanceAccessControlAttributeConfiguration']
+
         _setter("instance_arn", instance_arn)
         if access_control_attributes is not None:
             _setter("access_control_attributes", access_control_attributes)
@@ -135,11 +145,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
             __props__ = InstanceAccessControlAttributeConfigurationArgs.__new__(InstanceAccessControlAttributeConfigurationArgs)
 
             __props__.__dict__["access_control_attributes"] = access_control_attributes
-            if instance_access_control_attribute_configuration is not None and not isinstance(instance_access_control_attribute_configuration, InstanceAccessControlAttributeConfigurationPropertiesArgs):
-                instance_access_control_attribute_configuration = instance_access_control_attribute_configuration or {}
-                def _setter(key, value):
-                    instance_access_control_attribute_configuration[key] = value
-                InstanceAccessControlAttributeConfigurationPropertiesArgs._configure(_setter, **instance_access_control_attribute_configuration)
+            instance_access_control_attribute_configuration = _utilities.configure(instance_access_control_attribute_configuration, InstanceAccessControlAttributeConfigurationPropertiesArgs, True)
             __props__.__dict__["instance_access_control_attribute_configuration"] = instance_access_control_attribute_configuration
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")

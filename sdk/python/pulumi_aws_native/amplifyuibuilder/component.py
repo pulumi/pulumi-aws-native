@@ -53,11 +53,11 @@ class ComponentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             binding_properties: pulumi.Input['ComponentBindingPropertiesArgs'],
-             component_type: pulumi.Input[str],
-             overrides: pulumi.Input['ComponentOverridesArgs'],
-             properties: pulumi.Input['ComponentPropertiesArgs'],
-             variants: pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]],
+             binding_properties: Optional[pulumi.Input['ComponentBindingPropertiesArgs']] = None,
+             component_type: Optional[pulumi.Input[str]] = None,
+             overrides: Optional[pulumi.Input['ComponentOverridesArgs']] = None,
+             properties: Optional[pulumi.Input['ComponentPropertiesArgs']] = None,
+             variants: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]] = None,
              app_id: Optional[pulumi.Input[str]] = None,
              children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
              collection_properties: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']] = None,
@@ -67,7 +67,33 @@ class ComponentArgs:
              schema_version: Optional[pulumi.Input[str]] = None,
              source_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ComponentTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if binding_properties is None and 'bindingProperties' in kwargs:
+            binding_properties = kwargs['bindingProperties']
+        if binding_properties is None:
+            raise TypeError("Missing 'binding_properties' argument")
+        if component_type is None and 'componentType' in kwargs:
+            component_type = kwargs['componentType']
+        if component_type is None:
+            raise TypeError("Missing 'component_type' argument")
+        if overrides is None:
+            raise TypeError("Missing 'overrides' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if variants is None:
+            raise TypeError("Missing 'variants' argument")
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if collection_properties is None and 'collectionProperties' in kwargs:
+            collection_properties = kwargs['collectionProperties']
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if schema_version is None and 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if source_id is None and 'sourceId' in kwargs:
+            source_id = kwargs['sourceId']
+
         _setter("binding_properties", binding_properties)
         _setter("component_type", component_type)
         _setter("overrides", overrides)
@@ -297,55 +323,31 @@ class Component(pulumi.CustomResource):
             __props__ = ComponentArgs.__new__(ComponentArgs)
 
             __props__.__dict__["app_id"] = app_id
-            if binding_properties is not None and not isinstance(binding_properties, ComponentBindingPropertiesArgs):
-                binding_properties = binding_properties or {}
-                def _setter(key, value):
-                    binding_properties[key] = value
-                ComponentBindingPropertiesArgs._configure(_setter, **binding_properties)
+            binding_properties = _utilities.configure(binding_properties, ComponentBindingPropertiesArgs, True)
             if binding_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'binding_properties'")
             __props__.__dict__["binding_properties"] = binding_properties
             __props__.__dict__["children"] = children
-            if collection_properties is not None and not isinstance(collection_properties, ComponentCollectionPropertiesArgs):
-                collection_properties = collection_properties or {}
-                def _setter(key, value):
-                    collection_properties[key] = value
-                ComponentCollectionPropertiesArgs._configure(_setter, **collection_properties)
+            collection_properties = _utilities.configure(collection_properties, ComponentCollectionPropertiesArgs, True)
             __props__.__dict__["collection_properties"] = collection_properties
             if component_type is None and not opts.urn:
                 raise TypeError("Missing required property 'component_type'")
             __props__.__dict__["component_type"] = component_type
             __props__.__dict__["environment_name"] = environment_name
-            if events is not None and not isinstance(events, ComponentEventsArgs):
-                events = events or {}
-                def _setter(key, value):
-                    events[key] = value
-                ComponentEventsArgs._configure(_setter, **events)
+            events = _utilities.configure(events, ComponentEventsArgs, True)
             __props__.__dict__["events"] = events
             __props__.__dict__["name"] = name
-            if overrides is not None and not isinstance(overrides, ComponentOverridesArgs):
-                overrides = overrides or {}
-                def _setter(key, value):
-                    overrides[key] = value
-                ComponentOverridesArgs._configure(_setter, **overrides)
+            overrides = _utilities.configure(overrides, ComponentOverridesArgs, True)
             if overrides is None and not opts.urn:
                 raise TypeError("Missing required property 'overrides'")
             __props__.__dict__["overrides"] = overrides
-            if properties is not None and not isinstance(properties, ComponentPropertiesArgs):
-                properties = properties or {}
-                def _setter(key, value):
-                    properties[key] = value
-                ComponentPropertiesArgs._configure(_setter, **properties)
+            properties = _utilities.configure(properties, ComponentPropertiesArgs, True)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["schema_version"] = schema_version
             __props__.__dict__["source_id"] = source_id
-            if tags is not None and not isinstance(tags, ComponentTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ComponentTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, ComponentTagsArgs, True)
             __props__.__dict__["tags"] = tags
             if variants is None and not opts.urn:
                 raise TypeError("Missing required property 'variants'")

@@ -74,7 +74,23 @@ class ImagePipelineArgs:
              schedule: Optional[pulumi.Input['ImagePipelineScheduleArgs']] = None,
              status: Optional[pulumi.Input['ImagePipelineStatus']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_recipe_arn is None and 'containerRecipeArn' in kwargs:
+            container_recipe_arn = kwargs['containerRecipeArn']
+        if distribution_configuration_arn is None and 'distributionConfigurationArn' in kwargs:
+            distribution_configuration_arn = kwargs['distributionConfigurationArn']
+        if enhanced_image_metadata_enabled is None and 'enhancedImageMetadataEnabled' in kwargs:
+            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
+        if image_recipe_arn is None and 'imageRecipeArn' in kwargs:
+            image_recipe_arn = kwargs['imageRecipeArn']
+        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if image_tests_configuration is None and 'imageTestsConfiguration' in kwargs:
+            image_tests_configuration = kwargs['imageTestsConfiguration']
+        if infrastructure_configuration_arn is None and 'infrastructureConfigurationArn' in kwargs:
+            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
+
         if container_recipe_arn is not None:
             _setter("container_recipe_arn", container_recipe_arn)
         if description is not None:
@@ -335,25 +351,13 @@ class ImagePipeline(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
-            if image_scanning_configuration is not None and not isinstance(image_scanning_configuration, ImagePipelineImageScanningConfigurationArgs):
-                image_scanning_configuration = image_scanning_configuration or {}
-                def _setter(key, value):
-                    image_scanning_configuration[key] = value
-                ImagePipelineImageScanningConfigurationArgs._configure(_setter, **image_scanning_configuration)
+            image_scanning_configuration = _utilities.configure(image_scanning_configuration, ImagePipelineImageScanningConfigurationArgs, True)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
-            if image_tests_configuration is not None and not isinstance(image_tests_configuration, ImagePipelineImageTestsConfigurationArgs):
-                image_tests_configuration = image_tests_configuration or {}
-                def _setter(key, value):
-                    image_tests_configuration[key] = value
-                ImagePipelineImageTestsConfigurationArgs._configure(_setter, **image_tests_configuration)
+            image_tests_configuration = _utilities.configure(image_tests_configuration, ImagePipelineImageTestsConfigurationArgs, True)
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["name"] = name
-            if schedule is not None and not isinstance(schedule, ImagePipelineScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                ImagePipelineScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, ImagePipelineScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags

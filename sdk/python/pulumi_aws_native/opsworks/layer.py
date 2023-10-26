@@ -63,12 +63,12 @@ class LayerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_assign_elastic_ips: pulumi.Input[bool],
-             auto_assign_public_ips: pulumi.Input[bool],
-             enable_auto_healing: pulumi.Input[bool],
-             shortname: pulumi.Input[str],
-             stack_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
+             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
+             enable_auto_healing: Optional[pulumi.Input[bool]] = None,
+             shortname: Optional[pulumi.Input[str]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              attributes: Optional[Any] = None,
              custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
              custom_json: Optional[Any] = None,
@@ -82,7 +82,47 @@ class LayerArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]] = None,
              use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
              volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LayerVolumeConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_assign_elastic_ips is None and 'autoAssignElasticIps' in kwargs:
+            auto_assign_elastic_ips = kwargs['autoAssignElasticIps']
+        if auto_assign_elastic_ips is None:
+            raise TypeError("Missing 'auto_assign_elastic_ips' argument")
+        if auto_assign_public_ips is None and 'autoAssignPublicIps' in kwargs:
+            auto_assign_public_ips = kwargs['autoAssignPublicIps']
+        if auto_assign_public_ips is None:
+            raise TypeError("Missing 'auto_assign_public_ips' argument")
+        if enable_auto_healing is None and 'enableAutoHealing' in kwargs:
+            enable_auto_healing = kwargs['enableAutoHealing']
+        if enable_auto_healing is None:
+            raise TypeError("Missing 'enable_auto_healing' argument")
+        if shortname is None:
+            raise TypeError("Missing 'shortname' argument")
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if stack_id is None:
+            raise TypeError("Missing 'stack_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if custom_instance_profile_arn is None and 'customInstanceProfileArn' in kwargs:
+            custom_instance_profile_arn = kwargs['customInstanceProfileArn']
+        if custom_json is None and 'customJson' in kwargs:
+            custom_json = kwargs['customJson']
+        if custom_recipes is None and 'customRecipes' in kwargs:
+            custom_recipes = kwargs['customRecipes']
+        if custom_security_group_ids is None and 'customSecurityGroupIds' in kwargs:
+            custom_security_group_ids = kwargs['customSecurityGroupIds']
+        if install_updates_on_boot is None and 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if lifecycle_event_configuration is None and 'lifecycleEventConfiguration' in kwargs:
+            lifecycle_event_configuration = kwargs['lifecycleEventConfiguration']
+        if load_based_auto_scaling is None and 'loadBasedAutoScaling' in kwargs:
+            load_based_auto_scaling = kwargs['loadBasedAutoScaling']
+        if use_ebs_optimized_instances is None and 'useEbsOptimizedInstances' in kwargs:
+            use_ebs_optimized_instances = kwargs['useEbsOptimizedInstances']
+        if volume_configurations is None and 'volumeConfigurations' in kwargs:
+            volume_configurations = kwargs['volumeConfigurations']
+
         _setter("auto_assign_elastic_ips", auto_assign_elastic_ips)
         _setter("auto_assign_public_ips", auto_assign_public_ips)
         _setter("enable_auto_healing", enable_auto_healing)
@@ -390,28 +430,16 @@ class Layer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
             __props__.__dict__["custom_json"] = custom_json
-            if custom_recipes is not None and not isinstance(custom_recipes, LayerRecipesArgs):
-                custom_recipes = custom_recipes or {}
-                def _setter(key, value):
-                    custom_recipes[key] = value
-                LayerRecipesArgs._configure(_setter, **custom_recipes)
+            custom_recipes = _utilities.configure(custom_recipes, LayerRecipesArgs, True)
             __props__.__dict__["custom_recipes"] = custom_recipes
             __props__.__dict__["custom_security_group_ids"] = custom_security_group_ids
             if enable_auto_healing is None and not opts.urn:
                 raise TypeError("Missing required property 'enable_auto_healing'")
             __props__.__dict__["enable_auto_healing"] = enable_auto_healing
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
-            if lifecycle_event_configuration is not None and not isinstance(lifecycle_event_configuration, LayerLifecycleEventConfigurationArgs):
-                lifecycle_event_configuration = lifecycle_event_configuration or {}
-                def _setter(key, value):
-                    lifecycle_event_configuration[key] = value
-                LayerLifecycleEventConfigurationArgs._configure(_setter, **lifecycle_event_configuration)
+            lifecycle_event_configuration = _utilities.configure(lifecycle_event_configuration, LayerLifecycleEventConfigurationArgs, True)
             __props__.__dict__["lifecycle_event_configuration"] = lifecycle_event_configuration
-            if load_based_auto_scaling is not None and not isinstance(load_based_auto_scaling, LayerLoadBasedAutoScalingArgs):
-                load_based_auto_scaling = load_based_auto_scaling or {}
-                def _setter(key, value):
-                    load_based_auto_scaling[key] = value
-                LayerLoadBasedAutoScalingArgs._configure(_setter, **load_based_auto_scaling)
+            load_based_auto_scaling = _utilities.configure(load_based_auto_scaling, LayerLoadBasedAutoScalingArgs, True)
             __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             __props__.__dict__["packages"] = packages

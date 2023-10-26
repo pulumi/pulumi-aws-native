@@ -57,7 +57,13 @@ class GroupInsightsConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              insights_enabled: Optional[bool] = None,
              notifications_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insights_enabled is None and 'insightsEnabled' in kwargs:
+            insights_enabled = kwargs['insightsEnabled']
+        if notifications_enabled is None and 'notificationsEnabled' in kwargs:
+            notifications_enabled = kwargs['notificationsEnabled']
+
         if insights_enabled is not None:
             _setter("insights_enabled", insights_enabled)
         if notifications_enabled is not None:
@@ -97,9 +103,15 @@ class GroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -201,20 +213,58 @@ class SamplingRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fixed_rate: float,
-             host: str,
-             http_method: str,
-             priority: int,
-             reservoir_size: int,
-             resource_arn: str,
-             service_name: str,
-             service_type: str,
-             url_path: str,
+             fixed_rate: Optional[float] = None,
+             host: Optional[str] = None,
+             http_method: Optional[str] = None,
+             priority: Optional[int] = None,
+             reservoir_size: Optional[int] = None,
+             resource_arn: Optional[str] = None,
+             service_name: Optional[str] = None,
+             service_type: Optional[str] = None,
+             url_path: Optional[str] = None,
              attributes: Optional[Any] = None,
              rule_arn: Optional[str] = None,
              rule_name: Optional[str] = None,
              version: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fixed_rate is None and 'fixedRate' in kwargs:
+            fixed_rate = kwargs['fixedRate']
+        if fixed_rate is None:
+            raise TypeError("Missing 'fixed_rate' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if reservoir_size is None and 'reservoirSize' in kwargs:
+            reservoir_size = kwargs['reservoirSize']
+        if reservoir_size is None:
+            raise TypeError("Missing 'reservoir_size' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if service_type is None and 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if service_type is None:
+            raise TypeError("Missing 'service_type' argument")
+        if url_path is None and 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+        if url_path is None:
+            raise TypeError("Missing 'url_path' argument")
+        if rule_arn is None and 'ruleArn' in kwargs:
+            rule_arn = kwargs['ruleArn']
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("fixed_rate", fixed_rate)
         _setter("host", host)
         _setter("http_method", http_method)
@@ -375,7 +425,15 @@ class SamplingRuleRecord(dict):
              created_at: Optional[str] = None,
              modified_at: Optional[str] = None,
              sampling_rule: Optional['outputs.SamplingRule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if modified_at is None and 'modifiedAt' in kwargs:
+            modified_at = kwargs['modifiedAt']
+        if sampling_rule is None and 'samplingRule' in kwargs:
+            sampling_rule = kwargs['samplingRule']
+
         if created_at is not None:
             _setter("created_at", created_at)
         if modified_at is not None:
@@ -422,9 +480,15 @@ class SamplingRuleTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -535,7 +599,27 @@ class SamplingRuleUpdate(dict):
              service_name: Optional[str] = None,
              service_type: Optional[str] = None,
              url_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fixed_rate is None and 'fixedRate' in kwargs:
+            fixed_rate = kwargs['fixedRate']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if reservoir_size is None and 'reservoirSize' in kwargs:
+            reservoir_size = kwargs['reservoirSize']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if rule_arn is None and 'ruleArn' in kwargs:
+            rule_arn = kwargs['ruleArn']
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_type is None and 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if url_path is None and 'urlPath' in kwargs:
+            url_path = kwargs['urlPath']
+
         if attributes is not None:
             _setter("attributes", attributes)
         if fixed_rate is not None:

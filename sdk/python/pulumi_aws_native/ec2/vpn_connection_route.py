@@ -29,9 +29,19 @@ class VpnConnectionRouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_cidr_block: pulumi.Input[str],
-             vpn_connection_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination_cidr_block: Optional[pulumi.Input[str]] = None,
+             vpn_connection_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_cidr_block is None:
+            raise TypeError("Missing 'destination_cidr_block' argument")
+        if vpn_connection_id is None and 'vpnConnectionId' in kwargs:
+            vpn_connection_id = kwargs['vpnConnectionId']
+        if vpn_connection_id is None:
+            raise TypeError("Missing 'vpn_connection_id' argument")
+
         _setter("destination_cidr_block", destination_cidr_block)
         _setter("vpn_connection_id", vpn_connection_id)
 

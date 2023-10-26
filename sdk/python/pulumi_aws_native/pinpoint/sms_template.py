@@ -33,12 +33,24 @@ class SmsTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             body: pulumi.Input[str],
-             template_name: pulumi.Input[str],
+             body: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
              default_substitutions: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+        if default_substitutions is None and 'defaultSubstitutions' in kwargs:
+            default_substitutions = kwargs['defaultSubstitutions']
+        if template_description is None and 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+
         _setter("body", body)
         _setter("template_name", template_name)
         if default_substitutions is not None:

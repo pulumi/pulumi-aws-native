@@ -31,10 +31,20 @@ class UserPoolDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: pulumi.Input[str],
-             user_pool_id: pulumi.Input[str],
+             domain: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
              custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if custom_domain_config is None and 'customDomainConfig' in kwargs:
+            custom_domain_config = kwargs['customDomainConfig']
+
         _setter("domain", domain)
         _setter("user_pool_id", user_pool_id)
         if custom_domain_config is not None:
@@ -129,11 +139,7 @@ class UserPoolDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserPoolDomainArgs.__new__(UserPoolDomainArgs)
 
-            if custom_domain_config is not None and not isinstance(custom_domain_config, UserPoolDomainCustomDomainConfigTypeArgs):
-                custom_domain_config = custom_domain_config or {}
-                def _setter(key, value):
-                    custom_domain_config[key] = value
-                UserPoolDomainCustomDomainConfigTypeArgs._configure(_setter, **custom_domain_config)
+            custom_domain_config = _utilities.configure(custom_domain_config, UserPoolDomainCustomDomainConfigTypeArgs, True)
             __props__.__dict__["custom_domain_config"] = custom_domain_config
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")

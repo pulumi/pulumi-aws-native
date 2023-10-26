@@ -41,13 +41,23 @@ class AppMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: pulumi.Input[str],
+             domain: Optional[pulumi.Input[str]] = None,
              app_monitor_configuration: Optional[pulumi.Input['AppMonitorConfigurationArgs']] = None,
              custom_events: Optional[pulumi.Input['AppMonitorCustomEventsArgs']] = None,
              cw_log_enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if app_monitor_configuration is None and 'appMonitorConfiguration' in kwargs:
+            app_monitor_configuration = kwargs['appMonitorConfiguration']
+        if custom_events is None and 'customEvents' in kwargs:
+            custom_events = kwargs['customEvents']
+        if cw_log_enabled is None and 'cwLogEnabled' in kwargs:
+            cw_log_enabled = kwargs['cwLogEnabled']
+
         _setter("domain", domain)
         if app_monitor_configuration is not None:
             _setter("app_monitor_configuration", app_monitor_configuration)
@@ -188,17 +198,9 @@ class AppMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppMonitorArgs.__new__(AppMonitorArgs)
 
-            if app_monitor_configuration is not None and not isinstance(app_monitor_configuration, AppMonitorConfigurationArgs):
-                app_monitor_configuration = app_monitor_configuration or {}
-                def _setter(key, value):
-                    app_monitor_configuration[key] = value
-                AppMonitorConfigurationArgs._configure(_setter, **app_monitor_configuration)
+            app_monitor_configuration = _utilities.configure(app_monitor_configuration, AppMonitorConfigurationArgs, True)
             __props__.__dict__["app_monitor_configuration"] = app_monitor_configuration
-            if custom_events is not None and not isinstance(custom_events, AppMonitorCustomEventsArgs):
-                custom_events = custom_events or {}
-                def _setter(key, value):
-                    custom_events[key] = value
-                AppMonitorCustomEventsArgs._configure(_setter, **custom_events)
+            custom_events = _utilities.configure(custom_events, AppMonitorCustomEventsArgs, True)
             __props__.__dict__["custom_events"] = custom_events
             __props__.__dict__["cw_log_enabled"] = cw_log_enabled
             if domain is None and not opts.urn:

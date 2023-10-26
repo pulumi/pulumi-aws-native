@@ -38,11 +38,17 @@ class WorkflowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             steps: pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]],
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              on_exception_steps: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowStepArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if steps is None:
+            raise TypeError("Missing 'steps' argument")
+        if on_exception_steps is None and 'onExceptionSteps' in kwargs:
+            on_exception_steps = kwargs['onExceptionSteps']
+
         _setter("steps", steps)
         if description is not None:
             _setter("description", description)

@@ -29,9 +29,19 @@ class SubnetCidrBlockArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipv6_cidr_block: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_cidr_block is None and 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if ipv6_cidr_block is None:
+            raise TypeError("Missing 'ipv6_cidr_block' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
         _setter("ipv6_cidr_block", ipv6_cidr_block)
         _setter("subnet_id", subnet_id)
 

@@ -30,9 +30,15 @@ class ConnectionAliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_string: pulumi.Input[str],
+             connection_string: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionAliasTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+
         _setter("connection_string", connection_string)
         if tags is not None:
             _setter("tags", tags)

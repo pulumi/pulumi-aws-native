@@ -46,7 +46,13 @@ class HypervisorArgs:
              password: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['HypervisorTagArgs']]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if log_group_arn is None and 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+
         if host is not None:
             _setter("host", host)
         if kms_key_arn is not None:

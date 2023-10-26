@@ -35,11 +35,27 @@ class NetworkInterfaceAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_index: pulumi.Input[str],
-             instance_id: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
+             device_index: Optional[pulumi.Input[str]] = None,
+             instance_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
              delete_on_termination: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_index is None and 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if device_index is None:
+            raise TypeError("Missing 'device_index' argument")
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+
         _setter("device_index", device_index)
         _setter("instance_id", instance_id)
         _setter("network_interface_id", network_interface_id)

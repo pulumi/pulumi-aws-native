@@ -34,7 +34,11 @@ class MeshArgs:
              mesh_name: Optional[pulumi.Input[str]] = None,
              spec: Optional[pulumi.Input['MeshSpecArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MeshTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mesh_name is None and 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+
         if mesh_name is not None:
             _setter("mesh_name", mesh_name)
         if spec is not None:
@@ -132,11 +136,7 @@ class Mesh(pulumi.CustomResource):
             __props__ = MeshArgs.__new__(MeshArgs)
 
             __props__.__dict__["mesh_name"] = mesh_name
-            if spec is not None and not isinstance(spec, MeshSpecArgs):
-                spec = spec or {}
-                def _setter(key, value):
-                    spec[key] = value
-                MeshSpecArgs._configure(_setter, **spec)
+            spec = _utilities.configure(spec, MeshSpecArgs, True)
             __props__.__dict__["spec"] = spec
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

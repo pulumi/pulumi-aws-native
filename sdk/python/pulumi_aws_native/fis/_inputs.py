@@ -28,8 +28,10 @@ class ExperimentTemplateActionMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -43,8 +45,14 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArg
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_group_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_arn is None and 'logGroupArn' in kwargs:
+            log_group_arn = kwargs['logGroupArn']
+        if log_group_arn is None:
+            raise TypeError("Missing 'log_group_arn' argument")
+
         _setter("log_group_arn", log_group_arn)
 
     @property
@@ -70,9 +78,15 @@ class ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+
         _setter("bucket_name", bucket_name)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -111,10 +125,20 @@ class ExperimentTemplateLogConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_schema_version: pulumi.Input[int],
+             log_schema_version: Optional[pulumi.Input[int]] = None,
              cloud_watch_logs_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs']] = None,
              s3_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_schema_version is None and 'logSchemaVersion' in kwargs:
+            log_schema_version = kwargs['logSchemaVersion']
+        if log_schema_version is None:
+            raise TypeError("Missing 'log_schema_version' argument")
+        if cloud_watch_logs_configuration is None and 'cloudWatchLogsConfiguration' in kwargs:
+            cloud_watch_logs_configuration = kwargs['cloudWatchLogsConfiguration']
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+
         _setter("log_schema_version", log_schema_version)
         if cloud_watch_logs_configuration is not None:
             _setter("cloud_watch_logs_configuration", cloud_watch_logs_configuration)
@@ -162,9 +186,13 @@ class ExperimentTemplateStopConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input[str],
+             source: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("source", source)
         if value is not None:
             _setter("value", value)
@@ -198,7 +226,9 @@ class ExperimentTemplateTargetMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

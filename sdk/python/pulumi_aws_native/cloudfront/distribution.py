@@ -29,9 +29,15 @@ class DistributionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             distribution_config: pulumi.Input['DistributionConfigArgs'],
+             distribution_config: Optional[pulumi.Input['DistributionConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distribution_config is None and 'distributionConfig' in kwargs:
+            distribution_config = kwargs['distributionConfig']
+        if distribution_config is None:
+            raise TypeError("Missing 'distribution_config' argument")
+
         _setter("distribution_config", distribution_config)
         if tags is not None:
             _setter("tags", tags)
@@ -108,11 +114,7 @@ class Distribution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DistributionArgs.__new__(DistributionArgs)
 
-            if distribution_config is not None and not isinstance(distribution_config, DistributionConfigArgs):
-                distribution_config = distribution_config or {}
-                def _setter(key, value):
-                    distribution_config[key] = value
-                DistributionConfigArgs._configure(_setter, **distribution_config)
+            distribution_config = _utilities.configure(distribution_config, DistributionConfigArgs, True)
             if distribution_config is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_config'")
             __props__.__dict__["distribution_config"] = distribution_config

@@ -29,9 +29,17 @@ class ConnectorDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connector_definition_id: pulumi.Input[str],
-             connectors: pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionVersionConnectorArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             connector_definition_id: Optional[pulumi.Input[str]] = None,
+             connectors: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorDefinitionVersionConnectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_definition_id is None and 'connectorDefinitionId' in kwargs:
+            connector_definition_id = kwargs['connectorDefinitionId']
+        if connector_definition_id is None:
+            raise TypeError("Missing 'connector_definition_id' argument")
+        if connectors is None:
+            raise TypeError("Missing 'connectors' argument")
+
         _setter("connector_definition_id", connector_definition_id)
         _setter("connectors", connectors)
 

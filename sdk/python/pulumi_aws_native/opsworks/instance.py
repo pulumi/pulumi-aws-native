@@ -67,9 +67,9 @@ class InstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
-             layer_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             stack_id: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
+             layer_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
              agent_version: Optional[pulumi.Input[str]] = None,
              ami_id: Optional[pulumi.Input[str]] = None,
              architecture: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,47 @@ class InstanceArgs:
              time_based_auto_scaling: Optional[pulumi.Input['InstanceTimeBasedAutoScalingArgs']] = None,
              virtualization_type: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if layer_ids is None and 'layerIds' in kwargs:
+            layer_ids = kwargs['layerIds']
+        if layer_ids is None:
+            raise TypeError("Missing 'layer_ids' argument")
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if stack_id is None:
+            raise TypeError("Missing 'stack_id' argument")
+        if agent_version is None and 'agentVersion' in kwargs:
+            agent_version = kwargs['agentVersion']
+        if ami_id is None and 'amiId' in kwargs:
+            ami_id = kwargs['amiId']
+        if auto_scaling_type is None and 'autoScalingType' in kwargs:
+            auto_scaling_type = kwargs['autoScalingType']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if elastic_ips is None and 'elasticIps' in kwargs:
+            elastic_ips = kwargs['elasticIps']
+        if install_updates_on_boot is None and 'installUpdatesOnBoot' in kwargs:
+            install_updates_on_boot = kwargs['installUpdatesOnBoot']
+        if root_device_type is None and 'rootDeviceType' in kwargs:
+            root_device_type = kwargs['rootDeviceType']
+        if ssh_key_name is None and 'sshKeyName' in kwargs:
+            ssh_key_name = kwargs['sshKeyName']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if time_based_auto_scaling is None and 'timeBasedAutoScaling' in kwargs:
+            time_based_auto_scaling = kwargs['timeBasedAutoScaling']
+        if virtualization_type is None and 'virtualizationType' in kwargs:
+            virtualization_type = kwargs['virtualizationType']
+
         _setter("instance_type", instance_type)
         _setter("layer_ids", layer_ids)
         _setter("stack_id", stack_id)
@@ -440,11 +480,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["stack_id"] = stack_id
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tenancy"] = tenancy
-            if time_based_auto_scaling is not None and not isinstance(time_based_auto_scaling, InstanceTimeBasedAutoScalingArgs):
-                time_based_auto_scaling = time_based_auto_scaling or {}
-                def _setter(key, value):
-                    time_based_auto_scaling[key] = value
-                InstanceTimeBasedAutoScalingArgs._configure(_setter, **time_based_auto_scaling)
+            time_based_auto_scaling = _utilities.configure(time_based_auto_scaling, InstanceTimeBasedAutoScalingArgs, True)
             __props__.__dict__["time_based_auto_scaling"] = time_based_auto_scaling
             __props__.__dict__["virtualization_type"] = virtualization_type
             __props__.__dict__["volumes"] = volumes

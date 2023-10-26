@@ -31,9 +31,15 @@ class AccessPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_lambda_configuration: pulumi.Input['AccessPointObjectLambdaConfigurationArgs'],
+             object_lambda_configuration: Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_lambda_configuration is None and 'objectLambdaConfiguration' in kwargs:
+            object_lambda_configuration = kwargs['objectLambdaConfiguration']
+        if object_lambda_configuration is None:
+            raise TypeError("Missing 'object_lambda_configuration' argument")
+
         _setter("object_lambda_configuration", object_lambda_configuration)
         if name is not None:
             _setter("name", name)
@@ -119,11 +125,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
             __props__.__dict__["name"] = name
-            if object_lambda_configuration is not None and not isinstance(object_lambda_configuration, AccessPointObjectLambdaConfigurationArgs):
-                object_lambda_configuration = object_lambda_configuration or {}
-                def _setter(key, value):
-                    object_lambda_configuration[key] = value
-                AccessPointObjectLambdaConfigurationArgs._configure(_setter, **object_lambda_configuration)
+            object_lambda_configuration = _utilities.configure(object_lambda_configuration, AccessPointObjectLambdaConfigurationArgs, True)
             if object_lambda_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'object_lambda_configuration'")
             __props__.__dict__["object_lambda_configuration"] = object_lambda_configuration

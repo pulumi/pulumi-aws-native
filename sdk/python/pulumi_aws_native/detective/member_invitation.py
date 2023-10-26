@@ -38,12 +38,28 @@ class MemberInvitationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             graph_arn: pulumi.Input[str],
-             member_email_address: pulumi.Input[str],
-             member_id: pulumi.Input[str],
+             graph_arn: Optional[pulumi.Input[str]] = None,
+             member_email_address: Optional[pulumi.Input[str]] = None,
+             member_id: Optional[pulumi.Input[str]] = None,
              disable_email_notification: Optional[pulumi.Input[bool]] = None,
              message: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if graph_arn is None and 'graphArn' in kwargs:
+            graph_arn = kwargs['graphArn']
+        if graph_arn is None:
+            raise TypeError("Missing 'graph_arn' argument")
+        if member_email_address is None and 'memberEmailAddress' in kwargs:
+            member_email_address = kwargs['memberEmailAddress']
+        if member_email_address is None:
+            raise TypeError("Missing 'member_email_address' argument")
+        if member_id is None and 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if member_id is None:
+            raise TypeError("Missing 'member_id' argument")
+        if disable_email_notification is None and 'disableEmailNotification' in kwargs:
+            disable_email_notification = kwargs['disableEmailNotification']
+
         _setter("graph_arn", graph_arn)
         _setter("member_email_address", member_email_address)
         _setter("member_id", member_id)

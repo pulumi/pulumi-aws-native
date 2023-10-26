@@ -37,14 +37,34 @@ class HostedConfigurationVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             configuration_profile_id: pulumi.Input[str],
-             content: pulumi.Input[str],
-             content_type: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             configuration_profile_id: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              latest_version_number: Optional[pulumi.Input[float]] = None,
              version_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if configuration_profile_id is None and 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if configuration_profile_id is None:
+            raise TypeError("Missing 'configuration_profile_id' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if latest_version_number is None and 'latestVersionNumber' in kwargs:
+            latest_version_number = kwargs['latestVersionNumber']
+        if version_label is None and 'versionLabel' in kwargs:
+            version_label = kwargs['versionLabel']
+
         _setter("application_id", application_id)
         _setter("configuration_profile_id", configuration_profile_id)
         _setter("content", content)

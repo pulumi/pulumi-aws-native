@@ -50,15 +50,35 @@ class RoutingProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_outbound_queue_arn: pulumi.Input[str],
-             description: pulumi.Input[str],
-             instance_arn: pulumi.Input[str],
-             media_concurrencies: pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]],
+             default_outbound_queue_arn: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             media_concurrencies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]]] = None,
              agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
              name: Optional[pulumi.Input[str]] = None,
              queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_outbound_queue_arn is None and 'defaultOutboundQueueArn' in kwargs:
+            default_outbound_queue_arn = kwargs['defaultOutboundQueueArn']
+        if default_outbound_queue_arn is None:
+            raise TypeError("Missing 'default_outbound_queue_arn' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if media_concurrencies is None and 'mediaConcurrencies' in kwargs:
+            media_concurrencies = kwargs['mediaConcurrencies']
+        if media_concurrencies is None:
+            raise TypeError("Missing 'media_concurrencies' argument")
+        if agent_availability_timer is None and 'agentAvailabilityTimer' in kwargs:
+            agent_availability_timer = kwargs['agentAvailabilityTimer']
+        if queue_configs is None and 'queueConfigs' in kwargs:
+            queue_configs = kwargs['queueConfigs']
+
         _setter("default_outbound_queue_arn", default_outbound_queue_arn)
         _setter("description", description)
         _setter("instance_arn", instance_arn)

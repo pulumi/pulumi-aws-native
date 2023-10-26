@@ -129,7 +129,53 @@ class FleetArgs:
              script_id: Optional[pulumi.Input[str]] = None,
              server_launch_parameters: Optional[pulumi.Input[str]] = None,
              server_launch_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if anywhere_configuration is None and 'anywhereConfiguration' in kwargs:
+            anywhere_configuration = kwargs['anywhereConfiguration']
+        if build_id is None and 'buildId' in kwargs:
+            build_id = kwargs['buildId']
+        if certificate_configuration is None and 'certificateConfiguration' in kwargs:
+            certificate_configuration = kwargs['certificateConfiguration']
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if desired_ec2_instances is None and 'desiredEc2Instances' in kwargs:
+            desired_ec2_instances = kwargs['desiredEc2Instances']
+        if ec2_inbound_permissions is None and 'ec2InboundPermissions' in kwargs:
+            ec2_inbound_permissions = kwargs['ec2InboundPermissions']
+        if ec2_instance_type is None and 'ec2InstanceType' in kwargs:
+            ec2_instance_type = kwargs['ec2InstanceType']
+        if fleet_type is None and 'fleetType' in kwargs:
+            fleet_type = kwargs['fleetType']
+        if instance_role_arn is None and 'instanceRoleArn' in kwargs:
+            instance_role_arn = kwargs['instanceRoleArn']
+        if instance_role_credentials_provider is None and 'instanceRoleCredentialsProvider' in kwargs:
+            instance_role_credentials_provider = kwargs['instanceRoleCredentialsProvider']
+        if log_paths is None and 'logPaths' in kwargs:
+            log_paths = kwargs['logPaths']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if metric_groups is None and 'metricGroups' in kwargs:
+            metric_groups = kwargs['metricGroups']
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if new_game_session_protection_policy is None and 'newGameSessionProtectionPolicy' in kwargs:
+            new_game_session_protection_policy = kwargs['newGameSessionProtectionPolicy']
+        if peer_vpc_aws_account_id is None and 'peerVpcAwsAccountId' in kwargs:
+            peer_vpc_aws_account_id = kwargs['peerVpcAwsAccountId']
+        if peer_vpc_id is None and 'peerVpcId' in kwargs:
+            peer_vpc_id = kwargs['peerVpcId']
+        if resource_creation_limit_policy is None and 'resourceCreationLimitPolicy' in kwargs:
+            resource_creation_limit_policy = kwargs['resourceCreationLimitPolicy']
+        if runtime_configuration is None and 'runtimeConfiguration' in kwargs:
+            runtime_configuration = kwargs['runtimeConfiguration']
+        if script_id is None and 'scriptId' in kwargs:
+            script_id = kwargs['scriptId']
+        if server_launch_parameters is None and 'serverLaunchParameters' in kwargs:
+            server_launch_parameters = kwargs['serverLaunchParameters']
+        if server_launch_path is None and 'serverLaunchPath' in kwargs:
+            server_launch_path = kwargs['serverLaunchPath']
+
         if anywhere_configuration is not None:
             _setter("anywhere_configuration", anywhere_configuration)
         if build_id is not None:
@@ -610,18 +656,10 @@ class Fleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetArgs.__new__(FleetArgs)
 
-            if anywhere_configuration is not None and not isinstance(anywhere_configuration, FleetAnywhereConfigurationArgs):
-                anywhere_configuration = anywhere_configuration or {}
-                def _setter(key, value):
-                    anywhere_configuration[key] = value
-                FleetAnywhereConfigurationArgs._configure(_setter, **anywhere_configuration)
+            anywhere_configuration = _utilities.configure(anywhere_configuration, FleetAnywhereConfigurationArgs, True)
             __props__.__dict__["anywhere_configuration"] = anywhere_configuration
             __props__.__dict__["build_id"] = build_id
-            if certificate_configuration is not None and not isinstance(certificate_configuration, FleetCertificateConfigurationArgs):
-                certificate_configuration = certificate_configuration or {}
-                def _setter(key, value):
-                    certificate_configuration[key] = value
-                FleetCertificateConfigurationArgs._configure(_setter, **certificate_configuration)
+            certificate_configuration = _utilities.configure(certificate_configuration, FleetCertificateConfigurationArgs, True)
             __props__.__dict__["certificate_configuration"] = certificate_configuration
             __props__.__dict__["compute_type"] = compute_type
             __props__.__dict__["description"] = description
@@ -640,17 +678,9 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["new_game_session_protection_policy"] = new_game_session_protection_policy
             __props__.__dict__["peer_vpc_aws_account_id"] = peer_vpc_aws_account_id
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
-            if resource_creation_limit_policy is not None and not isinstance(resource_creation_limit_policy, FleetResourceCreationLimitPolicyArgs):
-                resource_creation_limit_policy = resource_creation_limit_policy or {}
-                def _setter(key, value):
-                    resource_creation_limit_policy[key] = value
-                FleetResourceCreationLimitPolicyArgs._configure(_setter, **resource_creation_limit_policy)
+            resource_creation_limit_policy = _utilities.configure(resource_creation_limit_policy, FleetResourceCreationLimitPolicyArgs, True)
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
-            if runtime_configuration is not None and not isinstance(runtime_configuration, FleetRuntimeConfigurationArgs):
-                runtime_configuration = runtime_configuration or {}
-                def _setter(key, value):
-                    runtime_configuration[key] = value
-                FleetRuntimeConfigurationArgs._configure(_setter, **runtime_configuration)
+            runtime_configuration = _utilities.configure(runtime_configuration, FleetRuntimeConfigurationArgs, True)
             __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["script_id"] = script_id
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters

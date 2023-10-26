@@ -36,11 +36,23 @@ class MitigationActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_params: pulumi.Input['MitigationActionActionParamsArgs'],
-             role_arn: pulumi.Input[str],
+             action_params: Optional[pulumi.Input['MitigationActionActionParamsArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              action_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MitigationActionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_params is None and 'actionParams' in kwargs:
+            action_params = kwargs['actionParams']
+        if action_params is None:
+            raise TypeError("Missing 'action_params' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if action_name is None and 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+
         _setter("action_params", action_params)
         _setter("role_arn", role_arn)
         if action_name is not None:
@@ -151,11 +163,7 @@ class MitigationAction(pulumi.CustomResource):
             __props__ = MitigationActionArgs.__new__(MitigationActionArgs)
 
             __props__.__dict__["action_name"] = action_name
-            if action_params is not None and not isinstance(action_params, MitigationActionActionParamsArgs):
-                action_params = action_params or {}
-                def _setter(key, value):
-                    action_params[key] = value
-                MitigationActionActionParamsArgs._configure(_setter, **action_params)
+            action_params = _utilities.configure(action_params, MitigationActionActionParamsArgs, True)
             if action_params is None and not opts.urn:
                 raise TypeError("Missing required property 'action_params'")
             __props__.__dict__["action_params"] = action_params

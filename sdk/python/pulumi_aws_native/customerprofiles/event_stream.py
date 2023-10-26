@@ -37,11 +37,21 @@ class EventStreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             uri: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
              event_stream_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventStreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if event_stream_name is None and 'eventStreamName' in kwargs:
+            event_stream_name = kwargs['eventStreamName']
+
         _setter("domain_name", domain_name)
         _setter("uri", uri)
         if event_stream_name is not None:

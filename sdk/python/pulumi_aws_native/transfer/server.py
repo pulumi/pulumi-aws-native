@@ -70,7 +70,31 @@ class ServerArgs:
              structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
              workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_details is None and 'endpointDetails' in kwargs:
+            endpoint_details = kwargs['endpointDetails']
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if identity_provider_details is None and 'identityProviderDetails' in kwargs:
+            identity_provider_details = kwargs['identityProviderDetails']
+        if identity_provider_type is None and 'identityProviderType' in kwargs:
+            identity_provider_type = kwargs['identityProviderType']
+        if logging_role is None and 'loggingRole' in kwargs:
+            logging_role = kwargs['loggingRole']
+        if post_authentication_login_banner is None and 'postAuthenticationLoginBanner' in kwargs:
+            post_authentication_login_banner = kwargs['postAuthenticationLoginBanner']
+        if pre_authentication_login_banner is None and 'preAuthenticationLoginBanner' in kwargs:
+            pre_authentication_login_banner = kwargs['preAuthenticationLoginBanner']
+        if protocol_details is None and 'protocolDetails' in kwargs:
+            protocol_details = kwargs['protocolDetails']
+        if security_policy_name is None and 'securityPolicyName' in kwargs:
+            security_policy_name = kwargs['securityPolicyName']
+        if structured_log_destinations is None and 'structuredLogDestinations' in kwargs:
+            structured_log_destinations = kwargs['structuredLogDestinations']
+        if workflow_details is None and 'workflowDetails' in kwargs:
+            workflow_details = kwargs['workflowDetails']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if domain is not None:
@@ -325,38 +349,22 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["certificate"] = certificate
             __props__.__dict__["domain"] = domain
-            if endpoint_details is not None and not isinstance(endpoint_details, ServerEndpointDetailsArgs):
-                endpoint_details = endpoint_details or {}
-                def _setter(key, value):
-                    endpoint_details[key] = value
-                ServerEndpointDetailsArgs._configure(_setter, **endpoint_details)
+            endpoint_details = _utilities.configure(endpoint_details, ServerEndpointDetailsArgs, True)
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["endpoint_type"] = endpoint_type
-            if identity_provider_details is not None and not isinstance(identity_provider_details, ServerIdentityProviderDetailsArgs):
-                identity_provider_details = identity_provider_details or {}
-                def _setter(key, value):
-                    identity_provider_details[key] = value
-                ServerIdentityProviderDetailsArgs._configure(_setter, **identity_provider_details)
+            identity_provider_details = _utilities.configure(identity_provider_details, ServerIdentityProviderDetailsArgs, True)
             __props__.__dict__["identity_provider_details"] = identity_provider_details
             __props__.__dict__["identity_provider_type"] = identity_provider_type
             __props__.__dict__["logging_role"] = logging_role
             __props__.__dict__["post_authentication_login_banner"] = post_authentication_login_banner
             __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
-            if protocol_details is not None and not isinstance(protocol_details, ServerProtocolDetailsArgs):
-                protocol_details = protocol_details or {}
-                def _setter(key, value):
-                    protocol_details[key] = value
-                ServerProtocolDetailsArgs._configure(_setter, **protocol_details)
+            protocol_details = _utilities.configure(protocol_details, ServerProtocolDetailsArgs, True)
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
-            if workflow_details is not None and not isinstance(workflow_details, ServerWorkflowDetailsArgs):
-                workflow_details = workflow_details or {}
-                def _setter(key, value):
-                    workflow_details[key] = value
-                ServerWorkflowDetailsArgs._configure(_setter, **workflow_details)
+            workflow_details = _utilities.configure(workflow_details, ServerWorkflowDetailsArgs, True)
             __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["server_id"] = None

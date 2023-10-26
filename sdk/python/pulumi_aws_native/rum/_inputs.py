@@ -70,7 +70,27 @@ class AppMonitorConfigurationArgs:
              metric_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDestinationArgs']]]] = None,
              session_sample_rate: Optional[pulumi.Input[float]] = None,
              telemetries: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorTelemetry']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_cookies is None and 'allowCookies' in kwargs:
+            allow_cookies = kwargs['allowCookies']
+        if enable_x_ray is None and 'enableXRay' in kwargs:
+            enable_x_ray = kwargs['enableXRay']
+        if excluded_pages is None and 'excludedPages' in kwargs:
+            excluded_pages = kwargs['excludedPages']
+        if favorite_pages is None and 'favoritePages' in kwargs:
+            favorite_pages = kwargs['favoritePages']
+        if guest_role_arn is None and 'guestRoleArn' in kwargs:
+            guest_role_arn = kwargs['guestRoleArn']
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if included_pages is None and 'includedPages' in kwargs:
+            included_pages = kwargs['includedPages']
+        if metric_destinations is None and 'metricDestinations' in kwargs:
+            metric_destinations = kwargs['metricDestinations']
+        if session_sample_rate is None and 'sessionSampleRate' in kwargs:
+            session_sample_rate = kwargs['sessionSampleRate']
+
         if allow_cookies is not None:
             _setter("allow_cookies", allow_cookies)
         if enable_x_ray is not None:
@@ -229,7 +249,9 @@ class AppMonitorCustomEventsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              status: Optional[pulumi.Input['AppMonitorCustomEventsStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if status is not None:
             _setter("status", status)
 
@@ -330,13 +352,25 @@ class AppMonitorMetricDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              dimension_keys: Optional[Any] = None,
              event_pattern: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              unit_label: Optional[pulumi.Input[str]] = None,
              value_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dimension_keys is None and 'dimensionKeys' in kwargs:
+            dimension_keys = kwargs['dimensionKeys']
+        if event_pattern is None and 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if unit_label is None and 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+        if value_key is None and 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+
         _setter("name", name)
         if dimension_keys is not None:
             _setter("dimension_keys", dimension_keys)
@@ -502,11 +536,21 @@ class AppMonitorMetricDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['AppMonitorMetricDestinationDestination'],
+             destination: Optional[pulumi.Input['AppMonitorMetricDestinationDestination']] = None,
              destination_arn: Optional[pulumi.Input[str]] = None,
              iam_role_arn: Optional[pulumi.Input[str]] = None,
              metric_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['AppMonitorMetricDefinitionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if metric_definitions is None and 'metricDefinitions' in kwargs:
+            metric_definitions = kwargs['metricDefinitions']
+
         _setter("destination", destination)
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
@@ -584,9 +628,15 @@ class AppMonitorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

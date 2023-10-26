@@ -33,11 +33,23 @@ class DbSecurityGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_security_group_ingress: pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupIngressArgs']]],
-             group_description: pulumi.Input[str],
+             db_security_group_ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupIngressArgs']]]] = None,
+             group_description: Optional[pulumi.Input[str]] = None,
              ec2_vpc_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSecurityGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_security_group_ingress is None and 'dbSecurityGroupIngress' in kwargs:
+            db_security_group_ingress = kwargs['dbSecurityGroupIngress']
+        if db_security_group_ingress is None:
+            raise TypeError("Missing 'db_security_group_ingress' argument")
+        if group_description is None and 'groupDescription' in kwargs:
+            group_description = kwargs['groupDescription']
+        if group_description is None:
+            raise TypeError("Missing 'group_description' argument")
+        if ec2_vpc_id is None and 'ec2VpcId' in kwargs:
+            ec2_vpc_id = kwargs['ec2VpcId']
+
         _setter("db_security_group_ingress", db_security_group_ingress)
         _setter("group_description", group_description)
         if ec2_vpc_id is not None:

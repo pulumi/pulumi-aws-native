@@ -35,13 +35,29 @@ class LaunchRoleConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             portfolio_id: pulumi.Input[str],
-             product_id: pulumi.Input[str],
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              local_role_name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if local_role_name is None and 'localRoleName' in kwargs:
+            local_role_name = kwargs['localRoleName']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("portfolio_id", portfolio_id)
         _setter("product_id", product_id)
         if accept_language is not None:

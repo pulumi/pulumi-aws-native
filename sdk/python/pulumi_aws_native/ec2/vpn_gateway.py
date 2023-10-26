@@ -34,10 +34,16 @@ class VpnGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              amazon_side_asn: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpnGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if amazon_side_asn is None and 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+
         _setter("type", type)
         if amazon_side_asn is not None:
             _setter("amazon_side_asn", amazon_side_asn)

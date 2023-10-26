@@ -35,10 +35,18 @@ class SigningProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             platform_id: pulumi.Input['SigningProfilePlatformId'],
+             platform_id: Optional[pulumi.Input['SigningProfilePlatformId']] = None,
              signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if platform_id is None and 'platformId' in kwargs:
+            platform_id = kwargs['platformId']
+        if platform_id is None:
+            raise TypeError("Missing 'platform_id' argument")
+        if signature_validity_period is None and 'signatureValidityPeriod' in kwargs:
+            signature_validity_period = kwargs['signatureValidityPeriod']
+
         _setter("platform_id", platform_id)
         if signature_validity_period is not None:
             _setter("signature_validity_period", signature_validity_period)
@@ -143,11 +151,7 @@ class SigningProfile(pulumi.CustomResource):
             if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
             __props__.__dict__["platform_id"] = platform_id
-            if signature_validity_period is not None and not isinstance(signature_validity_period, SigningProfileSignatureValidityPeriodArgs):
-                signature_validity_period = signature_validity_period or {}
-                def _setter(key, value):
-                    signature_validity_period[key] = value
-                SigningProfileSignatureValidityPeriodArgs._configure(_setter, **signature_validity_period)
+            signature_validity_period = _utilities.configure(signature_validity_period, SigningProfileSignatureValidityPeriodArgs, True)
             __props__.__dict__["signature_validity_period"] = signature_validity_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

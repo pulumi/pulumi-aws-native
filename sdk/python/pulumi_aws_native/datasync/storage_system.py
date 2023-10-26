@@ -45,14 +45,32 @@ class StorageSystemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             server_configuration: pulumi.Input['StorageSystemServerConfigurationArgs'],
-             system_type: pulumi.Input['StorageSystemSystemType'],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_configuration: Optional[pulumi.Input['StorageSystemServerConfigurationArgs']] = None,
+             system_type: Optional[pulumi.Input['StorageSystemSystemType']] = None,
              cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              server_credentials: Optional[pulumi.Input['StorageSystemServerCredentialsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageSystemTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if agent_arns is None:
+            raise TypeError("Missing 'agent_arns' argument")
+        if server_configuration is None and 'serverConfiguration' in kwargs:
+            server_configuration = kwargs['serverConfiguration']
+        if server_configuration is None:
+            raise TypeError("Missing 'server_configuration' argument")
+        if system_type is None and 'systemType' in kwargs:
+            system_type = kwargs['systemType']
+        if system_type is None:
+            raise TypeError("Missing 'system_type' argument")
+        if cloud_watch_log_group_arn is None and 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if server_credentials is None and 'serverCredentials' in kwargs:
+            server_credentials = kwargs['serverCredentials']
+
         _setter("agent_arns", agent_arns)
         _setter("server_configuration", server_configuration)
         _setter("system_type", system_type)
@@ -217,19 +235,11 @@ class StorageSystem(pulumi.CustomResource):
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["cloud_watch_log_group_arn"] = cloud_watch_log_group_arn
             __props__.__dict__["name"] = name
-            if server_configuration is not None and not isinstance(server_configuration, StorageSystemServerConfigurationArgs):
-                server_configuration = server_configuration or {}
-                def _setter(key, value):
-                    server_configuration[key] = value
-                StorageSystemServerConfigurationArgs._configure(_setter, **server_configuration)
+            server_configuration = _utilities.configure(server_configuration, StorageSystemServerConfigurationArgs, True)
             if server_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'server_configuration'")
             __props__.__dict__["server_configuration"] = server_configuration
-            if server_credentials is not None and not isinstance(server_credentials, StorageSystemServerCredentialsArgs):
-                server_credentials = server_credentials or {}
-                def _setter(key, value):
-                    server_credentials[key] = value
-                StorageSystemServerCredentialsArgs._configure(_setter, **server_credentials)
+            server_credentials = _utilities.configure(server_credentials, StorageSystemServerCredentialsArgs, True)
             __props__.__dict__["server_credentials"] = server_credentials
             if system_type is None and not opts.urn:
                 raise TypeError("Missing required property 'system_type'")

@@ -54,8 +54,8 @@ class ComponentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             platform: pulumi.Input['ComponentPlatform'],
-             version: pulumi.Input[str],
+             platform: Optional[pulumi.Input['ComponentPlatform']] = None,
+             version: Optional[pulumi.Input[str]] = None,
              change_description: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,19 @@ class ComponentArgs:
              supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[Any] = None,
              uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if platform is None:
+            raise TypeError("Missing 'platform' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if change_description is None and 'changeDescription' in kwargs:
+            change_description = kwargs['changeDescription']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if supported_os_versions is None and 'supportedOsVersions' in kwargs:
+            supported_os_versions = kwargs['supportedOsVersions']
+
         _setter("platform", platform)
         _setter("version", version)
         if change_description is not None:

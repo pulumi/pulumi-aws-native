@@ -52,7 +52,7 @@ class BranchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
+             app_id: Optional[pulumi.Input[str]] = None,
              basic_auth_config: Optional[pulumi.Input['BranchBasicAuthConfigArgs']] = None,
              branch_name: Optional[pulumi.Input[str]] = None,
              build_spec: Optional[pulumi.Input[str]] = None,
@@ -65,7 +65,29 @@ class BranchArgs:
              pull_request_environment_name: Optional[pulumi.Input[str]] = None,
              stage: Optional[pulumi.Input['BranchStage']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if basic_auth_config is None and 'basicAuthConfig' in kwargs:
+            basic_auth_config = kwargs['basicAuthConfig']
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if build_spec is None and 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if enable_auto_build is None and 'enableAutoBuild' in kwargs:
+            enable_auto_build = kwargs['enableAutoBuild']
+        if enable_performance_mode is None and 'enablePerformanceMode' in kwargs:
+            enable_performance_mode = kwargs['enablePerformanceMode']
+        if enable_pull_request_preview is None and 'enablePullRequestPreview' in kwargs:
+            enable_pull_request_preview = kwargs['enablePullRequestPreview']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if pull_request_environment_name is None and 'pullRequestEnvironmentName' in kwargs:
+            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
+
         _setter("app_id", app_id)
         if basic_auth_config is not None:
             _setter("basic_auth_config", basic_auth_config)
@@ -288,11 +310,7 @@ class Branch(pulumi.CustomResource):
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
             __props__.__dict__["app_id"] = app_id
-            if basic_auth_config is not None and not isinstance(basic_auth_config, BranchBasicAuthConfigArgs):
-                basic_auth_config = basic_auth_config or {}
-                def _setter(key, value):
-                    basic_auth_config[key] = value
-                BranchBasicAuthConfigArgs._configure(_setter, **basic_auth_config)
+            basic_auth_config = _utilities.configure(basic_auth_config, BranchBasicAuthConfigArgs, True)
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["build_spec"] = build_spec

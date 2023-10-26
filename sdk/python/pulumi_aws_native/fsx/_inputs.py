@@ -59,8 +59,12 @@ class DataRepositoryAssociationAutoExportPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             events: Optional[pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+
         _setter("events", events)
 
     @property
@@ -87,8 +91,12 @@ class DataRepositoryAssociationAutoImportPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             events: pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             events: Optional[pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationEventType']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+
         _setter("events", events)
 
     @property
@@ -119,7 +127,13 @@ class DataRepositoryAssociationS3Args:
              _setter: Callable[[Any, Any], None],
              auto_export_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoExportPolicyArgs']] = None,
              auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationAutoImportPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_export_policy is None and 'autoExportPolicy' in kwargs:
+            auto_export_policy = kwargs['autoExportPolicy']
+        if auto_import_policy is None and 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+
         if auto_export_policy is not None:
             _setter("auto_export_policy", auto_export_policy)
         if auto_import_policy is not None:
@@ -162,9 +176,15 @@ class DataRepositoryAssociationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -208,10 +228,22 @@ class FileSystemAuditLogConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_access_audit_log_level: pulumi.Input[str],
-             file_share_access_audit_log_level: pulumi.Input[str],
+             file_access_audit_log_level: Optional[pulumi.Input[str]] = None,
+             file_share_access_audit_log_level: Optional[pulumi.Input[str]] = None,
              audit_log_destination: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_access_audit_log_level is None and 'fileAccessAuditLogLevel' in kwargs:
+            file_access_audit_log_level = kwargs['fileAccessAuditLogLevel']
+        if file_access_audit_log_level is None:
+            raise TypeError("Missing 'file_access_audit_log_level' argument")
+        if file_share_access_audit_log_level is None and 'fileShareAccessAuditLogLevel' in kwargs:
+            file_share_access_audit_log_level = kwargs['fileShareAccessAuditLogLevel']
+        if file_share_access_audit_log_level is None:
+            raise TypeError("Missing 'file_share_access_audit_log_level' argument")
+        if audit_log_destination is None and 'auditLogDestination' in kwargs:
+            audit_log_destination = kwargs['auditLogDestination']
+
         _setter("file_access_audit_log_level", file_access_audit_log_level)
         _setter("file_share_access_audit_log_level", file_share_access_audit_log_level)
         if audit_log_destination is not None:
@@ -260,7 +292,9 @@ class FileSystemClientConfigurationsArgs:
              _setter: Callable[[Any, Any], None],
              clients: Optional[pulumi.Input[str]] = None,
              options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if clients is not None:
             _setter("clients", clients)
         if options is not None:
@@ -300,7 +334,9 @@ class FileSystemDiskIopsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              iops: Optional[pulumi.Input[int]] = None,
              mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if iops is not None:
             _setter("iops", iops)
         if mode is not None:
@@ -370,7 +406,33 @@ class FileSystemLustreConfigurationArgs:
              imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
              per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_import_policy is None and 'autoImportPolicy' in kwargs:
+            auto_import_policy = kwargs['autoImportPolicy']
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if data_compression_type is None and 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if drive_cache_type is None and 'driveCacheType' in kwargs:
+            drive_cache_type = kwargs['driveCacheType']
+        if export_path is None and 'exportPath' in kwargs:
+            export_path = kwargs['exportPath']
+        if import_path is None and 'importPath' in kwargs:
+            import_path = kwargs['importPath']
+        if imported_file_chunk_size is None and 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+        if per_unit_storage_throughput is None and 'perUnitStorageThroughput' in kwargs:
+            per_unit_storage_throughput = kwargs['perUnitStorageThroughput']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         if auto_import_policy is not None:
             _setter("auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
@@ -517,7 +579,11 @@ class FileSystemNfsExportsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemClientConfigurationsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_configurations is None and 'clientConfigurations' in kwargs:
+            client_configurations = kwargs['clientConfigurations']
+
         if client_configurations is not None:
             _setter("client_configurations", client_configurations)
 
@@ -560,7 +626,7 @@ class FileSystemOntapConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_type: pulumi.Input[str],
+             deployment_type: Optional[pulumi.Input[str]] = None,
              automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
              daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
              disk_iops_configuration: Optional[pulumi.Input['FileSystemDiskIopsConfigurationArgs']] = None,
@@ -570,7 +636,31 @@ class FileSystemOntapConfigurationArgs:
              route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              throughput_capacity: Optional[pulumi.Input[int]] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if deployment_type is None:
+            raise TypeError("Missing 'deployment_type' argument")
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if endpoint_ip_address_range is None and 'endpointIpAddressRange' in kwargs:
+            endpoint_ip_address_range = kwargs['endpointIpAddressRange']
+        if fsx_admin_password is None and 'fsxAdminPassword' in kwargs:
+            fsx_admin_password = kwargs['fsxAdminPassword']
+        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if route_table_ids is None and 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if throughput_capacity is None and 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         _setter("deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
             _setter("automatic_backup_retention_days", automatic_backup_retention_days)
@@ -717,7 +807,7 @@ class FileSystemOpenZfsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_type: pulumi.Input[str],
+             deployment_type: Optional[pulumi.Input[str]] = None,
              automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
              copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
              copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
@@ -730,7 +820,35 @@ class FileSystemOpenZfsConfigurationArgs:
              route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              throughput_capacity: Optional[pulumi.Input[int]] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if deployment_type is None:
+            raise TypeError("Missing 'deployment_type' argument")
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if copy_tags_to_volumes is None and 'copyTagsToVolumes' in kwargs:
+            copy_tags_to_volumes = kwargs['copyTagsToVolumes']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if endpoint_ip_address_range is None and 'endpointIpAddressRange' in kwargs:
+            endpoint_ip_address_range = kwargs['endpointIpAddressRange']
+        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if root_volume_configuration is None and 'rootVolumeConfiguration' in kwargs:
+            root_volume_configuration = kwargs['rootVolumeConfiguration']
+        if route_table_ids is None and 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if throughput_capacity is None and 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         _setter("deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
             _setter("automatic_backup_retention_days", automatic_backup_retention_days)
@@ -902,7 +1020,21 @@ class FileSystemRootVolumeConfigurationArgs:
              read_only: Optional[pulumi.Input[bool]] = None,
              record_size_ki_b: Optional[pulumi.Input[int]] = None,
              user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemUserAndGroupQuotasArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_tags_to_snapshots is None and 'copyTagsToSnapshots' in kwargs:
+            copy_tags_to_snapshots = kwargs['copyTagsToSnapshots']
+        if data_compression_type is None and 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if nfs_exports is None and 'nfsExports' in kwargs:
+            nfs_exports = kwargs['nfsExports']
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if record_size_ki_b is None and 'recordSizeKiB' in kwargs:
+            record_size_ki_b = kwargs['recordSizeKiB']
+        if user_and_group_quotas is None and 'userAndGroupQuotas' in kwargs:
+            user_and_group_quotas = kwargs['userAndGroupQuotas']
+
         if copy_tags_to_snapshots is not None:
             _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
@@ -998,7 +1130,19 @@ class FileSystemSelfManagedActiveDirectoryConfigurationArgs:
              organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_ips is None and 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if file_system_administrators_group is None and 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if organizational_unit_distinguished_name is None and 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if dns_ips is not None:
             _setter("dns_ips", dns_ips)
         if domain_name is not None:
@@ -1080,9 +1224,15 @@ class FileSystemTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1123,7 +1273,11 @@ class FileSystemUserAndGroupQuotasArgs:
              id: Optional[pulumi.Input[int]] = None,
              storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_capacity_quota_gi_b is None and 'storageCapacityQuotaGiB' in kwargs:
+            storage_capacity_quota_gi_b = kwargs['storageCapacityQuotaGiB']
+
         if id is not None:
             _setter("id", id)
         if storage_capacity_quota_gi_b is not None:
@@ -1192,7 +1346,7 @@ class FileSystemWindowsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             throughput_capacity: pulumi.Input[int],
+             throughput_capacity: Optional[pulumi.Input[int]] = None,
              active_directory_id: Optional[pulumi.Input[str]] = None,
              aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              audit_log_configuration: Optional[pulumi.Input['FileSystemAuditLogConfigurationArgs']] = None,
@@ -1204,7 +1358,33 @@ class FileSystemWindowsConfigurationArgs:
              preferred_subnet_id: Optional[pulumi.Input[str]] = None,
              self_managed_active_directory_configuration: Optional[pulumi.Input['FileSystemSelfManagedActiveDirectoryConfigurationArgs']] = None,
              weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if throughput_capacity is None and 'throughputCapacity' in kwargs:
+            throughput_capacity = kwargs['throughputCapacity']
+        if throughput_capacity is None:
+            raise TypeError("Missing 'throughput_capacity' argument")
+        if active_directory_id is None and 'activeDirectoryId' in kwargs:
+            active_directory_id = kwargs['activeDirectoryId']
+        if audit_log_configuration is None and 'auditLogConfiguration' in kwargs:
+            audit_log_configuration = kwargs['auditLogConfiguration']
+        if automatic_backup_retention_days is None and 'automaticBackupRetentionDays' in kwargs:
+            automatic_backup_retention_days = kwargs['automaticBackupRetentionDays']
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if daily_automatic_backup_start_time is None and 'dailyAutomaticBackupStartTime' in kwargs:
+            daily_automatic_backup_start_time = kwargs['dailyAutomaticBackupStartTime']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+        if disk_iops_configuration is None and 'diskIopsConfiguration' in kwargs:
+            disk_iops_configuration = kwargs['diskIopsConfiguration']
+        if preferred_subnet_id is None and 'preferredSubnetId' in kwargs:
+            preferred_subnet_id = kwargs['preferredSubnetId']
+        if self_managed_active_directory_configuration is None and 'selfManagedActiveDirectoryConfiguration' in kwargs:
+            self_managed_active_directory_configuration = kwargs['selfManagedActiveDirectoryConfiguration']
+        if weekly_maintenance_start_time is None and 'weeklyMaintenanceStartTime' in kwargs:
+            weekly_maintenance_start_time = kwargs['weeklyMaintenanceStartTime']
+
         _setter("throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
             _setter("active_directory_id", active_directory_id)
@@ -1351,9 +1531,15 @@ class SnapshotTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1391,7 +1577,13 @@ class StorageVirtualMachineActiveDirectoryConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              net_bios_name: Optional[pulumi.Input[str]] = None,
              self_managed_active_directory_configuration: Optional[pulumi.Input['StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if net_bios_name is None and 'netBiosName' in kwargs:
+            net_bios_name = kwargs['netBiosName']
+        if self_managed_active_directory_configuration is None and 'selfManagedActiveDirectoryConfiguration' in kwargs:
+            self_managed_active_directory_configuration = kwargs['selfManagedActiveDirectoryConfiguration']
+
         if net_bios_name is not None:
             _setter("net_bios_name", net_bios_name)
         if self_managed_active_directory_configuration is not None:
@@ -1443,7 +1635,19 @@ class StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs:
              organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_ips is None and 'dnsIps' in kwargs:
+            dns_ips = kwargs['dnsIps']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if file_system_administrators_group is None and 'fileSystemAdministratorsGroup' in kwargs:
+            file_system_administrators_group = kwargs['fileSystemAdministratorsGroup']
+        if organizational_unit_distinguished_name is None and 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if dns_ips is not None:
             _setter("dns_ips", dns_ips)
         if domain_name is not None:
@@ -1525,9 +1729,15 @@ class StorageVirtualMachineTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1563,9 +1773,13 @@ class VolumeAutocommitPeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if value is not None:
             _setter("value", value)
@@ -1602,9 +1816,15 @@ class VolumeClientConfigurationsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             clients: pulumi.Input[str],
-             options: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             clients: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if clients is None:
+            raise TypeError("Missing 'clients' argument")
+        if options is None:
+            raise TypeError("Missing 'options' argument")
+
         _setter("clients", clients)
         _setter("options", options)
 
@@ -1638,8 +1858,14 @@ class VolumeNfsExportsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_configurations is None and 'clientConfigurations' in kwargs:
+            client_configurations = kwargs['clientConfigurations']
+        if client_configurations is None:
+            raise TypeError("Missing 'client_configurations' argument")
+
         _setter("client_configurations", client_configurations)
 
     @property
@@ -1681,8 +1907,8 @@ class VolumeOntapConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_megabytes: pulumi.Input[str],
-             storage_virtual_machine_id: pulumi.Input[str],
+             size_in_megabytes: Optional[pulumi.Input[str]] = None,
+             storage_virtual_machine_id: Optional[pulumi.Input[str]] = None,
              copy_tags_to_backups: Optional[pulumi.Input[str]] = None,
              junction_path: Optional[pulumi.Input[str]] = None,
              ontap_volume_type: Optional[pulumi.Input[str]] = None,
@@ -1691,7 +1917,33 @@ class VolumeOntapConfigurationArgs:
              snapshot_policy: Optional[pulumi.Input[str]] = None,
              storage_efficiency_enabled: Optional[pulumi.Input[str]] = None,
              tiering_policy: Optional[pulumi.Input['VolumeTieringPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_megabytes is None and 'sizeInMegabytes' in kwargs:
+            size_in_megabytes = kwargs['sizeInMegabytes']
+        if size_in_megabytes is None:
+            raise TypeError("Missing 'size_in_megabytes' argument")
+        if storage_virtual_machine_id is None and 'storageVirtualMachineId' in kwargs:
+            storage_virtual_machine_id = kwargs['storageVirtualMachineId']
+        if storage_virtual_machine_id is None:
+            raise TypeError("Missing 'storage_virtual_machine_id' argument")
+        if copy_tags_to_backups is None and 'copyTagsToBackups' in kwargs:
+            copy_tags_to_backups = kwargs['copyTagsToBackups']
+        if junction_path is None and 'junctionPath' in kwargs:
+            junction_path = kwargs['junctionPath']
+        if ontap_volume_type is None and 'ontapVolumeType' in kwargs:
+            ontap_volume_type = kwargs['ontapVolumeType']
+        if security_style is None and 'securityStyle' in kwargs:
+            security_style = kwargs['securityStyle']
+        if snaplock_configuration is None and 'snaplockConfiguration' in kwargs:
+            snaplock_configuration = kwargs['snaplockConfiguration']
+        if snapshot_policy is None and 'snapshotPolicy' in kwargs:
+            snapshot_policy = kwargs['snapshotPolicy']
+        if storage_efficiency_enabled is None and 'storageEfficiencyEnabled' in kwargs:
+            storage_efficiency_enabled = kwargs['storageEfficiencyEnabled']
+        if tiering_policy is None and 'tieringPolicy' in kwargs:
+            tiering_policy = kwargs['tieringPolicy']
+
         _setter("size_in_megabytes", size_in_megabytes)
         _setter("storage_virtual_machine_id", storage_virtual_machine_id)
         if copy_tags_to_backups is not None:
@@ -1833,7 +2085,7 @@ class VolumeOpenZfsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parent_volume_id: pulumi.Input[str],
+             parent_volume_id: Optional[pulumi.Input[str]] = None,
              copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
              data_compression_type: Optional[pulumi.Input[str]] = None,
              nfs_exports: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]] = None,
@@ -1844,7 +2096,31 @@ class VolumeOpenZfsConfigurationArgs:
              storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
              storage_capacity_reservation_gi_b: Optional[pulumi.Input[int]] = None,
              user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_volume_id is None and 'parentVolumeId' in kwargs:
+            parent_volume_id = kwargs['parentVolumeId']
+        if parent_volume_id is None:
+            raise TypeError("Missing 'parent_volume_id' argument")
+        if copy_tags_to_snapshots is None and 'copyTagsToSnapshots' in kwargs:
+            copy_tags_to_snapshots = kwargs['copyTagsToSnapshots']
+        if data_compression_type is None and 'dataCompressionType' in kwargs:
+            data_compression_type = kwargs['dataCompressionType']
+        if nfs_exports is None and 'nfsExports' in kwargs:
+            nfs_exports = kwargs['nfsExports']
+        if origin_snapshot is None and 'originSnapshot' in kwargs:
+            origin_snapshot = kwargs['originSnapshot']
+        if read_only is None and 'readOnly' in kwargs:
+            read_only = kwargs['readOnly']
+        if record_size_ki_b is None and 'recordSizeKiB' in kwargs:
+            record_size_ki_b = kwargs['recordSizeKiB']
+        if storage_capacity_quota_gi_b is None and 'storageCapacityQuotaGiB' in kwargs:
+            storage_capacity_quota_gi_b = kwargs['storageCapacityQuotaGiB']
+        if storage_capacity_reservation_gi_b is None and 'storageCapacityReservationGiB' in kwargs:
+            storage_capacity_reservation_gi_b = kwargs['storageCapacityReservationGiB']
+        if user_and_group_quotas is None and 'userAndGroupQuotas' in kwargs:
+            user_and_group_quotas = kwargs['userAndGroupQuotas']
+
         _setter("parent_volume_id", parent_volume_id)
         if copy_tags_to_snapshots is not None:
             _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -1980,9 +2256,19 @@ class VolumeOriginSnapshotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             copy_strategy: pulumi.Input[str],
-             snapshot_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             copy_strategy: Optional[pulumi.Input[str]] = None,
+             snapshot_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_strategy is None and 'copyStrategy' in kwargs:
+            copy_strategy = kwargs['copyStrategy']
+        if copy_strategy is None:
+            raise TypeError("Missing 'copy_strategy' argument")
+        if snapshot_arn is None and 'snapshotArn' in kwargs:
+            snapshot_arn = kwargs['snapshotArn']
+        if snapshot_arn is None:
+            raise TypeError("Missing 'snapshot_arn' argument")
+
         _setter("copy_strategy", copy_strategy)
         _setter("snapshot_arn", snapshot_arn)
 
@@ -2018,9 +2304,13 @@ class VolumeRetentionPeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if value is not None:
             _setter("value", value)
@@ -2065,13 +2355,29 @@ class VolumeSnaplockConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             snaplock_type: pulumi.Input[str],
+             snaplock_type: Optional[pulumi.Input[str]] = None,
              audit_log_volume: Optional[pulumi.Input[str]] = None,
              autocommit_period: Optional[pulumi.Input['VolumeAutocommitPeriodArgs']] = None,
              privileged_delete: Optional[pulumi.Input[str]] = None,
              retention_period: Optional[pulumi.Input['VolumeSnaplockRetentionPeriodArgs']] = None,
              volume_append_mode_enabled: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if snaplock_type is None and 'snaplockType' in kwargs:
+            snaplock_type = kwargs['snaplockType']
+        if snaplock_type is None:
+            raise TypeError("Missing 'snaplock_type' argument")
+        if audit_log_volume is None and 'auditLogVolume' in kwargs:
+            audit_log_volume = kwargs['auditLogVolume']
+        if autocommit_period is None and 'autocommitPeriod' in kwargs:
+            autocommit_period = kwargs['autocommitPeriod']
+        if privileged_delete is None and 'privilegedDelete' in kwargs:
+            privileged_delete = kwargs['privilegedDelete']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if volume_append_mode_enabled is None and 'volumeAppendModeEnabled' in kwargs:
+            volume_append_mode_enabled = kwargs['volumeAppendModeEnabled']
+
         _setter("snaplock_type", snaplock_type)
         if audit_log_volume is not None:
             _setter("audit_log_volume", audit_log_volume)
@@ -2154,10 +2460,24 @@ class VolumeSnaplockRetentionPeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
-             maximum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
-             minimum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_retention: Optional[pulumi.Input['VolumeRetentionPeriodArgs']] = None,
+             maximum_retention: Optional[pulumi.Input['VolumeRetentionPeriodArgs']] = None,
+             minimum_retention: Optional[pulumi.Input['VolumeRetentionPeriodArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_retention is None and 'defaultRetention' in kwargs:
+            default_retention = kwargs['defaultRetention']
+        if default_retention is None:
+            raise TypeError("Missing 'default_retention' argument")
+        if maximum_retention is None and 'maximumRetention' in kwargs:
+            maximum_retention = kwargs['maximumRetention']
+        if maximum_retention is None:
+            raise TypeError("Missing 'maximum_retention' argument")
+        if minimum_retention is None and 'minimumRetention' in kwargs:
+            minimum_retention = kwargs['minimumRetention']
+        if minimum_retention is None:
+            raise TypeError("Missing 'minimum_retention' argument")
+
         _setter("default_retention", default_retention)
         _setter("maximum_retention", maximum_retention)
         _setter("minimum_retention", minimum_retention)
@@ -2203,9 +2523,15 @@ class VolumeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2243,7 +2569,11 @@ class VolumeTieringPolicyArgs:
              _setter: Callable[[Any, Any], None],
              cooling_period: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cooling_period is None and 'coolingPeriod' in kwargs:
+            cooling_period = kwargs['coolingPeriod']
+
         if cooling_period is not None:
             _setter("cooling_period", cooling_period)
         if name is not None:
@@ -2283,10 +2613,20 @@ class VolumeUserAndGroupQuotasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[int],
-             storage_capacity_quota_gi_b: pulumi.Input[int],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[int]] = None,
+             storage_capacity_quota_gi_b: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if storage_capacity_quota_gi_b is None and 'storageCapacityQuotaGiB' in kwargs:
+            storage_capacity_quota_gi_b = kwargs['storageCapacityQuotaGiB']
+        if storage_capacity_quota_gi_b is None:
+            raise TypeError("Missing 'storage_capacity_quota_gi_b' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("id", id)
         _setter("storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
         _setter("type", type)

@@ -59,8 +59,10 @@ class ConnectorTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -74,8 +76,14 @@ class ConnectorVpcInformationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+
         _setter("security_group_ids", security_group_ids)
 
     @property
@@ -95,8 +103,10 @@ class DirectoryRegistrationTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -112,9 +122,13 @@ class TemplateApplicationPoliciesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policies: pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgs', 'TemplateApplicationPolicy1PropertiesArgs']]]],
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplateApplicationPolicy0PropertiesArgs', 'TemplateApplicationPolicy1PropertiesArgs']]]]] = None,
              critical: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policies is None:
+            raise TypeError("Missing 'policies' argument")
+
         _setter("policies", policies)
         if critical is not None:
             _setter("critical", critical)
@@ -149,8 +163,14 @@ class TemplateApplicationPolicy0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_type: pulumi.Input['TemplateApplicationPolicyType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_type: Optional[pulumi.Input['TemplateApplicationPolicyType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+
         _setter("policy_type", policy_type)
 
     @property
@@ -174,8 +194,14 @@ class TemplateApplicationPolicy1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_object_identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_object_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_object_identifier is None and 'policyObjectIdentifier' in kwargs:
+            policy_object_identifier = kwargs['policyObjectIdentifier']
+        if policy_object_identifier is None:
+            raise TypeError("Missing 'policy_object_identifier' argument")
+
         _setter("policy_object_identifier", policy_object_identifier)
 
     @property
@@ -201,9 +227,19 @@ class TemplateCertificateValidityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             renewal_period: pulumi.Input['TemplateValidityPeriodArgs'],
-             validity_period: pulumi.Input['TemplateValidityPeriodArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             renewal_period: Optional[pulumi.Input['TemplateValidityPeriodArgs']] = None,
+             validity_period: Optional[pulumi.Input['TemplateValidityPeriodArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if renewal_period is None and 'renewalPeriod' in kwargs:
+            renewal_period = kwargs['renewalPeriod']
+        if renewal_period is None:
+            raise TypeError("Missing 'renewal_period' argument")
+        if validity_period is None and 'validityPeriod' in kwargs:
+            validity_period = kwargs['validityPeriod']
+        if validity_period is None:
+            raise TypeError("Missing 'validity_period' argument")
+
         _setter("renewal_period", renewal_period)
         _setter("validity_period", validity_period)
 
@@ -237,8 +273,14 @@ class TemplateDefinition0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template_v2: pulumi.Input['TemplateV2Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             template_v2: Optional[pulumi.Input['TemplateV2Args']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_v2 is None and 'templateV2' in kwargs:
+            template_v2 = kwargs['templateV2']
+        if template_v2 is None:
+            raise TypeError("Missing 'template_v2' argument")
+
         _setter("template_v2", template_v2)
 
     @property
@@ -262,8 +304,14 @@ class TemplateDefinition1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template_v3: pulumi.Input['TemplateV3Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             template_v3: Optional[pulumi.Input['TemplateV3Args']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_v3 is None and 'templateV3' in kwargs:
+            template_v3 = kwargs['templateV3']
+        if template_v3 is None:
+            raise TypeError("Missing 'template_v3' argument")
+
         _setter("template_v3", template_v3)
 
     @property
@@ -287,8 +335,14 @@ class TemplateDefinition2PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template_v4: pulumi.Input['TemplateV4Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             template_v4: Optional[pulumi.Input['TemplateV4Args']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_v4 is None and 'templateV4' in kwargs:
+            template_v4 = kwargs['templateV4']
+        if template_v4 is None:
+            raise TypeError("Missing 'template_v4' argument")
+
         _setter("template_v4", template_v4)
 
     @property
@@ -325,7 +379,19 @@ class TemplateEnrollmentFlagsV2Args:
              no_security_extension: Optional[pulumi.Input[bool]] = None,
              remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
              user_interaction_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_key_reuse_on_nt_token_keyset_storage_full is None and 'enableKeyReuseOnNtTokenKeysetStorageFull' in kwargs:
+            enable_key_reuse_on_nt_token_keyset_storage_full = kwargs['enableKeyReuseOnNtTokenKeysetStorageFull']
+        if include_symmetric_algorithms is None and 'includeSymmetricAlgorithms' in kwargs:
+            include_symmetric_algorithms = kwargs['includeSymmetricAlgorithms']
+        if no_security_extension is None and 'noSecurityExtension' in kwargs:
+            no_security_extension = kwargs['noSecurityExtension']
+        if remove_invalid_certificate_from_personal_store is None and 'removeInvalidCertificateFromPersonalStore' in kwargs:
+            remove_invalid_certificate_from_personal_store = kwargs['removeInvalidCertificateFromPersonalStore']
+        if user_interaction_required is None and 'userInteractionRequired' in kwargs:
+            user_interaction_required = kwargs['userInteractionRequired']
+
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -407,7 +473,19 @@ class TemplateEnrollmentFlagsV3Args:
              no_security_extension: Optional[pulumi.Input[bool]] = None,
              remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
              user_interaction_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_key_reuse_on_nt_token_keyset_storage_full is None and 'enableKeyReuseOnNtTokenKeysetStorageFull' in kwargs:
+            enable_key_reuse_on_nt_token_keyset_storage_full = kwargs['enableKeyReuseOnNtTokenKeysetStorageFull']
+        if include_symmetric_algorithms is None and 'includeSymmetricAlgorithms' in kwargs:
+            include_symmetric_algorithms = kwargs['includeSymmetricAlgorithms']
+        if no_security_extension is None and 'noSecurityExtension' in kwargs:
+            no_security_extension = kwargs['noSecurityExtension']
+        if remove_invalid_certificate_from_personal_store is None and 'removeInvalidCertificateFromPersonalStore' in kwargs:
+            remove_invalid_certificate_from_personal_store = kwargs['removeInvalidCertificateFromPersonalStore']
+        if user_interaction_required is None and 'userInteractionRequired' in kwargs:
+            user_interaction_required = kwargs['userInteractionRequired']
+
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -489,7 +567,19 @@ class TemplateEnrollmentFlagsV4Args:
              no_security_extension: Optional[pulumi.Input[bool]] = None,
              remove_invalid_certificate_from_personal_store: Optional[pulumi.Input[bool]] = None,
              user_interaction_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_key_reuse_on_nt_token_keyset_storage_full is None and 'enableKeyReuseOnNtTokenKeysetStorageFull' in kwargs:
+            enable_key_reuse_on_nt_token_keyset_storage_full = kwargs['enableKeyReuseOnNtTokenKeysetStorageFull']
+        if include_symmetric_algorithms is None and 'includeSymmetricAlgorithms' in kwargs:
+            include_symmetric_algorithms = kwargs['includeSymmetricAlgorithms']
+        if no_security_extension is None and 'noSecurityExtension' in kwargs:
+            no_security_extension = kwargs['noSecurityExtension']
+        if remove_invalid_certificate_from_personal_store is None and 'removeInvalidCertificateFromPersonalStore' in kwargs:
+            remove_invalid_certificate_from_personal_store = kwargs['removeInvalidCertificateFromPersonalStore']
+        if user_interaction_required is None and 'userInteractionRequired' in kwargs:
+            user_interaction_required = kwargs['userInteractionRequired']
+
         if enable_key_reuse_on_nt_token_keyset_storage_full is not None:
             _setter("enable_key_reuse_on_nt_token_keyset_storage_full", enable_key_reuse_on_nt_token_keyset_storage_full)
         if include_symmetric_algorithms is not None:
@@ -560,9 +650,17 @@ class TemplateExtensionsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_usage: pulumi.Input['TemplateKeyUsageArgs'],
+             key_usage: Optional[pulumi.Input['TemplateKeyUsageArgs']] = None,
              application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_usage is None and 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if key_usage is None:
+            raise TypeError("Missing 'key_usage' argument")
+        if application_policies is None and 'applicationPolicies' in kwargs:
+            application_policies = kwargs['applicationPolicies']
+
         _setter("key_usage", key_usage)
         if application_policies is not None:
             _setter("application_policies", application_policies)
@@ -599,9 +697,17 @@ class TemplateExtensionsV3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_usage: pulumi.Input['TemplateKeyUsageArgs'],
+             key_usage: Optional[pulumi.Input['TemplateKeyUsageArgs']] = None,
              application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_usage is None and 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if key_usage is None:
+            raise TypeError("Missing 'key_usage' argument")
+        if application_policies is None and 'applicationPolicies' in kwargs:
+            application_policies = kwargs['applicationPolicies']
+
         _setter("key_usage", key_usage)
         if application_policies is not None:
             _setter("application_policies", application_policies)
@@ -638,9 +744,17 @@ class TemplateExtensionsV4Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_usage: pulumi.Input['TemplateKeyUsageArgs'],
+             key_usage: Optional[pulumi.Input['TemplateKeyUsageArgs']] = None,
              application_policies: Optional[pulumi.Input['TemplateApplicationPoliciesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_usage is None and 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if key_usage is None:
+            raise TypeError("Missing 'key_usage' argument")
+        if application_policies is None and 'applicationPolicies' in kwargs:
+            application_policies = kwargs['applicationPolicies']
+
         _setter("key_usage", key_usage)
         if application_policies is not None:
             _setter("application_policies", application_policies)
@@ -679,7 +793,13 @@ class TemplateGeneralFlagsV2Args:
              _setter: Callable[[Any, Any], None],
              auto_enrollment: Optional[pulumi.Input[bool]] = None,
              machine_type: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enrollment is None and 'autoEnrollment' in kwargs:
+            auto_enrollment = kwargs['autoEnrollment']
+        if machine_type is None and 'machineType' in kwargs:
+            machine_type = kwargs['machineType']
+
         if auto_enrollment is not None:
             _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -719,7 +839,13 @@ class TemplateGeneralFlagsV3Args:
              _setter: Callable[[Any, Any], None],
              auto_enrollment: Optional[pulumi.Input[bool]] = None,
              machine_type: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enrollment is None and 'autoEnrollment' in kwargs:
+            auto_enrollment = kwargs['autoEnrollment']
+        if machine_type is None and 'machineType' in kwargs:
+            machine_type = kwargs['machineType']
+
         if auto_enrollment is not None:
             _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -759,7 +885,13 @@ class TemplateGeneralFlagsV4Args:
              _setter: Callable[[Any, Any], None],
              auto_enrollment: Optional[pulumi.Input[bool]] = None,
              machine_type: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enrollment is None and 'autoEnrollment' in kwargs:
+            auto_enrollment = kwargs['autoEnrollment']
+        if machine_type is None and 'machineType' in kwargs:
+            machine_type = kwargs['machineType']
+
         if auto_enrollment is not None:
             _setter("auto_enrollment", auto_enrollment)
         if machine_type is not None:
@@ -799,7 +931,11 @@ class TemplateGroupAccessControlEntryAccessRightsArgs:
              _setter: Callable[[Any, Any], None],
              auto_enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
              enroll: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRight']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enroll is None and 'autoEnroll' in kwargs:
+            auto_enroll = kwargs['autoEnroll']
+
         if auto_enroll is not None:
             _setter("auto_enroll", auto_enroll)
         if enroll is not None:
@@ -848,7 +984,19 @@ class TemplateKeyUsageFlagsArgs:
              key_agreement: Optional[pulumi.Input[bool]] = None,
              key_encipherment: Optional[pulumi.Input[bool]] = None,
              non_repudiation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_encipherment is None and 'dataEncipherment' in kwargs:
+            data_encipherment = kwargs['dataEncipherment']
+        if digital_signature is None and 'digitalSignature' in kwargs:
+            digital_signature = kwargs['digitalSignature']
+        if key_agreement is None and 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+        if key_encipherment is None and 'keyEncipherment' in kwargs:
+            key_encipherment = kwargs['keyEncipherment']
+        if non_repudiation is None and 'nonRepudiation' in kwargs:
+            non_repudiation = kwargs['nonRepudiation']
+
         if data_encipherment is not None:
             _setter("data_encipherment", data_encipherment)
         if digital_signature is not None:
@@ -917,8 +1065,14 @@ class TemplateKeyUsageProperty0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property_type: pulumi.Input['TemplateKeyUsagePropertyType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             property_type: Optional[pulumi.Input['TemplateKeyUsagePropertyType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_type is None and 'propertyType' in kwargs:
+            property_type = kwargs['propertyType']
+        if property_type is None:
+            raise TypeError("Missing 'property_type' argument")
+
         _setter("property_type", property_type)
 
     @property
@@ -942,8 +1096,14 @@ class TemplateKeyUsageProperty1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property_flags: pulumi.Input['TemplateKeyUsagePropertyFlagsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             property_flags: Optional[pulumi.Input['TemplateKeyUsagePropertyFlagsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_flags is None and 'propertyFlags' in kwargs:
+            property_flags = kwargs['propertyFlags']
+        if property_flags is None:
+            raise TypeError("Missing 'property_flags' argument")
+
         _setter("property_flags", property_flags)
 
     @property
@@ -974,7 +1134,11 @@ class TemplateKeyUsagePropertyFlagsArgs:
              decrypt: Optional[pulumi.Input[bool]] = None,
              key_agreement: Optional[pulumi.Input[bool]] = None,
              sign: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_agreement is None and 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+
         if decrypt is not None:
             _setter("decrypt", decrypt)
         if key_agreement is not None:
@@ -1023,9 +1187,15 @@ class TemplateKeyUsageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             usage_flags: pulumi.Input['TemplateKeyUsageFlagsArgs'],
+             usage_flags: Optional[pulumi.Input['TemplateKeyUsageFlagsArgs']] = None,
              critical: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if usage_flags is None and 'usageFlags' in kwargs:
+            usage_flags = kwargs['usageFlags']
+        if usage_flags is None:
+            raise TypeError("Missing 'usage_flags' argument")
+
         _setter("usage_flags", usage_flags)
         if critical is not None:
             _setter("critical", critical)
@@ -1064,10 +1234,22 @@ class TemplatePrivateKeyAttributesV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_spec: pulumi.Input['TemplateKeySpec'],
-             minimal_key_length: pulumi.Input[float],
+             key_spec: Optional[pulumi.Input['TemplateKeySpec']] = None,
+             minimal_key_length: Optional[pulumi.Input[float]] = None,
              crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_spec is None and 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if key_spec is None:
+            raise TypeError("Missing 'key_spec' argument")
+        if minimal_key_length is None and 'minimalKeyLength' in kwargs:
+            minimal_key_length = kwargs['minimalKeyLength']
+        if minimal_key_length is None:
+            raise TypeError("Missing 'minimal_key_length' argument")
+        if crypto_providers is None and 'cryptoProviders' in kwargs:
+            crypto_providers = kwargs['cryptoProviders']
+
         _setter("key_spec", key_spec)
         _setter("minimal_key_length", minimal_key_length)
         if crypto_providers is not None:
@@ -1120,12 +1302,30 @@ class TemplatePrivateKeyAttributesV3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input['TemplatePrivateKeyAlgorithm'],
-             key_spec: pulumi.Input['TemplateKeySpec'],
-             key_usage_property: pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']],
-             minimal_key_length: pulumi.Input[float],
+             algorithm: Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']] = None,
+             key_spec: Optional[pulumi.Input['TemplateKeySpec']] = None,
+             key_usage_property: Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]] = None,
+             minimal_key_length: Optional[pulumi.Input[float]] = None,
              crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if key_spec is None and 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if key_spec is None:
+            raise TypeError("Missing 'key_spec' argument")
+        if key_usage_property is None and 'keyUsageProperty' in kwargs:
+            key_usage_property = kwargs['keyUsageProperty']
+        if key_usage_property is None:
+            raise TypeError("Missing 'key_usage_property' argument")
+        if minimal_key_length is None and 'minimalKeyLength' in kwargs:
+            minimal_key_length = kwargs['minimalKeyLength']
+        if minimal_key_length is None:
+            raise TypeError("Missing 'minimal_key_length' argument")
+        if crypto_providers is None and 'cryptoProviders' in kwargs:
+            crypto_providers = kwargs['cryptoProviders']
+
         _setter("algorithm", algorithm)
         _setter("key_spec", key_spec)
         _setter("key_usage_property", key_usage_property)
@@ -1198,12 +1398,26 @@ class TemplatePrivateKeyAttributesV4Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_spec: pulumi.Input['TemplateKeySpec'],
-             minimal_key_length: pulumi.Input[float],
+             key_spec: Optional[pulumi.Input['TemplateKeySpec']] = None,
+             minimal_key_length: Optional[pulumi.Input[float]] = None,
              algorithm: Optional[pulumi.Input['TemplatePrivateKeyAlgorithm']] = None,
              crypto_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              key_usage_property: Optional[pulumi.Input[Union['TemplateKeyUsageProperty0PropertiesArgs', 'TemplateKeyUsageProperty1PropertiesArgs']]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_spec is None and 'keySpec' in kwargs:
+            key_spec = kwargs['keySpec']
+        if key_spec is None:
+            raise TypeError("Missing 'key_spec' argument")
+        if minimal_key_length is None and 'minimalKeyLength' in kwargs:
+            minimal_key_length = kwargs['minimalKeyLength']
+        if minimal_key_length is None:
+            raise TypeError("Missing 'minimal_key_length' argument")
+        if crypto_providers is None and 'cryptoProviders' in kwargs:
+            crypto_providers = kwargs['cryptoProviders']
+        if key_usage_property is None and 'keyUsageProperty' in kwargs:
+            key_usage_property = kwargs['keyUsageProperty']
+
         _setter("key_spec", key_spec)
         _setter("minimal_key_length", minimal_key_length)
         if algorithm is not None:
@@ -1274,10 +1488,20 @@ class TemplatePrivateKeyFlagsV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_version: pulumi.Input['TemplateClientCompatibilityV2'],
+             client_version: Optional[pulumi.Input['TemplateClientCompatibilityV2']] = None,
              exportable_key: Optional[pulumi.Input[bool]] = None,
              strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_version is None and 'clientVersion' in kwargs:
+            client_version = kwargs['clientVersion']
+        if client_version is None:
+            raise TypeError("Missing 'client_version' argument")
+        if exportable_key is None and 'exportableKey' in kwargs:
+            exportable_key = kwargs['exportableKey']
+        if strong_key_protection_required is None and 'strongKeyProtectionRequired' in kwargs:
+            strong_key_protection_required = kwargs['strongKeyProtectionRequired']
+
         _setter("client_version", client_version)
         if exportable_key is not None:
             _setter("exportable_key", exportable_key)
@@ -1329,11 +1553,23 @@ class TemplatePrivateKeyFlagsV3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_version: pulumi.Input['TemplateClientCompatibilityV3'],
+             client_version: Optional[pulumi.Input['TemplateClientCompatibilityV3']] = None,
              exportable_key: Optional[pulumi.Input[bool]] = None,
              require_alternate_signature_algorithm: Optional[pulumi.Input[bool]] = None,
              strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_version is None and 'clientVersion' in kwargs:
+            client_version = kwargs['clientVersion']
+        if client_version is None:
+            raise TypeError("Missing 'client_version' argument")
+        if exportable_key is None and 'exportableKey' in kwargs:
+            exportable_key = kwargs['exportableKey']
+        if require_alternate_signature_algorithm is None and 'requireAlternateSignatureAlgorithm' in kwargs:
+            require_alternate_signature_algorithm = kwargs['requireAlternateSignatureAlgorithm']
+        if strong_key_protection_required is None and 'strongKeyProtectionRequired' in kwargs:
+            strong_key_protection_required = kwargs['strongKeyProtectionRequired']
+
         _setter("client_version", client_version)
         if exportable_key is not None:
             _setter("exportable_key", exportable_key)
@@ -1400,13 +1636,29 @@ class TemplatePrivateKeyFlagsV4Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_version: pulumi.Input['TemplateClientCompatibilityV4'],
+             client_version: Optional[pulumi.Input['TemplateClientCompatibilityV4']] = None,
              exportable_key: Optional[pulumi.Input[bool]] = None,
              require_alternate_signature_algorithm: Optional[pulumi.Input[bool]] = None,
              require_same_key_renewal: Optional[pulumi.Input[bool]] = None,
              strong_key_protection_required: Optional[pulumi.Input[bool]] = None,
              use_legacy_provider: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_version is None and 'clientVersion' in kwargs:
+            client_version = kwargs['clientVersion']
+        if client_version is None:
+            raise TypeError("Missing 'client_version' argument")
+        if exportable_key is None and 'exportableKey' in kwargs:
+            exportable_key = kwargs['exportableKey']
+        if require_alternate_signature_algorithm is None and 'requireAlternateSignatureAlgorithm' in kwargs:
+            require_alternate_signature_algorithm = kwargs['requireAlternateSignatureAlgorithm']
+        if require_same_key_renewal is None and 'requireSameKeyRenewal' in kwargs:
+            require_same_key_renewal = kwargs['requireSameKeyRenewal']
+        if strong_key_protection_required is None and 'strongKeyProtectionRequired' in kwargs:
+            strong_key_protection_required = kwargs['strongKeyProtectionRequired']
+        if use_legacy_provider is None and 'useLegacyProvider' in kwargs:
+            use_legacy_provider = kwargs['useLegacyProvider']
+
         _setter("client_version", client_version)
         if exportable_key is not None:
             _setter("exportable_key", exportable_key)
@@ -1513,7 +1765,29 @@ class TemplateSubjectNameFlagsV2Args:
              san_require_email: Optional[pulumi.Input[bool]] = None,
              san_require_spn: Optional[pulumi.Input[bool]] = None,
              san_require_upn: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if require_common_name is None and 'requireCommonName' in kwargs:
+            require_common_name = kwargs['requireCommonName']
+        if require_directory_path is None and 'requireDirectoryPath' in kwargs:
+            require_directory_path = kwargs['requireDirectoryPath']
+        if require_dns_as_cn is None and 'requireDnsAsCn' in kwargs:
+            require_dns_as_cn = kwargs['requireDnsAsCn']
+        if require_email is None and 'requireEmail' in kwargs:
+            require_email = kwargs['requireEmail']
+        if san_require_directory_guid is None and 'sanRequireDirectoryGuid' in kwargs:
+            san_require_directory_guid = kwargs['sanRequireDirectoryGuid']
+        if san_require_dns is None and 'sanRequireDns' in kwargs:
+            san_require_dns = kwargs['sanRequireDns']
+        if san_require_domain_dns is None and 'sanRequireDomainDns' in kwargs:
+            san_require_domain_dns = kwargs['sanRequireDomainDns']
+        if san_require_email is None and 'sanRequireEmail' in kwargs:
+            san_require_email = kwargs['sanRequireEmail']
+        if san_require_spn is None and 'sanRequireSpn' in kwargs:
+            san_require_spn = kwargs['sanRequireSpn']
+        if san_require_upn is None and 'sanRequireUpn' in kwargs:
+            san_require_upn = kwargs['sanRequireUpn']
+
         if require_common_name is not None:
             _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1665,7 +1939,29 @@ class TemplateSubjectNameFlagsV3Args:
              san_require_email: Optional[pulumi.Input[bool]] = None,
              san_require_spn: Optional[pulumi.Input[bool]] = None,
              san_require_upn: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if require_common_name is None and 'requireCommonName' in kwargs:
+            require_common_name = kwargs['requireCommonName']
+        if require_directory_path is None and 'requireDirectoryPath' in kwargs:
+            require_directory_path = kwargs['requireDirectoryPath']
+        if require_dns_as_cn is None and 'requireDnsAsCn' in kwargs:
+            require_dns_as_cn = kwargs['requireDnsAsCn']
+        if require_email is None and 'requireEmail' in kwargs:
+            require_email = kwargs['requireEmail']
+        if san_require_directory_guid is None and 'sanRequireDirectoryGuid' in kwargs:
+            san_require_directory_guid = kwargs['sanRequireDirectoryGuid']
+        if san_require_dns is None and 'sanRequireDns' in kwargs:
+            san_require_dns = kwargs['sanRequireDns']
+        if san_require_domain_dns is None and 'sanRequireDomainDns' in kwargs:
+            san_require_domain_dns = kwargs['sanRequireDomainDns']
+        if san_require_email is None and 'sanRequireEmail' in kwargs:
+            san_require_email = kwargs['sanRequireEmail']
+        if san_require_spn is None and 'sanRequireSpn' in kwargs:
+            san_require_spn = kwargs['sanRequireSpn']
+        if san_require_upn is None and 'sanRequireUpn' in kwargs:
+            san_require_upn = kwargs['sanRequireUpn']
+
         if require_common_name is not None:
             _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1817,7 +2113,29 @@ class TemplateSubjectNameFlagsV4Args:
              san_require_email: Optional[pulumi.Input[bool]] = None,
              san_require_spn: Optional[pulumi.Input[bool]] = None,
              san_require_upn: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if require_common_name is None and 'requireCommonName' in kwargs:
+            require_common_name = kwargs['requireCommonName']
+        if require_directory_path is None and 'requireDirectoryPath' in kwargs:
+            require_directory_path = kwargs['requireDirectoryPath']
+        if require_dns_as_cn is None and 'requireDnsAsCn' in kwargs:
+            require_dns_as_cn = kwargs['requireDnsAsCn']
+        if require_email is None and 'requireEmail' in kwargs:
+            require_email = kwargs['requireEmail']
+        if san_require_directory_guid is None and 'sanRequireDirectoryGuid' in kwargs:
+            san_require_directory_guid = kwargs['sanRequireDirectoryGuid']
+        if san_require_dns is None and 'sanRequireDns' in kwargs:
+            san_require_dns = kwargs['sanRequireDns']
+        if san_require_domain_dns is None and 'sanRequireDomainDns' in kwargs:
+            san_require_domain_dns = kwargs['sanRequireDomainDns']
+        if san_require_email is None and 'sanRequireEmail' in kwargs:
+            san_require_email = kwargs['sanRequireEmail']
+        if san_require_spn is None and 'sanRequireSpn' in kwargs:
+            san_require_spn = kwargs['sanRequireSpn']
+        if san_require_upn is None and 'sanRequireUpn' in kwargs:
+            san_require_upn = kwargs['sanRequireUpn']
+
         if require_common_name is not None:
             _setter("require_common_name", require_common_name)
         if require_directory_path is not None:
@@ -1937,8 +2255,10 @@ class TemplateTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1966,15 +2286,45 @@ class TemplateV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_validity: pulumi.Input['TemplateCertificateValidityArgs'],
-             enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV2Args'],
-             extensions: pulumi.Input['TemplateExtensionsV2Args'],
-             general_flags: pulumi.Input['TemplateGeneralFlagsV2Args'],
-             private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV2Args'],
-             private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV2Args'],
-             subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV2Args'],
+             certificate_validity: Optional[pulumi.Input['TemplateCertificateValidityArgs']] = None,
+             enrollment_flags: Optional[pulumi.Input['TemplateEnrollmentFlagsV2Args']] = None,
+             extensions: Optional[pulumi.Input['TemplateExtensionsV2Args']] = None,
+             general_flags: Optional[pulumi.Input['TemplateGeneralFlagsV2Args']] = None,
+             private_key_attributes: Optional[pulumi.Input['TemplatePrivateKeyAttributesV2Args']] = None,
+             private_key_flags: Optional[pulumi.Input['TemplatePrivateKeyFlagsV2Args']] = None,
+             subject_name_flags: Optional[pulumi.Input['TemplateSubjectNameFlagsV2Args']] = None,
              superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_validity is None and 'certificateValidity' in kwargs:
+            certificate_validity = kwargs['certificateValidity']
+        if certificate_validity is None:
+            raise TypeError("Missing 'certificate_validity' argument")
+        if enrollment_flags is None and 'enrollmentFlags' in kwargs:
+            enrollment_flags = kwargs['enrollmentFlags']
+        if enrollment_flags is None:
+            raise TypeError("Missing 'enrollment_flags' argument")
+        if extensions is None:
+            raise TypeError("Missing 'extensions' argument")
+        if general_flags is None and 'generalFlags' in kwargs:
+            general_flags = kwargs['generalFlags']
+        if general_flags is None:
+            raise TypeError("Missing 'general_flags' argument")
+        if private_key_attributes is None and 'privateKeyAttributes' in kwargs:
+            private_key_attributes = kwargs['privateKeyAttributes']
+        if private_key_attributes is None:
+            raise TypeError("Missing 'private_key_attributes' argument")
+        if private_key_flags is None and 'privateKeyFlags' in kwargs:
+            private_key_flags = kwargs['privateKeyFlags']
+        if private_key_flags is None:
+            raise TypeError("Missing 'private_key_flags' argument")
+        if subject_name_flags is None and 'subjectNameFlags' in kwargs:
+            subject_name_flags = kwargs['subjectNameFlags']
+        if subject_name_flags is None:
+            raise TypeError("Missing 'subject_name_flags' argument")
+        if superseded_templates is None and 'supersededTemplates' in kwargs:
+            superseded_templates = kwargs['supersededTemplates']
+
         _setter("certificate_validity", certificate_validity)
         _setter("enrollment_flags", enrollment_flags)
         _setter("extensions", extensions)
@@ -2085,16 +2435,50 @@ class TemplateV3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_validity: pulumi.Input['TemplateCertificateValidityArgs'],
-             enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV3Args'],
-             extensions: pulumi.Input['TemplateExtensionsV3Args'],
-             general_flags: pulumi.Input['TemplateGeneralFlagsV3Args'],
-             hash_algorithm: pulumi.Input['TemplateHashAlgorithm'],
-             private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV3Args'],
-             private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV3Args'],
-             subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV3Args'],
+             certificate_validity: Optional[pulumi.Input['TemplateCertificateValidityArgs']] = None,
+             enrollment_flags: Optional[pulumi.Input['TemplateEnrollmentFlagsV3Args']] = None,
+             extensions: Optional[pulumi.Input['TemplateExtensionsV3Args']] = None,
+             general_flags: Optional[pulumi.Input['TemplateGeneralFlagsV3Args']] = None,
+             hash_algorithm: Optional[pulumi.Input['TemplateHashAlgorithm']] = None,
+             private_key_attributes: Optional[pulumi.Input['TemplatePrivateKeyAttributesV3Args']] = None,
+             private_key_flags: Optional[pulumi.Input['TemplatePrivateKeyFlagsV3Args']] = None,
+             subject_name_flags: Optional[pulumi.Input['TemplateSubjectNameFlagsV3Args']] = None,
              superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_validity is None and 'certificateValidity' in kwargs:
+            certificate_validity = kwargs['certificateValidity']
+        if certificate_validity is None:
+            raise TypeError("Missing 'certificate_validity' argument")
+        if enrollment_flags is None and 'enrollmentFlags' in kwargs:
+            enrollment_flags = kwargs['enrollmentFlags']
+        if enrollment_flags is None:
+            raise TypeError("Missing 'enrollment_flags' argument")
+        if extensions is None:
+            raise TypeError("Missing 'extensions' argument")
+        if general_flags is None and 'generalFlags' in kwargs:
+            general_flags = kwargs['generalFlags']
+        if general_flags is None:
+            raise TypeError("Missing 'general_flags' argument")
+        if hash_algorithm is None and 'hashAlgorithm' in kwargs:
+            hash_algorithm = kwargs['hashAlgorithm']
+        if hash_algorithm is None:
+            raise TypeError("Missing 'hash_algorithm' argument")
+        if private_key_attributes is None and 'privateKeyAttributes' in kwargs:
+            private_key_attributes = kwargs['privateKeyAttributes']
+        if private_key_attributes is None:
+            raise TypeError("Missing 'private_key_attributes' argument")
+        if private_key_flags is None and 'privateKeyFlags' in kwargs:
+            private_key_flags = kwargs['privateKeyFlags']
+        if private_key_flags is None:
+            raise TypeError("Missing 'private_key_flags' argument")
+        if subject_name_flags is None and 'subjectNameFlags' in kwargs:
+            subject_name_flags = kwargs['subjectNameFlags']
+        if subject_name_flags is None:
+            raise TypeError("Missing 'subject_name_flags' argument")
+        if superseded_templates is None and 'supersededTemplates' in kwargs:
+            superseded_templates = kwargs['supersededTemplates']
+
         _setter("certificate_validity", certificate_validity)
         _setter("enrollment_flags", enrollment_flags)
         _setter("extensions", extensions)
@@ -2215,16 +2599,48 @@ class TemplateV4Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_validity: pulumi.Input['TemplateCertificateValidityArgs'],
-             enrollment_flags: pulumi.Input['TemplateEnrollmentFlagsV4Args'],
-             extensions: pulumi.Input['TemplateExtensionsV4Args'],
-             general_flags: pulumi.Input['TemplateGeneralFlagsV4Args'],
-             private_key_attributes: pulumi.Input['TemplatePrivateKeyAttributesV4Args'],
-             private_key_flags: pulumi.Input['TemplatePrivateKeyFlagsV4Args'],
-             subject_name_flags: pulumi.Input['TemplateSubjectNameFlagsV4Args'],
+             certificate_validity: Optional[pulumi.Input['TemplateCertificateValidityArgs']] = None,
+             enrollment_flags: Optional[pulumi.Input['TemplateEnrollmentFlagsV4Args']] = None,
+             extensions: Optional[pulumi.Input['TemplateExtensionsV4Args']] = None,
+             general_flags: Optional[pulumi.Input['TemplateGeneralFlagsV4Args']] = None,
+             private_key_attributes: Optional[pulumi.Input['TemplatePrivateKeyAttributesV4Args']] = None,
+             private_key_flags: Optional[pulumi.Input['TemplatePrivateKeyFlagsV4Args']] = None,
+             subject_name_flags: Optional[pulumi.Input['TemplateSubjectNameFlagsV4Args']] = None,
              hash_algorithm: Optional[pulumi.Input['TemplateHashAlgorithm']] = None,
              superseded_templates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_validity is None and 'certificateValidity' in kwargs:
+            certificate_validity = kwargs['certificateValidity']
+        if certificate_validity is None:
+            raise TypeError("Missing 'certificate_validity' argument")
+        if enrollment_flags is None and 'enrollmentFlags' in kwargs:
+            enrollment_flags = kwargs['enrollmentFlags']
+        if enrollment_flags is None:
+            raise TypeError("Missing 'enrollment_flags' argument")
+        if extensions is None:
+            raise TypeError("Missing 'extensions' argument")
+        if general_flags is None and 'generalFlags' in kwargs:
+            general_flags = kwargs['generalFlags']
+        if general_flags is None:
+            raise TypeError("Missing 'general_flags' argument")
+        if private_key_attributes is None and 'privateKeyAttributes' in kwargs:
+            private_key_attributes = kwargs['privateKeyAttributes']
+        if private_key_attributes is None:
+            raise TypeError("Missing 'private_key_attributes' argument")
+        if private_key_flags is None and 'privateKeyFlags' in kwargs:
+            private_key_flags = kwargs['privateKeyFlags']
+        if private_key_flags is None:
+            raise TypeError("Missing 'private_key_flags' argument")
+        if subject_name_flags is None and 'subjectNameFlags' in kwargs:
+            subject_name_flags = kwargs['subjectNameFlags']
+        if subject_name_flags is None:
+            raise TypeError("Missing 'subject_name_flags' argument")
+        if hash_algorithm is None and 'hashAlgorithm' in kwargs:
+            hash_algorithm = kwargs['hashAlgorithm']
+        if superseded_templates is None and 'supersededTemplates' in kwargs:
+            superseded_templates = kwargs['supersededTemplates']
+
         _setter("certificate_validity", certificate_validity)
         _setter("enrollment_flags", enrollment_flags)
         _setter("extensions", extensions)
@@ -2332,9 +2748,17 @@ class TemplateValidityPeriodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             period: pulumi.Input[float],
-             period_type: pulumi.Input['TemplateValidityPeriodType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             period: Optional[pulumi.Input[float]] = None,
+             period_type: Optional[pulumi.Input['TemplateValidityPeriodType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if period_type is None and 'periodType' in kwargs:
+            period_type = kwargs['periodType']
+        if period_type is None:
+            raise TypeError("Missing 'period_type' argument")
+
         _setter("period", period)
         _setter("period_type", period_type)
 

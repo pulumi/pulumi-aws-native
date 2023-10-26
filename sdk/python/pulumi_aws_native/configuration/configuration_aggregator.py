@@ -39,7 +39,15 @@ class ConfigurationAggregatorArgs:
              configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
              organization_aggregation_source: Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_aggregation_sources is None and 'accountAggregationSources' in kwargs:
+            account_aggregation_sources = kwargs['accountAggregationSources']
+        if configuration_aggregator_name is None and 'configurationAggregatorName' in kwargs:
+            configuration_aggregator_name = kwargs['configurationAggregatorName']
+        if organization_aggregation_source is None and 'organizationAggregationSource' in kwargs:
+            organization_aggregation_source = kwargs['organizationAggregationSource']
+
         if account_aggregation_sources is not None:
             _setter("account_aggregation_sources", account_aggregation_sources)
         if configuration_aggregator_name is not None:
@@ -153,11 +161,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
             __props__.__dict__["account_aggregation_sources"] = account_aggregation_sources
             __props__.__dict__["configuration_aggregator_name"] = configuration_aggregator_name
-            if organization_aggregation_source is not None and not isinstance(organization_aggregation_source, ConfigurationAggregatorOrganizationAggregationSourceArgs):
-                organization_aggregation_source = organization_aggregation_source or {}
-                def _setter(key, value):
-                    organization_aggregation_source[key] = value
-                ConfigurationAggregatorOrganizationAggregationSourceArgs._configure(_setter, **organization_aggregation_source)
+            organization_aggregation_source = _utilities.configure(organization_aggregation_source, ConfigurationAggregatorOrganizationAggregationSourceArgs, True)
             __props__.__dict__["organization_aggregation_source"] = organization_aggregation_source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configuration_aggregator_arn"] = None

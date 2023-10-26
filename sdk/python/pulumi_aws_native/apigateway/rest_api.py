@@ -90,7 +90,25 @@ class RestApiArgs:
              parameters: Optional[Any] = None,
              policy: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RestApiTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key_source_type is None and 'apiKeySourceType' in kwargs:
+            api_key_source_type = kwargs['apiKeySourceType']
+        if binary_media_types is None and 'binaryMediaTypes' in kwargs:
+            binary_media_types = kwargs['binaryMediaTypes']
+        if body_s3_location is None and 'bodyS3Location' in kwargs:
+            body_s3_location = kwargs['bodyS3Location']
+        if clone_from is None and 'cloneFrom' in kwargs:
+            clone_from = kwargs['cloneFrom']
+        if disable_execute_api_endpoint is None and 'disableExecuteApiEndpoint' in kwargs:
+            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
+        if endpoint_configuration is None and 'endpointConfiguration' in kwargs:
+            endpoint_configuration = kwargs['endpointConfiguration']
+        if fail_on_warnings is None and 'failOnWarnings' in kwargs:
+            fail_on_warnings = kwargs['failOnWarnings']
+        if minimum_compression_size is None and 'minimumCompressionSize' in kwargs:
+            minimum_compression_size = kwargs['minimumCompressionSize']
+
         if api_key_source_type is not None:
             _setter("api_key_source_type", api_key_source_type)
         if binary_media_types is not None:
@@ -412,20 +430,12 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["api_key_source_type"] = api_key_source_type
             __props__.__dict__["binary_media_types"] = binary_media_types
             __props__.__dict__["body"] = body
-            if body_s3_location is not None and not isinstance(body_s3_location, RestApiS3LocationArgs):
-                body_s3_location = body_s3_location or {}
-                def _setter(key, value):
-                    body_s3_location[key] = value
-                RestApiS3LocationArgs._configure(_setter, **body_s3_location)
+            body_s3_location = _utilities.configure(body_s3_location, RestApiS3LocationArgs, True)
             __props__.__dict__["body_s3_location"] = body_s3_location
             __props__.__dict__["clone_from"] = clone_from
             __props__.__dict__["description"] = description
             __props__.__dict__["disable_execute_api_endpoint"] = disable_execute_api_endpoint
-            if endpoint_configuration is not None and not isinstance(endpoint_configuration, RestApiEndpointConfigurationArgs):
-                endpoint_configuration = endpoint_configuration or {}
-                def _setter(key, value):
-                    endpoint_configuration[key] = value
-                RestApiEndpointConfigurationArgs._configure(_setter, **endpoint_configuration)
+            endpoint_configuration = _utilities.configure(endpoint_configuration, RestApiEndpointConfigurationArgs, True)
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
             __props__.__dict__["fail_on_warnings"] = fail_on_warnings
             __props__.__dict__["minimum_compression_size"] = minimum_compression_size

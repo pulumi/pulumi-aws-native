@@ -44,13 +44,27 @@ class FirewallRuleGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_rule_group_id: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             vpc_id: pulumi.Input[str],
+             firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_rule_group_id is None and 'firewallRuleGroupId' in kwargs:
+            firewall_rule_group_id = kwargs['firewallRuleGroupId']
+        if firewall_rule_group_id is None:
+            raise TypeError("Missing 'firewall_rule_group_id' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if mutation_protection is None and 'mutationProtection' in kwargs:
+            mutation_protection = kwargs['mutationProtection']
+
         _setter("firewall_rule_group_id", firewall_rule_group_id)
         _setter("priority", priority)
         _setter("vpc_id", vpc_id)

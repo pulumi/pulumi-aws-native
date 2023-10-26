@@ -49,7 +49,7 @@ class NetworkProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             project_arn: pulumi.Input[str],
+             project_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              downlink_bandwidth_bits: Optional[pulumi.Input[int]] = None,
              downlink_delay_ms: Optional[pulumi.Input[int]] = None,
@@ -61,7 +61,29 @@ class NetworkProfileArgs:
              uplink_delay_ms: Optional[pulumi.Input[int]] = None,
              uplink_jitter_ms: Optional[pulumi.Input[int]] = None,
              uplink_loss_percent: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_arn is None and 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if project_arn is None:
+            raise TypeError("Missing 'project_arn' argument")
+        if downlink_bandwidth_bits is None and 'downlinkBandwidthBits' in kwargs:
+            downlink_bandwidth_bits = kwargs['downlinkBandwidthBits']
+        if downlink_delay_ms is None and 'downlinkDelayMs' in kwargs:
+            downlink_delay_ms = kwargs['downlinkDelayMs']
+        if downlink_jitter_ms is None and 'downlinkJitterMs' in kwargs:
+            downlink_jitter_ms = kwargs['downlinkJitterMs']
+        if downlink_loss_percent is None and 'downlinkLossPercent' in kwargs:
+            downlink_loss_percent = kwargs['downlinkLossPercent']
+        if uplink_bandwidth_bits is None and 'uplinkBandwidthBits' in kwargs:
+            uplink_bandwidth_bits = kwargs['uplinkBandwidthBits']
+        if uplink_delay_ms is None and 'uplinkDelayMs' in kwargs:
+            uplink_delay_ms = kwargs['uplinkDelayMs']
+        if uplink_jitter_ms is None and 'uplinkJitterMs' in kwargs:
+            uplink_jitter_ms = kwargs['uplinkJitterMs']
+        if uplink_loss_percent is None and 'uplinkLossPercent' in kwargs:
+            uplink_loss_percent = kwargs['uplinkLossPercent']
+
         _setter("project_arn", project_arn)
         if description is not None:
             _setter("description", description)

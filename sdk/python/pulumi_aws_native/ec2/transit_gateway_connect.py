@@ -34,10 +34,18 @@ class TransitGatewayConnectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             options: pulumi.Input['TransitGatewayConnectOptionsArgs'],
-             transport_transit_gateway_attachment_id: pulumi.Input[str],
+             options: Optional[pulumi.Input['TransitGatewayConnectOptionsArgs']] = None,
+             transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayConnectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if options is None:
+            raise TypeError("Missing 'options' argument")
+        if transport_transit_gateway_attachment_id is None and 'transportTransitGatewayAttachmentId' in kwargs:
+            transport_transit_gateway_attachment_id = kwargs['transportTransitGatewayAttachmentId']
+        if transport_transit_gateway_attachment_id is None:
+            raise TypeError("Missing 'transport_transit_gateway_attachment_id' argument")
+
         _setter("options", options)
         _setter("transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
         if tags is not None:
@@ -138,11 +146,7 @@ class TransitGatewayConnect(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransitGatewayConnectArgs.__new__(TransitGatewayConnectArgs)
 
-            if options is not None and not isinstance(options, TransitGatewayConnectOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                TransitGatewayConnectOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, TransitGatewayConnectOptionsArgs, True)
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options

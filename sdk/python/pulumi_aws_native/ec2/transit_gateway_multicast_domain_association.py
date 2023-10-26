@@ -32,10 +32,24 @@ class TransitGatewayMulticastDomainAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
-             transit_gateway_attachment_id: pulumi.Input[str],
-             transit_gateway_multicast_domain_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_attachment_id is None:
+            raise TypeError("Missing 'transit_gateway_attachment_id' argument")
+        if transit_gateway_multicast_domain_id is None and 'transitGatewayMulticastDomainId' in kwargs:
+            transit_gateway_multicast_domain_id = kwargs['transitGatewayMulticastDomainId']
+        if transit_gateway_multicast_domain_id is None:
+            raise TypeError("Missing 'transit_gateway_multicast_domain_id' argument")
+
         _setter("subnet_id", subnet_id)
         _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         _setter("transit_gateway_multicast_domain_id", transit_gateway_multicast_domain_id)

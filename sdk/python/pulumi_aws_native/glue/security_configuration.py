@@ -29,9 +29,15 @@ class SecurityConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_configuration: pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs'],
+             encryption_configuration: Optional[pulumi.Input['SecurityConfigurationEncryptionConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if encryption_configuration is None:
+            raise TypeError("Missing 'encryption_configuration' argument")
+
         _setter("encryption_configuration", encryption_configuration)
         if name is not None:
             _setter("name", name)
@@ -114,11 +120,7 @@ class SecurityConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityConfigurationArgs.__new__(SecurityConfigurationArgs)
 
-            if encryption_configuration is not None and not isinstance(encryption_configuration, SecurityConfigurationEncryptionConfigurationArgs):
-                encryption_configuration = encryption_configuration or {}
-                def _setter(key, value):
-                    encryption_configuration[key] = value
-                SecurityConfigurationEncryptionConfigurationArgs._configure(_setter, **encryption_configuration)
+            encryption_configuration = _utilities.configure(encryption_configuration, SecurityConfigurationEncryptionConfigurationArgs, True)
             if encryption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption_configuration'")
             __props__.__dict__["encryption_configuration"] = encryption_configuration

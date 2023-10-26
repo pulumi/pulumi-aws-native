@@ -40,12 +40,22 @@ class LocationFSxOntapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             storage_virtual_machine_arn: pulumi.Input[str],
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             storage_virtual_machine_arn: Optional[pulumi.Input[str]] = None,
              protocol: Optional[pulumi.Input['LocationFSxOntapProtocolArgs']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOntapTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_arns is None and 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if security_group_arns is None:
+            raise TypeError("Missing 'security_group_arns' argument")
+        if storage_virtual_machine_arn is None and 'storageVirtualMachineArn' in kwargs:
+            storage_virtual_machine_arn = kwargs['storageVirtualMachineArn']
+        if storage_virtual_machine_arn is None:
+            raise TypeError("Missing 'storage_virtual_machine_arn' argument")
+
         _setter("security_group_arns", security_group_arns)
         _setter("storage_virtual_machine_arn", storage_virtual_machine_arn)
         if protocol is not None:
@@ -176,11 +186,7 @@ class LocationFSxOntap(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LocationFSxOntapArgs.__new__(LocationFSxOntapArgs)
 
-            if protocol is not None and not isinstance(protocol, LocationFSxOntapProtocolArgs):
-                protocol = protocol or {}
-                def _setter(key, value):
-                    protocol[key] = value
-                LocationFSxOntapProtocolArgs._configure(_setter, **protocol)
+            protocol = _utilities.configure(protocol, LocationFSxOntapProtocolArgs, True)
             __props__.__dict__["protocol"] = protocol
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")

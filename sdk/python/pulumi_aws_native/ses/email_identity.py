@@ -38,13 +38,29 @@ class EmailIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_identity: pulumi.Input[str],
+             email_identity: Optional[pulumi.Input[str]] = None,
              configuration_set_attributes: Optional[pulumi.Input['EmailIdentityConfigurationSetAttributesArgs']] = None,
              dkim_attributes: Optional[pulumi.Input['EmailIdentityDkimAttributesArgs']] = None,
              dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
              feedback_attributes: Optional[pulumi.Input['EmailIdentityFeedbackAttributesArgs']] = None,
              mail_from_attributes: Optional[pulumi.Input['EmailIdentityMailFromAttributesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_identity is None and 'emailIdentity' in kwargs:
+            email_identity = kwargs['emailIdentity']
+        if email_identity is None:
+            raise TypeError("Missing 'email_identity' argument")
+        if configuration_set_attributes is None and 'configurationSetAttributes' in kwargs:
+            configuration_set_attributes = kwargs['configurationSetAttributes']
+        if dkim_attributes is None and 'dkimAttributes' in kwargs:
+            dkim_attributes = kwargs['dkimAttributes']
+        if dkim_signing_attributes is None and 'dkimSigningAttributes' in kwargs:
+            dkim_signing_attributes = kwargs['dkimSigningAttributes']
+        if feedback_attributes is None and 'feedbackAttributes' in kwargs:
+            feedback_attributes = kwargs['feedbackAttributes']
+        if mail_from_attributes is None and 'mailFromAttributes' in kwargs:
+            mail_from_attributes = kwargs['mailFromAttributes']
+
         _setter("email_identity", email_identity)
         if configuration_set_attributes is not None:
             _setter("configuration_set_attributes", configuration_set_attributes)
@@ -177,38 +193,18 @@ class EmailIdentity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EmailIdentityArgs.__new__(EmailIdentityArgs)
 
-            if configuration_set_attributes is not None and not isinstance(configuration_set_attributes, EmailIdentityConfigurationSetAttributesArgs):
-                configuration_set_attributes = configuration_set_attributes or {}
-                def _setter(key, value):
-                    configuration_set_attributes[key] = value
-                EmailIdentityConfigurationSetAttributesArgs._configure(_setter, **configuration_set_attributes)
+            configuration_set_attributes = _utilities.configure(configuration_set_attributes, EmailIdentityConfigurationSetAttributesArgs, True)
             __props__.__dict__["configuration_set_attributes"] = configuration_set_attributes
-            if dkim_attributes is not None and not isinstance(dkim_attributes, EmailIdentityDkimAttributesArgs):
-                dkim_attributes = dkim_attributes or {}
-                def _setter(key, value):
-                    dkim_attributes[key] = value
-                EmailIdentityDkimAttributesArgs._configure(_setter, **dkim_attributes)
+            dkim_attributes = _utilities.configure(dkim_attributes, EmailIdentityDkimAttributesArgs, True)
             __props__.__dict__["dkim_attributes"] = dkim_attributes
-            if dkim_signing_attributes is not None and not isinstance(dkim_signing_attributes, EmailIdentityDkimSigningAttributesArgs):
-                dkim_signing_attributes = dkim_signing_attributes or {}
-                def _setter(key, value):
-                    dkim_signing_attributes[key] = value
-                EmailIdentityDkimSigningAttributesArgs._configure(_setter, **dkim_signing_attributes)
+            dkim_signing_attributes = _utilities.configure(dkim_signing_attributes, EmailIdentityDkimSigningAttributesArgs, True)
             __props__.__dict__["dkim_signing_attributes"] = dkim_signing_attributes
             if email_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'email_identity'")
             __props__.__dict__["email_identity"] = email_identity
-            if feedback_attributes is not None and not isinstance(feedback_attributes, EmailIdentityFeedbackAttributesArgs):
-                feedback_attributes = feedback_attributes or {}
-                def _setter(key, value):
-                    feedback_attributes[key] = value
-                EmailIdentityFeedbackAttributesArgs._configure(_setter, **feedback_attributes)
+            feedback_attributes = _utilities.configure(feedback_attributes, EmailIdentityFeedbackAttributesArgs, True)
             __props__.__dict__["feedback_attributes"] = feedback_attributes
-            if mail_from_attributes is not None and not isinstance(mail_from_attributes, EmailIdentityMailFromAttributesArgs):
-                mail_from_attributes = mail_from_attributes or {}
-                def _setter(key, value):
-                    mail_from_attributes[key] = value
-                EmailIdentityMailFromAttributesArgs._configure(_setter, **mail_from_attributes)
+            mail_from_attributes = _utilities.configure(mail_from_attributes, EmailIdentityMailFromAttributesArgs, True)
             __props__.__dict__["mail_from_attributes"] = mail_from_attributes
             __props__.__dict__["dkim_dns_token_name1"] = None
             __props__.__dict__["dkim_dns_token_name2"] = None

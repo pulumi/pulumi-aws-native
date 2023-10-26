@@ -38,11 +38,21 @@ class FilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter_action: pulumi.Input['FilterAction'],
-             filter_criteria: pulumi.Input['FilterCriteriaArgs'],
+             filter_action: Optional[pulumi.Input['FilterAction']] = None,
+             filter_criteria: Optional[pulumi.Input['FilterCriteriaArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_action is None and 'filterAction' in kwargs:
+            filter_action = kwargs['filterAction']
+        if filter_action is None:
+            raise TypeError("Missing 'filter_action' argument")
+        if filter_criteria is None and 'filterCriteria' in kwargs:
+            filter_criteria = kwargs['filterCriteria']
+        if filter_criteria is None:
+            raise TypeError("Missing 'filter_criteria' argument")
+
         _setter("filter_action", filter_action)
         _setter("filter_criteria", filter_criteria)
         if description is not None:
@@ -164,11 +174,7 @@ class Filter(pulumi.CustomResource):
             if filter_action is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_action'")
             __props__.__dict__["filter_action"] = filter_action
-            if filter_criteria is not None and not isinstance(filter_criteria, FilterCriteriaArgs):
-                filter_criteria = filter_criteria or {}
-                def _setter(key, value):
-                    filter_criteria[key] = value
-                FilterCriteriaArgs._configure(_setter, **filter_criteria)
+            filter_criteria = _utilities.configure(filter_criteria, FilterCriteriaArgs, True)
             if filter_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_criteria'")
             __props__.__dict__["filter_criteria"] = filter_criteria

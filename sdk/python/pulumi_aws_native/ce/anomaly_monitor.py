@@ -39,12 +39,28 @@ class AnomalyMonitorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitor_name: pulumi.Input[str],
-             monitor_type: pulumi.Input['AnomalyMonitorMonitorType'],
+             monitor_name: Optional[pulumi.Input[str]] = None,
+             monitor_type: Optional[pulumi.Input['AnomalyMonitorMonitorType']] = None,
              monitor_dimension: Optional[pulumi.Input['AnomalyMonitorMonitorDimension']] = None,
              monitor_specification: Optional[pulumi.Input[str]] = None,
              resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyMonitorResourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitor_name is None and 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if monitor_name is None:
+            raise TypeError("Missing 'monitor_name' argument")
+        if monitor_type is None and 'monitorType' in kwargs:
+            monitor_type = kwargs['monitorType']
+        if monitor_type is None:
+            raise TypeError("Missing 'monitor_type' argument")
+        if monitor_dimension is None and 'monitorDimension' in kwargs:
+            monitor_dimension = kwargs['monitorDimension']
+        if monitor_specification is None and 'monitorSpecification' in kwargs:
+            monitor_specification = kwargs['monitorSpecification']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+
         _setter("monitor_name", monitor_name)
         _setter("monitor_type", monitor_type)
         if monitor_dimension is not None:

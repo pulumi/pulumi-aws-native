@@ -39,12 +39,32 @@ class EndpointAccessArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_identifier: pulumi.Input[str],
-             endpoint_name: pulumi.Input[str],
-             subnet_group_name: pulumi.Input[str],
-             vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             subnet_group_name: Optional[pulumi.Input[str]] = None,
+             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if endpoint_name is None:
+            raise TypeError("Missing 'endpoint_name' argument")
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if subnet_group_name is None:
+            raise TypeError("Missing 'subnet_group_name' argument")
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if vpc_security_group_ids is None:
+            raise TypeError("Missing 'vpc_security_group_ids' argument")
+        if resource_owner is None and 'resourceOwner' in kwargs:
+            resource_owner = kwargs['resourceOwner']
+
         _setter("cluster_identifier", cluster_identifier)
         _setter("endpoint_name", endpoint_name)
         _setter("subnet_group_name", subnet_group_name)

@@ -41,7 +41,9 @@ class ChannelArgs:
              name: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if destinations is not None:
             _setter("destinations", destinations)
         if name is not None:

@@ -49,9 +49,19 @@ class SimulationS3Location(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             object_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket_name: Optional[str] = None,
+             object_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if object_key is None and 'objectKey' in kwargs:
+            object_key = kwargs['objectKey']
+        if object_key is None:
+            raise TypeError("Missing 'object_key' argument")
+
         _setter("bucket_name", bucket_name)
         _setter("object_key", object_key)
 

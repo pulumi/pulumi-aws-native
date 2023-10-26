@@ -33,12 +33,28 @@ class LaunchNotificationConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             notification_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             portfolio_id: pulumi.Input[str],
-             product_id: pulumi.Input[str],
+             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notification_arns is None and 'notificationArns' in kwargs:
+            notification_arns = kwargs['notificationArns']
+        if notification_arns is None:
+            raise TypeError("Missing 'notification_arns' argument")
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("notification_arns", notification_arns)
         _setter("portfolio_id", portfolio_id)
         _setter("product_id", product_id)

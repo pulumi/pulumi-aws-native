@@ -53,7 +53,25 @@ class DomainConfigurationArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainConfigurationTagArgs']]]] = None,
              tls_config: Optional[pulumi.Input['DomainConfigurationTlsConfigArgs']] = None,
              validation_certificate_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorizer_config is None and 'authorizerConfig' in kwargs:
+            authorizer_config = kwargs['authorizerConfig']
+        if domain_configuration_name is None and 'domainConfigurationName' in kwargs:
+            domain_configuration_name = kwargs['domainConfigurationName']
+        if domain_configuration_status is None and 'domainConfigurationStatus' in kwargs:
+            domain_configuration_status = kwargs['domainConfigurationStatus']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if server_certificate_arns is None and 'serverCertificateArns' in kwargs:
+            server_certificate_arns = kwargs['serverCertificateArns']
+        if service_type is None and 'serviceType' in kwargs:
+            service_type = kwargs['serviceType']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+        if validation_certificate_arn is None and 'validationCertificateArn' in kwargs:
+            validation_certificate_arn = kwargs['validationCertificateArn']
+
         if authorizer_config is not None:
             _setter("authorizer_config", authorizer_config)
         if domain_configuration_name is not None:
@@ -222,11 +240,7 @@ class DomainConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DomainConfigurationArgs.__new__(DomainConfigurationArgs)
 
-            if authorizer_config is not None and not isinstance(authorizer_config, DomainConfigurationAuthorizerConfigArgs):
-                authorizer_config = authorizer_config or {}
-                def _setter(key, value):
-                    authorizer_config[key] = value
-                DomainConfigurationAuthorizerConfigArgs._configure(_setter, **authorizer_config)
+            authorizer_config = _utilities.configure(authorizer_config, DomainConfigurationAuthorizerConfigArgs, True)
             __props__.__dict__["authorizer_config"] = authorizer_config
             __props__.__dict__["domain_configuration_name"] = domain_configuration_name
             __props__.__dict__["domain_configuration_status"] = domain_configuration_status
@@ -234,11 +248,7 @@ class DomainConfiguration(pulumi.CustomResource):
             __props__.__dict__["server_certificate_arns"] = server_certificate_arns
             __props__.__dict__["service_type"] = service_type
             __props__.__dict__["tags"] = tags
-            if tls_config is not None and not isinstance(tls_config, DomainConfigurationTlsConfigArgs):
-                tls_config = tls_config or {}
-                def _setter(key, value):
-                    tls_config[key] = value
-                DomainConfigurationTlsConfigArgs._configure(_setter, **tls_config)
+            tls_config = _utilities.configure(tls_config, DomainConfigurationTlsConfigArgs, True)
             __props__.__dict__["tls_config"] = tls_config
             __props__.__dict__["validation_certificate_arn"] = validation_certificate_arn
             __props__.__dict__["arn"] = None

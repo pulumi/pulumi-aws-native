@@ -50,15 +50,29 @@ class WirelessDeviceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_name: pulumi.Input[str],
-             type: pulumi.Input['WirelessDeviceType'],
+             destination_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['WirelessDeviceType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              last_uplink_received_at: Optional[pulumi.Input[str]] = None,
              lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceTagArgs']]]] = None,
              thing_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_name is None and 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if destination_name is None:
+            raise TypeError("Missing 'destination_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if last_uplink_received_at is None and 'lastUplinkReceivedAt' in kwargs:
+            last_uplink_received_at = kwargs['lastUplinkReceivedAt']
+        if lo_ra_wan is None and 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+
         _setter("destination_name", destination_name)
         _setter("type", type)
         if description is not None:
@@ -249,11 +263,7 @@ class WirelessDevice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_name'")
             __props__.__dict__["destination_name"] = destination_name
             __props__.__dict__["last_uplink_received_at"] = last_uplink_received_at
-            if lo_ra_wan is not None and not isinstance(lo_ra_wan, WirelessDeviceLoRaWanDeviceArgs):
-                lo_ra_wan = lo_ra_wan or {}
-                def _setter(key, value):
-                    lo_ra_wan[key] = value
-                WirelessDeviceLoRaWanDeviceArgs._configure(_setter, **lo_ra_wan)
+            lo_ra_wan = _utilities.configure(lo_ra_wan, WirelessDeviceLoRaWanDeviceArgs, True)
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

@@ -34,9 +34,19 @@ class StreamEncryptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_type: pulumi.Input['StreamEncryptionEncryptionType'],
-             key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             encryption_type: Optional[pulumi.Input['StreamEncryptionEncryptionType']] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+
         _setter("encryption_type", encryption_type)
         _setter("key_id", key_id)
 
@@ -80,8 +90,14 @@ class StreamModeDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             stream_mode: pulumi.Input['StreamModeDetailsStreamMode'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             stream_mode: Optional[pulumi.Input['StreamModeDetailsStreamMode']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stream_mode is None and 'streamMode' in kwargs:
+            stream_mode = kwargs['streamMode']
+        if stream_mode is None:
+            raise TypeError("Missing 'stream_mode' argument")
+
         _setter("stream_mode", stream_mode)
 
     @property
@@ -115,9 +131,15 @@ class StreamTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

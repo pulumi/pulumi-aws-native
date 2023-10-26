@@ -42,15 +42,31 @@ class ApplicationInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_runtime_context_device: pulumi.Input[str],
-             manifest_payload: pulumi.Input['ApplicationInstanceManifestPayloadArgs'],
+             default_runtime_context_device: Optional[pulumi.Input[str]] = None,
+             manifest_payload: Optional[pulumi.Input['ApplicationInstanceManifestPayloadArgs']] = None,
              application_instance_id_to_replace: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              manifest_overrides_payload: Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              runtime_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_runtime_context_device is None and 'defaultRuntimeContextDevice' in kwargs:
+            default_runtime_context_device = kwargs['defaultRuntimeContextDevice']
+        if default_runtime_context_device is None:
+            raise TypeError("Missing 'default_runtime_context_device' argument")
+        if manifest_payload is None and 'manifestPayload' in kwargs:
+            manifest_payload = kwargs['manifestPayload']
+        if manifest_payload is None:
+            raise TypeError("Missing 'manifest_payload' argument")
+        if application_instance_id_to_replace is None and 'applicationInstanceIdToReplace' in kwargs:
+            application_instance_id_to_replace = kwargs['applicationInstanceIdToReplace']
+        if manifest_overrides_payload is None and 'manifestOverridesPayload' in kwargs:
+            manifest_overrides_payload = kwargs['manifestOverridesPayload']
+        if runtime_role_arn is None and 'runtimeRoleArn' in kwargs:
+            runtime_role_arn = kwargs['runtimeRoleArn']
+
         _setter("default_runtime_context_device", default_runtime_context_device)
         _setter("manifest_payload", manifest_payload)
         if application_instance_id_to_replace is not None:
@@ -209,17 +225,9 @@ class ApplicationInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_runtime_context_device'")
             __props__.__dict__["default_runtime_context_device"] = default_runtime_context_device
             __props__.__dict__["description"] = description
-            if manifest_overrides_payload is not None and not isinstance(manifest_overrides_payload, ApplicationInstanceManifestOverridesPayloadArgs):
-                manifest_overrides_payload = manifest_overrides_payload or {}
-                def _setter(key, value):
-                    manifest_overrides_payload[key] = value
-                ApplicationInstanceManifestOverridesPayloadArgs._configure(_setter, **manifest_overrides_payload)
+            manifest_overrides_payload = _utilities.configure(manifest_overrides_payload, ApplicationInstanceManifestOverridesPayloadArgs, True)
             __props__.__dict__["manifest_overrides_payload"] = manifest_overrides_payload
-            if manifest_payload is not None and not isinstance(manifest_payload, ApplicationInstanceManifestPayloadArgs):
-                manifest_payload = manifest_payload or {}
-                def _setter(key, value):
-                    manifest_payload[key] = value
-                ApplicationInstanceManifestPayloadArgs._configure(_setter, **manifest_payload)
+            manifest_payload = _utilities.configure(manifest_payload, ApplicationInstanceManifestPayloadArgs, True)
             if manifest_payload is None and not opts.urn:
                 raise TypeError("Missing required property 'manifest_payload'")
             __props__.__dict__["manifest_payload"] = manifest_payload

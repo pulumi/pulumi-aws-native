@@ -38,13 +38,27 @@ class EndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_buses: pulumi.Input[Sequence[pulumi.Input['EndpointEventBusArgs']]],
-             routing_config: pulumi.Input['EndpointRoutingConfigArgs'],
+             event_buses: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointEventBusArgs']]]] = None,
+             routing_config: Optional[pulumi.Input['EndpointRoutingConfigArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              replication_config: Optional[pulumi.Input['EndpointReplicationConfigArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_buses is None and 'eventBuses' in kwargs:
+            event_buses = kwargs['eventBuses']
+        if event_buses is None:
+            raise TypeError("Missing 'event_buses' argument")
+        if routing_config is None and 'routingConfig' in kwargs:
+            routing_config = kwargs['routingConfig']
+        if routing_config is None:
+            raise TypeError("Missing 'routing_config' argument")
+        if replication_config is None and 'replicationConfig' in kwargs:
+            replication_config = kwargs['replicationConfig']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("event_buses", event_buses)
         _setter("routing_config", routing_config)
         if description is not None:
@@ -177,18 +191,10 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_buses'")
             __props__.__dict__["event_buses"] = event_buses
             __props__.__dict__["name"] = name
-            if replication_config is not None and not isinstance(replication_config, EndpointReplicationConfigArgs):
-                replication_config = replication_config or {}
-                def _setter(key, value):
-                    replication_config[key] = value
-                EndpointReplicationConfigArgs._configure(_setter, **replication_config)
+            replication_config = _utilities.configure(replication_config, EndpointReplicationConfigArgs, True)
             __props__.__dict__["replication_config"] = replication_config
             __props__.__dict__["role_arn"] = role_arn
-            if routing_config is not None and not isinstance(routing_config, EndpointRoutingConfigArgs):
-                routing_config = routing_config or {}
-                def _setter(key, value):
-                    routing_config[key] = value
-                EndpointRoutingConfigArgs._configure(_setter, **routing_config)
+            routing_config = _utilities.configure(routing_config, EndpointRoutingConfigArgs, True)
             if routing_config is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_config'")
             __props__.__dict__["routing_config"] = routing_config

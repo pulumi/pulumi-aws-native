@@ -62,10 +62,20 @@ class DocumentClassifierAugmentedManifestsListItem(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_names: Sequence[str],
-             s3_uri: str,
+             attribute_names: Optional[Sequence[str]] = None,
+             s3_uri: Optional[str] = None,
              split: Optional['DocumentClassifierAugmentedManifestsListItemSplit'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_names is None and 'attributeNames' in kwargs:
+            attribute_names = kwargs['attributeNames']
+        if attribute_names is None:
+            raise TypeError("Missing 'attribute_names' argument")
+        if s3_uri is None and 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if s3_uri is None:
+            raise TypeError("Missing 's3_uri' argument")
+
         _setter("attribute_names", attribute_names)
         _setter("s3_uri", s3_uri)
         if split is not None:
@@ -123,10 +133,20 @@ class DocumentClassifierDocumentReaderConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_read_action: 'DocumentClassifierDocumentReaderConfigDocumentReadAction',
+             document_read_action: Optional['DocumentClassifierDocumentReaderConfigDocumentReadAction'] = None,
              document_read_mode: Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode'] = None,
              feature_types: Optional[Sequence['DocumentClassifierDocumentReaderConfigFeatureTypesItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_read_action is None and 'documentReadAction' in kwargs:
+            document_read_action = kwargs['documentReadAction']
+        if document_read_action is None:
+            raise TypeError("Missing 'document_read_action' argument")
+        if document_read_mode is None and 'documentReadMode' in kwargs:
+            document_read_mode = kwargs['documentReadMode']
+        if feature_types is None and 'featureTypes' in kwargs:
+            feature_types = kwargs['featureTypes']
+
         _setter("document_read_action", document_read_action)
         if document_read_mode is not None:
             _setter("document_read_mode", document_read_mode)
@@ -181,9 +201,17 @@ class DocumentClassifierDocuments(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_uri: str,
+             s3_uri: Optional[str] = None,
              test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_uri is None and 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if s3_uri is None:
+            raise TypeError("Missing 's3_uri' argument")
+        if test_s3_uri is None and 'testS3Uri' in kwargs:
+            test_s3_uri = kwargs['testS3Uri']
+
         _setter("s3_uri", s3_uri)
         if test_s3_uri is not None:
             _setter("test_s3_uri", test_s3_uri)
@@ -261,7 +289,23 @@ class DocumentClassifierInputDataConfig(dict):
              label_delimiter: Optional[str] = None,
              s3_uri: Optional[str] = None,
              test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if augmented_manifests is None and 'augmentedManifests' in kwargs:
+            augmented_manifests = kwargs['augmentedManifests']
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if document_reader_config is None and 'documentReaderConfig' in kwargs:
+            document_reader_config = kwargs['documentReaderConfig']
+        if document_type is None and 'documentType' in kwargs:
+            document_type = kwargs['documentType']
+        if label_delimiter is None and 'labelDelimiter' in kwargs:
+            label_delimiter = kwargs['labelDelimiter']
+        if s3_uri is None and 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+        if test_s3_uri is None and 'testS3Uri' in kwargs:
+            test_s3_uri = kwargs['testS3Uri']
+
         if augmented_manifests is not None:
             _setter("augmented_manifests", augmented_manifests)
         if data_format is not None:
@@ -354,7 +398,13 @@ class DocumentClassifierOutputDataConfig(dict):
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
              s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if s3_uri is None and 's3Uri' in kwargs:
+            s3_uri = kwargs['s3Uri']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if s3_uri is not None:
@@ -384,9 +434,15 @@ class DocumentClassifierTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -431,9 +487,17 @@ class DocumentClassifierVpcConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_ids: Sequence[str],
-             subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnets: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 
@@ -492,7 +556,17 @@ class FlywheelDataSecurityConfig(dict):
              model_kms_key_id: Optional[str] = None,
              volume_kms_key_id: Optional[str] = None,
              vpc_config: Optional['outputs.FlywheelVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_lake_kms_key_id is None and 'dataLakeKmsKeyId' in kwargs:
+            data_lake_kms_key_id = kwargs['dataLakeKmsKeyId']
+        if model_kms_key_id is None and 'modelKmsKeyId' in kwargs:
+            model_kms_key_id = kwargs['modelKmsKeyId']
+        if volume_kms_key_id is None and 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         if data_lake_kms_key_id is not None:
             _setter("data_lake_kms_key_id", data_lake_kms_key_id)
         if model_kms_key_id is not None:
@@ -536,9 +610,13 @@ class FlywheelDocumentClassificationConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: 'FlywheelDocumentClassificationConfigMode',
+             mode: Optional['FlywheelDocumentClassificationConfigMode'] = None,
              labels: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+
         _setter("mode", mode)
         if labels is not None:
             _setter("labels", labels)
@@ -583,7 +661,11 @@ class FlywheelEntityRecognitionConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              entity_types: Optional[Sequence['outputs.FlywheelEntityTypesListItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_types is None and 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+
         if entity_types is not None:
             _setter("entity_types", entity_types)
 
@@ -604,8 +686,12 @@ class FlywheelEntityTypesListItem(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
 
     @property
@@ -627,9 +713,15 @@ class FlywheelTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -680,10 +772,20 @@ class FlywheelTaskConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             language_code: 'FlywheelTaskConfigLanguageCode',
+             language_code: Optional['FlywheelTaskConfigLanguageCode'] = None,
              document_classification_config: Optional['outputs.FlywheelDocumentClassificationConfig'] = None,
              entity_recognition_config: Optional['outputs.FlywheelEntityRecognitionConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if language_code is None:
+            raise TypeError("Missing 'language_code' argument")
+        if document_classification_config is None and 'documentClassificationConfig' in kwargs:
+            document_classification_config = kwargs['documentClassificationConfig']
+        if entity_recognition_config is None and 'entityRecognitionConfig' in kwargs:
+            entity_recognition_config = kwargs['entityRecognitionConfig']
+
         _setter("language_code", language_code)
         if document_classification_config is not None:
             _setter("document_classification_config", document_classification_config)
@@ -736,9 +838,17 @@ class FlywheelVpcConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_ids: Sequence[str],
-             subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_group_ids: Optional[Sequence[str]] = None,
+             subnets: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnets", subnets)
 

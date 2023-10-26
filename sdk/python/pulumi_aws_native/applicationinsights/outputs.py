@@ -68,9 +68,15 @@ class ApplicationAlarm(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alarm_name: str,
+             alarm_name: Optional[str] = None,
              severity: Optional['ApplicationAlarmSeverity'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_name is None and 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if alarm_name is None:
+            raise TypeError("Missing 'alarm_name' argument")
+
         _setter("alarm_name", alarm_name)
         if severity is not None:
             _setter("severity", severity)
@@ -127,8 +133,14 @@ class ApplicationAlarmMetric(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alarm_metric_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             alarm_metric_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_metric_name is None and 'alarmMetricName' in kwargs:
+            alarm_metric_name = kwargs['alarmMetricName']
+        if alarm_metric_name is None:
+            raise TypeError("Missing 'alarm_metric_name' argument")
+
         _setter("alarm_metric_name", alarm_metric_name)
 
     @property
@@ -182,7 +194,13 @@ class ApplicationComponentConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              configuration_details: Optional['outputs.ApplicationConfigurationDetails'] = None,
              sub_component_type_configurations: Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_details is None and 'configurationDetails' in kwargs:
+            configuration_details = kwargs['configurationDetails']
+        if sub_component_type_configurations is None and 'subComponentTypeConfigurations' in kwargs:
+            sub_component_type_configurations = kwargs['subComponentTypeConfigurations']
+
         if configuration_details is not None:
             _setter("configuration_details", configuration_details)
         if sub_component_type_configurations is not None:
@@ -263,13 +281,29 @@ class ApplicationComponentMonitoringSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component_configuration_mode: 'ApplicationComponentMonitoringSettingComponentConfigurationMode',
-             tier: str,
+             component_configuration_mode: Optional['ApplicationComponentMonitoringSettingComponentConfigurationMode'] = None,
+             tier: Optional[str] = None,
              component_arn: Optional[str] = None,
              component_name: Optional[str] = None,
              custom_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
              default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_configuration_mode is None and 'componentConfigurationMode' in kwargs:
+            component_configuration_mode = kwargs['componentConfigurationMode']
+        if component_configuration_mode is None:
+            raise TypeError("Missing 'component_configuration_mode' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if component_arn is None and 'componentArn' in kwargs:
+            component_arn = kwargs['componentArn']
+        if component_name is None and 'componentName' in kwargs:
+            component_name = kwargs['componentName']
+        if custom_component_configuration is None and 'customComponentConfiguration' in kwargs:
+            custom_component_configuration = kwargs['customComponentConfiguration']
+        if default_overwrite_component_configuration is None and 'defaultOverwriteComponentConfiguration' in kwargs:
+            default_overwrite_component_configuration = kwargs['defaultOverwriteComponentConfiguration']
+
         _setter("component_configuration_mode", component_configuration_mode)
         _setter("tier", tier)
         if component_arn is not None:
@@ -398,7 +432,19 @@ class ApplicationConfigurationDetails(dict):
              jmx_prometheus_exporter: Optional['outputs.ApplicationJmxPrometheusExporter'] = None,
              logs: Optional[Sequence['outputs.ApplicationLog']] = None,
              windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_metrics is None and 'alarmMetrics' in kwargs:
+            alarm_metrics = kwargs['alarmMetrics']
+        if ha_cluster_prometheus_exporter is None and 'haClusterPrometheusExporter' in kwargs:
+            ha_cluster_prometheus_exporter = kwargs['haClusterPrometheusExporter']
+        if hana_prometheus_exporter is None and 'hanaPrometheusExporter' in kwargs:
+            hana_prometheus_exporter = kwargs['hanaPrometheusExporter']
+        if jmx_prometheus_exporter is None and 'jmxPrometheusExporter' in kwargs:
+            jmx_prometheus_exporter = kwargs['jmxPrometheusExporter']
+        if windows_events is None and 'windowsEvents' in kwargs:
+            windows_events = kwargs['windowsEvents']
+
         if alarm_metrics is not None:
             _setter("alarm_metrics", alarm_metrics)
         if alarms is not None:
@@ -511,9 +557,19 @@ class ApplicationCustomComponent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component_name: str,
-             resource_list: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             component_name: Optional[str] = None,
+             resource_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_name is None and 'componentName' in kwargs:
+            component_name = kwargs['componentName']
+        if component_name is None:
+            raise TypeError("Missing 'component_name' argument")
+        if resource_list is None and 'resourceList' in kwargs:
+            resource_list = kwargs['resourceList']
+        if resource_list is None:
+            raise TypeError("Missing 'resource_list' argument")
+
         _setter("component_name", component_name)
         _setter("resource_list", resource_list)
 
@@ -570,7 +626,11 @@ class ApplicationHaClusterPrometheusExporter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prometheus_port is None and 'prometheusPort' in kwargs:
+            prometheus_port = kwargs['prometheusPort']
+
         if prometheus_port is not None:
             _setter("prometheus_port", prometheus_port)
 
@@ -639,12 +699,30 @@ class ApplicationHanaPrometheusExporter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agree_to_install_hanadb_client: bool,
-             hana_port: str,
-             hana_secret_name: str,
-             hanasid: str,
+             agree_to_install_hanadb_client: Optional[bool] = None,
+             hana_port: Optional[str] = None,
+             hana_secret_name: Optional[str] = None,
+             hanasid: Optional[str] = None,
              prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agree_to_install_hanadb_client is None and 'agreeToInstallHanadbClient' in kwargs:
+            agree_to_install_hanadb_client = kwargs['agreeToInstallHanadbClient']
+        if agree_to_install_hanadb_client is None:
+            raise TypeError("Missing 'agree_to_install_hanadb_client' argument")
+        if hana_port is None and 'hanaPort' in kwargs:
+            hana_port = kwargs['hanaPort']
+        if hana_port is None:
+            raise TypeError("Missing 'hana_port' argument")
+        if hana_secret_name is None and 'hanaSecretName' in kwargs:
+            hana_secret_name = kwargs['hanaSecretName']
+        if hana_secret_name is None:
+            raise TypeError("Missing 'hana_secret_name' argument")
+        if hanasid is None:
+            raise TypeError("Missing 'hanasid' argument")
+        if prometheus_port is None and 'prometheusPort' in kwargs:
+            prometheus_port = kwargs['prometheusPort']
+
         _setter("agree_to_install_hanadb_client", agree_to_install_hanadb_client)
         _setter("hana_port", hana_port)
         _setter("hana_secret_name", hana_secret_name)
@@ -742,7 +820,13 @@ class ApplicationJmxPrometheusExporter(dict):
              host_port: Optional[str] = None,
              jmxurl: Optional[str] = None,
              prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if host_port is None and 'hostPort' in kwargs:
+            host_port = kwargs['hostPort']
+        if prometheus_port is None and 'prometheusPort' in kwargs:
+            prometheus_port = kwargs['prometheusPort']
+
         if host_port is not None:
             _setter("host_port", host_port)
         if jmxurl is not None:
@@ -828,12 +912,24 @@ class ApplicationLog(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_type: str,
+             log_type: Optional[str] = None,
              encoding: Optional['ApplicationLogEncoding'] = None,
              log_group_name: Optional[str] = None,
              log_path: Optional[str] = None,
              pattern_set: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_type is None and 'logType' in kwargs:
+            log_type = kwargs['logType']
+        if log_type is None:
+            raise TypeError("Missing 'log_type' argument")
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_path is None and 'logPath' in kwargs:
+            log_path = kwargs['logPath']
+        if pattern_set is None and 'patternSet' in kwargs:
+            pattern_set = kwargs['patternSet']
+
         _setter("log_type", log_type)
         if encoding is not None:
             _setter("encoding", encoding)
@@ -926,10 +1022,20 @@ class ApplicationLogPattern(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pattern: str,
-             pattern_name: str,
-             rank: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             pattern: Optional[str] = None,
+             pattern_name: Optional[str] = None,
+             rank: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if pattern_name is None and 'patternName' in kwargs:
+            pattern_name = kwargs['patternName']
+        if pattern_name is None:
+            raise TypeError("Missing 'pattern_name' argument")
+        if rank is None:
+            raise TypeError("Missing 'rank' argument")
+
         _setter("pattern", pattern)
         _setter("pattern_name", pattern_name)
         _setter("rank", rank)
@@ -999,9 +1105,19 @@ class ApplicationLogPatternSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_patterns: Sequence['outputs.ApplicationLogPattern'],
-             pattern_set_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_patterns: Optional[Sequence['outputs.ApplicationLogPattern']] = None,
+             pattern_set_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_patterns is None and 'logPatterns' in kwargs:
+            log_patterns = kwargs['logPatterns']
+        if log_patterns is None:
+            raise TypeError("Missing 'log_patterns' argument")
+        if pattern_set_name is None and 'patternSetName' in kwargs:
+            pattern_set_name = kwargs['patternSetName']
+        if pattern_set_name is None:
+            raise TypeError("Missing 'pattern_set_name' argument")
+
         _setter("log_patterns", log_patterns)
         _setter("pattern_set_name", pattern_set_name)
 
@@ -1068,7 +1184,13 @@ class ApplicationSubComponentConfigurationDetails(dict):
              alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
              logs: Optional[Sequence['outputs.ApplicationLog']] = None,
              windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_metrics is None and 'alarmMetrics' in kwargs:
+            alarm_metrics = kwargs['alarmMetrics']
+        if windows_events is None and 'windowsEvents' in kwargs:
+            windows_events = kwargs['windowsEvents']
+
         if alarm_metrics is not None:
             _setter("alarm_metrics", alarm_metrics)
         if logs is not None:
@@ -1141,9 +1263,19 @@ class ApplicationSubComponentTypeConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sub_component_configuration_details: 'outputs.ApplicationSubComponentConfigurationDetails',
-             sub_component_type: 'ApplicationSubComponentTypeConfigurationSubComponentType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sub_component_configuration_details: Optional['outputs.ApplicationSubComponentConfigurationDetails'] = None,
+             sub_component_type: Optional['ApplicationSubComponentTypeConfigurationSubComponentType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sub_component_configuration_details is None and 'subComponentConfigurationDetails' in kwargs:
+            sub_component_configuration_details = kwargs['subComponentConfigurationDetails']
+        if sub_component_configuration_details is None:
+            raise TypeError("Missing 'sub_component_configuration_details' argument")
+        if sub_component_type is None and 'subComponentType' in kwargs:
+            sub_component_type = kwargs['subComponentType']
+        if sub_component_type is None:
+            raise TypeError("Missing 'sub_component_type' argument")
+
         _setter("sub_component_configuration_details", sub_component_configuration_details)
         _setter("sub_component_type", sub_component_type)
 
@@ -1185,9 +1317,15 @@ class ApplicationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1258,11 +1396,27 @@ class ApplicationWindowsEvent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_levels: Sequence['ApplicationEventLevel'],
-             event_name: str,
-             log_group_name: str,
+             event_levels: Optional[Sequence['ApplicationEventLevel']] = None,
+             event_name: Optional[str] = None,
+             log_group_name: Optional[str] = None,
              pattern_set: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_levels is None and 'eventLevels' in kwargs:
+            event_levels = kwargs['eventLevels']
+        if event_levels is None:
+            raise TypeError("Missing 'event_levels' argument")
+        if event_name is None and 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if event_name is None:
+            raise TypeError("Missing 'event_name' argument")
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if pattern_set is None and 'patternSet' in kwargs:
+            pattern_set = kwargs['patternSet']
+
         _setter("event_levels", event_levels)
         _setter("event_name", event_name)
         _setter("log_group_name", log_group_name)

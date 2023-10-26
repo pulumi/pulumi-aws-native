@@ -41,9 +41,15 @@ class FhirDatastoreCreatedAt(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             nanos: int,
-             seconds: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             nanos: Optional[int] = None,
+             seconds: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nanos is None:
+            raise TypeError("Missing 'nanos' argument")
+        if seconds is None:
+            raise TypeError("Missing 'seconds' argument")
+
         _setter("nanos", nanos)
         _setter("seconds", seconds)
 
@@ -112,11 +118,21 @@ class FhirDatastoreIdentityProviderConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorization_strategy: 'FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy',
+             authorization_strategy: Optional['FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy'] = None,
              fine_grained_authorization_enabled: Optional[bool] = None,
              idp_lambda_arn: Optional[str] = None,
              metadata: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_strategy is None and 'authorizationStrategy' in kwargs:
+            authorization_strategy = kwargs['authorizationStrategy']
+        if authorization_strategy is None:
+            raise TypeError("Missing 'authorization_strategy' argument")
+        if fine_grained_authorization_enabled is None and 'fineGrainedAuthorizationEnabled' in kwargs:
+            fine_grained_authorization_enabled = kwargs['fineGrainedAuthorizationEnabled']
+        if idp_lambda_arn is None and 'idpLambdaArn' in kwargs:
+            idp_lambda_arn = kwargs['idpLambdaArn']
+
         _setter("authorization_strategy", authorization_strategy)
         if fine_grained_authorization_enabled is not None:
             _setter("fine_grained_authorization_enabled", fine_grained_authorization_enabled)
@@ -198,9 +214,17 @@ class FhirDatastoreKmsEncryptionConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cmk_type: 'FhirDatastoreKmsEncryptionConfigCmkType',
+             cmk_type: Optional['FhirDatastoreKmsEncryptionConfigCmkType'] = None,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cmk_type is None and 'cmkType' in kwargs:
+            cmk_type = kwargs['cmkType']
+        if cmk_type is None:
+            raise TypeError("Missing 'cmk_type' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("cmk_type", cmk_type)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -257,8 +281,14 @@ class FhirDatastorePreloadDataConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             preload_data_type: 'FhirDatastorePreloadDataConfigPreloadDataType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             preload_data_type: Optional['FhirDatastorePreloadDataConfigPreloadDataType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preload_data_type is None and 'preloadDataType' in kwargs:
+            preload_data_type = kwargs['preloadDataType']
+        if preload_data_type is None:
+            raise TypeError("Missing 'preload_data_type' argument")
+
         _setter("preload_data_type", preload_data_type)
 
     @property
@@ -304,8 +334,14 @@ class FhirDatastoreSseConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kms_encryption_config: 'outputs.FhirDatastoreKmsEncryptionConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             kms_encryption_config: Optional['outputs.FhirDatastoreKmsEncryptionConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_encryption_config is None and 'kmsEncryptionConfig' in kwargs:
+            kms_encryption_config = kwargs['kmsEncryptionConfig']
+        if kms_encryption_config is None:
+            raise TypeError("Missing 'kms_encryption_config' argument")
+
         _setter("kms_encryption_config", kms_encryption_config)
 
     @property
@@ -335,9 +371,15 @@ class FhirDatastoreTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

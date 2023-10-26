@@ -42,7 +42,15 @@ class HookTypeConfigArgs:
              configuration_alias: Optional[pulumi.Input['HookTypeConfigConfigurationAlias']] = None,
              type_arn: Optional[pulumi.Input[str]] = None,
              type_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_alias is None and 'configurationAlias' in kwargs:
+            configuration_alias = kwargs['configurationAlias']
+        if type_arn is None and 'typeArn' in kwargs:
+            type_arn = kwargs['typeArn']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+
         if configuration is not None:
             _setter("configuration", configuration)
         if configuration_alias is not None:

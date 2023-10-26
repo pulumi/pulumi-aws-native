@@ -35,10 +35,20 @@ class BridgeOutputResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bridge_arn: pulumi.Input[str],
-             network_output: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputArgs'],
+             bridge_arn: Optional[pulumi.Input[str]] = None,
+             network_output: Optional[pulumi.Input['BridgeOutputResourceBridgeNetworkOutputArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bridge_arn is None and 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if bridge_arn is None:
+            raise TypeError("Missing 'bridge_arn' argument")
+        if network_output is None and 'networkOutput' in kwargs:
+            network_output = kwargs['networkOutput']
+        if network_output is None:
+            raise TypeError("Missing 'network_output' argument")
+
         _setter("bridge_arn", bridge_arn)
         _setter("network_output", network_output)
         if name is not None:
@@ -143,11 +153,7 @@ class BridgeOutputResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bridge_arn'")
             __props__.__dict__["bridge_arn"] = bridge_arn
             __props__.__dict__["name"] = name
-            if network_output is not None and not isinstance(network_output, BridgeOutputResourceBridgeNetworkOutputArgs):
-                network_output = network_output or {}
-                def _setter(key, value):
-                    network_output[key] = value
-                BridgeOutputResourceBridgeNetworkOutputArgs._configure(_setter, **network_output)
+            network_output = _utilities.configure(network_output, BridgeOutputResourceBridgeNetworkOutputArgs, True)
             if network_output is None and not opts.urn:
                 raise TypeError("Missing required property 'network_output'")
             __props__.__dict__["network_output"] = network_output

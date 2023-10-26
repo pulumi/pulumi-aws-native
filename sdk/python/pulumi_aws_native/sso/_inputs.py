@@ -30,8 +30,12 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("source", source)
 
     @property
@@ -57,9 +61,15 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -96,8 +106,14 @@ class InstanceAccessControlAttributeConfigurationPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_control_attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control_attributes is None and 'accessControlAttributes' in kwargs:
+            access_control_attributes = kwargs['accessControlAttributes']
+        if access_control_attributes is None:
+            raise TypeError("Missing 'access_control_attributes' argument")
+
         _setter("access_control_attributes", access_control_attributes)
 
     @property
@@ -123,9 +139,13 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if path is not None:
             _setter("path", path)
@@ -164,7 +184,13 @@ class PermissionSetPermissionsBoundaryArgs:
              _setter: Callable[[Any, Any], None],
              customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
              managed_policy_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_policy_reference is None and 'customerManagedPolicyReference' in kwargs:
+            customer_managed_policy_reference = kwargs['customerManagedPolicyReference']
+        if managed_policy_arn is None and 'managedPolicyArn' in kwargs:
+            managed_policy_arn = kwargs['managedPolicyArn']
+
         if customer_managed_policy_reference is not None:
             _setter("customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
@@ -205,9 +231,15 @@ class PermissionSetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

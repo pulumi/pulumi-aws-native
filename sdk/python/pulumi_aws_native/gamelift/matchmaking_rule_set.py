@@ -31,10 +31,16 @@ class MatchmakingRuleSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_set_body: pulumi.Input[str],
+             rule_set_body: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_set_body is None and 'ruleSetBody' in kwargs:
+            rule_set_body = kwargs['ruleSetBody']
+        if rule_set_body is None:
+            raise TypeError("Missing 'rule_set_body' argument")
+
         _setter("rule_set_body", rule_set_body)
         if name is not None:
             _setter("name", name)

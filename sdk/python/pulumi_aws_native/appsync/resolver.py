@@ -57,9 +57,9 @@ class ResolverArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             field_name: pulumi.Input[str],
-             type_name: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             field_name: Optional[pulumi.Input[str]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
              caching_config: Optional[pulumi.Input['ResolverCachingConfigArgs']] = None,
              code: Optional[pulumi.Input[str]] = None,
              code_s3_location: Optional[pulumi.Input[str]] = None,
@@ -73,7 +73,41 @@ class ResolverArgs:
              response_mapping_template_s3_location: Optional[pulumi.Input[str]] = None,
              runtime: Optional[pulumi.Input['ResolverAppSyncRuntimeArgs']] = None,
              sync_config: Optional[pulumi.Input['ResolverSyncConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if field_name is None and 'fieldName' in kwargs:
+            field_name = kwargs['fieldName']
+        if field_name is None:
+            raise TypeError("Missing 'field_name' argument")
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_name is None:
+            raise TypeError("Missing 'type_name' argument")
+        if caching_config is None and 'cachingConfig' in kwargs:
+            caching_config = kwargs['cachingConfig']
+        if code_s3_location is None and 'codeS3Location' in kwargs:
+            code_s3_location = kwargs['codeS3Location']
+        if data_source_name is None and 'dataSourceName' in kwargs:
+            data_source_name = kwargs['dataSourceName']
+        if max_batch_size is None and 'maxBatchSize' in kwargs:
+            max_batch_size = kwargs['maxBatchSize']
+        if pipeline_config is None and 'pipelineConfig' in kwargs:
+            pipeline_config = kwargs['pipelineConfig']
+        if request_mapping_template is None and 'requestMappingTemplate' in kwargs:
+            request_mapping_template = kwargs['requestMappingTemplate']
+        if request_mapping_template_s3_location is None and 'requestMappingTemplateS3Location' in kwargs:
+            request_mapping_template_s3_location = kwargs['requestMappingTemplateS3Location']
+        if response_mapping_template is None and 'responseMappingTemplate' in kwargs:
+            response_mapping_template = kwargs['responseMappingTemplate']
+        if response_mapping_template_s3_location is None and 'responseMappingTemplateS3Location' in kwargs:
+            response_mapping_template_s3_location = kwargs['responseMappingTemplateS3Location']
+        if sync_config is None and 'syncConfig' in kwargs:
+            sync_config = kwargs['syncConfig']
+
         _setter("api_id", api_id)
         _setter("field_name", field_name)
         _setter("type_name", type_name)
@@ -339,11 +373,7 @@ class Resolver(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
-            if caching_config is not None and not isinstance(caching_config, ResolverCachingConfigArgs):
-                caching_config = caching_config or {}
-                def _setter(key, value):
-                    caching_config[key] = value
-                ResolverCachingConfigArgs._configure(_setter, **caching_config)
+            caching_config = _utilities.configure(caching_config, ResolverCachingConfigArgs, True)
             __props__.__dict__["caching_config"] = caching_config
             __props__.__dict__["code"] = code
             __props__.__dict__["code_s3_location"] = code_s3_location
@@ -353,27 +383,15 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["field_name"] = field_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["max_batch_size"] = max_batch_size
-            if pipeline_config is not None and not isinstance(pipeline_config, ResolverPipelineConfigArgs):
-                pipeline_config = pipeline_config or {}
-                def _setter(key, value):
-                    pipeline_config[key] = value
-                ResolverPipelineConfigArgs._configure(_setter, **pipeline_config)
+            pipeline_config = _utilities.configure(pipeline_config, ResolverPipelineConfigArgs, True)
             __props__.__dict__["pipeline_config"] = pipeline_config
             __props__.__dict__["request_mapping_template"] = request_mapping_template
             __props__.__dict__["request_mapping_template_s3_location"] = request_mapping_template_s3_location
             __props__.__dict__["response_mapping_template"] = response_mapping_template
             __props__.__dict__["response_mapping_template_s3_location"] = response_mapping_template_s3_location
-            if runtime is not None and not isinstance(runtime, ResolverAppSyncRuntimeArgs):
-                runtime = runtime or {}
-                def _setter(key, value):
-                    runtime[key] = value
-                ResolverAppSyncRuntimeArgs._configure(_setter, **runtime)
+            runtime = _utilities.configure(runtime, ResolverAppSyncRuntimeArgs, True)
             __props__.__dict__["runtime"] = runtime
-            if sync_config is not None and not isinstance(sync_config, ResolverSyncConfigArgs):
-                sync_config = sync_config or {}
-                def _setter(key, value):
-                    sync_config[key] = value
-                ResolverSyncConfigArgs._configure(_setter, **sync_config)
+            sync_config = _utilities.configure(sync_config, ResolverSyncConfigArgs, True)
             __props__.__dict__["sync_config"] = sync_config
             if type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'type_name'")

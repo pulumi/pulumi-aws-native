@@ -44,15 +44,33 @@ class CaCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ca_certificate_pem: pulumi.Input[str],
-             status: pulumi.Input['CaCertificateStatus'],
+             ca_certificate_pem: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input['CaCertificateStatus']] = None,
              auto_registration_status: Optional[pulumi.Input['CaCertificateAutoRegistrationStatus']] = None,
              certificate_mode: Optional[pulumi.Input['CaCertificateCertificateMode']] = None,
              registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
              remove_auto_registration: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CaCertificateTagArgs']]]] = None,
              verification_certificate_pem: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ca_certificate_pem is None and 'caCertificatePem' in kwargs:
+            ca_certificate_pem = kwargs['caCertificatePem']
+        if ca_certificate_pem is None:
+            raise TypeError("Missing 'ca_certificate_pem' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if auto_registration_status is None and 'autoRegistrationStatus' in kwargs:
+            auto_registration_status = kwargs['autoRegistrationStatus']
+        if certificate_mode is None and 'certificateMode' in kwargs:
+            certificate_mode = kwargs['certificateMode']
+        if registration_config is None and 'registrationConfig' in kwargs:
+            registration_config = kwargs['registrationConfig']
+        if remove_auto_registration is None and 'removeAutoRegistration' in kwargs:
+            remove_auto_registration = kwargs['removeAutoRegistration']
+        if verification_certificate_pem is None and 'verificationCertificatePem' in kwargs:
+            verification_certificate_pem = kwargs['verificationCertificatePem']
+
         _setter("ca_certificate_pem", ca_certificate_pem)
         _setter("status", status)
         if auto_registration_status is not None:
@@ -219,11 +237,7 @@ class CaCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ca_certificate_pem'")
             __props__.__dict__["ca_certificate_pem"] = ca_certificate_pem
             __props__.__dict__["certificate_mode"] = certificate_mode
-            if registration_config is not None and not isinstance(registration_config, CaCertificateRegistrationConfigArgs):
-                registration_config = registration_config or {}
-                def _setter(key, value):
-                    registration_config[key] = value
-                CaCertificateRegistrationConfigArgs._configure(_setter, **registration_config)
+            registration_config = _utilities.configure(registration_config, CaCertificateRegistrationConfigArgs, True)
             __props__.__dict__["registration_config"] = registration_config
             __props__.__dict__["remove_auto_registration"] = remove_auto_registration
             if status is None and not opts.urn:

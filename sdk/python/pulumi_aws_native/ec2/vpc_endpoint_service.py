@@ -38,7 +38,19 @@ class VpcEndpointServiceArgs:
              gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              payer_responsibility: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acceptance_required is None and 'acceptanceRequired' in kwargs:
+            acceptance_required = kwargs['acceptanceRequired']
+        if contributor_insights_enabled is None and 'contributorInsightsEnabled' in kwargs:
+            contributor_insights_enabled = kwargs['contributorInsightsEnabled']
+        if gateway_load_balancer_arns is None and 'gatewayLoadBalancerArns' in kwargs:
+            gateway_load_balancer_arns = kwargs['gatewayLoadBalancerArns']
+        if network_load_balancer_arns is None and 'networkLoadBalancerArns' in kwargs:
+            network_load_balancer_arns = kwargs['networkLoadBalancerArns']
+        if payer_responsibility is None and 'payerResponsibility' in kwargs:
+            payer_responsibility = kwargs['payerResponsibility']
+
         if acceptance_required is not None:
             _setter("acceptance_required", acceptance_required)
         if contributor_insights_enabled is not None:

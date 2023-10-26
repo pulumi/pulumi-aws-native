@@ -55,7 +55,7 @@ class ReplicationInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             replication_instance_class: pulumi.Input[str],
+             replication_instance_class: Optional[pulumi.Input[str]] = None,
              allocated_storage: Optional[pulumi.Input[int]] = None,
              allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -70,7 +70,39 @@ class ReplicationInstanceArgs:
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationInstanceTagArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_instance_class is None and 'replicationInstanceClass' in kwargs:
+            replication_instance_class = kwargs['replicationInstanceClass']
+        if replication_instance_class is None:
+            raise TypeError("Missing 'replication_instance_class' argument")
+        if allocated_storage is None and 'allocatedStorage' in kwargs:
+            allocated_storage = kwargs['allocatedStorage']
+        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if multi_az is None and 'multiAz' in kwargs:
+            multi_az = kwargs['multiAz']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if replication_instance_identifier is None and 'replicationInstanceIdentifier' in kwargs:
+            replication_instance_identifier = kwargs['replicationInstanceIdentifier']
+        if replication_subnet_group_identifier is None and 'replicationSubnetGroupIdentifier' in kwargs:
+            replication_subnet_group_identifier = kwargs['replicationSubnetGroupIdentifier']
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("replication_instance_class", replication_instance_class)
         if allocated_storage is not None:
             _setter("allocated_storage", allocated_storage)

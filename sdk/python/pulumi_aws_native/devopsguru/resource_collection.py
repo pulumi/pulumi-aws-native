@@ -28,8 +28,14 @@ class ResourceCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_collection_filter: pulumi.Input['ResourceCollectionFilterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_collection_filter: Optional[pulumi.Input['ResourceCollectionFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_collection_filter is None and 'resourceCollectionFilter' in kwargs:
+            resource_collection_filter = kwargs['resourceCollectionFilter']
+        if resource_collection_filter is None:
+            raise TypeError("Missing 'resource_collection_filter' argument")
+
         _setter("resource_collection_filter", resource_collection_filter)
 
     @property
@@ -93,11 +99,7 @@ class ResourceCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceCollectionArgs.__new__(ResourceCollectionArgs)
 
-            if resource_collection_filter is not None and not isinstance(resource_collection_filter, ResourceCollectionFilterArgs):
-                resource_collection_filter = resource_collection_filter or {}
-                def _setter(key, value):
-                    resource_collection_filter[key] = value
-                ResourceCollectionFilterArgs._configure(_setter, **resource_collection_filter)
+            resource_collection_filter = _utilities.configure(resource_collection_filter, ResourceCollectionFilterArgs, True)
             if resource_collection_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_collection_filter'")
             __props__.__dict__["resource_collection_filter"] = resource_collection_filter

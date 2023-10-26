@@ -31,9 +31,15 @@ class StreamKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_arn: pulumi.Input[str],
+             channel_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_arn is None and 'channelArn' in kwargs:
+            channel_arn = kwargs['channelArn']
+        if channel_arn is None:
+            raise TypeError("Missing 'channel_arn' argument")
+
         _setter("channel_arn", channel_arn)
         if tags is not None:
             _setter("tags", tags)

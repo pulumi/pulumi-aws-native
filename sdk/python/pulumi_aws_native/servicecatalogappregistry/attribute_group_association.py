@@ -29,9 +29,17 @@ class AttributeGroupAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             attribute_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application: Optional[pulumi.Input[str]] = None,
+             attribute_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if attribute_group is None and 'attributeGroup' in kwargs:
+            attribute_group = kwargs['attributeGroup']
+        if attribute_group is None:
+            raise TypeError("Missing 'attribute_group' argument")
+
         _setter("application", application)
         _setter("attribute_group", attribute_group)
 

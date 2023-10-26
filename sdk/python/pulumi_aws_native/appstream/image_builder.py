@@ -51,7 +51,7 @@ class ImageBuilderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
              access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
              appstream_agent_version: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,31 @@ class ImageBuilderArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderTagArgs']]]] = None,
              vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if access_endpoints is None and 'accessEndpoints' in kwargs:
+            access_endpoints = kwargs['accessEndpoints']
+        if appstream_agent_version is None and 'appstreamAgentVersion' in kwargs:
+            appstream_agent_version = kwargs['appstreamAgentVersion']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if domain_join_info is None and 'domainJoinInfo' in kwargs:
+            domain_join_info = kwargs['domainJoinInfo']
+        if enable_default_internet_access is None and 'enableDefaultInternetAccess' in kwargs:
+            enable_default_internet_access = kwargs['enableDefaultInternetAccess']
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if image_arn is None and 'imageArn' in kwargs:
+            image_arn = kwargs['imageArn']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("instance_type", instance_type)
         if access_endpoints is not None:
             _setter("access_endpoints", access_endpoints)
@@ -288,11 +312,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["appstream_agent_version"] = appstream_agent_version
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
-            if domain_join_info is not None and not isinstance(domain_join_info, ImageBuilderDomainJoinInfoArgs):
-                domain_join_info = domain_join_info or {}
-                def _setter(key, value):
-                    domain_join_info[key] = value
-                ImageBuilderDomainJoinInfoArgs._configure(_setter, **domain_join_info)
+            domain_join_info = _utilities.configure(domain_join_info, ImageBuilderDomainJoinInfoArgs, True)
             __props__.__dict__["domain_join_info"] = domain_join_info
             __props__.__dict__["enable_default_internet_access"] = enable_default_internet_access
             __props__.__dict__["iam_role_arn"] = iam_role_arn
@@ -303,11 +323,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            if vpc_config is not None and not isinstance(vpc_config, ImageBuilderVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                ImageBuilderVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, ImageBuilderVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["streaming_url"] = None
         super(ImageBuilder, __self__).__init__(

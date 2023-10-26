@@ -36,9 +36,13 @@ class DataIntegrationFileConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             folders: pulumi.Input[Sequence[pulumi.Input[str]]],
+             folders: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              filters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if folders is None:
+            raise TypeError("Missing 'folders' argument")
+
         _setter("folders", folders)
         if filters is not None:
             _setter("filters", filters)
@@ -78,8 +82,10 @@ class DataIntegrationObjectConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -102,10 +108,18 @@ class DataIntegrationScheduleConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_expression: pulumi.Input[str],
+             schedule_expression: Optional[pulumi.Input[str]] = None,
              first_execution_from: Optional[pulumi.Input[str]] = None,
              object: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+        if first_execution_from is None and 'firstExecutionFrom' in kwargs:
+            first_execution_from = kwargs['firstExecutionFrom']
+
         _setter("schedule_expression", schedule_expression)
         if first_execution_from is not None:
             _setter("first_execution_from", first_execution_from)
@@ -167,9 +181,15 @@ class DataIntegrationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -212,8 +232,12 @@ class EventIntegrationEventFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             source: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("source", source)
 
     @property
@@ -246,9 +270,15 @@ class EventIntegrationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -29,9 +29,15 @@ class SizeConstraintSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_constraints: pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]],
+             size_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['SizeConstraintSetSizeConstraintArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_constraints is None and 'sizeConstraints' in kwargs:
+            size_constraints = kwargs['sizeConstraints']
+        if size_constraints is None:
+            raise TypeError("Missing 'size_constraints' argument")
+
         _setter("size_constraints", size_constraints)
         if name is not None:
             _setter("name", name)

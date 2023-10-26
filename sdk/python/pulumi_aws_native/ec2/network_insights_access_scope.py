@@ -35,7 +35,13 @@ class NetworkInsightsAccessScopeArgs:
              exclude_paths: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] = None,
              match_paths: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_paths is None and 'excludePaths' in kwargs:
+            exclude_paths = kwargs['excludePaths']
+        if match_paths is None and 'matchPaths' in kwargs:
+            match_paths = kwargs['matchPaths']
+
         if exclude_paths is not None:
             _setter("exclude_paths", exclude_paths)
         if match_paths is not None:

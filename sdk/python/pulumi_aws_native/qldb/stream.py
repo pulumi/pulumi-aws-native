@@ -40,14 +40,36 @@ class StreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inclusive_start_time: pulumi.Input[str],
-             kinesis_configuration: pulumi.Input['StreamKinesisConfigurationArgs'],
-             ledger_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             inclusive_start_time: Optional[pulumi.Input[str]] = None,
+             kinesis_configuration: Optional[pulumi.Input['StreamKinesisConfigurationArgs']] = None,
+             ledger_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              exclusive_end_time: Optional[pulumi.Input[str]] = None,
              stream_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inclusive_start_time is None and 'inclusiveStartTime' in kwargs:
+            inclusive_start_time = kwargs['inclusiveStartTime']
+        if inclusive_start_time is None:
+            raise TypeError("Missing 'inclusive_start_time' argument")
+        if kinesis_configuration is None and 'kinesisConfiguration' in kwargs:
+            kinesis_configuration = kwargs['kinesisConfiguration']
+        if kinesis_configuration is None:
+            raise TypeError("Missing 'kinesis_configuration' argument")
+        if ledger_name is None and 'ledgerName' in kwargs:
+            ledger_name = kwargs['ledgerName']
+        if ledger_name is None:
+            raise TypeError("Missing 'ledger_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if exclusive_end_time is None and 'exclusiveEndTime' in kwargs:
+            exclusive_end_time = kwargs['exclusiveEndTime']
+        if stream_name is None and 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         _setter("inclusive_start_time", inclusive_start_time)
         _setter("kinesis_configuration", kinesis_configuration)
         _setter("ledger_name", ledger_name)
@@ -194,11 +216,7 @@ class Stream(pulumi.CustomResource):
             if inclusive_start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'inclusive_start_time'")
             __props__.__dict__["inclusive_start_time"] = inclusive_start_time
-            if kinesis_configuration is not None and not isinstance(kinesis_configuration, StreamKinesisConfigurationArgs):
-                kinesis_configuration = kinesis_configuration or {}
-                def _setter(key, value):
-                    kinesis_configuration[key] = value
-                StreamKinesisConfigurationArgs._configure(_setter, **kinesis_configuration)
+            kinesis_configuration = _utilities.configure(kinesis_configuration, StreamKinesisConfigurationArgs, True)
             if kinesis_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'kinesis_configuration'")
             __props__.__dict__["kinesis_configuration"] = kinesis_configuration

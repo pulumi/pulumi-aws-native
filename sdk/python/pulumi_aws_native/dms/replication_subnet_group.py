@@ -33,11 +33,23 @@ class ReplicationSubnetGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             replication_subnet_group_description: pulumi.Input[str],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              replication_subnet_group_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSubnetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_subnet_group_description is None and 'replicationSubnetGroupDescription' in kwargs:
+            replication_subnet_group_description = kwargs['replicationSubnetGroupDescription']
+        if replication_subnet_group_description is None:
+            raise TypeError("Missing 'replication_subnet_group_description' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if replication_subnet_group_identifier is None and 'replicationSubnetGroupIdentifier' in kwargs:
+            replication_subnet_group_identifier = kwargs['replicationSubnetGroupIdentifier']
+
         _setter("replication_subnet_group_description", replication_subnet_group_description)
         _setter("subnet_ids", subnet_ids)
         if replication_subnet_group_identifier is not None:

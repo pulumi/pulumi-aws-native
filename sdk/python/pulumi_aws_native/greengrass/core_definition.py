@@ -34,7 +34,11 @@ class CoreDefinitionArgs:
              initial_version: Optional[pulumi.Input['CoreDefinitionVersionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initial_version is None and 'initialVersion' in kwargs:
+            initial_version = kwargs['initialVersion']
+
         if initial_version is not None:
             _setter("initial_version", initial_version)
         if name is not None:
@@ -131,11 +135,7 @@ class CoreDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CoreDefinitionArgs.__new__(CoreDefinitionArgs)
 
-            if initial_version is not None and not isinstance(initial_version, CoreDefinitionVersionArgs):
-                initial_version = initial_version or {}
-                def _setter(key, value):
-                    initial_version[key] = value
-                CoreDefinitionVersionArgs._configure(_setter, **initial_version)
+            initial_version = _utilities.configure(initial_version, CoreDefinitionVersionArgs, True)
             __props__.__dict__["initial_version"] = initial_version
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

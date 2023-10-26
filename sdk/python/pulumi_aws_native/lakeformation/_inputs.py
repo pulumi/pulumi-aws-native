@@ -63,7 +63,11 @@ class DataCellsFilterColumnWildcardArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_column_names is None and 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
         if excluded_column_names is not None:
             _setter("excluded_column_names", excluded_column_names)
 
@@ -100,7 +104,13 @@ class DataCellsFilterRowFilterArgs:
              _setter: Callable[[Any, Any], None],
              all_rows_wildcard: Optional[Any] = None,
              filter_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if all_rows_wildcard is None and 'allRowsWildcard' in kwargs:
+            all_rows_wildcard = kwargs['allRowsWildcard']
+        if filter_expression is None and 'filterExpression' in kwargs:
+            filter_expression = kwargs['filterExpression']
+
         if all_rows_wildcard is not None:
             _setter("all_rows_wildcard", all_rows_wildcard)
         if filter_expression is not None:
@@ -138,8 +148,10 @@ class DataLakeSettingsAdminsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -149,8 +161,10 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -160,8 +174,10 @@ class DataLakeSettingsCreateTableDefaultPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -171,8 +187,10 @@ class DataLakeSettingsExternalDataFilteringAllowListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -187,7 +205,11 @@ class PermissionsColumnWildcardArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_column_names is None and 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
         if excluded_column_names is not None:
             _setter("excluded_column_names", excluded_column_names)
 
@@ -213,7 +235,11 @@ class PermissionsDataLakePrincipalArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_lake_principal_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_lake_principal_identifier is None and 'dataLakePrincipalIdentifier' in kwargs:
+            data_lake_principal_identifier = kwargs['dataLakePrincipalIdentifier']
+
         if data_lake_principal_identifier is not None:
             _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
@@ -242,7 +268,13 @@ class PermissionsDataLocationResourceArgs:
              _setter: Callable[[Any, Any], None],
              catalog_id: Optional[pulumi.Input[str]] = None,
              s3_resource: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if s3_resource is None and 's3Resource' in kwargs:
+            s3_resource = kwargs['s3Resource']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if s3_resource is not None:
@@ -282,7 +314,11 @@ class PermissionsDatabaseResourceArgs:
              _setter: Callable[[Any, Any], None],
              catalog_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if name is not None:
@@ -328,7 +364,17 @@ class PermissionsResourceArgs:
              database_resource: Optional[pulumi.Input['PermissionsDatabaseResourceArgs']] = None,
              table_resource: Optional[pulumi.Input['PermissionsTableResourceArgs']] = None,
              table_with_columns_resource: Optional[pulumi.Input['PermissionsTableWithColumnsResourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_location_resource is None and 'dataLocationResource' in kwargs:
+            data_location_resource = kwargs['dataLocationResource']
+        if database_resource is None and 'databaseResource' in kwargs:
+            database_resource = kwargs['databaseResource']
+        if table_resource is None and 'tableResource' in kwargs:
+            table_resource = kwargs['tableResource']
+        if table_with_columns_resource is None and 'tableWithColumnsResource' in kwargs:
+            table_with_columns_resource = kwargs['tableWithColumnsResource']
+
         if data_location_resource is not None:
             _setter("data_location_resource", data_location_resource)
         if database_resource is not None:
@@ -396,7 +442,15 @@ class PermissionsTableResourceArgs:
              database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              table_wildcard: Optional[pulumi.Input['PermissionsTableWildcardArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if table_wildcard is None and 'tableWildcard' in kwargs:
+            table_wildcard = kwargs['tableWildcard']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -450,8 +504,10 @@ class PermissionsTableWildcardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -478,7 +534,17 @@ class PermissionsTableWithColumnsResourceArgs:
              column_wildcard: Optional[pulumi.Input['PermissionsColumnWildcardArgs']] = None,
              database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if column_wildcard is None and 'columnWildcard' in kwargs:
+            column_wildcard = kwargs['columnWildcard']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if column_names is not None:
@@ -543,8 +609,10 @@ class PrincipalPermissionsCatalogResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -559,7 +627,11 @@ class PrincipalPermissionsColumnWildcardArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_column_names is None and 'excludedColumnNames' in kwargs:
+            excluded_column_names = kwargs['excludedColumnNames']
+
         if excluded_column_names is not None:
             _setter("excluded_column_names", excluded_column_names)
 
@@ -590,11 +662,27 @@ class PrincipalPermissionsDataCellsFilterResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             table_catalog_id: pulumi.Input[str],
-             table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             table_catalog_id: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if table_catalog_id is None and 'tableCatalogId' in kwargs:
+            table_catalog_id = kwargs['tableCatalogId']
+        if table_catalog_id is None:
+            raise TypeError("Missing 'table_catalog_id' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("database_name", database_name)
         _setter("name", name)
         _setter("table_catalog_id", table_catalog_id)
@@ -649,7 +737,11 @@ class PrincipalPermissionsDataLakePrincipalArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_lake_principal_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_lake_principal_identifier is None and 'dataLakePrincipalIdentifier' in kwargs:
+            data_lake_principal_identifier = kwargs['dataLakePrincipalIdentifier']
+
         if data_lake_principal_identifier is not None:
             _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
@@ -676,9 +768,19 @@ class PrincipalPermissionsDataLocationResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("resource_arn", resource_arn)
 
@@ -714,9 +816,17 @@ class PrincipalPermissionsDatabaseResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("name", name)
 
@@ -754,10 +864,24 @@ class PrincipalPermissionsLfTagKeyResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             tag_key: pulumi.Input[str],
-             tag_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             tag_key: Optional[pulumi.Input[str]] = None,
+             tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_key is None:
+            raise TypeError("Missing 'tag_key' argument")
+        if tag_values is None and 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+        if tag_values is None:
+            raise TypeError("Missing 'tag_values' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("tag_key", tag_key)
         _setter("tag_values", tag_values)
@@ -805,10 +929,22 @@ class PrincipalPermissionsLfTagPolicyResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             expression: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]],
-             resource_type: pulumi.Input['PrincipalPermissionsResourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             expression: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsLfTagArgs']]]] = None,
+             resource_type: Optional[pulumi.Input['PrincipalPermissionsResourceType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("expression", expression)
         _setter("resource_type", resource_type)
@@ -856,7 +992,13 @@ class PrincipalPermissionsLfTagArgs:
              _setter: Callable[[Any, Any], None],
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_values is None and 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+
         if tag_key is not None:
             _setter("tag_key", tag_key)
         if tag_values is not None:
@@ -914,7 +1056,19 @@ class PrincipalPermissionsResourceArgs:
              lf_tag_policy: Optional[pulumi.Input['PrincipalPermissionsLfTagPolicyResourceArgs']] = None,
              table: Optional[pulumi.Input['PrincipalPermissionsTableResourceArgs']] = None,
              table_with_columns: Optional[pulumi.Input['PrincipalPermissionsTableWithColumnsResourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_cells_filter is None and 'dataCellsFilter' in kwargs:
+            data_cells_filter = kwargs['dataCellsFilter']
+        if data_location is None and 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+        if lf_tag is None and 'lfTag' in kwargs:
+            lf_tag = kwargs['lfTag']
+        if lf_tag_policy is None and 'lfTagPolicy' in kwargs:
+            lf_tag_policy = kwargs['lfTagPolicy']
+        if table_with_columns is None and 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
         if catalog is not None:
             _setter("catalog", catalog)
         if data_cells_filter is not None:
@@ -1022,11 +1176,23 @@ class PrincipalPermissionsTableResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              table_wildcard: Optional[pulumi.Input['PrincipalPermissionsTableWildcardArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_wildcard is None and 'tableWildcard' in kwargs:
+            table_wildcard = kwargs['tableWildcard']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         if name is not None:
@@ -1078,8 +1244,10 @@ class PrincipalPermissionsTableWildcardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1101,12 +1269,28 @@ class PrincipalPermissionsTableWithColumnsResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             name: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              column_wildcard: Optional[pulumi.Input['PrincipalPermissionsColumnWildcardArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if column_wildcard is None and 'columnWildcard' in kwargs:
+            column_wildcard = kwargs['columnWildcard']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         _setter("name", name)
@@ -1168,8 +1352,10 @@ class TagAssociationCatalogResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1185,9 +1371,17 @@ class TagAssociationDatabaseResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("name", name)
 
@@ -1225,10 +1419,24 @@ class TagAssociationLfTagPairArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             tag_key: pulumi.Input[str],
-             tag_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             tag_key: Optional[pulumi.Input[str]] = None,
+             tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_key is None:
+            raise TypeError("Missing 'tag_key' argument")
+        if tag_values is None and 'tagValues' in kwargs:
+            tag_values = kwargs['tagValues']
+        if tag_values is None:
+            raise TypeError("Missing 'tag_values' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("tag_key", tag_key)
         _setter("tag_values", tag_values)
@@ -1282,7 +1490,11 @@ class TagAssociationResourceArgs:
              database: Optional[pulumi.Input['TagAssociationDatabaseResourceArgs']] = None,
              table: Optional[pulumi.Input['TagAssociationTableResourceArgs']] = None,
              table_with_columns: Optional[pulumi.Input['TagAssociationTableWithColumnsResourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if table_with_columns is None and 'tableWithColumns' in kwargs:
+            table_with_columns = kwargs['tableWithColumns']
+
         if catalog is not None:
             _setter("catalog", catalog)
         if database is not None:
@@ -1346,11 +1558,23 @@ class TagAssociationTableResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              table_wildcard: Optional[pulumi.Input['TagAssociationTableWildcardArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_wildcard is None and 'tableWildcard' in kwargs:
+            table_wildcard = kwargs['tableWildcard']
+
         _setter("catalog_id", catalog_id)
         _setter("database_name", database_name)
         if name is not None:
@@ -1402,8 +1626,10 @@ class TagAssociationTableWildcardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1423,11 +1649,27 @@ class TagAssociationTableWithColumnsResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             column_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             database_name: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if column_names is None:
+            raise TypeError("Missing 'column_names' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("column_names", column_names)
         _setter("database_name", database_name)

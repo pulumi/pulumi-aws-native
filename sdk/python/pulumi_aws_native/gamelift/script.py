@@ -33,11 +33,17 @@ class ScriptArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_location: pulumi.Input['ScriptS3LocationArgs'],
+             storage_location: Optional[pulumi.Input['ScriptS3LocationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_location is None and 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if storage_location is None:
+            raise TypeError("Missing 'storage_location' argument")
+
         _setter("storage_location", storage_location)
         if name is not None:
             _setter("name", name)
@@ -147,11 +153,7 @@ class Script(pulumi.CustomResource):
             __props__ = ScriptArgs.__new__(ScriptArgs)
 
             __props__.__dict__["name"] = name
-            if storage_location is not None and not isinstance(storage_location, ScriptS3LocationArgs):
-                storage_location = storage_location or {}
-                def _setter(key, value):
-                    storage_location[key] = value
-                ScriptS3LocationArgs._configure(_setter, **storage_location)
+            storage_location = _utilities.configure(storage_location, ScriptS3LocationArgs, True)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

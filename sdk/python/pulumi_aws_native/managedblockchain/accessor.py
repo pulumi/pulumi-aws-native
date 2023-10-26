@@ -31,9 +31,15 @@ class AccessorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             accessor_type: pulumi.Input['AccessorType'],
+             accessor_type: Optional[pulumi.Input['AccessorType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accessor_type is None and 'accessorType' in kwargs:
+            accessor_type = kwargs['accessorType']
+        if accessor_type is None:
+            raise TypeError("Missing 'accessor_type' argument")
+
         _setter("accessor_type", accessor_type)
         if tags is not None:
             _setter("tags", tags)

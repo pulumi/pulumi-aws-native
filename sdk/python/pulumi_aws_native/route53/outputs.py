@@ -65,9 +65,19 @@ class CidrCollectionLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr_list: Sequence[str],
-             location_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cidr_list: Optional[Sequence[str]] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr_list is None and 'cidrList' in kwargs:
+            cidr_list = kwargs['cidrList']
+        if cidr_list is None:
+            raise TypeError("Missing 'cidr_list' argument")
+        if location_name is None and 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+        if location_name is None:
+            raise TypeError("Missing 'location_name' argument")
+
         _setter("cidr_list", cidr_list)
         _setter("location_name", location_name)
 
@@ -109,9 +119,15 @@ class HealthCheckAlarmIdentifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+
         _setter("name", name)
         _setter("region", region)
 
@@ -222,7 +238,7 @@ class HealthCheckConfigProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: 'HealthCheckConfigPropertiesType',
+             type: Optional['HealthCheckConfigPropertiesType'] = None,
              alarm_identifier: Optional['outputs.HealthCheckAlarmIdentifier'] = None,
              child_health_checks: Optional[Sequence[str]] = None,
              enable_sni: Optional[bool] = None,
@@ -239,7 +255,37 @@ class HealthCheckConfigProperties(dict):
              resource_path: Optional[str] = None,
              routing_control_arn: Optional[str] = None,
              search_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if alarm_identifier is None and 'alarmIdentifier' in kwargs:
+            alarm_identifier = kwargs['alarmIdentifier']
+        if child_health_checks is None and 'childHealthChecks' in kwargs:
+            child_health_checks = kwargs['childHealthChecks']
+        if enable_sni is None and 'enableSni' in kwargs:
+            enable_sni = kwargs['enableSni']
+        if failure_threshold is None and 'failureThreshold' in kwargs:
+            failure_threshold = kwargs['failureThreshold']
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
+            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
+        if health_threshold is None and 'healthThreshold' in kwargs:
+            health_threshold = kwargs['healthThreshold']
+        if insufficient_data_health_status is None and 'insufficientDataHealthStatus' in kwargs:
+            insufficient_data_health_status = kwargs['insufficientDataHealthStatus']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if measure_latency is None and 'measureLatency' in kwargs:
+            measure_latency = kwargs['measureLatency']
+        if request_interval is None and 'requestInterval' in kwargs:
+            request_interval = kwargs['requestInterval']
+        if resource_path is None and 'resourcePath' in kwargs:
+            resource_path = kwargs['resourcePath']
+        if routing_control_arn is None and 'routingControlArn' in kwargs:
+            routing_control_arn = kwargs['routingControlArn']
+        if search_string is None and 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+
         _setter("type", type)
         if alarm_identifier is not None:
             _setter("alarm_identifier", alarm_identifier)
@@ -381,9 +427,15 @@ class HealthCheckTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -427,7 +479,9 @@ class HostedZoneConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              comment: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if comment is not None:
             _setter("comment", comment)
 
@@ -475,8 +529,14 @@ class HostedZoneQueryLoggingConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_logs_log_group_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_logs_log_group_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs_log_group_arn is None and 'cloudWatchLogsLogGroupArn' in kwargs:
+            cloud_watch_logs_log_group_arn = kwargs['cloudWatchLogsLogGroupArn']
+        if cloud_watch_logs_log_group_arn is None:
+            raise TypeError("Missing 'cloud_watch_logs_log_group_arn' argument")
+
         _setter("cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
 
     @property
@@ -509,9 +569,15 @@ class HostedZoneTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -572,9 +638,19 @@ class HostedZoneVpc(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             vpc_id: str,
-             vpc_region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             vpc_id: Optional[str] = None,
+             vpc_region: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if vpc_region is None and 'vpcRegion' in kwargs:
+            vpc_region = kwargs['vpcRegion']
+        if vpc_region is None:
+            raise TypeError("Missing 'vpc_region' argument")
+
         _setter("vpc_id", vpc_id)
         _setter("vpc_region", vpc_region)
 
@@ -631,10 +707,22 @@ class RecordSetAliasTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_name: str,
-             hosted_zone_id: str,
+             dns_name: Optional[str] = None,
+             hosted_zone_id: Optional[str] = None,
              evaluate_target_health: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_name is None:
+            raise TypeError("Missing 'dns_name' argument")
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_id is None:
+            raise TypeError("Missing 'hosted_zone_id' argument")
+        if evaluate_target_health is None and 'evaluateTargetHealth' in kwargs:
+            evaluate_target_health = kwargs['evaluateTargetHealth']
+
         _setter("dns_name", dns_name)
         _setter("hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
@@ -688,9 +776,19 @@ class RecordSetCidrRoutingConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             collection_id: str,
-             location_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             collection_id: Optional[str] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collection_id is None and 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if collection_id is None:
+            raise TypeError("Missing 'collection_id' argument")
+        if location_name is None and 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+        if location_name is None:
+            raise TypeError("Missing 'location_name' argument")
+
         _setter("collection_id", collection_id)
         _setter("location_name", location_name)
 
@@ -744,7 +842,15 @@ class RecordSetGeoLocation(dict):
              continent_code: Optional[str] = None,
              country_code: Optional[str] = None,
              subdivision_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if continent_code is None and 'continentCode' in kwargs:
+            continent_code = kwargs['continentCode']
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if subdivision_code is None and 'subdivisionCode' in kwargs:
+            subdivision_code = kwargs['subdivisionCode']
+
         if continent_code is not None:
             _setter("continent_code", continent_code)
         if country_code is not None:
@@ -804,10 +910,22 @@ class RecordSetGroupAliasTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_name: str,
-             hosted_zone_id: str,
+             dns_name: Optional[str] = None,
+             hosted_zone_id: Optional[str] = None,
              evaluate_target_health: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_name is None:
+            raise TypeError("Missing 'dns_name' argument")
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_id is None:
+            raise TypeError("Missing 'hosted_zone_id' argument")
+        if evaluate_target_health is None and 'evaluateTargetHealth' in kwargs:
+            evaluate_target_health = kwargs['evaluateTargetHealth']
+
         _setter("dns_name", dns_name)
         _setter("hosted_zone_id", hosted_zone_id)
         if evaluate_target_health is not None:
@@ -861,9 +979,19 @@ class RecordSetGroupCidrRoutingConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             collection_id: str,
-             location_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             collection_id: Optional[str] = None,
+             location_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collection_id is None and 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if collection_id is None:
+            raise TypeError("Missing 'collection_id' argument")
+        if location_name is None and 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+        if location_name is None:
+            raise TypeError("Missing 'location_name' argument")
+
         _setter("collection_id", collection_id)
         _setter("location_name", location_name)
 
@@ -917,7 +1045,15 @@ class RecordSetGroupGeoLocation(dict):
              continent_code: Optional[str] = None,
              country_code: Optional[str] = None,
              subdivision_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if continent_code is None and 'continentCode' in kwargs:
+            continent_code = kwargs['continentCode']
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if subdivision_code is None and 'subdivisionCode' in kwargs:
+            subdivision_code = kwargs['subdivisionCode']
+
         if continent_code is not None:
             _setter("continent_code", continent_code)
         if country_code is not None:
@@ -1013,8 +1149,8 @@ class RecordSetGroupRecordSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
+             name: Optional[str] = None,
+             type: Optional[str] = None,
              alias_target: Optional['outputs.RecordSetGroupAliasTarget'] = None,
              cidr_routing_config: Optional['outputs.RecordSetGroupCidrRoutingConfig'] = None,
              failover: Optional[str] = None,
@@ -1028,7 +1164,31 @@ class RecordSetGroupRecordSet(dict):
              set_identifier: Optional[str] = None,
              ttl: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if alias_target is None and 'aliasTarget' in kwargs:
+            alias_target = kwargs['aliasTarget']
+        if cidr_routing_config is None and 'cidrRoutingConfig' in kwargs:
+            cidr_routing_config = kwargs['cidrRoutingConfig']
+        if geo_location is None and 'geoLocation' in kwargs:
+            geo_location = kwargs['geoLocation']
+        if health_check_id is None and 'healthCheckId' in kwargs:
+            health_check_id = kwargs['healthCheckId']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_name is None and 'hostedZoneName' in kwargs:
+            hosted_zone_name = kwargs['hostedZoneName']
+        if multi_value_answer is None and 'multiValueAnswer' in kwargs:
+            multi_value_answer = kwargs['multiValueAnswer']
+        if resource_records is None and 'resourceRecords' in kwargs:
+            resource_records = kwargs['resourceRecords']
+        if set_identifier is None and 'setIdentifier' in kwargs:
+            set_identifier = kwargs['setIdentifier']
+
         _setter("name", name)
         _setter("type", type)
         if alias_target is not None:

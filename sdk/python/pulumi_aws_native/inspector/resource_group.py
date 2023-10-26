@@ -27,8 +27,14 @@ class ResourceGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_tags: pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_group_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_tags is None and 'resourceGroupTags' in kwargs:
+            resource_group_tags = kwargs['resourceGroupTags']
+        if resource_group_tags is None:
+            raise TypeError("Missing 'resource_group_tags' argument")
+
         _setter("resource_group_tags", resource_group_tags)
 
     @property

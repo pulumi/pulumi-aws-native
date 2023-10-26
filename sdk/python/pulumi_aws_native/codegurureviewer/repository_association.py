@@ -44,13 +44,21 @@ class RepositoryAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['RepositoryAssociationType'],
+             type: Optional[pulumi.Input['RepositoryAssociationType']] = None,
              bucket_name: Optional[pulumi.Input[str]] = None,
              connection_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         _setter("type", type)
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)

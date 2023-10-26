@@ -70,7 +70,11 @@ class AssociationInstanceAssociationOutputLocation(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_location: Optional['outputs.AssociationS3OutputLocation'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_location is None and 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+
         if s3_location is not None:
             _setter("s3_location", s3_location)
 
@@ -119,7 +123,15 @@ class AssociationS3OutputLocation(dict):
              output_s3_bucket_name: Optional[str] = None,
              output_s3_key_prefix: Optional[str] = None,
              output_s3_region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output_s3_bucket_name is None and 'outputS3BucketName' in kwargs:
+            output_s3_bucket_name = kwargs['outputS3BucketName']
+        if output_s3_key_prefix is None and 'outputS3KeyPrefix' in kwargs:
+            output_s3_key_prefix = kwargs['outputS3KeyPrefix']
+        if output_s3_region is None and 'outputS3Region' in kwargs:
+            output_s3_region = kwargs['outputS3Region']
+
         if output_s3_bucket_name is not None:
             _setter("output_s3_bucket_name", output_s3_bucket_name)
         if output_s3_key_prefix is not None:
@@ -156,9 +168,15 @@ class AssociationTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -196,7 +214,9 @@ class DocumentAttachmentsSource(dict):
              key: Optional['DocumentAttachmentsSourceKey'] = None,
              name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if name is not None:
@@ -248,7 +268,9 @@ class DocumentRequires(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if version is not None:
@@ -290,7 +312,9 @@ class DocumentTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -326,9 +350,15 @@ class MaintenanceWindowTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -356,9 +386,15 @@ class MaintenanceWindowTargetTargets(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -407,7 +443,13 @@ class MaintenanceWindowTaskCloudWatchOutputConfig(dict):
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_group_name: Optional[str] = None,
              cloud_watch_output_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_log_group_name is None and 'cloudWatchLogGroupName' in kwargs:
+            cloud_watch_log_group_name = kwargs['cloudWatchLogGroupName']
+        if cloud_watch_output_enabled is None and 'cloudWatchOutputEnabled' in kwargs:
+            cloud_watch_output_enabled = kwargs['cloudWatchOutputEnabled']
+
         if cloud_watch_log_group_name is not None:
             _setter("cloud_watch_log_group_name", cloud_watch_log_group_name)
         if cloud_watch_output_enabled is not None:
@@ -458,10 +500,20 @@ class MaintenanceWindowTaskLoggingInfo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             region: str,
-             s3_bucket: str,
+             region: Optional[str] = None,
+             s3_bucket: Optional[str] = None,
              s3_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_prefix is None and 's3Prefix' in kwargs:
+            s3_prefix = kwargs['s3Prefix']
+
         _setter("region", region)
         _setter("s3_bucket", s3_bucket)
         if s3_prefix is not None:
@@ -515,7 +567,11 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParameters(dict):
              _setter: Callable[[Any, Any], None],
              document_version: Optional[str] = None,
              parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+
         if document_version is not None:
             _setter("document_version", document_version)
         if parameters is not None:
@@ -567,7 +623,11 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParameters(dict):
              client_context: Optional[str] = None,
              payload: Optional[str] = None,
              qualifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_context is None and 'clientContext' in kwargs:
+            client_context = kwargs['clientContext']
+
         if client_context is not None:
             _setter("client_context", client_context)
         if payload is not None:
@@ -666,7 +726,27 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
              parameters: Optional[Any] = None,
              service_role_arn: Optional[str] = None,
              timeout_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_output_config is None and 'cloudWatchOutputConfig' in kwargs:
+            cloud_watch_output_config = kwargs['cloudWatchOutputConfig']
+        if document_hash is None and 'documentHash' in kwargs:
+            document_hash = kwargs['documentHash']
+        if document_hash_type is None and 'documentHashType' in kwargs:
+            document_hash_type = kwargs['documentHashType']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if notification_config is None and 'notificationConfig' in kwargs:
+            notification_config = kwargs['notificationConfig']
+        if output_s3_bucket_name is None and 'outputS3BucketName' in kwargs:
+            output_s3_bucket_name = kwargs['outputS3BucketName']
+        if output_s3_key_prefix is None and 'outputS3KeyPrefix' in kwargs:
+            output_s3_key_prefix = kwargs['outputS3KeyPrefix']
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if timeout_seconds is None and 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if cloud_watch_output_config is not None:
             _setter("cloud_watch_output_config", cloud_watch_output_config)
         if comment is not None:
@@ -761,7 +841,9 @@ class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters(dict):
              _setter: Callable[[Any, Any], None],
              input: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if input is not None:
             _setter("input", input)
         if name is not None:
@@ -814,10 +896,20 @@ class MaintenanceWindowTaskNotificationConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             notification_arn: str,
+             notification_arn: Optional[str] = None,
              notification_events: Optional[Sequence[str]] = None,
              notification_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notification_arn is None and 'notificationArn' in kwargs:
+            notification_arn = kwargs['notificationArn']
+        if notification_arn is None:
+            raise TypeError("Missing 'notification_arn' argument")
+        if notification_events is None and 'notificationEvents' in kwargs:
+            notification_events = kwargs['notificationEvents']
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+
         _setter("notification_arn", notification_arn)
         if notification_events is not None:
             _setter("notification_events", notification_events)
@@ -853,9 +945,15 @@ class MaintenanceWindowTaskTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -914,7 +1012,17 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
              maintenance_window_lambda_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters'] = None,
              maintenance_window_run_command_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters'] = None,
              maintenance_window_step_functions_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maintenance_window_automation_parameters is None and 'maintenanceWindowAutomationParameters' in kwargs:
+            maintenance_window_automation_parameters = kwargs['maintenanceWindowAutomationParameters']
+        if maintenance_window_lambda_parameters is None and 'maintenanceWindowLambdaParameters' in kwargs:
+            maintenance_window_lambda_parameters = kwargs['maintenanceWindowLambdaParameters']
+        if maintenance_window_run_command_parameters is None and 'maintenanceWindowRunCommandParameters' in kwargs:
+            maintenance_window_run_command_parameters = kwargs['maintenanceWindowRunCommandParameters']
+        if maintenance_window_step_functions_parameters is None and 'maintenanceWindowStepFunctionsParameters' in kwargs:
+            maintenance_window_step_functions_parameters = kwargs['maintenanceWindowStepFunctionsParameters']
+
         if maintenance_window_automation_parameters is not None:
             _setter("maintenance_window_automation_parameters", maintenance_window_automation_parameters)
         if maintenance_window_lambda_parameters is not None:
@@ -960,7 +1068,9 @@ class PatchBaselinePatchFilter(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if values is not None:
@@ -1006,7 +1116,11 @@ class PatchBaselinePatchFilterGroup(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if patch_filters is None and 'patchFilters' in kwargs:
+            patch_filters = kwargs['patchFilters']
+
         if patch_filters is not None:
             _setter("patch_filters", patch_filters)
 
@@ -1034,7 +1148,9 @@ class PatchBaselinePatchSource(dict):
              configuration: Optional[str] = None,
              name: Optional[str] = None,
              products: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configuration is not None:
             _setter("configuration", configuration)
         if name is not None:
@@ -1065,8 +1181,10 @@ class PatchBaselinePatchStringDate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1118,7 +1236,19 @@ class PatchBaselineRule(dict):
              compliance_level: Optional[str] = None,
              enable_non_security: Optional[bool] = None,
              patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if approve_after_days is None and 'approveAfterDays' in kwargs:
+            approve_after_days = kwargs['approveAfterDays']
+        if approve_until_date is None and 'approveUntilDate' in kwargs:
+            approve_until_date = kwargs['approveUntilDate']
+        if compliance_level is None and 'complianceLevel' in kwargs:
+            compliance_level = kwargs['complianceLevel']
+        if enable_non_security is None and 'enableNonSecurity' in kwargs:
+            enable_non_security = kwargs['enableNonSecurity']
+        if patch_filter_group is None and 'patchFilterGroup' in kwargs:
+            patch_filter_group = kwargs['patchFilterGroup']
+
         if approve_after_days is not None:
             _setter("approve_after_days", approve_after_days)
         if approve_until_date is not None:
@@ -1185,7 +1315,11 @@ class PatchBaselineRuleGroup(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if patch_rules is None and 'patchRules' in kwargs:
+            patch_rules = kwargs['patchRules']
+
         if patch_rules is not None:
             _setter("patch_rules", patch_rules)
 
@@ -1208,9 +1342,15 @@ class PatchBaselineTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1257,9 +1397,17 @@ class ResourceDataSyncAwsOrganizationsSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             organization_source_type: str,
+             organization_source_type: Optional[str] = None,
              organizational_units: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if organization_source_type is None and 'organizationSourceType' in kwargs:
+            organization_source_type = kwargs['organizationSourceType']
+        if organization_source_type is None:
+            raise TypeError("Missing 'organization_source_type' argument")
+        if organizational_units is None and 'organizationalUnits' in kwargs:
+            organizational_units = kwargs['organizationalUnits']
+
         _setter("organization_source_type", organization_source_type)
         if organizational_units is not None:
             _setter("organizational_units", organizational_units)
@@ -1319,12 +1467,30 @@ class ResourceDataSyncS3Destination(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             bucket_region: str,
-             sync_format: str,
+             bucket_name: Optional[str] = None,
+             bucket_region: Optional[str] = None,
+             sync_format: Optional[str] = None,
              bucket_prefix: Optional[str] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if bucket_region is None and 'bucketRegion' in kwargs:
+            bucket_region = kwargs['bucketRegion']
+        if bucket_region is None:
+            raise TypeError("Missing 'bucket_region' argument")
+        if sync_format is None and 'syncFormat' in kwargs:
+            sync_format = kwargs['syncFormat']
+        if sync_format is None:
+            raise TypeError("Missing 'sync_format' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("bucket_name", bucket_name)
         _setter("bucket_region", bucket_region)
         _setter("sync_format", sync_format)
@@ -1399,11 +1565,25 @@ class ResourceDataSyncSyncSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_regions: Sequence[str],
-             source_type: str,
+             source_regions: Optional[Sequence[str]] = None,
+             source_type: Optional[str] = None,
              aws_organizations_source: Optional['outputs.ResourceDataSyncAwsOrganizationsSource'] = None,
              include_future_regions: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_regions is None and 'sourceRegions' in kwargs:
+            source_regions = kwargs['sourceRegions']
+        if source_regions is None:
+            raise TypeError("Missing 'source_regions' argument")
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if source_type is None:
+            raise TypeError("Missing 'source_type' argument")
+        if aws_organizations_source is None and 'awsOrganizationsSource' in kwargs:
+            aws_organizations_source = kwargs['awsOrganizationsSource']
+        if include_future_regions is None and 'includeFutureRegions' in kwargs:
+            include_future_regions = kwargs['includeFutureRegions']
+
         _setter("source_regions", source_regions)
         _setter("source_type", source_type)
         if aws_organizations_source is not None:

@@ -56,17 +56,43 @@ class DbProxyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth: pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]],
-             engine_family: pulumi.Input['DbProxyEngineFamily'],
-             role_arn: pulumi.Input[str],
-             vpc_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             auth: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyAuthFormatArgs']]]] = None,
+             engine_family: Optional[pulumi.Input['DbProxyEngineFamily']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              db_proxy_name: Optional[pulumi.Input[str]] = None,
              debug_logging: Optional[pulumi.Input[bool]] = None,
              idle_client_timeout: Optional[pulumi.Input[int]] = None,
              require_tls: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbProxyTagFormatArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth is None:
+            raise TypeError("Missing 'auth' argument")
+        if engine_family is None and 'engineFamily' in kwargs:
+            engine_family = kwargs['engineFamily']
+        if engine_family is None:
+            raise TypeError("Missing 'engine_family' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if vpc_subnet_ids is None and 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+        if vpc_subnet_ids is None:
+            raise TypeError("Missing 'vpc_subnet_ids' argument")
+        if db_proxy_name is None and 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if debug_logging is None and 'debugLogging' in kwargs:
+            debug_logging = kwargs['debugLogging']
+        if idle_client_timeout is None and 'idleClientTimeout' in kwargs:
+            idle_client_timeout = kwargs['idleClientTimeout']
+        if require_tls is None and 'requireTls' in kwargs:
+            require_tls = kwargs['requireTls']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("auth", auth)
         _setter("engine_family", engine_family)
         _setter("role_arn", role_arn)

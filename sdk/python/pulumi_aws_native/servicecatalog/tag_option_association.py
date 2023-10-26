@@ -27,9 +27,19 @@ class TagOptionAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: pulumi.Input[str],
-             tag_option_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_id: Optional[pulumi.Input[str]] = None,
+             tag_option_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if tag_option_id is None and 'tagOptionId' in kwargs:
+            tag_option_id = kwargs['tagOptionId']
+        if tag_option_id is None:
+            raise TypeError("Missing 'tag_option_id' argument")
+
         _setter("resource_id", resource_id)
         _setter("tag_option_id", tag_option_id)
 

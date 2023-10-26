@@ -39,12 +39,20 @@ class ModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rest_api_id: pulumi.Input[str],
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schema: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("rest_api_id", rest_api_id)
         if content_type is not None:
             _setter("content_type", content_type)

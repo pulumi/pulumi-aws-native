@@ -123,7 +123,7 @@ class ReplicationGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             replication_group_description: pulumi.Input[str],
+             replication_group_description: Optional[pulumi.Input[str]] = None,
              at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              auth_token: Optional[pulumi.Input[str]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -172,7 +172,103 @@ class ReplicationGroupArgs:
              transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              transit_encryption_mode: Optional[pulumi.Input[str]] = None,
              user_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_group_description is None and 'replicationGroupDescription' in kwargs:
+            replication_group_description = kwargs['replicationGroupDescription']
+        if replication_group_description is None:
+            raise TypeError("Missing 'replication_group_description' argument")
+        if at_rest_encryption_enabled is None and 'atRestEncryptionEnabled' in kwargs:
+            at_rest_encryption_enabled = kwargs['atRestEncryptionEnabled']
+        if auth_token is None and 'authToken' in kwargs:
+            auth_token = kwargs['authToken']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if automatic_failover_enabled is None and 'automaticFailoverEnabled' in kwargs:
+            automatic_failover_enabled = kwargs['automaticFailoverEnabled']
+        if cache_node_type is None and 'cacheNodeType' in kwargs:
+            cache_node_type = kwargs['cacheNodeType']
+        if cache_parameter_group_name is None and 'cacheParameterGroupName' in kwargs:
+            cache_parameter_group_name = kwargs['cacheParameterGroupName']
+        if cache_security_group_names is None and 'cacheSecurityGroupNames' in kwargs:
+            cache_security_group_names = kwargs['cacheSecurityGroupNames']
+        if cache_subnet_group_name is None and 'cacheSubnetGroupName' in kwargs:
+            cache_subnet_group_name = kwargs['cacheSubnetGroupName']
+        if cluster_mode is None and 'clusterMode' in kwargs:
+            cluster_mode = kwargs['clusterMode']
+        if configuration_end_point_address is None and 'configurationEndPointAddress' in kwargs:
+            configuration_end_point_address = kwargs['configurationEndPointAddress']
+        if configuration_end_point_port is None and 'configurationEndPointPort' in kwargs:
+            configuration_end_point_port = kwargs['configurationEndPointPort']
+        if data_tiering_enabled is None and 'dataTieringEnabled' in kwargs:
+            data_tiering_enabled = kwargs['dataTieringEnabled']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if global_replication_group_id is None and 'globalReplicationGroupId' in kwargs:
+            global_replication_group_id = kwargs['globalReplicationGroupId']
+        if ip_discovery is None and 'ipDiscovery' in kwargs:
+            ip_discovery = kwargs['ipDiscovery']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if log_delivery_configurations is None and 'logDeliveryConfigurations' in kwargs:
+            log_delivery_configurations = kwargs['logDeliveryConfigurations']
+        if multi_az_enabled is None and 'multiAzEnabled' in kwargs:
+            multi_az_enabled = kwargs['multiAzEnabled']
+        if network_type is None and 'networkType' in kwargs:
+            network_type = kwargs['networkType']
+        if node_group_configuration is None and 'nodeGroupConfiguration' in kwargs:
+            node_group_configuration = kwargs['nodeGroupConfiguration']
+        if notification_topic_arn is None and 'notificationTopicArn' in kwargs:
+            notification_topic_arn = kwargs['notificationTopicArn']
+        if num_cache_clusters is None and 'numCacheClusters' in kwargs:
+            num_cache_clusters = kwargs['numCacheClusters']
+        if num_node_groups is None and 'numNodeGroups' in kwargs:
+            num_node_groups = kwargs['numNodeGroups']
+        if preferred_cache_cluster_azs is None and 'preferredCacheClusterAzs' in kwargs:
+            preferred_cache_cluster_azs = kwargs['preferredCacheClusterAzs']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if primary_cluster_id is None and 'primaryClusterId' in kwargs:
+            primary_cluster_id = kwargs['primaryClusterId']
+        if primary_end_point_address is None and 'primaryEndPointAddress' in kwargs:
+            primary_end_point_address = kwargs['primaryEndPointAddress']
+        if primary_end_point_port is None and 'primaryEndPointPort' in kwargs:
+            primary_end_point_port = kwargs['primaryEndPointPort']
+        if read_end_point_addresses is None and 'readEndPointAddresses' in kwargs:
+            read_end_point_addresses = kwargs['readEndPointAddresses']
+        if read_end_point_addresses_list is None and 'readEndPointAddressesList' in kwargs:
+            read_end_point_addresses_list = kwargs['readEndPointAddressesList']
+        if read_end_point_ports is None and 'readEndPointPorts' in kwargs:
+            read_end_point_ports = kwargs['readEndPointPorts']
+        if read_end_point_ports_list is None and 'readEndPointPortsList' in kwargs:
+            read_end_point_ports_list = kwargs['readEndPointPortsList']
+        if reader_end_point_address is None and 'readerEndPointAddress' in kwargs:
+            reader_end_point_address = kwargs['readerEndPointAddress']
+        if reader_end_point_port is None and 'readerEndPointPort' in kwargs:
+            reader_end_point_port = kwargs['readerEndPointPort']
+        if replicas_per_node_group is None and 'replicasPerNodeGroup' in kwargs:
+            replicas_per_node_group = kwargs['replicasPerNodeGroup']
+        if replication_group_id is None and 'replicationGroupId' in kwargs:
+            replication_group_id = kwargs['replicationGroupId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if snapshotting_cluster_id is None and 'snapshottingClusterId' in kwargs:
+            snapshotting_cluster_id = kwargs['snapshottingClusterId']
+        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+        if transit_encryption_mode is None and 'transitEncryptionMode' in kwargs:
+            transit_encryption_mode = kwargs['transitEncryptionMode']
+        if user_group_ids is None and 'userGroupIds' in kwargs:
+            user_group_ids = kwargs['userGroupIds']
+
         _setter("replication_group_description", replication_group_description)
         if at_rest_encryption_enabled is not None:
             _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)

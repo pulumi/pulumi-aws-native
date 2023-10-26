@@ -51,10 +51,10 @@ class CapacityReservationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
-             instance_count: pulumi.Input[int],
-             instance_platform: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_platform: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
              ebs_optimized: Optional[pulumi.Input[bool]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              end_date_type: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,41 @@ class CapacityReservationArgs:
              placement_group_arn: Optional[pulumi.Input[str]] = None,
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
              tenancy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_platform is None and 'instancePlatform' in kwargs:
+            instance_platform = kwargs['instancePlatform']
+        if instance_platform is None:
+            raise TypeError("Missing 'instance_platform' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if end_date_type is None and 'endDateType' in kwargs:
+            end_date_type = kwargs['endDateType']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if instance_match_criteria is None and 'instanceMatchCriteria' in kwargs:
+            instance_match_criteria = kwargs['instanceMatchCriteria']
+        if out_post_arn is None and 'outPostArn' in kwargs:
+            out_post_arn = kwargs['outPostArn']
+        if placement_group_arn is None and 'placementGroupArn' in kwargs:
+            placement_group_arn = kwargs['placementGroupArn']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+
         _setter("availability_zone", availability_zone)
         _setter("instance_count", instance_count)
         _setter("instance_platform", instance_platform)

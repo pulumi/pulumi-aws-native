@@ -61,7 +61,29 @@ class TransitGatewayArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayTagArgs']]]] = None,
              transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amazon_side_asn is None and 'amazonSideAsn' in kwargs:
+            amazon_side_asn = kwargs['amazonSideAsn']
+        if association_default_route_table_id is None and 'associationDefaultRouteTableId' in kwargs:
+            association_default_route_table_id = kwargs['associationDefaultRouteTableId']
+        if auto_accept_shared_attachments is None and 'autoAcceptSharedAttachments' in kwargs:
+            auto_accept_shared_attachments = kwargs['autoAcceptSharedAttachments']
+        if default_route_table_association is None and 'defaultRouteTableAssociation' in kwargs:
+            default_route_table_association = kwargs['defaultRouteTableAssociation']
+        if default_route_table_propagation is None and 'defaultRouteTablePropagation' in kwargs:
+            default_route_table_propagation = kwargs['defaultRouteTablePropagation']
+        if dns_support is None and 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if multicast_support is None and 'multicastSupport' in kwargs:
+            multicast_support = kwargs['multicastSupport']
+        if propagation_default_route_table_id is None and 'propagationDefaultRouteTableId' in kwargs:
+            propagation_default_route_table_id = kwargs['propagationDefaultRouteTableId']
+        if transit_gateway_cidr_blocks is None and 'transitGatewayCidrBlocks' in kwargs:
+            transit_gateway_cidr_blocks = kwargs['transitGatewayCidrBlocks']
+        if vpn_ecmp_support is None and 'vpnEcmpSupport' in kwargs:
+            vpn_ecmp_support = kwargs['vpnEcmpSupport']
+
         if amazon_side_asn is not None:
             _setter("amazon_side_asn", amazon_side_asn)
         if association_default_route_table_id is not None:

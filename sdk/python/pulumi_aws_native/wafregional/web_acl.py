@@ -33,11 +33,21 @@ class WebAclArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input['WebAclActionArgs'],
-             metric_name: pulumi.Input[str],
+             default_action: Optional[pulumi.Input['WebAclActionArgs']] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if default_action is None:
+            raise TypeError("Missing 'default_action' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+
         _setter("default_action", default_action)
         _setter("metric_name", metric_name)
         if name is not None:
@@ -145,11 +155,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
-            if default_action is not None and not isinstance(default_action, WebAclActionArgs):
-                default_action = default_action or {}
-                def _setter(key, value):
-                    default_action[key] = value
-                WebAclActionArgs._configure(_setter, **default_action)
+            default_action = _utilities.configure(default_action, WebAclActionArgs, True)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action

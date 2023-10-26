@@ -98,7 +98,27 @@ class AppAutoBranchCreationConfig(dict):
              framework: Optional[str] = None,
              pull_request_environment_name: Optional[str] = None,
              stage: Optional['AppAutoBranchCreationConfigStage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_branch_creation_patterns is None and 'autoBranchCreationPatterns' in kwargs:
+            auto_branch_creation_patterns = kwargs['autoBranchCreationPatterns']
+        if basic_auth_config is None and 'basicAuthConfig' in kwargs:
+            basic_auth_config = kwargs['basicAuthConfig']
+        if build_spec is None and 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if enable_auto_branch_creation is None and 'enableAutoBranchCreation' in kwargs:
+            enable_auto_branch_creation = kwargs['enableAutoBranchCreation']
+        if enable_auto_build is None and 'enableAutoBuild' in kwargs:
+            enable_auto_build = kwargs['enableAutoBuild']
+        if enable_performance_mode is None and 'enablePerformanceMode' in kwargs:
+            enable_performance_mode = kwargs['enablePerformanceMode']
+        if enable_pull_request_preview is None and 'enablePullRequestPreview' in kwargs:
+            enable_pull_request_preview = kwargs['enablePullRequestPreview']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if pull_request_environment_name is None and 'pullRequestEnvironmentName' in kwargs:
+            pull_request_environment_name = kwargs['pullRequestEnvironmentName']
+
         if auto_branch_creation_patterns is not None:
             _setter("auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_config is not None:
@@ -213,7 +233,11 @@ class AppBasicAuthConfig(dict):
              enable_basic_auth: Optional[bool] = None,
              password: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_basic_auth is None and 'enableBasicAuth' in kwargs:
+            enable_basic_auth = kwargs['enableBasicAuth']
+
         if enable_basic_auth is not None:
             _setter("enable_basic_auth", enable_basic_auth)
         if password is not None:
@@ -254,11 +278,17 @@ class AppCustomRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: str,
-             target: str,
+             source: Optional[str] = None,
+             target: Optional[str] = None,
              condition: Optional[str] = None,
              status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+
         _setter("source", source)
         _setter("target", target)
         if condition is not None:
@@ -300,9 +330,15 @@ class AppEnvironmentVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -330,9 +366,15 @@ class AppTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -379,10 +421,18 @@ class BranchBasicAuthConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
+             password: Optional[str] = None,
+             username: Optional[str] = None,
              enable_basic_auth: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if enable_basic_auth is None and 'enableBasicAuth' in kwargs:
+            enable_basic_auth = kwargs['enableBasicAuth']
+
         _setter("password", password)
         _setter("username", username)
         if enable_basic_auth is not None:
@@ -417,9 +467,15 @@ class BranchEnvironmentVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -447,9 +503,15 @@ class BranchTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -494,9 +556,17 @@ class DomainSubDomainSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             branch_name: str,
-             prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             branch_name: Optional[str] = None,
+             prefix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if prefix is None:
+            raise TypeError("Missing 'prefix' argument")
+
         _setter("branch_name", branch_name)
         _setter("prefix", prefix)
 

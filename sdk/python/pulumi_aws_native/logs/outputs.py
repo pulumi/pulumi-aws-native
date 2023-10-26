@@ -38,9 +38,15 @@ class LogGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -82,9 +88,15 @@ class MetricFilterDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -157,13 +169,29 @@ class MetricFilterMetricTransformation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: str,
-             metric_namespace: str,
-             metric_value: str,
+             metric_name: Optional[str] = None,
+             metric_namespace: Optional[str] = None,
+             metric_value: Optional[str] = None,
              default_value: Optional[float] = None,
              dimensions: Optional[Sequence['outputs.MetricFilterDimension']] = None,
              unit: Optional['MetricFilterMetricTransformationUnit'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_namespace is None and 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if metric_namespace is None:
+            raise TypeError("Missing 'metric_namespace' argument")
+        if metric_value is None and 'metricValue' in kwargs:
+            metric_value = kwargs['metricValue']
+        if metric_value is None:
+            raise TypeError("Missing 'metric_value' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("metric_name", metric_name)
         _setter("metric_namespace", metric_namespace)
         _setter("metric_value", metric_value)

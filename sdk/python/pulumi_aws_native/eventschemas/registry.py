@@ -34,7 +34,11 @@ class RegistryArgs:
              description: Optional[pulumi.Input[str]] = None,
              registry_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+
         if description is not None:
             _setter("description", description)
         if registry_name is not None:

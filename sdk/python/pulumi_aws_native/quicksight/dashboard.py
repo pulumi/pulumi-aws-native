@@ -50,8 +50,8 @@ class DashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_account_id: pulumi.Input[str],
-             dashboard_id: pulumi.Input[str],
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             dashboard_id: Optional[pulumi.Input[str]] = None,
              dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
              definition: Optional[pulumi.Input['DashboardVersionDefinitionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -62,7 +62,27 @@ class DashboardArgs:
              theme_arn: Optional[pulumi.Input[str]] = None,
              validation_strategy: Optional[pulumi.Input['DashboardValidationStrategyArgs']] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_account_id is None:
+            raise TypeError("Missing 'aws_account_id' argument")
+        if dashboard_id is None and 'dashboardId' in kwargs:
+            dashboard_id = kwargs['dashboardId']
+        if dashboard_id is None:
+            raise TypeError("Missing 'dashboard_id' argument")
+        if dashboard_publish_options is None and 'dashboardPublishOptions' in kwargs:
+            dashboard_publish_options = kwargs['dashboardPublishOptions']
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if theme_arn is None and 'themeArn' in kwargs:
+            theme_arn = kwargs['themeArn']
+        if validation_strategy is None and 'validationStrategy' in kwargs:
+            validation_strategy = kwargs['validationStrategy']
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("aws_account_id", aws_account_id)
         _setter("dashboard_id", dashboard_id)
         if dashboard_publish_options is not None:
@@ -274,39 +294,19 @@ class Dashboard(pulumi.CustomResource):
             if dashboard_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dashboard_id'")
             __props__.__dict__["dashboard_id"] = dashboard_id
-            if dashboard_publish_options is not None and not isinstance(dashboard_publish_options, DashboardPublishOptionsArgs):
-                dashboard_publish_options = dashboard_publish_options or {}
-                def _setter(key, value):
-                    dashboard_publish_options[key] = value
-                DashboardPublishOptionsArgs._configure(_setter, **dashboard_publish_options)
+            dashboard_publish_options = _utilities.configure(dashboard_publish_options, DashboardPublishOptionsArgs, True)
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
-            if definition is not None and not isinstance(definition, DashboardVersionDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                DashboardVersionDefinitionArgs._configure(_setter, **definition)
+            definition = _utilities.configure(definition, DashboardVersionDefinitionArgs, True)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
-            if parameters is not None and not isinstance(parameters, DashboardParametersArgs):
-                parameters = parameters or {}
-                def _setter(key, value):
-                    parameters[key] = value
-                DashboardParametersArgs._configure(_setter, **parameters)
+            parameters = _utilities.configure(parameters, DashboardParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
-            if source_entity is not None and not isinstance(source_entity, DashboardSourceEntityArgs):
-                source_entity = source_entity or {}
-                def _setter(key, value):
-                    source_entity[key] = value
-                DashboardSourceEntityArgs._configure(_setter, **source_entity)
+            source_entity = _utilities.configure(source_entity, DashboardSourceEntityArgs, True)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
-            if validation_strategy is not None and not isinstance(validation_strategy, DashboardValidationStrategyArgs):
-                validation_strategy = validation_strategy or {}
-                def _setter(key, value):
-                    validation_strategy[key] = value
-                DashboardValidationStrategyArgs._configure(_setter, **validation_strategy)
+            validation_strategy = _utilities.configure(validation_strategy, DashboardValidationStrategyArgs, True)
             __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["version_description"] = version_description
             __props__.__dict__["arn"] = None

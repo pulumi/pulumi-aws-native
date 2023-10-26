@@ -61,9 +61,9 @@ class CampaignArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             schedule: pulumi.Input['CampaignScheduleArgs'],
-             segment_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             schedule: Optional[pulumi.Input['CampaignScheduleArgs']] = None,
+             segment_id: Optional[pulumi.Input[str]] = None,
              additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignWriteTreatmentResourceArgs']]]] = None,
              campaign_hook: Optional[pulumi.Input['CampaignHookArgs']] = None,
              custom_delivery_configuration: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']] = None,
@@ -79,7 +79,39 @@ class CampaignArgs:
              template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
              treatment_description: Optional[pulumi.Input[str]] = None,
              treatment_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if segment_id is None and 'segmentId' in kwargs:
+            segment_id = kwargs['segmentId']
+        if segment_id is None:
+            raise TypeError("Missing 'segment_id' argument")
+        if additional_treatments is None and 'additionalTreatments' in kwargs:
+            additional_treatments = kwargs['additionalTreatments']
+        if campaign_hook is None and 'campaignHook' in kwargs:
+            campaign_hook = kwargs['campaignHook']
+        if custom_delivery_configuration is None and 'customDeliveryConfiguration' in kwargs:
+            custom_delivery_configuration = kwargs['customDeliveryConfiguration']
+        if holdout_percent is None and 'holdoutPercent' in kwargs:
+            holdout_percent = kwargs['holdoutPercent']
+        if is_paused is None and 'isPaused' in kwargs:
+            is_paused = kwargs['isPaused']
+        if message_configuration is None and 'messageConfiguration' in kwargs:
+            message_configuration = kwargs['messageConfiguration']
+        if segment_version is None and 'segmentVersion' in kwargs:
+            segment_version = kwargs['segmentVersion']
+        if template_configuration is None and 'templateConfiguration' in kwargs:
+            template_configuration = kwargs['templateConfiguration']
+        if treatment_description is None and 'treatmentDescription' in kwargs:
+            treatment_description = kwargs['treatmentDescription']
+        if treatment_name is None and 'treatmentName' in kwargs:
+            treatment_name = kwargs['treatmentName']
+
         _setter("application_id", application_id)
         _setter("schedule", schedule)
         _setter("segment_id", segment_id)
@@ -372,40 +404,20 @@ class Campaign(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
-            if campaign_hook is not None and not isinstance(campaign_hook, CampaignHookArgs):
-                campaign_hook = campaign_hook or {}
-                def _setter(key, value):
-                    campaign_hook[key] = value
-                CampaignHookArgs._configure(_setter, **campaign_hook)
+            campaign_hook = _utilities.configure(campaign_hook, CampaignHookArgs, True)
             __props__.__dict__["campaign_hook"] = campaign_hook
-            if custom_delivery_configuration is not None and not isinstance(custom_delivery_configuration, CampaignCustomDeliveryConfigurationArgs):
-                custom_delivery_configuration = custom_delivery_configuration or {}
-                def _setter(key, value):
-                    custom_delivery_configuration[key] = value
-                CampaignCustomDeliveryConfigurationArgs._configure(_setter, **custom_delivery_configuration)
+            custom_delivery_configuration = _utilities.configure(custom_delivery_configuration, CampaignCustomDeliveryConfigurationArgs, True)
             __props__.__dict__["custom_delivery_configuration"] = custom_delivery_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["holdout_percent"] = holdout_percent
             __props__.__dict__["is_paused"] = is_paused
-            if limits is not None and not isinstance(limits, CampaignLimitsArgs):
-                limits = limits or {}
-                def _setter(key, value):
-                    limits[key] = value
-                CampaignLimitsArgs._configure(_setter, **limits)
+            limits = _utilities.configure(limits, CampaignLimitsArgs, True)
             __props__.__dict__["limits"] = limits
-            if message_configuration is not None and not isinstance(message_configuration, CampaignMessageConfigurationArgs):
-                message_configuration = message_configuration or {}
-                def _setter(key, value):
-                    message_configuration[key] = value
-                CampaignMessageConfigurationArgs._configure(_setter, **message_configuration)
+            message_configuration = _utilities.configure(message_configuration, CampaignMessageConfigurationArgs, True)
             __props__.__dict__["message_configuration"] = message_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
-            if schedule is not None and not isinstance(schedule, CampaignScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                CampaignScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, CampaignScheduleArgs, True)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -414,11 +426,7 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["segment_id"] = segment_id
             __props__.__dict__["segment_version"] = segment_version
             __props__.__dict__["tags"] = tags
-            if template_configuration is not None and not isinstance(template_configuration, CampaignTemplateConfigurationArgs):
-                template_configuration = template_configuration or {}
-                def _setter(key, value):
-                    template_configuration[key] = value
-                CampaignTemplateConfigurationArgs._configure(_setter, **template_configuration)
+            template_configuration = _utilities.configure(template_configuration, CampaignTemplateConfigurationArgs, True)
             __props__.__dict__["template_configuration"] = template_configuration
             __props__.__dict__["treatment_description"] = treatment_description
             __props__.__dict__["treatment_name"] = treatment_name

@@ -47,7 +47,19 @@ class ClusterArgs:
              default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderStrategyItemArgs']]]] = None,
              service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_providers is None and 'capacityProviders' in kwargs:
+            capacity_providers = kwargs['capacityProviders']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_settings is None and 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if default_capacity_provider_strategy is None and 'defaultCapacityProviderStrategy' in kwargs:
+            default_capacity_provider_strategy = kwargs['defaultCapacityProviderStrategy']
+        if service_connect_defaults is None and 'serviceConnectDefaults' in kwargs:
+            service_connect_defaults = kwargs['serviceConnectDefaults']
+
         if capacity_providers is not None:
             _setter("capacity_providers", capacity_providers)
         if cluster_name is not None:
@@ -197,18 +209,10 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["capacity_providers"] = capacity_providers
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_settings"] = cluster_settings
-            if configuration is not None and not isinstance(configuration, ClusterConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                ClusterConfigurationArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, ClusterConfigurationArgs, True)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["default_capacity_provider_strategy"] = default_capacity_provider_strategy
-            if service_connect_defaults is not None and not isinstance(service_connect_defaults, ClusterServiceConnectDefaultsArgs):
-                service_connect_defaults = service_connect_defaults or {}
-                def _setter(key, value):
-                    service_connect_defaults[key] = value
-                ClusterServiceConnectDefaultsArgs._configure(_setter, **service_connect_defaults)
+            service_connect_defaults = _utilities.configure(service_connect_defaults, ClusterServiceConnectDefaultsArgs, True)
             __props__.__dict__["service_connect_defaults"] = service_connect_defaults
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

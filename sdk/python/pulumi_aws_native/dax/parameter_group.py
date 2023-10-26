@@ -32,7 +32,13 @@ class ParameterGroupArgs:
              description: Optional[pulumi.Input[str]] = None,
              parameter_group_name: Optional[pulumi.Input[str]] = None,
              parameter_name_values: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if parameter_name_values is None and 'parameterNameValues' in kwargs:
+            parameter_name_values = kwargs['parameterNameValues']
+
         if description is not None:
             _setter("description", description)
         if parameter_group_name is not None:

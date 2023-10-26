@@ -55,9 +55,9 @@ class FuotaTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firmware_update_image: pulumi.Input[str],
-             firmware_update_role: pulumi.Input[str],
-             lo_ra_wan: pulumi.Input['FuotaTaskLoRaWanArgs'],
+             firmware_update_image: Optional[pulumi.Input[str]] = None,
+             firmware_update_role: Optional[pulumi.Input[str]] = None,
+             lo_ra_wan: Optional[pulumi.Input['FuotaTaskLoRaWanArgs']] = None,
              associate_multicast_group: Optional[pulumi.Input[str]] = None,
              associate_wireless_device: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -65,7 +65,29 @@ class FuotaTaskArgs:
              disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firmware_update_image is None and 'firmwareUpdateImage' in kwargs:
+            firmware_update_image = kwargs['firmwareUpdateImage']
+        if firmware_update_image is None:
+            raise TypeError("Missing 'firmware_update_image' argument")
+        if firmware_update_role is None and 'firmwareUpdateRole' in kwargs:
+            firmware_update_role = kwargs['firmwareUpdateRole']
+        if firmware_update_role is None:
+            raise TypeError("Missing 'firmware_update_role' argument")
+        if lo_ra_wan is None and 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if lo_ra_wan is None:
+            raise TypeError("Missing 'lo_ra_wan' argument")
+        if associate_multicast_group is None and 'associateMulticastGroup' in kwargs:
+            associate_multicast_group = kwargs['associateMulticastGroup']
+        if associate_wireless_device is None and 'associateWirelessDevice' in kwargs:
+            associate_wireless_device = kwargs['associateWirelessDevice']
+        if disassociate_multicast_group is None and 'disassociateMulticastGroup' in kwargs:
+            disassociate_multicast_group = kwargs['disassociateMulticastGroup']
+        if disassociate_wireless_device is None and 'disassociateWirelessDevice' in kwargs:
+            disassociate_wireless_device = kwargs['disassociateWirelessDevice']
+
         _setter("firmware_update_image", firmware_update_image)
         _setter("firmware_update_role", firmware_update_role)
         _setter("lo_ra_wan", lo_ra_wan)
@@ -295,11 +317,7 @@ class FuotaTask(pulumi.CustomResource):
             if firmware_update_role is None and not opts.urn:
                 raise TypeError("Missing required property 'firmware_update_role'")
             __props__.__dict__["firmware_update_role"] = firmware_update_role
-            if lo_ra_wan is not None and not isinstance(lo_ra_wan, FuotaTaskLoRaWanArgs):
-                lo_ra_wan = lo_ra_wan or {}
-                def _setter(key, value):
-                    lo_ra_wan[key] = value
-                FuotaTaskLoRaWanArgs._configure(_setter, **lo_ra_wan)
+            lo_ra_wan = _utilities.configure(lo_ra_wan, FuotaTaskLoRaWanArgs, True)
             if lo_ra_wan is None and not opts.urn:
                 raise TypeError("Missing required property 'lo_ra_wan'")
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan

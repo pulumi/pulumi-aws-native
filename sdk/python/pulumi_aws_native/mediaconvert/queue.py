@@ -38,7 +38,11 @@ class QueueArgs:
              pricing_plan: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pricing_plan is None and 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         if description is not None:
             _setter("description", description)
         if name is not None:

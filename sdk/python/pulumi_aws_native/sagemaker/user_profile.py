@@ -44,13 +44,27 @@ class UserProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_id: pulumi.Input[str],
+             domain_id: Optional[pulumi.Input[str]] = None,
              single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
              single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileTagArgs']]]] = None,
              user_profile_name: Optional[pulumi.Input[str]] = None,
              user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_id is None:
+            raise TypeError("Missing 'domain_id' argument")
+        if single_sign_on_user_identifier is None and 'singleSignOnUserIdentifier' in kwargs:
+            single_sign_on_user_identifier = kwargs['singleSignOnUserIdentifier']
+        if single_sign_on_user_value is None and 'singleSignOnUserValue' in kwargs:
+            single_sign_on_user_value = kwargs['singleSignOnUserValue']
+        if user_profile_name is None and 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+        if user_settings is None and 'userSettings' in kwargs:
+            user_settings = kwargs['userSettings']
+
         _setter("domain_id", domain_id)
         if single_sign_on_user_identifier is not None:
             _setter("single_sign_on_user_identifier", single_sign_on_user_identifier)
@@ -210,11 +224,7 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["single_sign_on_user_value"] = single_sign_on_user_value
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_profile_name"] = user_profile_name
-            if user_settings is not None and not isinstance(user_settings, UserProfileUserSettingsArgs):
-                user_settings = user_settings or {}
-                def _setter(key, value):
-                    user_settings[key] = value
-                UserProfileUserSettingsArgs._configure(_setter, **user_settings)
+            user_settings = _utilities.configure(user_settings, UserProfileUserSettingsArgs, True)
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["user_profile_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_id", "single_sign_on_user_identifier", "single_sign_on_user_value", "tags[*]", "user_profile_name", "user_settings.r_studio_server_pro_app_settings.access_status", "user_settings.r_studio_server_pro_app_settings.user_group"])

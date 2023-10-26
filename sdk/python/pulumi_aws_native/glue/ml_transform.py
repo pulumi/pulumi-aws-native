@@ -51,9 +51,9 @@ class MlTransformArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_record_tables: pulumi.Input['MlTransformInputRecordTablesArgs'],
-             role: pulumi.Input[str],
-             transform_parameters: pulumi.Input['MlTransformTransformParametersArgs'],
+             input_record_tables: Optional[pulumi.Input['MlTransformInputRecordTablesArgs']] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             transform_parameters: Optional[pulumi.Input['MlTransformTransformParametersArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              glue_version: Optional[pulumi.Input[str]] = None,
              max_capacity: Optional[pulumi.Input[float]] = None,
@@ -64,7 +64,31 @@ class MlTransformArgs:
              timeout: Optional[pulumi.Input[int]] = None,
              transform_encryption: Optional[pulumi.Input['MlTransformTransformEncryptionArgs']] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_record_tables is None and 'inputRecordTables' in kwargs:
+            input_record_tables = kwargs['inputRecordTables']
+        if input_record_tables is None:
+            raise TypeError("Missing 'input_record_tables' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if transform_parameters is None and 'transformParameters' in kwargs:
+            transform_parameters = kwargs['transformParameters']
+        if transform_parameters is None:
+            raise TypeError("Missing 'transform_parameters' argument")
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if transform_encryption is None and 'transformEncryption' in kwargs:
+            transform_encryption = kwargs['transformEncryption']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         _setter("input_record_tables", input_record_tables)
         _setter("role", role)
         _setter("transform_parameters", transform_parameters)
@@ -290,11 +314,7 @@ class MlTransform(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["glue_version"] = glue_version
-            if input_record_tables is not None and not isinstance(input_record_tables, MlTransformInputRecordTablesArgs):
-                input_record_tables = input_record_tables or {}
-                def _setter(key, value):
-                    input_record_tables[key] = value
-                MlTransformInputRecordTablesArgs._configure(_setter, **input_record_tables)
+            input_record_tables = _utilities.configure(input_record_tables, MlTransformInputRecordTablesArgs, True)
             if input_record_tables is None and not opts.urn:
                 raise TypeError("Missing required property 'input_record_tables'")
             __props__.__dict__["input_record_tables"] = input_record_tables
@@ -307,17 +327,9 @@ class MlTransform(pulumi.CustomResource):
             __props__.__dict__["role"] = role
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout"] = timeout
-            if transform_encryption is not None and not isinstance(transform_encryption, MlTransformTransformEncryptionArgs):
-                transform_encryption = transform_encryption or {}
-                def _setter(key, value):
-                    transform_encryption[key] = value
-                MlTransformTransformEncryptionArgs._configure(_setter, **transform_encryption)
+            transform_encryption = _utilities.configure(transform_encryption, MlTransformTransformEncryptionArgs, True)
             __props__.__dict__["transform_encryption"] = transform_encryption
-            if transform_parameters is not None and not isinstance(transform_parameters, MlTransformTransformParametersArgs):
-                transform_parameters = transform_parameters or {}
-                def _setter(key, value):
-                    transform_parameters[key] = value
-                MlTransformTransformParametersArgs._configure(_setter, **transform_parameters)
+            transform_parameters = _utilities.configure(transform_parameters, MlTransformTransformParametersArgs, True)
             if transform_parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'transform_parameters'")
             __props__.__dict__["transform_parameters"] = transform_parameters

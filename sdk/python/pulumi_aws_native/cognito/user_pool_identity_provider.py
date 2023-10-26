@@ -35,13 +35,33 @@ class UserPoolIdentityProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provider_name: pulumi.Input[str],
-             provider_type: pulumi.Input[str],
-             user_pool_id: pulumi.Input[str],
+             provider_name: Optional[pulumi.Input[str]] = None,
+             provider_type: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
              attribute_mapping: Optional[Any] = None,
              idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              provider_details: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provider_name is None and 'providerName' in kwargs:
+            provider_name = kwargs['providerName']
+        if provider_name is None:
+            raise TypeError("Missing 'provider_name' argument")
+        if provider_type is None and 'providerType' in kwargs:
+            provider_type = kwargs['providerType']
+        if provider_type is None:
+            raise TypeError("Missing 'provider_type' argument")
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if attribute_mapping is None and 'attributeMapping' in kwargs:
+            attribute_mapping = kwargs['attributeMapping']
+        if idp_identifiers is None and 'idpIdentifiers' in kwargs:
+            idp_identifiers = kwargs['idpIdentifiers']
+        if provider_details is None and 'providerDetails' in kwargs:
+            provider_details = kwargs['providerDetails']
+
         _setter("provider_name", provider_name)
         _setter("provider_type", provider_type)
         _setter("user_pool_id", user_pool_id)

@@ -45,7 +45,13 @@ class DetectorCfnDataSourceConfigurationsArgs:
              kubernetes: Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']] = None,
              malware_protection: Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']] = None,
              s3_logs: Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if malware_protection is None and 'malwareProtection' in kwargs:
+            malware_protection = kwargs['malwareProtection']
+        if s3_logs is None and 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if kubernetes is not None:
             _setter("kubernetes", kubernetes)
         if malware_protection is not None:
@@ -96,7 +102,9 @@ class DetectorCfnFeatureAdditionalConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if status is not None:
@@ -136,10 +144,18 @@ class DetectorCfnFeatureConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['DetectorCfnFeatureConfigurationName'],
-             status: pulumi.Input['DetectorCfnFeatureConfigurationStatus'],
+             name: Optional[pulumi.Input['DetectorCfnFeatureConfigurationName']] = None,
+             status: Optional[pulumi.Input['DetectorCfnFeatureConfigurationStatus']] = None,
              additional_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if additional_configuration is None and 'additionalConfiguration' in kwargs:
+            additional_configuration = kwargs['additionalConfiguration']
+
         _setter("name", name)
         _setter("status", status)
         if additional_configuration is not None:
@@ -184,8 +200,12 @@ class DetectorCfnKubernetesAuditLogsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+
         _setter("enable", enable)
 
     @property
@@ -209,8 +229,14 @@ class DetectorCfnKubernetesConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             audit_logs: Optional[pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audit_logs is None and 'auditLogs' in kwargs:
+            audit_logs = kwargs['auditLogs']
+        if audit_logs is None:
+            raise TypeError("Missing 'audit_logs' argument")
+
         _setter("audit_logs", audit_logs)
 
     @property
@@ -235,7 +261,11 @@ class DetectorCfnMalwareProtectionConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_ec2_instance_with_findings is None and 'scanEc2InstanceWithFindings' in kwargs:
+            scan_ec2_instance_with_findings = kwargs['scanEc2InstanceWithFindings']
+
         if scan_ec2_instance_with_findings is not None:
             _setter("scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
@@ -261,7 +291,11 @@ class DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ebs_volumes: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_volumes is None and 'ebsVolumes' in kwargs:
+            ebs_volumes = kwargs['ebsVolumes']
+
         if ebs_volumes is not None:
             _setter("ebs_volumes", ebs_volumes)
 
@@ -286,8 +320,12 @@ class DetectorCfns3LogsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+
         _setter("enable", enable)
 
     @property
@@ -313,9 +351,15 @@ class DetectorTagItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -383,7 +427,19 @@ class FilterConditionArgs:
              lte: Optional[pulumi.Input[int]] = None,
              neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if greater_than is None and 'greaterThan' in kwargs:
+            greater_than = kwargs['greaterThan']
+        if greater_than_or_equal is None and 'greaterThanOrEqual' in kwargs:
+            greater_than_or_equal = kwargs['greaterThanOrEqual']
+        if less_than is None and 'lessThan' in kwargs:
+            less_than = kwargs['lessThan']
+        if less_than_or_equal is None and 'lessThanOrEqual' in kwargs:
+            less_than_or_equal = kwargs['lessThanOrEqual']
+        if not_equals is None and 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+
         if eq is not None:
             _setter("eq", eq)
         if equals is not None:
@@ -533,7 +589,11 @@ class FilterFindingCriteriaArgs:
              _setter: Callable[[Any, Any], None],
              criterion: Optional[Any] = None,
              item_type: Optional[pulumi.Input['FilterConditionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if item_type is None and 'itemType' in kwargs:
+            item_type = kwargs['itemType']
+
         if criterion is not None:
             _setter("criterion", criterion)
         if item_type is not None:
@@ -571,9 +631,15 @@ class FilterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -609,9 +675,15 @@ class IpSetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -647,9 +719,15 @@ class ThreatIntelSetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

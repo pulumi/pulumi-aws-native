@@ -69,7 +69,29 @@ class ReplicationConfigArgs:
              table_mappings: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigTagArgs']]]] = None,
              target_endpoint_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_config is None and 'computeConfig' in kwargs:
+            compute_config = kwargs['computeConfig']
+        if replication_config_arn is None and 'replicationConfigArn' in kwargs:
+            replication_config_arn = kwargs['replicationConfigArn']
+        if replication_config_identifier is None and 'replicationConfigIdentifier' in kwargs:
+            replication_config_identifier = kwargs['replicationConfigIdentifier']
+        if replication_settings is None and 'replicationSettings' in kwargs:
+            replication_settings = kwargs['replicationSettings']
+        if replication_type is None and 'replicationType' in kwargs:
+            replication_type = kwargs['replicationType']
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if source_endpoint_arn is None and 'sourceEndpointArn' in kwargs:
+            source_endpoint_arn = kwargs['sourceEndpointArn']
+        if supplemental_settings is None and 'supplementalSettings' in kwargs:
+            supplemental_settings = kwargs['supplementalSettings']
+        if table_mappings is None and 'tableMappings' in kwargs:
+            table_mappings = kwargs['tableMappings']
+        if target_endpoint_arn is None and 'targetEndpointArn' in kwargs:
+            target_endpoint_arn = kwargs['targetEndpointArn']
+
         if compute_config is not None:
             _setter("compute_config", compute_config)
         if replication_config_arn is not None:
@@ -304,11 +326,7 @@ class ReplicationConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationConfigArgs.__new__(ReplicationConfigArgs)
 
-            if compute_config is not None and not isinstance(compute_config, ReplicationConfigComputeConfigArgs):
-                compute_config = compute_config or {}
-                def _setter(key, value):
-                    compute_config[key] = value
-                ReplicationConfigComputeConfigArgs._configure(_setter, **compute_config)
+            compute_config = _utilities.configure(compute_config, ReplicationConfigComputeConfigArgs, True)
             __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["replication_config_arn"] = replication_config_arn
             __props__.__dict__["replication_config_identifier"] = replication_config_identifier

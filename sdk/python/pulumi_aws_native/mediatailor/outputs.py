@@ -93,7 +93,17 @@ class ChannelDashPlaylistSettings(dict):
              min_buffer_time_seconds: Optional[float] = None,
              min_update_period_seconds: Optional[float] = None,
              suggested_presentation_delay_seconds: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_window_seconds is None and 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+        if min_buffer_time_seconds is None and 'minBufferTimeSeconds' in kwargs:
+            min_buffer_time_seconds = kwargs['minBufferTimeSeconds']
+        if min_update_period_seconds is None and 'minUpdatePeriodSeconds' in kwargs:
+            min_update_period_seconds = kwargs['minUpdatePeriodSeconds']
+        if suggested_presentation_delay_seconds is None and 'suggestedPresentationDelaySeconds' in kwargs:
+            suggested_presentation_delay_seconds = kwargs['suggestedPresentationDelaySeconds']
+
         if manifest_window_seconds is not None:
             _setter("manifest_window_seconds", manifest_window_seconds)
         if min_buffer_time_seconds is not None:
@@ -178,7 +188,13 @@ class ChannelHlsPlaylistSettings(dict):
              _setter: Callable[[Any, Any], None],
              ad_markup_type: Optional[Sequence['ChannelAdMarkupType']] = None,
              manifest_window_seconds: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_markup_type is None and 'adMarkupType' in kwargs:
+            ad_markup_type = kwargs['adMarkupType']
+        if manifest_window_seconds is None and 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+
         if ad_markup_type is not None:
             _setter("ad_markup_type", ad_markup_type)
         if manifest_window_seconds is not None:
@@ -237,7 +253,11 @@ class ChannelLogConfigurationForChannel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_types: Optional[Sequence['ChannelLogType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_types is None and 'logTypes' in kwargs:
+            log_types = kwargs['logTypes']
+
         if log_types is not None:
             _setter("log_types", log_types)
 
@@ -298,11 +318,25 @@ class ChannelRequestOutputItem(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             manifest_name: str,
-             source_group: str,
+             manifest_name: Optional[str] = None,
+             source_group: Optional[str] = None,
              dash_playlist_settings: Optional['outputs.ChannelDashPlaylistSettings'] = None,
              hls_playlist_settings: Optional['outputs.ChannelHlsPlaylistSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if manifest_name is None:
+            raise TypeError("Missing 'manifest_name' argument")
+        if source_group is None and 'sourceGroup' in kwargs:
+            source_group = kwargs['sourceGroup']
+        if source_group is None:
+            raise TypeError("Missing 'source_group' argument")
+        if dash_playlist_settings is None and 'dashPlaylistSettings' in kwargs:
+            dash_playlist_settings = kwargs['dashPlaylistSettings']
+        if hls_playlist_settings is None and 'hlsPlaylistSettings' in kwargs:
+            hls_playlist_settings = kwargs['hlsPlaylistSettings']
+
         _setter("manifest_name", manifest_name)
         _setter("source_group", source_group)
         if dash_playlist_settings is not None:
@@ -379,7 +413,13 @@ class ChannelSlateSource(dict):
              _setter: Callable[[Any, Any], None],
              source_location_name: Optional[str] = None,
              vod_source_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_location_name is None and 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+        if vod_source_name is None and 'vodSourceName' in kwargs:
+            vod_source_name = kwargs['vodSourceName']
+
         if source_location_name is not None:
             _setter("source_location_name", source_location_name)
         if vod_source_name is not None:
@@ -415,9 +455,15 @@ class ChannelTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -472,10 +518,20 @@ class LiveSourceHttpPackageConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
-             source_group: str,
-             type: 'LiveSourceType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             path: Optional[str] = None,
+             source_group: Optional[str] = None,
+             type: Optional['LiveSourceType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if source_group is None and 'sourceGroup' in kwargs:
+            source_group = kwargs['sourceGroup']
+        if source_group is None:
+            raise TypeError("Missing 'source_group' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("path", path)
         _setter("source_group", source_group)
         _setter("type", type)
@@ -515,9 +571,15 @@ class LiveSourceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -551,7 +613,9 @@ class PlaybackConfigurationAdMarkerPassthrough(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -587,7 +651,9 @@ class PlaybackConfigurationAvailSuppression(dict):
              _setter: Callable[[Any, Any], None],
              mode: Optional['PlaybackConfigurationAvailSuppressionMode'] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
         if value is not None:
@@ -652,7 +718,13 @@ class PlaybackConfigurationBumper(dict):
              _setter: Callable[[Any, Any], None],
              end_url: Optional[str] = None,
              start_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_url is None and 'endUrl' in kwargs:
+            end_url = kwargs['endUrl']
+        if start_url is None and 'startUrl' in kwargs:
+            start_url = kwargs['startUrl']
+
         if end_url is not None:
             _setter("end_url", end_url)
         if start_url is not None:
@@ -717,7 +789,13 @@ class PlaybackConfigurationCdnConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              ad_segment_url_prefix: Optional[str] = None,
              content_segment_url_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_segment_url_prefix is None and 'adSegmentUrlPrefix' in kwargs:
+            ad_segment_url_prefix = kwargs['adSegmentUrlPrefix']
+        if content_segment_url_prefix is None and 'contentSegmentUrlPrefix' in kwargs:
+            content_segment_url_prefix = kwargs['contentSegmentUrlPrefix']
+
         if ad_segment_url_prefix is not None:
             _setter("ad_segment_url_prefix", ad_segment_url_prefix)
         if content_segment_url_prefix is not None:
@@ -788,7 +866,15 @@ class PlaybackConfigurationDashConfiguration(dict):
              manifest_endpoint_prefix: Optional[str] = None,
              mpd_location: Optional[str] = None,
              origin_manifest_type: Optional['PlaybackConfigurationDashConfigurationOriginManifestType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_endpoint_prefix is None and 'manifestEndpointPrefix' in kwargs:
+            manifest_endpoint_prefix = kwargs['manifestEndpointPrefix']
+        if mpd_location is None and 'mpdLocation' in kwargs:
+            mpd_location = kwargs['mpdLocation']
+        if origin_manifest_type is None and 'originManifestType' in kwargs:
+            origin_manifest_type = kwargs['originManifestType']
+
         if manifest_endpoint_prefix is not None:
             _setter("manifest_endpoint_prefix", manifest_endpoint_prefix)
         if mpd_location is not None:
@@ -853,7 +939,11 @@ class PlaybackConfigurationHlsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              manifest_endpoint_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_endpoint_prefix is None and 'manifestEndpointPrefix' in kwargs:
+            manifest_endpoint_prefix = kwargs['manifestEndpointPrefix']
+
         if manifest_endpoint_prefix is not None:
             _setter("manifest_endpoint_prefix", manifest_endpoint_prefix)
 
@@ -908,7 +998,13 @@ class PlaybackConfigurationLivePreRollConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              ad_decision_server_url: Optional[str] = None,
              max_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_decision_server_url is None and 'adDecisionServerUrl' in kwargs:
+            ad_decision_server_url = kwargs['adDecisionServerUrl']
+        if max_duration_seconds is None and 'maxDurationSeconds' in kwargs:
+            max_duration_seconds = kwargs['maxDurationSeconds']
+
         if ad_decision_server_url is not None:
             _setter("ad_decision_server_url", ad_decision_server_url)
         if max_duration_seconds is not None:
@@ -967,7 +1063,11 @@ class PlaybackConfigurationManifestProcessingRules(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ad_marker_passthrough: Optional['outputs.PlaybackConfigurationAdMarkerPassthrough'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_marker_passthrough is None and 'adMarkerPassthrough' in kwargs:
+            ad_marker_passthrough = kwargs['adMarkerPassthrough']
+
         if ad_marker_passthrough is not None:
             _setter("ad_marker_passthrough", ad_marker_passthrough)
 
@@ -993,9 +1093,15 @@ class PlaybackConfigurationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1050,7 +1156,13 @@ class SourceLocationAccessConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              access_type: Optional['SourceLocationAccessType'] = None,
              secrets_manager_access_token_configuration: Optional['outputs.SourceLocationSecretsManagerAccessTokenConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_type is None and 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if secrets_manager_access_token_configuration is None and 'secretsManagerAccessTokenConfiguration' in kwargs:
+            secrets_manager_access_token_configuration = kwargs['secretsManagerAccessTokenConfiguration']
+
         if access_type is not None:
             _setter("access_type", access_type)
         if secrets_manager_access_token_configuration is not None:
@@ -1103,7 +1215,11 @@ class SourceLocationDefaultSegmentDeliveryConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              base_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+
         if base_url is not None:
             _setter("base_url", base_url)
 
@@ -1151,8 +1267,14 @@ class SourceLocationHttpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             base_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+        if base_url is None:
+            raise TypeError("Missing 'base_url' argument")
+
         _setter("base_url", base_url)
 
     @property
@@ -1212,7 +1334,15 @@ class SourceLocationSecretsManagerAccessTokenConfiguration(dict):
              header_name: Optional[str] = None,
              secret_arn: Optional[str] = None,
              secret_string_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_string_key is None and 'secretStringKey' in kwargs:
+            secret_string_key = kwargs['secretStringKey']
+
         if header_name is not None:
             _setter("header_name", header_name)
         if secret_arn is not None:
@@ -1285,7 +1415,11 @@ class SourceLocationSegmentDeliveryConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              base_url: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_url is None and 'baseUrl' in kwargs:
+            base_url = kwargs['baseUrl']
+
         if base_url is not None:
             _setter("base_url", base_url)
         if name is not None:
@@ -1321,9 +1455,15 @@ class SourceLocationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1378,10 +1518,20 @@ class VodSourceHttpPackageConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: str,
-             source_group: str,
-             type: 'VodSourceType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             path: Optional[str] = None,
+             source_group: Optional[str] = None,
+             type: Optional['VodSourceType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if source_group is None and 'sourceGroup' in kwargs:
+            source_group = kwargs['sourceGroup']
+        if source_group is None:
+            raise TypeError("Missing 'source_group' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("path", path)
         _setter("source_group", source_group)
         _setter("type", type)
@@ -1421,9 +1571,15 @@ class VodSourceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

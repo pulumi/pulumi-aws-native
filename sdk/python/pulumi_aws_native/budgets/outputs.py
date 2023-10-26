@@ -61,9 +61,17 @@ class BudgetAutoAdjustData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_adjust_type: str,
+             auto_adjust_type: Optional[str] = None,
              historical_options: Optional['outputs.BudgetHistoricalOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_adjust_type is None and 'autoAdjustType' in kwargs:
+            auto_adjust_type = kwargs['autoAdjustType']
+        if auto_adjust_type is None:
+            raise TypeError("Missing 'auto_adjust_type' argument")
+        if historical_options is None and 'historicalOptions' in kwargs:
+            historical_options = kwargs['historicalOptions']
+
         _setter("auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
             _setter("historical_options", historical_options)
@@ -158,7 +166,31 @@ class BudgetCostTypes(dict):
              include_upfront: Optional[bool] = None,
              use_amortized: Optional[bool] = None,
              use_blended: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_credit is None and 'includeCredit' in kwargs:
+            include_credit = kwargs['includeCredit']
+        if include_discount is None and 'includeDiscount' in kwargs:
+            include_discount = kwargs['includeDiscount']
+        if include_other_subscription is None and 'includeOtherSubscription' in kwargs:
+            include_other_subscription = kwargs['includeOtherSubscription']
+        if include_recurring is None and 'includeRecurring' in kwargs:
+            include_recurring = kwargs['includeRecurring']
+        if include_refund is None and 'includeRefund' in kwargs:
+            include_refund = kwargs['includeRefund']
+        if include_subscription is None and 'includeSubscription' in kwargs:
+            include_subscription = kwargs['includeSubscription']
+        if include_support is None and 'includeSupport' in kwargs:
+            include_support = kwargs['includeSupport']
+        if include_tax is None and 'includeTax' in kwargs:
+            include_tax = kwargs['includeTax']
+        if include_upfront is None and 'includeUpfront' in kwargs:
+            include_upfront = kwargs['includeUpfront']
+        if use_amortized is None and 'useAmortized' in kwargs:
+            use_amortized = kwargs['useAmortized']
+        if use_blended is None and 'useBlended' in kwargs:
+            use_blended = kwargs['useBlended']
+
         if include_credit is not None:
             _setter("include_credit", include_credit)
         if include_discount is not None:
@@ -298,8 +330,8 @@ class BudgetData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             budget_type: str,
-             time_unit: str,
+             budget_type: Optional[str] = None,
+             time_unit: Optional[str] = None,
              auto_adjust_data: Optional['outputs.BudgetAutoAdjustData'] = None,
              budget_limit: Optional['outputs.BudgetSpend'] = None,
              budget_name: Optional[str] = None,
@@ -307,7 +339,31 @@ class BudgetData(dict):
              cost_types: Optional['outputs.BudgetCostTypes'] = None,
              planned_budget_limits: Optional[Any] = None,
              time_period: Optional['outputs.BudgetTimePeriod'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if budget_type is None and 'budgetType' in kwargs:
+            budget_type = kwargs['budgetType']
+        if budget_type is None:
+            raise TypeError("Missing 'budget_type' argument")
+        if time_unit is None and 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+        if time_unit is None:
+            raise TypeError("Missing 'time_unit' argument")
+        if auto_adjust_data is None and 'autoAdjustData' in kwargs:
+            auto_adjust_data = kwargs['autoAdjustData']
+        if budget_limit is None and 'budgetLimit' in kwargs:
+            budget_limit = kwargs['budgetLimit']
+        if budget_name is None and 'budgetName' in kwargs:
+            budget_name = kwargs['budgetName']
+        if cost_filters is None and 'costFilters' in kwargs:
+            cost_filters = kwargs['costFilters']
+        if cost_types is None and 'costTypes' in kwargs:
+            cost_types = kwargs['costTypes']
+        if planned_budget_limits is None and 'plannedBudgetLimits' in kwargs:
+            planned_budget_limits = kwargs['plannedBudgetLimits']
+        if time_period is None and 'timePeriod' in kwargs:
+            time_period = kwargs['timePeriod']
+
         _setter("budget_type", budget_type)
         _setter("time_unit", time_unit)
         if auto_adjust_data is not None:
@@ -399,8 +455,14 @@ class BudgetHistoricalOptions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             budget_adjustment_period: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             budget_adjustment_period: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if budget_adjustment_period is None and 'budgetAdjustmentPeriod' in kwargs:
+            budget_adjustment_period = kwargs['budgetAdjustmentPeriod']
+        if budget_adjustment_period is None:
+            raise TypeError("Missing 'budget_adjustment_period' argument")
+
         _setter("budget_adjustment_period", budget_adjustment_period)
 
     @property
@@ -447,11 +509,25 @@ class BudgetNotification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: str,
-             notification_type: str,
-             threshold: float,
+             comparison_operator: Optional[str] = None,
+             notification_type: Optional[str] = None,
+             threshold: Optional[float] = None,
              threshold_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if notification_type is None and 'notificationType' in kwargs:
+            notification_type = kwargs['notificationType']
+        if notification_type is None:
+            raise TypeError("Missing 'notification_type' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if threshold_type is None and 'thresholdType' in kwargs:
+            threshold_type = kwargs['thresholdType']
+
         _setter("comparison_operator", comparison_operator)
         _setter("notification_type", notification_type)
         _setter("threshold", threshold)
@@ -492,9 +568,15 @@ class BudgetNotificationWithSubscribers(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             notification: 'outputs.BudgetNotification',
-             subscribers: Sequence['outputs.BudgetSubscriber'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             notification: Optional['outputs.BudgetNotification'] = None,
+             subscribers: Optional[Sequence['outputs.BudgetSubscriber']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notification is None:
+            raise TypeError("Missing 'notification' argument")
+        if subscribers is None:
+            raise TypeError("Missing 'subscribers' argument")
+
         _setter("notification", notification)
         _setter("subscribers", subscribers)
 
@@ -522,9 +604,15 @@ class BudgetSpend(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             amount: float,
-             unit: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             amount: Optional[float] = None,
+             unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amount is None:
+            raise TypeError("Missing 'amount' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+
         _setter("amount", amount)
         _setter("unit", unit)
 
@@ -569,9 +657,17 @@ class BudgetSubscriber(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: str,
-             subscription_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             address: Optional[str] = None,
+             subscription_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if subscription_type is None and 'subscriptionType' in kwargs:
+            subscription_type = kwargs['subscriptionType']
+        if subscription_type is None:
+            raise TypeError("Missing 'subscription_type' argument")
+
         _setter("address", address)
         _setter("subscription_type", subscription_type)
 
@@ -601,7 +697,9 @@ class BudgetTimePeriod(dict):
              _setter: Callable[[Any, Any], None],
              end: Optional[str] = None,
              start: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if end is not None:
             _setter("end", end)
         if start is not None:
@@ -631,9 +729,15 @@ class BudgetsActionActionThreshold(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: 'BudgetsActionActionThresholdType',
-             value: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional['BudgetsActionActionThresholdType'] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -687,7 +791,15 @@ class BudgetsActionDefinition(dict):
              iam_action_definition: Optional['outputs.BudgetsActionIamActionDefinition'] = None,
              scp_action_definition: Optional['outputs.BudgetsActionScpActionDefinition'] = None,
              ssm_action_definition: Optional['outputs.BudgetsActionSsmActionDefinition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_action_definition is None and 'iamActionDefinition' in kwargs:
+            iam_action_definition = kwargs['iamActionDefinition']
+        if scp_action_definition is None and 'scpActionDefinition' in kwargs:
+            scp_action_definition = kwargs['scpActionDefinition']
+        if ssm_action_definition is None and 'ssmActionDefinition' in kwargs:
+            ssm_action_definition = kwargs['ssmActionDefinition']
+
         if iam_action_definition is not None:
             _setter("iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
@@ -745,11 +857,17 @@ class BudgetsActionIamActionDefinition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_arn: str,
+             policy_arn: Optional[str] = None,
              groups: Optional[Sequence[str]] = None,
              roles: Optional[Sequence[str]] = None,
              users: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_arn is None and 'policyArn' in kwargs:
+            policy_arn = kwargs['policyArn']
+        if policy_arn is None:
+            raise TypeError("Missing 'policy_arn' argument")
+
         _setter("policy_arn", policy_arn)
         if groups is not None:
             _setter("groups", groups)
@@ -811,9 +929,19 @@ class BudgetsActionScpActionDefinition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_id: str,
-             target_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_id: Optional[str] = None,
+             target_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_id is None:
+            raise TypeError("Missing 'policy_id' argument")
+        if target_ids is None and 'targetIds' in kwargs:
+            target_ids = kwargs['targetIds']
+        if target_ids is None:
+            raise TypeError("Missing 'target_ids' argument")
+
         _setter("policy_id", policy_id)
         _setter("target_ids", target_ids)
 
@@ -860,10 +988,20 @@ class BudgetsActionSsmActionDefinition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_ids: Sequence[str],
-             region: str,
-             subtype: 'BudgetsActionSsmActionDefinitionSubtype',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             instance_ids: Optional[Sequence[str]] = None,
+             region: Optional[str] = None,
+             subtype: Optional['BudgetsActionSsmActionDefinitionSubtype'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_ids is None and 'instanceIds' in kwargs:
+            instance_ids = kwargs['instanceIds']
+        if instance_ids is None:
+            raise TypeError("Missing 'instance_ids' argument")
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if subtype is None:
+            raise TypeError("Missing 'subtype' argument")
+
         _setter("instance_ids", instance_ids)
         _setter("region", region)
         _setter("subtype", subtype)
@@ -897,9 +1035,15 @@ class BudgetsActionSubscriber(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: str,
-             type: 'BudgetsActionSubscriberType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             address: Optional[str] = None,
+             type: Optional['BudgetsActionSubscriberType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("address", address)
         _setter("type", type)
 

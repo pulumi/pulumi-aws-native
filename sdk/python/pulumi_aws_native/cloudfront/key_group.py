@@ -27,8 +27,14 @@ class KeyGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_group_config: pulumi.Input['KeyGroupConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key_group_config: Optional[pulumi.Input['KeyGroupConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_group_config is None and 'keyGroupConfig' in kwargs:
+            key_group_config = kwargs['keyGroupConfig']
+        if key_group_config is None:
+            raise TypeError("Missing 'key_group_config' argument")
+
         _setter("key_group_config", key_group_config)
 
     @property
@@ -92,11 +98,7 @@ class KeyGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyGroupArgs.__new__(KeyGroupArgs)
 
-            if key_group_config is not None and not isinstance(key_group_config, KeyGroupConfigArgs):
-                key_group_config = key_group_config or {}
-                def _setter(key, value):
-                    key_group_config[key] = value
-                KeyGroupConfigArgs._configure(_setter, **key_group_config)
+            key_group_config = _utilities.configure(key_group_config, KeyGroupConfigArgs, True)
             if key_group_config is None and not opts.urn:
                 raise TypeError("Missing required property 'key_group_config'")
             __props__.__dict__["key_group_config"] = key_group_config

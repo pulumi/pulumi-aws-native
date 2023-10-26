@@ -34,11 +34,25 @@ class IdentityProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_provider_details: pulumi.Input['IdentityProviderDetailsArgs'],
-             identity_provider_type: pulumi.Input['IdentityProviderType'],
+             identity_provider_details: Optional[pulumi.Input['IdentityProviderDetailsArgs']] = None,
+             identity_provider_type: Optional[pulumi.Input['IdentityProviderType']] = None,
              identity_provider_name: Optional[pulumi.Input[str]] = None,
              portal_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_provider_details is None and 'identityProviderDetails' in kwargs:
+            identity_provider_details = kwargs['identityProviderDetails']
+        if identity_provider_details is None:
+            raise TypeError("Missing 'identity_provider_details' argument")
+        if identity_provider_type is None and 'identityProviderType' in kwargs:
+            identity_provider_type = kwargs['identityProviderType']
+        if identity_provider_type is None:
+            raise TypeError("Missing 'identity_provider_type' argument")
+        if identity_provider_name is None and 'identityProviderName' in kwargs:
+            identity_provider_name = kwargs['identityProviderName']
+        if portal_arn is None and 'portalArn' in kwargs:
+            portal_arn = kwargs['portalArn']
+
         _setter("identity_provider_details", identity_provider_details)
         _setter("identity_provider_type", identity_provider_type)
         if identity_provider_name is not None:
@@ -140,11 +154,7 @@ class IdentityProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentityProviderArgs.__new__(IdentityProviderArgs)
 
-            if identity_provider_details is not None and not isinstance(identity_provider_details, IdentityProviderDetailsArgs):
-                identity_provider_details = identity_provider_details or {}
-                def _setter(key, value):
-                    identity_provider_details[key] = value
-                IdentityProviderDetailsArgs._configure(_setter, **identity_provider_details)
+            identity_provider_details = _utilities.configure(identity_provider_details, IdentityProviderDetailsArgs, True)
             if identity_provider_details is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_provider_details'")
             __props__.__dict__["identity_provider_details"] = identity_provider_details

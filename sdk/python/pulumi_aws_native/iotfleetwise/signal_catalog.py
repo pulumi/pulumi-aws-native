@@ -41,7 +41,11 @@ class SignalCatalogArgs:
              node_counts: Optional[pulumi.Input['SignalCatalogNodeCountsArgs']] = None,
              nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SignalCatalogNode0PropertiesArgs', 'SignalCatalogNode1PropertiesArgs', 'SignalCatalogNode2PropertiesArgs', 'SignalCatalogNode3PropertiesArgs']]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalCatalogTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node_counts is None and 'nodeCounts' in kwargs:
+            node_counts = kwargs['nodeCounts']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -166,11 +170,7 @@ class SignalCatalog(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if node_counts is not None and not isinstance(node_counts, SignalCatalogNodeCountsArgs):
-                node_counts = node_counts or {}
-                def _setter(key, value):
-                    node_counts[key] = value
-                SignalCatalogNodeCountsArgs._configure(_setter, **node_counts)
+            node_counts = _utilities.configure(node_counts, SignalCatalogNodeCountsArgs, True)
             __props__.__dict__["node_counts"] = node_counts
             __props__.__dict__["nodes"] = nodes
             __props__.__dict__["tags"] = tags

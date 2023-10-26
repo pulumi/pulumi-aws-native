@@ -40,14 +40,26 @@ class KnowledgeBaseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             knowledge_base_type: pulumi.Input['KnowledgeBaseType'],
+             knowledge_base_type: Optional[pulumi.Input['KnowledgeBaseType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rendering_configuration: Optional[pulumi.Input['KnowledgeBaseRenderingConfigurationArgs']] = None,
              server_side_encryption_configuration: Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
              source_configuration: Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if knowledge_base_type is None and 'knowledgeBaseType' in kwargs:
+            knowledge_base_type = kwargs['knowledgeBaseType']
+        if knowledge_base_type is None:
+            raise TypeError("Missing 'knowledge_base_type' argument")
+        if rendering_configuration is None and 'renderingConfiguration' in kwargs:
+            rendering_configuration = kwargs['renderingConfiguration']
+        if server_side_encryption_configuration is None and 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if source_configuration is None and 'sourceConfiguration' in kwargs:
+            source_configuration = kwargs['sourceConfiguration']
+
         _setter("knowledge_base_type", knowledge_base_type)
         if description is not None:
             _setter("description", description)
@@ -194,23 +206,11 @@ class KnowledgeBase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'knowledge_base_type'")
             __props__.__dict__["knowledge_base_type"] = knowledge_base_type
             __props__.__dict__["name"] = name
-            if rendering_configuration is not None and not isinstance(rendering_configuration, KnowledgeBaseRenderingConfigurationArgs):
-                rendering_configuration = rendering_configuration or {}
-                def _setter(key, value):
-                    rendering_configuration[key] = value
-                KnowledgeBaseRenderingConfigurationArgs._configure(_setter, **rendering_configuration)
+            rendering_configuration = _utilities.configure(rendering_configuration, KnowledgeBaseRenderingConfigurationArgs, True)
             __props__.__dict__["rendering_configuration"] = rendering_configuration
-            if server_side_encryption_configuration is not None and not isinstance(server_side_encryption_configuration, KnowledgeBaseServerSideEncryptionConfigurationArgs):
-                server_side_encryption_configuration = server_side_encryption_configuration or {}
-                def _setter(key, value):
-                    server_side_encryption_configuration[key] = value
-                KnowledgeBaseServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
+            server_side_encryption_configuration = _utilities.configure(server_side_encryption_configuration, KnowledgeBaseServerSideEncryptionConfigurationArgs, True)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
-            if source_configuration is not None and not isinstance(source_configuration, KnowledgeBaseSourceConfigurationArgs):
-                source_configuration = source_configuration or {}
-                def _setter(key, value):
-                    source_configuration[key] = value
-                KnowledgeBaseSourceConfigurationArgs._configure(_setter, **source_configuration)
+            source_configuration = _utilities.configure(source_configuration, KnowledgeBaseSourceConfigurationArgs, True)
             __props__.__dict__["source_configuration"] = source_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["knowledge_base_arn"] = None

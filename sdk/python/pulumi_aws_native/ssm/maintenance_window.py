@@ -47,10 +47,10 @@ class MaintenanceWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_unassociated_targets: pulumi.Input[bool],
-             cutoff: pulumi.Input[int],
-             duration: pulumi.Input[int],
-             schedule: pulumi.Input[str],
+             allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
+             cutoff: Optional[pulumi.Input[int]] = None,
+             duration: Optional[pulumi.Input[int]] = None,
+             schedule: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,27 @@ class MaintenanceWindowArgs:
              schedule_timezone: Optional[pulumi.Input[str]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_unassociated_targets is None and 'allowUnassociatedTargets' in kwargs:
+            allow_unassociated_targets = kwargs['allowUnassociatedTargets']
+        if allow_unassociated_targets is None:
+            raise TypeError("Missing 'allow_unassociated_targets' argument")
+        if cutoff is None:
+            raise TypeError("Missing 'cutoff' argument")
+        if duration is None:
+            raise TypeError("Missing 'duration' argument")
+        if schedule is None:
+            raise TypeError("Missing 'schedule' argument")
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if schedule_offset is None and 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if schedule_timezone is None and 'scheduleTimezone' in kwargs:
+            schedule_timezone = kwargs['scheduleTimezone']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("allow_unassociated_targets", allow_unassociated_targets)
         _setter("cutoff", cutoff)
         _setter("duration", duration)

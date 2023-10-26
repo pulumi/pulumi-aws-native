@@ -31,10 +31,18 @@ class PipelineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pipeline_activities: pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]],
+             pipeline_activities: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]]] = None,
              pipeline_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_activities is None and 'pipelineActivities' in kwargs:
+            pipeline_activities = kwargs['pipelineActivities']
+        if pipeline_activities is None:
+            raise TypeError("Missing 'pipeline_activities' argument")
+        if pipeline_name is None and 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+
         _setter("pipeline_activities", pipeline_activities)
         if pipeline_name is not None:
             _setter("pipeline_name", pipeline_name)

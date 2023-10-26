@@ -35,9 +35,15 @@ class AcceleratorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -87,10 +93,18 @@ class EndpointGroupEndpointConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_id: pulumi.Input[str],
+             endpoint_id: Optional[pulumi.Input[str]] = None,
              client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_id is None and 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+        if endpoint_id is None:
+            raise TypeError("Missing 'endpoint_id' argument")
+        if client_ip_preservation_enabled is None and 'clientIpPreservationEnabled' in kwargs:
+            client_ip_preservation_enabled = kwargs['clientIpPreservationEnabled']
+
         _setter("endpoint_id", endpoint_id)
         if client_ip_preservation_enabled is not None:
             _setter("client_ip_preservation_enabled", client_ip_preservation_enabled)
@@ -150,9 +164,19 @@ class EndpointGroupPortOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_port: pulumi.Input[int],
-             listener_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             endpoint_port: Optional[pulumi.Input[int]] = None,
+             listener_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_port is None and 'endpointPort' in kwargs:
+            endpoint_port = kwargs['endpointPort']
+        if endpoint_port is None:
+            raise TypeError("Missing 'endpoint_port' argument")
+        if listener_port is None and 'listenerPort' in kwargs:
+            listener_port = kwargs['listenerPort']
+        if listener_port is None:
+            raise TypeError("Missing 'listener_port' argument")
+
         _setter("endpoint_port", endpoint_port)
         _setter("listener_port", listener_port)
 
@@ -191,9 +215,19 @@ class ListenerPortRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_port: pulumi.Input[int],
-             to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             from_port: Optional[pulumi.Input[int]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if from_port is None:
+            raise TypeError("Missing 'from_port' argument")
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+        if to_port is None:
+            raise TypeError("Missing 'to_port' argument")
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 

@@ -37,13 +37,29 @@ class GatewayRouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mesh_name: pulumi.Input[str],
-             spec: pulumi.Input['GatewayRouteSpecArgs'],
-             virtual_gateway_name: pulumi.Input[str],
+             mesh_name: Optional[pulumi.Input[str]] = None,
+             spec: Optional[pulumi.Input['GatewayRouteSpecArgs']] = None,
+             virtual_gateway_name: Optional[pulumi.Input[str]] = None,
              gateway_route_name: Optional[pulumi.Input[str]] = None,
              mesh_owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayRouteTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mesh_name is None and 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if mesh_name is None:
+            raise TypeError("Missing 'mesh_name' argument")
+        if spec is None:
+            raise TypeError("Missing 'spec' argument")
+        if virtual_gateway_name is None and 'virtualGatewayName' in kwargs:
+            virtual_gateway_name = kwargs['virtualGatewayName']
+        if virtual_gateway_name is None:
+            raise TypeError("Missing 'virtual_gateway_name' argument")
+        if gateway_route_name is None and 'gatewayRouteName' in kwargs:
+            gateway_route_name = kwargs['gatewayRouteName']
+        if mesh_owner is None and 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         _setter("virtual_gateway_name", virtual_gateway_name)
@@ -181,11 +197,7 @@ class GatewayRoute(pulumi.CustomResource):
                 raise TypeError("Missing required property 'mesh_name'")
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
-            if spec is not None and not isinstance(spec, GatewayRouteSpecArgs):
-                spec = spec or {}
-                def _setter(key, value):
-                    spec[key] = value
-                GatewayRouteSpecArgs._configure(_setter, **spec)
+            spec = _utilities.configure(spec, GatewayRouteSpecArgs, True)
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec

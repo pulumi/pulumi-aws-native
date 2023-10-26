@@ -35,7 +35,13 @@ class DatastoreArgs:
              datastore_name: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['DatastoreTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if datastore_name is not None:
             _setter("datastore_name", datastore_name)
         if kms_key_arn is not None:
@@ -128,11 +134,7 @@ class Datastore(pulumi.CustomResource):
 
             __props__.__dict__["datastore_name"] = datastore_name
             __props__.__dict__["kms_key_arn"] = kms_key_arn
-            if tags is not None and not isinstance(tags, DatastoreTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                DatastoreTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, DatastoreTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
             __props__.__dict__["datastore_arn"] = None

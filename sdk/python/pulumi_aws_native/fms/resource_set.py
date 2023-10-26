@@ -35,12 +35,18 @@ class ResourceSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_type_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type_list is None and 'resourceTypeList' in kwargs:
+            resource_type_list = kwargs['resourceTypeList']
+        if resource_type_list is None:
+            raise TypeError("Missing 'resource_type_list' argument")
+
         _setter("resource_type_list", resource_type_list)
         if description is not None:
             _setter("description", description)

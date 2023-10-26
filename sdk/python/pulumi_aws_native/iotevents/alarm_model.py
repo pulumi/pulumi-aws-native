@@ -54,8 +54,8 @@ class AlarmModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alarm_rule: pulumi.Input['AlarmModelAlarmRuleArgs'],
-             role_arn: pulumi.Input[str],
+             alarm_rule: Optional[pulumi.Input['AlarmModelAlarmRuleArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              alarm_capabilities: Optional[pulumi.Input['AlarmModelAlarmCapabilitiesArgs']] = None,
              alarm_event_actions: Optional[pulumi.Input['AlarmModelAlarmEventActionsArgs']] = None,
              alarm_model_description: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,25 @@ class AlarmModelArgs:
              key: Optional[pulumi.Input[str]] = None,
              severity: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmModelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_rule is None and 'alarmRule' in kwargs:
+            alarm_rule = kwargs['alarmRule']
+        if alarm_rule is None:
+            raise TypeError("Missing 'alarm_rule' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if alarm_capabilities is None and 'alarmCapabilities' in kwargs:
+            alarm_capabilities = kwargs['alarmCapabilities']
+        if alarm_event_actions is None and 'alarmEventActions' in kwargs:
+            alarm_event_actions = kwargs['alarmEventActions']
+        if alarm_model_description is None and 'alarmModelDescription' in kwargs:
+            alarm_model_description = kwargs['alarmModelDescription']
+        if alarm_model_name is None and 'alarmModelName' in kwargs:
+            alarm_model_name = kwargs['alarmModelName']
+
         _setter("alarm_rule", alarm_rule)
         _setter("role_arn", role_arn)
         if alarm_capabilities is not None:
@@ -266,25 +284,13 @@ class AlarmModel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlarmModelArgs.__new__(AlarmModelArgs)
 
-            if alarm_capabilities is not None and not isinstance(alarm_capabilities, AlarmModelAlarmCapabilitiesArgs):
-                alarm_capabilities = alarm_capabilities or {}
-                def _setter(key, value):
-                    alarm_capabilities[key] = value
-                AlarmModelAlarmCapabilitiesArgs._configure(_setter, **alarm_capabilities)
+            alarm_capabilities = _utilities.configure(alarm_capabilities, AlarmModelAlarmCapabilitiesArgs, True)
             __props__.__dict__["alarm_capabilities"] = alarm_capabilities
-            if alarm_event_actions is not None and not isinstance(alarm_event_actions, AlarmModelAlarmEventActionsArgs):
-                alarm_event_actions = alarm_event_actions or {}
-                def _setter(key, value):
-                    alarm_event_actions[key] = value
-                AlarmModelAlarmEventActionsArgs._configure(_setter, **alarm_event_actions)
+            alarm_event_actions = _utilities.configure(alarm_event_actions, AlarmModelAlarmEventActionsArgs, True)
             __props__.__dict__["alarm_event_actions"] = alarm_event_actions
             __props__.__dict__["alarm_model_description"] = alarm_model_description
             __props__.__dict__["alarm_model_name"] = alarm_model_name
-            if alarm_rule is not None and not isinstance(alarm_rule, AlarmModelAlarmRuleArgs):
-                alarm_rule = alarm_rule or {}
-                def _setter(key, value):
-                    alarm_rule[key] = value
-                AlarmModelAlarmRuleArgs._configure(_setter, **alarm_rule)
+            alarm_rule = _utilities.configure(alarm_rule, AlarmModelAlarmRuleArgs, True)
             if alarm_rule is None and not opts.urn:
                 raise TypeError("Missing required property 'alarm_rule'")
             __props__.__dict__["alarm_rule"] = alarm_rule

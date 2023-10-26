@@ -29,9 +29,19 @@ class ConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             connection_input: pulumi.Input['ConnectionInputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             catalog_id: Optional[pulumi.Input[str]] = None,
+             connection_input: Optional[pulumi.Input['ConnectionInputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if catalog_id is None:
+            raise TypeError("Missing 'catalog_id' argument")
+        if connection_input is None and 'connectionInput' in kwargs:
+            connection_input = kwargs['connectionInput']
+        if connection_input is None:
+            raise TypeError("Missing 'connection_input' argument")
+
         _setter("catalog_id", catalog_id)
         _setter("connection_input", connection_input)
 
@@ -116,11 +126,7 @@ class Connection(pulumi.CustomResource):
             if catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_id'")
             __props__.__dict__["catalog_id"] = catalog_id
-            if connection_input is not None and not isinstance(connection_input, ConnectionInputArgs):
-                connection_input = connection_input or {}
-                def _setter(key, value):
-                    connection_input[key] = value
-                ConnectionInputArgs._configure(_setter, **connection_input)
+            connection_input = _utilities.configure(connection_input, ConnectionInputArgs, True)
             if connection_input is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_input'")
             __props__.__dict__["connection_input"] = connection_input

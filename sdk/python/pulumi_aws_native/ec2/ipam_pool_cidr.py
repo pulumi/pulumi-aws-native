@@ -32,10 +32,18 @@ class IpamPoolCidrArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipam_pool_id: pulumi.Input[str],
+             ipam_pool_id: Optional[pulumi.Input[str]] = None,
              cidr: Optional[pulumi.Input[str]] = None,
              netmask_length: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_pool_id is None and 'ipamPoolId' in kwargs:
+            ipam_pool_id = kwargs['ipamPoolId']
+        if ipam_pool_id is None:
+            raise TypeError("Missing 'ipam_pool_id' argument")
+        if netmask_length is None and 'netmaskLength' in kwargs:
+            netmask_length = kwargs['netmaskLength']
+
         _setter("ipam_pool_id", ipam_pool_id)
         if cidr is not None:
             _setter("cidr", cidr)

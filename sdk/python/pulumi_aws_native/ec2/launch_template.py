@@ -37,11 +37,23 @@ class LaunchTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             launch_template_data: pulumi.Input['LaunchTemplateDataArgs'],
+             launch_template_data: Optional[pulumi.Input['LaunchTemplateDataArgs']] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if launch_template_data is None and 'launchTemplateData' in kwargs:
+            launch_template_data = kwargs['launchTemplateData']
+        if launch_template_data is None:
+            raise TypeError("Missing 'launch_template_data' argument")
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("launch_template_data", launch_template_data)
         if launch_template_name is not None:
             _setter("launch_template_name", launch_template_name)
@@ -156,11 +168,7 @@ class LaunchTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LaunchTemplateArgs.__new__(LaunchTemplateArgs)
 
-            if launch_template_data is not None and not isinstance(launch_template_data, LaunchTemplateDataArgs):
-                launch_template_data = launch_template_data or {}
-                def _setter(key, value):
-                    launch_template_data[key] = value
-                LaunchTemplateDataArgs._configure(_setter, **launch_template_data)
+            launch_template_data = _utilities.configure(launch_template_data, LaunchTemplateDataArgs, True)
             if launch_template_data is None and not opts.urn:
                 raise TypeError("Missing required property 'launch_template_data'")
             __props__.__dict__["launch_template_data"] = launch_template_data

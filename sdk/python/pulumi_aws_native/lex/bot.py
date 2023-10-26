@@ -54,9 +54,9 @@ class BotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_privacy: pulumi.Input['DataPrivacyPropertiesArgs'],
-             idle_session_ttl_in_seconds: pulumi.Input[int],
-             role_arn: pulumi.Input[str],
+             data_privacy: Optional[pulumi.Input['DataPrivacyPropertiesArgs']] = None,
+             idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              auto_build_bot_locales: Optional[pulumi.Input[bool]] = None,
              bot_file_s3_location: Optional[pulumi.Input['BotS3LocationArgs']] = None,
              bot_locales: Optional[pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]]] = None,
@@ -65,7 +65,33 @@ class BotArgs:
              name: Optional[pulumi.Input[str]] = None,
              test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
              test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_privacy is None and 'dataPrivacy' in kwargs:
+            data_privacy = kwargs['dataPrivacy']
+        if data_privacy is None:
+            raise TypeError("Missing 'data_privacy' argument")
+        if idle_session_ttl_in_seconds is None and 'idleSessionTtlInSeconds' in kwargs:
+            idle_session_ttl_in_seconds = kwargs['idleSessionTtlInSeconds']
+        if idle_session_ttl_in_seconds is None:
+            raise TypeError("Missing 'idle_session_ttl_in_seconds' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if auto_build_bot_locales is None and 'autoBuildBotLocales' in kwargs:
+            auto_build_bot_locales = kwargs['autoBuildBotLocales']
+        if bot_file_s3_location is None and 'botFileS3Location' in kwargs:
+            bot_file_s3_location = kwargs['botFileS3Location']
+        if bot_locales is None and 'botLocales' in kwargs:
+            bot_locales = kwargs['botLocales']
+        if bot_tags is None and 'botTags' in kwargs:
+            bot_tags = kwargs['botTags']
+        if test_bot_alias_settings is None and 'testBotAliasSettings' in kwargs:
+            test_bot_alias_settings = kwargs['testBotAliasSettings']
+        if test_bot_alias_tags is None and 'testBotAliasTags' in kwargs:
+            test_bot_alias_tags = kwargs['testBotAliasTags']
+
         _setter("data_privacy", data_privacy)
         _setter("idle_session_ttl_in_seconds", idle_session_ttl_in_seconds)
         _setter("role_arn", role_arn)
@@ -282,19 +308,11 @@ class Bot(pulumi.CustomResource):
             __props__ = BotArgs.__new__(BotArgs)
 
             __props__.__dict__["auto_build_bot_locales"] = auto_build_bot_locales
-            if bot_file_s3_location is not None and not isinstance(bot_file_s3_location, BotS3LocationArgs):
-                bot_file_s3_location = bot_file_s3_location or {}
-                def _setter(key, value):
-                    bot_file_s3_location[key] = value
-                BotS3LocationArgs._configure(_setter, **bot_file_s3_location)
+            bot_file_s3_location = _utilities.configure(bot_file_s3_location, BotS3LocationArgs, True)
             __props__.__dict__["bot_file_s3_location"] = bot_file_s3_location
             __props__.__dict__["bot_locales"] = bot_locales
             __props__.__dict__["bot_tags"] = bot_tags
-            if data_privacy is not None and not isinstance(data_privacy, DataPrivacyPropertiesArgs):
-                data_privacy = data_privacy or {}
-                def _setter(key, value):
-                    data_privacy[key] = value
-                DataPrivacyPropertiesArgs._configure(_setter, **data_privacy)
+            data_privacy = _utilities.configure(data_privacy, DataPrivacyPropertiesArgs, True)
             if data_privacy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_privacy'")
             __props__.__dict__["data_privacy"] = data_privacy
@@ -306,11 +324,7 @@ class Bot(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if test_bot_alias_settings is not None and not isinstance(test_bot_alias_settings, BotTestBotAliasSettingsArgs):
-                test_bot_alias_settings = test_bot_alias_settings or {}
-                def _setter(key, value):
-                    test_bot_alias_settings[key] = value
-                BotTestBotAliasSettingsArgs._configure(_setter, **test_bot_alias_settings)
+            test_bot_alias_settings = _utilities.configure(test_bot_alias_settings, BotTestBotAliasSettingsArgs, True)
             __props__.__dict__["test_bot_alias_settings"] = test_bot_alias_settings
             __props__.__dict__["test_bot_alias_tags"] = test_bot_alias_tags
             __props__.__dict__["arn"] = None

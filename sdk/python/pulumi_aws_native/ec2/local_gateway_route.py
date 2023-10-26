@@ -39,7 +39,17 @@ class LocalGatewayRouteArgs:
              local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
              local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
              network_interface_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if local_gateway_route_table_id is None and 'localGatewayRouteTableId' in kwargs:
+            local_gateway_route_table_id = kwargs['localGatewayRouteTableId']
+        if local_gateway_virtual_interface_group_id is None and 'localGatewayVirtualInterfaceGroupId' in kwargs:
+            local_gateway_virtual_interface_group_id = kwargs['localGatewayVirtualInterfaceGroupId']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         if destination_cidr_block is not None:
             _setter("destination_cidr_block", destination_cidr_block)
         if local_gateway_route_table_id is not None:

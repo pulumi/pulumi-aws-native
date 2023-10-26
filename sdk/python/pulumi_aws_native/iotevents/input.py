@@ -38,11 +38,21 @@ class InputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_definition: pulumi.Input['InputDefinitionArgs'],
+             input_definition: Optional[pulumi.Input['InputDefinitionArgs']] = None,
              input_description: Optional[pulumi.Input[str]] = None,
              input_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_definition is None and 'inputDefinition' in kwargs:
+            input_definition = kwargs['inputDefinition']
+        if input_definition is None:
+            raise TypeError("Missing 'input_definition' argument")
+        if input_description is None and 'inputDescription' in kwargs:
+            input_description = kwargs['inputDescription']
+        if input_name is None and 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+
         _setter("input_definition", input_definition)
         if input_description is not None:
             _setter("input_description", input_description)
@@ -161,11 +171,7 @@ class Input(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InputArgs.__new__(InputArgs)
 
-            if input_definition is not None and not isinstance(input_definition, InputDefinitionArgs):
-                input_definition = input_definition or {}
-                def _setter(key, value):
-                    input_definition[key] = value
-                InputDefinitionArgs._configure(_setter, **input_definition)
+            input_definition = _utilities.configure(input_definition, InputDefinitionArgs, True)
             if input_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'input_definition'")
             __props__.__dict__["input_definition"] = input_definition

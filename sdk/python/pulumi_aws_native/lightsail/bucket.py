@@ -45,14 +45,30 @@ class BucketArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bundle_id: pulumi.Input[str],
+             bundle_id: Optional[pulumi.Input[str]] = None,
              access_rules: Optional[pulumi.Input['BucketAccessRulesArgs']] = None,
              bucket_name: Optional[pulumi.Input[str]] = None,
              object_versioning: Optional[pulumi.Input[bool]] = None,
              read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if access_rules is None and 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if object_versioning is None and 'objectVersioning' in kwargs:
+            object_versioning = kwargs['objectVersioning']
+        if read_only_access_accounts is None and 'readOnlyAccessAccounts' in kwargs:
+            read_only_access_accounts = kwargs['readOnlyAccessAccounts']
+        if resources_receiving_access is None and 'resourcesReceivingAccess' in kwargs:
+            resources_receiving_access = kwargs['resourcesReceivingAccess']
+
         _setter("bundle_id", bundle_id)
         if access_rules is not None:
             _setter("access_rules", access_rules)
@@ -218,11 +234,7 @@ class Bucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketArgs.__new__(BucketArgs)
 
-            if access_rules is not None and not isinstance(access_rules, BucketAccessRulesArgs):
-                access_rules = access_rules or {}
-                def _setter(key, value):
-                    access_rules[key] = value
-                BucketAccessRulesArgs._configure(_setter, **access_rules)
+            access_rules = _utilities.configure(access_rules, BucketAccessRulesArgs, True)
             __props__.__dict__["access_rules"] = access_rules
             __props__.__dict__["bucket_name"] = bucket_name
             if bundle_id is None and not opts.urn:

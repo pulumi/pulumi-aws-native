@@ -31,11 +31,25 @@ class ResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             use_service_linked_role: pulumi.Input[bool],
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             use_service_linked_role: Optional[pulumi.Input[bool]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              with_federation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if use_service_linked_role is None and 'useServiceLinkedRole' in kwargs:
+            use_service_linked_role = kwargs['useServiceLinkedRole']
+        if use_service_linked_role is None:
+            raise TypeError("Missing 'use_service_linked_role' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if with_federation is None and 'withFederation' in kwargs:
+            with_federation = kwargs['withFederation']
+
         _setter("resource_arn", resource_arn)
         _setter("use_service_linked_role", use_service_linked_role)
         if role_arn is not None:

@@ -29,10 +29,22 @@ class InstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_attributes: Any,
-             service_id: pulumi.Input[str],
+             instance_attributes: Optional[Any] = None,
+             service_id: Optional[pulumi.Input[str]] = None,
              instance_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_attributes is None and 'instanceAttributes' in kwargs:
+            instance_attributes = kwargs['instanceAttributes']
+        if instance_attributes is None:
+            raise TypeError("Missing 'instance_attributes' argument")
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+
         _setter("instance_attributes", instance_attributes)
         _setter("service_id", service_id)
         if instance_id is not None:

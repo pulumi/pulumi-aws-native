@@ -37,7 +37,13 @@ class ViewArgs:
              included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
              tags: Optional[pulumi.Input['ViewTagMapArgs']] = None,
              view_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if included_properties is None and 'includedProperties' in kwargs:
+            included_properties = kwargs['includedProperties']
+        if view_name is None and 'viewName' in kwargs:
+            view_name = kwargs['viewName']
+
         if filters is not None:
             _setter("filters", filters)
         if included_properties is not None:
@@ -141,18 +147,10 @@ class View(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ViewArgs.__new__(ViewArgs)
 
-            if filters is not None and not isinstance(filters, ViewFiltersArgs):
-                filters = filters or {}
-                def _setter(key, value):
-                    filters[key] = value
-                ViewFiltersArgs._configure(_setter, **filters)
+            filters = _utilities.configure(filters, ViewFiltersArgs, True)
             __props__.__dict__["filters"] = filters
             __props__.__dict__["included_properties"] = included_properties
-            if tags is not None and not isinstance(tags, ViewTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ViewTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, ViewTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["view_arn"] = None

@@ -34,9 +34,15 @@ class CellTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -72,9 +78,15 @@ class ReadinessCheckTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -110,9 +122,15 @@ class RecoveryGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -166,7 +184,19 @@ class ResourceSetDnsTargetResourceArgs:
              record_set_id: Optional[pulumi.Input[str]] = None,
              record_type: Optional[pulumi.Input[str]] = None,
              target_resource: Optional[pulumi.Input['ResourceSetTargetResourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if hosted_zone_arn is None and 'hostedZoneArn' in kwargs:
+            hosted_zone_arn = kwargs['hostedZoneArn']
+        if record_set_id is None and 'recordSetId' in kwargs:
+            record_set_id = kwargs['recordSetId']
+        if record_type is None and 'recordType' in kwargs:
+            record_type = kwargs['recordType']
+        if target_resource is None and 'targetResource' in kwargs:
+            target_resource = kwargs['targetResource']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if hosted_zone_arn is not None:
@@ -252,7 +282,9 @@ class ResourceSetNlbResourceArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -289,7 +321,13 @@ class ResourceSetR53ResourceRecordArgs:
              _setter: Callable[[Any, Any], None],
              domain_name: Optional[pulumi.Input[str]] = None,
              record_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if record_set_id is None and 'recordSetId' in kwargs:
+            record_set_id = kwargs['recordSetId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if record_set_id is not None:
@@ -347,7 +385,17 @@ class ResourceSetResourceArgs:
              dns_target_resource: Optional[pulumi.Input['ResourceSetDnsTargetResourceArgs']] = None,
              readiness_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_id is None and 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if dns_target_resource is None and 'dnsTargetResource' in kwargs:
+            dns_target_resource = kwargs['dnsTargetResource']
+        if readiness_scopes is None and 'readinessScopes' in kwargs:
+            readiness_scopes = kwargs['readinessScopes']
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+
         if component_id is not None:
             _setter("component_id", component_id)
         if dns_target_resource is not None:
@@ -416,9 +464,15 @@ class ResourceSetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -459,7 +513,13 @@ class ResourceSetTargetResourceArgs:
              _setter: Callable[[Any, Any], None],
              nlb_resource: Optional[pulumi.Input['ResourceSetNlbResourceArgs']] = None,
              r53_resource: Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if nlb_resource is None and 'nlbResource' in kwargs:
+            nlb_resource = kwargs['nlbResource']
+        if r53_resource is None and 'r53Resource' in kwargs:
+            r53_resource = kwargs['r53Resource']
+
         if nlb_resource is not None:
             _setter("nlb_resource", nlb_resource)
         if r53_resource is not None:

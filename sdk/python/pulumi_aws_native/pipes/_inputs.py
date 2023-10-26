@@ -85,10 +85,18 @@ class PipeAwsVpcConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              assign_public_ip: Optional[pulumi.Input['PipeAssignPublicIp']] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnets", subnets)
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
@@ -135,7 +143,9 @@ class PipeBatchArrayPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if size is not None:
             _setter("size", size)
 
@@ -170,7 +180,13 @@ class PipeBatchContainerOverridesArgs:
              environment: Optional[pulumi.Input[Sequence[pulumi.Input['PipeBatchEnvironmentVariableArgs']]]] = None,
              instance_type: Optional[pulumi.Input[str]] = None,
              resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['PipeBatchResourceRequirementArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if resource_requirements is None and 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+
         if command is not None:
             _setter("command", command)
         if environment is not None:
@@ -232,7 +248,9 @@ class PipeBatchEnvironmentVariableArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -272,7 +290,11 @@ class PipeBatchJobDependencyArgs:
              _setter: Callable[[Any, Any], None],
              job_id: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['PipeBatchJobDependencyType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+
         if job_id is not None:
             _setter("job_id", job_id)
         if type is not None:
@@ -304,8 +326,10 @@ class PipeBatchParametersMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -321,9 +345,15 @@ class PipeBatchResourceRequirementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['PipeBatchResourceRequirementType'],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input['PipeBatchResourceRequirementType']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -358,7 +388,9 @@ class PipeBatchRetryStrategyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              attempts: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if attempts is not None:
             _setter("attempts", attempts)
 
@@ -387,10 +419,16 @@ class PipeCapacityProviderStrategyItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_provider: pulumi.Input[str],
+             capacity_provider: Optional[pulumi.Input[str]] = None,
              base: Optional[pulumi.Input[int]] = None,
              weight: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
         _setter("capacity_provider", capacity_provider)
         if base is not None:
             _setter("base", base)
@@ -437,7 +475,9 @@ class PipeDeadLetterConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -484,7 +524,15 @@ class PipeEcsContainerOverrideArgs:
              memory_reservation: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['PipeEcsResourceRequirementArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_files is None and 'environmentFiles' in kwargs:
+            environment_files = kwargs['environmentFiles']
+        if memory_reservation is None and 'memoryReservation' in kwargs:
+            memory_reservation = kwargs['memoryReservation']
+        if resource_requirements is None and 'resourceRequirements' in kwargs:
+            resource_requirements = kwargs['resourceRequirements']
+
         if command is not None:
             _setter("command", command)
         if cpu is not None:
@@ -588,9 +636,15 @@ class PipeEcsEnvironmentFileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['PipeEcsEnvironmentFileType'],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input['PipeEcsEnvironmentFileType']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -628,7 +682,9 @@ class PipeEcsEnvironmentVariableArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -664,8 +720,14 @@ class PipeEcsEphemeralStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_gi_b: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             size_in_gi_b: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_gi_b is None and 'sizeInGiB' in kwargs:
+            size_in_gi_b = kwargs['sizeInGiB']
+        if size_in_gi_b is None:
+            raise TypeError("Missing 'size_in_gi_b' argument")
+
         _setter("size_in_gi_b", size_in_gi_b)
 
     @property
@@ -693,7 +755,13 @@ class PipeEcsInferenceAcceleratorOverrideArgs:
              _setter: Callable[[Any, Any], None],
              device_name: Optional[pulumi.Input[str]] = None,
              device_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if device_type is not None:
@@ -731,9 +799,15 @@ class PipeEcsResourceRequirementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['PipeEcsResourceRequirementType'],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input['PipeEcsResourceRequirementType']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -786,7 +860,19 @@ class PipeEcsTaskOverrideArgs:
              inference_accelerator_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['PipeEcsInferenceAcceleratorOverrideArgs']]]] = None,
              memory: Optional[pulumi.Input[str]] = None,
              task_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_overrides is None and 'containerOverrides' in kwargs:
+            container_overrides = kwargs['containerOverrides']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if inference_accelerator_overrides is None and 'inferenceAcceleratorOverrides' in kwargs:
+            inference_accelerator_overrides = kwargs['inferenceAcceleratorOverrides']
+        if task_role_arn is None and 'taskRoleArn' in kwargs:
+            task_role_arn = kwargs['taskRoleArn']
+
         if container_overrides is not None:
             _setter("container_overrides", container_overrides)
         if cpu is not None:
@@ -884,7 +970,15 @@ class PipeEnrichmentHttpParametersArgs:
              header_parameters: Optional[pulumi.Input['PipeHeaderParametersMapArgs']] = None,
              path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              query_string_parameters: Optional[pulumi.Input['PipeQueryStringParametersMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if path_parameter_values is None and 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
             _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -935,7 +1029,13 @@ class PipeEnrichmentParametersArgs:
              _setter: Callable[[Any, Any], None],
              http_parameters: Optional[pulumi.Input['PipeEnrichmentHttpParametersArgs']] = None,
              input_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_parameters is None and 'httpParameters' in kwargs:
+            http_parameters = kwargs['httpParameters']
+        if input_template is None and 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+
         if http_parameters is not None:
             _setter("http_parameters", http_parameters)
         if input_template is not None:
@@ -972,7 +1072,9 @@ class PipeFilterCriteriaArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              filters: Optional[pulumi.Input[Sequence[pulumi.Input['PipeFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if filters is not None:
             _setter("filters", filters)
 
@@ -998,7 +1100,9 @@ class PipeFilterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pattern: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if pattern is not None:
             _setter("pattern", pattern)
 
@@ -1019,8 +1123,10 @@ class PipeHeaderParametersMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1037,8 +1143,14 @@ class PipeMqBrokerAccessCredentialsPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             basic_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             basic_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if basic_auth is None and 'basicAuth' in kwargs:
+            basic_auth = kwargs['basicAuth']
+        if basic_auth is None:
+            raise TypeError("Missing 'basic_auth' argument")
+
         _setter("basic_auth", basic_auth)
 
     @property
@@ -1068,8 +1180,14 @@ class PipeMskAccessCredentials0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sasl_scram512_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sasl_scram512_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sasl_scram512_auth is None and 'saslScram512Auth' in kwargs:
+            sasl_scram512_auth = kwargs['saslScram512Auth']
+        if sasl_scram512_auth is None:
+            raise TypeError("Missing 'sasl_scram512_auth' argument")
+
         _setter("sasl_scram512_auth", sasl_scram512_auth)
 
     @property
@@ -1099,8 +1217,14 @@ class PipeMskAccessCredentials1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_certificate_tls_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_certificate_tls_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_certificate_tls_auth is None and 'clientCertificateTlsAuth' in kwargs:
+            client_certificate_tls_auth = kwargs['clientCertificateTlsAuth']
+        if client_certificate_tls_auth is None:
+            raise TypeError("Missing 'client_certificate_tls_auth' argument")
+
         _setter("client_certificate_tls_auth", client_certificate_tls_auth)
 
     @property
@@ -1128,7 +1252,11 @@ class PipeNetworkConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              awsvpc_configuration: Optional[pulumi.Input['PipeAwsVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if awsvpc_configuration is None and 'awsvpcConfiguration' in kwargs:
+            awsvpc_configuration = kwargs['awsvpcConfiguration']
+
         if awsvpc_configuration is not None:
             _setter("awsvpc_configuration", awsvpc_configuration)
 
@@ -1157,7 +1285,9 @@ class PipePlacementConstraintArgs:
              _setter: Callable[[Any, Any], None],
              expression: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['PipePlacementConstraintType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if expression is not None:
             _setter("expression", expression)
         if type is not None:
@@ -1197,7 +1327,9 @@ class PipePlacementStrategyArgs:
              _setter: Callable[[Any, Any], None],
              field: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['PipePlacementStrategyType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
             _setter("field", field)
         if type is not None:
@@ -1229,8 +1361,10 @@ class PipeQueryStringParametersMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1246,9 +1380,15 @@ class PipeSageMakerPipelineParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1285,8 +1425,14 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             basic_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             basic_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if basic_auth is None and 'basicAuth' in kwargs:
+            basic_auth = kwargs['basicAuth']
+        if basic_auth is None:
+            raise TypeError("Missing 'basic_auth' argument")
+
         _setter("basic_auth", basic_auth)
 
     @property
@@ -1316,8 +1462,14 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sasl_scram512_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sasl_scram512_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sasl_scram512_auth is None and 'saslScram512Auth' in kwargs:
+            sasl_scram512_auth = kwargs['saslScram512Auth']
+        if sasl_scram512_auth is None:
+            raise TypeError("Missing 'sasl_scram512_auth' argument")
+
         _setter("sasl_scram512_auth", sasl_scram512_auth)
 
     @property
@@ -1347,8 +1499,14 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials2PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sasl_scram256_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sasl_scram256_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sasl_scram256_auth is None and 'saslScram256Auth' in kwargs:
+            sasl_scram256_auth = kwargs['saslScram256Auth']
+        if sasl_scram256_auth is None:
+            raise TypeError("Missing 'sasl_scram256_auth' argument")
+
         _setter("sasl_scram256_auth", sasl_scram256_auth)
 
     @property
@@ -1378,8 +1536,14 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials3PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_certificate_tls_auth: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_certificate_tls_auth: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_certificate_tls_auth is None and 'clientCertificateTlsAuth' in kwargs:
+            client_certificate_tls_auth = kwargs['clientCertificateTlsAuth']
+        if client_certificate_tls_auth is None:
+            raise TypeError("Missing 'client_certificate_tls_auth' argument")
+
         _setter("client_certificate_tls_auth", client_certificate_tls_auth)
 
     @property
@@ -1414,7 +1578,11 @@ class PipeSelfManagedKafkaAccessConfigurationVpcArgs:
              _setter: Callable[[Any, Any], None],
              security_group: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group is None and 'securityGroup' in kwargs:
+            security_group = kwargs['securityGroup']
+
         if security_group is not None:
             _setter("security_group", security_group)
         if subnets is not None:
@@ -1462,11 +1630,23 @@ class PipeSourceActiveMqBrokerParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             credentials: pulumi.Input['PipeMqBrokerAccessCredentialsPropertiesArgs'],
-             queue_name: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['PipeMqBrokerAccessCredentialsPropertiesArgs']] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+
         _setter("credentials", credentials)
         _setter("queue_name", queue_name)
         if batch_size is not None:
@@ -1536,7 +1716,7 @@ class PipeSourceDynamoDbStreamParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             starting_position: pulumi.Input['PipeDynamoDbStreamStartPosition'],
+             starting_position: Optional[pulumi.Input['PipeDynamoDbStreamStartPosition']] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              dead_letter_config: Optional[pulumi.Input['PipeDeadLetterConfigArgs']] = None,
              maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -1544,7 +1724,27 @@ class PipeSourceDynamoDbStreamParametersArgs:
              maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
              on_partial_batch_item_failure: Optional[pulumi.Input['PipeOnPartialBatchItemFailureStreams']] = None,
              parallelization_factor: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+        if starting_position is None:
+            raise TypeError("Missing 'starting_position' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if maximum_record_age_in_seconds is None and 'maximumRecordAgeInSeconds' in kwargs:
+            maximum_record_age_in_seconds = kwargs['maximumRecordAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+        if on_partial_batch_item_failure is None and 'onPartialBatchItemFailure' in kwargs:
+            on_partial_batch_item_failure = kwargs['onPartialBatchItemFailure']
+        if parallelization_factor is None and 'parallelizationFactor' in kwargs:
+            parallelization_factor = kwargs['parallelizationFactor']
+
         _setter("starting_position", starting_position)
         if batch_size is not None:
             _setter("batch_size", batch_size)
@@ -1661,7 +1861,7 @@ class PipeSourceKinesisStreamParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             starting_position: pulumi.Input['PipeKinesisStreamStartPosition'],
+             starting_position: Optional[pulumi.Input['PipeKinesisStreamStartPosition']] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              dead_letter_config: Optional[pulumi.Input['PipeDeadLetterConfigArgs']] = None,
              maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -1670,7 +1870,29 @@ class PipeSourceKinesisStreamParametersArgs:
              on_partial_batch_item_failure: Optional[pulumi.Input['PipeOnPartialBatchItemFailureStreams']] = None,
              parallelization_factor: Optional[pulumi.Input[int]] = None,
              starting_position_timestamp: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+        if starting_position is None:
+            raise TypeError("Missing 'starting_position' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if maximum_record_age_in_seconds is None and 'maximumRecordAgeInSeconds' in kwargs:
+            maximum_record_age_in_seconds = kwargs['maximumRecordAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+        if on_partial_batch_item_failure is None and 'onPartialBatchItemFailure' in kwargs:
+            on_partial_batch_item_failure = kwargs['onPartialBatchItemFailure']
+        if parallelization_factor is None and 'parallelizationFactor' in kwargs:
+            parallelization_factor = kwargs['parallelizationFactor']
+        if starting_position_timestamp is None and 'startingPositionTimestamp' in kwargs:
+            starting_position_timestamp = kwargs['startingPositionTimestamp']
+
         _setter("starting_position", starting_position)
         if batch_size is not None:
             _setter("batch_size", batch_size)
@@ -1792,13 +2014,27 @@ class PipeSourceManagedStreamingKafkaParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_name: pulumi.Input[str],
+             topic_name: Optional[pulumi.Input[str]] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              consumer_group_id: Optional[pulumi.Input[str]] = None,
              credentials: Optional[pulumi.Input[Union['PipeMskAccessCredentials0PropertiesArgs', 'PipeMskAccessCredentials1PropertiesArgs']]] = None,
              maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
              starting_position: Optional[pulumi.Input['PipeMskStartPosition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if consumer_group_id is None and 'consumerGroupId' in kwargs:
+            consumer_group_id = kwargs['consumerGroupId']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+
         _setter("topic_name", topic_name)
         if batch_size is not None:
             _setter("batch_size", batch_size)
@@ -1899,7 +2135,25 @@ class PipeSourceParametersArgs:
              rabbit_mq_broker_parameters: Optional[pulumi.Input['PipeSourceRabbitMqBrokerParametersArgs']] = None,
              self_managed_kafka_parameters: Optional[pulumi.Input['PipeSourceSelfManagedKafkaParametersArgs']] = None,
              sqs_queue_parameters: Optional[pulumi.Input['PipeSourceSqsQueueParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_mq_broker_parameters is None and 'activeMqBrokerParameters' in kwargs:
+            active_mq_broker_parameters = kwargs['activeMqBrokerParameters']
+        if dynamo_db_stream_parameters is None and 'dynamoDbStreamParameters' in kwargs:
+            dynamo_db_stream_parameters = kwargs['dynamoDbStreamParameters']
+        if filter_criteria is None and 'filterCriteria' in kwargs:
+            filter_criteria = kwargs['filterCriteria']
+        if kinesis_stream_parameters is None and 'kinesisStreamParameters' in kwargs:
+            kinesis_stream_parameters = kwargs['kinesisStreamParameters']
+        if managed_streaming_kafka_parameters is None and 'managedStreamingKafkaParameters' in kwargs:
+            managed_streaming_kafka_parameters = kwargs['managedStreamingKafkaParameters']
+        if rabbit_mq_broker_parameters is None and 'rabbitMqBrokerParameters' in kwargs:
+            rabbit_mq_broker_parameters = kwargs['rabbitMqBrokerParameters']
+        if self_managed_kafka_parameters is None and 'selfManagedKafkaParameters' in kwargs:
+            self_managed_kafka_parameters = kwargs['selfManagedKafkaParameters']
+        if sqs_queue_parameters is None and 'sqsQueueParameters' in kwargs:
+            sqs_queue_parameters = kwargs['sqsQueueParameters']
+
         if active_mq_broker_parameters is not None:
             _setter("active_mq_broker_parameters", active_mq_broker_parameters)
         if dynamo_db_stream_parameters is not None:
@@ -2009,12 +2263,26 @@ class PipeSourceRabbitMqBrokerParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             credentials: pulumi.Input['PipeMqBrokerAccessCredentialsPropertiesArgs'],
-             queue_name: pulumi.Input[str],
+             credentials: Optional[pulumi.Input['PipeMqBrokerAccessCredentialsPropertiesArgs']] = None,
+             queue_name: Optional[pulumi.Input[str]] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
              virtual_host: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credentials is None:
+            raise TypeError("Missing 'credentials' argument")
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if virtual_host is None and 'virtualHost' in kwargs:
+            virtual_host = kwargs['virtualHost']
+
         _setter("credentials", credentials)
         _setter("queue_name", queue_name)
         if batch_size is not None:
@@ -2100,7 +2368,7 @@ class PipeSourceSelfManagedKafkaParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_name: pulumi.Input[str],
+             topic_name: Optional[pulumi.Input[str]] = None,
              additional_bootstrap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              consumer_group_id: Optional[pulumi.Input[str]] = None,
@@ -2109,7 +2377,25 @@ class PipeSourceSelfManagedKafkaParametersArgs:
              server_root_ca_certificate: Optional[pulumi.Input[str]] = None,
              starting_position: Optional[pulumi.Input['PipeSelfManagedKafkaStartPosition']] = None,
              vpc: Optional[pulumi.Input['PipeSelfManagedKafkaAccessConfigurationVpcArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+        if additional_bootstrap_servers is None and 'additionalBootstrapServers' in kwargs:
+            additional_bootstrap_servers = kwargs['additionalBootstrapServers']
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if consumer_group_id is None and 'consumerGroupId' in kwargs:
+            consumer_group_id = kwargs['consumerGroupId']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if server_root_ca_certificate is None and 'serverRootCaCertificate' in kwargs:
+            server_root_ca_certificate = kwargs['serverRootCaCertificate']
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+
         _setter("topic_name", topic_name)
         if additional_bootstrap_servers is not None:
             _setter("additional_bootstrap_servers", additional_bootstrap_servers)
@@ -2228,7 +2514,13 @@ class PipeSourceSqsQueueParametersArgs:
              _setter: Callable[[Any, Any], None],
              batch_size: Optional[pulumi.Input[int]] = None,
              maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+
         if batch_size is not None:
             _setter("batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
@@ -2260,8 +2552,10 @@ class PipeTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -2277,9 +2571,15 @@ class PipeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2325,14 +2625,32 @@ class PipeTargetBatchJobParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             job_definition: pulumi.Input[str],
-             job_name: pulumi.Input[str],
+             job_definition: Optional[pulumi.Input[str]] = None,
+             job_name: Optional[pulumi.Input[str]] = None,
              array_properties: Optional[pulumi.Input['PipeBatchArrayPropertiesArgs']] = None,
              container_overrides: Optional[pulumi.Input['PipeBatchContainerOverridesArgs']] = None,
              depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['PipeBatchJobDependencyArgs']]]] = None,
              parameters: Optional[pulumi.Input['PipeBatchParametersMapArgs']] = None,
              retry_strategy: Optional[pulumi.Input['PipeBatchRetryStrategyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_definition is None and 'jobDefinition' in kwargs:
+            job_definition = kwargs['jobDefinition']
+        if job_definition is None:
+            raise TypeError("Missing 'job_definition' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if array_properties is None and 'arrayProperties' in kwargs:
+            array_properties = kwargs['arrayProperties']
+        if container_overrides is None and 'containerOverrides' in kwargs:
+            container_overrides = kwargs['containerOverrides']
+        if depends_on is None and 'dependsOn' in kwargs:
+            depends_on = kwargs['dependsOn']
+        if retry_strategy is None and 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+
         _setter("job_definition", job_definition)
         _setter("job_name", job_name)
         if array_properties is not None:
@@ -2425,7 +2743,11 @@ class PipeTargetCloudWatchLogsParametersArgs:
              _setter: Callable[[Any, Any], None],
              log_stream_name: Optional[pulumi.Input[str]] = None,
              timestamp: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_stream_name is None and 'logStreamName' in kwargs:
+            log_stream_name = kwargs['logStreamName']
+
         if log_stream_name is not None:
             _setter("log_stream_name", log_stream_name)
         if timestamp is not None:
@@ -2489,7 +2811,7 @@ class PipeTargetEcsTaskParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             task_definition_arn: pulumi.Input[str],
+             task_definition_arn: Optional[pulumi.Input[str]] = None,
              capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['PipeCapacityProviderStrategyItemArgs']]]] = None,
              enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
              enable_execute_command: Optional[pulumi.Input[bool]] = None,
@@ -2504,7 +2826,35 @@ class PipeTargetEcsTaskParametersArgs:
              reference_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipeTagArgs']]]] = None,
              task_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_definition_arn is None and 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if task_definition_arn is None:
+            raise TypeError("Missing 'task_definition_arn' argument")
+        if capacity_provider_strategy is None and 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if enable_ecs_managed_tags is None and 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if enable_execute_command is None and 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if placement_strategy is None and 'placementStrategy' in kwargs:
+            placement_strategy = kwargs['placementStrategy']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if reference_id is None and 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+        if task_count is None and 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
         _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
@@ -2695,7 +3045,13 @@ class PipeTargetEventBridgeEventBusParametersArgs:
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              source: Optional[pulumi.Input[str]] = None,
              time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detail_type is None and 'detailType' in kwargs:
+            detail_type = kwargs['detailType']
+        if endpoint_id is None and 'endpointId' in kwargs:
+            endpoint_id = kwargs['endpointId']
+
         if detail_type is not None:
             _setter("detail_type", detail_type)
         if endpoint_id is not None:
@@ -2771,7 +3127,15 @@ class PipeTargetHttpParametersArgs:
              header_parameters: Optional[pulumi.Input['PipeHeaderParametersMapArgs']] = None,
              path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              query_string_parameters: Optional[pulumi.Input['PipeQueryStringParametersMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if path_parameter_values is None and 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
             _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -2818,8 +3182,14 @@ class PipeTargetKinesisStreamParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partition_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             partition_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if partition_key is None:
+            raise TypeError("Missing 'partition_key' argument")
+
         _setter("partition_key", partition_key)
 
     @property
@@ -2844,7 +3214,11 @@ class PipeTargetLambdaFunctionParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              invocation_type: Optional[pulumi.Input['PipeTargetInvocationType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if invocation_type is None and 'invocationType' in kwargs:
+            invocation_type = kwargs['invocationType']
+
         if invocation_type is not None:
             _setter("invocation_type", invocation_type)
 
@@ -2903,7 +3277,33 @@ class PipeTargetParametersArgs:
              sage_maker_pipeline_parameters: Optional[pulumi.Input['PipeTargetSageMakerPipelineParametersArgs']] = None,
              sqs_queue_parameters: Optional[pulumi.Input['PipeTargetSqsQueueParametersArgs']] = None,
              step_function_state_machine_parameters: Optional[pulumi.Input['PipeTargetStateMachineParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch_job_parameters is None and 'batchJobParameters' in kwargs:
+            batch_job_parameters = kwargs['batchJobParameters']
+        if cloud_watch_logs_parameters is None and 'cloudWatchLogsParameters' in kwargs:
+            cloud_watch_logs_parameters = kwargs['cloudWatchLogsParameters']
+        if ecs_task_parameters is None and 'ecsTaskParameters' in kwargs:
+            ecs_task_parameters = kwargs['ecsTaskParameters']
+        if event_bridge_event_bus_parameters is None and 'eventBridgeEventBusParameters' in kwargs:
+            event_bridge_event_bus_parameters = kwargs['eventBridgeEventBusParameters']
+        if http_parameters is None and 'httpParameters' in kwargs:
+            http_parameters = kwargs['httpParameters']
+        if input_template is None and 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+        if kinesis_stream_parameters is None and 'kinesisStreamParameters' in kwargs:
+            kinesis_stream_parameters = kwargs['kinesisStreamParameters']
+        if lambda_function_parameters is None and 'lambdaFunctionParameters' in kwargs:
+            lambda_function_parameters = kwargs['lambdaFunctionParameters']
+        if redshift_data_parameters is None and 'redshiftDataParameters' in kwargs:
+            redshift_data_parameters = kwargs['redshiftDataParameters']
+        if sage_maker_pipeline_parameters is None and 'sageMakerPipelineParameters' in kwargs:
+            sage_maker_pipeline_parameters = kwargs['sageMakerPipelineParameters']
+        if sqs_queue_parameters is None and 'sqsQueueParameters' in kwargs:
+            sqs_queue_parameters = kwargs['sqsQueueParameters']
+        if step_function_state_machine_parameters is None and 'stepFunctionStateMachineParameters' in kwargs:
+            step_function_state_machine_parameters = kwargs['stepFunctionStateMachineParameters']
+
         if batch_job_parameters is not None:
             _setter("batch_job_parameters", batch_job_parameters)
         if cloud_watch_logs_parameters is not None:
@@ -3066,13 +3466,27 @@ class PipeTargetRedshiftDataParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             sqls: pulumi.Input[Sequence[pulumi.Input[str]]],
+             database: Optional[pulumi.Input[str]] = None,
+             sqls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              db_user: Optional[pulumi.Input[str]] = None,
              secret_manager_arn: Optional[pulumi.Input[str]] = None,
              statement_name: Optional[pulumi.Input[str]] = None,
              with_event: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if sqls is None:
+            raise TypeError("Missing 'sqls' argument")
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if secret_manager_arn is None and 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if with_event is None and 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+
         _setter("database", database)
         _setter("sqls", sqls)
         if db_user is not None:
@@ -3166,7 +3580,11 @@ class PipeTargetSageMakerPipelineParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['PipeSageMakerPipelineParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_parameter_list is None and 'pipelineParameterList' in kwargs:
+            pipeline_parameter_list = kwargs['pipelineParameterList']
+
         if pipeline_parameter_list is not None:
             _setter("pipeline_parameter_list", pipeline_parameter_list)
 
@@ -3195,7 +3613,13 @@ class PipeTargetSqsQueueParametersArgs:
              _setter: Callable[[Any, Any], None],
              message_deduplication_id: Optional[pulumi.Input[str]] = None,
              message_group_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_deduplication_id is None and 'messageDeduplicationId' in kwargs:
+            message_deduplication_id = kwargs['messageDeduplicationId']
+        if message_group_id is None and 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+
         if message_deduplication_id is not None:
             _setter("message_deduplication_id", message_deduplication_id)
         if message_group_id is not None:
@@ -3232,7 +3656,11 @@ class PipeTargetStateMachineParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              invocation_type: Optional[pulumi.Input['PipeTargetInvocationType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if invocation_type is None and 'invocationType' in kwargs:
+            invocation_type = kwargs['invocationType']
+
         if invocation_type is not None:
             _setter("invocation_type", invocation_type)
 

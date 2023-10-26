@@ -58,8 +58,8 @@ class InstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             blueprint_id: pulumi.Input[str],
-             bundle_id: pulumi.Input[str],
+             blueprint_id: Optional[pulumi.Input[str]] = None,
+             bundle_id: Optional[pulumi.Input[str]] = None,
              add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              hardware: Optional[pulumi.Input['InstanceHardwareArgs']] = None,
@@ -70,7 +70,27 @@ class InstanceArgs:
              state: Optional[pulumi.Input['InstanceStateArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if blueprint_id is None and 'blueprintId' in kwargs:
+            blueprint_id = kwargs['blueprintId']
+        if blueprint_id is None:
+            raise TypeError("Missing 'blueprint_id' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if add_ons is None and 'addOns' in kwargs:
+            add_ons = kwargs['addOns']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if instance_name is None and 'instanceName' in kwargs:
+            instance_name = kwargs['instanceName']
+        if key_pair_name is None and 'keyPairName' in kwargs:
+            key_pair_name = kwargs['keyPairName']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         _setter("blueprint_id", blueprint_id)
         _setter("bundle_id", bundle_id)
         if add_ons is not None:
@@ -316,31 +336,15 @@ class Instance(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
-            if hardware is not None and not isinstance(hardware, InstanceHardwareArgs):
-                hardware = hardware or {}
-                def _setter(key, value):
-                    hardware[key] = value
-                InstanceHardwareArgs._configure(_setter, **hardware)
+            hardware = _utilities.configure(hardware, InstanceHardwareArgs, True)
             __props__.__dict__["hardware"] = hardware
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["key_pair_name"] = key_pair_name
-            if location is not None and not isinstance(location, InstanceLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                InstanceLocationArgs._configure(_setter, **location)
+            location = _utilities.configure(location, InstanceLocationArgs, True)
             __props__.__dict__["location"] = location
-            if networking is not None and not isinstance(networking, InstanceNetworkingArgs):
-                networking = networking or {}
-                def _setter(key, value):
-                    networking[key] = value
-                InstanceNetworkingArgs._configure(_setter, **networking)
+            networking = _utilities.configure(networking, InstanceNetworkingArgs, True)
             __props__.__dict__["networking"] = networking
-            if state is not None and not isinstance(state, InstanceStateArgs):
-                state = state or {}
-                def _setter(key, value):
-                    state[key] = value
-                InstanceStateArgs._configure(_setter, **state)
+            state = _utilities.configure(state, InstanceStateArgs, True)
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data

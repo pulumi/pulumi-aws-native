@@ -42,7 +42,15 @@ class SourceApiAssociationArgs:
              merged_api_identifier: Optional[pulumi.Input[str]] = None,
              source_api_association_config: Optional[pulumi.Input['SourceApiAssociationConfigArgs']] = None,
              source_api_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if merged_api_identifier is None and 'mergedApiIdentifier' in kwargs:
+            merged_api_identifier = kwargs['mergedApiIdentifier']
+        if source_api_association_config is None and 'sourceApiAssociationConfig' in kwargs:
+            source_api_association_config = kwargs['sourceApiAssociationConfig']
+        if source_api_identifier is None and 'sourceApiIdentifier' in kwargs:
+            source_api_identifier = kwargs['sourceApiIdentifier']
+
         if description is not None:
             _setter("description", description)
         if merged_api_identifier is not None:
@@ -164,11 +172,7 @@ class SourceApiAssociation(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["merged_api_identifier"] = merged_api_identifier
-            if source_api_association_config is not None and not isinstance(source_api_association_config, SourceApiAssociationConfigArgs):
-                source_api_association_config = source_api_association_config or {}
-                def _setter(key, value):
-                    source_api_association_config[key] = value
-                SourceApiAssociationConfigArgs._configure(_setter, **source_api_association_config)
+            source_api_association_config = _utilities.configure(source_api_association_config, SourceApiAssociationConfigArgs, True)
             __props__.__dict__["source_api_association_config"] = source_api_association_config
             __props__.__dict__["source_api_identifier"] = source_api_identifier
             __props__.__dict__["association_arn"] = None

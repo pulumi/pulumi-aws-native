@@ -38,12 +38,24 @@ class SimulationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              maximum_duration: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              schema_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None,
              snapshot_s3_location: Optional[pulumi.Input['SimulationS3LocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if maximum_duration is None and 'maximumDuration' in kwargs:
+            maximum_duration = kwargs['maximumDuration']
+        if schema_s3_location is None and 'schemaS3Location' in kwargs:
+            schema_s3_location = kwargs['schemaS3Location']
+        if snapshot_s3_location is None and 'snapshotS3Location' in kwargs:
+            snapshot_s3_location = kwargs['snapshotS3Location']
+
         _setter("role_arn", role_arn)
         if maximum_duration is not None:
             _setter("maximum_duration", maximum_duration)
@@ -176,17 +188,9 @@ class Simulation(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if schema_s3_location is not None and not isinstance(schema_s3_location, SimulationS3LocationArgs):
-                schema_s3_location = schema_s3_location or {}
-                def _setter(key, value):
-                    schema_s3_location[key] = value
-                SimulationS3LocationArgs._configure(_setter, **schema_s3_location)
+            schema_s3_location = _utilities.configure(schema_s3_location, SimulationS3LocationArgs, True)
             __props__.__dict__["schema_s3_location"] = schema_s3_location
-            if snapshot_s3_location is not None and not isinstance(snapshot_s3_location, SimulationS3LocationArgs):
-                snapshot_s3_location = snapshot_s3_location or {}
-                def _setter(key, value):
-                    snapshot_s3_location[key] = value
-                SimulationS3LocationArgs._configure(_setter, **snapshot_s3_location)
+            snapshot_s3_location = _utilities.configure(snapshot_s3_location, SimulationS3LocationArgs, True)
             __props__.__dict__["snapshot_s3_location"] = snapshot_s3_location
             __props__.__dict__["describe_payload"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["maximum_duration", "name", "role_arn", "schema_s3_location", "snapshot_s3_location"])

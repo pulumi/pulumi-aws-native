@@ -33,12 +33,26 @@ class ClientVpnAuthorizationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_vpn_endpoint_id: pulumi.Input[str],
-             target_network_cidr: pulumi.Input[str],
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             target_network_cidr: Optional[pulumi.Input[str]] = None,
              access_group_id: Optional[pulumi.Input[str]] = None,
              authorize_all_groups: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if client_vpn_endpoint_id is None:
+            raise TypeError("Missing 'client_vpn_endpoint_id' argument")
+        if target_network_cidr is None and 'targetNetworkCidr' in kwargs:
+            target_network_cidr = kwargs['targetNetworkCidr']
+        if target_network_cidr is None:
+            raise TypeError("Missing 'target_network_cidr' argument")
+        if access_group_id is None and 'accessGroupId' in kwargs:
+            access_group_id = kwargs['accessGroupId']
+        if authorize_all_groups is None and 'authorizeAllGroups' in kwargs:
+            authorize_all_groups = kwargs['authorizeAllGroups']
+
         _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         _setter("target_network_cidr", target_network_cidr)
         if access_group_id is not None:

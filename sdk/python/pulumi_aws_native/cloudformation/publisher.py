@@ -30,9 +30,17 @@ class PublisherArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             accept_terms_and_conditions: pulumi.Input[bool],
+             accept_terms_and_conditions: Optional[pulumi.Input[bool]] = None,
              connection_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_terms_and_conditions is None and 'acceptTermsAndConditions' in kwargs:
+            accept_terms_and_conditions = kwargs['acceptTermsAndConditions']
+        if accept_terms_and_conditions is None:
+            raise TypeError("Missing 'accept_terms_and_conditions' argument")
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+
         _setter("accept_terms_and_conditions", accept_terms_and_conditions)
         if connection_arn is not None:
             _setter("connection_arn", connection_arn)

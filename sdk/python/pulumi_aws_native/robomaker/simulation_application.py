@@ -49,15 +49,29 @@ class SimulationApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             robot_software_suite: pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'],
-             simulation_software_suite: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs'],
+             robot_software_suite: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs']] = None,
+             simulation_software_suite: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs']] = None,
              current_revision_id: Optional[pulumi.Input[str]] = None,
              environment: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rendering_engine: Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]] = None,
              tags: Optional[pulumi.Input['SimulationApplicationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if robot_software_suite is None and 'robotSoftwareSuite' in kwargs:
+            robot_software_suite = kwargs['robotSoftwareSuite']
+        if robot_software_suite is None:
+            raise TypeError("Missing 'robot_software_suite' argument")
+        if simulation_software_suite is None and 'simulationSoftwareSuite' in kwargs:
+            simulation_software_suite = kwargs['simulationSoftwareSuite']
+        if simulation_software_suite is None:
+            raise TypeError("Missing 'simulation_software_suite' argument")
+        if current_revision_id is None and 'currentRevisionId' in kwargs:
+            current_revision_id = kwargs['currentRevisionId']
+        if rendering_engine is None and 'renderingEngine' in kwargs:
+            rendering_engine = kwargs['renderingEngine']
+
         _setter("robot_software_suite", robot_software_suite)
         _setter("simulation_software_suite", simulation_software_suite)
         if current_revision_id is not None:
@@ -242,34 +256,18 @@ class SimulationApplication(pulumi.CustomResource):
             __props__.__dict__["current_revision_id"] = current_revision_id
             __props__.__dict__["environment"] = environment
             __props__.__dict__["name"] = name
-            if rendering_engine is not None and not isinstance(rendering_engine, SimulationApplicationRenderingEngineArgs):
-                rendering_engine = rendering_engine or {}
-                def _setter(key, value):
-                    rendering_engine[key] = value
-                SimulationApplicationRenderingEngineArgs._configure(_setter, **rendering_engine)
+            rendering_engine = _utilities.configure(rendering_engine, SimulationApplicationRenderingEngineArgs, True)
             __props__.__dict__["rendering_engine"] = rendering_engine
-            if robot_software_suite is not None and not isinstance(robot_software_suite, SimulationApplicationRobotSoftwareSuiteArgs):
-                robot_software_suite = robot_software_suite or {}
-                def _setter(key, value):
-                    robot_software_suite[key] = value
-                SimulationApplicationRobotSoftwareSuiteArgs._configure(_setter, **robot_software_suite)
+            robot_software_suite = _utilities.configure(robot_software_suite, SimulationApplicationRobotSoftwareSuiteArgs, True)
             if robot_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'robot_software_suite'")
             __props__.__dict__["robot_software_suite"] = robot_software_suite
-            if simulation_software_suite is not None and not isinstance(simulation_software_suite, SimulationApplicationSimulationSoftwareSuiteArgs):
-                simulation_software_suite = simulation_software_suite or {}
-                def _setter(key, value):
-                    simulation_software_suite[key] = value
-                SimulationApplicationSimulationSoftwareSuiteArgs._configure(_setter, **simulation_software_suite)
+            simulation_software_suite = _utilities.configure(simulation_software_suite, SimulationApplicationSimulationSoftwareSuiteArgs, True)
             if simulation_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'simulation_software_suite'")
             __props__.__dict__["simulation_software_suite"] = simulation_software_suite
             __props__.__dict__["sources"] = sources
-            if tags is not None and not isinstance(tags, SimulationApplicationTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                SimulationApplicationTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, SimulationApplicationTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

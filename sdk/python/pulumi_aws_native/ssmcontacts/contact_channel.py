@@ -44,7 +44,19 @@ class ContactChannelArgs:
              channel_type: Optional[pulumi.Input['ContactChannelChannelType']] = None,
              contact_id: Optional[pulumi.Input[str]] = None,
              defer_activation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_address is None and 'channelAddress' in kwargs:
+            channel_address = kwargs['channelAddress']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_type is None and 'channelType' in kwargs:
+            channel_type = kwargs['channelType']
+        if contact_id is None and 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if defer_activation is None and 'deferActivation' in kwargs:
+            defer_activation = kwargs['deferActivation']
+
         if channel_address is not None:
             _setter("channel_address", channel_address)
         if channel_name is not None:

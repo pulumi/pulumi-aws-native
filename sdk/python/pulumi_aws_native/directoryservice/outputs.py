@@ -46,9 +46,19 @@ class MicrosoftAdVpcSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_ids: Sequence[str],
-             vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             subnet_ids: Optional[Sequence[str]] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
         _setter("subnet_ids", subnet_ids)
         _setter("vpc_id", vpc_id)
 
@@ -99,9 +109,19 @@ class SimpleAdVpcSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_ids: Sequence[str],
-             vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             subnet_ids: Optional[Sequence[str]] = None,
+             vpc_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
         _setter("subnet_ids", subnet_ids)
         _setter("vpc_id", vpc_id)
 

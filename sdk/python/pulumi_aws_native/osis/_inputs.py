@@ -31,7 +31,11 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if log_group is not None:
             _setter("log_group", log_group)
 
@@ -65,7 +69,13 @@ class PipelineLogPublishingOptionsArgs:
              _setter: Callable[[Any, Any], None],
              cloud_watch_log_destination: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']] = None,
              is_logging_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_log_destination is None and 'cloudWatchLogDestination' in kwargs:
+            cloud_watch_log_destination = kwargs['cloudWatchLogDestination']
+        if is_logging_enabled is None and 'isLoggingEnabled' in kwargs:
+            is_logging_enabled = kwargs['isLoggingEnabled']
+
         if cloud_watch_log_destination is not None:
             _setter("cloud_watch_log_destination", cloud_watch_log_destination)
         if is_logging_enabled is not None:
@@ -114,9 +124,15 @@ class PipelineTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -165,7 +181,13 @@ class PipelineVpcOptionsArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:

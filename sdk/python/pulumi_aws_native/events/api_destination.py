@@ -39,13 +39,29 @@ class ApiDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_arn: pulumi.Input[str],
-             http_method: pulumi.Input['ApiDestinationHttpMethod'],
-             invocation_endpoint: pulumi.Input[str],
+             connection_arn: Optional[pulumi.Input[str]] = None,
+             http_method: Optional[pulumi.Input['ApiDestinationHttpMethod']] = None,
+             invocation_endpoint: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+        if connection_arn is None:
+            raise TypeError("Missing 'connection_arn' argument")
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if invocation_endpoint is None and 'invocationEndpoint' in kwargs:
+            invocation_endpoint = kwargs['invocationEndpoint']
+        if invocation_endpoint is None:
+            raise TypeError("Missing 'invocation_endpoint' argument")
+        if invocation_rate_limit_per_second is None and 'invocationRateLimitPerSecond' in kwargs:
+            invocation_rate_limit_per_second = kwargs['invocationRateLimitPerSecond']
+
         _setter("connection_arn", connection_arn)
         _setter("http_method", http_method)
         _setter("invocation_endpoint", invocation_endpoint)

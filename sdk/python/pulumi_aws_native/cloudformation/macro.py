@@ -33,12 +33,22 @@ class MacroArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
+             function_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              log_group_name: Optional[pulumi.Input[str]] = None,
              log_role_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_role_arn is None and 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         _setter("function_name", function_name)
         if description is not None:
             _setter("description", description)

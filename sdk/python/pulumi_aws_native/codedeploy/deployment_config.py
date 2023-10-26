@@ -41,7 +41,17 @@ class DeploymentConfigArgs:
              deployment_config_name: Optional[pulumi.Input[str]] = None,
              minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
              traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_platform is None and 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+        if deployment_config_name is None and 'deploymentConfigName' in kwargs:
+            deployment_config_name = kwargs['deploymentConfigName']
+        if minimum_healthy_hosts is None and 'minimumHealthyHosts' in kwargs:
+            minimum_healthy_hosts = kwargs['minimumHealthyHosts']
+        if traffic_routing_config is None and 'trafficRoutingConfig' in kwargs:
+            traffic_routing_config = kwargs['trafficRoutingConfig']
+
         if compute_platform is not None:
             _setter("compute_platform", compute_platform)
         if deployment_config_name is not None:
@@ -163,17 +173,9 @@ class DeploymentConfig(pulumi.CustomResource):
 
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["deployment_config_name"] = deployment_config_name
-            if minimum_healthy_hosts is not None and not isinstance(minimum_healthy_hosts, DeploymentConfigMinimumHealthyHostsArgs):
-                minimum_healthy_hosts = minimum_healthy_hosts or {}
-                def _setter(key, value):
-                    minimum_healthy_hosts[key] = value
-                DeploymentConfigMinimumHealthyHostsArgs._configure(_setter, **minimum_healthy_hosts)
+            minimum_healthy_hosts = _utilities.configure(minimum_healthy_hosts, DeploymentConfigMinimumHealthyHostsArgs, True)
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
-            if traffic_routing_config is not None and not isinstance(traffic_routing_config, DeploymentConfigTrafficRoutingConfigArgs):
-                traffic_routing_config = traffic_routing_config or {}
-                def _setter(key, value):
-                    traffic_routing_config[key] = value
-                DeploymentConfigTrafficRoutingConfigArgs._configure(_setter, **traffic_routing_config)
+            traffic_routing_config = _utilities.configure(traffic_routing_config, DeploymentConfigTrafficRoutingConfigArgs, True)
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_platform", "deployment_config_name", "minimum_healthy_hosts", "traffic_routing_config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

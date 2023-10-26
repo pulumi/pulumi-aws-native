@@ -51,16 +51,38 @@ class FeatureGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_time_feature_name: pulumi.Input[str],
-             feature_definitions: pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]],
-             record_identifier_feature_name: pulumi.Input[str],
+             event_time_feature_name: Optional[pulumi.Input[str]] = None,
+             feature_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]]] = None,
+             record_identifier_feature_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              feature_group_name: Optional[pulumi.Input[str]] = None,
              offline_store_config: Optional[pulumi.Input['OfflineStoreConfigPropertiesArgs']] = None,
              online_store_config: Optional[pulumi.Input['OnlineStoreConfigPropertiesArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_time_feature_name is None and 'eventTimeFeatureName' in kwargs:
+            event_time_feature_name = kwargs['eventTimeFeatureName']
+        if event_time_feature_name is None:
+            raise TypeError("Missing 'event_time_feature_name' argument")
+        if feature_definitions is None and 'featureDefinitions' in kwargs:
+            feature_definitions = kwargs['featureDefinitions']
+        if feature_definitions is None:
+            raise TypeError("Missing 'feature_definitions' argument")
+        if record_identifier_feature_name is None and 'recordIdentifierFeatureName' in kwargs:
+            record_identifier_feature_name = kwargs['recordIdentifierFeatureName']
+        if record_identifier_feature_name is None:
+            raise TypeError("Missing 'record_identifier_feature_name' argument")
+        if feature_group_name is None and 'featureGroupName' in kwargs:
+            feature_group_name = kwargs['featureGroupName']
+        if offline_store_config is None and 'offlineStoreConfig' in kwargs:
+            offline_store_config = kwargs['offlineStoreConfig']
+        if online_store_config is None and 'onlineStoreConfig' in kwargs:
+            online_store_config = kwargs['onlineStoreConfig']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("event_time_feature_name", event_time_feature_name)
         _setter("feature_definitions", feature_definitions)
         _setter("record_identifier_feature_name", record_identifier_feature_name)
@@ -262,17 +284,9 @@ class FeatureGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'feature_definitions'")
             __props__.__dict__["feature_definitions"] = feature_definitions
             __props__.__dict__["feature_group_name"] = feature_group_name
-            if offline_store_config is not None and not isinstance(offline_store_config, OfflineStoreConfigPropertiesArgs):
-                offline_store_config = offline_store_config or {}
-                def _setter(key, value):
-                    offline_store_config[key] = value
-                OfflineStoreConfigPropertiesArgs._configure(_setter, **offline_store_config)
+            offline_store_config = _utilities.configure(offline_store_config, OfflineStoreConfigPropertiesArgs, True)
             __props__.__dict__["offline_store_config"] = offline_store_config
-            if online_store_config is not None and not isinstance(online_store_config, OnlineStoreConfigPropertiesArgs):
-                online_store_config = online_store_config or {}
-                def _setter(key, value):
-                    online_store_config[key] = value
-                OnlineStoreConfigPropertiesArgs._configure(_setter, **online_store_config)
+            online_store_config = _utilities.configure(online_store_config, OnlineStoreConfigPropertiesArgs, True)
             __props__.__dict__["online_store_config"] = online_store_config
             if record_identifier_feature_name is None and not opts.urn:
                 raise TypeError("Missing required property 'record_identifier_feature_name'")

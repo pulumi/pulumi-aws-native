@@ -35,11 +35,21 @@ class EndpointAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account: pulumi.Input[str],
-             cluster_identifier: pulumi.Input[str],
+             account: Optional[pulumi.Input[str]] = None,
+             cluster_identifier: Optional[pulumi.Input[str]] = None,
              force: Optional[pulumi.Input[bool]] = None,
              vpc_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account is None:
+            raise TypeError("Missing 'account' argument")
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if vpc_ids is None and 'vpcIds' in kwargs:
+            vpc_ids = kwargs['vpcIds']
+
         _setter("account", account)
         _setter("cluster_identifier", cluster_identifier)
         if force is not None:

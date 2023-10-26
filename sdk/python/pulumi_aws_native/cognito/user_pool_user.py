@@ -41,7 +41,7 @@ class UserPoolUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             user_pool_id: pulumi.Input[str],
+             user_pool_id: Optional[pulumi.Input[str]] = None,
              client_metadata: Optional[Any] = None,
              desired_delivery_mediums: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              force_alias_creation: Optional[pulumi.Input[bool]] = None,
@@ -49,7 +49,25 @@ class UserPoolUserArgs:
              user_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
              username: Optional[pulumi.Input[str]] = None,
              validation_data: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if client_metadata is None and 'clientMetadata' in kwargs:
+            client_metadata = kwargs['clientMetadata']
+        if desired_delivery_mediums is None and 'desiredDeliveryMediums' in kwargs:
+            desired_delivery_mediums = kwargs['desiredDeliveryMediums']
+        if force_alias_creation is None and 'forceAliasCreation' in kwargs:
+            force_alias_creation = kwargs['forceAliasCreation']
+        if message_action is None and 'messageAction' in kwargs:
+            message_action = kwargs['messageAction']
+        if user_attributes is None and 'userAttributes' in kwargs:
+            user_attributes = kwargs['userAttributes']
+        if validation_data is None and 'validationData' in kwargs:
+            validation_data = kwargs['validationData']
+
         _setter("user_pool_id", user_pool_id)
         if client_metadata is not None:
             _setter("client_metadata", client_metadata)

@@ -30,8 +30,14 @@ class ApplicationDefinition0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_location: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_location is None and 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+        if s3_location is None:
+            raise TypeError("Missing 's3_location' argument")
+
         _setter("s3_location", s3_location)
 
     @property
@@ -55,8 +61,12 @@ class ApplicationDefinition1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             content: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+
         _setter("content", content)
 
     @property
@@ -76,8 +86,10 @@ class ApplicationTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -94,8 +106,14 @@ class EnvironmentHighAvailabilityConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             desired_capacity: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             desired_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if desired_capacity is None and 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if desired_capacity is None:
+            raise TypeError("Missing 'desired_capacity' argument")
+
         _setter("desired_capacity", desired_capacity)
 
     @property
@@ -118,8 +136,10 @@ class EnvironmentStorageConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -132,7 +152,9 @@ class EnvironmentTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

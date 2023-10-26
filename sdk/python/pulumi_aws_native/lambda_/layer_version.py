@@ -43,13 +43,25 @@ class LayerVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input['LayerVersionContentArgs'],
+             content: Optional[pulumi.Input['LayerVersionContentArgs']] = None,
              compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              layer_name: Optional[pulumi.Input[str]] = None,
              license_info: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if compatible_architectures is None and 'compatibleArchitectures' in kwargs:
+            compatible_architectures = kwargs['compatibleArchitectures']
+        if compatible_runtimes is None and 'compatibleRuntimes' in kwargs:
+            compatible_runtimes = kwargs['compatibleRuntimes']
+        if layer_name is None and 'layerName' in kwargs:
+            layer_name = kwargs['layerName']
+        if license_info is None and 'licenseInfo' in kwargs:
+            license_info = kwargs['licenseInfo']
+
         _setter("content", content)
         if compatible_architectures is not None:
             _setter("compatible_architectures", compatible_architectures)
@@ -204,11 +216,7 @@ class LayerVersion(pulumi.CustomResource):
 
             __props__.__dict__["compatible_architectures"] = compatible_architectures
             __props__.__dict__["compatible_runtimes"] = compatible_runtimes
-            if content is not None and not isinstance(content, LayerVersionContentArgs):
-                content = content or {}
-                def _setter(key, value):
-                    content[key] = value
-                LayerVersionContentArgs._configure(_setter, **content)
+            content = _utilities.configure(content, LayerVersionContentArgs, True)
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content

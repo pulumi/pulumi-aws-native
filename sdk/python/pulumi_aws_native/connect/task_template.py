@@ -53,7 +53,7 @@ class TaskTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
+             instance_arn: Optional[pulumi.Input[str]] = None,
              client_token: Optional[pulumi.Input[str]] = None,
              constraints: Optional[pulumi.Input['ConstraintsPropertiesArgs']] = None,
              contact_flow_arn: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,17 @@ class TaskTemplateArgs:
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if contact_flow_arn is None and 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+
         _setter("instance_arn", instance_arn)
         if client_token is not None:
             _setter("client_token", client_token)
@@ -273,11 +283,7 @@ class TaskTemplate(pulumi.CustomResource):
             __props__ = TaskTemplateArgs.__new__(TaskTemplateArgs)
 
             __props__.__dict__["client_token"] = client_token
-            if constraints is not None and not isinstance(constraints, ConstraintsPropertiesArgs):
-                constraints = constraints or {}
-                def _setter(key, value):
-                    constraints[key] = value
-                ConstraintsPropertiesArgs._configure(_setter, **constraints)
+            constraints = _utilities.configure(constraints, ConstraintsPropertiesArgs, True)
             __props__.__dict__["constraints"] = constraints
             __props__.__dict__["contact_flow_arn"] = contact_flow_arn
             __props__.__dict__["defaults"] = defaults

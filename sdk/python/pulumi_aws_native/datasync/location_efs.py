@@ -46,14 +46,28 @@ class LocationEfsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ec2_config: pulumi.Input['LocationEfsEc2ConfigArgs'],
+             ec2_config: Optional[pulumi.Input['LocationEfsEc2ConfigArgs']] = None,
              access_point_arn: Optional[pulumi.Input[str]] = None,
              efs_filesystem_arn: Optional[pulumi.Input[str]] = None,
              file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
              in_transit_encryption: Optional[pulumi.Input['LocationEfsInTransitEncryption']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationEfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_config is None and 'ec2Config' in kwargs:
+            ec2_config = kwargs['ec2Config']
+        if ec2_config is None:
+            raise TypeError("Missing 'ec2_config' argument")
+        if access_point_arn is None and 'accessPointArn' in kwargs:
+            access_point_arn = kwargs['accessPointArn']
+        if efs_filesystem_arn is None and 'efsFilesystemArn' in kwargs:
+            efs_filesystem_arn = kwargs['efsFilesystemArn']
+        if file_system_access_role_arn is None and 'fileSystemAccessRoleArn' in kwargs:
+            file_system_access_role_arn = kwargs['fileSystemAccessRoleArn']
+        if in_transit_encryption is None and 'inTransitEncryption' in kwargs:
+            in_transit_encryption = kwargs['inTransitEncryption']
+
         _setter("ec2_config", ec2_config)
         if access_point_arn is not None:
             _setter("access_point_arn", access_point_arn)
@@ -220,11 +234,7 @@ class LocationEfs(pulumi.CustomResource):
             __props__ = LocationEfsArgs.__new__(LocationEfsArgs)
 
             __props__.__dict__["access_point_arn"] = access_point_arn
-            if ec2_config is not None and not isinstance(ec2_config, LocationEfsEc2ConfigArgs):
-                ec2_config = ec2_config or {}
-                def _setter(key, value):
-                    ec2_config[key] = value
-                LocationEfsEc2ConfigArgs._configure(_setter, **ec2_config)
+            ec2_config = _utilities.configure(ec2_config, LocationEfsEc2ConfigArgs, True)
             if ec2_config is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_config'")
             __props__.__dict__["ec2_config"] = ec2_config

@@ -29,9 +29,17 @@ class ApplicationOutputResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
-             output: pulumi.Input['ApplicationOutputResourceOutputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_name: Optional[pulumi.Input[str]] = None,
+             output: Optional[pulumi.Input['ApplicationOutputResourceOutputArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if output is None:
+            raise TypeError("Missing 'output' argument")
+
         _setter("application_name", application_name)
         _setter("output", output)
 
@@ -116,11 +124,7 @@ class ApplicationOutputResource(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
-            if output is not None and not isinstance(output, ApplicationOutputResourceOutputArgs):
-                output = output or {}
-                def _setter(key, value):
-                    output[key] = value
-                ApplicationOutputResourceOutputArgs._configure(_setter, **output)
+            output = _utilities.configure(output, ApplicationOutputResourceOutputArgs, True)
             if output is None and not opts.urn:
                 raise TypeError("Missing required property 'output'")
             __props__.__dict__["output"] = output

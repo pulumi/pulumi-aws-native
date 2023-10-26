@@ -29,10 +29,22 @@ class NetworkInterfacePermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_account_id: pulumi.Input[str],
-             network_interface_id: pulumi.Input[str],
-             permission: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             permission: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_account_id is None:
+            raise TypeError("Missing 'aws_account_id' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+        if permission is None:
+            raise TypeError("Missing 'permission' argument")
+
         _setter("aws_account_id", aws_account_id)
         _setter("network_interface_id", network_interface_id)
         _setter("permission", permission)

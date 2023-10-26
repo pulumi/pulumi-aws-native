@@ -32,10 +32,16 @@ class InstanceProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             roles: pulumi.Input[Sequence[pulumi.Input[str]]],
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              instance_profile_name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if instance_profile_name is None and 'instanceProfileName' in kwargs:
+            instance_profile_name = kwargs['instanceProfileName']
+
         _setter("roles", roles)
         if instance_profile_name is not None:
             _setter("instance_profile_name", instance_profile_name)

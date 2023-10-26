@@ -44,14 +44,22 @@ class ManagedPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_document: Any,
+             policy_document: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              managed_policy_name: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
              roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+        if managed_policy_name is None and 'managedPolicyName' in kwargs:
+            managed_policy_name = kwargs['managedPolicyName']
+
         _setter("policy_document", policy_document)
         if description is not None:
             _setter("description", description)

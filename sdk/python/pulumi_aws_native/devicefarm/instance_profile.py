@@ -43,7 +43,15 @@ class InstanceProfileArgs:
              package_cleanup: Optional[pulumi.Input[bool]] = None,
              reboot_after_use: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_app_packages_from_cleanup is None and 'excludeAppPackagesFromCleanup' in kwargs:
+            exclude_app_packages_from_cleanup = kwargs['excludeAppPackagesFromCleanup']
+        if package_cleanup is None and 'packageCleanup' in kwargs:
+            package_cleanup = kwargs['packageCleanup']
+        if reboot_after_use is None and 'rebootAfterUse' in kwargs:
+            reboot_after_use = kwargs['rebootAfterUse']
+
         if description is not None:
             _setter("description", description)
         if exclude_app_packages_from_cleanup is not None:

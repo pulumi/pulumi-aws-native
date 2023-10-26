@@ -46,14 +46,26 @@ class EntityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             workspace_id: pulumi.Input[str],
+             workspace_id: Optional[pulumi.Input[str]] = None,
              components: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              entity_id: Optional[pulumi.Input[str]] = None,
              entity_name: Optional[pulumi.Input[str]] = None,
              parent_entity_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+        if entity_name is None and 'entityName' in kwargs:
+            entity_name = kwargs['entityName']
+        if parent_entity_id is None and 'parentEntityId' in kwargs:
+            parent_entity_id = kwargs['parentEntityId']
+
         _setter("workspace_id", workspace_id)
         if components is not None:
             _setter("components", components)

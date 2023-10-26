@@ -38,11 +38,21 @@ class ContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alias: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             type: pulumi.Input['ContactType'],
+             alias: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ContactType']] = None,
              plan: Optional[pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alias is None:
+            raise TypeError("Missing 'alias' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("alias", alias)
         _setter("display_name", display_name)
         _setter("type", type)

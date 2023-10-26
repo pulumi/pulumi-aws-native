@@ -65,20 +65,56 @@ class StudioArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_mode: pulumi.Input['StudioAuthMode'],
-             default_s3_location: pulumi.Input[str],
-             engine_security_group_id: pulumi.Input[str],
-             service_role: pulumi.Input[str],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             vpc_id: pulumi.Input[str],
-             workspace_security_group_id: pulumi.Input[str],
+             auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
+             default_s3_location: Optional[pulumi.Input[str]] = None,
+             engine_security_group_id: Optional[pulumi.Input[str]] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
+             workspace_security_group_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              idp_auth_url: Optional[pulumi.Input[str]] = None,
              idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]] = None,
              user_role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_mode is None and 'authMode' in kwargs:
+            auth_mode = kwargs['authMode']
+        if auth_mode is None:
+            raise TypeError("Missing 'auth_mode' argument")
+        if default_s3_location is None and 'defaultS3Location' in kwargs:
+            default_s3_location = kwargs['defaultS3Location']
+        if default_s3_location is None:
+            raise TypeError("Missing 'default_s3_location' argument")
+        if engine_security_group_id is None and 'engineSecurityGroupId' in kwargs:
+            engine_security_group_id = kwargs['engineSecurityGroupId']
+        if engine_security_group_id is None:
+            raise TypeError("Missing 'engine_security_group_id' argument")
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if service_role is None:
+            raise TypeError("Missing 'service_role' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if workspace_security_group_id is None and 'workspaceSecurityGroupId' in kwargs:
+            workspace_security_group_id = kwargs['workspaceSecurityGroupId']
+        if workspace_security_group_id is None:
+            raise TypeError("Missing 'workspace_security_group_id' argument")
+        if idp_auth_url is None and 'idpAuthUrl' in kwargs:
+            idp_auth_url = kwargs['idpAuthUrl']
+        if idp_relay_state_parameter_name is None and 'idpRelayStateParameterName' in kwargs:
+            idp_relay_state_parameter_name = kwargs['idpRelayStateParameterName']
+        if user_role is None and 'userRole' in kwargs:
+            user_role = kwargs['userRole']
+
         _setter("auth_mode", auth_mode)
         _setter("default_s3_location", default_s3_location)
         _setter("engine_security_group_id", engine_security_group_id)

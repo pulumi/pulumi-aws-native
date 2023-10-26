@@ -40,14 +40,28 @@ class DeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_arn: pulumi.Input[str],
+             target_arn: Optional[pulumi.Input[str]] = None,
              components: Optional[Any] = None,
              deployment_name: Optional[pulumi.Input[str]] = None,
              deployment_policies: Optional[pulumi.Input['DeploymentPoliciesArgs']] = None,
              iot_job_configuration: Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']] = None,
              parent_target_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+        if deployment_name is None and 'deploymentName' in kwargs:
+            deployment_name = kwargs['deploymentName']
+        if deployment_policies is None and 'deploymentPolicies' in kwargs:
+            deployment_policies = kwargs['deploymentPolicies']
+        if iot_job_configuration is None and 'iotJobConfiguration' in kwargs:
+            iot_job_configuration = kwargs['iotJobConfiguration']
+        if parent_target_arn is None and 'parentTargetArn' in kwargs:
+            parent_target_arn = kwargs['parentTargetArn']
+
         _setter("target_arn", target_arn)
         if components is not None:
             _setter("components", components)
@@ -191,17 +205,9 @@ class Deployment(pulumi.CustomResource):
 
             __props__.__dict__["components"] = components
             __props__.__dict__["deployment_name"] = deployment_name
-            if deployment_policies is not None and not isinstance(deployment_policies, DeploymentPoliciesArgs):
-                deployment_policies = deployment_policies or {}
-                def _setter(key, value):
-                    deployment_policies[key] = value
-                DeploymentPoliciesArgs._configure(_setter, **deployment_policies)
+            deployment_policies = _utilities.configure(deployment_policies, DeploymentPoliciesArgs, True)
             __props__.__dict__["deployment_policies"] = deployment_policies
-            if iot_job_configuration is not None and not isinstance(iot_job_configuration, DeploymentIoTJobConfigurationArgs):
-                iot_job_configuration = iot_job_configuration or {}
-                def _setter(key, value):
-                    iot_job_configuration[key] = value
-                DeploymentIoTJobConfigurationArgs._configure(_setter, **iot_job_configuration)
+            iot_job_configuration = _utilities.configure(iot_job_configuration, DeploymentIoTJobConfigurationArgs, True)
             __props__.__dict__["iot_job_configuration"] = iot_job_configuration
             __props__.__dict__["parent_target_arn"] = parent_target_arn
             __props__.__dict__["tags"] = tags

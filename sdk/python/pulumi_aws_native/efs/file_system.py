@@ -62,7 +62,31 @@ class FileSystemArgs:
              provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
              replication_configuration: Optional[pulumi.Input['FileSystemReplicationConfigurationArgs']] = None,
              throughput_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone_name is None and 'availabilityZoneName' in kwargs:
+            availability_zone_name = kwargs['availabilityZoneName']
+        if backup_policy is None and 'backupPolicy' in kwargs:
+            backup_policy = kwargs['backupPolicy']
+        if bypass_policy_lockout_safety_check is None and 'bypassPolicyLockoutSafetyCheck' in kwargs:
+            bypass_policy_lockout_safety_check = kwargs['bypassPolicyLockoutSafetyCheck']
+        if file_system_policy is None and 'fileSystemPolicy' in kwargs:
+            file_system_policy = kwargs['fileSystemPolicy']
+        if file_system_tags is None and 'fileSystemTags' in kwargs:
+            file_system_tags = kwargs['fileSystemTags']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if lifecycle_policies is None and 'lifecyclePolicies' in kwargs:
+            lifecycle_policies = kwargs['lifecyclePolicies']
+        if performance_mode is None and 'performanceMode' in kwargs:
+            performance_mode = kwargs['performanceMode']
+        if provisioned_throughput_in_mibps is None and 'provisionedThroughputInMibps' in kwargs:
+            provisioned_throughput_in_mibps = kwargs['provisionedThroughputInMibps']
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if throughput_mode is None and 'throughputMode' in kwargs:
+            throughput_mode = kwargs['throughputMode']
+
         if availability_zone_name is not None:
             _setter("availability_zone_name", availability_zone_name)
         if backup_policy is not None:
@@ -275,11 +299,7 @@ class FileSystem(pulumi.CustomResource):
             __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
             __props__.__dict__["availability_zone_name"] = availability_zone_name
-            if backup_policy is not None and not isinstance(backup_policy, FileSystemBackupPolicyArgs):
-                backup_policy = backup_policy or {}
-                def _setter(key, value):
-                    backup_policy[key] = value
-                FileSystemBackupPolicyArgs._configure(_setter, **backup_policy)
+            backup_policy = _utilities.configure(backup_policy, FileSystemBackupPolicyArgs, True)
             __props__.__dict__["backup_policy"] = backup_policy
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["encrypted"] = encrypted
@@ -289,11 +309,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["lifecycle_policies"] = lifecycle_policies
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
-            if replication_configuration is not None and not isinstance(replication_configuration, FileSystemReplicationConfigurationArgs):
-                replication_configuration = replication_configuration or {}
-                def _setter(key, value):
-                    replication_configuration[key] = value
-                FileSystemReplicationConfigurationArgs._configure(_setter, **replication_configuration)
+            replication_configuration = _utilities.configure(replication_configuration, FileSystemReplicationConfigurationArgs, True)
             __props__.__dict__["replication_configuration"] = replication_configuration
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None

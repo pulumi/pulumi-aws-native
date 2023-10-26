@@ -30,9 +30,15 @@ class PolicyStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
+             validation_settings: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']] = None,
              schema: Optional[pulumi.Input['PolicyStoreSchemaDefinitionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if validation_settings is None and 'validationSettings' in kwargs:
+            validation_settings = kwargs['validationSettings']
+        if validation_settings is None:
+            raise TypeError("Missing 'validation_settings' argument")
+
         _setter("validation_settings", validation_settings)
         if schema is not None:
             _setter("schema", schema)
@@ -109,17 +115,9 @@ class PolicyStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyStoreArgs.__new__(PolicyStoreArgs)
 
-            if schema is not None and not isinstance(schema, PolicyStoreSchemaDefinitionArgs):
-                schema = schema or {}
-                def _setter(key, value):
-                    schema[key] = value
-                PolicyStoreSchemaDefinitionArgs._configure(_setter, **schema)
+            schema = _utilities.configure(schema, PolicyStoreSchemaDefinitionArgs, True)
             __props__.__dict__["schema"] = schema
-            if validation_settings is not None and not isinstance(validation_settings, PolicyStoreValidationSettingsArgs):
-                validation_settings = validation_settings or {}
-                def _setter(key, value):
-                    validation_settings[key] = value
-                PolicyStoreValidationSettingsArgs._configure(_setter, **validation_settings)
+            validation_settings = _utilities.configure(validation_settings, PolicyStoreValidationSettingsArgs, True)
             if validation_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'validation_settings'")
             __props__.__dict__["validation_settings"] = validation_settings

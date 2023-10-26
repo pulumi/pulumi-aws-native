@@ -61,7 +61,17 @@ class LoadBalancerArgs:
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if load_balancer_attributes is None and 'loadBalancerAttributes' in kwargs:
+            load_balancer_attributes = kwargs['loadBalancerAttributes']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if subnet_mappings is None and 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+
         if ip_address_type is not None:
             _setter("ip_address_type", ip_address_type)
         if load_balancer_attributes is not None:

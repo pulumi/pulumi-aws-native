@@ -32,9 +32,15 @@ class ClusterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -70,9 +76,15 @@ class ControlPanelTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -113,9 +125,19 @@ class SafetyRuleAssertionRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             asserted_controls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             wait_period_ms: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             asserted_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_period_ms: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asserted_controls is None and 'assertedControls' in kwargs:
+            asserted_controls = kwargs['assertedControls']
+        if asserted_controls is None:
+            raise TypeError("Missing 'asserted_controls' argument")
+        if wait_period_ms is None and 'waitPeriodMs' in kwargs:
+            wait_period_ms = kwargs['waitPeriodMs']
+        if wait_period_ms is None:
+            raise TypeError("Missing 'wait_period_ms' argument")
+
         _setter("asserted_controls", asserted_controls)
         _setter("wait_period_ms", wait_period_ms)
 
@@ -166,10 +188,24 @@ class SafetyRuleGatingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gating_controls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             target_controls: pulumi.Input[Sequence[pulumi.Input[str]]],
-             wait_period_ms: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             gating_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             wait_period_ms: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gating_controls is None and 'gatingControls' in kwargs:
+            gating_controls = kwargs['gatingControls']
+        if gating_controls is None:
+            raise TypeError("Missing 'gating_controls' argument")
+        if target_controls is None and 'targetControls' in kwargs:
+            target_controls = kwargs['targetControls']
+        if target_controls is None:
+            raise TypeError("Missing 'target_controls' argument")
+        if wait_period_ms is None and 'waitPeriodMs' in kwargs:
+            wait_period_ms = kwargs['waitPeriodMs']
+        if wait_period_ms is None:
+            raise TypeError("Missing 'wait_period_ms' argument")
+
         _setter("gating_controls", gating_controls)
         _setter("target_controls", target_controls)
         _setter("wait_period_ms", wait_period_ms)
@@ -232,10 +268,18 @@ class SafetyRuleRuleConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inverted: pulumi.Input[bool],
-             threshold: pulumi.Input[int],
-             type: pulumi.Input['SafetyRuleRuleType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             inverted: Optional[pulumi.Input[bool]] = None,
+             threshold: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input['SafetyRuleRuleType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inverted is None:
+            raise TypeError("Missing 'inverted' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("inverted", inverted)
         _setter("threshold", threshold)
         _setter("type", type)
@@ -287,9 +331,15 @@ class SafetyRuleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

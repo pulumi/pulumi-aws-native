@@ -36,12 +36,18 @@ class TrustAnchorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input['TrustAnchorSourceArgs'],
+             source: Optional[pulumi.Input['TrustAnchorSourceArgs']] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              notification_settings: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if notification_settings is None and 'notificationSettings' in kwargs:
+            notification_settings = kwargs['notificationSettings']
+
         _setter("source", source)
         if enabled is not None:
             _setter("enabled", enabled)
@@ -160,11 +166,7 @@ class TrustAnchor(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_settings"] = notification_settings
-            if source is not None and not isinstance(source, TrustAnchorSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                TrustAnchorSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, TrustAnchorSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

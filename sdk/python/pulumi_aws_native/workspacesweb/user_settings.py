@@ -48,18 +48,50 @@ class UserSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             copy_allowed: pulumi.Input['UserSettingsEnabledType'],
-             download_allowed: pulumi.Input['UserSettingsEnabledType'],
-             paste_allowed: pulumi.Input['UserSettingsEnabledType'],
-             print_allowed: pulumi.Input['UserSettingsEnabledType'],
-             upload_allowed: pulumi.Input['UserSettingsEnabledType'],
+             copy_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+             download_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+             paste_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+             print_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
+             upload_allowed: Optional[pulumi.Input['UserSettingsEnabledType']] = None,
              additional_encryption_context: Optional[pulumi.Input['UserSettingsEncryptionContextMapArgs']] = None,
              cookie_synchronization_configuration: Optional[pulumi.Input['UserSettingsCookieSynchronizationConfigurationArgs']] = None,
              customer_managed_key: Optional[pulumi.Input[str]] = None,
              disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
              idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_allowed is None and 'copyAllowed' in kwargs:
+            copy_allowed = kwargs['copyAllowed']
+        if copy_allowed is None:
+            raise TypeError("Missing 'copy_allowed' argument")
+        if download_allowed is None and 'downloadAllowed' in kwargs:
+            download_allowed = kwargs['downloadAllowed']
+        if download_allowed is None:
+            raise TypeError("Missing 'download_allowed' argument")
+        if paste_allowed is None and 'pasteAllowed' in kwargs:
+            paste_allowed = kwargs['pasteAllowed']
+        if paste_allowed is None:
+            raise TypeError("Missing 'paste_allowed' argument")
+        if print_allowed is None and 'printAllowed' in kwargs:
+            print_allowed = kwargs['printAllowed']
+        if print_allowed is None:
+            raise TypeError("Missing 'print_allowed' argument")
+        if upload_allowed is None and 'uploadAllowed' in kwargs:
+            upload_allowed = kwargs['uploadAllowed']
+        if upload_allowed is None:
+            raise TypeError("Missing 'upload_allowed' argument")
+        if additional_encryption_context is None and 'additionalEncryptionContext' in kwargs:
+            additional_encryption_context = kwargs['additionalEncryptionContext']
+        if cookie_synchronization_configuration is None and 'cookieSynchronizationConfiguration' in kwargs:
+            cookie_synchronization_configuration = kwargs['cookieSynchronizationConfiguration']
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if disconnect_timeout_in_minutes is None and 'disconnectTimeoutInMinutes' in kwargs:
+            disconnect_timeout_in_minutes = kwargs['disconnectTimeoutInMinutes']
+        if idle_disconnect_timeout_in_minutes is None and 'idleDisconnectTimeoutInMinutes' in kwargs:
+            idle_disconnect_timeout_in_minutes = kwargs['idleDisconnectTimeoutInMinutes']
+
         _setter("copy_allowed", copy_allowed)
         _setter("download_allowed", download_allowed)
         _setter("paste_allowed", paste_allowed)
@@ -249,17 +281,9 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserSettingsArgs.__new__(UserSettingsArgs)
 
-            if additional_encryption_context is not None and not isinstance(additional_encryption_context, UserSettingsEncryptionContextMapArgs):
-                additional_encryption_context = additional_encryption_context or {}
-                def _setter(key, value):
-                    additional_encryption_context[key] = value
-                UserSettingsEncryptionContextMapArgs._configure(_setter, **additional_encryption_context)
+            additional_encryption_context = _utilities.configure(additional_encryption_context, UserSettingsEncryptionContextMapArgs, True)
             __props__.__dict__["additional_encryption_context"] = additional_encryption_context
-            if cookie_synchronization_configuration is not None and not isinstance(cookie_synchronization_configuration, UserSettingsCookieSynchronizationConfigurationArgs):
-                cookie_synchronization_configuration = cookie_synchronization_configuration or {}
-                def _setter(key, value):
-                    cookie_synchronization_configuration[key] = value
-                UserSettingsCookieSynchronizationConfigurationArgs._configure(_setter, **cookie_synchronization_configuration)
+            cookie_synchronization_configuration = _utilities.configure(cookie_synchronization_configuration, UserSettingsCookieSynchronizationConfigurationArgs, True)
             __props__.__dict__["cookie_synchronization_configuration"] = cookie_synchronization_configuration
             if copy_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'copy_allowed'")

@@ -36,7 +36,11 @@ class SchedulingPolicyArgs:
              fairshare_policy: Optional[pulumi.Input['SchedulingPolicyFairsharePolicyArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fairshare_policy is None and 'fairsharePolicy' in kwargs:
+            fairshare_policy = kwargs['fairsharePolicy']
+
         if fairshare_policy is not None:
             _setter("fairshare_policy", fairshare_policy)
         if name is not None:
@@ -135,11 +139,7 @@ class SchedulingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchedulingPolicyArgs.__new__(SchedulingPolicyArgs)
 
-            if fairshare_policy is not None and not isinstance(fairshare_policy, SchedulingPolicyFairsharePolicyArgs):
-                fairshare_policy = fairshare_policy or {}
-                def _setter(key, value):
-                    fairshare_policy[key] = value
-                SchedulingPolicyFairsharePolicyArgs._configure(_setter, **fairshare_policy)
+            fairshare_policy = _utilities.configure(fairshare_policy, SchedulingPolicyFairsharePolicyArgs, True)
             __props__.__dict__["fairshare_policy"] = fairshare_policy
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

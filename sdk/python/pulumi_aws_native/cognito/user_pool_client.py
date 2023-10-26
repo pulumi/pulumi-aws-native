@@ -69,7 +69,7 @@ class UserPoolClientArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             user_pool_id: pulumi.Input[str],
+             user_pool_id: Optional[pulumi.Input[str]] = None,
              access_token_validity: Optional[pulumi.Input[int]] = None,
              allowed_o_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              allowed_o_auth_flows_user_pool_client: Optional[pulumi.Input[bool]] = None,
@@ -91,7 +91,55 @@ class UserPoolClientArgs:
              supported_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              token_validity_units: Optional[pulumi.Input['UserPoolClientTokenValidityUnitsArgs']] = None,
              write_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if access_token_validity is None and 'accessTokenValidity' in kwargs:
+            access_token_validity = kwargs['accessTokenValidity']
+        if allowed_o_auth_flows is None and 'allowedOAuthFlows' in kwargs:
+            allowed_o_auth_flows = kwargs['allowedOAuthFlows']
+        if allowed_o_auth_flows_user_pool_client is None and 'allowedOAuthFlowsUserPoolClient' in kwargs:
+            allowed_o_auth_flows_user_pool_client = kwargs['allowedOAuthFlowsUserPoolClient']
+        if allowed_o_auth_scopes is None and 'allowedOAuthScopes' in kwargs:
+            allowed_o_auth_scopes = kwargs['allowedOAuthScopes']
+        if analytics_configuration is None and 'analyticsConfiguration' in kwargs:
+            analytics_configuration = kwargs['analyticsConfiguration']
+        if auth_session_validity is None and 'authSessionValidity' in kwargs:
+            auth_session_validity = kwargs['authSessionValidity']
+        if callback_urls is None and 'callbackUrls' in kwargs:
+            callback_urls = kwargs['callbackUrls']
+        if client_name is None and 'clientName' in kwargs:
+            client_name = kwargs['clientName']
+        if default_redirect_uri is None and 'defaultRedirectUri' in kwargs:
+            default_redirect_uri = kwargs['defaultRedirectUri']
+        if enable_propagate_additional_user_context_data is None and 'enablePropagateAdditionalUserContextData' in kwargs:
+            enable_propagate_additional_user_context_data = kwargs['enablePropagateAdditionalUserContextData']
+        if enable_token_revocation is None and 'enableTokenRevocation' in kwargs:
+            enable_token_revocation = kwargs['enableTokenRevocation']
+        if explicit_auth_flows is None and 'explicitAuthFlows' in kwargs:
+            explicit_auth_flows = kwargs['explicitAuthFlows']
+        if generate_secret is None and 'generateSecret' in kwargs:
+            generate_secret = kwargs['generateSecret']
+        if id_token_validity is None and 'idTokenValidity' in kwargs:
+            id_token_validity = kwargs['idTokenValidity']
+        if logout_urls is None and 'logoutUrls' in kwargs:
+            logout_urls = kwargs['logoutUrls']
+        if prevent_user_existence_errors is None and 'preventUserExistenceErrors' in kwargs:
+            prevent_user_existence_errors = kwargs['preventUserExistenceErrors']
+        if read_attributes is None and 'readAttributes' in kwargs:
+            read_attributes = kwargs['readAttributes']
+        if refresh_token_validity is None and 'refreshTokenValidity' in kwargs:
+            refresh_token_validity = kwargs['refreshTokenValidity']
+        if supported_identity_providers is None and 'supportedIdentityProviders' in kwargs:
+            supported_identity_providers = kwargs['supportedIdentityProviders']
+        if token_validity_units is None and 'tokenValidityUnits' in kwargs:
+            token_validity_units = kwargs['tokenValidityUnits']
+        if write_attributes is None and 'writeAttributes' in kwargs:
+            write_attributes = kwargs['writeAttributes']
+
         _setter("user_pool_id", user_pool_id)
         if access_token_validity is not None:
             _setter("access_token_validity", access_token_validity)
@@ -432,11 +480,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["allowed_o_auth_flows"] = allowed_o_auth_flows
             __props__.__dict__["allowed_o_auth_flows_user_pool_client"] = allowed_o_auth_flows_user_pool_client
             __props__.__dict__["allowed_o_auth_scopes"] = allowed_o_auth_scopes
-            if analytics_configuration is not None and not isinstance(analytics_configuration, UserPoolClientAnalyticsConfigurationArgs):
-                analytics_configuration = analytics_configuration or {}
-                def _setter(key, value):
-                    analytics_configuration[key] = value
-                UserPoolClientAnalyticsConfigurationArgs._configure(_setter, **analytics_configuration)
+            analytics_configuration = _utilities.configure(analytics_configuration, UserPoolClientAnalyticsConfigurationArgs, True)
             __props__.__dict__["analytics_configuration"] = analytics_configuration
             __props__.__dict__["auth_session_validity"] = auth_session_validity
             __props__.__dict__["callback_urls"] = callback_urls
@@ -452,11 +496,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["read_attributes"] = read_attributes
             __props__.__dict__["refresh_token_validity"] = refresh_token_validity
             __props__.__dict__["supported_identity_providers"] = supported_identity_providers
-            if token_validity_units is not None and not isinstance(token_validity_units, UserPoolClientTokenValidityUnitsArgs):
-                token_validity_units = token_validity_units or {}
-                def _setter(key, value):
-                    token_validity_units[key] = value
-                UserPoolClientTokenValidityUnitsArgs._configure(_setter, **token_validity_units)
+            token_validity_units = _utilities.configure(token_validity_units, UserPoolClientTokenValidityUnitsArgs, True)
             __props__.__dict__["token_validity_units"] = token_validity_units
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")

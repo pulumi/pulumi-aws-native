@@ -53,7 +53,7 @@ class CompositeAlarmArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             alarm_rule: pulumi.Input[str],
+             alarm_rule: Optional[pulumi.Input[str]] = None,
              actions_enabled: Optional[pulumi.Input[bool]] = None,
              actions_suppressor: Optional[pulumi.Input[str]] = None,
              actions_suppressor_extension_period: Optional[pulumi.Input[int]] = None,
@@ -63,7 +63,31 @@ class CompositeAlarmArgs:
              alarm_name: Optional[pulumi.Input[str]] = None,
              insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_rule is None and 'alarmRule' in kwargs:
+            alarm_rule = kwargs['alarmRule']
+        if alarm_rule is None:
+            raise TypeError("Missing 'alarm_rule' argument")
+        if actions_enabled is None and 'actionsEnabled' in kwargs:
+            actions_enabled = kwargs['actionsEnabled']
+        if actions_suppressor is None and 'actionsSuppressor' in kwargs:
+            actions_suppressor = kwargs['actionsSuppressor']
+        if actions_suppressor_extension_period is None and 'actionsSuppressorExtensionPeriod' in kwargs:
+            actions_suppressor_extension_period = kwargs['actionsSuppressorExtensionPeriod']
+        if actions_suppressor_wait_period is None and 'actionsSuppressorWaitPeriod' in kwargs:
+            actions_suppressor_wait_period = kwargs['actionsSuppressorWaitPeriod']
+        if alarm_actions is None and 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+        if alarm_description is None and 'alarmDescription' in kwargs:
+            alarm_description = kwargs['alarmDescription']
+        if alarm_name is None and 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if insufficient_data_actions is None and 'insufficientDataActions' in kwargs:
+            insufficient_data_actions = kwargs['insufficientDataActions']
+        if ok_actions is None and 'okActions' in kwargs:
+            ok_actions = kwargs['okActions']
+
         _setter("alarm_rule", alarm_rule)
         if actions_enabled is not None:
             _setter("actions_enabled", actions_enabled)

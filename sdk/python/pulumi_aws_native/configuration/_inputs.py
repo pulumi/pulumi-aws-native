@@ -53,9 +53,15 @@ class AggregationAuthorizationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -100,7 +106,9 @@ class CompliancePropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -141,7 +149,15 @@ class ConfigRuleCustomPolicyDetailsArgs:
              enable_debug_log_delivery: Optional[pulumi.Input[bool]] = None,
              policy_runtime: Optional[pulumi.Input[str]] = None,
              policy_text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_debug_log_delivery is None and 'enableDebugLogDelivery' in kwargs:
+            enable_debug_log_delivery = kwargs['enableDebugLogDelivery']
+        if policy_runtime is None and 'policyRuntime' in kwargs:
+            policy_runtime = kwargs['policyRuntime']
+        if policy_text is None and 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+
         if enable_debug_log_delivery is not None:
             _setter("enable_debug_log_delivery", enable_debug_log_delivery)
         if policy_runtime is not None:
@@ -202,7 +218,9 @@ class ConfigRuleEvaluationModeConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
 
@@ -247,7 +265,17 @@ class ConfigRuleScopeArgs:
              compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key: Optional[pulumi.Input[str]] = None,
              tag_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_resource_id is None and 'complianceResourceId' in kwargs:
+            compliance_resource_id = kwargs['complianceResourceId']
+        if compliance_resource_types is None and 'complianceResourceTypes' in kwargs:
+            compliance_resource_types = kwargs['complianceResourceTypes']
+        if tag_key is None and 'tagKey' in kwargs:
+            tag_key = kwargs['tagKey']
+        if tag_value is None and 'tagValue' in kwargs:
+            tag_value = kwargs['tagValue']
+
         if compliance_resource_id is not None:
             _setter("compliance_resource_id", compliance_resource_id)
         if compliance_resource_types is not None:
@@ -327,10 +355,22 @@ class ConfigRuleSourceDetailArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_source: pulumi.Input[str],
-             message_type: pulumi.Input[str],
+             event_source: Optional[pulumi.Input[str]] = None,
+             message_type: Optional[pulumi.Input[str]] = None,
              maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_source is None and 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if event_source is None:
+            raise TypeError("Missing 'event_source' argument")
+        if message_type is None and 'messageType' in kwargs:
+            message_type = kwargs['messageType']
+        if message_type is None:
+            raise TypeError("Missing 'message_type' argument")
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+
         _setter("event_source", event_source)
         _setter("message_type", message_type)
         if maximum_execution_frequency is not None:
@@ -397,11 +437,21 @@ class ConfigRuleSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner: pulumi.Input[str],
+             owner: Optional[pulumi.Input[str]] = None,
              custom_policy_details: Optional[pulumi.Input['ConfigRuleCustomPolicyDetailsArgs']] = None,
              source_details: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigRuleSourceDetailArgs']]]] = None,
              source_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if custom_policy_details is None and 'customPolicyDetails' in kwargs:
+            custom_policy_details = kwargs['customPolicyDetails']
+        if source_details is None and 'sourceDetails' in kwargs:
+            source_details = kwargs['sourceDetails']
+        if source_identifier is None and 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+
         _setter("owner", owner)
         if custom_policy_details is not None:
             _setter("custom_policy_details", custom_policy_details)
@@ -474,10 +524,20 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              all_aws_regions: Optional[pulumi.Input[bool]] = None,
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_ids is None and 'accountIds' in kwargs:
+            account_ids = kwargs['accountIds']
+        if account_ids is None:
+            raise TypeError("Missing 'account_ids' argument")
+        if all_aws_regions is None and 'allAwsRegions' in kwargs:
+            all_aws_regions = kwargs['allAwsRegions']
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+
         _setter("account_ids", account_ids)
         if all_aws_regions is not None:
             _setter("all_aws_regions", all_aws_regions)
@@ -527,10 +587,20 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              all_aws_regions: Optional[pulumi.Input[bool]] = None,
              aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if all_aws_regions is None and 'allAwsRegions' in kwargs:
+            all_aws_regions = kwargs['allAwsRegions']
+        if aws_regions is None and 'awsRegions' in kwargs:
+            aws_regions = kwargs['awsRegions']
+
         _setter("role_arn", role_arn)
         if all_aws_regions is not None:
             _setter("all_aws_regions", all_aws_regions)
@@ -583,9 +653,15 @@ class ConfigurationAggregatorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -625,8 +701,14 @@ class ConfigurationRecorderExclusionByResourceTypesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if resource_types is None:
+            raise TypeError("Missing 'resource_types' argument")
+
         _setter("resource_types", resource_types)
 
     @property
@@ -663,7 +745,19 @@ class ConfigurationRecorderRecordingGroupArgs:
              include_global_resource_types: Optional[pulumi.Input[bool]] = None,
              recording_strategy: Optional[pulumi.Input['ConfigurationRecorderRecordingStrategyArgs']] = None,
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if all_supported is None and 'allSupported' in kwargs:
+            all_supported = kwargs['allSupported']
+        if exclusion_by_resource_types is None and 'exclusionByResourceTypes' in kwargs:
+            exclusion_by_resource_types = kwargs['exclusionByResourceTypes']
+        if include_global_resource_types is None and 'includeGlobalResourceTypes' in kwargs:
+            include_global_resource_types = kwargs['includeGlobalResourceTypes']
+        if recording_strategy is None and 'recordingStrategy' in kwargs:
+            recording_strategy = kwargs['recordingStrategy']
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if all_supported is not None:
             _setter("all_supported", all_supported)
         if exclusion_by_resource_types is not None:
@@ -732,8 +826,14 @@ class ConfigurationRecorderRecordingStrategyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             use_only: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             use_only: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if use_only is None and 'useOnly' in kwargs:
+            use_only = kwargs['useOnly']
+        if use_only is None:
+            raise TypeError("Missing 'use_only' argument")
+
         _setter("use_only", use_only)
 
     @property
@@ -762,9 +862,19 @@ class ConformancePackInputParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_name: pulumi.Input[str],
-             parameter_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parameter_name: Optional[pulumi.Input[str]] = None,
+             parameter_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_name is None and 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if parameter_name is None:
+            raise TypeError("Missing 'parameter_name' argument")
+        if parameter_value is None and 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+        if parameter_value is None:
+            raise TypeError("Missing 'parameter_value' argument")
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -799,7 +909,11 @@ class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              delivery_frequency: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_frequency is None and 'deliveryFrequency' in kwargs:
+            delivery_frequency = kwargs['deliveryFrequency']
+
         if delivery_frequency is not None:
             _setter("delivery_frequency", delivery_frequency)
 
@@ -844,8 +958,8 @@ class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_text: pulumi.Input[str],
-             runtime: pulumi.Input[str],
+             policy_text: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input[str]] = None,
              debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              input_parameters: Optional[pulumi.Input[str]] = None,
@@ -855,7 +969,31 @@ class OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs:
              resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key_scope: Optional[pulumi.Input[str]] = None,
              tag_value_scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_text is None and 'policyText' in kwargs:
+            policy_text = kwargs['policyText']
+        if policy_text is None:
+            raise TypeError("Missing 'policy_text' argument")
+        if runtime is None:
+            raise TypeError("Missing 'runtime' argument")
+        if debug_log_delivery_accounts is None and 'debugLogDeliveryAccounts' in kwargs:
+            debug_log_delivery_accounts = kwargs['debugLogDeliveryAccounts']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if organization_config_rule_trigger_types is None and 'organizationConfigRuleTriggerTypes' in kwargs:
+            organization_config_rule_trigger_types = kwargs['organizationConfigRuleTriggerTypes']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scope is None and 'resourceTypesScope' in kwargs:
+            resource_types_scope = kwargs['resourceTypesScope']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         _setter("policy_text", policy_text)
         _setter("runtime", runtime)
         if debug_log_delivery_accounts is not None:
@@ -1004,8 +1142,8 @@ class OrganizationConfigRuleOrganizationCustomRuleMetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lambda_function_arn: pulumi.Input[str],
-             organization_config_rule_trigger_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+             lambda_function_arn: Optional[pulumi.Input[str]] = None,
+             organization_config_rule_trigger_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              input_parameters: Optional[pulumi.Input[str]] = None,
              maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
@@ -1013,7 +1151,29 @@ class OrganizationConfigRuleOrganizationCustomRuleMetadataArgs:
              resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key_scope: Optional[pulumi.Input[str]] = None,
              tag_value_scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_function_arn is None and 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+        if lambda_function_arn is None:
+            raise TypeError("Missing 'lambda_function_arn' argument")
+        if organization_config_rule_trigger_types is None and 'organizationConfigRuleTriggerTypes' in kwargs:
+            organization_config_rule_trigger_types = kwargs['organizationConfigRuleTriggerTypes']
+        if organization_config_rule_trigger_types is None:
+            raise TypeError("Missing 'organization_config_rule_trigger_types' argument")
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scope is None and 'resourceTypesScope' in kwargs:
+            resource_types_scope = kwargs['resourceTypesScope']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         _setter("lambda_function_arn", lambda_function_arn)
         _setter("organization_config_rule_trigger_types", organization_config_rule_trigger_types)
         if description is not None:
@@ -1138,7 +1298,7 @@ class OrganizationConfigRuleOrganizationManagedRuleMetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_identifier: pulumi.Input[str],
+             rule_identifier: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              input_parameters: Optional[pulumi.Input[str]] = None,
              maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
@@ -1146,7 +1306,25 @@ class OrganizationConfigRuleOrganizationManagedRuleMetadataArgs:
              resource_types_scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_key_scope: Optional[pulumi.Input[str]] = None,
              tag_value_scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_identifier is None and 'ruleIdentifier' in kwargs:
+            rule_identifier = kwargs['ruleIdentifier']
+        if rule_identifier is None:
+            raise TypeError("Missing 'rule_identifier' argument")
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+        if resource_id_scope is None and 'resourceIdScope' in kwargs:
+            resource_id_scope = kwargs['resourceIdScope']
+        if resource_types_scope is None and 'resourceTypesScope' in kwargs:
+            resource_types_scope = kwargs['resourceTypesScope']
+        if tag_key_scope is None and 'tagKeyScope' in kwargs:
+            tag_key_scope = kwargs['tagKeyScope']
+        if tag_value_scope is None and 'tagValueScope' in kwargs:
+            tag_value_scope = kwargs['tagValueScope']
+
         _setter("rule_identifier", rule_identifier)
         if description is not None:
             _setter("description", description)
@@ -1252,9 +1430,19 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_name: pulumi.Input[str],
-             parameter_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parameter_name: Optional[pulumi.Input[str]] = None,
+             parameter_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_name is None and 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if parameter_name is None:
+            raise TypeError("Missing 'parameter_name' argument")
+        if parameter_value is None and 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+        if parameter_value is None:
+            raise TypeError("Missing 'parameter_value' argument")
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -1289,7 +1477,11 @@ class RemediationConfigurationExecutionControlsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ssm_controls: Optional[pulumi.Input['RemediationConfigurationSsmControlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ssm_controls is None and 'ssmControls' in kwargs:
+            ssm_controls = kwargs['ssmControls']
+
         if ssm_controls is not None:
             _setter("ssm_controls", ssm_controls)
 
@@ -1318,7 +1510,13 @@ class RemediationConfigurationSsmControlsArgs:
              _setter: Callable[[Any, Any], None],
              concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
              error_percentage: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if concurrent_execution_rate_percentage is None and 'concurrentExecutionRatePercentage' in kwargs:
+            concurrent_execution_rate_percentage = kwargs['concurrentExecutionRatePercentage']
+        if error_percentage is None and 'errorPercentage' in kwargs:
+            error_percentage = kwargs['errorPercentage']
+
         if concurrent_execution_rate_percentage is not None:
             _setter("concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
         if error_percentage is not None:
@@ -1361,9 +1559,15 @@ class StoredQueryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1410,7 +1614,13 @@ class TemplateSsmDocumentDetailsPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              document_name: Optional[pulumi.Input[str]] = None,
              document_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_name is None and 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+
         if document_name is not None:
             _setter("document_name", document_name)
         if document_version is not None:

@@ -61,7 +61,7 @@ class VolumeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
+             availability_zone: Optional[pulumi.Input[str]] = None,
              auto_enable_io: Optional[pulumi.Input[bool]] = None,
              encrypted: Optional[pulumi.Input[bool]] = None,
              iops: Optional[pulumi.Input[int]] = None,
@@ -73,7 +73,25 @@ class VolumeArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if auto_enable_io is None and 'autoEnableIo' in kwargs:
+            auto_enable_io = kwargs['autoEnableIo']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if multi_attach_enabled is None and 'multiAttachEnabled' in kwargs:
+            multi_attach_enabled = kwargs['multiAttachEnabled']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         _setter("availability_zone", availability_zone)
         if auto_enable_io is not None:
             _setter("auto_enable_io", auto_enable_io)

@@ -35,10 +35,18 @@ class WirelessDeviceImportTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_name: pulumi.Input[str],
-             sidewalk: pulumi.Input['SidewalkPropertiesArgs'],
+             destination_name: Optional[pulumi.Input[str]] = None,
+             sidewalk: Optional[pulumi.Input['SidewalkPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceImportTaskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_name is None and 'destinationName' in kwargs:
+            destination_name = kwargs['destinationName']
+        if destination_name is None:
+            raise TypeError("Missing 'destination_name' argument")
+        if sidewalk is None:
+            raise TypeError("Missing 'sidewalk' argument")
+
         _setter("destination_name", destination_name)
         _setter("sidewalk", sidewalk)
         if tags is not None:
@@ -148,11 +156,7 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
             if destination_name is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_name'")
             __props__.__dict__["destination_name"] = destination_name
-            if sidewalk is not None and not isinstance(sidewalk, SidewalkPropertiesArgs):
-                sidewalk = sidewalk or {}
-                def _setter(key, value):
-                    sidewalk[key] = value
-                SidewalkPropertiesArgs._configure(_setter, **sidewalk)
+            sidewalk = _utilities.configure(sidewalk, SidewalkPropertiesArgs, True)
             if sidewalk is None and not opts.urn:
                 raise TypeError("Missing required property 'sidewalk'")
             __props__.__dict__["sidewalk"] = sidewalk

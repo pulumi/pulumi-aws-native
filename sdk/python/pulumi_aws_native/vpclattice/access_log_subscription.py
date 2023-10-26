@@ -31,10 +31,18 @@ class AccessLogSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_arn: pulumi.Input[str],
+             destination_arn: Optional[pulumi.Input[str]] = None,
              resource_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessLogSubscriptionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_arn is None:
+            raise TypeError("Missing 'destination_arn' argument")
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+
         _setter("destination_arn", destination_arn)
         if resource_identifier is not None:
             _setter("resource_identifier", resource_identifier)

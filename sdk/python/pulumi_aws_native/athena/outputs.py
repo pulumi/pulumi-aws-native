@@ -55,8 +55,14 @@ class CapacityReservationCapacityAssignment(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             workgroup_names: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             workgroup_names: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if workgroup_names is None and 'workgroupNames' in kwargs:
+            workgroup_names = kwargs['workgroupNames']
+        if workgroup_names is None:
+            raise TypeError("Missing 'workgroup_names' argument")
+
         _setter("workgroup_names", workgroup_names)
 
     @property
@@ -99,8 +105,14 @@ class CapacityReservationCapacityAssignmentConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_assignments: Sequence['outputs.CapacityReservationCapacityAssignment'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             capacity_assignments: Optional[Sequence['outputs.CapacityReservationCapacityAssignment']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_assignments is None and 'capacityAssignments' in kwargs:
+            capacity_assignments = kwargs['capacityAssignments']
+        if capacity_assignments is None:
+            raise TypeError("Missing 'capacity_assignments' argument")
+
         _setter("capacity_assignments", capacity_assignments)
 
     @property
@@ -122,9 +134,15 @@ class CapacityReservationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -152,9 +170,15 @@ class DataCatalogTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -203,8 +227,14 @@ class WorkGroupAclConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_acl_option: 'WorkGroupS3AclOption',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_acl_option: Optional['WorkGroupS3AclOption'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_acl_option is None and 's3AclOption' in kwargs:
+            s3_acl_option = kwargs['s3AclOption']
+        if s3_acl_option is None:
+            raise TypeError("Missing 's3_acl_option' argument")
+
         _setter("s3_acl_option", s3_acl_option)
 
     @property
@@ -282,7 +312,27 @@ class WorkGroupConfiguration(dict):
              publish_cloud_watch_metrics_enabled: Optional[bool] = None,
              requester_pays_enabled: Optional[bool] = None,
              result_configuration: Optional['outputs.WorkGroupResultConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_configuration is None and 'additionalConfiguration' in kwargs:
+            additional_configuration = kwargs['additionalConfiguration']
+        if bytes_scanned_cutoff_per_query is None and 'bytesScannedCutoffPerQuery' in kwargs:
+            bytes_scanned_cutoff_per_query = kwargs['bytesScannedCutoffPerQuery']
+        if customer_content_encryption_configuration is None and 'customerContentEncryptionConfiguration' in kwargs:
+            customer_content_encryption_configuration = kwargs['customerContentEncryptionConfiguration']
+        if enforce_work_group_configuration is None and 'enforceWorkGroupConfiguration' in kwargs:
+            enforce_work_group_configuration = kwargs['enforceWorkGroupConfiguration']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if execution_role is None and 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if publish_cloud_watch_metrics_enabled is None and 'publishCloudWatchMetricsEnabled' in kwargs:
+            publish_cloud_watch_metrics_enabled = kwargs['publishCloudWatchMetricsEnabled']
+        if requester_pays_enabled is None and 'requesterPaysEnabled' in kwargs:
+            requester_pays_enabled = kwargs['requesterPaysEnabled']
+        if result_configuration is None and 'resultConfiguration' in kwargs:
+            result_configuration = kwargs['resultConfiguration']
+
         if additional_configuration is not None:
             _setter("additional_configuration", additional_configuration)
         if bytes_scanned_cutoff_per_query is not None:
@@ -433,7 +483,31 @@ class WorkGroupConfigurationUpdates(dict):
              remove_customer_content_encryption_configuration: Optional[bool] = None,
              requester_pays_enabled: Optional[bool] = None,
              result_configuration_updates: Optional['outputs.WorkGroupResultConfigurationUpdates'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_configuration is None and 'additionalConfiguration' in kwargs:
+            additional_configuration = kwargs['additionalConfiguration']
+        if bytes_scanned_cutoff_per_query is None and 'bytesScannedCutoffPerQuery' in kwargs:
+            bytes_scanned_cutoff_per_query = kwargs['bytesScannedCutoffPerQuery']
+        if customer_content_encryption_configuration is None and 'customerContentEncryptionConfiguration' in kwargs:
+            customer_content_encryption_configuration = kwargs['customerContentEncryptionConfiguration']
+        if enforce_work_group_configuration is None and 'enforceWorkGroupConfiguration' in kwargs:
+            enforce_work_group_configuration = kwargs['enforceWorkGroupConfiguration']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if execution_role is None and 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if publish_cloud_watch_metrics_enabled is None and 'publishCloudWatchMetricsEnabled' in kwargs:
+            publish_cloud_watch_metrics_enabled = kwargs['publishCloudWatchMetricsEnabled']
+        if remove_bytes_scanned_cutoff_per_query is None and 'removeBytesScannedCutoffPerQuery' in kwargs:
+            remove_bytes_scanned_cutoff_per_query = kwargs['removeBytesScannedCutoffPerQuery']
+        if remove_customer_content_encryption_configuration is None and 'removeCustomerContentEncryptionConfiguration' in kwargs:
+            remove_customer_content_encryption_configuration = kwargs['removeCustomerContentEncryptionConfiguration']
+        if requester_pays_enabled is None and 'requesterPaysEnabled' in kwargs:
+            requester_pays_enabled = kwargs['requesterPaysEnabled']
+        if result_configuration_updates is None and 'resultConfigurationUpdates' in kwargs:
+            result_configuration_updates = kwargs['resultConfigurationUpdates']
+
         if additional_configuration is not None:
             _setter("additional_configuration", additional_configuration)
         if bytes_scanned_cutoff_per_query is not None:
@@ -547,8 +621,14 @@ class WorkGroupCustomerContentEncryptionConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kms_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             kms_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if kms_key is None:
+            raise TypeError("Missing 'kms_key' argument")
+
         _setter("kms_key", kms_key)
 
     @property
@@ -595,9 +675,17 @@ class WorkGroupEncryptionConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_option: 'WorkGroupEncryptionOption',
+             encryption_option: Optional['WorkGroupEncryptionOption'] = None,
              kms_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_option is None and 'encryptionOption' in kwargs:
+            encryption_option = kwargs['encryptionOption']
+        if encryption_option is None:
+            raise TypeError("Missing 'encryption_option' argument")
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("encryption_option", encryption_option)
         if kms_key is not None:
             _setter("kms_key", kms_key)
@@ -653,7 +741,13 @@ class WorkGroupEngineVersion(dict):
              _setter: Callable[[Any, Any], None],
              effective_engine_version: Optional[str] = None,
              selected_engine_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if effective_engine_version is None and 'effectiveEngineVersion' in kwargs:
+            effective_engine_version = kwargs['effectiveEngineVersion']
+        if selected_engine_version is None and 'selectedEngineVersion' in kwargs:
+            selected_engine_version = kwargs['selectedEngineVersion']
+
         if effective_engine_version is not None:
             _setter("effective_engine_version", effective_engine_version)
         if selected_engine_version is not None:
@@ -720,7 +814,17 @@ class WorkGroupResultConfiguration(dict):
              encryption_configuration: Optional['outputs.WorkGroupEncryptionConfiguration'] = None,
              expected_bucket_owner: Optional[str] = None,
              output_location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acl_configuration is None and 'aclConfiguration' in kwargs:
+            acl_configuration = kwargs['aclConfiguration']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+
         if acl_configuration is not None:
             _setter("acl_configuration", acl_configuration)
         if encryption_configuration is not None:
@@ -821,7 +925,25 @@ class WorkGroupResultConfigurationUpdates(dict):
              remove_encryption_configuration: Optional[bool] = None,
              remove_expected_bucket_owner: Optional[bool] = None,
              remove_output_location: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acl_configuration is None and 'aclConfiguration' in kwargs:
+            acl_configuration = kwargs['aclConfiguration']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if expected_bucket_owner is None and 'expectedBucketOwner' in kwargs:
+            expected_bucket_owner = kwargs['expectedBucketOwner']
+        if output_location is None and 'outputLocation' in kwargs:
+            output_location = kwargs['outputLocation']
+        if remove_acl_configuration is None and 'removeAclConfiguration' in kwargs:
+            remove_acl_configuration = kwargs['removeAclConfiguration']
+        if remove_encryption_configuration is None and 'removeEncryptionConfiguration' in kwargs:
+            remove_encryption_configuration = kwargs['removeEncryptionConfiguration']
+        if remove_expected_bucket_owner is None and 'removeExpectedBucketOwner' in kwargs:
+            remove_expected_bucket_owner = kwargs['removeExpectedBucketOwner']
+        if remove_output_location is None and 'removeOutputLocation' in kwargs:
+            remove_output_location = kwargs['removeOutputLocation']
+
         if acl_configuration is not None:
             _setter("acl_configuration", acl_configuration)
         if encryption_configuration is not None:
@@ -893,9 +1015,15 @@ class WorkGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

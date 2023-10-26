@@ -25,8 +25,14 @@ class DefaultViewAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             view_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             view_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if view_arn is None and 'viewArn' in kwargs:
+            view_arn = kwargs['viewArn']
+        if view_arn is None:
+            raise TypeError("Missing 'view_arn' argument")
+
         _setter("view_arn", view_arn)
 
     @property

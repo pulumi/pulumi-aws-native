@@ -34,10 +34,16 @@ class LoggingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_configuration: pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'],
+             destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_configuration is None and 'destinationConfiguration' in kwargs:
+            destination_configuration = kwargs['destinationConfiguration']
+        if destination_configuration is None:
+            raise TypeError("Missing 'destination_configuration' argument")
+
         _setter("destination_configuration", destination_configuration)
         if name is not None:
             _setter("name", name)
@@ -135,11 +141,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
 
-            if destination_configuration is not None and not isinstance(destination_configuration, LoggingConfigurationDestinationConfigurationArgs):
-                destination_configuration = destination_configuration or {}
-                def _setter(key, value):
-                    destination_configuration[key] = value
-                LoggingConfigurationDestinationConfigurationArgs._configure(_setter, **destination_configuration)
+            destination_configuration = _utilities.configure(destination_configuration, LoggingConfigurationDestinationConfigurationArgs, True)
             if destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_configuration'")
             __props__.__dict__["destination_configuration"] = destination_configuration

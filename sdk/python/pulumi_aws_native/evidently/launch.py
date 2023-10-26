@@ -45,16 +45,32 @@ class LaunchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             groups: pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]],
-             project: pulumi.Input[str],
-             scheduled_splits_config: pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]],
+             groups: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]]] = None,
+             project: Optional[pulumi.Input[str]] = None,
+             scheduled_splits_config: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              execution_status: Optional[pulumi.Input['LaunchExecutionStatusObjectArgs']] = None,
              metric_monitors: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              randomization_salt: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if groups is None:
+            raise TypeError("Missing 'groups' argument")
+        if project is None:
+            raise TypeError("Missing 'project' argument")
+        if scheduled_splits_config is None and 'scheduledSplitsConfig' in kwargs:
+            scheduled_splits_config = kwargs['scheduledSplitsConfig']
+        if scheduled_splits_config is None:
+            raise TypeError("Missing 'scheduled_splits_config' argument")
+        if execution_status is None and 'executionStatus' in kwargs:
+            execution_status = kwargs['executionStatus']
+        if metric_monitors is None and 'metricMonitors' in kwargs:
+            metric_monitors = kwargs['metricMonitors']
+        if randomization_salt is None and 'randomizationSalt' in kwargs:
+            randomization_salt = kwargs['randomizationSalt']
+
         _setter("groups", groups)
         _setter("project", project)
         _setter("scheduled_splits_config", scheduled_splits_config)
@@ -229,11 +245,7 @@ class Launch(pulumi.CustomResource):
             __props__ = LaunchArgs.__new__(LaunchArgs)
 
             __props__.__dict__["description"] = description
-            if execution_status is not None and not isinstance(execution_status, LaunchExecutionStatusObjectArgs):
-                execution_status = execution_status or {}
-                def _setter(key, value):
-                    execution_status[key] = value
-                LaunchExecutionStatusObjectArgs._configure(_setter, **execution_status)
+            execution_status = _utilities.configure(execution_status, LaunchExecutionStatusObjectArgs, True)
             __props__.__dict__["execution_status"] = execution_status
             if groups is None and not opts.urn:
                 raise TypeError("Missing required property 'groups'")

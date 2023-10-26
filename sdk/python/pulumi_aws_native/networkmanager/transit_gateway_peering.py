@@ -34,10 +34,20 @@ class TransitGatewayPeeringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             core_network_id: pulumi.Input[str],
-             transit_gateway_arn: pulumi.Input[str],
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_network_id is None and 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if core_network_id is None:
+            raise TypeError("Missing 'core_network_id' argument")
+        if transit_gateway_arn is None and 'transitGatewayArn' in kwargs:
+            transit_gateway_arn = kwargs['transitGatewayArn']
+        if transit_gateway_arn is None:
+            raise TypeError("Missing 'transit_gateway_arn' argument")
+
         _setter("core_network_id", core_network_id)
         _setter("transit_gateway_arn", transit_gateway_arn)
         if tags is not None:

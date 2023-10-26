@@ -38,7 +38,13 @@ class ObservabilityConfigurationArgs:
              observability_configuration_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ObservabilityConfigurationTagArgs']]]] = None,
              trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if observability_configuration_name is None and 'observabilityConfigurationName' in kwargs:
+            observability_configuration_name = kwargs['observabilityConfigurationName']
+        if trace_configuration is None and 'traceConfiguration' in kwargs:
+            trace_configuration = kwargs['traceConfiguration']
+
         if observability_configuration_name is not None:
             _setter("observability_configuration_name", observability_configuration_name)
         if tags is not None:
@@ -143,11 +149,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
             __props__.__dict__["observability_configuration_name"] = observability_configuration_name
             __props__.__dict__["tags"] = tags
-            if trace_configuration is not None and not isinstance(trace_configuration, ObservabilityConfigurationTraceConfigurationArgs):
-                trace_configuration = trace_configuration or {}
-                def _setter(key, value):
-                    trace_configuration[key] = value
-                ObservabilityConfigurationTraceConfigurationArgs._configure(_setter, **trace_configuration)
+            trace_configuration = _utilities.configure(trace_configuration, ObservabilityConfigurationTraceConfigurationArgs, True)
             __props__.__dict__["trace_configuration"] = trace_configuration
             __props__.__dict__["latest"] = None
             __props__.__dict__["observability_configuration_arn"] = None

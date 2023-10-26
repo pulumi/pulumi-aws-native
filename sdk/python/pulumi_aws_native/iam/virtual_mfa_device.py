@@ -33,11 +33,17 @@ class VirtualMfaDeviceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             users: pulumi.Input[Sequence[pulumi.Input[str]]],
+             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              path: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMfaDeviceTagArgs']]]] = None,
              virtual_mfa_device_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if users is None:
+            raise TypeError("Missing 'users' argument")
+        if virtual_mfa_device_name is None and 'virtualMfaDeviceName' in kwargs:
+            virtual_mfa_device_name = kwargs['virtualMfaDeviceName']
+
         _setter("users", users)
         if path is not None:
             _setter("path", path)

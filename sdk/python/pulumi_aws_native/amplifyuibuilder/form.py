@@ -50,19 +50,47 @@ class FormArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['FormDataTypeConfigArgs'],
-             fields: pulumi.Input['FormFieldsMapArgs'],
-             form_action_type: pulumi.Input['FormActionType'],
-             schema_version: pulumi.Input[str],
-             sectional_elements: pulumi.Input['FormSectionalElementMapArgs'],
-             style: pulumi.Input['FormStyleArgs'],
+             data_type: Optional[pulumi.Input['FormDataTypeConfigArgs']] = None,
+             fields: Optional[pulumi.Input['FormFieldsMapArgs']] = None,
+             form_action_type: Optional[pulumi.Input['FormActionType']] = None,
+             schema_version: Optional[pulumi.Input[str]] = None,
+             sectional_elements: Optional[pulumi.Input['FormSectionalElementMapArgs']] = None,
+             style: Optional[pulumi.Input['FormStyleArgs']] = None,
              app_id: Optional[pulumi.Input[str]] = None,
              cta: Optional[pulumi.Input['FormCtaArgs']] = None,
              environment_name: Optional[pulumi.Input[str]] = None,
              label_decorator: Optional[pulumi.Input['FormLabelDecorator']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['FormTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if form_action_type is None and 'formActionType' in kwargs:
+            form_action_type = kwargs['formActionType']
+        if form_action_type is None:
+            raise TypeError("Missing 'form_action_type' argument")
+        if schema_version is None and 'schemaVersion' in kwargs:
+            schema_version = kwargs['schemaVersion']
+        if schema_version is None:
+            raise TypeError("Missing 'schema_version' argument")
+        if sectional_elements is None and 'sectionalElements' in kwargs:
+            sectional_elements = kwargs['sectionalElements']
+        if sectional_elements is None:
+            raise TypeError("Missing 'sectional_elements' argument")
+        if style is None:
+            raise TypeError("Missing 'style' argument")
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if label_decorator is None and 'labelDecorator' in kwargs:
+            label_decorator = kwargs['labelDecorator']
+
         _setter("data_type", data_type)
         _setter("fields", fields)
         _setter("form_action_type", form_action_type)
@@ -265,26 +293,14 @@ class Form(pulumi.CustomResource):
             __props__ = FormArgs.__new__(FormArgs)
 
             __props__.__dict__["app_id"] = app_id
-            if cta is not None and not isinstance(cta, FormCtaArgs):
-                cta = cta or {}
-                def _setter(key, value):
-                    cta[key] = value
-                FormCtaArgs._configure(_setter, **cta)
+            cta = _utilities.configure(cta, FormCtaArgs, True)
             __props__.__dict__["cta"] = cta
-            if data_type is not None and not isinstance(data_type, FormDataTypeConfigArgs):
-                data_type = data_type or {}
-                def _setter(key, value):
-                    data_type[key] = value
-                FormDataTypeConfigArgs._configure(_setter, **data_type)
+            data_type = _utilities.configure(data_type, FormDataTypeConfigArgs, True)
             if data_type is None and not opts.urn:
                 raise TypeError("Missing required property 'data_type'")
             __props__.__dict__["data_type"] = data_type
             __props__.__dict__["environment_name"] = environment_name
-            if fields is not None and not isinstance(fields, FormFieldsMapArgs):
-                fields = fields or {}
-                def _setter(key, value):
-                    fields[key] = value
-                FormFieldsMapArgs._configure(_setter, **fields)
+            fields = _utilities.configure(fields, FormFieldsMapArgs, True)
             if fields is None and not opts.urn:
                 raise TypeError("Missing required property 'fields'")
             __props__.__dict__["fields"] = fields
@@ -296,27 +312,15 @@ class Form(pulumi.CustomResource):
             if schema_version is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_version'")
             __props__.__dict__["schema_version"] = schema_version
-            if sectional_elements is not None and not isinstance(sectional_elements, FormSectionalElementMapArgs):
-                sectional_elements = sectional_elements or {}
-                def _setter(key, value):
-                    sectional_elements[key] = value
-                FormSectionalElementMapArgs._configure(_setter, **sectional_elements)
+            sectional_elements = _utilities.configure(sectional_elements, FormSectionalElementMapArgs, True)
             if sectional_elements is None and not opts.urn:
                 raise TypeError("Missing required property 'sectional_elements'")
             __props__.__dict__["sectional_elements"] = sectional_elements
-            if style is not None and not isinstance(style, FormStyleArgs):
-                style = style or {}
-                def _setter(key, value):
-                    style[key] = value
-                FormStyleArgs._configure(_setter, **style)
+            style = _utilities.configure(style, FormStyleArgs, True)
             if style is None and not opts.urn:
                 raise TypeError("Missing required property 'style'")
             __props__.__dict__["style"] = style
-            if tags is not None and not isinstance(tags, FormTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                FormTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, FormTagsArgs, True)
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["tags"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

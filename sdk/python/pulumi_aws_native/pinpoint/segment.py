@@ -35,12 +35,20 @@ class SegmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
              dimensions: Optional[pulumi.Input['SegmentDimensionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              segment_groups: Optional[pulumi.Input['SegmentGroupsArgs']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if segment_groups is None and 'segmentGroups' in kwargs:
+            segment_groups = kwargs['segmentGroups']
+
         _setter("application_id", application_id)
         if dimensions is not None:
             _setter("dimensions", dimensions)
@@ -165,18 +173,10 @@ class Segment(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
-            if dimensions is not None and not isinstance(dimensions, SegmentDimensionsArgs):
-                dimensions = dimensions or {}
-                def _setter(key, value):
-                    dimensions[key] = value
-                SegmentDimensionsArgs._configure(_setter, **dimensions)
+            dimensions = _utilities.configure(dimensions, SegmentDimensionsArgs, True)
             __props__.__dict__["dimensions"] = dimensions
             __props__.__dict__["name"] = name
-            if segment_groups is not None and not isinstance(segment_groups, SegmentGroupsArgs):
-                segment_groups = segment_groups or {}
-                def _setter(key, value):
-                    segment_groups[key] = value
-                SegmentGroupsArgs._configure(_setter, **segment_groups)
+            segment_groups = _utilities.configure(segment_groups, SegmentGroupsArgs, True)
             __props__.__dict__["segment_groups"] = segment_groups
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

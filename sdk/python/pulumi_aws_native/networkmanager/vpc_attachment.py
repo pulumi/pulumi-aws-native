@@ -43,13 +43,29 @@ class VpcAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             core_network_id: pulumi.Input[str],
-             subnet_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             vpc_arn: pulumi.Input[str],
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpc_arn: Optional[pulumi.Input[str]] = None,
              options: Optional[pulumi.Input['VpcAttachmentVpcOptionsArgs']] = None,
              proposed_segment_change: Optional[pulumi.Input['VpcAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_network_id is None and 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if core_network_id is None:
+            raise TypeError("Missing 'core_network_id' argument")
+        if subnet_arns is None and 'subnetArns' in kwargs:
+            subnet_arns = kwargs['subnetArns']
+        if subnet_arns is None:
+            raise TypeError("Missing 'subnet_arns' argument")
+        if vpc_arn is None and 'vpcArn' in kwargs:
+            vpc_arn = kwargs['vpcArn']
+        if vpc_arn is None:
+            raise TypeError("Missing 'vpc_arn' argument")
+        if proposed_segment_change is None and 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("core_network_id", core_network_id)
         _setter("subnet_arns", subnet_arns)
         _setter("vpc_arn", vpc_arn)
@@ -203,17 +219,9 @@ class VpcAttachment(pulumi.CustomResource):
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
             __props__.__dict__["core_network_id"] = core_network_id
-            if options is not None and not isinstance(options, VpcAttachmentVpcOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                VpcAttachmentVpcOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, VpcAttachmentVpcOptionsArgs, True)
             __props__.__dict__["options"] = options
-            if proposed_segment_change is not None and not isinstance(proposed_segment_change, VpcAttachmentProposedSegmentChangeArgs):
-                proposed_segment_change = proposed_segment_change or {}
-                def _setter(key, value):
-                    proposed_segment_change[key] = value
-                VpcAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
+            proposed_segment_change = _utilities.configure(proposed_segment_change, VpcAttachmentProposedSegmentChangeArgs, True)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             if subnet_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_arns'")

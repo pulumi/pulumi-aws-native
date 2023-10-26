@@ -90,9 +90,17 @@ class AssetEgressEndpoint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             packaging_configuration_id: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             packaging_configuration_id: Optional[str] = None,
+             url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packaging_configuration_id is None and 'packagingConfigurationId' in kwargs:
+            packaging_configuration_id = kwargs['packagingConfigurationId']
+        if packaging_configuration_id is None:
+            raise TypeError("Missing 'packaging_configuration_id' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
         _setter("packaging_configuration_id", packaging_configuration_id)
         _setter("url", url)
 
@@ -126,9 +134,15 @@ class AssetTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -179,7 +193,11 @@ class ChannelHlsIngest(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ingest_endpoints: Optional[Sequence['outputs.ChannelIngestEndpoint']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ingest_endpoints is None and 'ingestEndpoints' in kwargs:
+            ingest_endpoints = kwargs['ingestEndpoints']
+
         if ingest_endpoints is not None:
             _setter("ingest_endpoints", ingest_endpoints)
 
@@ -219,11 +237,21 @@ class ChannelIngestEndpoint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             password: str,
-             url: str,
-             username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             password: Optional[str] = None,
+             url: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
         _setter("id", id)
         _setter("password", password)
         _setter("url", url)
@@ -294,7 +322,11 @@ class ChannelLogConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
 
@@ -320,9 +352,15 @@ class ChannelTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -377,9 +415,19 @@ class OriginEndpointAuthorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_identifier_secret: str,
-             secrets_role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cdn_identifier_secret: Optional[str] = None,
+             secrets_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdn_identifier_secret is None and 'cdnIdentifierSecret' in kwargs:
+            cdn_identifier_secret = kwargs['cdnIdentifierSecret']
+        if cdn_identifier_secret is None:
+            raise TypeError("Missing 'cdn_identifier_secret' argument")
+        if secrets_role_arn is None and 'secretsRoleArn' in kwargs:
+            secrets_role_arn = kwargs['secretsRoleArn']
+        if secrets_role_arn is None:
+            raise TypeError("Missing 'secrets_role_arn' argument")
+
         _setter("cdn_identifier_secret", cdn_identifier_secret)
         _setter("secrets_role_arn", secrets_role_arn)
 
@@ -449,11 +497,23 @@ class OriginEndpointCmafEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
+             speke_key_provider: Optional['outputs.OriginEndpointSpekeKeyProvider'] = None,
              constant_initialization_vector: Optional[str] = None,
              encryption_method: Optional['OriginEndpointCmafEncryptionEncryptionMethod'] = None,
              key_rotation_interval_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+        if constant_initialization_vector is None and 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if encryption_method is None and 'encryptionMethod' in kwargs:
+            encryption_method = kwargs['encryptionMethod']
+        if key_rotation_interval_seconds is None and 'keyRotationIntervalSeconds' in kwargs:
+            key_rotation_interval_seconds = kwargs['keyRotationIntervalSeconds']
+
         _setter("speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
             _setter("constant_initialization_vector", constant_initialization_vector)
@@ -548,7 +608,17 @@ class OriginEndpointCmafPackage(dict):
              segment_duration_seconds: Optional[int] = None,
              segment_prefix: Optional[str] = None,
              stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hls_manifests is None and 'hlsManifests' in kwargs:
+            hls_manifests = kwargs['hlsManifests']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if segment_prefix is None and 'segmentPrefix' in kwargs:
+            segment_prefix = kwargs['segmentPrefix']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+
         if encryption is not None:
             _setter("encryption", encryption)
         if hls_manifests is not None:
@@ -634,9 +704,17 @@ class OriginEndpointDashEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
+             speke_key_provider: Optional['outputs.OriginEndpointSpekeKeyProvider'] = None,
              key_rotation_interval_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+        if key_rotation_interval_seconds is None and 'keyRotationIntervalSeconds' in kwargs:
+            key_rotation_interval_seconds = kwargs['keyRotationIntervalSeconds']
+
         _setter("speke_key_provider", speke_key_provider)
         if key_rotation_interval_seconds is not None:
             _setter("key_rotation_interval_seconds", key_rotation_interval_seconds)
@@ -774,7 +852,37 @@ class OriginEndpointDashPackage(dict):
              suggested_presentation_delay_seconds: Optional[int] = None,
              utc_timing: Optional['OriginEndpointDashPackageUtcTiming'] = None,
              utc_timing_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_triggers is None and 'adTriggers' in kwargs:
+            ad_triggers = kwargs['adTriggers']
+        if ads_on_delivery_restrictions is None and 'adsOnDeliveryRestrictions' in kwargs:
+            ads_on_delivery_restrictions = kwargs['adsOnDeliveryRestrictions']
+        if include_iframe_only_stream is None and 'includeIframeOnlyStream' in kwargs:
+            include_iframe_only_stream = kwargs['includeIframeOnlyStream']
+        if manifest_layout is None and 'manifestLayout' in kwargs:
+            manifest_layout = kwargs['manifestLayout']
+        if manifest_window_seconds is None and 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+        if min_buffer_time_seconds is None and 'minBufferTimeSeconds' in kwargs:
+            min_buffer_time_seconds = kwargs['minBufferTimeSeconds']
+        if min_update_period_seconds is None and 'minUpdatePeriodSeconds' in kwargs:
+            min_update_period_seconds = kwargs['minUpdatePeriodSeconds']
+        if period_triggers is None and 'periodTriggers' in kwargs:
+            period_triggers = kwargs['periodTriggers']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if segment_template_format is None and 'segmentTemplateFormat' in kwargs:
+            segment_template_format = kwargs['segmentTemplateFormat']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+        if suggested_presentation_delay_seconds is None and 'suggestedPresentationDelaySeconds' in kwargs:
+            suggested_presentation_delay_seconds = kwargs['suggestedPresentationDelaySeconds']
+        if utc_timing is None and 'utcTiming' in kwargs:
+            utc_timing = kwargs['utcTiming']
+        if utc_timing_uri is None and 'utcTimingUri' in kwargs:
+            utc_timing_uri = kwargs['utcTimingUri']
+
         if ad_triggers is not None:
             _setter("ad_triggers", ad_triggers)
         if ads_on_delivery_restrictions is not None:
@@ -968,9 +1076,19 @@ class OriginEndpointEncryptionContractConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             preset_speke20_audio: 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio',
-             preset_speke20_video: 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Video',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             preset_speke20_audio: Optional['OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio'] = None,
+             preset_speke20_video: Optional['OriginEndpointEncryptionContractConfigurationPresetSpeke20Video'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preset_speke20_audio is None and 'presetSpeke20Audio' in kwargs:
+            preset_speke20_audio = kwargs['presetSpeke20Audio']
+        if preset_speke20_audio is None:
+            raise TypeError("Missing 'preset_speke20_audio' argument")
+        if preset_speke20_video is None and 'presetSpeke20Video' in kwargs:
+            preset_speke20_video = kwargs['presetSpeke20Video']
+        if preset_speke20_video is None:
+            raise TypeError("Missing 'preset_speke20_video' argument")
+
         _setter("preset_speke20_audio", preset_speke20_audio)
         _setter("preset_speke20_video", preset_speke20_video)
 
@@ -1045,12 +1163,26 @@ class OriginEndpointHlsEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
+             speke_key_provider: Optional['outputs.OriginEndpointSpekeKeyProvider'] = None,
              constant_initialization_vector: Optional[str] = None,
              encryption_method: Optional['OriginEndpointHlsEncryptionEncryptionMethod'] = None,
              key_rotation_interval_seconds: Optional[int] = None,
              repeat_ext_x_key: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+        if constant_initialization_vector is None and 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if encryption_method is None and 'encryptionMethod' in kwargs:
+            encryption_method = kwargs['encryptionMethod']
+        if key_rotation_interval_seconds is None and 'keyRotationIntervalSeconds' in kwargs:
+            key_rotation_interval_seconds = kwargs['keyRotationIntervalSeconds']
+        if repeat_ext_x_key is None and 'repeatExtXKey' in kwargs:
+            repeat_ext_x_key = kwargs['repeatExtXKey']
+
         _setter("speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
             _setter("constant_initialization_vector", constant_initialization_vector)
@@ -1174,7 +1306,7 @@ class OriginEndpointHlsManifest(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
+             id: Optional[str] = None,
              ad_markers: Optional['OriginEndpointHlsManifestAdMarkers'] = None,
              ad_triggers: Optional[Sequence['OriginEndpointHlsManifestAdTriggersItem']] = None,
              ads_on_delivery_restrictions: Optional['OriginEndpointAdsOnDeliveryRestrictions'] = None,
@@ -1184,7 +1316,27 @@ class OriginEndpointHlsManifest(dict):
              playlist_window_seconds: Optional[int] = None,
              program_date_time_interval_seconds: Optional[int] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if ad_markers is None and 'adMarkers' in kwargs:
+            ad_markers = kwargs['adMarkers']
+        if ad_triggers is None and 'adTriggers' in kwargs:
+            ad_triggers = kwargs['adTriggers']
+        if ads_on_delivery_restrictions is None and 'adsOnDeliveryRestrictions' in kwargs:
+            ads_on_delivery_restrictions = kwargs['adsOnDeliveryRestrictions']
+        if include_iframe_only_stream is None and 'includeIframeOnlyStream' in kwargs:
+            include_iframe_only_stream = kwargs['includeIframeOnlyStream']
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if playlist_type is None and 'playlistType' in kwargs:
+            playlist_type = kwargs['playlistType']
+        if playlist_window_seconds is None and 'playlistWindowSeconds' in kwargs:
+            playlist_window_seconds = kwargs['playlistWindowSeconds']
+        if program_date_time_interval_seconds is None and 'programDateTimeIntervalSeconds' in kwargs:
+            program_date_time_interval_seconds = kwargs['programDateTimeIntervalSeconds']
+
         _setter("id", id)
         if ad_markers is not None:
             _setter("ad_markers", ad_markers)
@@ -1380,7 +1532,31 @@ class OriginEndpointHlsPackage(dict):
              segment_duration_seconds: Optional[int] = None,
              stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
              use_audio_rendition_group: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_markers is None and 'adMarkers' in kwargs:
+            ad_markers = kwargs['adMarkers']
+        if ad_triggers is None and 'adTriggers' in kwargs:
+            ad_triggers = kwargs['adTriggers']
+        if ads_on_delivery_restrictions is None and 'adsOnDeliveryRestrictions' in kwargs:
+            ads_on_delivery_restrictions = kwargs['adsOnDeliveryRestrictions']
+        if include_dvb_subtitles is None and 'includeDvbSubtitles' in kwargs:
+            include_dvb_subtitles = kwargs['includeDvbSubtitles']
+        if include_iframe_only_stream is None and 'includeIframeOnlyStream' in kwargs:
+            include_iframe_only_stream = kwargs['includeIframeOnlyStream']
+        if playlist_type is None and 'playlistType' in kwargs:
+            playlist_type = kwargs['playlistType']
+        if playlist_window_seconds is None and 'playlistWindowSeconds' in kwargs:
+            playlist_window_seconds = kwargs['playlistWindowSeconds']
+        if program_date_time_interval_seconds is None and 'programDateTimeIntervalSeconds' in kwargs:
+            program_date_time_interval_seconds = kwargs['programDateTimeIntervalSeconds']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+        if use_audio_rendition_group is None and 'useAudioRenditionGroup' in kwargs:
+            use_audio_rendition_group = kwargs['useAudioRenditionGroup']
+
         if ad_markers is not None:
             _setter("ad_markers", ad_markers)
         if ad_triggers is not None:
@@ -1528,8 +1704,14 @@ class OriginEndpointMssEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             speke_key_provider: Optional['outputs.OriginEndpointSpekeKeyProvider'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+
         _setter("speke_key_provider", speke_key_provider)
 
     @property
@@ -1588,7 +1770,15 @@ class OriginEndpointMssPackage(dict):
              manifest_window_seconds: Optional[int] = None,
              segment_duration_seconds: Optional[int] = None,
              stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_window_seconds is None and 'manifestWindowSeconds' in kwargs:
+            manifest_window_seconds = kwargs['manifestWindowSeconds']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+
         if encryption is not None:
             _setter("encryption", encryption)
         if manifest_window_seconds is not None:
@@ -1682,13 +1872,33 @@ class OriginEndpointSpekeKeyProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_id: str,
-             role_arn: str,
-             system_ids: Sequence[str],
-             url: str,
+             resource_id: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             system_ids: Optional[Sequence[str]] = None,
+             url: Optional[str] = None,
              certificate_arn: Optional[str] = None,
              encryption_contract_configuration: Optional['outputs.OriginEndpointEncryptionContractConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if system_ids is None and 'systemIds' in kwargs:
+            system_ids = kwargs['systemIds']
+        if system_ids is None:
+            raise TypeError("Missing 'system_ids' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if encryption_contract_configuration is None and 'encryptionContractConfiguration' in kwargs:
+            encryption_contract_configuration = kwargs['encryptionContractConfiguration']
+
         _setter("resource_id", resource_id)
         _setter("role_arn", role_arn)
         _setter("system_ids", system_ids)
@@ -1792,7 +2002,15 @@ class OriginEndpointStreamSelection(dict):
              max_video_bits_per_second: Optional[int] = None,
              min_video_bits_per_second: Optional[int] = None,
              stream_order: Optional['OriginEndpointStreamSelectionStreamOrder'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_video_bits_per_second is None and 'maxVideoBitsPerSecond' in kwargs:
+            max_video_bits_per_second = kwargs['maxVideoBitsPerSecond']
+        if min_video_bits_per_second is None and 'minVideoBitsPerSecond' in kwargs:
+            min_video_bits_per_second = kwargs['minVideoBitsPerSecond']
+        if stream_order is None and 'streamOrder' in kwargs:
+            stream_order = kwargs['streamOrder']
+
         if max_video_bits_per_second is not None:
             _setter("max_video_bits_per_second", max_video_bits_per_second)
         if min_video_bits_per_second is not None:
@@ -1838,9 +2056,15 @@ class OriginEndpointTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1889,8 +2113,14 @@ class PackagingConfigurationCmafEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             speke_key_provider: Optional['outputs.PackagingConfigurationSpekeKeyProvider'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+
         _setter("speke_key_provider", speke_key_provider)
 
     @property
@@ -1945,11 +2175,21 @@ class PackagingConfigurationCmafPackage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
+             hls_manifests: Optional[Sequence['outputs.PackagingConfigurationHlsManifest']] = None,
              encryption: Optional['outputs.PackagingConfigurationCmafEncryption'] = None,
              include_encoder_configuration_in_segments: Optional[bool] = None,
              segment_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hls_manifests is None and 'hlsManifests' in kwargs:
+            hls_manifests = kwargs['hlsManifests']
+        if hls_manifests is None:
+            raise TypeError("Missing 'hls_manifests' argument")
+        if include_encoder_configuration_in_segments is None and 'includeEncoderConfigurationInSegments' in kwargs:
+            include_encoder_configuration_in_segments = kwargs['includeEncoderConfigurationInSegments']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+
         _setter("hls_manifests", hls_manifests)
         if encryption is not None:
             _setter("encryption", encryption)
@@ -2019,8 +2259,14 @@ class PackagingConfigurationDashEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             speke_key_provider: Optional['outputs.PackagingConfigurationSpekeKeyProvider'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+
         _setter("speke_key_provider", speke_key_provider)
 
     @property
@@ -2091,7 +2337,19 @@ class PackagingConfigurationDashManifest(dict):
              profile: Optional['PackagingConfigurationDashManifestProfile'] = None,
              scte_markers_source: Optional['PackagingConfigurationDashManifestScteMarkersSource'] = None,
              stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_layout is None and 'manifestLayout' in kwargs:
+            manifest_layout = kwargs['manifestLayout']
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if min_buffer_time_seconds is None and 'minBufferTimeSeconds' in kwargs:
+            min_buffer_time_seconds = kwargs['minBufferTimeSeconds']
+        if scte_markers_source is None and 'scteMarkersSource' in kwargs:
+            scte_markers_source = kwargs['scteMarkersSource']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+
         if manifest_layout is not None:
             _setter("manifest_layout", manifest_layout)
         if manifest_name is not None:
@@ -2209,14 +2467,30 @@ class PackagingConfigurationDashPackage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dash_manifests: Sequence['outputs.PackagingConfigurationDashManifest'],
+             dash_manifests: Optional[Sequence['outputs.PackagingConfigurationDashManifest']] = None,
              encryption: Optional['outputs.PackagingConfigurationDashEncryption'] = None,
              include_encoder_configuration_in_segments: Optional[bool] = None,
              include_iframe_only_stream: Optional[bool] = None,
              period_triggers: Optional[Sequence['PackagingConfigurationDashPackagePeriodTriggersItem']] = None,
              segment_duration_seconds: Optional[int] = None,
              segment_template_format: Optional['PackagingConfigurationDashPackageSegmentTemplateFormat'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dash_manifests is None and 'dashManifests' in kwargs:
+            dash_manifests = kwargs['dashManifests']
+        if dash_manifests is None:
+            raise TypeError("Missing 'dash_manifests' argument")
+        if include_encoder_configuration_in_segments is None and 'includeEncoderConfigurationInSegments' in kwargs:
+            include_encoder_configuration_in_segments = kwargs['includeEncoderConfigurationInSegments']
+        if include_iframe_only_stream is None and 'includeIframeOnlyStream' in kwargs:
+            include_iframe_only_stream = kwargs['includeIframeOnlyStream']
+        if period_triggers is None and 'periodTriggers' in kwargs:
+            period_triggers = kwargs['periodTriggers']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if segment_template_format is None and 'segmentTemplateFormat' in kwargs:
+            segment_template_format = kwargs['segmentTemplateFormat']
+
         _setter("dash_manifests", dash_manifests)
         if encryption is not None:
             _setter("encryption", encryption)
@@ -2322,9 +2596,19 @@ class PackagingConfigurationEncryptionContractConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             preset_speke20_audio: 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio',
-             preset_speke20_video: 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             preset_speke20_audio: Optional['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio'] = None,
+             preset_speke20_video: Optional['PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if preset_speke20_audio is None and 'presetSpeke20Audio' in kwargs:
+            preset_speke20_audio = kwargs['presetSpeke20Audio']
+        if preset_speke20_audio is None:
+            raise TypeError("Missing 'preset_speke20_audio' argument")
+        if preset_speke20_video is None and 'presetSpeke20Video' in kwargs:
+            preset_speke20_video = kwargs['presetSpeke20Video']
+        if preset_speke20_video is None:
+            raise TypeError("Missing 'preset_speke20_video' argument")
+
         _setter("preset_speke20_audio", preset_speke20_audio)
         _setter("preset_speke20_video", preset_speke20_video)
 
@@ -2389,10 +2673,20 @@ class PackagingConfigurationHlsEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
+             speke_key_provider: Optional['outputs.PackagingConfigurationSpekeKeyProvider'] = None,
              constant_initialization_vector: Optional[str] = None,
              encryption_method: Optional['PackagingConfigurationHlsEncryptionEncryptionMethod'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+        if constant_initialization_vector is None and 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if encryption_method is None and 'encryptionMethod' in kwargs:
+            encryption_method = kwargs['encryptionMethod']
+
         _setter("speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
             _setter("constant_initialization_vector", constant_initialization_vector)
@@ -2485,7 +2779,21 @@ class PackagingConfigurationHlsManifest(dict):
              program_date_time_interval_seconds: Optional[int] = None,
              repeat_ext_x_key: Optional[bool] = None,
              stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_markers is None and 'adMarkers' in kwargs:
+            ad_markers = kwargs['adMarkers']
+        if include_iframe_only_stream is None and 'includeIframeOnlyStream' in kwargs:
+            include_iframe_only_stream = kwargs['includeIframeOnlyStream']
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if program_date_time_interval_seconds is None and 'programDateTimeIntervalSeconds' in kwargs:
+            program_date_time_interval_seconds = kwargs['programDateTimeIntervalSeconds']
+        if repeat_ext_x_key is None and 'repeatExtXKey' in kwargs:
+            repeat_ext_x_key = kwargs['repeatExtXKey']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+
         if ad_markers is not None:
             _setter("ad_markers", ad_markers)
         if include_iframe_only_stream is not None:
@@ -2593,12 +2901,24 @@ class PackagingConfigurationHlsPackage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
+             hls_manifests: Optional[Sequence['outputs.PackagingConfigurationHlsManifest']] = None,
              encryption: Optional['outputs.PackagingConfigurationHlsEncryption'] = None,
              include_dvb_subtitles: Optional[bool] = None,
              segment_duration_seconds: Optional[int] = None,
              use_audio_rendition_group: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hls_manifests is None and 'hlsManifests' in kwargs:
+            hls_manifests = kwargs['hlsManifests']
+        if hls_manifests is None:
+            raise TypeError("Missing 'hls_manifests' argument")
+        if include_dvb_subtitles is None and 'includeDvbSubtitles' in kwargs:
+            include_dvb_subtitles = kwargs['includeDvbSubtitles']
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+        if use_audio_rendition_group is None and 'useAudioRenditionGroup' in kwargs:
+            use_audio_rendition_group = kwargs['useAudioRenditionGroup']
+
         _setter("hls_manifests", hls_manifests)
         if encryption is not None:
             _setter("encryption", encryption)
@@ -2678,8 +2998,14 @@ class PackagingConfigurationMssEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             speke_key_provider: Optional['outputs.PackagingConfigurationSpekeKeyProvider'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if speke_key_provider is None and 'spekeKeyProvider' in kwargs:
+            speke_key_provider = kwargs['spekeKeyProvider']
+        if speke_key_provider is None:
+            raise TypeError("Missing 'speke_key_provider' argument")
+
         _setter("speke_key_provider", speke_key_provider)
 
     @property
@@ -2728,7 +3054,13 @@ class PackagingConfigurationMssManifest(dict):
              _setter: Callable[[Any, Any], None],
              manifest_name: Optional[str] = None,
              stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if stream_selection is None and 'streamSelection' in kwargs:
+            stream_selection = kwargs['streamSelection']
+
         if manifest_name is not None:
             _setter("manifest_name", manifest_name)
         if stream_selection is not None:
@@ -2786,10 +3118,18 @@ class PackagingConfigurationMssPackage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mss_manifests: Sequence['outputs.PackagingConfigurationMssManifest'],
+             mss_manifests: Optional[Sequence['outputs.PackagingConfigurationMssManifest']] = None,
              encryption: Optional['outputs.PackagingConfigurationMssEncryption'] = None,
              segment_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mss_manifests is None and 'mssManifests' in kwargs:
+            mss_manifests = kwargs['mssManifests']
+        if mss_manifests is None:
+            raise TypeError("Missing 'mss_manifests' argument")
+        if segment_duration_seconds is None and 'segmentDurationSeconds' in kwargs:
+            segment_duration_seconds = kwargs['segmentDurationSeconds']
+
         _setter("mss_manifests", mss_manifests)
         if encryption is not None:
             _setter("encryption", encryption)
@@ -2861,11 +3201,25 @@ class PackagingConfigurationSpekeKeyProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: str,
-             system_ids: Sequence[str],
-             url: str,
+             role_arn: Optional[str] = None,
+             system_ids: Optional[Sequence[str]] = None,
+             url: Optional[str] = None,
              encryption_contract_configuration: Optional['outputs.PackagingConfigurationEncryptionContractConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if system_ids is None and 'systemIds' in kwargs:
+            system_ids = kwargs['systemIds']
+        if system_ids is None:
+            raise TypeError("Missing 'system_ids' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if encryption_contract_configuration is None and 'encryptionContractConfiguration' in kwargs:
+            encryption_contract_configuration = kwargs['encryptionContractConfiguration']
+
         _setter("role_arn", role_arn)
         _setter("system_ids", system_ids)
         _setter("url", url)
@@ -2947,7 +3301,15 @@ class PackagingConfigurationStreamSelection(dict):
              max_video_bits_per_second: Optional[int] = None,
              min_video_bits_per_second: Optional[int] = None,
              stream_order: Optional['PackagingConfigurationStreamSelectionStreamOrder'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_video_bits_per_second is None and 'maxVideoBitsPerSecond' in kwargs:
+            max_video_bits_per_second = kwargs['maxVideoBitsPerSecond']
+        if min_video_bits_per_second is None and 'minVideoBitsPerSecond' in kwargs:
+            min_video_bits_per_second = kwargs['minVideoBitsPerSecond']
+        if stream_order is None and 'streamOrder' in kwargs:
+            stream_order = kwargs['streamOrder']
+
         if max_video_bits_per_second is not None:
             _setter("max_video_bits_per_second", max_video_bits_per_second)
         if min_video_bits_per_second is not None:
@@ -2993,9 +3355,15 @@ class PackagingConfigurationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3046,9 +3414,19 @@ class PackagingGroupAuthorization(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cdn_identifier_secret: str,
-             secrets_role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cdn_identifier_secret: Optional[str] = None,
+             secrets_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdn_identifier_secret is None and 'cdnIdentifierSecret' in kwargs:
+            cdn_identifier_secret = kwargs['cdnIdentifierSecret']
+        if cdn_identifier_secret is None:
+            raise TypeError("Missing 'cdn_identifier_secret' argument")
+        if secrets_role_arn is None and 'secretsRoleArn' in kwargs:
+            secrets_role_arn = kwargs['secretsRoleArn']
+        if secrets_role_arn is None:
+            raise TypeError("Missing 'secrets_role_arn' argument")
+
         _setter("cdn_identifier_secret", cdn_identifier_secret)
         _setter("secrets_role_arn", secrets_role_arn)
 
@@ -3101,7 +3479,11 @@ class PackagingGroupLogConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
 
@@ -3127,9 +3509,15 @@ class PackagingGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

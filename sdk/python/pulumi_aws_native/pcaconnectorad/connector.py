@@ -33,11 +33,25 @@ class ConnectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_authority_arn: pulumi.Input[str],
-             directory_id: pulumi.Input[str],
-             vpc_information: pulumi.Input['ConnectorVpcInformationArgs'],
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             vpc_information: Optional[pulumi.Input['ConnectorVpcInformationArgs']] = None,
              tags: Optional[pulumi.Input['ConnectorTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_authority_arn is None:
+            raise TypeError("Missing 'certificate_authority_arn' argument")
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_id is None:
+            raise TypeError("Missing 'directory_id' argument")
+        if vpc_information is None and 'vpcInformation' in kwargs:
+            vpc_information = kwargs['vpcInformation']
+        if vpc_information is None:
+            raise TypeError("Missing 'vpc_information' argument")
+
         _setter("certificate_authority_arn", certificate_authority_arn)
         _setter("directory_id", directory_id)
         _setter("vpc_information", vpc_information)
@@ -144,17 +158,9 @@ class Connector(pulumi.CustomResource):
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
-            if tags is not None and not isinstance(tags, ConnectorTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ConnectorTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, ConnectorTagsArgs, True)
             __props__.__dict__["tags"] = tags
-            if vpc_information is not None and not isinstance(vpc_information, ConnectorVpcInformationArgs):
-                vpc_information = vpc_information or {}
-                def _setter(key, value):
-                    vpc_information[key] = value
-                ConnectorVpcInformationArgs._configure(_setter, **vpc_information)
+            vpc_information = _utilities.configure(vpc_information, ConnectorVpcInformationArgs, True)
             if vpc_information is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_information'")
             __props__.__dict__["vpc_information"] = vpc_information

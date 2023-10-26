@@ -32,10 +32,20 @@ class ViewVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             view_arn: pulumi.Input[str],
+             view_arn: Optional[pulumi.Input[str]] = None,
              version_description: Optional[pulumi.Input[str]] = None,
              view_content_sha256: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if view_arn is None and 'viewArn' in kwargs:
+            view_arn = kwargs['viewArn']
+        if view_arn is None:
+            raise TypeError("Missing 'view_arn' argument")
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+        if view_content_sha256 is None and 'viewContentSha256' in kwargs:
+            view_content_sha256 = kwargs['viewContentSha256']
+
         _setter("view_arn", view_arn)
         if version_description is not None:
             _setter("version_description", version_description)

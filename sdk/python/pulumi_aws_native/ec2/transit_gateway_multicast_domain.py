@@ -34,10 +34,16 @@ class TransitGatewayMulticastDomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             transit_gateway_id: pulumi.Input[str],
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
              options: Optional[pulumi.Input['OptionsPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayMulticastDomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transit_gateway_id is None:
+            raise TypeError("Missing 'transit_gateway_id' argument")
+
         _setter("transit_gateway_id", transit_gateway_id)
         if options is not None:
             _setter("options", options)
@@ -139,11 +145,7 @@ class TransitGatewayMulticastDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TransitGatewayMulticastDomainArgs.__new__(TransitGatewayMulticastDomainArgs)
 
-            if options is not None and not isinstance(options, OptionsPropertiesArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                OptionsPropertiesArgs._configure(_setter, **options)
+            options = _utilities.configure(options, OptionsPropertiesArgs, True)
             __props__.__dict__["options"] = options
             __props__.__dict__["tags"] = tags
             if transit_gateway_id is None and not opts.urn:

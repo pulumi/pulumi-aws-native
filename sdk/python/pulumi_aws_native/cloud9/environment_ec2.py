@@ -45,7 +45,7 @@ class EnvironmentEc2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
              automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
              connection_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,23 @@ class EnvironmentEc2Args:
              repositories: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2TagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if automatic_stop_time_minutes is None and 'automaticStopTimeMinutes' in kwargs:
+            automatic_stop_time_minutes = kwargs['automaticStopTimeMinutes']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if owner_arn is None and 'ownerArn' in kwargs:
+            owner_arn = kwargs['ownerArn']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
             _setter("automatic_stop_time_minutes", automatic_stop_time_minutes)

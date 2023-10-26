@@ -50,8 +50,8 @@ class Ec2FleetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             launch_template_configs: pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateConfigRequestArgs']]],
-             target_capacity_specification: pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestArgs'],
+             launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateConfigRequestArgs']]]] = None,
+             target_capacity_specification: Optional[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestArgs']] = None,
              context: Optional[pulumi.Input[str]] = None,
              excess_capacity_termination_policy: Optional[pulumi.Input['Ec2FleetExcessCapacityTerminationPolicy']] = None,
              on_demand_options: Optional[pulumi.Input['Ec2FleetOnDemandOptionsRequestArgs']] = None,
@@ -62,7 +62,33 @@ class Ec2FleetArgs:
              type: Optional[pulumi.Input['Ec2FleetType']] = None,
              valid_from: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if launch_template_configs is None and 'launchTemplateConfigs' in kwargs:
+            launch_template_configs = kwargs['launchTemplateConfigs']
+        if launch_template_configs is None:
+            raise TypeError("Missing 'launch_template_configs' argument")
+        if target_capacity_specification is None and 'targetCapacitySpecification' in kwargs:
+            target_capacity_specification = kwargs['targetCapacitySpecification']
+        if target_capacity_specification is None:
+            raise TypeError("Missing 'target_capacity_specification' argument")
+        if excess_capacity_termination_policy is None and 'excessCapacityTerminationPolicy' in kwargs:
+            excess_capacity_termination_policy = kwargs['excessCapacityTerminationPolicy']
+        if on_demand_options is None and 'onDemandOptions' in kwargs:
+            on_demand_options = kwargs['onDemandOptions']
+        if replace_unhealthy_instances is None and 'replaceUnhealthyInstances' in kwargs:
+            replace_unhealthy_instances = kwargs['replaceUnhealthyInstances']
+        if spot_options is None and 'spotOptions' in kwargs:
+            spot_options = kwargs['spotOptions']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if terminate_instances_with_expiration is None and 'terminateInstancesWithExpiration' in kwargs:
+            terminate_instances_with_expiration = kwargs['terminateInstancesWithExpiration']
+        if valid_from is None and 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if valid_until is None and 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         _setter("launch_template_configs", launch_template_configs)
         _setter("target_capacity_specification", target_capacity_specification)
         if context is not None:
@@ -273,25 +299,13 @@ class Ec2Fleet(pulumi.CustomResource):
             if launch_template_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'launch_template_configs'")
             __props__.__dict__["launch_template_configs"] = launch_template_configs
-            if on_demand_options is not None and not isinstance(on_demand_options, Ec2FleetOnDemandOptionsRequestArgs):
-                on_demand_options = on_demand_options or {}
-                def _setter(key, value):
-                    on_demand_options[key] = value
-                Ec2FleetOnDemandOptionsRequestArgs._configure(_setter, **on_demand_options)
+            on_demand_options = _utilities.configure(on_demand_options, Ec2FleetOnDemandOptionsRequestArgs, True)
             __props__.__dict__["on_demand_options"] = on_demand_options
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
-            if spot_options is not None and not isinstance(spot_options, Ec2FleetSpotOptionsRequestArgs):
-                spot_options = spot_options or {}
-                def _setter(key, value):
-                    spot_options[key] = value
-                Ec2FleetSpotOptionsRequestArgs._configure(_setter, **spot_options)
+            spot_options = _utilities.configure(spot_options, Ec2FleetSpotOptionsRequestArgs, True)
             __props__.__dict__["spot_options"] = spot_options
             __props__.__dict__["tag_specifications"] = tag_specifications
-            if target_capacity_specification is not None and not isinstance(target_capacity_specification, Ec2FleetTargetCapacitySpecificationRequestArgs):
-                target_capacity_specification = target_capacity_specification or {}
-                def _setter(key, value):
-                    target_capacity_specification[key] = value
-                Ec2FleetTargetCapacitySpecificationRequestArgs._configure(_setter, **target_capacity_specification)
+            target_capacity_specification = _utilities.configure(target_capacity_specification, Ec2FleetTargetCapacitySpecificationRequestArgs, True)
             if target_capacity_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'target_capacity_specification'")
             __props__.__dict__["target_capacity_specification"] = target_capacity_specification

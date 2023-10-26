@@ -40,12 +40,28 @@ class ReportPlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             report_delivery_channel: pulumi.Input['ReportDeliveryChannelPropertiesArgs'],
-             report_setting: pulumi.Input['ReportSettingPropertiesArgs'],
+             report_delivery_channel: Optional[pulumi.Input['ReportDeliveryChannelPropertiesArgs']] = None,
+             report_setting: Optional[pulumi.Input['ReportSettingPropertiesArgs']] = None,
              report_plan_description: Optional[pulumi.Input[str]] = None,
              report_plan_name: Optional[pulumi.Input[str]] = None,
              report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_delivery_channel is None and 'reportDeliveryChannel' in kwargs:
+            report_delivery_channel = kwargs['reportDeliveryChannel']
+        if report_delivery_channel is None:
+            raise TypeError("Missing 'report_delivery_channel' argument")
+        if report_setting is None and 'reportSetting' in kwargs:
+            report_setting = kwargs['reportSetting']
+        if report_setting is None:
+            raise TypeError("Missing 'report_setting' argument")
+        if report_plan_description is None and 'reportPlanDescription' in kwargs:
+            report_plan_description = kwargs['reportPlanDescription']
+        if report_plan_name is None and 'reportPlanName' in kwargs:
+            report_plan_name = kwargs['reportPlanName']
+        if report_plan_tags is None and 'reportPlanTags' in kwargs:
+            report_plan_tags = kwargs['reportPlanTags']
+
         _setter("report_delivery_channel", report_delivery_channel)
         _setter("report_setting", report_setting)
         if report_plan_description is not None:
@@ -180,22 +196,14 @@ class ReportPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReportPlanArgs.__new__(ReportPlanArgs)
 
-            if report_delivery_channel is not None and not isinstance(report_delivery_channel, ReportDeliveryChannelPropertiesArgs):
-                report_delivery_channel = report_delivery_channel or {}
-                def _setter(key, value):
-                    report_delivery_channel[key] = value
-                ReportDeliveryChannelPropertiesArgs._configure(_setter, **report_delivery_channel)
+            report_delivery_channel = _utilities.configure(report_delivery_channel, ReportDeliveryChannelPropertiesArgs, True)
             if report_delivery_channel is None and not opts.urn:
                 raise TypeError("Missing required property 'report_delivery_channel'")
             __props__.__dict__["report_delivery_channel"] = report_delivery_channel
             __props__.__dict__["report_plan_description"] = report_plan_description
             __props__.__dict__["report_plan_name"] = report_plan_name
             __props__.__dict__["report_plan_tags"] = report_plan_tags
-            if report_setting is not None and not isinstance(report_setting, ReportSettingPropertiesArgs):
-                report_setting = report_setting or {}
-                def _setter(key, value):
-                    report_setting[key] = value
-                ReportSettingPropertiesArgs._configure(_setter, **report_setting)
+            report_setting = _utilities.configure(report_setting, ReportSettingPropertiesArgs, True)
             if report_setting is None and not opts.urn:
                 raise TypeError("Missing required property 'report_setting'")
             __props__.__dict__["report_setting"] = report_setting

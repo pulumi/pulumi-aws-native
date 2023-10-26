@@ -38,11 +38,23 @@ class ProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             as2_id: pulumi.Input[str],
-             profile_type: pulumi.Input['ProfileType'],
+             as2_id: Optional[pulumi.Input[str]] = None,
+             profile_type: Optional[pulumi.Input['ProfileType']] = None,
              certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if as2_id is None and 'as2Id' in kwargs:
+            as2_id = kwargs['as2Id']
+        if as2_id is None:
+            raise TypeError("Missing 'as2_id' argument")
+        if profile_type is None and 'profileType' in kwargs:
+            profile_type = kwargs['profileType']
+        if profile_type is None:
+            raise TypeError("Missing 'profile_type' argument")
+        if certificate_ids is None and 'certificateIds' in kwargs:
+            certificate_ids = kwargs['certificateIds']
+
         _setter("as2_id", as2_id)
         _setter("profile_type", profile_type)
         if certificate_ids is not None:

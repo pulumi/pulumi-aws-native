@@ -33,12 +33,26 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: pulumi.Input[str],
+             authentication_type: Optional[pulumi.Input[str]] = None,
              first_name: Optional[pulumi.Input[str]] = None,
              last_name: Optional[pulumi.Input[str]] = None,
              message_action: Optional[pulumi.Input[str]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if message_action is None and 'messageAction' in kwargs:
+            message_action = kwargs['messageAction']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("authentication_type", authentication_type)
         if first_name is not None:
             _setter("first_name", first_name)

@@ -35,7 +35,13 @@ class ComponentVersionArgs:
              inline_recipe: Optional[pulumi.Input[str]] = None,
              lambda_function: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inline_recipe is None and 'inlineRecipe' in kwargs:
+            inline_recipe = kwargs['inlineRecipe']
+        if lambda_function is None and 'lambdaFunction' in kwargs:
+            lambda_function = kwargs['lambdaFunction']
+
         if inline_recipe is not None:
             _setter("inline_recipe", inline_recipe)
         if lambda_function is not None:
@@ -127,11 +133,7 @@ class ComponentVersion(pulumi.CustomResource):
             __props__ = ComponentVersionArgs.__new__(ComponentVersionArgs)
 
             __props__.__dict__["inline_recipe"] = inline_recipe
-            if lambda_function is not None and not isinstance(lambda_function, ComponentVersionLambdaFunctionRecipeSourceArgs):
-                lambda_function = lambda_function or {}
-                def _setter(key, value):
-                    lambda_function[key] = value
-                ComponentVersionLambdaFunctionRecipeSourceArgs._configure(_setter, **lambda_function)
+            lambda_function = _utilities.configure(lambda_function, ComponentVersionLambdaFunctionRecipeSourceArgs, True)
             __props__.__dict__["lambda_function"] = lambda_function
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -35,12 +35,28 @@ class RateBasedRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             rate_key: pulumi.Input[str],
-             rate_limit: pulumi.Input[int],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             rate_key: Optional[pulumi.Input[str]] = None,
+             rate_limit: Optional[pulumi.Input[int]] = None,
              match_predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if rate_key is None and 'rateKey' in kwargs:
+            rate_key = kwargs['rateKey']
+        if rate_key is None:
+            raise TypeError("Missing 'rate_key' argument")
+        if rate_limit is None and 'rateLimit' in kwargs:
+            rate_limit = kwargs['rateLimit']
+        if rate_limit is None:
+            raise TypeError("Missing 'rate_limit' argument")
+        if match_predicates is None and 'matchPredicates' in kwargs:
+            match_predicates = kwargs['matchPredicates']
+
         _setter("metric_name", metric_name)
         _setter("rate_key", rate_key)
         _setter("rate_limit", rate_limit)

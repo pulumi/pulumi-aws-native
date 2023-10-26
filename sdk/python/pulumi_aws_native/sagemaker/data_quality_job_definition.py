@@ -50,18 +50,50 @@ class DataQualityJobDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_quality_app_specification: pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'],
-             data_quality_job_input: pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'],
-             data_quality_job_output_config: pulumi.Input['DataQualityJobDefinitionMonitoringOutputConfigArgs'],
-             job_resources: pulumi.Input['DataQualityJobDefinitionMonitoringResourcesArgs'],
-             role_arn: pulumi.Input[str],
+             data_quality_app_specification: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs']] = None,
+             data_quality_job_input: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs']] = None,
+             data_quality_job_output_config: Optional[pulumi.Input['DataQualityJobDefinitionMonitoringOutputConfigArgs']] = None,
+             job_resources: Optional[pulumi.Input['DataQualityJobDefinitionMonitoringResourcesArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              data_quality_baseline_config: Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs']] = None,
              endpoint_name: Optional[pulumi.Input[str]] = None,
              job_definition_name: Optional[pulumi.Input[str]] = None,
              network_config: Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs']] = None,
              stopping_condition: Optional[pulumi.Input['DataQualityJobDefinitionStoppingConditionArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataQualityJobDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_quality_app_specification is None and 'dataQualityAppSpecification' in kwargs:
+            data_quality_app_specification = kwargs['dataQualityAppSpecification']
+        if data_quality_app_specification is None:
+            raise TypeError("Missing 'data_quality_app_specification' argument")
+        if data_quality_job_input is None and 'dataQualityJobInput' in kwargs:
+            data_quality_job_input = kwargs['dataQualityJobInput']
+        if data_quality_job_input is None:
+            raise TypeError("Missing 'data_quality_job_input' argument")
+        if data_quality_job_output_config is None and 'dataQualityJobOutputConfig' in kwargs:
+            data_quality_job_output_config = kwargs['dataQualityJobOutputConfig']
+        if data_quality_job_output_config is None:
+            raise TypeError("Missing 'data_quality_job_output_config' argument")
+        if job_resources is None and 'jobResources' in kwargs:
+            job_resources = kwargs['jobResources']
+        if job_resources is None:
+            raise TypeError("Missing 'job_resources' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if data_quality_baseline_config is None and 'dataQualityBaselineConfig' in kwargs:
+            data_quality_baseline_config = kwargs['dataQualityBaselineConfig']
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if job_definition_name is None and 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if network_config is None and 'networkConfig' in kwargs:
+            network_config = kwargs['networkConfig']
+        if stopping_condition is None and 'stoppingCondition' in kwargs:
+            stopping_condition = kwargs['stoppingCondition']
+
         _setter("data_quality_app_specification", data_quality_app_specification)
         _setter("data_quality_job_input", data_quality_job_input)
         _setter("data_quality_job_output_config", data_quality_job_output_config)
@@ -259,60 +291,32 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataQualityJobDefinitionArgs.__new__(DataQualityJobDefinitionArgs)
 
-            if data_quality_app_specification is not None and not isinstance(data_quality_app_specification, DataQualityJobDefinitionDataQualityAppSpecificationArgs):
-                data_quality_app_specification = data_quality_app_specification or {}
-                def _setter(key, value):
-                    data_quality_app_specification[key] = value
-                DataQualityJobDefinitionDataQualityAppSpecificationArgs._configure(_setter, **data_quality_app_specification)
+            data_quality_app_specification = _utilities.configure(data_quality_app_specification, DataQualityJobDefinitionDataQualityAppSpecificationArgs, True)
             if data_quality_app_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'data_quality_app_specification'")
             __props__.__dict__["data_quality_app_specification"] = data_quality_app_specification
-            if data_quality_baseline_config is not None and not isinstance(data_quality_baseline_config, DataQualityJobDefinitionDataQualityBaselineConfigArgs):
-                data_quality_baseline_config = data_quality_baseline_config or {}
-                def _setter(key, value):
-                    data_quality_baseline_config[key] = value
-                DataQualityJobDefinitionDataQualityBaselineConfigArgs._configure(_setter, **data_quality_baseline_config)
+            data_quality_baseline_config = _utilities.configure(data_quality_baseline_config, DataQualityJobDefinitionDataQualityBaselineConfigArgs, True)
             __props__.__dict__["data_quality_baseline_config"] = data_quality_baseline_config
-            if data_quality_job_input is not None and not isinstance(data_quality_job_input, DataQualityJobDefinitionDataQualityJobInputArgs):
-                data_quality_job_input = data_quality_job_input or {}
-                def _setter(key, value):
-                    data_quality_job_input[key] = value
-                DataQualityJobDefinitionDataQualityJobInputArgs._configure(_setter, **data_quality_job_input)
+            data_quality_job_input = _utilities.configure(data_quality_job_input, DataQualityJobDefinitionDataQualityJobInputArgs, True)
             if data_quality_job_input is None and not opts.urn:
                 raise TypeError("Missing required property 'data_quality_job_input'")
             __props__.__dict__["data_quality_job_input"] = data_quality_job_input
-            if data_quality_job_output_config is not None and not isinstance(data_quality_job_output_config, DataQualityJobDefinitionMonitoringOutputConfigArgs):
-                data_quality_job_output_config = data_quality_job_output_config or {}
-                def _setter(key, value):
-                    data_quality_job_output_config[key] = value
-                DataQualityJobDefinitionMonitoringOutputConfigArgs._configure(_setter, **data_quality_job_output_config)
+            data_quality_job_output_config = _utilities.configure(data_quality_job_output_config, DataQualityJobDefinitionMonitoringOutputConfigArgs, True)
             if data_quality_job_output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'data_quality_job_output_config'")
             __props__.__dict__["data_quality_job_output_config"] = data_quality_job_output_config
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["job_definition_name"] = job_definition_name
-            if job_resources is not None and not isinstance(job_resources, DataQualityJobDefinitionMonitoringResourcesArgs):
-                job_resources = job_resources or {}
-                def _setter(key, value):
-                    job_resources[key] = value
-                DataQualityJobDefinitionMonitoringResourcesArgs._configure(_setter, **job_resources)
+            job_resources = _utilities.configure(job_resources, DataQualityJobDefinitionMonitoringResourcesArgs, True)
             if job_resources is None and not opts.urn:
                 raise TypeError("Missing required property 'job_resources'")
             __props__.__dict__["job_resources"] = job_resources
-            if network_config is not None and not isinstance(network_config, DataQualityJobDefinitionNetworkConfigArgs):
-                network_config = network_config or {}
-                def _setter(key, value):
-                    network_config[key] = value
-                DataQualityJobDefinitionNetworkConfigArgs._configure(_setter, **network_config)
+            network_config = _utilities.configure(network_config, DataQualityJobDefinitionNetworkConfigArgs, True)
             __props__.__dict__["network_config"] = network_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if stopping_condition is not None and not isinstance(stopping_condition, DataQualityJobDefinitionStoppingConditionArgs):
-                stopping_condition = stopping_condition or {}
-                def _setter(key, value):
-                    stopping_condition[key] = value
-                DataQualityJobDefinitionStoppingConditionArgs._configure(_setter, **stopping_condition)
+            stopping_condition = _utilities.configure(stopping_condition, DataQualityJobDefinitionStoppingConditionArgs, True)
             __props__.__dict__["stopping_condition"] = stopping_condition
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None

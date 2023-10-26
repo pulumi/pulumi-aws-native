@@ -44,7 +44,11 @@ class AccountExpiryEventsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              days_before_expiry: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_before_expiry is None and 'daysBeforeExpiry' in kwargs:
+            days_before_expiry = kwargs['daysBeforeExpiry']
+
         if days_before_expiry is not None:
             _setter("days_before_expiry", days_before_expiry)
 
@@ -90,10 +94,20 @@ class CertificateDomainValidationOption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: str,
+             domain_name: Optional[str] = None,
              hosted_zone_id: Optional[str] = None,
              validation_domain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if validation_domain is None and 'validationDomain' in kwargs:
+            validation_domain = kwargs['validationDomain']
+
         _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
             _setter("hosted_zone_id", hosted_zone_id)
@@ -129,9 +143,15 @@ class CertificateTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

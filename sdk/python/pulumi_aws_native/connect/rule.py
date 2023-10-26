@@ -47,14 +47,32 @@ class RuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input['RuleActionsArgs'],
-             function: pulumi.Input[str],
-             instance_arn: pulumi.Input[str],
-             publish_status: pulumi.Input['RulePublishStatus'],
-             trigger_event_source: pulumi.Input['RuleTriggerEventSourceArgs'],
+             actions: Optional[pulumi.Input['RuleActionsArgs']] = None,
+             function: Optional[pulumi.Input[str]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             publish_status: Optional[pulumi.Input['RulePublishStatus']] = None,
+             trigger_event_source: Optional[pulumi.Input['RuleTriggerEventSourceArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if publish_status is None and 'publishStatus' in kwargs:
+            publish_status = kwargs['publishStatus']
+        if publish_status is None:
+            raise TypeError("Missing 'publish_status' argument")
+        if trigger_event_source is None and 'triggerEventSource' in kwargs:
+            trigger_event_source = kwargs['triggerEventSource']
+        if trigger_event_source is None:
+            raise TypeError("Missing 'trigger_event_source' argument")
+
         _setter("actions", actions)
         _setter("function", function)
         _setter("instance_arn", instance_arn)
@@ -220,11 +238,7 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleArgs.__new__(RuleArgs)
 
-            if actions is not None and not isinstance(actions, RuleActionsArgs):
-                actions = actions or {}
-                def _setter(key, value):
-                    actions[key] = value
-                RuleActionsArgs._configure(_setter, **actions)
+            actions = _utilities.configure(actions, RuleActionsArgs, True)
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
@@ -239,11 +253,7 @@ class Rule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'publish_status'")
             __props__.__dict__["publish_status"] = publish_status
             __props__.__dict__["tags"] = tags
-            if trigger_event_source is not None and not isinstance(trigger_event_source, RuleTriggerEventSourceArgs):
-                trigger_event_source = trigger_event_source or {}
-                def _setter(key, value):
-                    trigger_event_source[key] = value
-                RuleTriggerEventSourceArgs._configure(_setter, **trigger_event_source)
+            trigger_event_source = _utilities.configure(trigger_event_source, RuleTriggerEventSourceArgs, True)
             if trigger_event_source is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_event_source'")
             __props__.__dict__["trigger_event_source"] = trigger_event_source

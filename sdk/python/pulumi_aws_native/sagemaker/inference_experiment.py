@@ -61,10 +61,10 @@ class InferenceExperimentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_name: pulumi.Input[str],
-             model_variants: pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]],
-             role_arn: pulumi.Input[str],
-             type: pulumi.Input['InferenceExperimentType'],
+             endpoint_name: Optional[pulumi.Input[str]] = None,
+             model_variants: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['InferenceExperimentType']] = None,
              data_storage_config: Optional[pulumi.Input['InferenceExperimentDataStorageConfigArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              desired_state: Optional[pulumi.Input['InferenceExperimentDesiredState']] = None,
@@ -74,7 +74,33 @@ class InferenceExperimentArgs:
              shadow_mode_config: Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']] = None,
              status_reason: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if endpoint_name is None:
+            raise TypeError("Missing 'endpoint_name' argument")
+        if model_variants is None and 'modelVariants' in kwargs:
+            model_variants = kwargs['modelVariants']
+        if model_variants is None:
+            raise TypeError("Missing 'model_variants' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if data_storage_config is None and 'dataStorageConfig' in kwargs:
+            data_storage_config = kwargs['dataStorageConfig']
+        if desired_state is None and 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if shadow_mode_config is None and 'shadowModeConfig' in kwargs:
+            shadow_mode_config = kwargs['shadowModeConfig']
+        if status_reason is None and 'statusReason' in kwargs:
+            status_reason = kwargs['statusReason']
+
         _setter("endpoint_name", endpoint_name)
         _setter("model_variants", model_variants)
         _setter("role_arn", role_arn)
@@ -327,11 +353,7 @@ class InferenceExperiment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InferenceExperimentArgs.__new__(InferenceExperimentArgs)
 
-            if data_storage_config is not None and not isinstance(data_storage_config, InferenceExperimentDataStorageConfigArgs):
-                data_storage_config = data_storage_config or {}
-                def _setter(key, value):
-                    data_storage_config[key] = value
-                InferenceExperimentDataStorageConfigArgs._configure(_setter, **data_storage_config)
+            data_storage_config = _utilities.configure(data_storage_config, InferenceExperimentDataStorageConfigArgs, True)
             __props__.__dict__["data_storage_config"] = data_storage_config
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_state"] = desired_state
@@ -346,17 +368,9 @@ class InferenceExperiment(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if schedule is not None and not isinstance(schedule, InferenceExperimentScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                InferenceExperimentScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, InferenceExperimentScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
-            if shadow_mode_config is not None and not isinstance(shadow_mode_config, InferenceExperimentShadowModeConfigArgs):
-                shadow_mode_config = shadow_mode_config or {}
-                def _setter(key, value):
-                    shadow_mode_config[key] = value
-                InferenceExperimentShadowModeConfigArgs._configure(_setter, **shadow_mode_config)
+            shadow_mode_config = _utilities.configure(shadow_mode_config, InferenceExperimentShadowModeConfigArgs, True)
             __props__.__dict__["shadow_mode_config"] = shadow_mode_config
             __props__.__dict__["status_reason"] = status_reason
             __props__.__dict__["tags"] = tags

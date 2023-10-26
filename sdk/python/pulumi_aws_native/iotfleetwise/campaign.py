@@ -60,10 +60,10 @@ class CampaignArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['CampaignUpdateCampaignAction'],
-             collection_scheme: pulumi.Input[Union['CampaignCollectionScheme0PropertiesArgs', 'CampaignCollectionScheme1PropertiesArgs']],
-             signal_catalog_arn: pulumi.Input[str],
-             target_arn: pulumi.Input[str],
+             action: Optional[pulumi.Input['CampaignUpdateCampaignAction']] = None,
+             collection_scheme: Optional[pulumi.Input[Union['CampaignCollectionScheme0PropertiesArgs', 'CampaignCollectionScheme1PropertiesArgs']]] = None,
+             signal_catalog_arn: Optional[pulumi.Input[str]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
              compression: Optional[pulumi.Input['CampaignCompression']] = None,
              data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CampaignDataDestinationConfig0PropertiesArgs', 'CampaignDataDestinationConfig1PropertiesArgs']]]]] = None,
              data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -77,7 +77,39 @@ class CampaignArgs:
              spooling_mode: Optional[pulumi.Input['CampaignSpoolingMode']] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if collection_scheme is None and 'collectionScheme' in kwargs:
+            collection_scheme = kwargs['collectionScheme']
+        if collection_scheme is None:
+            raise TypeError("Missing 'collection_scheme' argument")
+        if signal_catalog_arn is None and 'signalCatalogArn' in kwargs:
+            signal_catalog_arn = kwargs['signalCatalogArn']
+        if signal_catalog_arn is None:
+            raise TypeError("Missing 'signal_catalog_arn' argument")
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+        if data_destination_configs is None and 'dataDestinationConfigs' in kwargs:
+            data_destination_configs = kwargs['dataDestinationConfigs']
+        if data_extra_dimensions is None and 'dataExtraDimensions' in kwargs:
+            data_extra_dimensions = kwargs['dataExtraDimensions']
+        if diagnostics_mode is None and 'diagnosticsMode' in kwargs:
+            diagnostics_mode = kwargs['diagnosticsMode']
+        if expiry_time is None and 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if post_trigger_collection_duration is None and 'postTriggerCollectionDuration' in kwargs:
+            post_trigger_collection_duration = kwargs['postTriggerCollectionDuration']
+        if signals_to_collect is None and 'signalsToCollect' in kwargs:
+            signals_to_collect = kwargs['signalsToCollect']
+        if spooling_mode is None and 'spoolingMode' in kwargs:
+            spooling_mode = kwargs['spoolingMode']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("action", action)
         _setter("collection_scheme", collection_scheme)
         _setter("signal_catalog_arn", signal_catalog_arn)

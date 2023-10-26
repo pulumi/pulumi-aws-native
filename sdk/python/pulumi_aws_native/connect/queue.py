@@ -53,8 +53,8 @@ class QueueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hours_of_operation_arn: pulumi.Input[str],
-             instance_arn: pulumi.Input[str],
+             hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              max_contacts: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -62,7 +62,23 @@ class QueueArgs:
              quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              status: Optional[pulumi.Input['QueueStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hours_of_operation_arn is None and 'hoursOfOperationArn' in kwargs:
+            hours_of_operation_arn = kwargs['hoursOfOperationArn']
+        if hours_of_operation_arn is None:
+            raise TypeError("Missing 'hours_of_operation_arn' argument")
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if max_contacts is None and 'maxContacts' in kwargs:
+            max_contacts = kwargs['maxContacts']
+        if outbound_caller_config is None and 'outboundCallerConfig' in kwargs:
+            outbound_caller_config = kwargs['outboundCallerConfig']
+        if quick_connect_arns is None and 'quickConnectArns' in kwargs:
+            quick_connect_arns = kwargs['quickConnectArns']
+
         _setter("hours_of_operation_arn", hours_of_operation_arn)
         _setter("instance_arn", instance_arn)
         if description is not None:
@@ -274,11 +290,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["max_contacts"] = max_contacts
             __props__.__dict__["name"] = name
-            if outbound_caller_config is not None and not isinstance(outbound_caller_config, QueueOutboundCallerConfigArgs):
-                outbound_caller_config = outbound_caller_config or {}
-                def _setter(key, value):
-                    outbound_caller_config[key] = value
-                QueueOutboundCallerConfigArgs._configure(_setter, **outbound_caller_config)
+            outbound_caller_config = _utilities.configure(outbound_caller_config, QueueOutboundCallerConfigArgs, True)
             __props__.__dict__["outbound_caller_config"] = outbound_caller_config
             __props__.__dict__["quick_connect_arns"] = quick_connect_arns
             __props__.__dict__["status"] = status

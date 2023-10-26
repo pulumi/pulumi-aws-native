@@ -37,11 +37,23 @@ class FrameworkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             framework_controls: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]],
+             framework_controls: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]] = None,
              framework_description: Optional[pulumi.Input[str]] = None,
              framework_name: Optional[pulumi.Input[str]] = None,
              framework_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if framework_controls is None and 'frameworkControls' in kwargs:
+            framework_controls = kwargs['frameworkControls']
+        if framework_controls is None:
+            raise TypeError("Missing 'framework_controls' argument")
+        if framework_description is None and 'frameworkDescription' in kwargs:
+            framework_description = kwargs['frameworkDescription']
+        if framework_name is None and 'frameworkName' in kwargs:
+            framework_name = kwargs['frameworkName']
+        if framework_tags is None and 'frameworkTags' in kwargs:
+            framework_tags = kwargs['frameworkTags']
+
         _setter("framework_controls", framework_controls)
         if framework_description is not None:
             _setter("framework_description", framework_description)

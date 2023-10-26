@@ -29,10 +29,16 @@ class PolicyTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statement: pulumi.Input[str],
+             statement: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              policy_store_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if policy_store_id is None and 'policyStoreId' in kwargs:
+            policy_store_id = kwargs['policyStoreId']
+
         _setter("statement", statement)
         if description is not None:
             _setter("description", description)

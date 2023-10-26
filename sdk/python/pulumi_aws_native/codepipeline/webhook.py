@@ -41,15 +41,39 @@ class WebhookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input[str],
-             authentication_configuration: pulumi.Input['WebhookAuthConfigurationArgs'],
-             filters: pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]],
-             target_action: pulumi.Input[str],
-             target_pipeline: pulumi.Input[str],
-             target_pipeline_version: pulumi.Input[int],
+             authentication: Optional[pulumi.Input[str]] = None,
+             authentication_configuration: Optional[pulumi.Input['WebhookAuthConfigurationArgs']] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]]] = None,
+             target_action: Optional[pulumi.Input[str]] = None,
+             target_pipeline: Optional[pulumi.Input[str]] = None,
+             target_pipeline_version: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              register_with_third_party: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if authentication_configuration is None:
+            raise TypeError("Missing 'authentication_configuration' argument")
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+        if target_action is None and 'targetAction' in kwargs:
+            target_action = kwargs['targetAction']
+        if target_action is None:
+            raise TypeError("Missing 'target_action' argument")
+        if target_pipeline is None and 'targetPipeline' in kwargs:
+            target_pipeline = kwargs['targetPipeline']
+        if target_pipeline is None:
+            raise TypeError("Missing 'target_pipeline' argument")
+        if target_pipeline_version is None and 'targetPipelineVersion' in kwargs:
+            target_pipeline_version = kwargs['targetPipelineVersion']
+        if target_pipeline_version is None:
+            raise TypeError("Missing 'target_pipeline_version' argument")
+        if register_with_third_party is None and 'registerWithThirdParty' in kwargs:
+            register_with_third_party = kwargs['registerWithThirdParty']
+
         _setter("authentication", authentication)
         _setter("authentication_configuration", authentication_configuration)
         _setter("filters", filters)
@@ -208,11 +232,7 @@ class Webhook(pulumi.CustomResource):
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
-            if authentication_configuration is not None and not isinstance(authentication_configuration, WebhookAuthConfigurationArgs):
-                authentication_configuration = authentication_configuration or {}
-                def _setter(key, value):
-                    authentication_configuration[key] = value
-                WebhookAuthConfigurationArgs._configure(_setter, **authentication_configuration)
+            authentication_configuration = _utilities.configure(authentication_configuration, WebhookAuthConfigurationArgs, True)
             if authentication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_configuration'")
             __props__.__dict__["authentication_configuration"] = authentication_configuration

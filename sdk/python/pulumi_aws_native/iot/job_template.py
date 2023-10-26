@@ -61,8 +61,8 @@ class JobTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             job_template_id: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             job_template_id: Optional[pulumi.Input[str]] = None,
              abort_config: Optional[pulumi.Input['AbortConfigPropertiesArgs']] = None,
              destination_package_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              document: Optional[pulumi.Input[str]] = None,
@@ -74,7 +74,33 @@ class JobTemplateArgs:
              presigned_url_config: Optional[pulumi.Input['PresignedUrlConfigPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateTagArgs']]]] = None,
              timeout_config: Optional[pulumi.Input['TimeoutConfigPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if job_template_id is None and 'jobTemplateId' in kwargs:
+            job_template_id = kwargs['jobTemplateId']
+        if job_template_id is None:
+            raise TypeError("Missing 'job_template_id' argument")
+        if abort_config is None and 'abortConfig' in kwargs:
+            abort_config = kwargs['abortConfig']
+        if destination_package_versions is None and 'destinationPackageVersions' in kwargs:
+            destination_package_versions = kwargs['destinationPackageVersions']
+        if document_source is None and 'documentSource' in kwargs:
+            document_source = kwargs['documentSource']
+        if job_arn is None and 'jobArn' in kwargs:
+            job_arn = kwargs['jobArn']
+        if job_executions_retry_config is None and 'jobExecutionsRetryConfig' in kwargs:
+            job_executions_retry_config = kwargs['jobExecutionsRetryConfig']
+        if job_executions_rollout_config is None and 'jobExecutionsRolloutConfig' in kwargs:
+            job_executions_rollout_config = kwargs['jobExecutionsRolloutConfig']
+        if maintenance_windows is None and 'maintenanceWindows' in kwargs:
+            maintenance_windows = kwargs['maintenanceWindows']
+        if presigned_url_config is None and 'presignedUrlConfig' in kwargs:
+            presigned_url_config = kwargs['presignedUrlConfig']
+        if timeout_config is None and 'timeoutConfig' in kwargs:
+            timeout_config = kwargs['timeoutConfig']
+
         _setter("description", description)
         _setter("job_template_id", job_template_id)
         if abort_config is not None:
@@ -329,11 +355,7 @@ class JobTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobTemplateArgs.__new__(JobTemplateArgs)
 
-            if abort_config is not None and not isinstance(abort_config, AbortConfigPropertiesArgs):
-                abort_config = abort_config or {}
-                def _setter(key, value):
-                    abort_config[key] = value
-                AbortConfigPropertiesArgs._configure(_setter, **abort_config)
+            abort_config = _utilities.configure(abort_config, AbortConfigPropertiesArgs, True)
             __props__.__dict__["abort_config"] = abort_config
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
@@ -342,34 +364,18 @@ class JobTemplate(pulumi.CustomResource):
             __props__.__dict__["document"] = document
             __props__.__dict__["document_source"] = document_source
             __props__.__dict__["job_arn"] = job_arn
-            if job_executions_retry_config is not None and not isinstance(job_executions_retry_config, JobExecutionsRetryConfigPropertiesArgs):
-                job_executions_retry_config = job_executions_retry_config or {}
-                def _setter(key, value):
-                    job_executions_retry_config[key] = value
-                JobExecutionsRetryConfigPropertiesArgs._configure(_setter, **job_executions_retry_config)
+            job_executions_retry_config = _utilities.configure(job_executions_retry_config, JobExecutionsRetryConfigPropertiesArgs, True)
             __props__.__dict__["job_executions_retry_config"] = job_executions_retry_config
-            if job_executions_rollout_config is not None and not isinstance(job_executions_rollout_config, JobExecutionsRolloutConfigPropertiesArgs):
-                job_executions_rollout_config = job_executions_rollout_config or {}
-                def _setter(key, value):
-                    job_executions_rollout_config[key] = value
-                JobExecutionsRolloutConfigPropertiesArgs._configure(_setter, **job_executions_rollout_config)
+            job_executions_rollout_config = _utilities.configure(job_executions_rollout_config, JobExecutionsRolloutConfigPropertiesArgs, True)
             __props__.__dict__["job_executions_rollout_config"] = job_executions_rollout_config
             if job_template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'job_template_id'")
             __props__.__dict__["job_template_id"] = job_template_id
             __props__.__dict__["maintenance_windows"] = maintenance_windows
-            if presigned_url_config is not None and not isinstance(presigned_url_config, PresignedUrlConfigPropertiesArgs):
-                presigned_url_config = presigned_url_config or {}
-                def _setter(key, value):
-                    presigned_url_config[key] = value
-                PresignedUrlConfigPropertiesArgs._configure(_setter, **presigned_url_config)
+            presigned_url_config = _utilities.configure(presigned_url_config, PresignedUrlConfigPropertiesArgs, True)
             __props__.__dict__["presigned_url_config"] = presigned_url_config
             __props__.__dict__["tags"] = tags
-            if timeout_config is not None and not isinstance(timeout_config, TimeoutConfigPropertiesArgs):
-                timeout_config = timeout_config or {}
-                def _setter(key, value):
-                    timeout_config[key] = value
-                TimeoutConfigPropertiesArgs._configure(_setter, **timeout_config)
+            timeout_config = _utilities.configure(timeout_config, TimeoutConfigPropertiesArgs, True)
             __props__.__dict__["timeout_config"] = timeout_config
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["abort_config", "description", "destination_package_versions[*]", "document", "document_source", "job_arn", "job_executions_retry_config", "job_executions_rollout_config", "job_template_id", "maintenance_windows[*]", "presigned_url_config", "tags[*]", "timeout_config"])

@@ -53,7 +53,17 @@ class SecretArgs:
              replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
              secret_string: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if generate_secret_string is None and 'generateSecretString' in kwargs:
+            generate_secret_string = kwargs['generateSecretString']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if replica_regions is None and 'replicaRegions' in kwargs:
+            replica_regions = kwargs['replicaRegions']
+        if secret_string is None and 'secretString' in kwargs:
+            secret_string = kwargs['secretString']
+
         if description is not None:
             _setter("description", description)
         if generate_secret_string is not None:
@@ -225,11 +235,7 @@ class Secret(pulumi.CustomResource):
             __props__ = SecretArgs.__new__(SecretArgs)
 
             __props__.__dict__["description"] = description
-            if generate_secret_string is not None and not isinstance(generate_secret_string, SecretGenerateSecretStringArgs):
-                generate_secret_string = generate_secret_string or {}
-                def _setter(key, value):
-                    generate_secret_string[key] = value
-                SecretGenerateSecretStringArgs._configure(_setter, **generate_secret_string)
+            generate_secret_string = _utilities.configure(generate_secret_string, SecretGenerateSecretStringArgs, True)
             __props__.__dict__["generate_secret_string"] = generate_secret_string
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name

@@ -41,10 +41,20 @@ class AppEventSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_type: pulumi.Input['AppEventSubscriptionEventType'],
-             name: pulumi.Input[str],
+             event_type: Optional[pulumi.Input['AppEventSubscriptionEventType']] = None,
+             name: Optional[pulumi.Input[str]] = None,
              sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         _setter("event_type", event_type)
         _setter("name", name)
         if sns_topic_arn is not None:
@@ -108,10 +118,18 @@ class AppPermissionModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['AppPermissionModelType'],
+             type: Optional[pulumi.Input['AppPermissionModelType']] = None,
              cross_account_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              invoker_role_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if cross_account_role_arns is None and 'crossAccountRoleArns' in kwargs:
+            cross_account_role_arns = kwargs['crossAccountRoleArns']
+        if invoker_role_name is None and 'invokerRoleName' in kwargs:
+            invoker_role_name = kwargs['invokerRoleName']
+
         _setter("type", type)
         if cross_account_role_arns is not None:
             _setter("cross_account_role_arns", cross_account_role_arns)
@@ -172,11 +190,21 @@ class AppPhysicalResourceIdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identifier: pulumi.Input[str],
-             type: pulumi.Input[str],
+             identifier: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              aws_account_id: Optional[pulumi.Input[str]] = None,
              aws_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+
         _setter("identifier", identifier)
         _setter("type", type)
         if aws_account_id is not None:
@@ -245,13 +273,31 @@ class AppResourceMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mapping_type: pulumi.Input[str],
-             physical_resource_id: pulumi.Input['AppPhysicalResourceIdArgs'],
+             mapping_type: Optional[pulumi.Input[str]] = None,
+             physical_resource_id: Optional[pulumi.Input['AppPhysicalResourceIdArgs']] = None,
              eks_source_name: Optional[pulumi.Input[str]] = None,
              logical_stack_name: Optional[pulumi.Input[str]] = None,
              resource_name: Optional[pulumi.Input[str]] = None,
              terraform_source_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mapping_type is None and 'mappingType' in kwargs:
+            mapping_type = kwargs['mappingType']
+        if mapping_type is None:
+            raise TypeError("Missing 'mapping_type' argument")
+        if physical_resource_id is None and 'physicalResourceId' in kwargs:
+            physical_resource_id = kwargs['physicalResourceId']
+        if physical_resource_id is None:
+            raise TypeError("Missing 'physical_resource_id' argument")
+        if eks_source_name is None and 'eksSourceName' in kwargs:
+            eks_source_name = kwargs['eksSourceName']
+        if logical_stack_name is None and 'logicalStackName' in kwargs:
+            logical_stack_name = kwargs['logicalStackName']
+        if resource_name is None and 'resourceName' in kwargs:
+            resource_name = kwargs['resourceName']
+        if terraform_source_name is None and 'terraformSourceName' in kwargs:
+            terraform_source_name = kwargs['terraformSourceName']
+
         _setter("mapping_type", mapping_type)
         _setter("physical_resource_id", physical_resource_id)
         if eks_source_name is not None:
@@ -325,8 +371,10 @@ class AppTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -336,8 +384,10 @@ class ResiliencyPolicyPolicyMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -347,7 +397,9 @@ class ResiliencyPolicyTagMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

@@ -29,9 +29,19 @@ class ResourcePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             resource_policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             resource_policy: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if resource_policy is None and 'resourcePolicy' in kwargs:
+            resource_policy = kwargs['resourcePolicy']
+        if resource_policy is None:
+            raise TypeError("Missing 'resource_policy' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("resource_policy", resource_policy)
 

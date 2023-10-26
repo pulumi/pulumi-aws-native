@@ -35,11 +35,15 @@ class RecipeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             steps: pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]],
+             steps: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if steps is None:
+            raise TypeError("Missing 'steps' argument")
+
         _setter("steps", steps)
         if description is not None:
             _setter("description", description)

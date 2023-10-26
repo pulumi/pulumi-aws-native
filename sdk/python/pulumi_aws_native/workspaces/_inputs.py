@@ -29,9 +29,15 @@ class ConnectionAliasTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -78,7 +84,19 @@ class WorkspacePropertiesArgs:
              running_mode: Optional[pulumi.Input[str]] = None,
              running_mode_auto_stop_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
              user_volume_size_gib: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_type_name is None and 'computeTypeName' in kwargs:
+            compute_type_name = kwargs['computeTypeName']
+        if root_volume_size_gib is None and 'rootVolumeSizeGib' in kwargs:
+            root_volume_size_gib = kwargs['rootVolumeSizeGib']
+        if running_mode is None and 'runningMode' in kwargs:
+            running_mode = kwargs['runningMode']
+        if running_mode_auto_stop_timeout_in_minutes is None and 'runningModeAutoStopTimeoutInMinutes' in kwargs:
+            running_mode_auto_stop_timeout_in_minutes = kwargs['runningModeAutoStopTimeoutInMinutes']
+        if user_volume_size_gib is None and 'userVolumeSizeGib' in kwargs:
+            user_volume_size_gib = kwargs['userVolumeSizeGib']
+
         if compute_type_name is not None:
             _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
@@ -149,9 +167,15 @@ class WorkspaceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

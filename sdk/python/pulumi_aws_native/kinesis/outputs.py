@@ -56,9 +56,19 @@ class StreamEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_type: 'StreamEncryptionEncryptionType',
-             key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             encryption_type: Optional['StreamEncryptionEncryptionType'] = None,
+             key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+
         _setter("encryption_type", encryption_type)
         _setter("key_id", key_id)
 
@@ -114,8 +124,14 @@ class StreamModeDetails(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             stream_mode: 'StreamModeDetailsStreamMode',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             stream_mode: Optional['StreamModeDetailsStreamMode'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stream_mode is None and 'streamMode' in kwargs:
+            stream_mode = kwargs['streamMode']
+        if stream_mode is None:
+            raise TypeError("Missing 'stream_mode' argument")
+
         _setter("stream_mode", stream_mode)
 
     @property
@@ -148,9 +164,15 @@ class StreamTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

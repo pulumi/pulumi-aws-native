@@ -39,7 +39,17 @@ class MonitorHealthEventsConfigArgs:
              availability_score_threshold: Optional[pulumi.Input[float]] = None,
              performance_local_health_events_config: Optional[pulumi.Input['MonitorLocalHealthEventsConfigArgs']] = None,
              performance_score_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_local_health_events_config is None and 'availabilityLocalHealthEventsConfig' in kwargs:
+            availability_local_health_events_config = kwargs['availabilityLocalHealthEventsConfig']
+        if availability_score_threshold is None and 'availabilityScoreThreshold' in kwargs:
+            availability_score_threshold = kwargs['availabilityScoreThreshold']
+        if performance_local_health_events_config is None and 'performanceLocalHealthEventsConfig' in kwargs:
+            performance_local_health_events_config = kwargs['performanceLocalHealthEventsConfig']
+        if performance_score_threshold is None and 'performanceScoreThreshold' in kwargs:
+            performance_score_threshold = kwargs['performanceScoreThreshold']
+
         if availability_local_health_events_config is not None:
             _setter("availability_local_health_events_config", availability_local_health_events_config)
         if availability_score_threshold is not None:
@@ -98,7 +108,11 @@ class MonitorInternetMeasurementsLogDeliveryArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_config: Optional[pulumi.Input['MonitorS3ConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_config is None and 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+
         if s3_config is not None:
             _setter("s3_config", s3_config)
 
@@ -130,7 +144,13 @@ class MonitorLocalHealthEventsConfigArgs:
              health_score_threshold: Optional[pulumi.Input[float]] = None,
              min_traffic_impact: Optional[pulumi.Input[float]] = None,
              status: Optional[pulumi.Input['MonitorLocalHealthEventsConfigStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_score_threshold is None and 'healthScoreThreshold' in kwargs:
+            health_score_threshold = kwargs['healthScoreThreshold']
+        if min_traffic_impact is None and 'minTrafficImpact' in kwargs:
+            min_traffic_impact = kwargs['minTrafficImpact']
+
         if health_score_threshold is not None:
             _setter("health_score_threshold", health_score_threshold)
         if min_traffic_impact is not None:
@@ -184,7 +204,15 @@ class MonitorS3ConfigArgs:
              bucket_name: Optional[pulumi.Input[str]] = None,
              bucket_prefix: Optional[pulumi.Input[str]] = None,
              log_delivery_status: Optional[pulumi.Input['MonitorS3ConfigLogDeliveryStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if log_delivery_status is None and 'logDeliveryStatus' in kwargs:
+            log_delivery_status = kwargs['logDeliveryStatus']
+
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
@@ -238,7 +266,9 @@ class MonitorTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

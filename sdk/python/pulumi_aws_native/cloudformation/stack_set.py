@@ -70,7 +70,7 @@ class StackSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permission_model: pulumi.Input['StackSetPermissionModel'],
+             permission_model: Optional[pulumi.Input['StackSetPermissionModel']] = None,
              administration_role_arn: Optional[pulumi.Input[str]] = None,
              auto_deployment: Optional[pulumi.Input['StackSetAutoDeploymentArgs']] = None,
              call_as: Optional[pulumi.Input['StackSetCallAs']] = None,
@@ -85,7 +85,33 @@ class StackSetArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]] = None,
              template_body: Optional[pulumi.Input[str]] = None,
              template_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permission_model is None and 'permissionModel' in kwargs:
+            permission_model = kwargs['permissionModel']
+        if permission_model is None:
+            raise TypeError("Missing 'permission_model' argument")
+        if administration_role_arn is None and 'administrationRoleArn' in kwargs:
+            administration_role_arn = kwargs['administrationRoleArn']
+        if auto_deployment is None and 'autoDeployment' in kwargs:
+            auto_deployment = kwargs['autoDeployment']
+        if call_as is None and 'callAs' in kwargs:
+            call_as = kwargs['callAs']
+        if execution_role_name is None and 'executionRoleName' in kwargs:
+            execution_role_name = kwargs['executionRoleName']
+        if managed_execution is None and 'managedExecution' in kwargs:
+            managed_execution = kwargs['managedExecution']
+        if operation_preferences is None and 'operationPreferences' in kwargs:
+            operation_preferences = kwargs['operationPreferences']
+        if stack_instances_group is None and 'stackInstancesGroup' in kwargs:
+            stack_instances_group = kwargs['stackInstancesGroup']
+        if stack_set_name is None and 'stackSetName' in kwargs:
+            stack_set_name = kwargs['stackSetName']
+        if template_body is None and 'templateBody' in kwargs:
+            template_body = kwargs['templateBody']
+        if template_url is None and 'templateUrl' in kwargs:
+            template_url = kwargs['templateUrl']
+
         _setter("permission_model", permission_model)
         if administration_role_arn is not None:
             _setter("administration_role_arn", administration_role_arn)
@@ -388,27 +414,15 @@ class StackSet(pulumi.CustomResource):
             __props__ = StackSetArgs.__new__(StackSetArgs)
 
             __props__.__dict__["administration_role_arn"] = administration_role_arn
-            if auto_deployment is not None and not isinstance(auto_deployment, StackSetAutoDeploymentArgs):
-                auto_deployment = auto_deployment or {}
-                def _setter(key, value):
-                    auto_deployment[key] = value
-                StackSetAutoDeploymentArgs._configure(_setter, **auto_deployment)
+            auto_deployment = _utilities.configure(auto_deployment, StackSetAutoDeploymentArgs, True)
             __props__.__dict__["auto_deployment"] = auto_deployment
             __props__.__dict__["call_as"] = call_as
             __props__.__dict__["capabilities"] = capabilities
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_name"] = execution_role_name
-            if managed_execution is not None and not isinstance(managed_execution, ManagedExecutionPropertiesArgs):
-                managed_execution = managed_execution or {}
-                def _setter(key, value):
-                    managed_execution[key] = value
-                ManagedExecutionPropertiesArgs._configure(_setter, **managed_execution)
+            managed_execution = _utilities.configure(managed_execution, ManagedExecutionPropertiesArgs, True)
             __props__.__dict__["managed_execution"] = managed_execution
-            if operation_preferences is not None and not isinstance(operation_preferences, StackSetOperationPreferencesArgs):
-                operation_preferences = operation_preferences or {}
-                def _setter(key, value):
-                    operation_preferences[key] = value
-                StackSetOperationPreferencesArgs._configure(_setter, **operation_preferences)
+            operation_preferences = _utilities.configure(operation_preferences, StackSetOperationPreferencesArgs, True)
             __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameters"] = parameters
             if permission_model is None and not opts.urn:

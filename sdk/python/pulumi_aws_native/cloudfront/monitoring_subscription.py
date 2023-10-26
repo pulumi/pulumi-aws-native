@@ -30,9 +30,19 @@ class MonitoringSubscriptionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             distribution_id: pulumi.Input[str],
-             monitoring_subscription: pulumi.Input['MonitoringSubscriptionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             distribution_id: Optional[pulumi.Input[str]] = None,
+             monitoring_subscription: Optional[pulumi.Input['MonitoringSubscriptionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distribution_id is None and 'distributionId' in kwargs:
+            distribution_id = kwargs['distributionId']
+        if distribution_id is None:
+            raise TypeError("Missing 'distribution_id' argument")
+        if monitoring_subscription is None and 'monitoringSubscription' in kwargs:
+            monitoring_subscription = kwargs['monitoringSubscription']
+        if monitoring_subscription is None:
+            raise TypeError("Missing 'monitoring_subscription' argument")
+
         _setter("distribution_id", distribution_id)
         _setter("monitoring_subscription", monitoring_subscription)
 
@@ -111,11 +121,7 @@ class MonitoringSubscription(pulumi.CustomResource):
             if distribution_id is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_id'")
             __props__.__dict__["distribution_id"] = distribution_id
-            if monitoring_subscription is not None and not isinstance(monitoring_subscription, MonitoringSubscriptionArgs):
-                monitoring_subscription = monitoring_subscription or {}
-                def _setter(key, value):
-                    monitoring_subscription[key] = value
-                MonitoringSubscriptionArgs._configure(_setter, **monitoring_subscription)
+            monitoring_subscription = _utilities.configure(monitoring_subscription, MonitoringSubscriptionArgs, True)
             if monitoring_subscription is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_subscription'")
             __props__.__dict__["monitoring_subscription"] = monitoring_subscription

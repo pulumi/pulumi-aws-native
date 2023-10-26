@@ -27,8 +27,12 @@ class ReceiptFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: pulumi.Input['ReceiptFilterFilterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             filter: Optional[pulumi.Input['ReceiptFilterFilterArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+
         _setter("filter", filter)
 
     @property
@@ -98,11 +102,7 @@ class ReceiptFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReceiptFilterArgs.__new__(ReceiptFilterArgs)
 
-            if filter is not None and not isinstance(filter, ReceiptFilterFilterArgs):
-                filter = filter or {}
-                def _setter(key, value):
-                    filter[key] = value
-                ReceiptFilterFilterArgs._configure(_setter, **filter)
+            filter = _utilities.configure(filter, ReceiptFilterFilterArgs, True)
             if filter is None and not opts.urn:
                 raise TypeError("Missing required property 'filter'")
             __props__.__dict__["filter"] = filter

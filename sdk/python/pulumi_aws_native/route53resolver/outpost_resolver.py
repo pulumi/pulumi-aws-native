@@ -41,12 +41,24 @@ class OutpostResolverArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             outpost_arn: pulumi.Input[str],
-             preferred_instance_type: pulumi.Input[str],
+             outpost_arn: Optional[pulumi.Input[str]] = None,
+             preferred_instance_type: Optional[pulumi.Input[str]] = None,
              instance_count: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OutpostResolverTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if outpost_arn is None:
+            raise TypeError("Missing 'outpost_arn' argument")
+        if preferred_instance_type is None and 'preferredInstanceType' in kwargs:
+            preferred_instance_type = kwargs['preferredInstanceType']
+        if preferred_instance_type is None:
+            raise TypeError("Missing 'preferred_instance_type' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
         _setter("outpost_arn", outpost_arn)
         _setter("preferred_instance_type", preferred_instance_type)
         if instance_count is not None:

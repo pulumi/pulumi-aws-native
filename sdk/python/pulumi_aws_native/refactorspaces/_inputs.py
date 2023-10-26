@@ -37,7 +37,13 @@ class ApplicationApiGatewayProxyInputArgs:
              _setter: Callable[[Any, Any], None],
              endpoint_type: Optional[pulumi.Input['ApplicationApiGatewayEndpointType']] = None,
              stage_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if endpoint_type is not None:
             _setter("endpoint_type", endpoint_type)
         if stage_name is not None:
@@ -80,9 +86,15 @@ class ApplicationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -129,9 +141,15 @@ class EnvironmentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -171,8 +189,14 @@ class RouteDefaultRouteInputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             activation_state: pulumi.Input['RouteActivationState'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             activation_state: Optional[pulumi.Input['RouteActivationState']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_state is None and 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if activation_state is None:
+            raise TypeError("Missing 'activation_state' argument")
+
         _setter("activation_state", activation_state)
 
     @property
@@ -203,9 +227,15 @@ class RouteTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -253,12 +283,24 @@ class RouteUriPathRouteInputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             activation_state: pulumi.Input['RouteActivationState'],
+             activation_state: Optional[pulumi.Input['RouteActivationState']] = None,
              append_source_path: Optional[pulumi.Input[bool]] = None,
              include_child_paths: Optional[pulumi.Input[bool]] = None,
              methods: Optional[pulumi.Input[Sequence[pulumi.Input['RouteMethod']]]] = None,
              source_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_state is None and 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if activation_state is None:
+            raise TypeError("Missing 'activation_state' argument")
+        if append_source_path is None and 'appendSourcePath' in kwargs:
+            append_source_path = kwargs['appendSourcePath']
+        if include_child_paths is None and 'includeChildPaths' in kwargs:
+            include_child_paths = kwargs['includeChildPaths']
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+
         _setter("activation_state", activation_state)
         if append_source_path is not None:
             _setter("append_source_path", append_source_path)
@@ -326,8 +368,12 @@ class ServiceLambdaEndpointInputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+
         _setter("arn", arn)
 
     @property
@@ -358,9 +404,15 @@ class ServiceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -402,9 +454,15 @@ class ServiceUrlEndpointInputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: pulumi.Input[str],
+             url: Optional[pulumi.Input[str]] = None,
              health_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if health_url is None and 'healthUrl' in kwargs:
+            health_url = kwargs['healthUrl']
+
         _setter("url", url)
         if health_url is not None:
             _setter("health_url", health_url)

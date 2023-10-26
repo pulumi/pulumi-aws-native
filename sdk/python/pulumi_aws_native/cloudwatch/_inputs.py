@@ -47,9 +47,15 @@ class AlarmDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -111,14 +117,24 @@ class AlarmMetricDataQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              expression: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              metric_stat: Optional[pulumi.Input['AlarmMetricStatArgs']] = None,
              period: Optional[pulumi.Input[int]] = None,
              return_data: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if metric_stat is None and 'metricStat' in kwargs:
+            metric_stat = kwargs['metricStat']
+        if return_data is None and 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
         _setter("id", id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -242,11 +258,19 @@ class AlarmMetricStatArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric: pulumi.Input['AlarmMetricArgs'],
-             period: pulumi.Input[int],
-             stat: pulumi.Input[str],
+             metric: Optional[pulumi.Input['AlarmMetricArgs']] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             stat: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric is None:
+            raise TypeError("Missing 'metric' argument")
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if stat is None:
+            raise TypeError("Missing 'stat' argument")
+
         _setter("metric", metric)
         _setter("period", period)
         _setter("stat", stat)
@@ -326,7 +350,11 @@ class AlarmMetricArgs:
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmDimensionArgs']]]] = None,
              metric_name: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if metric_name is not None:
@@ -386,7 +414,13 @@ class AnomalyDetectorConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              excluded_time_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorRangeArgs']]]] = None,
              metric_time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_time_ranges is None and 'excludedTimeRanges' in kwargs:
+            excluded_time_ranges = kwargs['excludedTimeRanges']
+        if metric_time_zone is None and 'metricTimeZone' in kwargs:
+            metric_time_zone = kwargs['metricTimeZone']
+
         if excluded_time_ranges is not None:
             _setter("excluded_time_ranges", excluded_time_ranges)
         if metric_time_zone is not None:
@@ -424,9 +458,15 @@ class AnomalyDetectorDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -472,14 +512,24 @@ class AnomalyDetectorMetricDataQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
+             id: Optional[pulumi.Input[str]] = None,
              account_id: Optional[pulumi.Input[str]] = None,
              expression: Optional[pulumi.Input[str]] = None,
              label: Optional[pulumi.Input[str]] = None,
              metric_stat: Optional[pulumi.Input['AnomalyDetectorMetricStatArgs']] = None,
              period: Optional[pulumi.Input[int]] = None,
              return_data: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if metric_stat is None and 'metricStat' in kwargs:
+            metric_stat = kwargs['metricStat']
+        if return_data is None and 'returnData' in kwargs:
+            return_data = kwargs['returnData']
+
         _setter("id", id)
         if account_id is not None:
             _setter("account_id", account_id)
@@ -570,7 +620,11 @@ class AnomalyDetectorMetricMathAnomalyDetectorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              metric_data_queries: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricDataQueryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_data_queries is None and 'metricDataQueries' in kwargs:
+            metric_data_queries = kwargs['metricDataQueries']
+
         if metric_data_queries is not None:
             _setter("metric_data_queries", metric_data_queries)
 
@@ -601,11 +655,19 @@ class AnomalyDetectorMetricStatArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric: pulumi.Input['AnomalyDetectorMetricArgs'],
-             period: pulumi.Input[int],
-             stat: pulumi.Input[str],
+             metric: Optional[pulumi.Input['AnomalyDetectorMetricArgs']] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             stat: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric is None:
+            raise TypeError("Missing 'metric' argument")
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if stat is None:
+            raise TypeError("Missing 'stat' argument")
+
         _setter("metric", metric)
         _setter("period", period)
         _setter("stat", stat)
@@ -664,10 +726,18 @@ class AnomalyDetectorMetricArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             namespace: pulumi.Input[str],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         if dimensions is not None:
@@ -714,9 +784,19 @@ class AnomalyDetectorRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_time: pulumi.Input[str],
-             start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
         _setter("end_time", end_time)
         _setter("start_time", start_time)
 
@@ -760,7 +840,11 @@ class AnomalyDetectorSingleMetricAnomalyDetectorArgs:
              metric_name: Optional[pulumi.Input[str]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              stat: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         if dimensions is not None:
             _setter("dimensions", dimensions)
         if metric_name is not None:
@@ -814,8 +898,10 @@ class InsightRuleTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -836,9 +922,15 @@ class MetricStreamFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace: pulumi.Input[str],
+             namespace: Optional[pulumi.Input[str]] = None,
              metric_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if metric_names is None and 'metricNames' in kwargs:
+            metric_names = kwargs['metricNames']
+
         _setter("namespace", namespace)
         if metric_names is not None:
             _setter("metric_names", metric_names)
@@ -886,9 +978,19 @@ class MetricStreamStatisticsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
-             include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             additional_statistics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             include_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsMetricArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_statistics is None and 'additionalStatistics' in kwargs:
+            additional_statistics = kwargs['additionalStatistics']
+        if additional_statistics is None:
+            raise TypeError("Missing 'additional_statistics' argument")
+        if include_metrics is None and 'includeMetrics' in kwargs:
+            include_metrics = kwargs['includeMetrics']
+        if include_metrics is None:
+            raise TypeError("Missing 'include_metrics' argument")
+
         _setter("additional_statistics", additional_statistics)
         _setter("include_metrics", include_metrics)
 
@@ -935,9 +1037,17 @@ class MetricStreamStatisticsMetricArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             namespace: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             metric_name: Optional[pulumi.Input[str]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
 
@@ -984,9 +1094,15 @@ class MetricStreamTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

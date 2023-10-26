@@ -33,10 +33,20 @@ class ResourceAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             resource: pulumi.Input[str],
-             resource_type: pulumi.Input['ResourceAssociationResourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application: Optional[pulumi.Input[str]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+
         _setter("application", application)
         _setter("resource", resource)
         _setter("resource_type", resource_type)

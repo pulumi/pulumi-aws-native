@@ -40,12 +40,30 @@ class TransitGatewayPeeringAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             peer_account_id: pulumi.Input[str],
-             peer_region: pulumi.Input[str],
-             peer_transit_gateway_id: pulumi.Input[str],
-             transit_gateway_id: pulumi.Input[str],
+             peer_account_id: Optional[pulumi.Input[str]] = None,
+             peer_region: Optional[pulumi.Input[str]] = None,
+             peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if peer_account_id is None and 'peerAccountId' in kwargs:
+            peer_account_id = kwargs['peerAccountId']
+        if peer_account_id is None:
+            raise TypeError("Missing 'peer_account_id' argument")
+        if peer_region is None and 'peerRegion' in kwargs:
+            peer_region = kwargs['peerRegion']
+        if peer_region is None:
+            raise TypeError("Missing 'peer_region' argument")
+        if peer_transit_gateway_id is None and 'peerTransitGatewayId' in kwargs:
+            peer_transit_gateway_id = kwargs['peerTransitGatewayId']
+        if peer_transit_gateway_id is None:
+            raise TypeError("Missing 'peer_transit_gateway_id' argument")
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transit_gateway_id is None:
+            raise TypeError("Missing 'transit_gateway_id' argument")
+
         _setter("peer_account_id", peer_account_id)
         _setter("peer_region", peer_region)
         _setter("peer_transit_gateway_id", peer_transit_gateway_id)

@@ -35,11 +35,25 @@ class PreparedStatementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_statement: pulumi.Input[str],
-             statement_name: pulumi.Input[str],
-             work_group: pulumi.Input[str],
+             query_statement: Optional[pulumi.Input[str]] = None,
+             statement_name: Optional[pulumi.Input[str]] = None,
+             work_group: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_statement is None and 'queryStatement' in kwargs:
+            query_statement = kwargs['queryStatement']
+        if query_statement is None:
+            raise TypeError("Missing 'query_statement' argument")
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if statement_name is None:
+            raise TypeError("Missing 'statement_name' argument")
+        if work_group is None and 'workGroup' in kwargs:
+            work_group = kwargs['workGroup']
+        if work_group is None:
+            raise TypeError("Missing 'work_group' argument")
+
         _setter("query_statement", query_statement)
         _setter("statement_name", statement_name)
         _setter("work_group", work_group)

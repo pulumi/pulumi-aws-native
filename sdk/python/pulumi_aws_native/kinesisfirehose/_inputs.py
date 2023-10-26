@@ -74,7 +74,13 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs:
              _setter: Callable[[Any, Any], None],
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              size_in_mbs: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if size_in_mbs is None and 'sizeInMbs' in kwargs:
+            size_in_mbs = kwargs['sizeInMbs']
+
         if interval_in_seconds is not None:
             _setter("interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
@@ -128,9 +134,9 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             index_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+             index_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             s3_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              buffering_hints: Optional[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessBufferingHintsArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              collection_endpoint: Optional[pulumi.Input[str]] = None,
@@ -138,7 +144,35 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs:
              retry_options: Optional[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs']] = None,
              s3_backup_mode: Optional[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode']] = None,
              vpc_configuration: Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if index_name is None:
+            raise TypeError("Missing 'index_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+        if buffering_hints is None and 'bufferingHints' in kwargs:
+            buffering_hints = kwargs['bufferingHints']
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if collection_endpoint is None and 'collectionEndpoint' in kwargs:
+            collection_endpoint = kwargs['collectionEndpoint']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("index_name", index_name)
         _setter("role_arn", role_arn)
         _setter("s3_configuration", s3_configuration)
@@ -260,7 +294,11 @@ class DeliveryStreamAmazonOpenSearchServerlessRetryOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
 
@@ -289,7 +327,13 @@ class DeliveryStreamAmazonopensearchserviceBufferingHintsArgs:
              _setter: Callable[[Any, Any], None],
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              size_in_mbs: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if size_in_mbs is None and 'sizeInMbs' in kwargs:
+            size_in_mbs = kwargs['sizeInMbs']
+
         if interval_in_seconds is not None:
             _setter("interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
@@ -351,9 +395,9 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             index_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+             index_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             s3_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              buffering_hints: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceBufferingHintsArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              cluster_endpoint: Optional[pulumi.Input[str]] = None,
@@ -365,7 +409,43 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs:
              s3_backup_mode: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode']] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              vpc_configuration: Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if index_name is None:
+            raise TypeError("Missing 'index_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+        if buffering_hints is None and 'bufferingHints' in kwargs:
+            buffering_hints = kwargs['bufferingHints']
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if cluster_endpoint is None and 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if document_id_options is None and 'documentIdOptions' in kwargs:
+            document_id_options = kwargs['documentIdOptions']
+        if domain_arn is None and 'domainArn' in kwargs:
+            domain_arn = kwargs['domainArn']
+        if index_rotation_period is None and 'indexRotationPeriod' in kwargs:
+            index_rotation_period = kwargs['indexRotationPeriod']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("index_name", index_name)
         _setter("role_arn", role_arn)
         _setter("s3_configuration", s3_configuration)
@@ -531,7 +611,11 @@ class DeliveryStreamAmazonopensearchserviceRetryOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
 
@@ -558,9 +642,17 @@ class DeliveryStreamAuthenticationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connectivity: pulumi.Input['DeliveryStreamAuthenticationConfigurationConnectivity'],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             connectivity: Optional[pulumi.Input['DeliveryStreamAuthenticationConfigurationConnectivity']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connectivity is None:
+            raise TypeError("Missing 'connectivity' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("connectivity", connectivity)
         _setter("role_arn", role_arn)
 
@@ -598,7 +690,13 @@ class DeliveryStreamBufferingHintsArgs:
              _setter: Callable[[Any, Any], None],
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              size_in_mbs: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if size_in_mbs is None and 'sizeInMbs' in kwargs:
+            size_in_mbs = kwargs['sizeInMbs']
+
         if interval_in_seconds is not None:
             _setter("interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
@@ -641,7 +739,13 @@ class DeliveryStreamCloudWatchLoggingOptionsArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              log_group_name: Optional[pulumi.Input[str]] = None,
              log_stream_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_stream_name is None and 'logStreamName' in kwargs:
+            log_stream_name = kwargs['logStreamName']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if log_group_name is not None:
@@ -692,10 +796,20 @@ class DeliveryStreamCopyCommandArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_table_name: pulumi.Input[str],
+             data_table_name: Optional[pulumi.Input[str]] = None,
              copy_options: Optional[pulumi.Input[str]] = None,
              data_table_columns: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_table_name is None and 'dataTableName' in kwargs:
+            data_table_name = kwargs['dataTableName']
+        if data_table_name is None:
+            raise TypeError("Missing 'data_table_name' argument")
+        if copy_options is None and 'copyOptions' in kwargs:
+            copy_options = kwargs['copyOptions']
+        if data_table_columns is None and 'dataTableColumns' in kwargs:
+            data_table_columns = kwargs['dataTableColumns']
+
         _setter("data_table_name", data_table_name)
         if copy_options is not None:
             _setter("copy_options", copy_options)
@@ -751,7 +865,15 @@ class DeliveryStreamDataFormatConversionConfigurationArgs:
              input_format_configuration: Optional[pulumi.Input['DeliveryStreamInputFormatConfigurationArgs']] = None,
              output_format_configuration: Optional[pulumi.Input['DeliveryStreamOutputFormatConfigurationArgs']] = None,
              schema_configuration: Optional[pulumi.Input['DeliveryStreamSchemaConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_format_configuration is None and 'inputFormatConfiguration' in kwargs:
+            input_format_configuration = kwargs['inputFormatConfiguration']
+        if output_format_configuration is None and 'outputFormatConfiguration' in kwargs:
+            output_format_configuration = kwargs['outputFormatConfiguration']
+        if schema_configuration is None and 'schemaConfiguration' in kwargs:
+            schema_configuration = kwargs['schemaConfiguration']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if input_format_configuration is not None:
@@ -813,7 +935,13 @@ class DeliveryStreamDeserializerArgs:
              _setter: Callable[[Any, Any], None],
              hive_json_ser_de: Optional[pulumi.Input['DeliveryStreamHiveJsonSerDeArgs']] = None,
              open_x_json_ser_de: Optional[pulumi.Input['DeliveryStreamOpenXJsonSerDeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hive_json_ser_de is None and 'hiveJsonSerDe' in kwargs:
+            hive_json_ser_de = kwargs['hiveJsonSerDe']
+        if open_x_json_ser_de is None and 'openXJsonSerDe' in kwargs:
+            open_x_json_ser_de = kwargs['openXJsonSerDe']
+
         if hive_json_ser_de is not None:
             _setter("hive_json_ser_de", hive_json_ser_de)
         if open_x_json_ser_de is not None:
@@ -849,8 +977,14 @@ class DeliveryStreamDocumentIdOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_document_id_format: pulumi.Input['DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_document_id_format: Optional[pulumi.Input['DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_document_id_format is None and 'defaultDocumentIdFormat' in kwargs:
+            default_document_id_format = kwargs['defaultDocumentIdFormat']
+        if default_document_id_format is None:
+            raise TypeError("Missing 'default_document_id_format' argument")
+
         _setter("default_document_id_format", default_document_id_format)
 
     @property
@@ -878,7 +1012,11 @@ class DeliveryStreamDynamicPartitioningConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              retry_options: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if retry_options is not None:
@@ -918,7 +1056,13 @@ class DeliveryStreamElasticsearchBufferingHintsArgs:
              _setter: Callable[[Any, Any], None],
              interval_in_seconds: Optional[pulumi.Input[int]] = None,
              size_in_mbs: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if size_in_mbs is None and 'sizeInMbs' in kwargs:
+            size_in_mbs = kwargs['sizeInMbs']
+
         if interval_in_seconds is not None:
             _setter("interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
@@ -980,9 +1124,9 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             index_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+             index_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             s3_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              buffering_hints: Optional[pulumi.Input['DeliveryStreamElasticsearchBufferingHintsArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              cluster_endpoint: Optional[pulumi.Input[str]] = None,
@@ -994,7 +1138,43 @@ class DeliveryStreamElasticsearchDestinationConfigurationArgs:
              s3_backup_mode: Optional[pulumi.Input['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode']] = None,
              type_name: Optional[pulumi.Input[str]] = None,
              vpc_configuration: Optional[pulumi.Input['DeliveryStreamVpcConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if index_name is None:
+            raise TypeError("Missing 'index_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+        if buffering_hints is None and 'bufferingHints' in kwargs:
+            buffering_hints = kwargs['bufferingHints']
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if cluster_endpoint is None and 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if document_id_options is None and 'documentIdOptions' in kwargs:
+            document_id_options = kwargs['documentIdOptions']
+        if domain_arn is None and 'domainArn' in kwargs:
+            domain_arn = kwargs['domainArn']
+        if index_rotation_period is None and 'indexRotationPeriod' in kwargs:
+            index_rotation_period = kwargs['indexRotationPeriod']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+
         _setter("index_name", index_name)
         _setter("role_arn", role_arn)
         _setter("s3_configuration", s3_configuration)
@@ -1160,7 +1340,11 @@ class DeliveryStreamElasticsearchRetryOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
 
@@ -1187,9 +1371,17 @@ class DeliveryStreamEncryptionConfigurationInputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_type: pulumi.Input['DeliveryStreamEncryptionConfigurationInputKeyType'],
+             key_type: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationInputKeyType']] = None,
              key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if key_arn is None and 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         _setter("key_type", key_type)
         if key_arn is not None:
             _setter("key_arn", key_arn)
@@ -1228,7 +1420,13 @@ class DeliveryStreamEncryptionConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              kms_encryption_config: Optional[pulumi.Input['DeliveryStreamKmsEncryptionConfigArgs']] = None,
              no_encryption_config: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_encryption_config is None and 'kmsEncryptionConfig' in kwargs:
+            kms_encryption_config = kwargs['kmsEncryptionConfig']
+        if no_encryption_config is None and 'noEncryptionConfig' in kwargs:
+            no_encryption_config = kwargs['noEncryptionConfig']
+
         if kms_encryption_config is not None:
             _setter("kms_encryption_config", kms_encryption_config)
         if no_encryption_config is not None:
@@ -1288,8 +1486,8 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             bucket_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              compression_format: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']] = None,
@@ -1301,7 +1499,37 @@ class DeliveryStreamExtendedS3DestinationConfigurationArgs:
              processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
              s3_backup_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              s3_backup_mode: Optional[pulumi.Input['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_arn is None and 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if bucket_arn is None:
+            raise TypeError("Missing 'bucket_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if buffering_hints is None and 'bufferingHints' in kwargs:
+            buffering_hints = kwargs['bufferingHints']
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if compression_format is None and 'compressionFormat' in kwargs:
+            compression_format = kwargs['compressionFormat']
+        if data_format_conversion_configuration is None and 'dataFormatConversionConfiguration' in kwargs:
+            data_format_conversion_configuration = kwargs['dataFormatConversionConfiguration']
+        if dynamic_partitioning_configuration is None and 'dynamicPartitioningConfiguration' in kwargs:
+            dynamic_partitioning_configuration = kwargs['dynamicPartitioningConfiguration']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if error_output_prefix is None and 'errorOutputPrefix' in kwargs:
+            error_output_prefix = kwargs['errorOutputPrefix']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if s3_backup_configuration is None and 's3BackupConfiguration' in kwargs:
+            s3_backup_configuration = kwargs['s3BackupConfiguration']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+
         _setter("bucket_arn", bucket_arn)
         _setter("role_arn", role_arn)
         if buffering_hints is not None:
@@ -1457,7 +1685,11 @@ class DeliveryStreamHiveJsonSerDeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              timestamp_formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timestamp_formats is None and 'timestampFormats' in kwargs:
+            timestamp_formats = kwargs['timestampFormats']
+
         if timestamp_formats is not None:
             _setter("timestamp_formats", timestamp_formats)
 
@@ -1484,9 +1716,19 @@ class DeliveryStreamHttpEndpointCommonAttributeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_name: pulumi.Input[str],
-             attribute_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute_name: Optional[pulumi.Input[str]] = None,
+             attribute_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_name is None and 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if attribute_name is None:
+            raise TypeError("Missing 'attribute_name' argument")
+        if attribute_value is None and 'attributeValue' in kwargs:
+            attribute_value = kwargs['attributeValue']
+        if attribute_value is None:
+            raise TypeError("Missing 'attribute_value' argument")
+
         _setter("attribute_name", attribute_name)
         _setter("attribute_value", attribute_value)
 
@@ -1524,10 +1766,16 @@ class DeliveryStreamHttpEndpointConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: pulumi.Input[str],
+             url: Optional[pulumi.Input[str]] = None,
              access_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+
         _setter("url", url)
         if access_key is not None:
             _setter("access_key", access_key)
@@ -1589,8 +1837,8 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_configuration: pulumi.Input['DeliveryStreamHttpEndpointConfigurationArgs'],
-             s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+             endpoint_configuration: Optional[pulumi.Input['DeliveryStreamHttpEndpointConfigurationArgs']] = None,
+             s3_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
@@ -1598,7 +1846,31 @@ class DeliveryStreamHttpEndpointDestinationConfigurationArgs:
              retry_options: Optional[pulumi.Input['DeliveryStreamRetryOptionsArgs']] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              s3_backup_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_configuration is None and 'endpointConfiguration' in kwargs:
+            endpoint_configuration = kwargs['endpointConfiguration']
+        if endpoint_configuration is None:
+            raise TypeError("Missing 'endpoint_configuration' argument")
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+        if buffering_hints is None and 'bufferingHints' in kwargs:
+            buffering_hints = kwargs['bufferingHints']
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if request_configuration is None and 'requestConfiguration' in kwargs:
+            request_configuration = kwargs['requestConfiguration']
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+
         _setter("endpoint_configuration", endpoint_configuration)
         _setter("s3_configuration", s3_configuration)
         if buffering_hints is not None:
@@ -1713,7 +1985,13 @@ class DeliveryStreamHttpEndpointRequestConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              common_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamHttpEndpointCommonAttributeArgs']]]] = None,
              content_encoding: Optional[pulumi.Input['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if common_attributes is None and 'commonAttributes' in kwargs:
+            common_attributes = kwargs['commonAttributes']
+        if content_encoding is None and 'contentEncoding' in kwargs:
+            content_encoding = kwargs['contentEncoding']
+
         if common_attributes is not None:
             _setter("common_attributes", common_attributes)
         if content_encoding is not None:
@@ -1750,7 +2028,9 @@ class DeliveryStreamInputFormatConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              deserializer: Optional[pulumi.Input['DeliveryStreamDeserializerArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if deserializer is not None:
             _setter("deserializer", deserializer)
 
@@ -1777,9 +2057,19 @@ class DeliveryStreamKinesisStreamSourceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kinesis_stream_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             kinesis_stream_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kinesis_stream_arn is None and 'kinesisStreamArn' in kwargs:
+            kinesis_stream_arn = kwargs['kinesisStreamArn']
+        if kinesis_stream_arn is None:
+            raise TypeError("Missing 'kinesis_stream_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("kinesis_stream_arn", kinesis_stream_arn)
         _setter("role_arn", role_arn)
 
@@ -1813,8 +2103,14 @@ class DeliveryStreamKmsEncryptionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             awskms_key_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             awskms_key_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if awskms_key_arn is None and 'awskmsKeyArn' in kwargs:
+            awskms_key_arn = kwargs['awskmsKeyArn']
+        if awskms_key_arn is None:
+            raise TypeError("Missing 'awskms_key_arn' argument")
+
         _setter("awskms_key_arn", awskms_key_arn)
 
     @property
@@ -1842,10 +2138,24 @@ class DeliveryStreamMskSourceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_configuration: pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs'],
-             msk_cluster_arn: pulumi.Input[str],
-             topic_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             authentication_configuration: Optional[pulumi.Input['DeliveryStreamAuthenticationConfigurationArgs']] = None,
+             msk_cluster_arn: Optional[pulumi.Input[str]] = None,
+             topic_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if authentication_configuration is None:
+            raise TypeError("Missing 'authentication_configuration' argument")
+        if msk_cluster_arn is None and 'mskClusterArn' in kwargs:
+            msk_cluster_arn = kwargs['mskClusterArn']
+        if msk_cluster_arn is None:
+            raise TypeError("Missing 'msk_cluster_arn' argument")
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+
         _setter("authentication_configuration", authentication_configuration)
         _setter("msk_cluster_arn", msk_cluster_arn)
         _setter("topic_name", topic_name)
@@ -1896,7 +2206,15 @@ class DeliveryStreamOpenXJsonSerDeArgs:
              case_insensitive: Optional[pulumi.Input[bool]] = None,
              column_to_json_key_mappings: Optional[Any] = None,
              convert_dots_in_json_keys_to_underscores: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if case_insensitive is None and 'caseInsensitive' in kwargs:
+            case_insensitive = kwargs['caseInsensitive']
+        if column_to_json_key_mappings is None and 'columnToJsonKeyMappings' in kwargs:
+            column_to_json_key_mappings = kwargs['columnToJsonKeyMappings']
+        if convert_dots_in_json_keys_to_underscores is None and 'convertDotsInJsonKeysToUnderscores' in kwargs:
+            convert_dots_in_json_keys_to_underscores = kwargs['convertDotsInJsonKeysToUnderscores']
+
         if case_insensitive is not None:
             _setter("case_insensitive", case_insensitive)
         if column_to_json_key_mappings is not None:
@@ -1971,7 +2289,27 @@ class DeliveryStreamOrcSerDeArgs:
              padding_tolerance: Optional[pulumi.Input[float]] = None,
              row_index_stride: Optional[pulumi.Input[int]] = None,
              stripe_size_bytes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_size_bytes is None and 'blockSizeBytes' in kwargs:
+            block_size_bytes = kwargs['blockSizeBytes']
+        if bloom_filter_columns is None and 'bloomFilterColumns' in kwargs:
+            bloom_filter_columns = kwargs['bloomFilterColumns']
+        if bloom_filter_false_positive_probability is None and 'bloomFilterFalsePositiveProbability' in kwargs:
+            bloom_filter_false_positive_probability = kwargs['bloomFilterFalsePositiveProbability']
+        if dictionary_key_threshold is None and 'dictionaryKeyThreshold' in kwargs:
+            dictionary_key_threshold = kwargs['dictionaryKeyThreshold']
+        if enable_padding is None and 'enablePadding' in kwargs:
+            enable_padding = kwargs['enablePadding']
+        if format_version is None and 'formatVersion' in kwargs:
+            format_version = kwargs['formatVersion']
+        if padding_tolerance is None and 'paddingTolerance' in kwargs:
+            padding_tolerance = kwargs['paddingTolerance']
+        if row_index_stride is None and 'rowIndexStride' in kwargs:
+            row_index_stride = kwargs['rowIndexStride']
+        if stripe_size_bytes is None and 'stripeSizeBytes' in kwargs:
+            stripe_size_bytes = kwargs['stripeSizeBytes']
+
         if block_size_bytes is not None:
             _setter("block_size_bytes", block_size_bytes)
         if bloom_filter_columns is not None:
@@ -2096,7 +2434,9 @@ class DeliveryStreamOutputFormatConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              serializer: Optional[pulumi.Input['DeliveryStreamSerializerArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if serializer is not None:
             _setter("serializer", serializer)
 
@@ -2137,7 +2477,19 @@ class DeliveryStreamParquetSerDeArgs:
              max_padding_bytes: Optional[pulumi.Input[int]] = None,
              page_size_bytes: Optional[pulumi.Input[int]] = None,
              writer_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_size_bytes is None and 'blockSizeBytes' in kwargs:
+            block_size_bytes = kwargs['blockSizeBytes']
+        if enable_dictionary_compression is None and 'enableDictionaryCompression' in kwargs:
+            enable_dictionary_compression = kwargs['enableDictionaryCompression']
+        if max_padding_bytes is None and 'maxPaddingBytes' in kwargs:
+            max_padding_bytes = kwargs['maxPaddingBytes']
+        if page_size_bytes is None and 'pageSizeBytes' in kwargs:
+            page_size_bytes = kwargs['pageSizeBytes']
+        if writer_version is None and 'writerVersion' in kwargs:
+            writer_version = kwargs['writerVersion']
+
         if block_size_bytes is not None:
             _setter("block_size_bytes", block_size_bytes)
         if compression is not None:
@@ -2221,7 +2573,9 @@ class DeliveryStreamProcessingConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              processors: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if processors is not None:
@@ -2259,9 +2613,19 @@ class DeliveryStreamProcessorParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_name: pulumi.Input[str],
-             parameter_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parameter_name: Optional[pulumi.Input[str]] = None,
+             parameter_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_name is None and 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if parameter_name is None:
+            raise TypeError("Missing 'parameter_name' argument")
+        if parameter_value is None and 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+        if parameter_value is None:
+            raise TypeError("Missing 'parameter_value' argument")
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -2297,9 +2661,13 @@ class DeliveryStreamProcessorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['DeliveryStreamProcessorType'],
+             type: Optional[pulumi.Input['DeliveryStreamProcessorType']] = None,
              parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamProcessorParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -2354,18 +2722,50 @@ class DeliveryStreamRedshiftDestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_jdbcurl: pulumi.Input[str],
-             copy_command: pulumi.Input['DeliveryStreamCopyCommandArgs'],
-             password: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
-             username: pulumi.Input[str],
+             cluster_jdbcurl: Optional[pulumi.Input[str]] = None,
+             copy_command: Optional[pulumi.Input['DeliveryStreamCopyCommandArgs']] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             s3_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
+             username: Optional[pulumi.Input[str]] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
              retry_options: Optional[pulumi.Input['DeliveryStreamRedshiftRetryOptionsArgs']] = None,
              s3_backup_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              s3_backup_mode: Optional[pulumi.Input['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_jdbcurl is None and 'clusterJdbcurl' in kwargs:
+            cluster_jdbcurl = kwargs['clusterJdbcurl']
+        if cluster_jdbcurl is None:
+            raise TypeError("Missing 'cluster_jdbcurl' argument")
+        if copy_command is None and 'copyCommand' in kwargs:
+            copy_command = kwargs['copyCommand']
+        if copy_command is None:
+            raise TypeError("Missing 'copy_command' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+        if s3_backup_configuration is None and 's3BackupConfiguration' in kwargs:
+            s3_backup_configuration = kwargs['s3BackupConfiguration']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+
         _setter("cluster_jdbcurl", cluster_jdbcurl)
         _setter("copy_command", copy_command)
         _setter("password", password)
@@ -2495,7 +2895,11 @@ class DeliveryStreamRedshiftRetryOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
 
@@ -2521,7 +2925,11 @@ class DeliveryStreamRetryOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
 
@@ -2560,15 +2968,35 @@ class DeliveryStreamS3DestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             bucket_arn: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              buffering_hints: Optional[pulumi.Input['DeliveryStreamBufferingHintsArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              compression_format: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationCompressionFormat']] = None,
              encryption_configuration: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationArgs']] = None,
              error_output_prefix: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_arn is None and 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if bucket_arn is None:
+            raise TypeError("Missing 'bucket_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if buffering_hints is None and 'bufferingHints' in kwargs:
+            buffering_hints = kwargs['bufferingHints']
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if compression_format is None and 'compressionFormat' in kwargs:
+            compression_format = kwargs['compressionFormat']
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if error_output_prefix is None and 'errorOutputPrefix' in kwargs:
+            error_output_prefix = kwargs['errorOutputPrefix']
+
         _setter("bucket_arn", bucket_arn)
         _setter("role_arn", role_arn)
         if buffering_hints is not None:
@@ -2684,7 +3112,19 @@ class DeliveryStreamSchemaConfigurationArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if version_id is None and 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -2768,7 +3208,13 @@ class DeliveryStreamSerializerArgs:
              _setter: Callable[[Any, Any], None],
              orc_ser_de: Optional[pulumi.Input['DeliveryStreamOrcSerDeArgs']] = None,
              parquet_ser_de: Optional[pulumi.Input['DeliveryStreamParquetSerDeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if orc_ser_de is None and 'orcSerDe' in kwargs:
+            orc_ser_de = kwargs['orcSerDe']
+        if parquet_ser_de is None and 'parquetSerDe' in kwargs:
+            parquet_ser_de = kwargs['parquetSerDe']
+
         if orc_ser_de is not None:
             _setter("orc_ser_de", orc_ser_de)
         if parquet_ser_de is not None:
@@ -2820,16 +3266,44 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hec_endpoint: pulumi.Input[str],
-             hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType'],
-             hec_token: pulumi.Input[str],
-             s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+             hec_endpoint: Optional[pulumi.Input[str]] = None,
+             hec_endpoint_type: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType']] = None,
+             hec_token: Optional[pulumi.Input[str]] = None,
+             s3_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
              hec_acknowledgment_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
              retry_options: Optional[pulumi.Input['DeliveryStreamSplunkRetryOptionsArgs']] = None,
              s3_backup_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hec_endpoint is None and 'hecEndpoint' in kwargs:
+            hec_endpoint = kwargs['hecEndpoint']
+        if hec_endpoint is None:
+            raise TypeError("Missing 'hec_endpoint' argument")
+        if hec_endpoint_type is None and 'hecEndpointType' in kwargs:
+            hec_endpoint_type = kwargs['hecEndpointType']
+        if hec_endpoint_type is None:
+            raise TypeError("Missing 'hec_endpoint_type' argument")
+        if hec_token is None and 'hecToken' in kwargs:
+            hec_token = kwargs['hecToken']
+        if hec_token is None:
+            raise TypeError("Missing 'hec_token' argument")
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+        if cloud_watch_logging_options is None and 'cloudWatchLoggingOptions' in kwargs:
+            cloud_watch_logging_options = kwargs['cloudWatchLoggingOptions']
+        if hec_acknowledgment_timeout_in_seconds is None and 'hecAcknowledgmentTimeoutInSeconds' in kwargs:
+            hec_acknowledgment_timeout_in_seconds = kwargs['hecAcknowledgmentTimeoutInSeconds']
+        if processing_configuration is None and 'processingConfiguration' in kwargs:
+            processing_configuration = kwargs['processingConfiguration']
+        if retry_options is None and 'retryOptions' in kwargs:
+            retry_options = kwargs['retryOptions']
+        if s3_backup_mode is None and 's3BackupMode' in kwargs:
+            s3_backup_mode = kwargs['s3BackupMode']
+
         _setter("hec_endpoint", hec_endpoint)
         _setter("hec_endpoint_type", hec_endpoint_type)
         _setter("hec_token", hec_token)
@@ -2939,7 +3413,11 @@ class DeliveryStreamSplunkRetryOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              duration_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+
         if duration_in_seconds is not None:
             _setter("duration_in_seconds", duration_in_seconds)
 
@@ -2966,9 +3444,13 @@ class DeliveryStreamTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -3007,10 +3489,24 @@ class DeliveryStreamVpcConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             role_arn: Optional[pulumi.Input[str]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+
         _setter("role_arn", role_arn)
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)

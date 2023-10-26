@@ -34,7 +34,11 @@ class TrafficMirrorFilterArgs:
              description: Optional[pulumi.Input[str]] = None,
              network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_services is None and 'networkServices' in kwargs:
+            network_services = kwargs['networkServices']
+
         if description is not None:
             _setter("description", description)
         if network_services is not None:

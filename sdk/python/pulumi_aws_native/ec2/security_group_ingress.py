@@ -47,7 +47,7 @@ class SecurityGroupIngressInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_protocol: pulumi.Input[str],
+             ip_protocol: Optional[pulumi.Input[str]] = None,
              cidr_ip: Optional[pulumi.Input[str]] = None,
              cidr_ipv6: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -59,7 +59,33 @@ class SecurityGroupIngressInitArgs:
              source_security_group_name: Optional[pulumi.Input[str]] = None,
              source_security_group_owner_id: Optional[pulumi.Input[str]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ip_protocol is None:
+            raise TypeError("Missing 'ip_protocol' argument")
+        if cidr_ip is None and 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if cidr_ipv6 is None and 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if source_prefix_list_id is None and 'sourcePrefixListId' in kwargs:
+            source_prefix_list_id = kwargs['sourcePrefixListId']
+        if source_security_group_id is None and 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+        if source_security_group_name is None and 'sourceSecurityGroupName' in kwargs:
+            source_security_group_name = kwargs['sourceSecurityGroupName']
+        if source_security_group_owner_id is None and 'sourceSecurityGroupOwnerId' in kwargs:
+            source_security_group_owner_id = kwargs['sourceSecurityGroupOwnerId']
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:
             _setter("cidr_ip", cidr_ip)

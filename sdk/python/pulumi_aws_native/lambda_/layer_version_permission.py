@@ -35,11 +35,23 @@ class LayerVersionPermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             layer_version_arn: pulumi.Input[str],
-             principal: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             layer_version_arn: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
              organization_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if layer_version_arn is None and 'layerVersionArn' in kwargs:
+            layer_version_arn = kwargs['layerVersionArn']
+        if layer_version_arn is None:
+            raise TypeError("Missing 'layer_version_arn' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+
         _setter("action", action)
         _setter("layer_version_arn", layer_version_arn)
         _setter("principal", principal)

@@ -105,8 +105,8 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             acl_name: pulumi.Input[str],
-             node_type: pulumi.Input[str],
+             acl_name: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
              cluster_endpoint: Optional[pulumi.Input['ClusterEndpointArgs']] = None,
              cluster_name: Optional[pulumi.Input[str]] = None,
@@ -130,7 +130,57 @@ class ClusterArgs:
              subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              tls_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acl_name is None and 'aclName' in kwargs:
+            acl_name = kwargs['aclName']
+        if acl_name is None:
+            raise TypeError("Missing 'acl_name' argument")
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if node_type is None:
+            raise TypeError("Missing 'node_type' argument")
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if cluster_endpoint is None and 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if data_tiering is None and 'dataTiering' in kwargs:
+            data_tiering = kwargs['dataTiering']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if final_snapshot_name is None and 'finalSnapshotName' in kwargs:
+            final_snapshot_name = kwargs['finalSnapshotName']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if num_replicas_per_shard is None and 'numReplicasPerShard' in kwargs:
+            num_replicas_per_shard = kwargs['numReplicasPerShard']
+        if num_shards is None and 'numShards' in kwargs:
+            num_shards = kwargs['numShards']
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if snapshot_arns is None and 'snapshotArns' in kwargs:
+            snapshot_arns = kwargs['snapshotArns']
+        if snapshot_name is None and 'snapshotName' in kwargs:
+            snapshot_name = kwargs['snapshotName']
+        if snapshot_retention_limit is None and 'snapshotRetentionLimit' in kwargs:
+            snapshot_retention_limit = kwargs['snapshotRetentionLimit']
+        if snapshot_window is None and 'snapshotWindow' in kwargs:
+            snapshot_window = kwargs['snapshotWindow']
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if sns_topic_status is None and 'snsTopicStatus' in kwargs:
+            sns_topic_status = kwargs['snsTopicStatus']
+        if subnet_group_name is None and 'subnetGroupName' in kwargs:
+            subnet_group_name = kwargs['subnetGroupName']
+        if tls_enabled is None and 'tlsEnabled' in kwargs:
+            tls_enabled = kwargs['tlsEnabled']
+
         _setter("acl_name", acl_name)
         _setter("node_type", node_type)
         if auto_minor_version_upgrade is not None:
@@ -617,11 +667,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'acl_name'")
             __props__.__dict__["acl_name"] = acl_name
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-            if cluster_endpoint is not None and not isinstance(cluster_endpoint, ClusterEndpointArgs):
-                cluster_endpoint = cluster_endpoint or {}
-                def _setter(key, value):
-                    cluster_endpoint[key] = value
-                ClusterEndpointArgs._configure(_setter, **cluster_endpoint)
+            cluster_endpoint = _utilities.configure(cluster_endpoint, ClusterEndpointArgs, True)
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["data_tiering"] = data_tiering

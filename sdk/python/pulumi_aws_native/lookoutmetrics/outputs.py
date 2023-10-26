@@ -65,7 +65,13 @@ class AlertAction(dict):
              _setter: Callable[[Any, Any], None],
              lambda_configuration: Optional['outputs.AlertLambdaConfiguration'] = None,
              sns_configuration: Optional['outputs.AlertSnsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_configuration is None and 'lambdaConfiguration' in kwargs:
+            lambda_configuration = kwargs['lambdaConfiguration']
+        if sns_configuration is None and 'snsConfiguration' in kwargs:
+            sns_configuration = kwargs['snsConfiguration']
+
         if lambda_configuration is not None:
             _setter("lambda_configuration", lambda_configuration)
         if sns_configuration is not None:
@@ -122,9 +128,19 @@ class AlertLambdaConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lambda_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             lambda_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+        if lambda_arn is None:
+            raise TypeError("Missing 'lambda_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("lambda_arn", lambda_arn)
         _setter("role_arn", role_arn)
 
@@ -185,9 +201,19 @@ class AlertSnsConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: str,
-             sns_topic_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             role_arn: Optional[str] = None,
+             sns_topic_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if sns_topic_arn is None:
+            raise TypeError("Missing 'sns_topic_arn' argument")
+
         _setter("role_arn", role_arn)
         _setter("sns_topic_arn", sns_topic_arn)
 
@@ -240,9 +266,19 @@ class AnomalyDetectorAppFlowConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flow_name: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             flow_name: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flow_name is None and 'flowName' in kwargs:
+            flow_name = kwargs['flowName']
+        if flow_name is None:
+            raise TypeError("Missing 'flow_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("flow_name", flow_name)
         _setter("role_arn", role_arn)
 
@@ -285,8 +321,14 @@ class AnomalyDetectorCloudwatchConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("role_arn", role_arn)
 
     @property
@@ -326,8 +368,14 @@ class AnomalyDetectorConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             anomaly_detector_frequency: 'AnomalyDetectorFrequency',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             anomaly_detector_frequency: Optional['AnomalyDetectorFrequency'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if anomaly_detector_frequency is None and 'anomalyDetectorFrequency' in kwargs:
+            anomaly_detector_frequency = kwargs['anomalyDetectorFrequency']
+        if anomaly_detector_frequency is None:
+            raise TypeError("Missing 'anomaly_detector_frequency' argument")
+
         _setter("anomaly_detector_frequency", anomaly_detector_frequency)
 
     @property
@@ -389,7 +437,17 @@ class AnomalyDetectorCsvFormatDescriptor(dict):
              file_compression: Optional['AnomalyDetectorCsvFormatDescriptorFileCompression'] = None,
              header_list: Optional[Sequence[str]] = None,
              quote_symbol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contains_header is None and 'containsHeader' in kwargs:
+            contains_header = kwargs['containsHeader']
+        if file_compression is None and 'fileCompression' in kwargs:
+            file_compression = kwargs['fileCompression']
+        if header_list is None and 'headerList' in kwargs:
+            header_list = kwargs['headerList']
+        if quote_symbol is None and 'quoteSymbol' in kwargs:
+            quote_symbol = kwargs['quoteSymbol']
+
         if charset is not None:
             _setter("charset", charset)
         if contains_header is not None:
@@ -468,7 +526,13 @@ class AnomalyDetectorFileFormatDescriptor(dict):
              _setter: Callable[[Any, Any], None],
              csv_format_descriptor: Optional['outputs.AnomalyDetectorCsvFormatDescriptor'] = None,
              json_format_descriptor: Optional['outputs.AnomalyDetectorJsonFormatDescriptor'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if csv_format_descriptor is None and 'csvFormatDescriptor' in kwargs:
+            csv_format_descriptor = kwargs['csvFormatDescriptor']
+        if json_format_descriptor is None and 'jsonFormatDescriptor' in kwargs:
+            json_format_descriptor = kwargs['jsonFormatDescriptor']
+
         if csv_format_descriptor is not None:
             _setter("csv_format_descriptor", csv_format_descriptor)
         if json_format_descriptor is not None:
@@ -517,7 +581,11 @@ class AnomalyDetectorJsonFormatDescriptor(dict):
              _setter: Callable[[Any, Any], None],
              charset: Optional[str] = None,
              file_compression: Optional['AnomalyDetectorJsonFormatDescriptorFileCompression'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_compression is None and 'fileCompression' in kwargs:
+            file_compression = kwargs['fileCompression']
+
         if charset is not None:
             _setter("charset", charset)
         if file_compression is not None:
@@ -571,10 +639,20 @@ class AnomalyDetectorMetric(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation_function: 'AnomalyDetectorMetricAggregationFunction',
-             metric_name: str,
+             aggregation_function: Optional['AnomalyDetectorMetricAggregationFunction'] = None,
+             metric_name: Optional[str] = None,
              namespace: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregation_function is None and 'aggregationFunction' in kwargs:
+            aggregation_function = kwargs['aggregationFunction']
+        if aggregation_function is None:
+            raise TypeError("Missing 'aggregation_function' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+
         _setter("aggregation_function", aggregation_function)
         _setter("metric_name", metric_name)
         if namespace is not None:
@@ -663,16 +741,38 @@ class AnomalyDetectorMetricSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_list: Sequence['outputs.AnomalyDetectorMetric'],
-             metric_set_name: str,
-             metric_source: 'outputs.AnomalyDetectorMetricSource',
+             metric_list: Optional[Sequence['outputs.AnomalyDetectorMetric']] = None,
+             metric_set_name: Optional[str] = None,
+             metric_source: Optional['outputs.AnomalyDetectorMetricSource'] = None,
              dimension_list: Optional[Sequence[str]] = None,
              metric_set_description: Optional[str] = None,
              metric_set_frequency: Optional['AnomalyDetectorMetricSetMetricSetFrequency'] = None,
              offset: Optional[int] = None,
              timestamp_column: Optional['outputs.AnomalyDetectorTimestampColumn'] = None,
              timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_list is None and 'metricList' in kwargs:
+            metric_list = kwargs['metricList']
+        if metric_list is None:
+            raise TypeError("Missing 'metric_list' argument")
+        if metric_set_name is None and 'metricSetName' in kwargs:
+            metric_set_name = kwargs['metricSetName']
+        if metric_set_name is None:
+            raise TypeError("Missing 'metric_set_name' argument")
+        if metric_source is None and 'metricSource' in kwargs:
+            metric_source = kwargs['metricSource']
+        if metric_source is None:
+            raise TypeError("Missing 'metric_source' argument")
+        if dimension_list is None and 'dimensionList' in kwargs:
+            dimension_list = kwargs['dimensionList']
+        if metric_set_description is None and 'metricSetDescription' in kwargs:
+            metric_set_description = kwargs['metricSetDescription']
+        if metric_set_frequency is None and 'metricSetFrequency' in kwargs:
+            metric_set_frequency = kwargs['metricSetFrequency']
+        if timestamp_column is None and 'timestampColumn' in kwargs:
+            timestamp_column = kwargs['timestampColumn']
+
         _setter("metric_list", metric_list)
         _setter("metric_set_name", metric_set_name)
         _setter("metric_source", metric_source)
@@ -802,7 +902,19 @@ class AnomalyDetectorMetricSource(dict):
              rds_source_config: Optional['outputs.AnomalyDetectorRdsSourceConfig'] = None,
              redshift_source_config: Optional['outputs.AnomalyDetectorRedshiftSourceConfig'] = None,
              s3_source_config: Optional['outputs.AnomalyDetectorS3SourceConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_flow_config is None and 'appFlowConfig' in kwargs:
+            app_flow_config = kwargs['appFlowConfig']
+        if cloudwatch_config is None and 'cloudwatchConfig' in kwargs:
+            cloudwatch_config = kwargs['cloudwatchConfig']
+        if rds_source_config is None and 'rdsSourceConfig' in kwargs:
+            rds_source_config = kwargs['rdsSourceConfig']
+        if redshift_source_config is None and 'redshiftSourceConfig' in kwargs:
+            redshift_source_config = kwargs['redshiftSourceConfig']
+        if s3_source_config is None and 's3SourceConfig' in kwargs:
+            s3_source_config = kwargs['s3SourceConfig']
+
         if app_flow_config is not None:
             _setter("app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
@@ -896,15 +1008,49 @@ class AnomalyDetectorRdsSourceConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_host: str,
-             database_name: str,
-             database_port: int,
-             db_instance_identifier: str,
-             role_arn: str,
-             secret_manager_arn: str,
-             table_name: str,
-             vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             database_host: Optional[str] = None,
+             database_name: Optional[str] = None,
+             database_port: Optional[int] = None,
+             db_instance_identifier: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             secret_manager_arn: Optional[str] = None,
+             table_name: Optional[str] = None,
+             vpc_configuration: Optional['outputs.AnomalyDetectorVpcConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_host is None and 'databaseHost' in kwargs:
+            database_host = kwargs['databaseHost']
+        if database_host is None:
+            raise TypeError("Missing 'database_host' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if database_port is None and 'databasePort' in kwargs:
+            database_port = kwargs['databasePort']
+        if database_port is None:
+            raise TypeError("Missing 'database_port' argument")
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if db_instance_identifier is None:
+            raise TypeError("Missing 'db_instance_identifier' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if secret_manager_arn is None and 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if secret_manager_arn is None:
+            raise TypeError("Missing 'secret_manager_arn' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+        if vpc_configuration is None:
+            raise TypeError("Missing 'vpc_configuration' argument")
+
         _setter("database_host", database_host)
         _setter("database_name", database_name)
         _setter("database_port", database_port)
@@ -1011,15 +1157,49 @@ class AnomalyDetectorRedshiftSourceConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_identifier: str,
-             database_host: str,
-             database_name: str,
-             database_port: int,
-             role_arn: str,
-             secret_manager_arn: str,
-             table_name: str,
-             vpc_configuration: 'outputs.AnomalyDetectorVpcConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cluster_identifier: Optional[str] = None,
+             database_host: Optional[str] = None,
+             database_name: Optional[str] = None,
+             database_port: Optional[int] = None,
+             role_arn: Optional[str] = None,
+             secret_manager_arn: Optional[str] = None,
+             table_name: Optional[str] = None,
+             vpc_configuration: Optional['outputs.AnomalyDetectorVpcConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_identifier is None:
+            raise TypeError("Missing 'cluster_identifier' argument")
+        if database_host is None and 'databaseHost' in kwargs:
+            database_host = kwargs['databaseHost']
+        if database_host is None:
+            raise TypeError("Missing 'database_host' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if database_port is None and 'databasePort' in kwargs:
+            database_port = kwargs['databasePort']
+        if database_port is None:
+            raise TypeError("Missing 'database_port' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if secret_manager_arn is None and 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if secret_manager_arn is None:
+            raise TypeError("Missing 'secret_manager_arn' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+        if vpc_configuration is None:
+            raise TypeError("Missing 'vpc_configuration' argument")
+
         _setter("cluster_identifier", cluster_identifier)
         _setter("database_host", database_host)
         _setter("database_name", database_name)
@@ -1110,11 +1290,25 @@ class AnomalyDetectorS3SourceConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_format_descriptor: 'outputs.AnomalyDetectorFileFormatDescriptor',
-             role_arn: str,
+             file_format_descriptor: Optional['outputs.AnomalyDetectorFileFormatDescriptor'] = None,
+             role_arn: Optional[str] = None,
              historical_data_path_list: Optional[Sequence[str]] = None,
              templated_path_list: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_format_descriptor is None and 'fileFormatDescriptor' in kwargs:
+            file_format_descriptor = kwargs['fileFormatDescriptor']
+        if file_format_descriptor is None:
+            raise TypeError("Missing 'file_format_descriptor' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if historical_data_path_list is None and 'historicalDataPathList' in kwargs:
+            historical_data_path_list = kwargs['historicalDataPathList']
+        if templated_path_list is None and 'templatedPathList' in kwargs:
+            templated_path_list = kwargs['templatedPathList']
+
         _setter("file_format_descriptor", file_format_descriptor)
         _setter("role_arn", role_arn)
         if historical_data_path_list is not None:
@@ -1180,7 +1374,13 @@ class AnomalyDetectorTimestampColumn(dict):
              _setter: Callable[[Any, Any], None],
              column_format: Optional[str] = None,
              column_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_format is None and 'columnFormat' in kwargs:
+            column_format = kwargs['columnFormat']
+        if column_name is None and 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+
         if column_format is not None:
             _setter("column_format", column_format)
         if column_name is not None:
@@ -1232,9 +1432,19 @@ class AnomalyDetectorVpcConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_id_list: Sequence[str],
-             subnet_id_list: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_group_id_list: Optional[Sequence[str]] = None,
+             subnet_id_list: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_id_list is None and 'securityGroupIdList' in kwargs:
+            security_group_id_list = kwargs['securityGroupIdList']
+        if security_group_id_list is None:
+            raise TypeError("Missing 'security_group_id_list' argument")
+        if subnet_id_list is None and 'subnetIdList' in kwargs:
+            subnet_id_list = kwargs['subnetIdList']
+        if subnet_id_list is None:
+            raise TypeError("Missing 'subnet_id_list' argument")
+
         _setter("security_group_id_list", security_group_id_list)
         _setter("subnet_id_list", subnet_id_list)
 

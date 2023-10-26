@@ -41,15 +41,37 @@ class WorkspaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bundle_id: pulumi.Input[str],
-             directory_id: pulumi.Input[str],
-             user_name: pulumi.Input[str],
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             directory_id: Optional[pulumi.Input[str]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
              root_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
              user_volume_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              volume_encryption_key: Optional[pulumi.Input[str]] = None,
              workspace_properties: Optional[pulumi.Input['WorkspacePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_id is None:
+            raise TypeError("Missing 'directory_id' argument")
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+        if user_name is None:
+            raise TypeError("Missing 'user_name' argument")
+        if root_volume_encryption_enabled is None and 'rootVolumeEncryptionEnabled' in kwargs:
+            root_volume_encryption_enabled = kwargs['rootVolumeEncryptionEnabled']
+        if user_volume_encryption_enabled is None and 'userVolumeEncryptionEnabled' in kwargs:
+            user_volume_encryption_enabled = kwargs['userVolumeEncryptionEnabled']
+        if volume_encryption_key is None and 'volumeEncryptionKey' in kwargs:
+            volume_encryption_key = kwargs['volumeEncryptionKey']
+        if workspace_properties is None and 'workspaceProperties' in kwargs:
+            workspace_properties = kwargs['workspaceProperties']
+
         _setter("bundle_id", bundle_id)
         _setter("directory_id", directory_id)
         _setter("user_name", user_name)
@@ -221,11 +243,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["user_volume_encryption_enabled"] = user_volume_encryption_enabled
             __props__.__dict__["volume_encryption_key"] = volume_encryption_key
-            if workspace_properties is not None and not isinstance(workspace_properties, WorkspacePropertiesArgs):
-                workspace_properties = workspace_properties or {}
-                def _setter(key, value):
-                    workspace_properties[key] = value
-                WorkspacePropertiesArgs._configure(_setter, **workspace_properties)
+            workspace_properties = _utilities.configure(workspace_properties, WorkspacePropertiesArgs, True)
             __props__.__dict__["workspace_properties"] = workspace_properties
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["user_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

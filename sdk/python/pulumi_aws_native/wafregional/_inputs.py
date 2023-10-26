@@ -45,12 +45,30 @@ class ByteMatchSetByteMatchTupleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: pulumi.Input['ByteMatchSetFieldToMatchArgs'],
-             positional_constraint: pulumi.Input[str],
-             text_transformation: pulumi.Input[str],
+             field_to_match: Optional[pulumi.Input['ByteMatchSetFieldToMatchArgs']] = None,
+             positional_constraint: Optional[pulumi.Input[str]] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
              target_string: Optional[pulumi.Input[str]] = None,
              target_string_base64: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if positional_constraint is None and 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if positional_constraint is None:
+            raise TypeError("Missing 'positional_constraint' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+        if target_string is None and 'targetString' in kwargs:
+            target_string = kwargs['targetString']
+        if target_string_base64 is None and 'targetStringBase64' in kwargs:
+            target_string_base64 = kwargs['targetStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformation", text_transformation)
@@ -118,9 +136,13 @@ class ByteMatchSetFieldToMatchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -157,9 +179,15 @@ class GeoMatchSetGeoMatchConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -195,9 +223,15 @@ class IpSetIpSetDescriptorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -235,10 +269,20 @@ class RateBasedRulePredicateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_id: pulumi.Input[str],
-             negated: pulumi.Input[bool],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             data_id: Optional[pulumi.Input[str]] = None,
+             negated: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_id is None and 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+        if data_id is None:
+            raise TypeError("Missing 'data_id' argument")
+        if negated is None:
+            raise TypeError("Missing 'negated' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("data_id", data_id)
         _setter("negated", negated)
         _setter("type", type)
@@ -286,10 +330,20 @@ class RulePredicateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_id: pulumi.Input[str],
-             negated: pulumi.Input[bool],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             data_id: Optional[pulumi.Input[str]] = None,
+             negated: Optional[pulumi.Input[bool]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_id is None and 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+        if data_id is None:
+            raise TypeError("Missing 'data_id' argument")
+        if negated is None:
+            raise TypeError("Missing 'negated' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("data_id", data_id)
         _setter("negated", negated)
         _setter("type", type)
@@ -335,9 +389,13 @@ class SizeConstraintSetFieldToMatchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -378,11 +436,27 @@ class SizeConstraintSetSizeConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             field_to_match: pulumi.Input['SizeConstraintSetFieldToMatchArgs'],
-             size: pulumi.Input[int],
-             text_transformation: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             field_to_match: Optional[pulumi.Input['SizeConstraintSetFieldToMatchArgs']] = None,
+             size: Optional[pulumi.Input[int]] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -438,9 +512,13 @@ class SqlInjectionMatchSetFieldToMatchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -477,9 +555,19 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: pulumi.Input['SqlInjectionMatchSetFieldToMatchArgs'],
-             text_transformation: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional[pulumi.Input['SqlInjectionMatchSetFieldToMatchArgs']] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformation", text_transformation)
 
@@ -513,8 +601,12 @@ class WebAclActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
 
     @property
@@ -542,10 +634,20 @@ class WebAclRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['WebAclActionArgs'],
-             priority: pulumi.Input[int],
-             rule_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action: Optional[pulumi.Input['WebAclActionArgs']] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             rule_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if rule_id is None:
+            raise TypeError("Missing 'rule_id' argument")
+
         _setter("action", action)
         _setter("priority", priority)
         _setter("rule_id", rule_id)
@@ -591,9 +693,13 @@ class XssMatchSetFieldToMatchArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -630,9 +736,19 @@ class XssMatchSetXssMatchTupleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: pulumi.Input['XssMatchSetFieldToMatchArgs'],
-             text_transformation: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional[pulumi.Input['XssMatchSetFieldToMatchArgs']] = None,
+             text_transformation: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformation", text_transformation)
 

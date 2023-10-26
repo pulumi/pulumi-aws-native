@@ -36,12 +36,22 @@ class TemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connector_arn: pulumi.Input[str],
-             definition: pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']],
+             connector_arn: Optional[pulumi.Input[str]] = None,
+             definition: Optional[pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']]] = None,
              name: Optional[pulumi.Input[str]] = None,
              reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input['TemplateTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_arn is None and 'connectorArn' in kwargs:
+            connector_arn = kwargs['connectorArn']
+        if connector_arn is None:
+            raise TypeError("Missing 'connector_arn' argument")
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if reenroll_all_certificate_holders is None and 'reenrollAllCertificateHolders' in kwargs:
+            reenroll_all_certificate_holders = kwargs['reenrollAllCertificateHolders']
+
         _setter("connector_arn", connector_arn)
         _setter("definition", definition)
         if name is not None:
@@ -164,11 +174,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["reenroll_all_certificate_holders"] = reenroll_all_certificate_holders
-            if tags is not None and not isinstance(tags, TemplateTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                TemplateTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, TemplateTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_arn", "name"])

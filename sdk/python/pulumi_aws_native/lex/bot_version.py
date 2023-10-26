@@ -31,10 +31,20 @@ class BotVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bot_id: pulumi.Input[str],
-             bot_version_locale_specification: pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]],
+             bot_id: Optional[pulumi.Input[str]] = None,
+             bot_version_locale_specification: Optional[pulumi.Input[Sequence[pulumi.Input['BotVersionLocaleSpecificationArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bot_id is None and 'botId' in kwargs:
+            bot_id = kwargs['botId']
+        if bot_id is None:
+            raise TypeError("Missing 'bot_id' argument")
+        if bot_version_locale_specification is None and 'botVersionLocaleSpecification' in kwargs:
+            bot_version_locale_specification = kwargs['botVersionLocaleSpecification']
+        if bot_version_locale_specification is None:
+            raise TypeError("Missing 'bot_version_locale_specification' argument")
+
         _setter("bot_id", bot_id)
         _setter("bot_version_locale_specification", bot_version_locale_specification)
         if description is not None:

@@ -68,7 +68,35 @@ class DeliveryStreamArgs:
              s3_destination_configuration: Optional[pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']] = None,
              splunk_destination_configuration: Optional[pulumi.Input['DeliveryStreamSplunkDestinationConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryStreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amazon_open_search_serverless_destination_configuration is None and 'amazonOpenSearchServerlessDestinationConfiguration' in kwargs:
+            amazon_open_search_serverless_destination_configuration = kwargs['amazonOpenSearchServerlessDestinationConfiguration']
+        if amazonopensearchservice_destination_configuration is None and 'amazonopensearchserviceDestinationConfiguration' in kwargs:
+            amazonopensearchservice_destination_configuration = kwargs['amazonopensearchserviceDestinationConfiguration']
+        if delivery_stream_encryption_configuration_input is None and 'deliveryStreamEncryptionConfigurationInput' in kwargs:
+            delivery_stream_encryption_configuration_input = kwargs['deliveryStreamEncryptionConfigurationInput']
+        if delivery_stream_name is None and 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if delivery_stream_type is None and 'deliveryStreamType' in kwargs:
+            delivery_stream_type = kwargs['deliveryStreamType']
+        if elasticsearch_destination_configuration is None and 'elasticsearchDestinationConfiguration' in kwargs:
+            elasticsearch_destination_configuration = kwargs['elasticsearchDestinationConfiguration']
+        if extended_s3_destination_configuration is None and 'extendedS3DestinationConfiguration' in kwargs:
+            extended_s3_destination_configuration = kwargs['extendedS3DestinationConfiguration']
+        if http_endpoint_destination_configuration is None and 'httpEndpointDestinationConfiguration' in kwargs:
+            http_endpoint_destination_configuration = kwargs['httpEndpointDestinationConfiguration']
+        if kinesis_stream_source_configuration is None and 'kinesisStreamSourceConfiguration' in kwargs:
+            kinesis_stream_source_configuration = kwargs['kinesisStreamSourceConfiguration']
+        if msk_source_configuration is None and 'mskSourceConfiguration' in kwargs:
+            msk_source_configuration = kwargs['mskSourceConfiguration']
+        if redshift_destination_configuration is None and 'redshiftDestinationConfiguration' in kwargs:
+            redshift_destination_configuration = kwargs['redshiftDestinationConfiguration']
+        if s3_destination_configuration is None and 's3DestinationConfiguration' in kwargs:
+            s3_destination_configuration = kwargs['s3DestinationConfiguration']
+        if splunk_destination_configuration is None and 'splunkDestinationConfiguration' in kwargs:
+            splunk_destination_configuration = kwargs['splunkDestinationConfiguration']
+
         if amazon_open_search_serverless_destination_configuration is not None:
             _setter("amazon_open_search_serverless_destination_configuration", amazon_open_search_serverless_destination_configuration)
         if amazonopensearchservice_destination_configuration is not None:
@@ -302,73 +330,29 @@ class DeliveryStream(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeliveryStreamArgs.__new__(DeliveryStreamArgs)
 
-            if amazon_open_search_serverless_destination_configuration is not None and not isinstance(amazon_open_search_serverless_destination_configuration, DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs):
-                amazon_open_search_serverless_destination_configuration = amazon_open_search_serverless_destination_configuration or {}
-                def _setter(key, value):
-                    amazon_open_search_serverless_destination_configuration[key] = value
-                DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs._configure(_setter, **amazon_open_search_serverless_destination_configuration)
+            amazon_open_search_serverless_destination_configuration = _utilities.configure(amazon_open_search_serverless_destination_configuration, DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs, True)
             __props__.__dict__["amazon_open_search_serverless_destination_configuration"] = amazon_open_search_serverless_destination_configuration
-            if amazonopensearchservice_destination_configuration is not None and not isinstance(amazonopensearchservice_destination_configuration, DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs):
-                amazonopensearchservice_destination_configuration = amazonopensearchservice_destination_configuration or {}
-                def _setter(key, value):
-                    amazonopensearchservice_destination_configuration[key] = value
-                DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs._configure(_setter, **amazonopensearchservice_destination_configuration)
+            amazonopensearchservice_destination_configuration = _utilities.configure(amazonopensearchservice_destination_configuration, DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs, True)
             __props__.__dict__["amazonopensearchservice_destination_configuration"] = amazonopensearchservice_destination_configuration
-            if delivery_stream_encryption_configuration_input is not None and not isinstance(delivery_stream_encryption_configuration_input, DeliveryStreamEncryptionConfigurationInputArgs):
-                delivery_stream_encryption_configuration_input = delivery_stream_encryption_configuration_input or {}
-                def _setter(key, value):
-                    delivery_stream_encryption_configuration_input[key] = value
-                DeliveryStreamEncryptionConfigurationInputArgs._configure(_setter, **delivery_stream_encryption_configuration_input)
+            delivery_stream_encryption_configuration_input = _utilities.configure(delivery_stream_encryption_configuration_input, DeliveryStreamEncryptionConfigurationInputArgs, True)
             __props__.__dict__["delivery_stream_encryption_configuration_input"] = delivery_stream_encryption_configuration_input
             __props__.__dict__["delivery_stream_name"] = delivery_stream_name
             __props__.__dict__["delivery_stream_type"] = delivery_stream_type
-            if elasticsearch_destination_configuration is not None and not isinstance(elasticsearch_destination_configuration, DeliveryStreamElasticsearchDestinationConfigurationArgs):
-                elasticsearch_destination_configuration = elasticsearch_destination_configuration or {}
-                def _setter(key, value):
-                    elasticsearch_destination_configuration[key] = value
-                DeliveryStreamElasticsearchDestinationConfigurationArgs._configure(_setter, **elasticsearch_destination_configuration)
+            elasticsearch_destination_configuration = _utilities.configure(elasticsearch_destination_configuration, DeliveryStreamElasticsearchDestinationConfigurationArgs, True)
             __props__.__dict__["elasticsearch_destination_configuration"] = elasticsearch_destination_configuration
-            if extended_s3_destination_configuration is not None and not isinstance(extended_s3_destination_configuration, DeliveryStreamExtendedS3DestinationConfigurationArgs):
-                extended_s3_destination_configuration = extended_s3_destination_configuration or {}
-                def _setter(key, value):
-                    extended_s3_destination_configuration[key] = value
-                DeliveryStreamExtendedS3DestinationConfigurationArgs._configure(_setter, **extended_s3_destination_configuration)
+            extended_s3_destination_configuration = _utilities.configure(extended_s3_destination_configuration, DeliveryStreamExtendedS3DestinationConfigurationArgs, True)
             __props__.__dict__["extended_s3_destination_configuration"] = extended_s3_destination_configuration
-            if http_endpoint_destination_configuration is not None and not isinstance(http_endpoint_destination_configuration, DeliveryStreamHttpEndpointDestinationConfigurationArgs):
-                http_endpoint_destination_configuration = http_endpoint_destination_configuration or {}
-                def _setter(key, value):
-                    http_endpoint_destination_configuration[key] = value
-                DeliveryStreamHttpEndpointDestinationConfigurationArgs._configure(_setter, **http_endpoint_destination_configuration)
+            http_endpoint_destination_configuration = _utilities.configure(http_endpoint_destination_configuration, DeliveryStreamHttpEndpointDestinationConfigurationArgs, True)
             __props__.__dict__["http_endpoint_destination_configuration"] = http_endpoint_destination_configuration
-            if kinesis_stream_source_configuration is not None and not isinstance(kinesis_stream_source_configuration, DeliveryStreamKinesisStreamSourceConfigurationArgs):
-                kinesis_stream_source_configuration = kinesis_stream_source_configuration or {}
-                def _setter(key, value):
-                    kinesis_stream_source_configuration[key] = value
-                DeliveryStreamKinesisStreamSourceConfigurationArgs._configure(_setter, **kinesis_stream_source_configuration)
+            kinesis_stream_source_configuration = _utilities.configure(kinesis_stream_source_configuration, DeliveryStreamKinesisStreamSourceConfigurationArgs, True)
             __props__.__dict__["kinesis_stream_source_configuration"] = kinesis_stream_source_configuration
-            if msk_source_configuration is not None and not isinstance(msk_source_configuration, DeliveryStreamMskSourceConfigurationArgs):
-                msk_source_configuration = msk_source_configuration or {}
-                def _setter(key, value):
-                    msk_source_configuration[key] = value
-                DeliveryStreamMskSourceConfigurationArgs._configure(_setter, **msk_source_configuration)
+            msk_source_configuration = _utilities.configure(msk_source_configuration, DeliveryStreamMskSourceConfigurationArgs, True)
             __props__.__dict__["msk_source_configuration"] = msk_source_configuration
-            if redshift_destination_configuration is not None and not isinstance(redshift_destination_configuration, DeliveryStreamRedshiftDestinationConfigurationArgs):
-                redshift_destination_configuration = redshift_destination_configuration or {}
-                def _setter(key, value):
-                    redshift_destination_configuration[key] = value
-                DeliveryStreamRedshiftDestinationConfigurationArgs._configure(_setter, **redshift_destination_configuration)
+            redshift_destination_configuration = _utilities.configure(redshift_destination_configuration, DeliveryStreamRedshiftDestinationConfigurationArgs, True)
             __props__.__dict__["redshift_destination_configuration"] = redshift_destination_configuration
-            if s3_destination_configuration is not None and not isinstance(s3_destination_configuration, DeliveryStreamS3DestinationConfigurationArgs):
-                s3_destination_configuration = s3_destination_configuration or {}
-                def _setter(key, value):
-                    s3_destination_configuration[key] = value
-                DeliveryStreamS3DestinationConfigurationArgs._configure(_setter, **s3_destination_configuration)
+            s3_destination_configuration = _utilities.configure(s3_destination_configuration, DeliveryStreamS3DestinationConfigurationArgs, True)
             __props__.__dict__["s3_destination_configuration"] = s3_destination_configuration
-            if splunk_destination_configuration is not None and not isinstance(splunk_destination_configuration, DeliveryStreamSplunkDestinationConfigurationArgs):
-                splunk_destination_configuration = splunk_destination_configuration or {}
-                def _setter(key, value):
-                    splunk_destination_configuration[key] = value
-                DeliveryStreamSplunkDestinationConfigurationArgs._configure(_setter, **splunk_destination_configuration)
+            splunk_destination_configuration = _utilities.configure(splunk_destination_configuration, DeliveryStreamSplunkDestinationConfigurationArgs, True)
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

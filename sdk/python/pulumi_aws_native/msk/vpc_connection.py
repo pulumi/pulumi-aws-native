@@ -39,13 +39,33 @@ class VpcConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input['VpcConnectionAuthentication'],
-             client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
-             target_cluster_arn: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
+             authentication: Optional[pulumi.Input['VpcConnectionAuthentication']] = None,
+             client_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             target_cluster_arn: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['VpcConnectionTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if client_subnets is None and 'clientSubnets' in kwargs:
+            client_subnets = kwargs['clientSubnets']
+        if client_subnets is None:
+            raise TypeError("Missing 'client_subnets' argument")
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if security_groups is None:
+            raise TypeError("Missing 'security_groups' argument")
+        if target_cluster_arn is None and 'targetClusterArn' in kwargs:
+            target_cluster_arn = kwargs['targetClusterArn']
+        if target_cluster_arn is None:
+            raise TypeError("Missing 'target_cluster_arn' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
         _setter("authentication", authentication)
         _setter("client_subnets", client_subnets)
         _setter("security_groups", security_groups)
@@ -183,11 +203,7 @@ class VpcConnection(pulumi.CustomResource):
             if security_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'security_groups'")
             __props__.__dict__["security_groups"] = security_groups
-            if tags is not None and not isinstance(tags, VpcConnectionTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                VpcConnectionTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, VpcConnectionTagsArgs, True)
             __props__.__dict__["tags"] = tags
             if target_cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_cluster_arn'")

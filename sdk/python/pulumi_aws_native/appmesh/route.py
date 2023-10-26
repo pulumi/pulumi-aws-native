@@ -37,13 +37,29 @@ class RouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mesh_name: pulumi.Input[str],
-             spec: pulumi.Input['RouteSpecArgs'],
-             virtual_router_name: pulumi.Input[str],
+             mesh_name: Optional[pulumi.Input[str]] = None,
+             spec: Optional[pulumi.Input['RouteSpecArgs']] = None,
+             virtual_router_name: Optional[pulumi.Input[str]] = None,
              mesh_owner: Optional[pulumi.Input[str]] = None,
              route_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mesh_name is None and 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if mesh_name is None:
+            raise TypeError("Missing 'mesh_name' argument")
+        if spec is None:
+            raise TypeError("Missing 'spec' argument")
+        if virtual_router_name is None and 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+        if virtual_router_name is None:
+            raise TypeError("Missing 'virtual_router_name' argument")
+        if mesh_owner is None and 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+        if route_name is None and 'routeName' in kwargs:
+            route_name = kwargs['routeName']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         _setter("virtual_router_name", virtual_router_name)
@@ -181,11 +197,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
             __props__.__dict__["route_name"] = route_name
-            if spec is not None and not isinstance(spec, RouteSpecArgs):
-                spec = spec or {}
-                def _setter(key, value):
-                    spec[key] = value
-                RouteSpecArgs._configure(_setter, **spec)
+            spec = _utilities.configure(spec, RouteSpecArgs, True)
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec

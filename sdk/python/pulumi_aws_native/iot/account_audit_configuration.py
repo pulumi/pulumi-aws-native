@@ -35,11 +35,27 @@ class AccountAuditConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             audit_check_configurations: pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'],
-             role_arn: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             audit_check_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              audit_notification_target_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if audit_check_configurations is None and 'auditCheckConfigurations' in kwargs:
+            audit_check_configurations = kwargs['auditCheckConfigurations']
+        if audit_check_configurations is None:
+            raise TypeError("Missing 'audit_check_configurations' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if audit_notification_target_configurations is None and 'auditNotificationTargetConfigurations' in kwargs:
+            audit_notification_target_configurations = kwargs['auditNotificationTargetConfigurations']
+
         _setter("account_id", account_id)
         _setter("audit_check_configurations", audit_check_configurations)
         _setter("role_arn", role_arn)
@@ -151,19 +167,11 @@ class AccountAuditConfiguration(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
-            if audit_check_configurations is not None and not isinstance(audit_check_configurations, AccountAuditConfigurationAuditCheckConfigurationsArgs):
-                audit_check_configurations = audit_check_configurations or {}
-                def _setter(key, value):
-                    audit_check_configurations[key] = value
-                AccountAuditConfigurationAuditCheckConfigurationsArgs._configure(_setter, **audit_check_configurations)
+            audit_check_configurations = _utilities.configure(audit_check_configurations, AccountAuditConfigurationAuditCheckConfigurationsArgs, True)
             if audit_check_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'audit_check_configurations'")
             __props__.__dict__["audit_check_configurations"] = audit_check_configurations
-            if audit_notification_target_configurations is not None and not isinstance(audit_notification_target_configurations, AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs):
-                audit_notification_target_configurations = audit_notification_target_configurations or {}
-                def _setter(key, value):
-                    audit_notification_target_configurations[key] = value
-                AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs._configure(_setter, **audit_notification_target_configurations)
+            audit_notification_target_configurations = _utilities.configure(audit_notification_target_configurations, AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs, True)
             __props__.__dict__["audit_notification_target_configurations"] = audit_notification_target_configurations
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

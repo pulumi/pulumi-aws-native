@@ -56,7 +56,13 @@ class ApplicationApiGatewayProxyInput(dict):
              _setter: Callable[[Any, Any], None],
              endpoint_type: Optional['ApplicationApiGatewayEndpointType'] = None,
              stage_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if stage_name is None and 'stageName' in kwargs:
+            stage_name = kwargs['stageName']
+
         if endpoint_type is not None:
             _setter("endpoint_type", endpoint_type)
         if stage_name is not None:
@@ -94,9 +100,15 @@ class ApplicationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -138,9 +150,15 @@ class EnvironmentTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -189,8 +207,14 @@ class RouteDefaultRouteInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             activation_state: 'RouteActivationState',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             activation_state: Optional['RouteActivationState'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_state is None and 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if activation_state is None:
+            raise TypeError("Missing 'activation_state' argument")
+
         _setter("activation_state", activation_state)
 
     @property
@@ -220,9 +244,15 @@ class RouteTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -285,12 +315,24 @@ class RouteUriPathRouteInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             activation_state: 'RouteActivationState',
+             activation_state: Optional['RouteActivationState'] = None,
              append_source_path: Optional[bool] = None,
              include_child_paths: Optional[bool] = None,
              methods: Optional[Sequence['RouteMethod']] = None,
              source_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_state is None and 'activationState' in kwargs:
+            activation_state = kwargs['activationState']
+        if activation_state is None:
+            raise TypeError("Missing 'activation_state' argument")
+        if append_source_path is None and 'appendSourcePath' in kwargs:
+            append_source_path = kwargs['appendSourcePath']
+        if include_child_paths is None and 'includeChildPaths' in kwargs:
+            include_child_paths = kwargs['includeChildPaths']
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+
         _setter("activation_state", activation_state)
         if append_source_path is not None:
             _setter("append_source_path", append_source_path)
@@ -338,8 +380,12 @@ class ServiceLambdaEndpointInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+
         _setter("arn", arn)
 
     @property
@@ -369,9 +415,15 @@ class ServiceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -422,9 +474,15 @@ class ServiceUrlEndpointInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             url: str,
+             url: Optional[str] = None,
              health_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if health_url is None and 'healthUrl' in kwargs:
+            health_url = kwargs['healthUrl']
+
         _setter("url", url)
         if health_url is not None:
             _setter("health_url", health_url)

@@ -41,14 +41,36 @@ class RouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_identifier: pulumi.Input[str],
-             environment_identifier: pulumi.Input[str],
-             route_type: pulumi.Input['RouteType'],
-             service_identifier: pulumi.Input[str],
+             application_identifier: Optional[pulumi.Input[str]] = None,
+             environment_identifier: Optional[pulumi.Input[str]] = None,
+             route_type: Optional[pulumi.Input['RouteType']] = None,
+             service_identifier: Optional[pulumi.Input[str]] = None,
              default_route: Optional[pulumi.Input['RouteDefaultRouteInputArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteTagArgs']]]] = None,
              uri_path_route: Optional[pulumi.Input['RouteUriPathRouteInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_identifier is None and 'applicationIdentifier' in kwargs:
+            application_identifier = kwargs['applicationIdentifier']
+        if application_identifier is None:
+            raise TypeError("Missing 'application_identifier' argument")
+        if environment_identifier is None and 'environmentIdentifier' in kwargs:
+            environment_identifier = kwargs['environmentIdentifier']
+        if environment_identifier is None:
+            raise TypeError("Missing 'environment_identifier' argument")
+        if route_type is None and 'routeType' in kwargs:
+            route_type = kwargs['routeType']
+        if route_type is None:
+            raise TypeError("Missing 'route_type' argument")
+        if service_identifier is None and 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+        if service_identifier is None:
+            raise TypeError("Missing 'service_identifier' argument")
+        if default_route is None and 'defaultRoute' in kwargs:
+            default_route = kwargs['defaultRoute']
+        if uri_path_route is None and 'uriPathRoute' in kwargs:
+            uri_path_route = kwargs['uriPathRoute']
+
         _setter("application_identifier", application_identifier)
         _setter("environment_identifier", environment_identifier)
         _setter("route_type", route_type)
@@ -194,11 +216,7 @@ class Route(pulumi.CustomResource):
             if application_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'application_identifier'")
             __props__.__dict__["application_identifier"] = application_identifier
-            if default_route is not None and not isinstance(default_route, RouteDefaultRouteInputArgs):
-                default_route = default_route or {}
-                def _setter(key, value):
-                    default_route[key] = value
-                RouteDefaultRouteInputArgs._configure(_setter, **default_route)
+            default_route = _utilities.configure(default_route, RouteDefaultRouteInputArgs, True)
             __props__.__dict__["default_route"] = default_route
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
@@ -210,11 +228,7 @@ class Route(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_identifier'")
             __props__.__dict__["service_identifier"] = service_identifier
             __props__.__dict__["tags"] = tags
-            if uri_path_route is not None and not isinstance(uri_path_route, RouteUriPathRouteInputArgs):
-                uri_path_route = uri_path_route or {}
-                def _setter(key, value):
-                    uri_path_route[key] = value
-                RouteUriPathRouteInputArgs._configure(_setter, **uri_path_route)
+            uri_path_route = _utilities.configure(uri_path_route, RouteUriPathRouteInputArgs, True)
             __props__.__dict__["uri_path_route"] = uri_path_route
             __props__.__dict__["arn"] = None
             __props__.__dict__["path_resource_to_id"] = None

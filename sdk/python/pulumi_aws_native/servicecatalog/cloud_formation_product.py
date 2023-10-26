@@ -51,7 +51,7 @@ class CloudFormationProductArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner: pulumi.Input[str],
+             owner: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              distributor: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,27 @@ class CloudFormationProductArgs:
              support_email: Optional[pulumi.Input[str]] = None,
              support_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProductTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner is None:
+            raise TypeError("Missing 'owner' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if product_type is None and 'productType' in kwargs:
+            product_type = kwargs['productType']
+        if provisioning_artifact_parameters is None and 'provisioningArtifactParameters' in kwargs:
+            provisioning_artifact_parameters = kwargs['provisioningArtifactParameters']
+        if replace_provisioning_artifacts is None and 'replaceProvisioningArtifacts' in kwargs:
+            replace_provisioning_artifacts = kwargs['replaceProvisioningArtifacts']
+        if source_connection is None and 'sourceConnection' in kwargs:
+            source_connection = kwargs['sourceConnection']
+        if support_description is None and 'supportDescription' in kwargs:
+            support_description = kwargs['supportDescription']
+        if support_email is None and 'supportEmail' in kwargs:
+            support_email = kwargs['supportEmail']
+        if support_url is None and 'supportUrl' in kwargs:
+            support_url = kwargs['supportUrl']
+
         _setter("owner", owner)
         if accept_language is not None:
             _setter("accept_language", accept_language)
@@ -300,11 +320,7 @@ class CloudFormationProduct(pulumi.CustomResource):
             __props__.__dict__["product_type"] = product_type
             __props__.__dict__["provisioning_artifact_parameters"] = provisioning_artifact_parameters
             __props__.__dict__["replace_provisioning_artifacts"] = replace_provisioning_artifacts
-            if source_connection is not None and not isinstance(source_connection, CloudFormationProductSourceConnectionArgs):
-                source_connection = source_connection or {}
-                def _setter(key, value):
-                    source_connection[key] = value
-                CloudFormationProductSourceConnectionArgs._configure(_setter, **source_connection)
+            source_connection = _utilities.configure(source_connection, CloudFormationProductSourceConnectionArgs, True)
             __props__.__dict__["source_connection"] = source_connection
             __props__.__dict__["support_description"] = support_description
             __props__.__dict__["support_email"] = support_email

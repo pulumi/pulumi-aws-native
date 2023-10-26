@@ -46,17 +46,37 @@ class NotificationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detail_type: pulumi.Input['NotificationRuleDetailType'],
-             event_type_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource: pulumi.Input[str],
-             targets: pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]],
+             detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
+             event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]] = None,
              created_by: Optional[pulumi.Input[str]] = None,
              event_type_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
              tags: Optional[Any] = None,
              target_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detail_type is None and 'detailType' in kwargs:
+            detail_type = kwargs['detailType']
+        if detail_type is None:
+            raise TypeError("Missing 'detail_type' argument")
+        if event_type_ids is None and 'eventTypeIds' in kwargs:
+            event_type_ids = kwargs['eventTypeIds']
+        if event_type_ids is None:
+            raise TypeError("Missing 'event_type_ids' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+        if created_by is None and 'createdBy' in kwargs:
+            created_by = kwargs['createdBy']
+        if event_type_id is None and 'eventTypeId' in kwargs:
+            event_type_id = kwargs['eventTypeId']
+        if target_address is None and 'targetAddress' in kwargs:
+            target_address = kwargs['targetAddress']
+
         _setter("detail_type", detail_type)
         _setter("event_type_ids", event_type_ids)
         _setter("resource", resource)

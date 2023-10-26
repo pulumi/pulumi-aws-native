@@ -49,15 +49,31 @@ class DataIntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kms_key: pulumi.Input[str],
-             source_uri: pulumi.Input[str],
+             kms_key: Optional[pulumi.Input[str]] = None,
+             source_uri: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              file_configuration: Optional[pulumi.Input['DataIntegrationFileConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              object_configuration: Optional[pulumi.Input['DataIntegrationObjectConfigurationArgs']] = None,
              schedule_config: Optional[pulumi.Input['DataIntegrationScheduleConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataIntegrationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if kms_key is None:
+            raise TypeError("Missing 'kms_key' argument")
+        if source_uri is None and 'sourceUri' in kwargs:
+            source_uri = kwargs['sourceUri']
+        if source_uri is None:
+            raise TypeError("Missing 'source_uri' argument")
+        if file_configuration is None and 'fileConfiguration' in kwargs:
+            file_configuration = kwargs['fileConfiguration']
+        if object_configuration is None and 'objectConfiguration' in kwargs:
+            object_configuration = kwargs['objectConfiguration']
+        if schedule_config is None and 'scheduleConfig' in kwargs:
+            schedule_config = kwargs['scheduleConfig']
+
         _setter("kms_key", kms_key)
         _setter("source_uri", source_uri)
         if description is not None:
@@ -244,27 +260,15 @@ class DataIntegration(pulumi.CustomResource):
             __props__ = DataIntegrationArgs.__new__(DataIntegrationArgs)
 
             __props__.__dict__["description"] = description
-            if file_configuration is not None and not isinstance(file_configuration, DataIntegrationFileConfigurationArgs):
-                file_configuration = file_configuration or {}
-                def _setter(key, value):
-                    file_configuration[key] = value
-                DataIntegrationFileConfigurationArgs._configure(_setter, **file_configuration)
+            file_configuration = _utilities.configure(file_configuration, DataIntegrationFileConfigurationArgs, True)
             __props__.__dict__["file_configuration"] = file_configuration
             if kms_key is None and not opts.urn:
                 raise TypeError("Missing required property 'kms_key'")
             __props__.__dict__["kms_key"] = kms_key
             __props__.__dict__["name"] = name
-            if object_configuration is not None and not isinstance(object_configuration, DataIntegrationObjectConfigurationArgs):
-                object_configuration = object_configuration or {}
-                def _setter(key, value):
-                    object_configuration[key] = value
-                DataIntegrationObjectConfigurationArgs._configure(_setter, **object_configuration)
+            object_configuration = _utilities.configure(object_configuration, DataIntegrationObjectConfigurationArgs, True)
             __props__.__dict__["object_configuration"] = object_configuration
-            if schedule_config is not None and not isinstance(schedule_config, DataIntegrationScheduleConfigArgs):
-                schedule_config = schedule_config or {}
-                def _setter(key, value):
-                    schedule_config[key] = value
-                DataIntegrationScheduleConfigArgs._configure(_setter, **schedule_config)
+            schedule_config = _utilities.configure(schedule_config, DataIntegrationScheduleConfigArgs, True)
             __props__.__dict__["schedule_config"] = schedule_config
             if source_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'source_uri'")

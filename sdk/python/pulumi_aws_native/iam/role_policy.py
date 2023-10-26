@@ -32,10 +32,22 @@ class RolePolicyInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_name: pulumi.Input[str],
-             role_name: pulumi.Input[str],
+             policy_name: Optional[pulumi.Input[str]] = None,
+             role_name: Optional[pulumi.Input[str]] = None,
              policy_document: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if role_name is None:
+            raise TypeError("Missing 'role_name' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+
         _setter("policy_name", policy_name)
         _setter("role_name", role_name)
         if policy_document is not None:

@@ -50,7 +50,15 @@ class NetworkAnalyzerConfigurationArgs:
              trace_content: Optional[pulumi.Input['TraceContentPropertiesArgs']] = None,
              wireless_devices: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              wireless_gateways: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if trace_content is None and 'traceContent' in kwargs:
+            trace_content = kwargs['traceContent']
+        if wireless_devices is None and 'wirelessDevices' in kwargs:
+            wireless_devices = kwargs['wirelessDevices']
+        if wireless_gateways is None and 'wirelessGateways' in kwargs:
+            wireless_gateways = kwargs['wirelessGateways']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -207,11 +215,7 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-            if trace_content is not None and not isinstance(trace_content, TraceContentPropertiesArgs):
-                trace_content = trace_content or {}
-                def _setter(key, value):
-                    trace_content[key] = value
-                TraceContentPropertiesArgs._configure(_setter, **trace_content)
+            trace_content = _utilities.configure(trace_content, TraceContentPropertiesArgs, True)
             __props__.__dict__["trace_content"] = trace_content
             __props__.__dict__["wireless_devices"] = wireless_devices
             __props__.__dict__["wireless_gateways"] = wireless_gateways

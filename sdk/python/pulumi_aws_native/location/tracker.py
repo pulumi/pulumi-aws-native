@@ -42,7 +42,19 @@ class TrackerArgs:
              pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
              pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
              tracker_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if position_filtering is None and 'positionFiltering' in kwargs:
+            position_filtering = kwargs['positionFiltering']
+        if pricing_plan is None and 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+        if pricing_plan_data_source is None and 'pricingPlanDataSource' in kwargs:
+            pricing_plan_data_source = kwargs['pricingPlanDataSource']
+        if tracker_name is None and 'trackerName' in kwargs:
+            tracker_name = kwargs['trackerName']
+
         if description is not None:
             _setter("description", description)
         if kms_key_id is not None:

@@ -73,9 +73,17 @@ class DataSourceAuthorizationConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorization_type: str,
+             authorization_type: Optional[str] = None,
              aws_iam_config: Optional['outputs.DataSourceAwsIamConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if authorization_type is None:
+            raise TypeError("Missing 'authorization_type' argument")
+        if aws_iam_config is None and 'awsIamConfig' in kwargs:
+            aws_iam_config = kwargs['awsIamConfig']
+
         _setter("authorization_type", authorization_type)
         if aws_iam_config is not None:
             _setter("aws_iam_config", aws_iam_config)
@@ -125,7 +133,13 @@ class DataSourceAwsIamConfig(dict):
              _setter: Callable[[Any, Any], None],
              signing_region: Optional[str] = None,
              signing_service_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if signing_region is None and 'signingRegion' in kwargs:
+            signing_region = kwargs['signingRegion']
+        if signing_service_name is None and 'signingServiceName' in kwargs:
+            signing_service_name = kwargs['signingServiceName']
+
         if signing_region is not None:
             _setter("signing_region", signing_region)
         if signing_service_name is not None:
@@ -178,10 +192,24 @@ class DataSourceDeltaSyncConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_table_ttl: str,
-             delta_sync_table_name: str,
-             delta_sync_table_ttl: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             base_table_ttl: Optional[str] = None,
+             delta_sync_table_name: Optional[str] = None,
+             delta_sync_table_ttl: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_table_ttl is None and 'baseTableTtl' in kwargs:
+            base_table_ttl = kwargs['baseTableTtl']
+        if base_table_ttl is None:
+            raise TypeError("Missing 'base_table_ttl' argument")
+        if delta_sync_table_name is None and 'deltaSyncTableName' in kwargs:
+            delta_sync_table_name = kwargs['deltaSyncTableName']
+        if delta_sync_table_name is None:
+            raise TypeError("Missing 'delta_sync_table_name' argument")
+        if delta_sync_table_ttl is None and 'deltaSyncTableTtl' in kwargs:
+            delta_sync_table_ttl = kwargs['deltaSyncTableTtl']
+        if delta_sync_table_ttl is None:
+            raise TypeError("Missing 'delta_sync_table_ttl' argument")
+
         _setter("base_table_ttl", base_table_ttl)
         _setter("delta_sync_table_name", delta_sync_table_name)
         _setter("delta_sync_table_ttl", delta_sync_table_ttl)
@@ -244,12 +272,26 @@ class DataSourceDynamoDbConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_region: str,
-             table_name: str,
+             aws_region: Optional[str] = None,
+             table_name: Optional[str] = None,
              delta_sync_config: Optional['outputs.DataSourceDeltaSyncConfig'] = None,
              use_caller_credentials: Optional[bool] = None,
              versioned: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if aws_region is None:
+            raise TypeError("Missing 'aws_region' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if delta_sync_config is None and 'deltaSyncConfig' in kwargs:
+            delta_sync_config = kwargs['deltaSyncConfig']
+        if use_caller_credentials is None and 'useCallerCredentials' in kwargs:
+            use_caller_credentials = kwargs['useCallerCredentials']
+
         _setter("aws_region", aws_region)
         _setter("table_name", table_name)
         if delta_sync_config is not None:
@@ -315,9 +357,17 @@ class DataSourceElasticsearchConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_region: str,
-             endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             aws_region: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if aws_region is None:
+            raise TypeError("Missing 'aws_region' argument")
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+
         _setter("aws_region", aws_region)
         _setter("endpoint", endpoint)
 
@@ -360,8 +410,14 @@ class DataSourceEventBridgeConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_bus_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             event_bus_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_bus_arn is None and 'eventBusArn' in kwargs:
+            event_bus_arn = kwargs['eventBusArn']
+        if event_bus_arn is None:
+            raise TypeError("Missing 'event_bus_arn' argument")
+
         _setter("event_bus_arn", event_bus_arn)
 
     @property
@@ -400,9 +456,15 @@ class DataSourceHttpConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: str,
+             endpoint: Optional[str] = None,
              authorization_config: Optional['outputs.DataSourceAuthorizationConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if authorization_config is None and 'authorizationConfig' in kwargs:
+            authorization_config = kwargs['authorizationConfig']
+
         _setter("endpoint", endpoint)
         if authorization_config is not None:
             _setter("authorization_config", authorization_config)
@@ -446,8 +508,14 @@ class DataSourceLambdaConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lambda_function_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             lambda_function_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_function_arn is None and 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+        if lambda_function_arn is None:
+            raise TypeError("Missing 'lambda_function_arn' argument")
+
         _setter("lambda_function_arn", lambda_function_arn)
 
     @property
@@ -486,9 +554,17 @@ class DataSourceOpenSearchServiceConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_region: str,
-             endpoint: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             aws_region: Optional[str] = None,
+             endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if aws_region is None:
+            raise TypeError("Missing 'aws_region' argument")
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+
         _setter("aws_region", aws_region)
         _setter("endpoint", endpoint)
 
@@ -545,12 +621,28 @@ class DataSourceRdsHttpEndpointConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_region: str,
-             aws_secret_store_arn: str,
-             db_cluster_identifier: str,
+             aws_region: Optional[str] = None,
+             aws_secret_store_arn: Optional[str] = None,
+             db_cluster_identifier: Optional[str] = None,
              database_name: Optional[str] = None,
              schema: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if aws_region is None:
+            raise TypeError("Missing 'aws_region' argument")
+        if aws_secret_store_arn is None and 'awsSecretStoreArn' in kwargs:
+            aws_secret_store_arn = kwargs['awsSecretStoreArn']
+        if aws_secret_store_arn is None:
+            raise TypeError("Missing 'aws_secret_store_arn' argument")
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_cluster_identifier is None:
+            raise TypeError("Missing 'db_cluster_identifier' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         _setter("aws_region", aws_region)
         _setter("aws_secret_store_arn", aws_secret_store_arn)
         _setter("db_cluster_identifier", db_cluster_identifier)
@@ -617,9 +709,17 @@ class DataSourceRelationalDatabaseConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             relational_database_source_type: str,
+             relational_database_source_type: Optional[str] = None,
              rds_http_endpoint_config: Optional['outputs.DataSourceRdsHttpEndpointConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if relational_database_source_type is None and 'relationalDatabaseSourceType' in kwargs:
+            relational_database_source_type = kwargs['relationalDatabaseSourceType']
+        if relational_database_source_type is None:
+            raise TypeError("Missing 'relational_database_source_type' argument")
+        if rds_http_endpoint_config is None and 'rdsHttpEndpointConfig' in kwargs:
+            rds_http_endpoint_config = kwargs['rdsHttpEndpointConfig']
+
         _setter("relational_database_source_type", relational_database_source_type)
         if rds_http_endpoint_config is not None:
             _setter("rds_http_endpoint_config", rds_http_endpoint_config)
@@ -673,9 +773,17 @@ class FunctionConfigurationAppSyncRuntime(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             runtime_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             runtime_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if runtime_version is None:
+            raise TypeError("Missing 'runtime_version' argument")
+
         _setter("name", name)
         _setter("runtime_version", runtime_version)
 
@@ -732,7 +840,11 @@ class FunctionConfigurationLambdaConflictHandlerConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_conflict_handler_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_conflict_handler_arn is None and 'lambdaConflictHandlerArn' in kwargs:
+            lambda_conflict_handler_arn = kwargs['lambdaConflictHandlerArn']
+
         if lambda_conflict_handler_arn is not None:
             _setter("lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
@@ -789,10 +901,20 @@ class FunctionConfigurationSyncConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             conflict_detection: str,
+             conflict_detection: Optional[str] = None,
              conflict_handler: Optional[str] = None,
              lambda_conflict_handler_config: Optional['outputs.FunctionConfigurationLambdaConflictHandlerConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conflict_detection is None and 'conflictDetection' in kwargs:
+            conflict_detection = kwargs['conflictDetection']
+        if conflict_detection is None:
+            raise TypeError("Missing 'conflict_detection' argument")
+        if conflict_handler is None and 'conflictHandler' in kwargs:
+            conflict_handler = kwargs['conflictHandler']
+        if lambda_conflict_handler_config is None and 'lambdaConflictHandlerConfig' in kwargs:
+            lambda_conflict_handler_config = kwargs['lambdaConflictHandlerConfig']
+
         _setter("conflict_detection", conflict_detection)
         if conflict_handler is not None:
             _setter("conflict_handler", conflict_handler)
@@ -861,11 +983,23 @@ class GraphQlApiAdditionalAuthenticationProvider(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_type: str,
+             authentication_type: Optional[str] = None,
              lambda_authorizer_config: Optional['outputs.GraphQlApiLambdaAuthorizerConfig'] = None,
              open_id_connect_config: Optional['outputs.GraphQlApiOpenIdConnectConfig'] = None,
              user_pool_config: Optional['outputs.GraphQlApiCognitoUserPoolConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if lambda_authorizer_config is None and 'lambdaAuthorizerConfig' in kwargs:
+            lambda_authorizer_config = kwargs['lambdaAuthorizerConfig']
+        if open_id_connect_config is None and 'openIdConnectConfig' in kwargs:
+            open_id_connect_config = kwargs['openIdConnectConfig']
+        if user_pool_config is None and 'userPoolConfig' in kwargs:
+            user_pool_config = kwargs['userPoolConfig']
+
         _setter("authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
             _setter("lambda_authorizer_config", lambda_authorizer_config)
@@ -934,7 +1068,15 @@ class GraphQlApiCognitoUserPoolConfig(dict):
              app_id_client_regex: Optional[str] = None,
              aws_region: Optional[str] = None,
              user_pool_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id_client_regex is None and 'appIdClientRegex' in kwargs:
+            app_id_client_regex = kwargs['appIdClientRegex']
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if app_id_client_regex is not None:
             _setter("app_id_client_regex", app_id_client_regex)
         if aws_region is not None:
@@ -997,7 +1139,15 @@ class GraphQlApiLambdaAuthorizerConfig(dict):
              authorizer_result_ttl_in_seconds: Optional[float] = None,
              authorizer_uri: Optional[str] = None,
              identity_validation_expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorizer_result_ttl_in_seconds is None and 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if authorizer_uri is None and 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if identity_validation_expression is None and 'identityValidationExpression' in kwargs:
+            identity_validation_expression = kwargs['identityValidationExpression']
+
         if authorizer_result_ttl_in_seconds is not None:
             _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
@@ -1060,7 +1210,15 @@ class GraphQlApiLogConfig(dict):
              cloud_watch_logs_role_arn: Optional[str] = None,
              exclude_verbose_content: Optional[bool] = None,
              field_log_level: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs_role_arn is None and 'cloudWatchLogsRoleArn' in kwargs:
+            cloud_watch_logs_role_arn = kwargs['cloudWatchLogsRoleArn']
+        if exclude_verbose_content is None and 'excludeVerboseContent' in kwargs:
+            exclude_verbose_content = kwargs['excludeVerboseContent']
+        if field_log_level is None and 'fieldLogLevel' in kwargs:
+            field_log_level = kwargs['fieldLogLevel']
+
         if cloud_watch_logs_role_arn is not None:
             _setter("cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         if exclude_verbose_content is not None:
@@ -1126,7 +1284,15 @@ class GraphQlApiOpenIdConnectConfig(dict):
              client_id: Optional[str] = None,
              iat_ttl: Optional[float] = None,
              issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_ttl is None and 'authTtl' in kwargs:
+            auth_ttl = kwargs['authTtl']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if iat_ttl is None and 'iatTtl' in kwargs:
+            iat_ttl = kwargs['iatTtl']
+
         if auth_ttl is not None:
             _setter("auth_ttl", auth_ttl)
         if client_id is not None:
@@ -1170,9 +1336,15 @@ class GraphQlApiTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1231,7 +1403,17 @@ class GraphQlApiUserPoolConfig(dict):
              aws_region: Optional[str] = None,
              default_action: Optional[str] = None,
              user_pool_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id_client_regex is None and 'appIdClientRegex' in kwargs:
+            app_id_client_regex = kwargs['appIdClientRegex']
+        if aws_region is None and 'awsRegion' in kwargs:
+            aws_region = kwargs['awsRegion']
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if app_id_client_regex is not None:
             _setter("app_id_client_regex", app_id_client_regex)
         if aws_region is not None:
@@ -1292,9 +1474,17 @@ class ResolverAppSyncRuntime(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             runtime_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             runtime_version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if runtime_version is None and 'runtimeVersion' in kwargs:
+            runtime_version = kwargs['runtimeVersion']
+        if runtime_version is None:
+            raise TypeError("Missing 'runtime_version' argument")
+
         _setter("name", name)
         _setter("runtime_version", runtime_version)
 
@@ -1339,9 +1529,15 @@ class ResolverCachingConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ttl: float,
+             ttl: Optional[float] = None,
              caching_keys: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if caching_keys is None and 'cachingKeys' in kwargs:
+            caching_keys = kwargs['cachingKeys']
+
         _setter("ttl", ttl)
         if caching_keys is not None:
             _setter("caching_keys", caching_keys)
@@ -1386,7 +1582,11 @@ class ResolverLambdaConflictHandlerConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              lambda_conflict_handler_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lambda_conflict_handler_arn is None and 'lambdaConflictHandlerArn' in kwargs:
+            lambda_conflict_handler_arn = kwargs['lambdaConflictHandlerArn']
+
         if lambda_conflict_handler_arn is not None:
             _setter("lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
@@ -1408,7 +1608,9 @@ class ResolverPipelineConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              functions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if functions is not None:
             _setter("functions", functions)
 
@@ -1454,10 +1656,20 @@ class ResolverSyncConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             conflict_detection: str,
+             conflict_detection: Optional[str] = None,
              conflict_handler: Optional[str] = None,
              lambda_conflict_handler_config: Optional['outputs.ResolverLambdaConflictHandlerConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conflict_detection is None and 'conflictDetection' in kwargs:
+            conflict_detection = kwargs['conflictDetection']
+        if conflict_detection is None:
+            raise TypeError("Missing 'conflict_detection' argument")
+        if conflict_handler is None and 'conflictHandler' in kwargs:
+            conflict_handler = kwargs['conflictHandler']
+        if lambda_conflict_handler_config is None and 'lambdaConflictHandlerConfig' in kwargs:
+            lambda_conflict_handler_config = kwargs['lambdaConflictHandlerConfig']
+
         _setter("conflict_detection", conflict_detection)
         if conflict_handler is not None:
             _setter("conflict_handler", conflict_handler)
@@ -1512,7 +1724,11 @@ class SourceApiAssociationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              merge_type: Optional['SourceApiAssociationConfigMergeType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if merge_type is None and 'mergeType' in kwargs:
+            merge_type = kwargs['mergeType']
+
         if merge_type is not None:
             _setter("merge_type", merge_type)
 

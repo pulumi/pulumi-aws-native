@@ -41,15 +41,33 @@ class ResolverEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             direction: pulumi.Input[str],
-             ip_addresses: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             direction: Optional[pulumi.Input[str]] = None,
+             ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]]] = None,
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              outpost_arn: Optional[pulumi.Input[str]] = None,
              preferred_instance_type: Optional[pulumi.Input[str]] = None,
              resolver_endpoint_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if ip_addresses is None:
+            raise TypeError("Missing 'ip_addresses' argument")
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+        if preferred_instance_type is None and 'preferredInstanceType' in kwargs:
+            preferred_instance_type = kwargs['preferredInstanceType']
+        if resolver_endpoint_type is None and 'resolverEndpointType' in kwargs:
+            resolver_endpoint_type = kwargs['resolverEndpointType']
+
         _setter("direction", direction)
         _setter("ip_addresses", ip_addresses)
         _setter("security_group_ids", security_group_ids)

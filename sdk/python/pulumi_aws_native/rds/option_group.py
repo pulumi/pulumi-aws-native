@@ -43,13 +43,31 @@ class OptionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             engine_name: pulumi.Input[str],
-             major_engine_version: pulumi.Input[str],
-             option_group_description: pulumi.Input[str],
+             engine_name: Optional[pulumi.Input[str]] = None,
+             major_engine_version: Optional[pulumi.Input[str]] = None,
+             option_group_description: Optional[pulumi.Input[str]] = None,
              option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]] = None,
              option_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if engine_name is None and 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if engine_name is None:
+            raise TypeError("Missing 'engine_name' argument")
+        if major_engine_version is None and 'majorEngineVersion' in kwargs:
+            major_engine_version = kwargs['majorEngineVersion']
+        if major_engine_version is None:
+            raise TypeError("Missing 'major_engine_version' argument")
+        if option_group_description is None and 'optionGroupDescription' in kwargs:
+            option_group_description = kwargs['optionGroupDescription']
+        if option_group_description is None:
+            raise TypeError("Missing 'option_group_description' argument")
+        if option_configurations is None and 'optionConfigurations' in kwargs:
+            option_configurations = kwargs['optionConfigurations']
+        if option_group_name is None and 'optionGroupName' in kwargs:
+            option_group_name = kwargs['optionGroupName']
+
         _setter("engine_name", engine_name)
         _setter("major_engine_version", major_engine_version)
         _setter("option_group_description", option_group_description)

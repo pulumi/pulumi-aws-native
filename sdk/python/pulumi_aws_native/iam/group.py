@@ -41,7 +41,13 @@ class GroupArgs:
              managed_policy_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              path: Optional[pulumi.Input[str]] = None,
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+
         if group_name is not None:
             _setter("group_name", group_name)
         if managed_policy_arns is not None:

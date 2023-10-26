@@ -27,9 +27,19 @@ class TransitGatewayRouteTablePropagationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             transit_gateway_attachment_id: pulumi.Input[str],
-             transit_gateway_route_table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_attachment_id is None and 'transitGatewayAttachmentId' in kwargs:
+            transit_gateway_attachment_id = kwargs['transitGatewayAttachmentId']
+        if transit_gateway_attachment_id is None:
+            raise TypeError("Missing 'transit_gateway_attachment_id' argument")
+        if transit_gateway_route_table_id is None and 'transitGatewayRouteTableId' in kwargs:
+            transit_gateway_route_table_id = kwargs['transitGatewayRouteTableId']
+        if transit_gateway_route_table_id is None:
+            raise TypeError("Missing 'transit_gateway_route_table_id' argument")
+
         _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
         _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
 

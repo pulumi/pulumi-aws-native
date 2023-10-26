@@ -27,8 +27,14 @@ class PublicKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             public_key_config: pulumi.Input['PublicKeyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             public_key_config: Optional[pulumi.Input['PublicKeyConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_key_config is None and 'publicKeyConfig' in kwargs:
+            public_key_config = kwargs['publicKeyConfig']
+        if public_key_config is None:
+            raise TypeError("Missing 'public_key_config' argument")
+
         _setter("public_key_config", public_key_config)
 
     @property
@@ -92,11 +98,7 @@ class PublicKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicKeyArgs.__new__(PublicKeyArgs)
 
-            if public_key_config is not None and not isinstance(public_key_config, PublicKeyConfigArgs):
-                public_key_config = public_key_config or {}
-                def _setter(key, value):
-                    public_key_config[key] = value
-                PublicKeyConfigArgs._configure(_setter, **public_key_config)
+            public_key_config = _utilities.configure(public_key_config, PublicKeyConfigArgs, True)
             if public_key_config is None and not opts.urn:
                 raise TypeError("Missing required property 'public_key_config'")
             __props__.__dict__["public_key_config"] = public_key_config

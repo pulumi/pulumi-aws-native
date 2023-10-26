@@ -46,7 +46,15 @@ class DomainAdvancedSecurityOptionsInputArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
              master_user_options: Optional[pulumi.Input['DomainMasterUserOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if anonymous_auth_enabled is None and 'anonymousAuthEnabled' in kwargs:
+            anonymous_auth_enabled = kwargs['anonymousAuthEnabled']
+        if internal_user_database_enabled is None and 'internalUserDatabaseEnabled' in kwargs:
+            internal_user_database_enabled = kwargs['internalUserDatabaseEnabled']
+        if master_user_options is None and 'masterUserOptions' in kwargs:
+            master_user_options = kwargs['masterUserOptions']
+
         if anonymous_auth_enabled is not None:
             _setter("anonymous_auth_enabled", anonymous_auth_enabled)
         if enabled is not None:
@@ -114,7 +122,15 @@ class DomainCognitoOptionsArgs:
              identity_pool_id: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              user_pool_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if identity_pool_id is not None:
@@ -173,7 +189,9 @@ class DomainColdStorageOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -208,7 +226,15 @@ class DomainEbsOptionsArgs:
              iops: Optional[pulumi.Input[int]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_enabled is None and 'ebsEnabled' in kwargs:
+            ebs_enabled = kwargs['ebsEnabled']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if ebs_enabled is not None:
             _setter("ebs_enabled", ebs_enabled)
         if iops is not None:
@@ -297,7 +323,31 @@ class DomainElasticsearchClusterConfigArgs:
              warm_type: Optional[pulumi.Input[str]] = None,
              zone_awareness_config: Optional[pulumi.Input['DomainZoneAwarenessConfigArgs']] = None,
              zone_awareness_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cold_storage_options is None and 'coldStorageOptions' in kwargs:
+            cold_storage_options = kwargs['coldStorageOptions']
+        if dedicated_master_count is None and 'dedicatedMasterCount' in kwargs:
+            dedicated_master_count = kwargs['dedicatedMasterCount']
+        if dedicated_master_enabled is None and 'dedicatedMasterEnabled' in kwargs:
+            dedicated_master_enabled = kwargs['dedicatedMasterEnabled']
+        if dedicated_master_type is None and 'dedicatedMasterType' in kwargs:
+            dedicated_master_type = kwargs['dedicatedMasterType']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if warm_count is None and 'warmCount' in kwargs:
+            warm_count = kwargs['warmCount']
+        if warm_enabled is None and 'warmEnabled' in kwargs:
+            warm_enabled = kwargs['warmEnabled']
+        if warm_type is None and 'warmType' in kwargs:
+            warm_type = kwargs['warmType']
+        if zone_awareness_config is None and 'zoneAwarenessConfig' in kwargs:
+            zone_awareness_config = kwargs['zoneAwarenessConfig']
+        if zone_awareness_enabled is None and 'zoneAwarenessEnabled' in kwargs:
+            zone_awareness_enabled = kwargs['zoneAwarenessEnabled']
+
         if cold_storage_options is not None:
             _setter("cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
@@ -436,7 +486,11 @@ class DomainEncryptionAtRestOptionsArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if kms_key_id is not None:
@@ -485,7 +539,19 @@ class DomainEndpointOptionsArgs:
              custom_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
              enforce_https: Optional[pulumi.Input[bool]] = None,
              tls_security_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_endpoint is None and 'customEndpoint' in kwargs:
+            custom_endpoint = kwargs['customEndpoint']
+        if custom_endpoint_certificate_arn is None and 'customEndpointCertificateArn' in kwargs:
+            custom_endpoint_certificate_arn = kwargs['customEndpointCertificateArn']
+        if custom_endpoint_enabled is None and 'customEndpointEnabled' in kwargs:
+            custom_endpoint_enabled = kwargs['customEndpointEnabled']
+        if enforce_https is None and 'enforceHttps' in kwargs:
+            enforce_https = kwargs['enforceHttps']
+        if tls_security_policy is None and 'tlsSecurityPolicy' in kwargs:
+            tls_security_policy = kwargs['tlsSecurityPolicy']
+
         if custom_endpoint is not None:
             _setter("custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
@@ -561,7 +627,15 @@ class DomainMasterUserOptionsArgs:
              master_user_arn: Optional[pulumi.Input[str]] = None,
              master_user_name: Optional[pulumi.Input[str]] = None,
              master_user_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if master_user_arn is None and 'masterUserArn' in kwargs:
+            master_user_arn = kwargs['masterUserArn']
+        if master_user_name is None and 'masterUserName' in kwargs:
+            master_user_name = kwargs['masterUserName']
+        if master_user_password is None and 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+
         if master_user_arn is not None:
             _setter("master_user_arn", master_user_arn)
         if master_user_name is not None:
@@ -609,7 +683,9 @@ class DomainNodeToNodeEncryptionOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -635,7 +711,11 @@ class DomainSnapshotOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              automated_snapshot_start_hour: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automated_snapshot_start_hour is None and 'automatedSnapshotStartHour' in kwargs:
+            automated_snapshot_start_hour = kwargs['automatedSnapshotStartHour']
+
         if automated_snapshot_start_hour is not None:
             _setter("automated_snapshot_start_hour", automated_snapshot_start_hour)
 
@@ -662,9 +742,15 @@ class DomainTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -702,7 +788,13 @@ class DomainVpcOptionsArgs:
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -739,7 +831,11 @@ class DomainZoneAwarenessConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              availability_zone_count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone_count is None and 'availabilityZoneCount' in kwargs:
+            availability_zone_count = kwargs['availabilityZoneCount']
+
         if availability_zone_count is not None:
             _setter("availability_zone_count", availability_zone_count)
 

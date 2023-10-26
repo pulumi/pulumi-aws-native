@@ -53,7 +53,7 @@ class DevEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              arguments: Optional[Any] = None,
              endpoint_name: Optional[pulumi.Input[str]] = None,
              extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,37 @@ class DevEndpointArgs:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if extra_jars_s3_path is None and 'extraJarsS3Path' in kwargs:
+            extra_jars_s3_path = kwargs['extraJarsS3Path']
+        if extra_python_libs_s3_path is None and 'extraPythonLibsS3Path' in kwargs:
+            extra_python_libs_s3_path = kwargs['extraPythonLibsS3Path']
+        if glue_version is None and 'glueVersion' in kwargs:
+            glue_version = kwargs['glueVersion']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if number_of_workers is None and 'numberOfWorkers' in kwargs:
+            number_of_workers = kwargs['numberOfWorkers']
+        if public_key is None and 'publicKey' in kwargs:
+            public_key = kwargs['publicKey']
+        if public_keys is None and 'publicKeys' in kwargs:
+            public_keys = kwargs['publicKeys']
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if worker_type is None and 'workerType' in kwargs:
+            worker_type = kwargs['workerType']
+
         _setter("role_arn", role_arn)
         if arguments is not None:
             _setter("arguments", arguments)

@@ -31,9 +31,15 @@ class StorageLensArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             storage_lens_configuration: pulumi.Input['StorageLensConfigurationArgs'],
+             storage_lens_configuration: Optional[pulumi.Input['StorageLensConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageLensTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if storage_lens_configuration is None and 'storageLensConfiguration' in kwargs:
+            storage_lens_configuration = kwargs['storageLensConfiguration']
+        if storage_lens_configuration is None:
+            raise TypeError("Missing 'storage_lens_configuration' argument")
+
         _setter("storage_lens_configuration", storage_lens_configuration)
         if tags is not None:
             _setter("tags", tags)
@@ -114,11 +120,7 @@ class StorageLens(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageLensArgs.__new__(StorageLensArgs)
 
-            if storage_lens_configuration is not None and not isinstance(storage_lens_configuration, StorageLensConfigurationArgs):
-                storage_lens_configuration = storage_lens_configuration or {}
-                def _setter(key, value):
-                    storage_lens_configuration[key] = value
-                StorageLensConfigurationArgs._configure(_setter, **storage_lens_configuration)
+            storage_lens_configuration = _utilities.configure(storage_lens_configuration, StorageLensConfigurationArgs, True)
             if storage_lens_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_lens_configuration'")
             __props__.__dict__["storage_lens_configuration"] = storage_lens_configuration

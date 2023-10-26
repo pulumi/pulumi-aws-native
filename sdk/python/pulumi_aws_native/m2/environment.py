@@ -63,8 +63,8 @@ class EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             engine_type: pulumi.Input['EnvironmentEngineType'],
-             instance_type: pulumi.Input[str],
+             engine_type: Optional[pulumi.Input['EnvironmentEngineType']] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              engine_version: Optional[pulumi.Input[str]] = None,
              high_availability_config: Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']] = None,
@@ -76,7 +76,33 @@ class EnvironmentArgs:
              storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentStorageConfigurationArgs']]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input['EnvironmentTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if engine_type is None and 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if engine_type is None:
+            raise TypeError("Missing 'engine_type' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if high_availability_config is None and 'highAvailabilityConfig' in kwargs:
+            high_availability_config = kwargs['highAvailabilityConfig']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if storage_configurations is None and 'storageConfigurations' in kwargs:
+            storage_configurations = kwargs['storageConfigurations']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("engine_type", engine_type)
         _setter("instance_type", instance_type)
         if description is not None:
@@ -344,11 +370,7 @@ class Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine_type'")
             __props__.__dict__["engine_type"] = engine_type
             __props__.__dict__["engine_version"] = engine_version
-            if high_availability_config is not None and not isinstance(high_availability_config, EnvironmentHighAvailabilityConfigArgs):
-                high_availability_config = high_availability_config or {}
-                def _setter(key, value):
-                    high_availability_config[key] = value
-                EnvironmentHighAvailabilityConfigArgs._configure(_setter, **high_availability_config)
+            high_availability_config = _utilities.configure(high_availability_config, EnvironmentHighAvailabilityConfigArgs, True)
             __props__.__dict__["high_availability_config"] = high_availability_config
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
@@ -360,11 +382,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["storage_configurations"] = storage_configurations
             __props__.__dict__["subnet_ids"] = subnet_ids
-            if tags is not None and not isinstance(tags, EnvironmentTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                EnvironmentTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, EnvironmentTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["environment_arn"] = None
             __props__.__dict__["environment_id"] = None

@@ -31,11 +31,23 @@ class VolumeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ec2_volume_id: pulumi.Input[str],
-             stack_id: pulumi.Input[str],
+             ec2_volume_id: Optional[pulumi.Input[str]] = None,
+             stack_id: Optional[pulumi.Input[str]] = None,
              mount_point: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_volume_id is None and 'ec2VolumeId' in kwargs:
+            ec2_volume_id = kwargs['ec2VolumeId']
+        if ec2_volume_id is None:
+            raise TypeError("Missing 'ec2_volume_id' argument")
+        if stack_id is None and 'stackId' in kwargs:
+            stack_id = kwargs['stackId']
+        if stack_id is None:
+            raise TypeError("Missing 'stack_id' argument")
+        if mount_point is None and 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+
         _setter("ec2_volume_id", ec2_volume_id)
         _setter("stack_id", stack_id)
         if mount_point is not None:

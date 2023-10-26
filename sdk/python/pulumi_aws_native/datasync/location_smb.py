@@ -49,15 +49,27 @@ class LocationSmbArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             user: pulumi.Input[str],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input[str]] = None,
              domain: Optional[pulumi.Input[str]] = None,
              mount_options: Optional[pulumi.Input['LocationSmbMountOptionsArgs']] = None,
              password: Optional[pulumi.Input[str]] = None,
              server_hostname: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSmbTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if agent_arns is None:
+            raise TypeError("Missing 'agent_arns' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if mount_options is None and 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if server_hostname is None and 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+
         _setter("agent_arns", agent_arns)
         _setter("user", user)
         if domain is not None:
@@ -243,11 +255,7 @@ class LocationSmb(pulumi.CustomResource):
                 raise TypeError("Missing required property 'agent_arns'")
             __props__.__dict__["agent_arns"] = agent_arns
             __props__.__dict__["domain"] = domain
-            if mount_options is not None and not isinstance(mount_options, LocationSmbMountOptionsArgs):
-                mount_options = mount_options or {}
-                def _setter(key, value):
-                    mount_options[key] = value
-                LocationSmbMountOptionsArgs._configure(_setter, **mount_options)
+            mount_options = _utilities.configure(mount_options, LocationSmbMountOptionsArgs, True)
             __props__.__dict__["mount_options"] = mount_options
             __props__.__dict__["password"] = password
             __props__.__dict__["server_hostname"] = server_hostname

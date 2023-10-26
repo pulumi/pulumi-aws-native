@@ -36,12 +36,18 @@ class AssistantArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['AssistantType'],
+             type: Optional[pulumi.Input['AssistantType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              server_side_encryption_configuration: Optional[pulumi.Input['AssistantServerSideEncryptionConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssistantTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if server_side_encryption_configuration is None and 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+
         _setter("type", type)
         if description is not None:
             _setter("description", description)
@@ -159,11 +165,7 @@ class Assistant(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if server_side_encryption_configuration is not None and not isinstance(server_side_encryption_configuration, AssistantServerSideEncryptionConfigurationArgs):
-                server_side_encryption_configuration = server_side_encryption_configuration or {}
-                def _setter(key, value):
-                    server_side_encryption_configuration[key] = value
-                AssistantServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
+            server_side_encryption_configuration = _utilities.configure(server_side_encryption_configuration, AssistantServerSideEncryptionConfigurationArgs, True)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:

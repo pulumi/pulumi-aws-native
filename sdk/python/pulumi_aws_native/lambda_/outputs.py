@@ -77,8 +77,14 @@ class AliasProvisionedConcurrencyConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provisioned_concurrent_executions: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             provisioned_concurrent_executions: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioned_concurrent_executions is None and 'provisionedConcurrentExecutions' in kwargs:
+            provisioned_concurrent_executions = kwargs['provisionedConcurrentExecutions']
+        if provisioned_concurrent_executions is None:
+            raise TypeError("Missing 'provisioned_concurrent_executions' argument")
+
         _setter("provisioned_concurrent_executions", provisioned_concurrent_executions)
 
     @property
@@ -115,8 +121,14 @@ class AliasRoutingConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             additional_version_weights: Sequence['outputs.AliasVersionWeight'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             additional_version_weights: Optional[Sequence['outputs.AliasVersionWeight']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_version_weights is None and 'additionalVersionWeights' in kwargs:
+            additional_version_weights = kwargs['additionalVersionWeights']
+        if additional_version_weights is None:
+            raise TypeError("Missing 'additional_version_weights' argument")
+
         _setter("additional_version_weights", additional_version_weights)
 
     @property
@@ -157,9 +169,19 @@ class AliasVersionWeight(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_version: str,
-             function_weight: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             function_version: Optional[str] = None,
+             function_weight: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_version is None and 'functionVersion' in kwargs:
+            function_version = kwargs['functionVersion']
+        if function_version is None:
+            raise TypeError("Missing 'function_version' argument")
+        if function_weight is None and 'functionWeight' in kwargs:
+            function_weight = kwargs['functionWeight']
+        if function_weight is None:
+            raise TypeError("Missing 'function_weight' argument")
+
         _setter("function_version", function_version)
         _setter("function_weight", function_weight)
 
@@ -209,8 +231,14 @@ class CodeSigningConfigAllowedPublishers(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             signing_profile_version_arns: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             signing_profile_version_arns: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if signing_profile_version_arns is None and 'signingProfileVersionArns' in kwargs:
+            signing_profile_version_arns = kwargs['signingProfileVersionArns']
+        if signing_profile_version_arns is None:
+            raise TypeError("Missing 'signing_profile_version_arns' argument")
+
         _setter("signing_profile_version_arns", signing_profile_version_arns)
 
     @property
@@ -257,8 +285,14 @@ class CodeSigningConfigCodeSigningPolicies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             untrusted_artifact_on_deployment: 'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             untrusted_artifact_on_deployment: Optional['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if untrusted_artifact_on_deployment is None and 'untrustedArtifactOnDeployment' in kwargs:
+            untrusted_artifact_on_deployment = kwargs['untrustedArtifactOnDeployment']
+        if untrusted_artifact_on_deployment is None:
+            raise TypeError("Missing 'untrusted_artifact_on_deployment' argument")
+
         _setter("untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
@@ -304,7 +338,13 @@ class EventInvokeConfigDestinationConfig(dict):
              _setter: Callable[[Any, Any], None],
              on_failure: Optional['outputs.EventInvokeConfigOnFailure'] = None,
              on_success: Optional['outputs.EventInvokeConfigOnSuccess'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_failure is None and 'onFailure' in kwargs:
+            on_failure = kwargs['onFailure']
+        if on_success is None and 'onSuccess' in kwargs:
+            on_success = kwargs['onSuccess']
+
         if on_failure is not None:
             _setter("on_failure", on_failure)
         if on_success is not None:
@@ -332,8 +372,12 @@ class EventInvokeConfigOnFailure(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+
         _setter("destination", destination)
 
     @property
@@ -353,8 +397,12 @@ class EventInvokeConfigOnSuccess(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+
         _setter("destination", destination)
 
     @property
@@ -399,7 +447,11 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              consumer_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_group_id is None and 'consumerGroupId' in kwargs:
+            consumer_group_id = kwargs['consumerGroupId']
+
         if consumer_group_id is not None:
             _setter("consumer_group_id", consumer_group_id)
 
@@ -448,7 +500,11 @@ class EventSourceMappingDestinationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              on_failure: Optional['outputs.EventSourceMappingOnFailure'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_failure is None and 'onFailure' in kwargs:
+            on_failure = kwargs['onFailure']
+
         if on_failure is not None:
             _setter("on_failure", on_failure)
 
@@ -509,7 +565,15 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
              collection_name: Optional[str] = None,
              database_name: Optional[str] = None,
              full_document: Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collection_name is None and 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if full_document is None and 'fullDocument' in kwargs:
+            full_document = kwargs['fullDocument']
+
         if collection_name is not None:
             _setter("collection_name", collection_name)
         if database_name is not None:
@@ -578,7 +642,11 @@ class EventSourceMappingEndpoints(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              kafka_bootstrap_servers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kafka_bootstrap_servers is None and 'kafkaBootstrapServers' in kwargs:
+            kafka_bootstrap_servers = kwargs['kafkaBootstrapServers']
+
         if kafka_bootstrap_servers is not None:
             _setter("kafka_bootstrap_servers", kafka_bootstrap_servers)
 
@@ -610,7 +678,9 @@ class EventSourceMappingFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if pattern is not None:
             _setter("pattern", pattern)
 
@@ -642,7 +712,9 @@ class EventSourceMappingFilterCriteria(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              filters: Optional[Sequence['outputs.EventSourceMappingFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if filters is not None:
             _setter("filters", filters)
 
@@ -674,7 +746,9 @@ class EventSourceMappingOnFailure(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              destination: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if destination is not None:
             _setter("destination", destination)
 
@@ -723,7 +797,11 @@ class EventSourceMappingScalingConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              maximum_concurrency: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_concurrency is None and 'maximumConcurrency' in kwargs:
+            maximum_concurrency = kwargs['maximumConcurrency']
+
         if maximum_concurrency is not None:
             _setter("maximum_concurrency", maximum_concurrency)
 
@@ -755,7 +833,9 @@ class EventSourceMappingSelfManagedEventSource(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              endpoints: Optional['outputs.EventSourceMappingEndpoints'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if endpoints is not None:
             _setter("endpoints", endpoints)
 
@@ -804,7 +884,11 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              consumer_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_group_id is None and 'consumerGroupId' in kwargs:
+            consumer_group_id = kwargs['consumerGroupId']
+
         if consumer_group_id is not None:
             _setter("consumer_group_id", consumer_group_id)
 
@@ -840,7 +924,9 @@ class EventSourceMappingSourceAccessConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              type: Optional['EventSourceMappingSourceAccessConfigurationType'] = None,
              uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
         if uri is not None:
@@ -919,7 +1005,19 @@ class FunctionCode(dict):
              s3_key: Optional[str] = None,
              s3_object_version: Optional[str] = None,
              zip_file: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_uri is None and 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_object_version is None and 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+        if zip_file is None and 'zipFile' in kwargs:
+            zip_file = kwargs['zipFile']
+
         if image_uri is not None:
             _setter("image_uri", image_uri)
         if s3_bucket is not None:
@@ -1008,7 +1106,11 @@ class FunctionDeadLetterConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              target_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+
         if target_arn is not None:
             _setter("target_arn", target_arn)
 
@@ -1040,7 +1142,9 @@ class FunctionEnvironment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if variables is not None:
             _setter("variables", variables)
 
@@ -1071,8 +1175,12 @@ class FunctionEphemeralStorage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             size: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+
         _setter("size", size)
 
     @property
@@ -1118,9 +1226,17 @@ class FunctionFileSystemConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
-             local_mount_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[str] = None,
+             local_mount_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if local_mount_path is None and 'localMountPath' in kwargs:
+            local_mount_path = kwargs['localMountPath']
+        if local_mount_path is None:
+            raise TypeError("Missing 'local_mount_path' argument")
+
         _setter("arn", arn)
         _setter("local_mount_path", local_mount_path)
 
@@ -1183,7 +1299,13 @@ class FunctionImageConfig(dict):
              command: Optional[Sequence[str]] = None,
              entry_point: Optional[Sequence[str]] = None,
              working_directory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entry_point is None and 'entryPoint' in kwargs:
+            entry_point = kwargs['entryPoint']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         if command is not None:
             _setter("command", command)
         if entry_point is not None:
@@ -1252,9 +1374,17 @@ class FunctionRuntimeManagementConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             update_runtime_on: 'FunctionRuntimeManagementConfigUpdateRuntimeOn',
+             update_runtime_on: Optional['FunctionRuntimeManagementConfigUpdateRuntimeOn'] = None,
              runtime_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if update_runtime_on is None and 'updateRuntimeOn' in kwargs:
+            update_runtime_on = kwargs['updateRuntimeOn']
+        if update_runtime_on is None:
+            raise TypeError("Missing 'update_runtime_on' argument")
+        if runtime_version_arn is None and 'runtimeVersionArn' in kwargs:
+            runtime_version_arn = kwargs['runtimeVersionArn']
+
         _setter("update_runtime_on", update_runtime_on)
         if runtime_version_arn is not None:
             _setter("runtime_version_arn", runtime_version_arn)
@@ -1311,8 +1441,14 @@ class FunctionSnapStart(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             apply_on: 'FunctionSnapStartApplyOn',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             apply_on: Optional['FunctionSnapStartApplyOn'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_on is None and 'applyOn' in kwargs:
+            apply_on = kwargs['applyOn']
+        if apply_on is None:
+            raise TypeError("Missing 'apply_on' argument")
+
         _setter("apply_on", apply_on)
 
     @property
@@ -1366,7 +1502,13 @@ class FunctionSnapStartResponse(dict):
              _setter: Callable[[Any, Any], None],
              apply_on: Optional['FunctionSnapStartResponseApplyOn'] = None,
              optimization_status: Optional['FunctionSnapStartResponseOptimizationStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if apply_on is None and 'applyOn' in kwargs:
+            apply_on = kwargs['applyOn']
+        if optimization_status is None and 'optimizationStatus' in kwargs:
+            optimization_status = kwargs['optimizationStatus']
+
         if apply_on is not None:
             _setter("apply_on", apply_on)
         if optimization_status is not None:
@@ -1406,9 +1548,13 @@ class FunctionTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
+             key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1449,7 +1595,9 @@ class FunctionTracingConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              mode: Optional['FunctionTracingConfigMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if mode is not None:
             _setter("mode", mode)
 
@@ -1510,7 +1658,15 @@ class FunctionVpcConfig(dict):
              ipv6_allowed_for_dual_stack: Optional[bool] = None,
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_allowed_for_dual_stack is None and 'ipv6AllowedForDualStack' in kwargs:
+            ipv6_allowed_for_dual_stack = kwargs['ipv6AllowedForDualStack']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if ipv6_allowed_for_dual_stack is not None:
             _setter("ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if security_group_ids is not None:
@@ -1584,10 +1740,22 @@ class LayerVersionContent(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket: str,
-             s3_key: str,
+             s3_bucket: Optional[str] = None,
+             s3_key: Optional[str] = None,
              s3_object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_key is None and 's3Key' in kwargs:
+            s3_key = kwargs['s3Key']
+        if s3_key is None:
+            raise TypeError("Missing 's3_key' argument")
+        if s3_object_version is None and 's3ObjectVersion' in kwargs:
+            s3_object_version = kwargs['s3ObjectVersion']
+
         _setter("s3_bucket", s3_bucket)
         _setter("s3_key", s3_key)
         if s3_object_version is not None:
@@ -1679,7 +1847,21 @@ class UrlCors(dict):
              allow_origins: Optional[Sequence[str]] = None,
              expose_headers: Optional[Sequence[str]] = None,
              max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_credentials is None and 'allowCredentials' in kwargs:
+            allow_credentials = kwargs['allowCredentials']
+        if allow_headers is None and 'allowHeaders' in kwargs:
+            allow_headers = kwargs['allowHeaders']
+        if allow_methods is None and 'allowMethods' in kwargs:
+            allow_methods = kwargs['allowMethods']
+        if allow_origins is None and 'allowOrigins' in kwargs:
+            allow_origins = kwargs['allowOrigins']
+        if expose_headers is None and 'exposeHeaders' in kwargs:
+            expose_headers = kwargs['exposeHeaders']
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+
         if allow_credentials is not None:
             _setter("allow_credentials", allow_credentials)
         if allow_headers is not None:
@@ -1774,8 +1956,14 @@ class VersionProvisionedConcurrencyConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             provisioned_concurrent_executions: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             provisioned_concurrent_executions: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioned_concurrent_executions is None and 'provisionedConcurrentExecutions' in kwargs:
+            provisioned_concurrent_executions = kwargs['provisionedConcurrentExecutions']
+        if provisioned_concurrent_executions is None:
+            raise TypeError("Missing 'provisioned_concurrent_executions' argument")
+
         _setter("provisioned_concurrent_executions", provisioned_concurrent_executions)
 
     @property
@@ -1827,9 +2015,17 @@ class VersionRuntimePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             update_runtime_on: str,
+             update_runtime_on: Optional[str] = None,
              runtime_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if update_runtime_on is None and 'updateRuntimeOn' in kwargs:
+            update_runtime_on = kwargs['updateRuntimeOn']
+        if update_runtime_on is None:
+            raise TypeError("Missing 'update_runtime_on' argument")
+        if runtime_version_arn is None and 'runtimeVersionArn' in kwargs:
+            runtime_version_arn = kwargs['runtimeVersionArn']
+
         _setter("update_runtime_on", update_runtime_on)
         if runtime_version_arn is not None:
             _setter("runtime_version_arn", runtime_version_arn)

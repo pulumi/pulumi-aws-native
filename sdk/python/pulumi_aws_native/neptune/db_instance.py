@@ -47,7 +47,7 @@ class DbInstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_instance_class: pulumi.Input[str],
+             db_instance_class: Optional[pulumi.Input[str]] = None,
              allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
              auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,31 @@ class DbInstanceArgs:
              db_subnet_group_name: Optional[pulumi.Input[str]] = None,
              preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_instance_class is None and 'dbInstanceClass' in kwargs:
+            db_instance_class = kwargs['dbInstanceClass']
+        if db_instance_class is None:
+            raise TypeError("Missing 'db_instance_class' argument")
+        if allow_major_version_upgrade is None and 'allowMajorVersionUpgrade' in kwargs:
+            allow_major_version_upgrade = kwargs['allowMajorVersionUpgrade']
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_instance_identifier is None and 'dbInstanceIdentifier' in kwargs:
+            db_instance_identifier = kwargs['dbInstanceIdentifier']
+        if db_parameter_group_name is None and 'dbParameterGroupName' in kwargs:
+            db_parameter_group_name = kwargs['dbParameterGroupName']
+        if db_snapshot_identifier is None and 'dbSnapshotIdentifier' in kwargs:
+            db_snapshot_identifier = kwargs['dbSnapshotIdentifier']
+        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+
         _setter("db_instance_class", db_instance_class)
         if allow_major_version_upgrade is not None:
             _setter("allow_major_version_upgrade", allow_major_version_upgrade)

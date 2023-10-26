@@ -41,7 +41,11 @@ class FirewallDomainListArgs:
              domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallDomainListTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_file_url is None and 'domainFileUrl' in kwargs:
+            domain_file_url = kwargs['domainFileUrl']
+
         if domain_file_url is not None:
             _setter("domain_file_url", domain_file_url)
         if domains is not None:

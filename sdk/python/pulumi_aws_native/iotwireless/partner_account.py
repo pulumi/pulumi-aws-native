@@ -54,7 +54,19 @@ class PartnerAccountArgs:
              sidewalk_response: Optional[pulumi.Input['PartnerAccountSidewalkAccountInfoWithFingerprintArgs']] = None,
              sidewalk_update: Optional[pulumi.Input['PartnerAccountSidewalkUpdateAccountArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PartnerAccountTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_linked is None and 'accountLinked' in kwargs:
+            account_linked = kwargs['accountLinked']
+        if partner_account_id is None and 'partnerAccountId' in kwargs:
+            partner_account_id = kwargs['partnerAccountId']
+        if partner_type is None and 'partnerType' in kwargs:
+            partner_type = kwargs['partnerType']
+        if sidewalk_response is None and 'sidewalkResponse' in kwargs:
+            sidewalk_response = kwargs['sidewalkResponse']
+        if sidewalk_update is None and 'sidewalkUpdate' in kwargs:
+            sidewalk_update = kwargs['sidewalkUpdate']
+
         if account_linked is not None:
             _setter("account_linked", account_linked)
         if partner_account_id is not None:
@@ -234,23 +246,11 @@ class PartnerAccount(pulumi.CustomResource):
             __props__.__dict__["account_linked"] = account_linked
             __props__.__dict__["partner_account_id"] = partner_account_id
             __props__.__dict__["partner_type"] = partner_type
-            if sidewalk is not None and not isinstance(sidewalk, PartnerAccountSidewalkAccountInfoArgs):
-                sidewalk = sidewalk or {}
-                def _setter(key, value):
-                    sidewalk[key] = value
-                PartnerAccountSidewalkAccountInfoArgs._configure(_setter, **sidewalk)
+            sidewalk = _utilities.configure(sidewalk, PartnerAccountSidewalkAccountInfoArgs, True)
             __props__.__dict__["sidewalk"] = sidewalk
-            if sidewalk_response is not None and not isinstance(sidewalk_response, PartnerAccountSidewalkAccountInfoWithFingerprintArgs):
-                sidewalk_response = sidewalk_response or {}
-                def _setter(key, value):
-                    sidewalk_response[key] = value
-                PartnerAccountSidewalkAccountInfoWithFingerprintArgs._configure(_setter, **sidewalk_response)
+            sidewalk_response = _utilities.configure(sidewalk_response, PartnerAccountSidewalkAccountInfoWithFingerprintArgs, True)
             __props__.__dict__["sidewalk_response"] = sidewalk_response
-            if sidewalk_update is not None and not isinstance(sidewalk_update, PartnerAccountSidewalkUpdateAccountArgs):
-                sidewalk_update = sidewalk_update or {}
-                def _setter(key, value):
-                    sidewalk_update[key] = value
-                PartnerAccountSidewalkUpdateAccountArgs._configure(_setter, **sidewalk_update)
+            sidewalk_update = _utilities.configure(sidewalk_update, PartnerAccountSidewalkUpdateAccountArgs, True)
             __props__.__dict__["sidewalk_update"] = sidewalk_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -49,7 +49,17 @@ class UserArgs:
              policies: Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if login_profile is None and 'loginProfile' in kwargs:
+            login_profile = kwargs['loginProfile']
+        if managed_policy_arns is None and 'managedPolicyArns' in kwargs:
+            managed_policy_arns = kwargs['managedPolicyArns']
+        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if groups is not None:
             _setter("groups", groups)
         if login_profile is not None:
@@ -212,11 +222,7 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             __props__.__dict__["groups"] = groups
-            if login_profile is not None and not isinstance(login_profile, UserLoginProfileArgs):
-                login_profile = login_profile or {}
-                def _setter(key, value):
-                    login_profile[key] = value
-                UserLoginProfileArgs._configure(_setter, **login_profile)
+            login_profile = _utilities.configure(login_profile, UserLoginProfileArgs, True)
             __props__.__dict__["login_profile"] = login_profile
             __props__.__dict__["managed_policy_arns"] = managed_policy_arns
             __props__.__dict__["path"] = path

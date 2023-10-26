@@ -32,7 +32,9 @@ class WaitConditionArgs:
              count: Optional[pulumi.Input[int]] = None,
              handle: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if handle is not None:

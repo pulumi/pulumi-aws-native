@@ -40,12 +40,20 @@ class RobotArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             architecture: pulumi.Input['RobotArchitecture'],
-             greengrass_group_id: pulumi.Input[str],
+             architecture: Optional[pulumi.Input['RobotArchitecture']] = None,
+             greengrass_group_id: Optional[pulumi.Input[str]] = None,
              fleet: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['RobotTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if architecture is None:
+            raise TypeError("Missing 'architecture' argument")
+        if greengrass_group_id is None and 'greengrassGroupId' in kwargs:
+            greengrass_group_id = kwargs['greengrassGroupId']
+        if greengrass_group_id is None:
+            raise TypeError("Missing 'greengrass_group_id' argument")
+
         _setter("architecture", architecture)
         _setter("greengrass_group_id", greengrass_group_id)
         if fleet is not None:
@@ -184,11 +192,7 @@ class Robot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'greengrass_group_id'")
             __props__.__dict__["greengrass_group_id"] = greengrass_group_id
             __props__.__dict__["name"] = name
-            if tags is not None and not isinstance(tags, RobotTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                RobotTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, RobotTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["architecture", "fleet", "greengrass_group_id", "name"])

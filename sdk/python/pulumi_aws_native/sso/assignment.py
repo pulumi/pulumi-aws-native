@@ -42,13 +42,39 @@ class AssignmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             permission_set_arn: pulumi.Input[str],
-             principal_id: pulumi.Input[str],
-             principal_type: pulumi.Input['AssignmentPrincipalType'],
-             target_id: pulumi.Input[str],
-             target_type: pulumi.Input['AssignmentTargetType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             permission_set_arn: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input['AssignmentPrincipalType']] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input['AssignmentTargetType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if permission_set_arn is None and 'permissionSetArn' in kwargs:
+            permission_set_arn = kwargs['permissionSetArn']
+        if permission_set_arn is None:
+            raise TypeError("Missing 'permission_set_arn' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+
         _setter("instance_arn", instance_arn)
         _setter("permission_set_arn", permission_set_arn)
         _setter("principal_id", principal_id)

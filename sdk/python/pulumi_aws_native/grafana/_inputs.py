@@ -55,7 +55,9 @@ class WorkspaceAssertionAttributesArgs:
              name: Optional[pulumi.Input[str]] = None,
              org: Optional[pulumi.Input[str]] = None,
              role: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if email is not None:
             _setter("email", email)
         if groups is not None:
@@ -162,7 +164,9 @@ class WorkspaceIdpMetadataArgs:
              _setter: Callable[[Any, Any], None],
              url: Optional[pulumi.Input[str]] = None,
              xml: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if url is not None:
             _setter("url", url)
         if xml is not None:
@@ -213,7 +217,13 @@ class WorkspaceNetworkAccessControlArgs:
              _setter: Callable[[Any, Any], None],
              prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpce_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prefix_list_ids is None and 'prefixListIds' in kwargs:
+            prefix_list_ids = kwargs['prefixListIds']
+        if vpce_ids is None and 'vpceIds' in kwargs:
+            vpce_ids = kwargs['vpceIds']
+
         if prefix_list_ids is not None:
             _setter("prefix_list_ids", prefix_list_ids)
         if vpce_ids is not None:
@@ -264,7 +274,9 @@ class WorkspaceRoleValuesArgs:
              _setter: Callable[[Any, Any], None],
              admin: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              editor: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if admin is not None:
             _setter("admin", admin)
         if editor is not None:
@@ -319,12 +331,26 @@ class WorkspaceSamlConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             idp_metadata: pulumi.Input['WorkspaceIdpMetadataArgs'],
+             idp_metadata: Optional[pulumi.Input['WorkspaceIdpMetadataArgs']] = None,
              allowed_organizations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              assertion_attributes: Optional[pulumi.Input['WorkspaceAssertionAttributesArgs']] = None,
              login_validity_duration: Optional[pulumi.Input[float]] = None,
              role_values: Optional[pulumi.Input['WorkspaceRoleValuesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idp_metadata is None and 'idpMetadata' in kwargs:
+            idp_metadata = kwargs['idpMetadata']
+        if idp_metadata is None:
+            raise TypeError("Missing 'idp_metadata' argument")
+        if allowed_organizations is None and 'allowedOrganizations' in kwargs:
+            allowed_organizations = kwargs['allowedOrganizations']
+        if assertion_attributes is None and 'assertionAttributes' in kwargs:
+            assertion_attributes = kwargs['assertionAttributes']
+        if login_validity_duration is None and 'loginValidityDuration' in kwargs:
+            login_validity_duration = kwargs['loginValidityDuration']
+        if role_values is None and 'roleValues' in kwargs:
+            role_values = kwargs['roleValues']
+
         _setter("idp_metadata", idp_metadata)
         if allowed_organizations is not None:
             _setter("allowed_organizations", allowed_organizations)
@@ -405,9 +431,19 @@ class WorkspaceVpcConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_group_ids is None:
+            raise TypeError("Missing 'security_group_ids' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+
         _setter("security_group_ids", security_group_ids)
         _setter("subnet_ids", subnet_ids)
 

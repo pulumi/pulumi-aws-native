@@ -42,11 +42,25 @@ class HookVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schema_handler_package: pulumi.Input[str],
-             type_name: pulumi.Input[str],
+             schema_handler_package: Optional[pulumi.Input[str]] = None,
+             type_name: Optional[pulumi.Input[str]] = None,
              execution_role_arn: Optional[pulumi.Input[str]] = None,
              logging_config: Optional[pulumi.Input['HookVersionLoggingConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema_handler_package is None and 'schemaHandlerPackage' in kwargs:
+            schema_handler_package = kwargs['schemaHandlerPackage']
+        if schema_handler_package is None:
+            raise TypeError("Missing 'schema_handler_package' argument")
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_name is None:
+            raise TypeError("Missing 'type_name' argument")
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if logging_config is None and 'loggingConfig' in kwargs:
+            logging_config = kwargs['loggingConfig']
+
         _setter("schema_handler_package", schema_handler_package)
         _setter("type_name", type_name)
         if execution_role_arn is not None:
@@ -173,11 +187,7 @@ class HookVersion(pulumi.CustomResource):
             __props__ = HookVersionArgs.__new__(HookVersionArgs)
 
             __props__.__dict__["execution_role_arn"] = execution_role_arn
-            if logging_config is not None and not isinstance(logging_config, HookVersionLoggingConfigArgs):
-                logging_config = logging_config or {}
-                def _setter(key, value):
-                    logging_config[key] = value
-                HookVersionLoggingConfigArgs._configure(_setter, **logging_config)
+            logging_config = _utilities.configure(logging_config, HookVersionLoggingConfigArgs, True)
             __props__.__dict__["logging_config"] = logging_config
             if schema_handler_package is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_handler_package'")

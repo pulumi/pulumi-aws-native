@@ -47,14 +47,30 @@ class VariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source: pulumi.Input['VariableDataSource'],
-             data_type: pulumi.Input['VariableDataType'],
-             default_value: pulumi.Input[str],
+             data_source: Optional[pulumi.Input['VariableDataSource']] = None,
+             data_type: Optional[pulumi.Input['VariableDataType']] = None,
+             default_value: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VariableTagArgs']]]] = None,
              variable_type: Optional[pulumi.Input['VariableType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if default_value is None:
+            raise TypeError("Missing 'default_value' argument")
+        if variable_type is None and 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         _setter("data_source", data_source)
         _setter("data_type", data_type)
         _setter("default_value", default_value)

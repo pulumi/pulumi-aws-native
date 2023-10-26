@@ -41,15 +41,37 @@ class ScalingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_name: pulumi.Input[str],
-             policy_type: pulumi.Input[str],
+             policy_name: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
              scalable_dimension: Optional[pulumi.Input[str]] = None,
              scaling_target_id: Optional[pulumi.Input[str]] = None,
              service_namespace: Optional[pulumi.Input[str]] = None,
              step_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyStepScalingPolicyConfigurationArgs']] = None,
              target_tracking_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if scalable_dimension is None and 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if scaling_target_id is None and 'scalingTargetId' in kwargs:
+            scaling_target_id = kwargs['scalingTargetId']
+        if service_namespace is None and 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if step_scaling_policy_configuration is None and 'stepScalingPolicyConfiguration' in kwargs:
+            step_scaling_policy_configuration = kwargs['stepScalingPolicyConfiguration']
+        if target_tracking_scaling_policy_configuration is None and 'targetTrackingScalingPolicyConfiguration' in kwargs:
+            target_tracking_scaling_policy_configuration = kwargs['targetTrackingScalingPolicyConfiguration']
+
         _setter("policy_name", policy_name)
         _setter("policy_type", policy_type)
         if resource_id is not None:
@@ -219,17 +241,9 @@ class ScalingPolicy(pulumi.CustomResource):
             __props__.__dict__["scalable_dimension"] = scalable_dimension
             __props__.__dict__["scaling_target_id"] = scaling_target_id
             __props__.__dict__["service_namespace"] = service_namespace
-            if step_scaling_policy_configuration is not None and not isinstance(step_scaling_policy_configuration, ScalingPolicyStepScalingPolicyConfigurationArgs):
-                step_scaling_policy_configuration = step_scaling_policy_configuration or {}
-                def _setter(key, value):
-                    step_scaling_policy_configuration[key] = value
-                ScalingPolicyStepScalingPolicyConfigurationArgs._configure(_setter, **step_scaling_policy_configuration)
+            step_scaling_policy_configuration = _utilities.configure(step_scaling_policy_configuration, ScalingPolicyStepScalingPolicyConfigurationArgs, True)
             __props__.__dict__["step_scaling_policy_configuration"] = step_scaling_policy_configuration
-            if target_tracking_scaling_policy_configuration is not None and not isinstance(target_tracking_scaling_policy_configuration, ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs):
-                target_tracking_scaling_policy_configuration = target_tracking_scaling_policy_configuration or {}
-                def _setter(key, value):
-                    target_tracking_scaling_policy_configuration[key] = value
-                ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs._configure(_setter, **target_tracking_scaling_policy_configuration)
+            target_tracking_scaling_policy_configuration = _utilities.configure(target_tracking_scaling_policy_configuration, ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs, True)
             __props__.__dict__["target_tracking_scaling_policy_configuration"] = target_tracking_scaling_policy_configuration
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["policy_name", "resource_id", "scalable_dimension", "scaling_target_id", "service_namespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

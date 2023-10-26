@@ -35,12 +35,16 @@ class PrivateDnsNamespaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             vpc: pulumi.Input[str],
+             vpc: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              properties: Optional[pulumi.Input['PrivateDnsNamespacePropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateDnsNamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc is None:
+            raise TypeError("Missing 'vpc' argument")
+
         _setter("vpc", vpc)
         if description is not None:
             _setter("description", description)
@@ -164,11 +168,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if properties is not None and not isinstance(properties, PrivateDnsNamespacePropertiesArgs):
-                properties = properties or {}
-                def _setter(key, value):
-                    properties[key] = value
-                PrivateDnsNamespacePropertiesArgs._configure(_setter, **properties)
+            properties = _utilities.configure(properties, PrivateDnsNamespacePropertiesArgs, True)
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
             if vpc is None and not opts.urn:

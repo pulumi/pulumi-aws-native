@@ -32,10 +32,22 @@ class ClusterCapacityProviderAssociationsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_providers: pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]],
-             cluster: pulumi.Input[str],
-             default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', str]]]]] = None,
+             cluster: Optional[pulumi.Input[str]] = None,
+             default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_providers is None and 'capacityProviders' in kwargs:
+            capacity_providers = kwargs['capacityProviders']
+        if capacity_providers is None:
+            raise TypeError("Missing 'capacity_providers' argument")
+        if cluster is None:
+            raise TypeError("Missing 'cluster' argument")
+        if default_capacity_provider_strategy is None and 'defaultCapacityProviderStrategy' in kwargs:
+            default_capacity_provider_strategy = kwargs['defaultCapacityProviderStrategy']
+        if default_capacity_provider_strategy is None:
+            raise TypeError("Missing 'default_capacity_provider_strategy' argument")
+
         _setter("capacity_providers", capacity_providers)
         _setter("cluster", cluster)
         _setter("default_capacity_provider_strategy", default_capacity_provider_strategy)

@@ -51,8 +51,8 @@ class TaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_location_arn: pulumi.Input[str],
-             source_location_arn: pulumi.Input[str],
+             destination_location_arn: Optional[pulumi.Input[str]] = None,
+             source_location_arn: Optional[pulumi.Input[str]] = None,
              cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
              excludes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
              includes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
@@ -61,7 +61,21 @@ class TaskArgs:
              schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None,
              task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_location_arn is None and 'destinationLocationArn' in kwargs:
+            destination_location_arn = kwargs['destinationLocationArn']
+        if destination_location_arn is None:
+            raise TypeError("Missing 'destination_location_arn' argument")
+        if source_location_arn is None and 'sourceLocationArn' in kwargs:
+            source_location_arn = kwargs['sourceLocationArn']
+        if source_location_arn is None:
+            raise TypeError("Missing 'source_location_arn' argument")
+        if cloud_watch_log_group_arn is None and 'cloudWatchLogGroupArn' in kwargs:
+            cloud_watch_log_group_arn = kwargs['cloudWatchLogGroupArn']
+        if task_report_config is None and 'taskReportConfig' in kwargs:
+            task_report_config = kwargs['taskReportConfig']
+
         _setter("destination_location_arn", destination_location_arn)
         _setter("source_location_arn", source_location_arn)
         if cloud_watch_log_group_arn is not None:
@@ -268,27 +282,15 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["excludes"] = excludes
             __props__.__dict__["includes"] = includes
             __props__.__dict__["name"] = name
-            if options is not None and not isinstance(options, TaskOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                TaskOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, TaskOptionsArgs, True)
             __props__.__dict__["options"] = options
-            if schedule is not None and not isinstance(schedule, TaskScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                TaskScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, TaskScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
             if source_location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_location_arn'")
             __props__.__dict__["source_location_arn"] = source_location_arn
             __props__.__dict__["tags"] = tags
-            if task_report_config is not None and not isinstance(task_report_config, TaskReportConfigArgs):
-                task_report_config = task_report_config or {}
-                def _setter(key, value):
-                    task_report_config[key] = value
-                TaskReportConfigArgs._configure(_setter, **task_report_config)
+            task_report_config = _utilities.configure(task_report_config, TaskReportConfigArgs, True)
             __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["destination_network_interface_arns"] = None
             __props__.__dict__["source_network_interface_arns"] = None

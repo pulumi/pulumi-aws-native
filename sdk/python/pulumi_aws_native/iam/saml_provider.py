@@ -31,10 +31,16 @@ class SamlProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             saml_metadata_document: pulumi.Input[str],
+             saml_metadata_document: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SamlProviderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if saml_metadata_document is None and 'samlMetadataDocument' in kwargs:
+            saml_metadata_document = kwargs['samlMetadataDocument']
+        if saml_metadata_document is None:
+            raise TypeError("Missing 'saml_metadata_document' argument")
+
         _setter("saml_metadata_document", saml_metadata_document)
         if name is not None:
             _setter("name", name)

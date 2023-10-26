@@ -71,7 +71,29 @@ class AppArgs:
              platform: Optional[pulumi.Input['AppPlatform']] = None,
              repository: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if auto_branch_creation_config is None and 'autoBranchCreationConfig' in kwargs:
+            auto_branch_creation_config = kwargs['autoBranchCreationConfig']
+        if basic_auth_config is None and 'basicAuthConfig' in kwargs:
+            basic_auth_config = kwargs['basicAuthConfig']
+        if build_spec is None and 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if custom_rules is None and 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if enable_branch_auto_deletion is None and 'enableBranchAutoDeletion' in kwargs:
+            enable_branch_auto_deletion = kwargs['enableBranchAutoDeletion']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if iam_service_role is None and 'iamServiceRole' in kwargs:
+            iam_service_role = kwargs['iamServiceRole']
+        if oauth_token is None and 'oauthToken' in kwargs:
+            oauth_token = kwargs['oauthToken']
+
         if access_token is not None:
             _setter("access_token", access_token)
         if auto_branch_creation_config is not None:
@@ -319,17 +341,9 @@ class App(pulumi.CustomResource):
             __props__ = AppArgs.__new__(AppArgs)
 
             __props__.__dict__["access_token"] = access_token
-            if auto_branch_creation_config is not None and not isinstance(auto_branch_creation_config, AppAutoBranchCreationConfigArgs):
-                auto_branch_creation_config = auto_branch_creation_config or {}
-                def _setter(key, value):
-                    auto_branch_creation_config[key] = value
-                AppAutoBranchCreationConfigArgs._configure(_setter, **auto_branch_creation_config)
+            auto_branch_creation_config = _utilities.configure(auto_branch_creation_config, AppAutoBranchCreationConfigArgs, True)
             __props__.__dict__["auto_branch_creation_config"] = auto_branch_creation_config
-            if basic_auth_config is not None and not isinstance(basic_auth_config, AppBasicAuthConfigArgs):
-                basic_auth_config = basic_auth_config or {}
-                def _setter(key, value):
-                    basic_auth_config[key] = value
-                AppBasicAuthConfigArgs._configure(_setter, **basic_auth_config)
+            basic_auth_config = _utilities.configure(basic_auth_config, AppBasicAuthConfigArgs, True)
             __props__.__dict__["basic_auth_config"] = basic_auth_config
             __props__.__dict__["build_spec"] = build_spec
             __props__.__dict__["custom_headers"] = custom_headers

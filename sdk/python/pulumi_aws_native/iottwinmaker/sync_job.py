@@ -35,11 +35,25 @@ class SyncJobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sync_role: pulumi.Input[str],
-             sync_source: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             sync_role: Optional[pulumi.Input[str]] = None,
+             sync_source: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sync_role is None and 'syncRole' in kwargs:
+            sync_role = kwargs['syncRole']
+        if sync_role is None:
+            raise TypeError("Missing 'sync_role' argument")
+        if sync_source is None and 'syncSource' in kwargs:
+            sync_source = kwargs['syncSource']
+        if sync_source is None:
+            raise TypeError("Missing 'sync_source' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+
         _setter("sync_role", sync_role)
         _setter("sync_source", sync_source)
         _setter("workspace_id", workspace_id)

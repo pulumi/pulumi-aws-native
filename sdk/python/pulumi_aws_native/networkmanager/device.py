@@ -55,7 +55,7 @@ class DeviceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             global_network_id: pulumi.Input[str],
+             global_network_id: Optional[pulumi.Input[str]] = None,
              aws_location: Optional[pulumi.Input['DeviceAwsLocationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input['DeviceLocationArgs']] = None,
@@ -65,7 +65,19 @@ class DeviceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              vendor: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if aws_location is None and 'awsLocation' in kwargs:
+            aws_location = kwargs['awsLocation']
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+        if site_id is None and 'siteId' in kwargs:
+            site_id = kwargs['siteId']
+
         _setter("global_network_id", global_network_id)
         if aws_location is not None:
             _setter("aws_location", aws_location)
@@ -286,21 +298,13 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
-            if aws_location is not None and not isinstance(aws_location, DeviceAwsLocationArgs):
-                aws_location = aws_location or {}
-                def _setter(key, value):
-                    aws_location[key] = value
-                DeviceAwsLocationArgs._configure(_setter, **aws_location)
+            aws_location = _utilities.configure(aws_location, DeviceAwsLocationArgs, True)
             __props__.__dict__["aws_location"] = aws_location
             __props__.__dict__["description"] = description
             if global_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'global_network_id'")
             __props__.__dict__["global_network_id"] = global_network_id
-            if location is not None and not isinstance(location, DeviceLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                DeviceLocationArgs._configure(_setter, **location)
+            location = _utilities.configure(location, DeviceLocationArgs, True)
             __props__.__dict__["location"] = location
             __props__.__dict__["model"] = model
             __props__.__dict__["serial_number"] = serial_number

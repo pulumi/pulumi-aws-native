@@ -59,11 +59,23 @@ class LoadBalancerAccessLoggingPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             s3_bucket_name: str,
+             enabled: Optional[bool] = None,
+             s3_bucket_name: Optional[str] = None,
              emit_interval: Optional[int] = None,
              s3_bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if emit_interval is None and 'emitInterval' in kwargs:
+            emit_interval = kwargs['emitInterval']
+        if s3_bucket_prefix is None and 's3BucketPrefix' in kwargs:
+            s3_bucket_prefix = kwargs['s3BucketPrefix']
+
         _setter("enabled", enabled)
         _setter("s3_bucket_name", s3_bucket_name)
         if emit_interval is not None:
@@ -124,9 +136,19 @@ class LoadBalancerAppCookieStickinessPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cookie_name: str,
-             policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cookie_name: Optional[str] = None,
+             policy_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookie_name is None and 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if cookie_name is None:
+            raise TypeError("Missing 'cookie_name' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+
         _setter("cookie_name", cookie_name)
         _setter("policy_name", policy_name)
 
@@ -154,9 +176,13 @@ class LoadBalancerConnectionDrainingPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
+             enabled: Optional[bool] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
         if timeout is not None:
             _setter("timeout", timeout)
@@ -200,8 +226,14 @@ class LoadBalancerConnectionSettings(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             idle_timeout: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             idle_timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if idle_timeout is None:
+            raise TypeError("Missing 'idle_timeout' argument")
+
         _setter("idle_timeout", idle_timeout)
 
     @property
@@ -248,12 +280,28 @@ class LoadBalancerHealthCheck(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             healthy_threshold: str,
-             interval: str,
-             target: str,
-             timeout: str,
-             unhealthy_threshold: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             healthy_threshold: Optional[str] = None,
+             interval: Optional[str] = None,
+             target: Optional[str] = None,
+             timeout: Optional[str] = None,
+             unhealthy_threshold: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if healthy_threshold is None and 'healthyThreshold' in kwargs:
+            healthy_threshold = kwargs['healthyThreshold']
+        if healthy_threshold is None:
+            raise TypeError("Missing 'healthy_threshold' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if unhealthy_threshold is None and 'unhealthyThreshold' in kwargs:
+            unhealthy_threshold = kwargs['unhealthyThreshold']
+        if unhealthy_threshold is None:
+            raise TypeError("Missing 'unhealthy_threshold' argument")
+
         _setter("healthy_threshold", healthy_threshold)
         _setter("interval", interval)
         _setter("target", target)
@@ -320,7 +368,13 @@ class LoadBalancerLbCookieStickinessPolicy(dict):
              _setter: Callable[[Any, Any], None],
              cookie_expiration_period: Optional[str] = None,
              policy_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookie_expiration_period is None and 'cookieExpirationPeriod' in kwargs:
+            cookie_expiration_period = kwargs['cookieExpirationPeriod']
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+
         if cookie_expiration_period is not None:
             _setter("cookie_expiration_period", cookie_expiration_period)
         if policy_name is not None:
@@ -383,13 +437,31 @@ class LoadBalancerListeners(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_port: str,
-             load_balancer_port: str,
-             protocol: str,
+             instance_port: Optional[str] = None,
+             load_balancer_port: Optional[str] = None,
+             protocol: Optional[str] = None,
              instance_protocol: Optional[str] = None,
              policy_names: Optional[Sequence[str]] = None,
              ssl_certificate_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_port is None and 'instancePort' in kwargs:
+            instance_port = kwargs['instancePort']
+        if instance_port is None:
+            raise TypeError("Missing 'instance_port' argument")
+        if load_balancer_port is None and 'loadBalancerPort' in kwargs:
+            load_balancer_port = kwargs['loadBalancerPort']
+        if load_balancer_port is None:
+            raise TypeError("Missing 'load_balancer_port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if instance_protocol is None and 'instanceProtocol' in kwargs:
+            instance_protocol = kwargs['instanceProtocol']
+        if policy_names is None and 'policyNames' in kwargs:
+            policy_names = kwargs['policyNames']
+        if ssl_certificate_id is None and 'sslCertificateId' in kwargs:
+            ssl_certificate_id = kwargs['sslCertificateId']
+
         _setter("instance_port", instance_port)
         _setter("load_balancer_port", load_balancer_port)
         _setter("protocol", protocol)
@@ -473,12 +545,28 @@ class LoadBalancerPolicies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence[Any],
-             policy_name: str,
-             policy_type: str,
+             attributes: Optional[Sequence[Any]] = None,
+             policy_name: Optional[str] = None,
+             policy_type: Optional[str] = None,
              instance_ports: Optional[Sequence[str]] = None,
              load_balancer_ports: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if instance_ports is None and 'instancePorts' in kwargs:
+            instance_ports = kwargs['instancePorts']
+        if load_balancer_ports is None and 'loadBalancerPorts' in kwargs:
+            load_balancer_ports = kwargs['loadBalancerPorts']
+
         _setter("attributes", attributes)
         _setter("policy_name", policy_name)
         _setter("policy_type", policy_type)
@@ -526,9 +614,15 @@ class LoadBalancerTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

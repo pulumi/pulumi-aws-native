@@ -67,9 +67,9 @@ class ServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_profile_arn: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
-             service_role_arn: pulumi.Input[str],
+             instance_profile_arn: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
              associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
              backup_id: Optional[pulumi.Input[str]] = None,
              backup_retention_count: Optional[pulumi.Input[int]] = None,
@@ -88,7 +88,53 @@ class ServerArgs:
              server_name: Optional[pulumi.Input[str]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_profile_arn is None and 'instanceProfileArn' in kwargs:
+            instance_profile_arn = kwargs['instanceProfileArn']
+        if instance_profile_arn is None:
+            raise TypeError("Missing 'instance_profile_arn' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if service_role_arn is None:
+            raise TypeError("Missing 'service_role_arn' argument")
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if backup_id is None and 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if backup_retention_count is None and 'backupRetentionCount' in kwargs:
+            backup_retention_count = kwargs['backupRetentionCount']
+        if custom_certificate is None and 'customCertificate' in kwargs:
+            custom_certificate = kwargs['customCertificate']
+        if custom_domain is None and 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if custom_private_key is None and 'customPrivateKey' in kwargs:
+            custom_private_key = kwargs['customPrivateKey']
+        if disable_automated_backup is None and 'disableAutomatedBackup' in kwargs:
+            disable_automated_backup = kwargs['disableAutomatedBackup']
+        if engine_attributes is None and 'engineAttributes' in kwargs:
+            engine_attributes = kwargs['engineAttributes']
+        if engine_model is None and 'engineModel' in kwargs:
+            engine_model = kwargs['engineModel']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if key_pair is None and 'keyPair' in kwargs:
+            key_pair = kwargs['keyPair']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("instance_profile_arn", instance_profile_arn)
         _setter("instance_type", instance_type)
         _setter("service_role_arn", service_role_arn)

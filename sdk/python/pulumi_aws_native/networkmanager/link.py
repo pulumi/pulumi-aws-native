@@ -46,14 +46,26 @@ class LinkArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bandwidth: pulumi.Input['LinkBandwidthArgs'],
-             global_network_id: pulumi.Input[str],
-             site_id: pulumi.Input[str],
+             bandwidth: Optional[pulumi.Input['LinkBandwidthArgs']] = None,
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             site_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              provider: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bandwidth is None:
+            raise TypeError("Missing 'bandwidth' argument")
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if site_id is None and 'siteId' in kwargs:
+            site_id = kwargs['siteId']
+        if site_id is None:
+            raise TypeError("Missing 'site_id' argument")
+
         _setter("bandwidth", bandwidth)
         _setter("global_network_id", global_network_id)
         _setter("site_id", site_id)
@@ -221,11 +233,7 @@ class Link(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkArgs.__new__(LinkArgs)
 
-            if bandwidth is not None and not isinstance(bandwidth, LinkBandwidthArgs):
-                bandwidth = bandwidth or {}
-                def _setter(key, value):
-                    bandwidth[key] = value
-                LinkBandwidthArgs._configure(_setter, **bandwidth)
+            bandwidth = _utilities.configure(bandwidth, LinkBandwidthArgs, True)
             if bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth'")
             __props__.__dict__["bandwidth"] = bandwidth

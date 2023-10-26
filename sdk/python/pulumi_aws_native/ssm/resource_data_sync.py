@@ -43,7 +43,7 @@ class ResourceDataSyncArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sync_name: pulumi.Input[str],
+             sync_name: Optional[pulumi.Input[str]] = None,
              bucket_name: Optional[pulumi.Input[str]] = None,
              bucket_prefix: Optional[pulumi.Input[str]] = None,
              bucket_region: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,29 @@ class ResourceDataSyncArgs:
              sync_format: Optional[pulumi.Input[str]] = None,
              sync_source: Optional[pulumi.Input['ResourceDataSyncSyncSourceArgs']] = None,
              sync_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sync_name is None and 'syncName' in kwargs:
+            sync_name = kwargs['syncName']
+        if sync_name is None:
+            raise TypeError("Missing 'sync_name' argument")
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if bucket_region is None and 'bucketRegion' in kwargs:
+            bucket_region = kwargs['bucketRegion']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+        if sync_format is None and 'syncFormat' in kwargs:
+            sync_format = kwargs['syncFormat']
+        if sync_source is None and 'syncSource' in kwargs:
+            sync_source = kwargs['syncSource']
+        if sync_type is None and 'syncType' in kwargs:
+            sync_type = kwargs['syncType']
+
         _setter("sync_name", sync_name)
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
@@ -224,21 +246,13 @@ class ResourceDataSync(pulumi.CustomResource):
             __props__.__dict__["bucket_prefix"] = bucket_prefix
             __props__.__dict__["bucket_region"] = bucket_region
             __props__.__dict__["kms_key_arn"] = kms_key_arn
-            if s3_destination is not None and not isinstance(s3_destination, ResourceDataSyncS3DestinationArgs):
-                s3_destination = s3_destination or {}
-                def _setter(key, value):
-                    s3_destination[key] = value
-                ResourceDataSyncS3DestinationArgs._configure(_setter, **s3_destination)
+            s3_destination = _utilities.configure(s3_destination, ResourceDataSyncS3DestinationArgs, True)
             __props__.__dict__["s3_destination"] = s3_destination
             __props__.__dict__["sync_format"] = sync_format
             if sync_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_name'")
             __props__.__dict__["sync_name"] = sync_name
-            if sync_source is not None and not isinstance(sync_source, ResourceDataSyncSyncSourceArgs):
-                sync_source = sync_source or {}
-                def _setter(key, value):
-                    sync_source[key] = value
-                ResourceDataSyncSyncSourceArgs._configure(_setter, **sync_source)
+            sync_source = _utilities.configure(sync_source, ResourceDataSyncSyncSourceArgs, True)
             __props__.__dict__["sync_source"] = sync_source
             __props__.__dict__["sync_type"] = sync_type
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bucket_name", "bucket_prefix", "bucket_region", "kms_key_arn", "s3_destination", "sync_format", "sync_name", "sync_type"])

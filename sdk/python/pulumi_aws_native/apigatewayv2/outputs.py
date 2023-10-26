@@ -58,7 +58,9 @@ class ApiBodyS3Location(dict):
              etag: Optional[str] = None,
              key: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if bucket is not None:
             _setter("bucket", bucket)
         if etag is not None:
@@ -167,7 +169,21 @@ class ApiCors(dict):
              allow_origins: Optional[Sequence[str]] = None,
              expose_headers: Optional[Sequence[str]] = None,
              max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_credentials is None and 'allowCredentials' in kwargs:
+            allow_credentials = kwargs['allowCredentials']
+        if allow_headers is None and 'allowHeaders' in kwargs:
+            allow_headers = kwargs['allowHeaders']
+        if allow_methods is None and 'allowMethods' in kwargs:
+            allow_methods = kwargs['allowMethods']
+        if allow_origins is None and 'allowOrigins' in kwargs:
+            allow_origins = kwargs['allowOrigins']
+        if expose_headers is None and 'exposeHeaders' in kwargs:
+            expose_headers = kwargs['exposeHeaders']
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+
         if allow_credentials is not None:
             _setter("allow_credentials", allow_credentials)
         if allow_headers is not None:
@@ -262,7 +278,11 @@ class ApiGatewayManagedOverridesAccessLogSettings(dict):
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[str] = None,
              format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
         if format is not None:
@@ -321,7 +341,15 @@ class ApiGatewayManagedOverridesIntegrationOverrides(dict):
              integration_method: Optional[str] = None,
              payload_format_version: Optional[str] = None,
              timeout_in_millis: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if integration_method is None and 'integrationMethod' in kwargs:
+            integration_method = kwargs['integrationMethod']
+        if payload_format_version is None and 'payloadFormatVersion' in kwargs:
+            payload_format_version = kwargs['payloadFormatVersion']
+        if timeout_in_millis is None and 'timeoutInMillis' in kwargs:
+            timeout_in_millis = kwargs['timeoutInMillis']
+
         if description is not None:
             _setter("description", description)
         if integration_method is not None:
@@ -399,7 +427,17 @@ class ApiGatewayManagedOverridesRouteOverrides(dict):
              authorizer_id: Optional[str] = None,
              operation_name: Optional[str] = None,
              target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_scopes is None and 'authorizationScopes' in kwargs:
+            authorization_scopes = kwargs['authorizationScopes']
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if authorizer_id is None and 'authorizerId' in kwargs:
+            authorizer_id = kwargs['authorizerId']
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+
         if authorization_scopes is not None:
             _setter("authorization_scopes", authorization_scopes)
         if authorization_type is not None:
@@ -486,7 +524,19 @@ class ApiGatewayManagedOverridesRouteSettings(dict):
              logging_level: Optional[str] = None,
              throttling_burst_limit: Optional[int] = None,
              throttling_rate_limit: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_trace_enabled is None and 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if detailed_metrics_enabled is None and 'detailedMetricsEnabled' in kwargs:
+            detailed_metrics_enabled = kwargs['detailedMetricsEnabled']
+        if logging_level is None and 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if throttling_burst_limit is None and 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if throttling_rate_limit is None and 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+
         if data_trace_enabled is not None:
             _setter("data_trace_enabled", data_trace_enabled)
         if detailed_metrics_enabled is not None:
@@ -576,7 +626,19 @@ class ApiGatewayManagedOverridesStageOverrides(dict):
              description: Optional[str] = None,
              route_settings: Optional[Any] = None,
              stage_variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_log_settings is None and 'accessLogSettings' in kwargs:
+            access_log_settings = kwargs['accessLogSettings']
+        if auto_deploy is None and 'autoDeploy' in kwargs:
+            auto_deploy = kwargs['autoDeploy']
+        if default_route_settings is None and 'defaultRouteSettings' in kwargs:
+            default_route_settings = kwargs['defaultRouteSettings']
+        if route_settings is None and 'routeSettings' in kwargs:
+            route_settings = kwargs['routeSettings']
+        if stage_variables is None and 'stageVariables' in kwargs:
+            stage_variables = kwargs['stageVariables']
+
         if access_log_settings is not None:
             _setter("access_log_settings", access_log_settings)
         if auto_deploy is not None:
@@ -636,7 +698,9 @@ class AuthorizerJwtConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              audience: Optional[Sequence[str]] = None,
              issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if audience is not None:
             _setter("audience", audience)
         if issuer is not None:
@@ -715,7 +779,19 @@ class DomainNameConfiguration(dict):
              endpoint_type: Optional[str] = None,
              ownership_verification_certificate_arn: Optional[str] = None,
              security_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if ownership_verification_certificate_arn is None and 'ownershipVerificationCertificateArn' in kwargs:
+            ownership_verification_certificate_arn = kwargs['ownershipVerificationCertificateArn']
+        if security_policy is None and 'securityPolicy' in kwargs:
+            security_policy = kwargs['securityPolicy']
+
         if certificate_arn is not None:
             _setter("certificate_arn", certificate_arn)
         if certificate_name is not None:
@@ -810,7 +886,13 @@ class DomainNameMutualTlsAuthentication(dict):
              _setter: Callable[[Any, Any], None],
              truststore_uri: Optional[str] = None,
              truststore_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if truststore_uri is None and 'truststoreUri' in kwargs:
+            truststore_uri = kwargs['truststoreUri']
+        if truststore_version is None and 'truststoreVersion' in kwargs:
+            truststore_version = kwargs['truststoreVersion']
+
         if truststore_uri is not None:
             _setter("truststore_uri", truststore_uri)
         if truststore_version is not None:
@@ -862,7 +944,11 @@ class IntegrationTlsConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              server_name_to_verify: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server_name_to_verify is None and 'serverNameToVerify' in kwargs:
+            server_name_to_verify = kwargs['serverNameToVerify']
+
         if server_name_to_verify is not None:
             _setter("server_name_to_verify", server_name_to_verify)
 
@@ -879,8 +965,10 @@ class RouteResponseRouteParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -915,7 +1003,11 @@ class StageAccessLogSettings(dict):
              _setter: Callable[[Any, Any], None],
              destination_arn: Optional[str] = None,
              format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+
         if destination_arn is not None:
             _setter("destination_arn", destination_arn)
         if format is not None:
@@ -981,7 +1073,19 @@ class StageRouteSettings(dict):
              logging_level: Optional[str] = None,
              throttling_burst_limit: Optional[int] = None,
              throttling_rate_limit: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_trace_enabled is None and 'dataTraceEnabled' in kwargs:
+            data_trace_enabled = kwargs['dataTraceEnabled']
+        if detailed_metrics_enabled is None and 'detailedMetricsEnabled' in kwargs:
+            detailed_metrics_enabled = kwargs['detailedMetricsEnabled']
+        if logging_level is None and 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if throttling_burst_limit is None and 'throttlingBurstLimit' in kwargs:
+            throttling_burst_limit = kwargs['throttlingBurstLimit']
+        if throttling_rate_limit is None and 'throttlingRateLimit' in kwargs:
+            throttling_rate_limit = kwargs['throttlingRateLimit']
+
         if data_trace_enabled is not None:
             _setter("data_trace_enabled", data_trace_enabled)
         if detailed_metrics_enabled is not None:

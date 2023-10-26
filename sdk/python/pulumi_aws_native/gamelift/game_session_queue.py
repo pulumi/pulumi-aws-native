@@ -52,7 +52,21 @@ class GameSessionQueueArgs:
              priority_configuration: Optional[pulumi.Input['GameSessionQueuePriorityConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueueTagArgs']]]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_event_data is None and 'customEventData' in kwargs:
+            custom_event_data = kwargs['customEventData']
+        if filter_configuration is None and 'filterConfiguration' in kwargs:
+            filter_configuration = kwargs['filterConfiguration']
+        if notification_target is None and 'notificationTarget' in kwargs:
+            notification_target = kwargs['notificationTarget']
+        if player_latency_policies is None and 'playerLatencyPolicies' in kwargs:
+            player_latency_policies = kwargs['playerLatencyPolicies']
+        if priority_configuration is None and 'priorityConfiguration' in kwargs:
+            priority_configuration = kwargs['priorityConfiguration']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if custom_event_data is not None:
             _setter("custom_event_data", custom_event_data)
         if destinations is not None:
@@ -229,20 +243,12 @@ class GameSessionQueue(pulumi.CustomResource):
 
             __props__.__dict__["custom_event_data"] = custom_event_data
             __props__.__dict__["destinations"] = destinations
-            if filter_configuration is not None and not isinstance(filter_configuration, GameSessionQueueFilterConfigurationArgs):
-                filter_configuration = filter_configuration or {}
-                def _setter(key, value):
-                    filter_configuration[key] = value
-                GameSessionQueueFilterConfigurationArgs._configure(_setter, **filter_configuration)
+            filter_configuration = _utilities.configure(filter_configuration, GameSessionQueueFilterConfigurationArgs, True)
             __props__.__dict__["filter_configuration"] = filter_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_target"] = notification_target
             __props__.__dict__["player_latency_policies"] = player_latency_policies
-            if priority_configuration is not None and not isinstance(priority_configuration, GameSessionQueuePriorityConfigurationArgs):
-                priority_configuration = priority_configuration or {}
-                def _setter(key, value):
-                    priority_configuration[key] = value
-                GameSessionQueuePriorityConfigurationArgs._configure(_setter, **priority_configuration)
+            priority_configuration = _utilities.configure(priority_configuration, GameSessionQueuePriorityConfigurationArgs, True)
             __props__.__dict__["priority_configuration"] = priority_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds

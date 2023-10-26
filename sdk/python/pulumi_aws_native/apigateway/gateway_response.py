@@ -33,12 +33,28 @@ class GatewayResponseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             response_type: pulumi.Input[str],
-             rest_api_id: pulumi.Input[str],
+             response_type: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              response_parameters: Optional[Any] = None,
              response_templates: Optional[Any] = None,
              status_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if response_type is None and 'responseType' in kwargs:
+            response_type = kwargs['responseType']
+        if response_type is None:
+            raise TypeError("Missing 'response_type' argument")
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if response_templates is None and 'responseTemplates' in kwargs:
+            response_templates = kwargs['responseTemplates']
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         _setter("response_type", response_type)
         _setter("rest_api_id", rest_api_id)
         if response_parameters is not None:

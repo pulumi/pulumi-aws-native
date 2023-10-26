@@ -29,9 +29,15 @@ class TrustStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             certificate_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrustStoreTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_list is None and 'certificateList' in kwargs:
+            certificate_list = kwargs['certificateList']
+        if certificate_list is None:
+            raise TypeError("Missing 'certificate_list' argument")
+
         _setter("certificate_list", certificate_list)
         if tags is not None:
             _setter("tags", tags)

@@ -34,10 +34,16 @@ class IpamScopeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipam_id: pulumi.Input[str],
+             ipam_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_id is None and 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if ipam_id is None:
+            raise TypeError("Missing 'ipam_id' argument")
+
         _setter("ipam_id", ipam_id)
         if description is not None:
             _setter("description", description)

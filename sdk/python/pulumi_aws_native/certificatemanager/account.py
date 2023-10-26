@@ -27,8 +27,14 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expiry_events_configuration: pulumi.Input['AccountExpiryEventsConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             expiry_events_configuration: Optional[pulumi.Input['AccountExpiryEventsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expiry_events_configuration is None and 'expiryEventsConfiguration' in kwargs:
+            expiry_events_configuration = kwargs['expiryEventsConfiguration']
+        if expiry_events_configuration is None:
+            raise TypeError("Missing 'expiry_events_configuration' argument")
+
         _setter("expiry_events_configuration", expiry_events_configuration)
 
     @property
@@ -92,11 +98,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
-            if expiry_events_configuration is not None and not isinstance(expiry_events_configuration, AccountExpiryEventsConfigurationArgs):
-                expiry_events_configuration = expiry_events_configuration or {}
-                def _setter(key, value):
-                    expiry_events_configuration[key] = value
-                AccountExpiryEventsConfigurationArgs._configure(_setter, **expiry_events_configuration)
+            expiry_events_configuration = _utilities.configure(expiry_events_configuration, AccountExpiryEventsConfigurationArgs, True)
             if expiry_events_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'expiry_events_configuration'")
             __props__.__dict__["expiry_events_configuration"] = expiry_events_configuration

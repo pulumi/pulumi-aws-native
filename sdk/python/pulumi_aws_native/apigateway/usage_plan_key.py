@@ -33,10 +33,24 @@ class UsagePlanKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_id: pulumi.Input[str],
-             key_type: pulumi.Input['UsagePlanKeyKeyType'],
-             usage_plan_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key_id: Optional[pulumi.Input[str]] = None,
+             key_type: Optional[pulumi.Input['UsagePlanKeyKeyType']] = None,
+             usage_plan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if usage_plan_id is None and 'usagePlanId' in kwargs:
+            usage_plan_id = kwargs['usagePlanId']
+        if usage_plan_id is None:
+            raise TypeError("Missing 'usage_plan_id' argument")
+
         _setter("key_id", key_id)
         _setter("key_type", key_type)
         _setter("usage_plan_id", usage_plan_id)

@@ -49,7 +49,7 @@ class ConfigRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: pulumi.Input['ConfigRuleSourceArgs'],
+             source: Optional[pulumi.Input['ConfigRuleSourceArgs']] = None,
              compliance: Optional[pulumi.Input['CompliancePropertiesArgs']] = None,
              config_rule_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,19 @@ class ConfigRuleArgs:
              input_parameters: Optional[pulumi.Input[str]] = None,
              maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
              scope: Optional[pulumi.Input['ConfigRuleScopeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if config_rule_name is None and 'configRuleName' in kwargs:
+            config_rule_name = kwargs['configRuleName']
+        if evaluation_modes is None and 'evaluationModes' in kwargs:
+            evaluation_modes = kwargs['evaluationModes']
+        if input_parameters is None and 'inputParameters' in kwargs:
+            input_parameters = kwargs['inputParameters']
+        if maximum_execution_frequency is None and 'maximumExecutionFrequency' in kwargs:
+            maximum_execution_frequency = kwargs['maximumExecutionFrequency']
+
         _setter("source", source)
         if compliance is not None:
             _setter("compliance", compliance)
@@ -244,28 +256,16 @@ class ConfigRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigRuleArgs.__new__(ConfigRuleArgs)
 
-            if compliance is not None and not isinstance(compliance, CompliancePropertiesArgs):
-                compliance = compliance or {}
-                def _setter(key, value):
-                    compliance[key] = value
-                CompliancePropertiesArgs._configure(_setter, **compliance)
+            compliance = _utilities.configure(compliance, CompliancePropertiesArgs, True)
             __props__.__dict__["compliance"] = compliance
             __props__.__dict__["config_rule_name"] = config_rule_name
             __props__.__dict__["description"] = description
             __props__.__dict__["evaluation_modes"] = evaluation_modes
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
-            if scope is not None and not isinstance(scope, ConfigRuleScopeArgs):
-                scope = scope or {}
-                def _setter(key, value):
-                    scope[key] = value
-                ConfigRuleScopeArgs._configure(_setter, **scope)
+            scope = _utilities.configure(scope, ConfigRuleScopeArgs, True)
             __props__.__dict__["scope"] = scope
-            if source is not None and not isinstance(source, ConfigRuleSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                ConfigRuleSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, ConfigRuleSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source

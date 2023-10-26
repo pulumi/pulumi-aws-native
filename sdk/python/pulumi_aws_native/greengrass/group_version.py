@@ -39,7 +39,7 @@ class GroupVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
+             group_id: Optional[pulumi.Input[str]] = None,
              connector_definition_version_arn: Optional[pulumi.Input[str]] = None,
              core_definition_version_arn: Optional[pulumi.Input[str]] = None,
              device_definition_version_arn: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,27 @@ class GroupVersionInitArgs:
              logger_definition_version_arn: Optional[pulumi.Input[str]] = None,
              resource_definition_version_arn: Optional[pulumi.Input[str]] = None,
              subscription_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if connector_definition_version_arn is None and 'connectorDefinitionVersionArn' in kwargs:
+            connector_definition_version_arn = kwargs['connectorDefinitionVersionArn']
+        if core_definition_version_arn is None and 'coreDefinitionVersionArn' in kwargs:
+            core_definition_version_arn = kwargs['coreDefinitionVersionArn']
+        if device_definition_version_arn is None and 'deviceDefinitionVersionArn' in kwargs:
+            device_definition_version_arn = kwargs['deviceDefinitionVersionArn']
+        if function_definition_version_arn is None and 'functionDefinitionVersionArn' in kwargs:
+            function_definition_version_arn = kwargs['functionDefinitionVersionArn']
+        if logger_definition_version_arn is None and 'loggerDefinitionVersionArn' in kwargs:
+            logger_definition_version_arn = kwargs['loggerDefinitionVersionArn']
+        if resource_definition_version_arn is None and 'resourceDefinitionVersionArn' in kwargs:
+            resource_definition_version_arn = kwargs['resourceDefinitionVersionArn']
+        if subscription_definition_version_arn is None and 'subscriptionDefinitionVersionArn' in kwargs:
+            subscription_definition_version_arn = kwargs['subscriptionDefinitionVersionArn']
+
         _setter("group_id", group_id)
         if connector_definition_version_arn is not None:
             _setter("connector_definition_version_arn", connector_definition_version_arn)

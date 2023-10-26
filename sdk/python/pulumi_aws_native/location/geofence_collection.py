@@ -34,12 +34,24 @@ class GeofenceCollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             collection_name: pulumi.Input[str],
+             collection_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
              pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collection_name is None and 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if collection_name is None:
+            raise TypeError("Missing 'collection_name' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if pricing_plan is None and 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+        if pricing_plan_data_source is None and 'pricingPlanDataSource' in kwargs:
+            pricing_plan_data_source = kwargs['pricingPlanDataSource']
+
         _setter("collection_name", collection_name)
         if description is not None:
             _setter("description", description)

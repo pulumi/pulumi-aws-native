@@ -49,7 +49,17 @@ class VerifiedAccessInstanceArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceTagArgs']]]] = None,
              verified_access_trust_provider_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fips_enabled is None and 'fipsEnabled' in kwargs:
+            fips_enabled = kwargs['fipsEnabled']
+        if logging_configurations is None and 'loggingConfigurations' in kwargs:
+            logging_configurations = kwargs['loggingConfigurations']
+        if verified_access_trust_provider_ids is None and 'verifiedAccessTrustProviderIds' in kwargs:
+            verified_access_trust_provider_ids = kwargs['verifiedAccessTrustProviderIds']
+        if verified_access_trust_providers is None and 'verifiedAccessTrustProviders' in kwargs:
+            verified_access_trust_providers = kwargs['verifiedAccessTrustProviders']
+
         if description is not None:
             _setter("description", description)
         if fips_enabled is not None:
@@ -205,11 +215,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["fips_enabled"] = fips_enabled
-            if logging_configurations is not None and not isinstance(logging_configurations, VerifiedAccessInstanceVerifiedAccessLogsArgs):
-                logging_configurations = logging_configurations or {}
-                def _setter(key, value):
-                    logging_configurations[key] = value
-                VerifiedAccessInstanceVerifiedAccessLogsArgs._configure(_setter, **logging_configurations)
+            logging_configurations = _utilities.configure(logging_configurations, VerifiedAccessInstanceVerifiedAccessLogsArgs, True)
             __props__.__dict__["logging_configurations"] = logging_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["verified_access_trust_provider_ids"] = verified_access_trust_provider_ids

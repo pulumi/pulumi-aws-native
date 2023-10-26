@@ -27,8 +27,14 @@ class VirtualClusterContainerInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             eks_info: pulumi.Input['VirtualClusterEksInfoArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             eks_info: Optional[pulumi.Input['VirtualClusterEksInfoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if eks_info is None and 'eksInfo' in kwargs:
+            eks_info = kwargs['eksInfo']
+        if eks_info is None:
+            raise TypeError("Missing 'eks_info' argument")
+
         _setter("eks_info", eks_info)
 
     @property
@@ -60,10 +66,18 @@ class VirtualClusterContainerProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             info: pulumi.Input['VirtualClusterContainerInfoArgs'],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[str]] = None,
+             info: Optional[pulumi.Input['VirtualClusterContainerInfoArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if info is None:
+            raise TypeError("Missing 'info' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("id", id)
         _setter("info", info)
         _setter("type", type)
@@ -113,8 +127,12 @@ class VirtualClusterEksInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
         _setter("namespace", namespace)
 
     @property
@@ -145,9 +163,15 @@ class VirtualClusterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

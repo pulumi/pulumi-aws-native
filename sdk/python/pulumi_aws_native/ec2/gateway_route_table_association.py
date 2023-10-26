@@ -29,9 +29,19 @@ class GatewayRouteTableAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gateway_id: pulumi.Input[str],
-             route_table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             gateway_id: Optional[pulumi.Input[str]] = None,
+             route_table_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_id is None and 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if gateway_id is None:
+            raise TypeError("Missing 'gateway_id' argument")
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+
         _setter("gateway_id", gateway_id)
         _setter("route_table_id", route_table_id)
 

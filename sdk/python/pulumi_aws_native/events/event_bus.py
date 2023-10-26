@@ -41,7 +41,11 @@ class EventBusArgs:
              name: Optional[pulumi.Input[str]] = None,
              policy: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventBusTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_source_name is None and 'eventSourceName' in kwargs:
+            event_source_name = kwargs['eventSourceName']
+
         if event_source_name is not None:
             _setter("event_source_name", event_source_name)
         if name is not None:

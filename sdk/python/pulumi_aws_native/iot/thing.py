@@ -31,7 +31,13 @@ class ThingArgs:
              _setter: Callable[[Any, Any], None],
              attribute_payload: Optional[pulumi.Input['ThingAttributePayloadArgs']] = None,
              thing_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_payload is None and 'attributePayload' in kwargs:
+            attribute_payload = kwargs['attributePayload']
+        if thing_name is None and 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         if attribute_payload is not None:
             _setter("attribute_payload", attribute_payload)
         if thing_name is not None:
@@ -109,11 +115,7 @@ class Thing(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ThingArgs.__new__(ThingArgs)
 
-            if attribute_payload is not None and not isinstance(attribute_payload, ThingAttributePayloadArgs):
-                attribute_payload = attribute_payload or {}
-                def _setter(key, value):
-                    attribute_payload[key] = value
-                ThingAttributePayloadArgs._configure(_setter, **attribute_payload)
+            attribute_payload = _utilities.configure(attribute_payload, ThingAttributePayloadArgs, True)
             __props__.__dict__["attribute_payload"] = attribute_payload
             __props__.__dict__["thing_name"] = thing_name
             __props__.__dict__["arn"] = None

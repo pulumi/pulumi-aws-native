@@ -82,8 +82,14 @@ class ConfigurationSetDashboardOptions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             engagement_metrics: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             engagement_metrics: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if engagement_metrics is None and 'engagementMetrics' in kwargs:
+            engagement_metrics = kwargs['engagementMetrics']
+        if engagement_metrics is None:
+            raise TypeError("Missing 'engagement_metrics' argument")
+
         _setter("engagement_metrics", engagement_metrics)
 
     @property
@@ -137,7 +143,13 @@ class ConfigurationSetDeliveryOptions(dict):
              _setter: Callable[[Any, Any], None],
              sending_pool_name: Optional[str] = None,
              tls_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sending_pool_name is None and 'sendingPoolName' in kwargs:
+            sending_pool_name = kwargs['sendingPoolName']
+        if tls_policy is None and 'tlsPolicy' in kwargs:
+            tls_policy = kwargs['tlsPolicy']
+
         if sending_pool_name is not None:
             _setter("sending_pool_name", sending_pool_name)
         if tls_policy is not None:
@@ -196,7 +208,11 @@ class ConfigurationSetEventDestinationCloudWatchDestination(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              dimension_configurations: Optional[Sequence['outputs.ConfigurationSetEventDestinationDimensionConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimension_configurations is None and 'dimensionConfigurations' in kwargs:
+            dimension_configurations = kwargs['dimensionConfigurations']
+
         if dimension_configurations is not None:
             _setter("dimension_configurations", dimension_configurations)
 
@@ -254,10 +270,24 @@ class ConfigurationSetEventDestinationDimensionConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_dimension_value: str,
-             dimension_name: str,
-             dimension_value_source: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_dimension_value: Optional[str] = None,
+             dimension_name: Optional[str] = None,
+             dimension_value_source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_dimension_value is None and 'defaultDimensionValue' in kwargs:
+            default_dimension_value = kwargs['defaultDimensionValue']
+        if default_dimension_value is None:
+            raise TypeError("Missing 'default_dimension_value' argument")
+        if dimension_name is None and 'dimensionName' in kwargs:
+            dimension_name = kwargs['dimensionName']
+        if dimension_name is None:
+            raise TypeError("Missing 'dimension_name' argument")
+        if dimension_value_source is None and 'dimensionValueSource' in kwargs:
+            dimension_value_source = kwargs['dimensionValueSource']
+        if dimension_value_source is None:
+            raise TypeError("Missing 'dimension_value_source' argument")
+
         _setter("default_dimension_value", default_dimension_value)
         _setter("dimension_name", dimension_name)
         _setter("dimension_value_source", dimension_value_source)
@@ -339,13 +369,25 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             matching_event_types: Sequence[str],
+             matching_event_types: Optional[Sequence[str]] = None,
              cloud_watch_destination: Optional['outputs.ConfigurationSetEventDestinationCloudWatchDestination'] = None,
              enabled: Optional[bool] = None,
              kinesis_firehose_destination: Optional['outputs.ConfigurationSetEventDestinationKinesisFirehoseDestination'] = None,
              name: Optional[str] = None,
              sns_destination: Optional['outputs.ConfigurationSetEventDestinationSnsDestination'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if matching_event_types is None and 'matchingEventTypes' in kwargs:
+            matching_event_types = kwargs['matchingEventTypes']
+        if matching_event_types is None:
+            raise TypeError("Missing 'matching_event_types' argument")
+        if cloud_watch_destination is None and 'cloudWatchDestination' in kwargs:
+            cloud_watch_destination = kwargs['cloudWatchDestination']
+        if kinesis_firehose_destination is None and 'kinesisFirehoseDestination' in kwargs:
+            kinesis_firehose_destination = kwargs['kinesisFirehoseDestination']
+        if sns_destination is None and 'snsDestination' in kwargs:
+            sns_destination = kwargs['snsDestination']
+
         _setter("matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
             _setter("cloud_watch_destination", cloud_watch_destination)
@@ -447,9 +489,19 @@ class ConfigurationSetEventDestinationKinesisFirehoseDestination(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delivery_stream_arn: str,
-             iam_role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             delivery_stream_arn: Optional[str] = None,
+             iam_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream_arn is None and 'deliveryStreamArn' in kwargs:
+            delivery_stream_arn = kwargs['deliveryStreamArn']
+        if delivery_stream_arn is None:
+            raise TypeError("Missing 'delivery_stream_arn' argument")
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if iam_role_arn is None:
+            raise TypeError("Missing 'iam_role_arn' argument")
+
         _setter("delivery_stream_arn", delivery_stream_arn)
         _setter("iam_role_arn", iam_role_arn)
 
@@ -504,8 +556,14 @@ class ConfigurationSetEventDestinationSnsDestination(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             topic_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if topic_arn is None:
+            raise TypeError("Missing 'topic_arn' argument")
+
         _setter("topic_arn", topic_arn)
 
     @property
@@ -549,8 +607,14 @@ class ConfigurationSetGuardianOptions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             optimized_shared_delivery: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             optimized_shared_delivery: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if optimized_shared_delivery is None and 'optimizedSharedDelivery' in kwargs:
+            optimized_shared_delivery = kwargs['optimizedSharedDelivery']
+        if optimized_shared_delivery is None:
+            raise TypeError("Missing 'optimized_shared_delivery' argument")
+
         _setter("optimized_shared_delivery", optimized_shared_delivery)
 
     @property
@@ -598,7 +662,11 @@ class ConfigurationSetReputationOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              reputation_metrics_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reputation_metrics_enabled is None and 'reputationMetricsEnabled' in kwargs:
+            reputation_metrics_enabled = kwargs['reputationMetricsEnabled']
+
         if reputation_metrics_enabled is not None:
             _setter("reputation_metrics_enabled", reputation_metrics_enabled)
 
@@ -646,7 +714,11 @@ class ConfigurationSetSendingOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              sending_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sending_enabled is None and 'sendingEnabled' in kwargs:
+            sending_enabled = kwargs['sendingEnabled']
+
         if sending_enabled is not None:
             _setter("sending_enabled", sending_enabled)
 
@@ -692,7 +764,11 @@ class ConfigurationSetSuppressionOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              suppressed_reasons: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if suppressed_reasons is None and 'suppressedReasons' in kwargs:
+            suppressed_reasons = kwargs['suppressedReasons']
+
         if suppressed_reasons is not None:
             _setter("suppressed_reasons", suppressed_reasons)
 
@@ -741,7 +817,11 @@ class ConfigurationSetTrackingOptions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_redirect_domain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_redirect_domain is None and 'customRedirectDomain' in kwargs:
+            custom_redirect_domain = kwargs['customRedirectDomain']
+
         if custom_redirect_domain is not None:
             _setter("custom_redirect_domain", custom_redirect_domain)
 
@@ -794,7 +874,13 @@ class ConfigurationSetVdmOptions(dict):
              _setter: Callable[[Any, Any], None],
              dashboard_options: Optional['outputs.ConfigurationSetDashboardOptions'] = None,
              guardian_options: Optional['outputs.ConfigurationSetGuardianOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_options is None and 'dashboardOptions' in kwargs:
+            dashboard_options = kwargs['dashboardOptions']
+        if guardian_options is None and 'guardianOptions' in kwargs:
+            guardian_options = kwargs['guardianOptions']
+
         if dashboard_options is not None:
             _setter("dashboard_options", dashboard_options)
         if guardian_options is not None:
@@ -824,9 +910,15 @@ class ContactListTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -884,11 +976,25 @@ class ContactListTopic(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_subscription_status: str,
-             display_name: str,
-             topic_name: str,
+             default_subscription_status: Optional[str] = None,
+             display_name: Optional[str] = None,
+             topic_name: Optional[str] = None,
              description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_subscription_status is None and 'defaultSubscriptionStatus' in kwargs:
+            default_subscription_status = kwargs['defaultSubscriptionStatus']
+        if default_subscription_status is None:
+            raise TypeError("Missing 'default_subscription_status' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if topic_name is None and 'topicName' in kwargs:
+            topic_name = kwargs['topicName']
+        if topic_name is None:
+            raise TypeError("Missing 'topic_name' argument")
+
         _setter("default_subscription_status", default_subscription_status)
         _setter("display_name", display_name)
         _setter("topic_name", topic_name)
@@ -961,7 +1067,11 @@ class EmailIdentityConfigurationSetAttributes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              configuration_set_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+
         if configuration_set_name is not None:
             _setter("configuration_set_name", configuration_set_name)
 
@@ -1010,7 +1120,11 @@ class EmailIdentityDkimAttributes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              signing_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if signing_enabled is None and 'signingEnabled' in kwargs:
+            signing_enabled = kwargs['signingEnabled']
+
         if signing_enabled is not None:
             _setter("signing_enabled", signing_enabled)
 
@@ -1071,7 +1185,15 @@ class EmailIdentityDkimSigningAttributes(dict):
              domain_signing_private_key: Optional[str] = None,
              domain_signing_selector: Optional[str] = None,
              next_signing_key_length: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_signing_private_key is None and 'domainSigningPrivateKey' in kwargs:
+            domain_signing_private_key = kwargs['domainSigningPrivateKey']
+        if domain_signing_selector is None and 'domainSigningSelector' in kwargs:
+            domain_signing_selector = kwargs['domainSigningSelector']
+        if next_signing_key_length is None and 'nextSigningKeyLength' in kwargs:
+            next_signing_key_length = kwargs['nextSigningKeyLength']
+
         if domain_signing_private_key is not None:
             _setter("domain_signing_private_key", domain_signing_private_key)
         if domain_signing_selector is not None:
@@ -1140,7 +1262,11 @@ class EmailIdentityFeedbackAttributes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              email_forwarding_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_forwarding_enabled is None and 'emailForwardingEnabled' in kwargs:
+            email_forwarding_enabled = kwargs['emailForwardingEnabled']
+
         if email_forwarding_enabled is not None:
             _setter("email_forwarding_enabled", email_forwarding_enabled)
 
@@ -1195,7 +1321,13 @@ class EmailIdentityMailFromAttributes(dict):
              _setter: Callable[[Any, Any], None],
              behavior_on_mx_failure: Optional[str] = None,
              mail_from_domain: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if behavior_on_mx_failure is None and 'behaviorOnMxFailure' in kwargs:
+            behavior_on_mx_failure = kwargs['behaviorOnMxFailure']
+        if mail_from_domain is None and 'mailFromDomain' in kwargs:
+            mail_from_domain = kwargs['mailFromDomain']
+
         if behavior_on_mx_failure is not None:
             _setter("behavior_on_mx_failure", behavior_on_mx_failure)
         if mail_from_domain is not None:
@@ -1248,9 +1380,15 @@ class ReceiptFilterFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_filter: 'outputs.ReceiptFilterIpFilter',
+             ip_filter: Optional['outputs.ReceiptFilterIpFilter'] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_filter is None and 'ipFilter' in kwargs:
+            ip_filter = kwargs['ipFilter']
+        if ip_filter is None:
+            raise TypeError("Missing 'ip_filter' argument")
+
         _setter("ip_filter", ip_filter)
         if name is not None:
             _setter("name", name)
@@ -1279,9 +1417,15 @@ class ReceiptFilterIpFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr: str,
-             policy: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cidr: Optional[str] = None,
+             policy: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
         _setter("cidr", cidr)
         _setter("policy", policy)
 
@@ -1355,7 +1499,23 @@ class ReceiptRuleAction(dict):
              sns_action: Optional['outputs.ReceiptRuleSnsAction'] = None,
              stop_action: Optional['outputs.ReceiptRuleStopAction'] = None,
              workmail_action: Optional['outputs.ReceiptRuleWorkmailAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if add_header_action is None and 'addHeaderAction' in kwargs:
+            add_header_action = kwargs['addHeaderAction']
+        if bounce_action is None and 'bounceAction' in kwargs:
+            bounce_action = kwargs['bounceAction']
+        if lambda_action is None and 'lambdaAction' in kwargs:
+            lambda_action = kwargs['lambdaAction']
+        if s3_action is None and 's3Action' in kwargs:
+            s3_action = kwargs['s3Action']
+        if sns_action is None and 'snsAction' in kwargs:
+            sns_action = kwargs['snsAction']
+        if stop_action is None and 'stopAction' in kwargs:
+            stop_action = kwargs['stopAction']
+        if workmail_action is None and 'workmailAction' in kwargs:
+            workmail_action = kwargs['workmailAction']
+
         if add_header_action is not None:
             _setter("add_header_action", add_header_action)
         if bounce_action is not None:
@@ -1439,9 +1599,19 @@ class ReceiptRuleAddHeaderAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_name: str,
-             header_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             header_name: Optional[str] = None,
+             header_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if header_value is None and 'headerValue' in kwargs:
+            header_value = kwargs['headerValue']
+        if header_value is None:
+            raise TypeError("Missing 'header_value' argument")
+
         _setter("header_name", header_name)
         _setter("header_value", header_value)
 
@@ -1496,12 +1666,26 @@ class ReceiptRuleBounceAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message: str,
-             sender: str,
-             smtp_reply_code: str,
+             message: Optional[str] = None,
+             sender: Optional[str] = None,
+             smtp_reply_code: Optional[str] = None,
              status_code: Optional[str] = None,
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if sender is None:
+            raise TypeError("Missing 'sender' argument")
+        if smtp_reply_code is None and 'smtpReplyCode' in kwargs:
+            smtp_reply_code = kwargs['smtpReplyCode']
+        if smtp_reply_code is None:
+            raise TypeError("Missing 'smtp_reply_code' argument")
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("message", message)
         _setter("sender", sender)
         _setter("smtp_reply_code", smtp_reply_code)
@@ -1572,10 +1756,20 @@ class ReceiptRuleLambdaAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_arn: str,
+             function_arn: Optional[str] = None,
              invocation_type: Optional[str] = None,
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+        if invocation_type is None and 'invocationType' in kwargs:
+            invocation_type = kwargs['invocationType']
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("function_arn", function_arn)
         if invocation_type is not None:
             _setter("invocation_type", invocation_type)
@@ -1644,7 +1838,13 @@ class ReceiptRuleRule(dict):
              recipients: Optional[Sequence[str]] = None,
              scan_enabled: Optional[bool] = None,
              tls_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_enabled is None and 'scanEnabled' in kwargs:
+            scan_enabled = kwargs['scanEnabled']
+        if tls_policy is None and 'tlsPolicy' in kwargs:
+            tls_policy = kwargs['tlsPolicy']
+
         if actions is not None:
             _setter("actions", actions)
         if enabled is not None:
@@ -1729,11 +1929,23 @@ class ReceiptRuleS3Action(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
+             bucket_name: Optional[str] = None,
              kms_key_arn: Optional[str] = None,
              object_key_prefix: Optional[str] = None,
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if object_key_prefix is None and 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("bucket_name", bucket_name)
         if kms_key_arn is not None:
             _setter("kms_key_arn", kms_key_arn)
@@ -1795,7 +2007,11 @@ class ReceiptRuleSnsAction(dict):
              _setter: Callable[[Any, Any], None],
              encoding: Optional[str] = None,
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         if encoding is not None:
             _setter("encoding", encoding)
         if topic_arn is not None:
@@ -1842,9 +2058,15 @@ class ReceiptRuleStopAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scope: str,
+             scope: Optional[str] = None,
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("scope", scope)
         if topic_arn is not None:
             _setter("topic_arn", topic_arn)
@@ -1892,9 +2114,17 @@ class ReceiptRuleWorkmailAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             organization_arn: str,
+             organization_arn: Optional[str] = None,
              topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if organization_arn is None and 'organizationArn' in kwargs:
+            organization_arn = kwargs['organizationArn']
+        if organization_arn is None:
+            raise TypeError("Missing 'organization_arn' argument")
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+
         _setter("organization_arn", organization_arn)
         if topic_arn is not None:
             _setter("topic_arn", topic_arn)
@@ -1960,11 +2190,23 @@ class Template(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subject_part: str,
+             subject_part: Optional[str] = None,
              html_part: Optional[str] = None,
              template_name: Optional[str] = None,
              text_part: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subject_part is None and 'subjectPart' in kwargs:
+            subject_part = kwargs['subjectPart']
+        if subject_part is None:
+            raise TypeError("Missing 'subject_part' argument")
+        if html_part is None and 'htmlPart' in kwargs:
+            html_part = kwargs['htmlPart']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if text_part is None and 'textPart' in kwargs:
+            text_part = kwargs['textPart']
+
         _setter("subject_part", subject_part)
         if html_part is not None:
             _setter("html_part", html_part)
@@ -2042,7 +2284,11 @@ class VdmAttributesDashboardAttributes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              engagement_metrics: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if engagement_metrics is None and 'engagementMetrics' in kwargs:
+            engagement_metrics = kwargs['engagementMetrics']
+
         if engagement_metrics is not None:
             _setter("engagement_metrics", engagement_metrics)
 
@@ -2091,7 +2337,11 @@ class VdmAttributesGuardianAttributes(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              optimized_shared_delivery: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if optimized_shared_delivery is None and 'optimizedSharedDelivery' in kwargs:
+            optimized_shared_delivery = kwargs['optimizedSharedDelivery']
+
         if optimized_shared_delivery is not None:
             _setter("optimized_shared_delivery", optimized_shared_delivery)
 

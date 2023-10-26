@@ -49,8 +49,8 @@ class DataSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              dynamo_db_config: Optional[pulumi.Input['DataSourceDynamoDbConfigArgs']] = None,
              elasticsearch_config: Optional[pulumi.Input['DataSourceElasticsearchConfigArgs']] = None,
@@ -61,7 +61,31 @@ class DataSourceArgs:
              open_search_service_config: Optional[pulumi.Input['DataSourceOpenSearchServiceConfigArgs']] = None,
              relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
              service_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if dynamo_db_config is None and 'dynamoDbConfig' in kwargs:
+            dynamo_db_config = kwargs['dynamoDbConfig']
+        if elasticsearch_config is None and 'elasticsearchConfig' in kwargs:
+            elasticsearch_config = kwargs['elasticsearchConfig']
+        if event_bridge_config is None and 'eventBridgeConfig' in kwargs:
+            event_bridge_config = kwargs['eventBridgeConfig']
+        if http_config is None and 'httpConfig' in kwargs:
+            http_config = kwargs['httpConfig']
+        if lambda_config is None and 'lambdaConfig' in kwargs:
+            lambda_config = kwargs['lambdaConfig']
+        if open_search_service_config is None and 'openSearchServiceConfig' in kwargs:
+            open_search_service_config = kwargs['openSearchServiceConfig']
+        if relational_database_config is None and 'relationalDatabaseConfig' in kwargs:
+            relational_database_config = kwargs['relationalDatabaseConfig']
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+
         _setter("api_id", api_id)
         _setter("type", type)
         if description is not None:
@@ -277,48 +301,20 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["description"] = description
-            if dynamo_db_config is not None and not isinstance(dynamo_db_config, DataSourceDynamoDbConfigArgs):
-                dynamo_db_config = dynamo_db_config or {}
-                def _setter(key, value):
-                    dynamo_db_config[key] = value
-                DataSourceDynamoDbConfigArgs._configure(_setter, **dynamo_db_config)
+            dynamo_db_config = _utilities.configure(dynamo_db_config, DataSourceDynamoDbConfigArgs, True)
             __props__.__dict__["dynamo_db_config"] = dynamo_db_config
-            if elasticsearch_config is not None and not isinstance(elasticsearch_config, DataSourceElasticsearchConfigArgs):
-                elasticsearch_config = elasticsearch_config or {}
-                def _setter(key, value):
-                    elasticsearch_config[key] = value
-                DataSourceElasticsearchConfigArgs._configure(_setter, **elasticsearch_config)
+            elasticsearch_config = _utilities.configure(elasticsearch_config, DataSourceElasticsearchConfigArgs, True)
             __props__.__dict__["elasticsearch_config"] = elasticsearch_config
-            if event_bridge_config is not None and not isinstance(event_bridge_config, DataSourceEventBridgeConfigArgs):
-                event_bridge_config = event_bridge_config or {}
-                def _setter(key, value):
-                    event_bridge_config[key] = value
-                DataSourceEventBridgeConfigArgs._configure(_setter, **event_bridge_config)
+            event_bridge_config = _utilities.configure(event_bridge_config, DataSourceEventBridgeConfigArgs, True)
             __props__.__dict__["event_bridge_config"] = event_bridge_config
-            if http_config is not None and not isinstance(http_config, DataSourceHttpConfigArgs):
-                http_config = http_config or {}
-                def _setter(key, value):
-                    http_config[key] = value
-                DataSourceHttpConfigArgs._configure(_setter, **http_config)
+            http_config = _utilities.configure(http_config, DataSourceHttpConfigArgs, True)
             __props__.__dict__["http_config"] = http_config
-            if lambda_config is not None and not isinstance(lambda_config, DataSourceLambdaConfigArgs):
-                lambda_config = lambda_config or {}
-                def _setter(key, value):
-                    lambda_config[key] = value
-                DataSourceLambdaConfigArgs._configure(_setter, **lambda_config)
+            lambda_config = _utilities.configure(lambda_config, DataSourceLambdaConfigArgs, True)
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
-            if open_search_service_config is not None and not isinstance(open_search_service_config, DataSourceOpenSearchServiceConfigArgs):
-                open_search_service_config = open_search_service_config or {}
-                def _setter(key, value):
-                    open_search_service_config[key] = value
-                DataSourceOpenSearchServiceConfigArgs._configure(_setter, **open_search_service_config)
+            open_search_service_config = _utilities.configure(open_search_service_config, DataSourceOpenSearchServiceConfigArgs, True)
             __props__.__dict__["open_search_service_config"] = open_search_service_config
-            if relational_database_config is not None and not isinstance(relational_database_config, DataSourceRelationalDatabaseConfigArgs):
-                relational_database_config = relational_database_config or {}
-                def _setter(key, value):
-                    relational_database_config[key] = value
-                DataSourceRelationalDatabaseConfigArgs._configure(_setter, **relational_database_config)
+            relational_database_config = _utilities.configure(relational_database_config, DataSourceRelationalDatabaseConfigArgs, True)
             __props__.__dict__["relational_database_config"] = relational_database_config
             __props__.__dict__["service_role_arn"] = service_role_arn
             if type is None and not opts.urn:

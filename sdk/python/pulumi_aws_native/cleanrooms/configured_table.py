@@ -41,14 +41,30 @@ class ConfiguredTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             analysis_method: pulumi.Input['ConfiguredTableAnalysisMethod'],
-             table_reference: pulumi.Input['ConfiguredTableTableReferenceArgs'],
+             allowed_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             analysis_method: Optional[pulumi.Input['ConfiguredTableAnalysisMethod']] = None,
+             table_reference: Optional[pulumi.Input['ConfiguredTableTableReferenceArgs']] = None,
              analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_columns is None and 'allowedColumns' in kwargs:
+            allowed_columns = kwargs['allowedColumns']
+        if allowed_columns is None:
+            raise TypeError("Missing 'allowed_columns' argument")
+        if analysis_method is None and 'analysisMethod' in kwargs:
+            analysis_method = kwargs['analysisMethod']
+        if analysis_method is None:
+            raise TypeError("Missing 'analysis_method' argument")
+        if table_reference is None and 'tableReference' in kwargs:
+            table_reference = kwargs['tableReference']
+        if table_reference is None:
+            raise TypeError("Missing 'table_reference' argument")
+        if analysis_rules is None and 'analysisRules' in kwargs:
+            analysis_rules = kwargs['analysisRules']
+
         _setter("allowed_columns", allowed_columns)
         _setter("analysis_method", analysis_method)
         _setter("table_reference", table_reference)
@@ -201,11 +217,7 @@ class ConfiguredTable(pulumi.CustomResource):
             __props__.__dict__["analysis_rules"] = analysis_rules
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if table_reference is not None and not isinstance(table_reference, ConfiguredTableTableReferenceArgs):
-                table_reference = table_reference or {}
-                def _setter(key, value):
-                    table_reference[key] = value
-                ConfiguredTableTableReferenceArgs._configure(_setter, **table_reference)
+            table_reference = _utilities.configure(table_reference, ConfiguredTableTableReferenceArgs, True)
             if table_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'table_reference'")
             __props__.__dict__["table_reference"] = table_reference

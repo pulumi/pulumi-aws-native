@@ -108,7 +108,41 @@ class ProviderArgs:
              skip_region_validation: Optional[pulumi.Input[bool]] = None,
              skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
              token: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if allowed_account_ids is None and 'allowedAccountIds' in kwargs:
+            allowed_account_ids = kwargs['allowedAccountIds']
+        if assume_role is None and 'assumeRole' in kwargs:
+            assume_role = kwargs['assumeRole']
+        if default_tags is None and 'defaultTags' in kwargs:
+            default_tags = kwargs['defaultTags']
+        if forbidden_account_ids is None and 'forbiddenAccountIds' in kwargs:
+            forbidden_account_ids = kwargs['forbiddenAccountIds']
+        if ignore_tags is None and 'ignoreTags' in kwargs:
+            ignore_tags = kwargs['ignoreTags']
+        if max_retries is None and 'maxRetries' in kwargs:
+            max_retries = kwargs['maxRetries']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if s3_force_path_style is None and 's3ForcePathStyle' in kwargs:
+            s3_force_path_style = kwargs['s3ForcePathStyle']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if shared_credentials_file is None and 'sharedCredentialsFile' in kwargs:
+            shared_credentials_file = kwargs['sharedCredentialsFile']
+        if skip_credentials_validation is None and 'skipCredentialsValidation' in kwargs:
+            skip_credentials_validation = kwargs['skipCredentialsValidation']
+        if skip_get_ec2_platforms is None and 'skipGetEc2Platforms' in kwargs:
+            skip_get_ec2_platforms = kwargs['skipGetEc2Platforms']
+        if skip_metadata_api_check is None and 'skipMetadataApiCheck' in kwargs:
+            skip_metadata_api_check = kwargs['skipMetadataApiCheck']
+        if skip_region_validation is None and 'skipRegionValidation' in kwargs:
+            skip_region_validation = kwargs['skipRegionValidation']
+        if skip_requesting_account_id is None and 'skipRequestingAccountId' in kwargs:
+            skip_requesting_account_id = kwargs['skipRequestingAccountId']
+
         if region is None:
             region = _utilities.get_env('AWS_REGION', 'AWS_DEFAULT_REGION')
         _setter("region", region)
@@ -532,25 +566,13 @@ class Provider(pulumi.ProviderResource):
 
             __props__.__dict__["access_key"] = None if access_key is None else pulumi.Output.secret(access_key)
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
-            if assume_role is not None and not isinstance(assume_role, ProviderAssumeRoleArgs):
-                assume_role = assume_role or {}
-                def _setter(key, value):
-                    assume_role[key] = value
-                ProviderAssumeRoleArgs._configure(_setter, **assume_role)
+            assume_role = _utilities.configure(assume_role, ProviderAssumeRoleArgs, True)
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
-            if default_tags is not None and not isinstance(default_tags, ProviderDefaultTagsArgs):
-                default_tags = default_tags or {}
-                def _setter(key, value):
-                    default_tags[key] = value
-                ProviderDefaultTagsArgs._configure(_setter, **default_tags)
+            default_tags = _utilities.configure(default_tags, ProviderDefaultTagsArgs, True)
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
-            if ignore_tags is not None and not isinstance(ignore_tags, ProviderIgnoreTagsArgs):
-                ignore_tags = ignore_tags or {}
-                def _setter(key, value):
-                    ignore_tags[key] = value
-                ProviderIgnoreTagsArgs._configure(_setter, **ignore_tags)
+            ignore_tags = _utilities.configure(ignore_tags, ProviderIgnoreTagsArgs, True)
             __props__.__dict__["ignore_tags"] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None

@@ -82,8 +82,8 @@ class LaunchConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_id: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
+             image_id: Optional[pulumi.Input[str]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
              associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
              block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]] = None,
              classic_link_vpc_id: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,51 @@ class LaunchConfigurationArgs:
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              spot_price: Optional[pulumi.Input[str]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_id is None:
+            raise TypeError("Missing 'image_id' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if classic_link_vpc_id is None and 'classicLinkVpcId' in kwargs:
+            classic_link_vpc_id = kwargs['classicLinkVpcId']
+        if classic_link_vpc_security_groups is None and 'classicLinkVpcSecurityGroups' in kwargs:
+            classic_link_vpc_security_groups = kwargs['classicLinkVpcSecurityGroups']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_monitoring is None and 'instanceMonitoring' in kwargs:
+            instance_monitoring = kwargs['instanceMonitoring']
+        if kernel_id is None and 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if launch_configuration_name is None and 'launchConfigurationName' in kwargs:
+            launch_configuration_name = kwargs['launchConfigurationName']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if placement_tenancy is None and 'placementTenancy' in kwargs:
+            placement_tenancy = kwargs['placementTenancy']
+        if ram_disk_id is None and 'ramDiskId' in kwargs:
+            ram_disk_id = kwargs['ramDiskId']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         _setter("image_id", image_id)
         _setter("instance_type", instance_type)
         if associate_public_ip_address is not None:
@@ -491,11 +535,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["launch_configuration_name"] = launch_configuration_name
-            if metadata_options is not None and not isinstance(metadata_options, LaunchConfigurationMetadataOptionsArgs):
-                metadata_options = metadata_options or {}
-                def _setter(key, value):
-                    metadata_options[key] = value
-                LaunchConfigurationMetadataOptionsArgs._configure(_setter, **metadata_options)
+            metadata_options = _utilities.configure(metadata_options, LaunchConfigurationMetadataOptionsArgs, True)
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["placement_tenancy"] = placement_tenancy
             __props__.__dict__["ram_disk_id"] = ram_disk_id

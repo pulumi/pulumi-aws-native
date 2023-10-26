@@ -34,12 +34,24 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: pulumi.Input['CertificateStatus'],
+             status: Optional[pulumi.Input['CertificateStatus']] = None,
              ca_certificate_pem: Optional[pulumi.Input[str]] = None,
              certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
              certificate_pem: Optional[pulumi.Input[str]] = None,
              certificate_signing_request: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if ca_certificate_pem is None and 'caCertificatePem' in kwargs:
+            ca_certificate_pem = kwargs['caCertificatePem']
+        if certificate_mode is None and 'certificateMode' in kwargs:
+            certificate_mode = kwargs['certificateMode']
+        if certificate_pem is None and 'certificatePem' in kwargs:
+            certificate_pem = kwargs['certificatePem']
+        if certificate_signing_request is None and 'certificateSigningRequest' in kwargs:
+            certificate_signing_request = kwargs['certificateSigningRequest']
+
         _setter("status", status)
         if ca_certificate_pem is not None:
             _setter("ca_certificate_pem", ca_certificate_pem)

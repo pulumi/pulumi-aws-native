@@ -32,7 +32,11 @@ class LocationArgs:
              _setter: Callable[[Any, Any], None],
              location_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location_name is None and 'locationName' in kwargs:
+            location_name = kwargs['locationName']
+
         if location_name is not None:
             _setter("location_name", location_name)
         if tags is not None:

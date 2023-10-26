@@ -35,12 +35,26 @@ class VpceConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_dns_name: pulumi.Input[str],
-             vpce_service_name: pulumi.Input[str],
+             service_dns_name: Optional[pulumi.Input[str]] = None,
+             vpce_service_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]] = None,
              vpce_configuration_description: Optional[pulumi.Input[str]] = None,
              vpce_configuration_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_dns_name is None and 'serviceDnsName' in kwargs:
+            service_dns_name = kwargs['serviceDnsName']
+        if service_dns_name is None:
+            raise TypeError("Missing 'service_dns_name' argument")
+        if vpce_service_name is None and 'vpceServiceName' in kwargs:
+            vpce_service_name = kwargs['vpceServiceName']
+        if vpce_service_name is None:
+            raise TypeError("Missing 'vpce_service_name' argument")
+        if vpce_configuration_description is None and 'vpceConfigurationDescription' in kwargs:
+            vpce_configuration_description = kwargs['vpceConfigurationDescription']
+        if vpce_configuration_name is None and 'vpceConfigurationName' in kwargs:
+            vpce_configuration_name = kwargs['vpceConfigurationName']
+
         _setter("service_dns_name", service_dns_name)
         _setter("vpce_service_name", vpce_service_name)
         if tags is not None:

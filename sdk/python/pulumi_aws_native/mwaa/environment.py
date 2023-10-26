@@ -102,7 +102,47 @@ class EnvironmentArgs:
              tags: Optional[Any] = None,
              webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
              weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if airflow_configuration_options is None and 'airflowConfigurationOptions' in kwargs:
+            airflow_configuration_options = kwargs['airflowConfigurationOptions']
+        if airflow_version is None and 'airflowVersion' in kwargs:
+            airflow_version = kwargs['airflowVersion']
+        if dag_s3_path is None and 'dagS3Path' in kwargs:
+            dag_s3_path = kwargs['dagS3Path']
+        if environment_class is None and 'environmentClass' in kwargs:
+            environment_class = kwargs['environmentClass']
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+        if max_workers is None and 'maxWorkers' in kwargs:
+            max_workers = kwargs['maxWorkers']
+        if min_workers is None and 'minWorkers' in kwargs:
+            min_workers = kwargs['minWorkers']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if plugins_s3_object_version is None and 'pluginsS3ObjectVersion' in kwargs:
+            plugins_s3_object_version = kwargs['pluginsS3ObjectVersion']
+        if plugins_s3_path is None and 'pluginsS3Path' in kwargs:
+            plugins_s3_path = kwargs['pluginsS3Path']
+        if requirements_s3_object_version is None and 'requirementsS3ObjectVersion' in kwargs:
+            requirements_s3_object_version = kwargs['requirementsS3ObjectVersion']
+        if requirements_s3_path is None and 'requirementsS3Path' in kwargs:
+            requirements_s3_path = kwargs['requirementsS3Path']
+        if source_bucket_arn is None and 'sourceBucketArn' in kwargs:
+            source_bucket_arn = kwargs['sourceBucketArn']
+        if startup_script_s3_object_version is None and 'startupScriptS3ObjectVersion' in kwargs:
+            startup_script_s3_object_version = kwargs['startupScriptS3ObjectVersion']
+        if startup_script_s3_path is None and 'startupScriptS3Path' in kwargs:
+            startup_script_s3_path = kwargs['startupScriptS3Path']
+        if webserver_access_mode is None and 'webserverAccessMode' in kwargs:
+            webserver_access_mode = kwargs['webserverAccessMode']
+        if weekly_maintenance_window_start is None and 'weeklyMaintenanceWindowStart' in kwargs:
+            weekly_maintenance_window_start = kwargs['weeklyMaintenanceWindowStart']
+
         if airflow_configuration_options is not None:
             _setter("airflow_configuration_options", airflow_configuration_options)
         if airflow_version is not None:
@@ -470,20 +510,12 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["environment_class"] = environment_class
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["kms_key"] = kms_key
-            if logging_configuration is not None and not isinstance(logging_configuration, EnvironmentLoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                EnvironmentLoggingConfigurationArgs._configure(_setter, **logging_configuration)
+            logging_configuration = _utilities.configure(logging_configuration, EnvironmentLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["max_workers"] = max_workers
             __props__.__dict__["min_workers"] = min_workers
             __props__.__dict__["name"] = name
-            if network_configuration is not None and not isinstance(network_configuration, EnvironmentNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                EnvironmentNetworkConfigurationArgs._configure(_setter, **network_configuration)
+            network_configuration = _utilities.configure(network_configuration, EnvironmentNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["plugins_s3_object_version"] = plugins_s3_object_version
             __props__.__dict__["plugins_s3_path"] = plugins_s3_path

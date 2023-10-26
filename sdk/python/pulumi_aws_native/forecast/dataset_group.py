@@ -38,11 +38,19 @@ class DatasetGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain: pulumi.Input['DatasetGroupDomain'],
+             domain: Optional[pulumi.Input['DatasetGroupDomain']] = None,
              dataset_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              dataset_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if dataset_arns is None and 'datasetArns' in kwargs:
+            dataset_arns = kwargs['datasetArns']
+        if dataset_group_name is None and 'datasetGroupName' in kwargs:
+            dataset_group_name = kwargs['datasetGroupName']
+
         _setter("domain", domain)
         if dataset_arns is not None:
             _setter("dataset_arns", dataset_arns)

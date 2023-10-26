@@ -36,7 +36,9 @@ class EnvironmentFederationParametersAttributeMapItemPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -103,7 +105,21 @@ class EnvironmentFederationParametersArgs:
              federation_urn: Optional[pulumi.Input[str]] = None,
              saml_metadata_document: Optional[pulumi.Input[str]] = None,
              saml_metadata_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_call_back_url is None and 'applicationCallBackUrl' in kwargs:
+            application_call_back_url = kwargs['applicationCallBackUrl']
+        if attribute_map is None and 'attributeMap' in kwargs:
+            attribute_map = kwargs['attributeMap']
+        if federation_provider_name is None and 'federationProviderName' in kwargs:
+            federation_provider_name = kwargs['federationProviderName']
+        if federation_urn is None and 'federationUrn' in kwargs:
+            federation_urn = kwargs['federationUrn']
+        if saml_metadata_document is None and 'samlMetadataDocument' in kwargs:
+            saml_metadata_document = kwargs['samlMetadataDocument']
+        if saml_metadata_url is None and 'samlMetadataUrl' in kwargs:
+            saml_metadata_url = kwargs['samlMetadataUrl']
+
         if application_call_back_url is not None:
             _setter("application_call_back_url", application_call_back_url)
         if attribute_map is not None:
@@ -214,7 +230,15 @@ class EnvironmentSuperuserParametersArgs:
              email_address: Optional[pulumi.Input[str]] = None,
              first_name: Optional[pulumi.Input[str]] = None,
              last_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+
         if email_address is not None:
             _setter("email_address", email_address)
         if first_name is not None:
@@ -277,9 +301,15 @@ class EnvironmentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

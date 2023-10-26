@@ -46,14 +46,26 @@ class WirelessGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lo_ra_wan: pulumi.Input['WirelessGatewayLoRaWanGatewayArgs'],
+             lo_ra_wan: Optional[pulumi.Input['WirelessGatewayLoRaWanGatewayArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              last_uplink_received_at: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessGatewayTagArgs']]]] = None,
              thing_arn: Optional[pulumi.Input[str]] = None,
              thing_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lo_ra_wan is None and 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if lo_ra_wan is None:
+            raise TypeError("Missing 'lo_ra_wan' argument")
+        if last_uplink_received_at is None and 'lastUplinkReceivedAt' in kwargs:
+            last_uplink_received_at = kwargs['lastUplinkReceivedAt']
+        if thing_arn is None and 'thingArn' in kwargs:
+            thing_arn = kwargs['thingArn']
+        if thing_name is None and 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+
         _setter("lo_ra_wan", lo_ra_wan)
         if description is not None:
             _setter("description", description)
@@ -225,11 +237,7 @@ class WirelessGateway(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["last_uplink_received_at"] = last_uplink_received_at
-            if lo_ra_wan is not None and not isinstance(lo_ra_wan, WirelessGatewayLoRaWanGatewayArgs):
-                lo_ra_wan = lo_ra_wan or {}
-                def _setter(key, value):
-                    lo_ra_wan[key] = value
-                WirelessGatewayLoRaWanGatewayArgs._configure(_setter, **lo_ra_wan)
+            lo_ra_wan = _utilities.configure(lo_ra_wan, WirelessGatewayLoRaWanGatewayArgs, True)
             if lo_ra_wan is None and not opts.urn:
                 raise TypeError("Missing required property 'lo_ra_wan'")
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan

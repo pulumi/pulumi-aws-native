@@ -38,12 +38,28 @@ class DbProxyTargetGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_proxy_name: pulumi.Input[str],
-             target_group_name: pulumi.Input['DbProxyTargetGroupTargetGroupName'],
+             db_proxy_name: Optional[pulumi.Input[str]] = None,
+             target_group_name: Optional[pulumi.Input['DbProxyTargetGroupTargetGroupName']] = None,
              connection_pool_configuration_info: Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
              db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_proxy_name is None and 'dbProxyName' in kwargs:
+            db_proxy_name = kwargs['dbProxyName']
+        if db_proxy_name is None:
+            raise TypeError("Missing 'db_proxy_name' argument")
+        if target_group_name is None and 'targetGroupName' in kwargs:
+            target_group_name = kwargs['targetGroupName']
+        if target_group_name is None:
+            raise TypeError("Missing 'target_group_name' argument")
+        if connection_pool_configuration_info is None and 'connectionPoolConfigurationInfo' in kwargs:
+            connection_pool_configuration_info = kwargs['connectionPoolConfigurationInfo']
+        if db_cluster_identifiers is None and 'dbClusterIdentifiers' in kwargs:
+            db_cluster_identifiers = kwargs['dbClusterIdentifiers']
+        if db_instance_identifiers is None and 'dbInstanceIdentifiers' in kwargs:
+            db_instance_identifiers = kwargs['dbInstanceIdentifiers']
+
         _setter("db_proxy_name", db_proxy_name)
         _setter("target_group_name", target_group_name)
         if connection_pool_configuration_info is not None:
@@ -166,11 +182,7 @@ class DbProxyTargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DbProxyTargetGroupArgs.__new__(DbProxyTargetGroupArgs)
 
-            if connection_pool_configuration_info is not None and not isinstance(connection_pool_configuration_info, DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs):
-                connection_pool_configuration_info = connection_pool_configuration_info or {}
-                def _setter(key, value):
-                    connection_pool_configuration_info[key] = value
-                DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs._configure(_setter, **connection_pool_configuration_info)
+            connection_pool_configuration_info = _utilities.configure(connection_pool_configuration_info, DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs, True)
             __props__.__dict__["connection_pool_configuration_info"] = connection_pool_configuration_info
             __props__.__dict__["db_cluster_identifiers"] = db_cluster_identifiers
             __props__.__dict__["db_instance_identifiers"] = db_instance_identifiers

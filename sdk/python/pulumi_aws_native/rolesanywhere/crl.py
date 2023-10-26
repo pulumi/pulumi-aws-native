@@ -35,12 +35,20 @@ class CrlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             crl_data: pulumi.Input[str],
+             crl_data: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CrlTagArgs']]]] = None,
              trust_anchor_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crl_data is None and 'crlData' in kwargs:
+            crl_data = kwargs['crlData']
+        if crl_data is None:
+            raise TypeError("Missing 'crl_data' argument")
+        if trust_anchor_arn is None and 'trustAnchorArn' in kwargs:
+            trust_anchor_arn = kwargs['trustAnchorArn']
+
         _setter("crl_data", crl_data)
         if enabled is not None:
             _setter("enabled", enabled)

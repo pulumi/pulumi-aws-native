@@ -43,13 +43,31 @@ class ConnectAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             core_network_id: pulumi.Input[str],
-             edge_location: pulumi.Input[str],
-             options: pulumi.Input['ConnectAttachmentOptionsArgs'],
-             transport_attachment_id: pulumi.Input[str],
+             core_network_id: Optional[pulumi.Input[str]] = None,
+             edge_location: Optional[pulumi.Input[str]] = None,
+             options: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']] = None,
+             transport_attachment_id: Optional[pulumi.Input[str]] = None,
              proposed_segment_change: Optional[pulumi.Input['ConnectAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_network_id is None and 'coreNetworkId' in kwargs:
+            core_network_id = kwargs['coreNetworkId']
+        if core_network_id is None:
+            raise TypeError("Missing 'core_network_id' argument")
+        if edge_location is None and 'edgeLocation' in kwargs:
+            edge_location = kwargs['edgeLocation']
+        if edge_location is None:
+            raise TypeError("Missing 'edge_location' argument")
+        if options is None:
+            raise TypeError("Missing 'options' argument")
+        if transport_attachment_id is None and 'transportAttachmentId' in kwargs:
+            transport_attachment_id = kwargs['transportAttachmentId']
+        if transport_attachment_id is None:
+            raise TypeError("Missing 'transport_attachment_id' argument")
+        if proposed_segment_change is None and 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("core_network_id", core_network_id)
         _setter("edge_location", edge_location)
         _setter("options", options)
@@ -205,19 +223,11 @@ class ConnectAttachment(pulumi.CustomResource):
             if edge_location is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_location'")
             __props__.__dict__["edge_location"] = edge_location
-            if options is not None and not isinstance(options, ConnectAttachmentOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                ConnectAttachmentOptionsArgs._configure(_setter, **options)
+            options = _utilities.configure(options, ConnectAttachmentOptionsArgs, True)
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")
             __props__.__dict__["options"] = options
-            if proposed_segment_change is not None and not isinstance(proposed_segment_change, ConnectAttachmentProposedSegmentChangeArgs):
-                proposed_segment_change = proposed_segment_change or {}
-                def _setter(key, value):
-                    proposed_segment_change[key] = value
-                ConnectAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
+            proposed_segment_change = _utilities.configure(proposed_segment_change, ConnectAttachmentProposedSegmentChangeArgs, True)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if transport_attachment_id is None and not opts.urn:

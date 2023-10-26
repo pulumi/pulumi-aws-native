@@ -169,7 +169,9 @@ class IpSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -224,7 +226,13 @@ class LoggingConfigurationCondition(dict):
              _setter: Callable[[Any, Any], None],
              action_condition: Optional['outputs.LoggingConfigurationConditionActionConditionProperties'] = None,
              label_name_condition: Optional['outputs.LoggingConfigurationConditionLabelNameConditionProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_condition is None and 'actionCondition' in kwargs:
+            action_condition = kwargs['actionCondition']
+        if label_name_condition is None and 'labelNameCondition' in kwargs:
+            label_name_condition = kwargs['labelNameCondition']
+
         if action_condition is not None:
             _setter("action_condition", action_condition)
         if label_name_condition is not None:
@@ -265,8 +273,12 @@ class LoggingConfigurationConditionActionConditionProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: 'LoggingConfigurationConditionActionConditionPropertiesAction',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action: Optional['LoggingConfigurationConditionActionConditionPropertiesAction'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+
         _setter("action", action)
 
     @property
@@ -313,8 +325,14 @@ class LoggingConfigurationConditionLabelNameConditionProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             label_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label_name is None and 'labelName' in kwargs:
+            label_name = kwargs['labelName']
+        if label_name is None:
+            raise TypeError("Missing 'label_name' argument")
+
         _setter("label_name", label_name)
 
     @property
@@ -384,7 +402,17 @@ class LoggingConfigurationFieldToMatch(dict):
              query_string: Optional[Any] = None,
              single_header: Optional['outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties'] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_body is None and 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if single_header is None and 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if uri_path is None and 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if json_body is not None:
             _setter("json_body", json_body)
         if method is not None:
@@ -482,10 +510,22 @@ class LoggingConfigurationFieldToMatchJsonBodyProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
-             match_scope: 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
+             match_pattern: Optional['outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties'] = None,
+             match_scope: Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope'] = None,
              invalid_fallback_behavior: Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if invalid_fallback_behavior is None and 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -556,7 +596,11 @@ class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties(d
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if included_paths is None and 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -597,8 +641,12 @@ class LoggingConfigurationFieldToMatchSingleHeaderProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -630,10 +678,18 @@ class LoggingConfigurationFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             behavior: 'LoggingConfigurationFilterBehavior',
-             conditions: Sequence['outputs.LoggingConfigurationCondition'],
-             requirement: 'LoggingConfigurationFilterRequirement',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             behavior: Optional['LoggingConfigurationFilterBehavior'] = None,
+             conditions: Optional[Sequence['outputs.LoggingConfigurationCondition']] = None,
+             requirement: Optional['LoggingConfigurationFilterRequirement'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if behavior is None:
+            raise TypeError("Missing 'behavior' argument")
+        if conditions is None:
+            raise TypeError("Missing 'conditions' argument")
+        if requirement is None:
+            raise TypeError("Missing 'requirement' argument")
+
         _setter("behavior", behavior)
         _setter("conditions", conditions)
         _setter("requirement", requirement)
@@ -701,9 +757,17 @@ class LoggingFilterProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_behavior: 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
-             filters: Sequence['outputs.LoggingConfigurationFilter'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_behavior: Optional['LoggingConfigurationLoggingFilterPropertiesDefaultBehavior'] = None,
+             filters: Optional[Sequence['outputs.LoggingConfigurationFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_behavior is None and 'defaultBehavior' in kwargs:
+            default_behavior = kwargs['defaultBehavior']
+        if default_behavior is None:
+            raise TypeError("Missing 'default_behavior' argument")
+        if filters is None:
+            raise TypeError("Missing 'filters' argument")
+
         _setter("default_behavior", default_behavior)
         _setter("filters", filters)
 
@@ -739,7 +803,9 @@ class RegexPatternSetTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -791,7 +857,11 @@ class RuleGroupAllowAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -812,8 +882,12 @@ class RuleGroupAndStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.RuleGroupStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             statements: Optional[Sequence['outputs.RuleGroupStatement']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statements is None:
+            raise TypeError("Missing 'statements' argument")
+
         _setter("statements", statements)
 
     @property
@@ -857,7 +931,11 @@ class RuleGroupBlockAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_response: Optional['outputs.RuleGroupCustomResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_response is None and 'customResponse' in kwargs:
+            custom_response = kwargs['customResponse']
+
         if custom_response is not None:
             _setter("custom_response", custom_response)
 
@@ -902,7 +980,11 @@ class RuleGroupBody(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         if oversize_handling is not None:
             _setter("oversize_handling", oversize_handling)
 
@@ -962,12 +1044,30 @@ class RuleGroupByteMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             positional_constraint: 'RuleGroupPositionalConstraint',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupFieldToMatch'] = None,
+             positional_constraint: Optional['RuleGroupPositionalConstraint'] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
              search_string: Optional[str] = None,
              search_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if positional_constraint is None and 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if positional_constraint is None:
+            raise TypeError("Missing 'positional_constraint' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+        if search_string is None and 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if search_string_base64 is None and 'searchStringBase64' in kwargs:
+            search_string_base64 = kwargs['searchStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformations", text_transformations)
@@ -1037,7 +1137,11 @@ class RuleGroupCaptchaAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1076,7 +1180,11 @@ class RuleGroupCaptchaConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immunity_time_property is None and 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -1121,7 +1229,11 @@ class RuleGroupChallengeAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1160,7 +1272,11 @@ class RuleGroupChallengeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immunity_time_property is None and 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -1214,7 +1330,13 @@ class RuleGroupCookieMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_cookies: Optional[Sequence[str]] = None,
              included_cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_cookies is None and 'excludedCookies' in kwargs:
+            excluded_cookies = kwargs['excludedCookies']
+        if included_cookies is None and 'includedCookies' in kwargs:
+            included_cookies = kwargs['includedCookies']
+
         if all is not None:
             _setter("all", all)
         if excluded_cookies is not None:
@@ -1283,10 +1405,24 @@ class RuleGroupCookies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.RuleGroupCookieMatchPattern',
-             match_scope: 'RuleGroupMapMatchScope',
-             oversize_handling: 'RuleGroupOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             match_pattern: Optional['outputs.RuleGroupCookieMatchPattern'] = None,
+             match_scope: Optional['RuleGroupMapMatchScope'] = None,
+             oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+        if oversize_handling is None:
+            raise TypeError("Missing 'oversize_handling' argument")
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -1342,7 +1478,11 @@ class RuleGroupCountAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -1371,9 +1511,15 @@ class RuleGroupCustomHttpHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1423,8 +1569,14 @@ class RuleGroupCustomRequestHandling(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             insert_headers: Sequence['outputs.RuleGroupCustomHttpHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             insert_headers: Optional[Sequence['outputs.RuleGroupCustomHttpHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insert_headers is None and 'insertHeaders' in kwargs:
+            insert_headers = kwargs['insertHeaders']
+        if insert_headers is None:
+            raise TypeError("Missing 'insert_headers' argument")
+
         _setter("insert_headers", insert_headers)
 
     @property
@@ -1480,10 +1632,20 @@ class RuleGroupCustomResponse(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             response_code: int,
+             response_code: Optional[int] = None,
              custom_response_body_key: Optional[str] = None,
              response_headers: Optional[Sequence['outputs.RuleGroupCustomHttpHeader']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if response_code is None and 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if response_code is None:
+            raise TypeError("Missing 'response_code' argument")
+        if custom_response_body_key is None and 'customResponseBodyKey' in kwargs:
+            custom_response_body_key = kwargs['customResponseBodyKey']
+        if response_headers is None and 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         _setter("response_code", response_code)
         if custom_response_body_key is not None:
             _setter("custom_response_body_key", custom_response_body_key)
@@ -1525,8 +1687,10 @@ class RuleGroupCustomResponseBodies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1606,7 +1770,21 @@ class RuleGroupFieldToMatch(dict):
              single_header: Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties'] = None,
              single_query_argument: Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties'] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if all_query_arguments is None and 'allQueryArguments' in kwargs:
+            all_query_arguments = kwargs['allQueryArguments']
+        if json_body is None and 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if single_header is None and 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if single_query_argument is None and 'singleQueryArgument' in kwargs:
+            single_query_argument = kwargs['singleQueryArgument']
+        if uri_path is None and 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if all_query_arguments is not None:
             _setter("all_query_arguments", all_query_arguments)
         if body is not None:
@@ -1705,8 +1883,12 @@ class RuleGroupFieldToMatchSingleHeaderProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -1732,8 +1914,12 @@ class RuleGroupFieldToMatchSingleQueryArgumentProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -1774,9 +1960,19 @@ class RuleGroupForwardedIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'RuleGroupForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fallback_behavior: Optional['RuleGroupForwardedIpConfigurationFallbackBehavior'] = None,
+             header_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fallback_behavior is None and 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if fallback_behavior is None:
+            raise TypeError("Missing 'fallback_behavior' argument")
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
 
@@ -1825,7 +2021,13 @@ class RuleGroupGeoMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              country_codes: Optional[Sequence[str]] = None,
              forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_codes is None and 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if forwarded_ip_config is None and 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+
         if country_codes is not None:
             _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -1886,7 +2088,13 @@ class RuleGroupHeaderMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_headers: Optional[Sequence[str]] = None,
              included_headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_headers is None and 'excludedHeaders' in kwargs:
+            excluded_headers = kwargs['excludedHeaders']
+        if included_headers is None and 'includedHeaders' in kwargs:
+            included_headers = kwargs['includedHeaders']
+
         if all is not None:
             _setter("all", all)
         if excluded_headers is not None:
@@ -1955,10 +2163,24 @@ class RuleGroupHeaders(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.RuleGroupHeaderMatchPattern',
-             match_scope: 'RuleGroupMapMatchScope',
-             oversize_handling: 'RuleGroupOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             match_pattern: Optional['outputs.RuleGroupHeaderMatchPattern'] = None,
+             match_scope: Optional['RuleGroupMapMatchScope'] = None,
+             oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+        if oversize_handling is None:
+            raise TypeError("Missing 'oversize_handling' argument")
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -2007,8 +2229,14 @@ class RuleGroupImmunityTimeProperty(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             immunity_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             immunity_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immunity_time is None and 'immunityTime' in kwargs:
+            immunity_time = kwargs['immunityTime']
+        if immunity_time is None:
+            raise TypeError("Missing 'immunity_time' argument")
+
         _setter("immunity_time", immunity_time)
 
     @property
@@ -2051,10 +2279,22 @@ class RuleGroupIpSetForwardedIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             position: 'RuleGroupIpSetForwardedIpConfigurationPosition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fallback_behavior: Optional['RuleGroupIpSetForwardedIpConfigurationFallbackBehavior'] = None,
+             header_name: Optional[str] = None,
+             position: Optional['RuleGroupIpSetForwardedIpConfigurationPosition'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fallback_behavior is None and 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if fallback_behavior is None:
+            raise TypeError("Missing 'fallback_behavior' argument")
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if position is None:
+            raise TypeError("Missing 'position' argument")
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
         _setter("position", position)
@@ -2105,9 +2345,15 @@ class RuleGroupIpSetReferenceStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
+             arn: Optional[str] = None,
              ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIpSetForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if ip_set_forwarded_ip_config is None and 'ipSetForwardedIpConfig' in kwargs:
+            ip_set_forwarded_ip_config = kwargs['ipSetForwardedIpConfig']
+
         _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
             _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -2169,11 +2415,25 @@ class RuleGroupJsonBody(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.RuleGroupJsonMatchPattern',
-             match_scope: 'RuleGroupJsonMatchScope',
+             match_pattern: Optional['outputs.RuleGroupJsonMatchPattern'] = None,
+             match_scope: Optional['RuleGroupJsonMatchScope'] = None,
              invalid_fallback_behavior: Optional['RuleGroupBodyParsingFallbackBehavior'] = None,
              oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if invalid_fallback_behavior is None and 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -2241,7 +2501,11 @@ class RuleGroupJsonMatchPattern(dict):
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if included_paths is None and 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -2272,8 +2536,12 @@ class RuleGroupLabel(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -2295,9 +2563,15 @@ class RuleGroupLabelMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             scope: 'RuleGroupLabelMatchScope',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             scope: Optional['RuleGroupLabelMatchScope'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+
         _setter("key", key)
         _setter("scope", scope)
 
@@ -2324,7 +2598,9 @@ class RuleGroupLabelSummary(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -2345,8 +2621,12 @@ class RuleGroupNotStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statement: 'outputs.RuleGroupStatement',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             statement: Optional['outputs.RuleGroupStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+
         _setter("statement", statement)
 
     @property
@@ -2366,8 +2646,12 @@ class RuleGroupOrStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.RuleGroupStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             statements: Optional[Sequence['outputs.RuleGroupStatement']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statements is None:
+            raise TypeError("Missing 'statements' argument")
+
         _setter("statements", statements)
 
     @property
@@ -2421,12 +2705,26 @@ class RuleGroupRateBasedStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregate_key_type: 'RuleGroupRateBasedStatementAggregateKeyType',
-             limit: int,
+             aggregate_key_type: Optional['RuleGroupRateBasedStatementAggregateKeyType'] = None,
+             limit: Optional[int] = None,
              custom_keys: Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']] = None,
              forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
              scope_down_statement: Optional['outputs.RuleGroupStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregate_key_type is None and 'aggregateKeyType' in kwargs:
+            aggregate_key_type = kwargs['aggregateKeyType']
+        if aggregate_key_type is None:
+            raise TypeError("Missing 'aggregate_key_type' argument")
+        if limit is None:
+            raise TypeError("Missing 'limit' argument")
+        if custom_keys is None and 'customKeys' in kwargs:
+            custom_keys = kwargs['customKeys']
+        if forwarded_ip_config is None and 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+        if scope_down_statement is None and 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("aggregate_key_type", aggregate_key_type)
         _setter("limit", limit)
         if custom_keys is not None:
@@ -2534,7 +2832,21 @@ class RuleGroupRateBasedStatementCustomKey(dict):
              query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
              query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
              uri_path: Optional['outputs.RuleGroupRateLimitUriPath'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forwarded_ip is None and 'forwardedIp' in kwargs:
+            forwarded_ip = kwargs['forwardedIp']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if label_namespace is None and 'labelNamespace' in kwargs:
+            label_namespace = kwargs['labelNamespace']
+        if query_argument is None and 'queryArgument' in kwargs:
+            query_argument = kwargs['queryArgument']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if uri_path is None and 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if cookie is not None:
             _setter("cookie", cookie)
         if forwarded_ip is not None:
@@ -2637,9 +2949,17 @@ class RuleGroupRateLimitCookie(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2670,8 +2990,10 @@ class RuleGroupRateLimitForwardedIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2711,9 +3033,17 @@ class RuleGroupRateLimitHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2744,8 +3074,10 @@ class RuleGroupRateLimitHttpMethod(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2761,8 +3093,10 @@ class RuleGroupRateLimitIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -2783,8 +3117,12 @@ class RuleGroupRateLimitLabelNamespace(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
         _setter("namespace", namespace)
 
     @property
@@ -2833,9 +3171,17 @@ class RuleGroupRateLimitQueryArgument(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -2887,8 +3233,14 @@ class RuleGroupRateLimitQueryString(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -2931,8 +3283,14 @@ class RuleGroupRateLimitUriPath(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -2977,10 +3335,24 @@ class RuleGroupRegexMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             regex_string: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional['outputs.RuleGroupFieldToMatch'] = None,
+             regex_string: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if regex_string is None and 'regexString' in kwargs:
+            regex_string = kwargs['regexString']
+        if regex_string is None:
+            raise TypeError("Missing 'regex_string' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("regex_string", regex_string)
         _setter("text_transformations", text_transformations)
@@ -3035,10 +3407,22 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[str] = None,
+             field_to_match: Optional['outputs.RuleGroupFieldToMatch'] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("arn", arn)
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
@@ -3114,15 +3498,33 @@ class RuleGroupRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             priority: int,
-             statement: 'outputs.RuleGroupStatement',
-             visibility_config: 'outputs.RuleGroupVisibilityConfig',
+             name: Optional[str] = None,
+             priority: Optional[int] = None,
+             statement: Optional['outputs.RuleGroupStatement'] = None,
+             visibility_config: Optional['outputs.RuleGroupVisibilityConfig'] = None,
              action: Optional['outputs.RuleGroupRuleAction'] = None,
              captcha_config: Optional['outputs.RuleGroupCaptchaConfig'] = None,
              challenge_config: Optional['outputs.RuleGroupChallengeConfig'] = None,
              rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if visibility_config is None and 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if visibility_config is None:
+            raise TypeError("Missing 'visibility_config' argument")
+        if captcha_config is None and 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if challenge_config is None and 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if rule_labels is None and 'ruleLabels' in kwargs:
+            rule_labels = kwargs['ruleLabels']
+
         _setter("name", name)
         _setter("priority", priority)
         _setter("statement", statement)
@@ -3210,7 +3612,9 @@ class RuleGroupRuleAction(dict):
              captcha: Optional['outputs.RuleGroupCaptchaAction'] = None,
              challenge: Optional['outputs.RuleGroupChallengeAction'] = None,
              count: Optional['outputs.RuleGroupCountAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -3292,11 +3696,27 @@ class RuleGroupSizeConstraintStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: 'RuleGroupSizeConstraintStatementComparisonOperator',
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             size: float,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison_operator: Optional['RuleGroupSizeConstraintStatementComparisonOperator'] = None,
+             field_to_match: Optional['outputs.RuleGroupFieldToMatch'] = None,
+             size: Optional[float] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -3365,10 +3785,22 @@ class RuleGroupSqliMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
+             field_to_match: Optional['outputs.RuleGroupFieldToMatch'] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
              sensitivity_level: Optional['RuleGroupSensitivityLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+        if sensitivity_level is None and 'sensitivityLevel' in kwargs:
+            sensitivity_level = kwargs['sensitivityLevel']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
         if sensitivity_level is not None:
@@ -3485,7 +3917,35 @@ class RuleGroupStatement(dict):
              size_constraint_statement: Optional['outputs.RuleGroupSizeConstraintStatement'] = None,
              sqli_match_statement: Optional['outputs.RuleGroupSqliMatchStatement'] = None,
              xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_statement is None and 'andStatement' in kwargs:
+            and_statement = kwargs['andStatement']
+        if byte_match_statement is None and 'byteMatchStatement' in kwargs:
+            byte_match_statement = kwargs['byteMatchStatement']
+        if geo_match_statement is None and 'geoMatchStatement' in kwargs:
+            geo_match_statement = kwargs['geoMatchStatement']
+        if ip_set_reference_statement is None and 'ipSetReferenceStatement' in kwargs:
+            ip_set_reference_statement = kwargs['ipSetReferenceStatement']
+        if label_match_statement is None and 'labelMatchStatement' in kwargs:
+            label_match_statement = kwargs['labelMatchStatement']
+        if not_statement is None and 'notStatement' in kwargs:
+            not_statement = kwargs['notStatement']
+        if or_statement is None and 'orStatement' in kwargs:
+            or_statement = kwargs['orStatement']
+        if rate_based_statement is None and 'rateBasedStatement' in kwargs:
+            rate_based_statement = kwargs['rateBasedStatement']
+        if regex_match_statement is None and 'regexMatchStatement' in kwargs:
+            regex_match_statement = kwargs['regexMatchStatement']
+        if regex_pattern_set_reference_statement is None and 'regexPatternSetReferenceStatement' in kwargs:
+            regex_pattern_set_reference_statement = kwargs['regexPatternSetReferenceStatement']
+        if size_constraint_statement is None and 'sizeConstraintStatement' in kwargs:
+            size_constraint_statement = kwargs['sizeConstraintStatement']
+        if sqli_match_statement is None and 'sqliMatchStatement' in kwargs:
+            sqli_match_statement = kwargs['sqliMatchStatement']
+        if xss_match_statement is None and 'xssMatchStatement' in kwargs:
+            xss_match_statement = kwargs['xssMatchStatement']
+
         if and_statement is not None:
             _setter("and_statement", and_statement)
         if byte_match_statement is not None:
@@ -3594,7 +4054,9 @@ class RuleGroupTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -3630,9 +4092,15 @@ class RuleGroupTextTransformation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: int,
-             type: 'RuleGroupTextTransformationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             priority: Optional[int] = None,
+             type: Optional['RuleGroupTextTransformationType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("priority", priority)
         _setter("type", type)
 
@@ -3689,10 +4157,24 @@ class RuleGroupVisibilityConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_metrics_enabled: bool,
-             metric_name: str,
-             sampled_requests_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_metrics_enabled: Optional[bool] = None,
+             metric_name: Optional[str] = None,
+             sampled_requests_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_metrics_enabled is None and 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if cloud_watch_metrics_enabled is None:
+            raise TypeError("Missing 'cloud_watch_metrics_enabled' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if sampled_requests_enabled is None and 'sampledRequestsEnabled' in kwargs:
+            sampled_requests_enabled = kwargs['sampledRequestsEnabled']
+        if sampled_requests_enabled is None:
+            raise TypeError("Missing 'sampled_requests_enabled' argument")
+
         _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         _setter("metric_name", metric_name)
         _setter("sampled_requests_enabled", sampled_requests_enabled)
@@ -3751,9 +4233,19 @@ class RuleGroupXssMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional['outputs.RuleGroupFieldToMatch'] = None,
+             text_transformations: Optional[Sequence['outputs.RuleGroupTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
 
@@ -3803,7 +4295,11 @@ class WebAclAllowAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -3824,8 +4320,12 @@ class WebAclAndStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.WebAclStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             statements: Optional[Sequence['outputs.WebAclStatement']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statements is None:
+            raise TypeError("Missing 'statements' argument")
+
         _setter("statements", statements)
 
     @property
@@ -3869,7 +4369,11 @@ class WebAclAssociationConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              request_body: Optional['outputs.WebAclRequestBody'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if request_body is None and 'requestBody' in kwargs:
+            request_body = kwargs['requestBody']
+
         if request_body is not None:
             _setter("request_body", request_body)
 
@@ -3929,12 +4433,30 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             creation_path: str,
-             registration_page_path: str,
-             request_inspection: 'outputs.WebAclRequestInspectionAcfp',
+             creation_path: Optional[str] = None,
+             registration_page_path: Optional[str] = None,
+             request_inspection: Optional['outputs.WebAclRequestInspectionAcfp'] = None,
              enable_regex_in_path: Optional[bool] = None,
              response_inspection: Optional['outputs.WebAclResponseInspection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_path is None and 'creationPath' in kwargs:
+            creation_path = kwargs['creationPath']
+        if creation_path is None:
+            raise TypeError("Missing 'creation_path' argument")
+        if registration_page_path is None and 'registrationPagePath' in kwargs:
+            registration_page_path = kwargs['registrationPagePath']
+        if registration_page_path is None:
+            raise TypeError("Missing 'registration_page_path' argument")
+        if request_inspection is None and 'requestInspection' in kwargs:
+            request_inspection = kwargs['requestInspection']
+        if request_inspection is None:
+            raise TypeError("Missing 'request_inspection' argument")
+        if enable_regex_in_path is None and 'enableRegexInPath' in kwargs:
+            enable_regex_in_path = kwargs['enableRegexInPath']
+        if response_inspection is None and 'responseInspection' in kwargs:
+            response_inspection = kwargs['responseInspection']
+
         _setter("creation_path", creation_path)
         _setter("registration_page_path", registration_page_path)
         _setter("request_inspection", request_inspection)
@@ -4015,11 +4537,23 @@ class WebAclAwsManagedRulesAtpRuleSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             login_path: str,
+             login_path: Optional[str] = None,
              enable_regex_in_path: Optional[bool] = None,
              request_inspection: Optional['outputs.WebAclRequestInspection'] = None,
              response_inspection: Optional['outputs.WebAclResponseInspection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if login_path is None and 'loginPath' in kwargs:
+            login_path = kwargs['loginPath']
+        if login_path is None:
+            raise TypeError("Missing 'login_path' argument")
+        if enable_regex_in_path is None and 'enableRegexInPath' in kwargs:
+            enable_regex_in_path = kwargs['enableRegexInPath']
+        if request_inspection is None and 'requestInspection' in kwargs:
+            request_inspection = kwargs['requestInspection']
+        if response_inspection is None and 'responseInspection' in kwargs:
+            response_inspection = kwargs['responseInspection']
+
         _setter("login_path", login_path)
         if enable_regex_in_path is not None:
             _setter("enable_regex_in_path", enable_regex_in_path)
@@ -4087,9 +4621,17 @@ class WebAclAwsManagedRulesBotControlRuleSet(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
+             inspection_level: Optional['WebAclAwsManagedRulesBotControlRuleSetInspectionLevel'] = None,
              enable_machine_learning: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inspection_level is None and 'inspectionLevel' in kwargs:
+            inspection_level = kwargs['inspectionLevel']
+        if inspection_level is None:
+            raise TypeError("Missing 'inspection_level' argument")
+        if enable_machine_learning is None and 'enableMachineLearning' in kwargs:
+            enable_machine_learning = kwargs['enableMachineLearning']
+
         _setter("inspection_level", inspection_level)
         if enable_machine_learning is not None:
             _setter("enable_machine_learning", enable_machine_learning)
@@ -4140,7 +4682,11 @@ class WebAclBlockAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_response: Optional['outputs.WebAclCustomResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_response is None and 'customResponse' in kwargs:
+            custom_response = kwargs['customResponse']
+
         if custom_response is not None:
             _setter("custom_response", custom_response)
 
@@ -4185,7 +4731,11 @@ class WebAclBody(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              oversize_handling: Optional['WebAclOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         if oversize_handling is not None:
             _setter("oversize_handling", oversize_handling)
 
@@ -4245,12 +4795,30 @@ class WebAclByteMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             positional_constraint: 'WebAclPositionalConstraint',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
+             field_to_match: Optional['outputs.WebAclFieldToMatch'] = None,
+             positional_constraint: Optional['WebAclPositionalConstraint'] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
              search_string: Optional[str] = None,
              search_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if positional_constraint is None and 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if positional_constraint is None:
+            raise TypeError("Missing 'positional_constraint' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+        if search_string is None and 'searchString' in kwargs:
+            search_string = kwargs['searchString']
+        if search_string_base64 is None and 'searchStringBase64' in kwargs:
+            search_string_base64 = kwargs['searchStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformations", text_transformations)
@@ -4320,7 +4888,11 @@ class WebAclCaptchaAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4359,7 +4931,11 @@ class WebAclCaptchaConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immunity_time_property is None and 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -4404,7 +4980,11 @@ class WebAclChallengeAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4443,7 +5023,11 @@ class WebAclChallengeConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immunity_time_property is None and 'immunityTimeProperty' in kwargs:
+            immunity_time_property = kwargs['immunityTimeProperty']
+
         if immunity_time_property is not None:
             _setter("immunity_time_property", immunity_time_property)
 
@@ -4497,7 +5081,13 @@ class WebAclCookieMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_cookies: Optional[Sequence[str]] = None,
              included_cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_cookies is None and 'excludedCookies' in kwargs:
+            excluded_cookies = kwargs['excludedCookies']
+        if included_cookies is None and 'includedCookies' in kwargs:
+            included_cookies = kwargs['includedCookies']
+
         if all is not None:
             _setter("all", all)
         if excluded_cookies is not None:
@@ -4566,10 +5156,24 @@ class WebAclCookies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.WebAclCookieMatchPattern',
-             match_scope: 'WebAclMapMatchScope',
-             oversize_handling: 'WebAclOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             match_pattern: Optional['outputs.WebAclCookieMatchPattern'] = None,
+             match_scope: Optional['WebAclMapMatchScope'] = None,
+             oversize_handling: Optional['WebAclOversizeHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+        if oversize_handling is None:
+            raise TypeError("Missing 'oversize_handling' argument")
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -4625,7 +5229,11 @@ class WebAclCountAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_request_handling is None and 'customRequestHandling' in kwargs:
+            custom_request_handling = kwargs['customRequestHandling']
+
         if custom_request_handling is not None:
             _setter("custom_request_handling", custom_request_handling)
 
@@ -4654,9 +5262,15 @@ class WebAclCustomHttpHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -4706,8 +5320,14 @@ class WebAclCustomRequestHandling(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             insert_headers: Sequence['outputs.WebAclCustomHttpHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             insert_headers: Optional[Sequence['outputs.WebAclCustomHttpHeader']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insert_headers is None and 'insertHeaders' in kwargs:
+            insert_headers = kwargs['insertHeaders']
+        if insert_headers is None:
+            raise TypeError("Missing 'insert_headers' argument")
+
         _setter("insert_headers", insert_headers)
 
     @property
@@ -4763,10 +5383,20 @@ class WebAclCustomResponse(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             response_code: int,
+             response_code: Optional[int] = None,
              custom_response_body_key: Optional[str] = None,
              response_headers: Optional[Sequence['outputs.WebAclCustomHttpHeader']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if response_code is None and 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if response_code is None:
+            raise TypeError("Missing 'response_code' argument")
+        if custom_response_body_key is None and 'customResponseBodyKey' in kwargs:
+            custom_response_body_key = kwargs['customResponseBodyKey']
+        if response_headers is None and 'responseHeaders' in kwargs:
+            response_headers = kwargs['responseHeaders']
+
         _setter("response_code", response_code)
         if custom_response_body_key is not None:
             _setter("custom_response_body_key", custom_response_body_key)
@@ -4808,8 +5438,10 @@ class WebAclCustomResponseBodies(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -4833,7 +5465,9 @@ class WebAclDefaultAction(dict):
              _setter: Callable[[Any, Any], None],
              allow: Optional['outputs.WebAclAllowAction'] = None,
              block: Optional['outputs.WebAclBlockAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -4867,8 +5501,12 @@ class WebAclExcludedRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -4888,8 +5526,12 @@ class WebAclFieldIdentifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identifier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             identifier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+
         _setter("identifier", identifier)
 
     @property
@@ -4975,7 +5617,21 @@ class WebAclFieldToMatch(dict):
              single_header: Optional['outputs.WebAclFieldToMatchSingleHeaderProperties'] = None,
              single_query_argument: Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties'] = None,
              uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if all_query_arguments is None and 'allQueryArguments' in kwargs:
+            all_query_arguments = kwargs['allQueryArguments']
+        if json_body is None and 'jsonBody' in kwargs:
+            json_body = kwargs['jsonBody']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if single_header is None and 'singleHeader' in kwargs:
+            single_header = kwargs['singleHeader']
+        if single_query_argument is None and 'singleQueryArgument' in kwargs:
+            single_query_argument = kwargs['singleQueryArgument']
+        if uri_path is None and 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if all_query_arguments is not None:
             _setter("all_query_arguments", all_query_arguments)
         if body is not None:
@@ -5074,8 +5730,12 @@ class WebAclFieldToMatchSingleHeaderProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -5101,8 +5761,12 @@ class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -5143,9 +5807,19 @@ class WebAclForwardedIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'WebAclForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fallback_behavior: Optional['WebAclForwardedIpConfigurationFallbackBehavior'] = None,
+             header_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fallback_behavior is None and 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if fallback_behavior is None:
+            raise TypeError("Missing 'fallback_behavior' argument")
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
 
@@ -5194,7 +5868,13 @@ class WebAclGeoMatchStatement(dict):
              _setter: Callable[[Any, Any], None],
              country_codes: Optional[Sequence[str]] = None,
              forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if country_codes is None and 'countryCodes' in kwargs:
+            country_codes = kwargs['countryCodes']
+        if forwarded_ip_config is None and 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+
         if country_codes is not None:
             _setter("country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -5255,7 +5935,13 @@ class WebAclHeaderMatchPattern(dict):
              all: Optional[Any] = None,
              excluded_headers: Optional[Sequence[str]] = None,
              included_headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_headers is None and 'excludedHeaders' in kwargs:
+            excluded_headers = kwargs['excludedHeaders']
+        if included_headers is None and 'includedHeaders' in kwargs:
+            included_headers = kwargs['includedHeaders']
+
         if all is not None:
             _setter("all", all)
         if excluded_headers is not None:
@@ -5324,10 +6010,24 @@ class WebAclHeaders(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.WebAclHeaderMatchPattern',
-             match_scope: 'WebAclMapMatchScope',
-             oversize_handling: 'WebAclOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             match_pattern: Optional['outputs.WebAclHeaderMatchPattern'] = None,
+             match_scope: Optional['WebAclMapMatchScope'] = None,
+             oversize_handling: Optional['WebAclOversizeHandling'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+        if oversize_handling is None:
+            raise TypeError("Missing 'oversize_handling' argument")
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         _setter("oversize_handling", oversize_handling)
@@ -5376,8 +6076,14 @@ class WebAclImmunityTimeProperty(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             immunity_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             immunity_time: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if immunity_time is None and 'immunityTime' in kwargs:
+            immunity_time = kwargs['immunityTime']
+        if immunity_time is None:
+            raise TypeError("Missing 'immunity_time' argument")
+
         _setter("immunity_time", immunity_time)
 
     @property
@@ -5420,10 +6126,22 @@ class WebAclIpSetForwardedIpConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             position: 'WebAclIpSetForwardedIpConfigurationPosition',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fallback_behavior: Optional['WebAclIpSetForwardedIpConfigurationFallbackBehavior'] = None,
+             header_name: Optional[str] = None,
+             position: Optional['WebAclIpSetForwardedIpConfigurationPosition'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fallback_behavior is None and 'fallbackBehavior' in kwargs:
+            fallback_behavior = kwargs['fallbackBehavior']
+        if fallback_behavior is None:
+            raise TypeError("Missing 'fallback_behavior' argument")
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if position is None:
+            raise TypeError("Missing 'position' argument")
+
         _setter("fallback_behavior", fallback_behavior)
         _setter("header_name", header_name)
         _setter("position", position)
@@ -5474,9 +6192,15 @@ class WebAclIpSetReferenceStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
+             arn: Optional[str] = None,
              ip_set_forwarded_ip_config: Optional['outputs.WebAclIpSetForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if ip_set_forwarded_ip_config is None and 'ipSetForwardedIpConfig' in kwargs:
+            ip_set_forwarded_ip_config = kwargs['ipSetForwardedIpConfig']
+
         _setter("arn", arn)
         if ip_set_forwarded_ip_config is not None:
             _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
@@ -5538,11 +6262,25 @@ class WebAclJsonBody(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.WebAclJsonMatchPattern',
-             match_scope: 'WebAclJsonMatchScope',
+             match_pattern: Optional['outputs.WebAclJsonMatchPattern'] = None,
+             match_scope: Optional['WebAclJsonMatchScope'] = None,
              invalid_fallback_behavior: Optional['WebAclBodyParsingFallbackBehavior'] = None,
              oversize_handling: Optional['WebAclOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_pattern is None and 'matchPattern' in kwargs:
+            match_pattern = kwargs['matchPattern']
+        if match_pattern is None:
+            raise TypeError("Missing 'match_pattern' argument")
+        if match_scope is None and 'matchScope' in kwargs:
+            match_scope = kwargs['matchScope']
+        if match_scope is None:
+            raise TypeError("Missing 'match_scope' argument")
+        if invalid_fallback_behavior is None and 'invalidFallbackBehavior' in kwargs:
+            invalid_fallback_behavior = kwargs['invalidFallbackBehavior']
+        if oversize_handling is None and 'oversizeHandling' in kwargs:
+            oversize_handling = kwargs['oversizeHandling']
+
         _setter("match_pattern", match_pattern)
         _setter("match_scope", match_scope)
         if invalid_fallback_behavior is not None:
@@ -5610,7 +6348,11 @@ class WebAclJsonMatchPattern(dict):
              _setter: Callable[[Any, Any], None],
              all: Optional[Any] = None,
              included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if included_paths is None and 'includedPaths' in kwargs:
+            included_paths = kwargs['includedPaths']
+
         if all is not None:
             _setter("all", all)
         if included_paths is not None:
@@ -5641,8 +6383,12 @@ class WebAclLabel(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -5664,9 +6410,15 @@ class WebAclLabelMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             scope: 'WebAclLabelMatchScope',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             scope: Optional['WebAclLabelMatchScope'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+
         _setter("key", key)
         _setter("scope", scope)
 
@@ -5746,7 +6498,23 @@ class WebAclManagedRuleGroupConfig(dict):
              password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
              payload_type: Optional['WebAclManagedRuleGroupConfigPayloadType'] = None,
              username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_managed_rules_acfp_rule_set is None and 'awsManagedRulesAcfpRuleSet' in kwargs:
+            aws_managed_rules_acfp_rule_set = kwargs['awsManagedRulesAcfpRuleSet']
+        if aws_managed_rules_atp_rule_set is None and 'awsManagedRulesAtpRuleSet' in kwargs:
+            aws_managed_rules_atp_rule_set = kwargs['awsManagedRulesAtpRuleSet']
+        if aws_managed_rules_bot_control_rule_set is None and 'awsManagedRulesBotControlRuleSet' in kwargs:
+            aws_managed_rules_bot_control_rule_set = kwargs['awsManagedRulesBotControlRuleSet']
+        if login_path is None and 'loginPath' in kwargs:
+            login_path = kwargs['loginPath']
+        if password_field is None and 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if payload_type is None and 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if username_field is None and 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         if aws_managed_rules_acfp_rule_set is not None:
             _setter("aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
@@ -5850,14 +6618,30 @@ class WebAclManagedRuleGroupStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             vendor_name: str,
+             name: Optional[str] = None,
+             vendor_name: Optional[str] = None,
              excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
              managed_rule_group_configs: Optional[Sequence['outputs.WebAclManagedRuleGroupConfig']] = None,
              rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
              scope_down_statement: Optional['outputs.WebAclStatement'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if vendor_name is None and 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+        if vendor_name is None:
+            raise TypeError("Missing 'vendor_name' argument")
+        if excluded_rules is None and 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+        if managed_rule_group_configs is None and 'managedRuleGroupConfigs' in kwargs:
+            managed_rule_group_configs = kwargs['managedRuleGroupConfigs']
+        if rule_action_overrides is None and 'ruleActionOverrides' in kwargs:
+            rule_action_overrides = kwargs['ruleActionOverrides']
+        if scope_down_statement is None and 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("name", name)
         _setter("vendor_name", vendor_name)
         if excluded_rules is not None:
@@ -5924,8 +6708,12 @@ class WebAclNotStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statement: 'outputs.WebAclStatement',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             statement: Optional['outputs.WebAclStatement'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+
         _setter("statement", statement)
 
     @property
@@ -5945,8 +6733,12 @@ class WebAclOrStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.WebAclStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             statements: Optional[Sequence['outputs.WebAclStatement']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if statements is None:
+            raise TypeError("Missing 'statements' argument")
+
         _setter("statements", statements)
 
     @property
@@ -5978,7 +6770,9 @@ class WebAclOverrideAction(dict):
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
              none: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if none is not None:
@@ -6046,12 +6840,26 @@ class WebAclRateBasedStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregate_key_type: 'WebAclRateBasedStatementAggregateKeyType',
-             limit: int,
+             aggregate_key_type: Optional['WebAclRateBasedStatementAggregateKeyType'] = None,
+             limit: Optional[int] = None,
              custom_keys: Optional[Sequence['outputs.WebAclRateBasedStatementCustomKey']] = None,
              forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
              scope_down_statement: Optional['outputs.WebAclStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregate_key_type is None and 'aggregateKeyType' in kwargs:
+            aggregate_key_type = kwargs['aggregateKeyType']
+        if aggregate_key_type is None:
+            raise TypeError("Missing 'aggregate_key_type' argument")
+        if limit is None:
+            raise TypeError("Missing 'limit' argument")
+        if custom_keys is None and 'customKeys' in kwargs:
+            custom_keys = kwargs['customKeys']
+        if forwarded_ip_config is None and 'forwardedIpConfig' in kwargs:
+            forwarded_ip_config = kwargs['forwardedIpConfig']
+        if scope_down_statement is None and 'scopeDownStatement' in kwargs:
+            scope_down_statement = kwargs['scopeDownStatement']
+
         _setter("aggregate_key_type", aggregate_key_type)
         _setter("limit", limit)
         if custom_keys is not None:
@@ -6159,7 +6967,21 @@ class WebAclRateBasedStatementCustomKey(dict):
              query_argument: Optional['outputs.WebAclRateLimitQueryArgument'] = None,
              query_string: Optional['outputs.WebAclRateLimitQueryString'] = None,
              uri_path: Optional['outputs.WebAclRateLimitUriPath'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forwarded_ip is None and 'forwardedIp' in kwargs:
+            forwarded_ip = kwargs['forwardedIp']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if label_namespace is None and 'labelNamespace' in kwargs:
+            label_namespace = kwargs['labelNamespace']
+        if query_argument is None and 'queryArgument' in kwargs:
+            query_argument = kwargs['queryArgument']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if uri_path is None and 'uriPath' in kwargs:
+            uri_path = kwargs['uriPath']
+
         if cookie is not None:
             _setter("cookie", cookie)
         if forwarded_ip is not None:
@@ -6262,9 +7084,17 @@ class WebAclRateLimitCookie(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -6295,8 +7125,10 @@ class WebAclRateLimitForwardedIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6336,9 +7168,17 @@ class WebAclRateLimitHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -6369,8 +7209,10 @@ class WebAclRateLimitHttpMethod(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6386,8 +7228,10 @@ class WebAclRateLimitIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6408,8 +7252,12 @@ class WebAclRateLimitLabelNamespace(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+
         _setter("namespace", namespace)
 
     @property
@@ -6458,9 +7306,17 @@ class WebAclRateLimitQueryArgument(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("name", name)
         _setter("text_transformations", text_transformations)
 
@@ -6512,8 +7368,14 @@ class WebAclRateLimitQueryString(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -6556,8 +7418,14 @@ class WebAclRateLimitUriPath(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("text_transformations", text_transformations)
 
     @property
@@ -6602,10 +7470,24 @@ class WebAclRegexMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             regex_string: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional['outputs.WebAclFieldToMatch'] = None,
+             regex_string: Optional[str] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if regex_string is None and 'regexString' in kwargs:
+            regex_string = kwargs['regexString']
+        if regex_string is None:
+            raise TypeError("Missing 'regex_string' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("regex_string", regex_string)
         _setter("text_transformations", text_transformations)
@@ -6660,10 +7542,22 @@ class WebAclRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[str] = None,
+             field_to_match: Optional['outputs.WebAclFieldToMatch'] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("arn", arn)
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
@@ -6697,8 +7591,10 @@ class WebAclRequestBody(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -6743,10 +7639,24 @@ class WebAclRequestInspection(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password_field: 'outputs.WebAclFieldIdentifier',
-             payload_type: 'WebAclRequestInspectionPayloadType',
-             username_field: 'outputs.WebAclFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
+             payload_type: Optional['WebAclRequestInspectionPayloadType'] = None,
+             username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password_field is None and 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if password_field is None:
+            raise TypeError("Missing 'password_field' argument")
+        if payload_type is None and 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if payload_type is None:
+            raise TypeError("Missing 'payload_type' argument")
+        if username_field is None and 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+        if username_field is None:
+            raise TypeError("Missing 'username_field' argument")
+
         _setter("password_field", password_field)
         _setter("payload_type", payload_type)
         _setter("username_field", username_field)
@@ -6821,13 +7731,29 @@ class WebAclRequestInspectionAcfp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             payload_type: 'WebAclRequestInspectionAcfpPayloadType',
+             payload_type: Optional['WebAclRequestInspectionAcfpPayloadType'] = None,
              address_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
              email_field: Optional['outputs.WebAclFieldIdentifier'] = None,
              password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
              phone_number_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
              username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if payload_type is None and 'payloadType' in kwargs:
+            payload_type = kwargs['payloadType']
+        if payload_type is None:
+            raise TypeError("Missing 'payload_type' argument")
+        if address_fields is None and 'addressFields' in kwargs:
+            address_fields = kwargs['addressFields']
+        if email_field is None and 'emailField' in kwargs:
+            email_field = kwargs['emailField']
+        if password_field is None and 'passwordField' in kwargs:
+            password_field = kwargs['passwordField']
+        if phone_number_fields is None and 'phoneNumberFields' in kwargs:
+            phone_number_fields = kwargs['phoneNumberFields']
+        if username_field is None and 'usernameField' in kwargs:
+            username_field = kwargs['usernameField']
+
         _setter("payload_type", payload_type)
         if address_fields is not None:
             _setter("address_fields", address_fields)
@@ -6917,7 +7843,13 @@ class WebAclResponseInspection(dict):
              header: Optional['outputs.WebAclResponseInspectionHeader'] = None,
              json: Optional['outputs.WebAclResponseInspectionJson'] = None,
              status_code: Optional['outputs.WebAclResponseInspectionStatusCode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if body_contains is None and 'bodyContains' in kwargs:
+            body_contains = kwargs['bodyContains']
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+
         if body_contains is not None:
             _setter("body_contains", body_contains)
         if header is not None:
@@ -6986,9 +7918,19 @@ class WebAclResponseInspectionBodyContains(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failure_strings: Sequence[str],
-             success_strings: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             failure_strings: Optional[Sequence[str]] = None,
+             success_strings: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_strings is None and 'failureStrings' in kwargs:
+            failure_strings = kwargs['failureStrings']
+        if failure_strings is None:
+            raise TypeError("Missing 'failure_strings' argument")
+        if success_strings is None and 'successStrings' in kwargs:
+            success_strings = kwargs['successStrings']
+        if success_strings is None:
+            raise TypeError("Missing 'success_strings' argument")
+
         _setter("failure_strings", failure_strings)
         _setter("success_strings", success_strings)
 
@@ -7043,10 +7985,22 @@ class WebAclResponseInspectionHeader(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failure_values: Sequence[str],
-             name: str,
-             success_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             failure_values: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             success_values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_values is None and 'failureValues' in kwargs:
+            failure_values = kwargs['failureValues']
+        if failure_values is None:
+            raise TypeError("Missing 'failure_values' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if success_values is None and 'successValues' in kwargs:
+            success_values = kwargs['successValues']
+        if success_values is None:
+            raise TypeError("Missing 'success_values' argument")
+
         _setter("failure_values", failure_values)
         _setter("name", name)
         _setter("success_values", success_values)
@@ -7107,10 +8061,22 @@ class WebAclResponseInspectionJson(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failure_values: Sequence[str],
-             identifier: str,
-             success_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             failure_values: Optional[Sequence[str]] = None,
+             identifier: Optional[str] = None,
+             success_values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_values is None and 'failureValues' in kwargs:
+            failure_values = kwargs['failureValues']
+        if failure_values is None:
+            raise TypeError("Missing 'failure_values' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if success_values is None and 'successValues' in kwargs:
+            success_values = kwargs['successValues']
+        if success_values is None:
+            raise TypeError("Missing 'success_values' argument")
+
         _setter("failure_values", failure_values)
         _setter("identifier", identifier)
         _setter("success_values", success_values)
@@ -7169,9 +8135,19 @@ class WebAclResponseInspectionStatusCode(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failure_codes: Sequence[int],
-             success_codes: Sequence[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             failure_codes: Optional[Sequence[int]] = None,
+             success_codes: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_codes is None and 'failureCodes' in kwargs:
+            failure_codes = kwargs['failureCodes']
+        if failure_codes is None:
+            raise TypeError("Missing 'failure_codes' argument")
+        if success_codes is None and 'successCodes' in kwargs:
+            success_codes = kwargs['successCodes']
+        if success_codes is None:
+            raise TypeError("Missing 'success_codes' argument")
+
         _setter("failure_codes", failure_codes)
         _setter("success_codes", success_codes)
 
@@ -7245,16 +8221,36 @@ class WebAclRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             priority: int,
-             statement: 'outputs.WebAclStatement',
-             visibility_config: 'outputs.WebAclVisibilityConfig',
+             name: Optional[str] = None,
+             priority: Optional[int] = None,
+             statement: Optional['outputs.WebAclStatement'] = None,
+             visibility_config: Optional['outputs.WebAclVisibilityConfig'] = None,
              action: Optional['outputs.WebAclRuleAction'] = None,
              captcha_config: Optional['outputs.WebAclCaptchaConfig'] = None,
              challenge_config: Optional['outputs.WebAclChallengeConfig'] = None,
              override_action: Optional['outputs.WebAclOverrideAction'] = None,
              rule_labels: Optional[Sequence['outputs.WebAclLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if statement is None:
+            raise TypeError("Missing 'statement' argument")
+        if visibility_config is None and 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if visibility_config is None:
+            raise TypeError("Missing 'visibility_config' argument")
+        if captcha_config is None and 'captchaConfig' in kwargs:
+            captcha_config = kwargs['captchaConfig']
+        if challenge_config is None and 'challengeConfig' in kwargs:
+            challenge_config = kwargs['challengeConfig']
+        if override_action is None and 'overrideAction' in kwargs:
+            override_action = kwargs['overrideAction']
+        if rule_labels is None and 'ruleLabels' in kwargs:
+            rule_labels = kwargs['ruleLabels']
+
         _setter("name", name)
         _setter("priority", priority)
         _setter("statement", statement)
@@ -7349,7 +8345,9 @@ class WebAclRuleAction(dict):
              captcha: Optional['outputs.WebAclCaptchaAction'] = None,
              challenge: Optional['outputs.WebAclChallengeAction'] = None,
              count: Optional['outputs.WebAclCountAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allow is not None:
             _setter("allow", allow)
         if block is not None:
@@ -7423,9 +8421,17 @@ class WebAclRuleActionOverride(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_to_use: 'outputs.WebAclRuleAction',
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action_to_use: Optional['outputs.WebAclRuleAction'] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_to_use is None and 'actionToUse' in kwargs:
+            action_to_use = kwargs['actionToUse']
+        if action_to_use is None:
+            raise TypeError("Missing 'action_to_use' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("action_to_use", action_to_use)
         _setter("name", name)
 
@@ -7477,10 +8483,18 @@ class WebAclRuleGroupReferenceStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
+             arn: Optional[str] = None,
              excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
              rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if excluded_rules is None and 'excludedRules' in kwargs:
+            excluded_rules = kwargs['excludedRules']
+        if rule_action_overrides is None and 'ruleActionOverrides' in kwargs:
+            rule_action_overrides = kwargs['ruleActionOverrides']
+
         _setter("arn", arn)
         if excluded_rules is not None:
             _setter("excluded_rules", excluded_rules)
@@ -7550,11 +8564,27 @@ class WebAclSizeConstraintStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: 'WebAclSizeConstraintStatementComparisonOperator',
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             size: float,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison_operator: Optional['WebAclSizeConstraintStatementComparisonOperator'] = None,
+             field_to_match: Optional['outputs.WebAclFieldToMatch'] = None,
+             size: Optional[float] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -7623,10 +8653,22 @@ class WebAclSqliMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
+             field_to_match: Optional['outputs.WebAclFieldToMatch'] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
              sensitivity_level: Optional['WebAclSensitivityLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+        if sensitivity_level is None and 'sensitivityLevel' in kwargs:
+            sensitivity_level = kwargs['sensitivityLevel']
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
         if sensitivity_level is not None:
@@ -7753,7 +8795,39 @@ class WebAclStatement(dict):
              size_constraint_statement: Optional['outputs.WebAclSizeConstraintStatement'] = None,
              sqli_match_statement: Optional['outputs.WebAclSqliMatchStatement'] = None,
              xss_match_statement: Optional['outputs.WebAclXssMatchStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if and_statement is None and 'andStatement' in kwargs:
+            and_statement = kwargs['andStatement']
+        if byte_match_statement is None and 'byteMatchStatement' in kwargs:
+            byte_match_statement = kwargs['byteMatchStatement']
+        if geo_match_statement is None and 'geoMatchStatement' in kwargs:
+            geo_match_statement = kwargs['geoMatchStatement']
+        if ip_set_reference_statement is None and 'ipSetReferenceStatement' in kwargs:
+            ip_set_reference_statement = kwargs['ipSetReferenceStatement']
+        if label_match_statement is None and 'labelMatchStatement' in kwargs:
+            label_match_statement = kwargs['labelMatchStatement']
+        if managed_rule_group_statement is None and 'managedRuleGroupStatement' in kwargs:
+            managed_rule_group_statement = kwargs['managedRuleGroupStatement']
+        if not_statement is None and 'notStatement' in kwargs:
+            not_statement = kwargs['notStatement']
+        if or_statement is None and 'orStatement' in kwargs:
+            or_statement = kwargs['orStatement']
+        if rate_based_statement is None and 'rateBasedStatement' in kwargs:
+            rate_based_statement = kwargs['rateBasedStatement']
+        if regex_match_statement is None and 'regexMatchStatement' in kwargs:
+            regex_match_statement = kwargs['regexMatchStatement']
+        if regex_pattern_set_reference_statement is None and 'regexPatternSetReferenceStatement' in kwargs:
+            regex_pattern_set_reference_statement = kwargs['regexPatternSetReferenceStatement']
+        if rule_group_reference_statement is None and 'ruleGroupReferenceStatement' in kwargs:
+            rule_group_reference_statement = kwargs['ruleGroupReferenceStatement']
+        if size_constraint_statement is None and 'sizeConstraintStatement' in kwargs:
+            size_constraint_statement = kwargs['sizeConstraintStatement']
+        if sqli_match_statement is None and 'sqliMatchStatement' in kwargs:
+            sqli_match_statement = kwargs['sqliMatchStatement']
+        if xss_match_statement is None and 'xssMatchStatement' in kwargs:
+            xss_match_statement = kwargs['xssMatchStatement']
+
         if and_statement is not None:
             _setter("and_statement", and_statement)
         if byte_match_statement is not None:
@@ -7876,7 +8950,9 @@ class WebAclTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7912,9 +8988,15 @@ class WebAclTextTransformation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: int,
-             type: 'WebAclTextTransformationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             priority: Optional[int] = None,
+             type: Optional['WebAclTextTransformationType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("priority", priority)
         _setter("type", type)
 
@@ -7971,10 +9053,24 @@ class WebAclVisibilityConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_metrics_enabled: bool,
-             metric_name: str,
-             sampled_requests_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_metrics_enabled: Optional[bool] = None,
+             metric_name: Optional[str] = None,
+             sampled_requests_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_metrics_enabled is None and 'cloudWatchMetricsEnabled' in kwargs:
+            cloud_watch_metrics_enabled = kwargs['cloudWatchMetricsEnabled']
+        if cloud_watch_metrics_enabled is None:
+            raise TypeError("Missing 'cloud_watch_metrics_enabled' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if sampled_requests_enabled is None and 'sampledRequestsEnabled' in kwargs:
+            sampled_requests_enabled = kwargs['sampledRequestsEnabled']
+        if sampled_requests_enabled is None:
+            raise TypeError("Missing 'sampled_requests_enabled' argument")
+
         _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
         _setter("metric_name", metric_name)
         _setter("sampled_requests_enabled", sampled_requests_enabled)
@@ -8033,9 +9129,19 @@ class WebAclXssMatchStatement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional['outputs.WebAclFieldToMatch'] = None,
+             text_transformations: Optional[Sequence['outputs.WebAclTextTransformation']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformations is None and 'textTransformations' in kwargs:
+            text_transformations = kwargs['textTransformations']
+        if text_transformations is None:
+            raise TypeError("Missing 'text_transformations' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformations", text_transformations)
 

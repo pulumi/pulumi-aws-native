@@ -66,9 +66,9 @@ class MethodArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             http_method: pulumi.Input[str],
-             resource_id: pulumi.Input[str],
-             rest_api_id: pulumi.Input[str],
+             http_method: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
              api_key_required: Optional[pulumi.Input[bool]] = None,
              authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              authorization_type: Optional[pulumi.Input['MethodAuthorizationType']] = None,
@@ -79,7 +79,39 @@ class MethodArgs:
              request_models: Optional[Any] = None,
              request_parameters: Optional[Any] = None,
              request_validator_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if api_key_required is None and 'apiKeyRequired' in kwargs:
+            api_key_required = kwargs['apiKeyRequired']
+        if authorization_scopes is None and 'authorizationScopes' in kwargs:
+            authorization_scopes = kwargs['authorizationScopes']
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if authorizer_id is None and 'authorizerId' in kwargs:
+            authorizer_id = kwargs['authorizerId']
+        if method_responses is None and 'methodResponses' in kwargs:
+            method_responses = kwargs['methodResponses']
+        if operation_name is None and 'operationName' in kwargs:
+            operation_name = kwargs['operationName']
+        if request_models is None and 'requestModels' in kwargs:
+            request_models = kwargs['requestModels']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_validator_id is None and 'requestValidatorId' in kwargs:
+            request_validator_id = kwargs['requestValidatorId']
+
         _setter("http_method", http_method)
         _setter("resource_id", resource_id)
         _setter("rest_api_id", rest_api_id)
@@ -358,11 +390,7 @@ class Method(pulumi.CustomResource):
             if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__.__dict__["http_method"] = http_method
-            if integration is not None and not isinstance(integration, MethodIntegrationArgs):
-                integration = integration or {}
-                def _setter(key, value):
-                    integration[key] = value
-                MethodIntegrationArgs._configure(_setter, **integration)
+            integration = _utilities.configure(integration, MethodIntegrationArgs, True)
             __props__.__dict__["integration"] = integration
             __props__.__dict__["method_responses"] = method_responses
             __props__.__dict__["operation_name"] = operation_name

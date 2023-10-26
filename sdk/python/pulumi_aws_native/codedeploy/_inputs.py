@@ -56,9 +56,15 @@ class ApplicationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -94,9 +100,15 @@ class DeploymentConfigMinimumHealthyHostsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             value: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -132,9 +144,19 @@ class DeploymentConfigTimeBasedCanaryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             canary_interval: pulumi.Input[int],
-             canary_percentage: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             canary_interval: Optional[pulumi.Input[int]] = None,
+             canary_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if canary_interval is None and 'canaryInterval' in kwargs:
+            canary_interval = kwargs['canaryInterval']
+        if canary_interval is None:
+            raise TypeError("Missing 'canary_interval' argument")
+        if canary_percentage is None and 'canaryPercentage' in kwargs:
+            canary_percentage = kwargs['canaryPercentage']
+        if canary_percentage is None:
+            raise TypeError("Missing 'canary_percentage' argument")
+
         _setter("canary_interval", canary_interval)
         _setter("canary_percentage", canary_percentage)
 
@@ -170,9 +192,19 @@ class DeploymentConfigTimeBasedLinearArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             linear_interval: pulumi.Input[int],
-             linear_percentage: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             linear_interval: Optional[pulumi.Input[int]] = None,
+             linear_percentage: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if linear_interval is None and 'linearInterval' in kwargs:
+            linear_interval = kwargs['linearInterval']
+        if linear_interval is None:
+            raise TypeError("Missing 'linear_interval' argument")
+        if linear_percentage is None and 'linearPercentage' in kwargs:
+            linear_percentage = kwargs['linearPercentage']
+        if linear_percentage is None:
+            raise TypeError("Missing 'linear_percentage' argument")
+
         _setter("linear_interval", linear_interval)
         _setter("linear_percentage", linear_percentage)
 
@@ -210,10 +242,18 @@ class DeploymentConfigTrafficRoutingConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              time_based_canary: Optional[pulumi.Input['DeploymentConfigTimeBasedCanaryArgs']] = None,
              time_based_linear: Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if time_based_canary is None and 'timeBasedCanary' in kwargs:
+            time_based_canary = kwargs['timeBasedCanary']
+        if time_based_linear is None and 'timeBasedLinear' in kwargs:
+            time_based_linear = kwargs['timeBasedLinear']
+
         _setter("type", type)
         if time_based_canary is not None:
             _setter("time_based_canary", time_based_canary)
@@ -266,7 +306,11 @@ class DeploymentGroupAlarmConfigurationArgs:
              alarms: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupAlarmArgs']]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              ignore_poll_alarm_failure: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ignore_poll_alarm_failure is None and 'ignorePollAlarmFailure' in kwargs:
+            ignore_poll_alarm_failure = kwargs['ignorePollAlarmFailure']
+
         if alarms is not None:
             _setter("alarms", alarms)
         if enabled is not None:
@@ -314,7 +358,9 @@ class DeploymentGroupAlarmArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -343,7 +389,9 @@ class DeploymentGroupAutoRollbackConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
         if events is not None:
@@ -386,7 +434,15 @@ class DeploymentGroupBlueGreenDeploymentConfigurationArgs:
              deployment_ready_option: Optional[pulumi.Input['DeploymentGroupDeploymentReadyOptionArgs']] = None,
              green_fleet_provisioning_option: Optional[pulumi.Input['DeploymentGroupGreenFleetProvisioningOptionArgs']] = None,
              terminate_blue_instances_on_deployment_success: Optional[pulumi.Input['DeploymentGroupBlueInstanceTerminationOptionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_ready_option is None and 'deploymentReadyOption' in kwargs:
+            deployment_ready_option = kwargs['deploymentReadyOption']
+        if green_fleet_provisioning_option is None and 'greenFleetProvisioningOption' in kwargs:
+            green_fleet_provisioning_option = kwargs['greenFleetProvisioningOption']
+        if terminate_blue_instances_on_deployment_success is None and 'terminateBlueInstancesOnDeploymentSuccess' in kwargs:
+            terminate_blue_instances_on_deployment_success = kwargs['terminateBlueInstancesOnDeploymentSuccess']
+
         if deployment_ready_option is not None:
             _setter("deployment_ready_option", deployment_ready_option)
         if green_fleet_provisioning_option is not None:
@@ -437,7 +493,11 @@ class DeploymentGroupBlueInstanceTerminationOptionArgs:
              _setter: Callable[[Any, Any], None],
              action: Optional[pulumi.Input[str]] = None,
              termination_wait_time_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if termination_wait_time_in_minutes is None and 'terminationWaitTimeInMinutes' in kwargs:
+            termination_wait_time_in_minutes = kwargs['terminationWaitTimeInMinutes']
+
         if action is not None:
             _setter("action", action)
         if termination_wait_time_in_minutes is not None:
@@ -477,7 +537,13 @@ class DeploymentGroupDeploymentReadyOptionArgs:
              _setter: Callable[[Any, Any], None],
              action_on_timeout: Optional[pulumi.Input[str]] = None,
              wait_time_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_on_timeout is None and 'actionOnTimeout' in kwargs:
+            action_on_timeout = kwargs['actionOnTimeout']
+        if wait_time_in_minutes is None and 'waitTimeInMinutes' in kwargs:
+            wait_time_in_minutes = kwargs['waitTimeInMinutes']
+
         if action_on_timeout is not None:
             _setter("action_on_timeout", action_on_timeout)
         if wait_time_in_minutes is not None:
@@ -517,7 +583,13 @@ class DeploymentGroupDeploymentStyleArgs:
              _setter: Callable[[Any, Any], None],
              deployment_option: Optional[pulumi.Input[str]] = None,
              deployment_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_option is None and 'deploymentOption' in kwargs:
+            deployment_option = kwargs['deploymentOption']
+        if deployment_type is None and 'deploymentType' in kwargs:
+            deployment_type = kwargs['deploymentType']
+
         if deployment_option is not None:
             _setter("deployment_option", deployment_option)
         if deployment_type is not None:
@@ -557,10 +629,16 @@ class DeploymentGroupDeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             revision: pulumi.Input['DeploymentGroupRevisionLocationArgs'],
+             revision: Optional[pulumi.Input['DeploymentGroupRevisionLocationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              ignore_application_stop_failures: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+        if ignore_application_stop_failures is None and 'ignoreApplicationStopFailures' in kwargs:
+            ignore_application_stop_failures = kwargs['ignoreApplicationStopFailures']
+
         _setter("revision", revision)
         if description is not None:
             _setter("description", description)
@@ -613,7 +691,9 @@ class DeploymentGroupEc2TagFilterArgs:
              key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if type is not None:
@@ -661,7 +741,11 @@ class DeploymentGroupEc2TagSetListObjectArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ec2_tag_group: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_tag_group is None and 'ec2TagGroup' in kwargs:
+            ec2_tag_group = kwargs['ec2TagGroup']
+
         if ec2_tag_group is not None:
             _setter("ec2_tag_group", ec2_tag_group)
 
@@ -687,7 +771,11 @@ class DeploymentGroupEc2TagSetArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ec2_tag_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetListObjectArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_tag_set_list is None and 'ec2TagSetList' in kwargs:
+            ec2_tag_set_list = kwargs['ec2TagSetList']
+
         if ec2_tag_set_list is not None:
             _setter("ec2_tag_set_list", ec2_tag_set_list)
 
@@ -714,9 +802,19 @@ class DeploymentGroupEcsServiceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             service_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+
         _setter("cluster_name", cluster_name)
         _setter("service_name", service_name)
 
@@ -751,7 +849,9 @@ class DeploymentGroupElbInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -778,9 +878,17 @@ class DeploymentGroupGitHubLocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             commit_id: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             commit_id: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if commit_id is None and 'commitId' in kwargs:
+            commit_id = kwargs['commitId']
+        if commit_id is None:
+            raise TypeError("Missing 'commit_id' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("commit_id", commit_id)
         _setter("repository", repository)
 
@@ -815,7 +923,9 @@ class DeploymentGroupGreenFleetProvisioningOptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if action is not None:
             _setter("action", action)
 
@@ -847,7 +957,15 @@ class DeploymentGroupLoadBalancerInfoArgs:
              elb_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupElbInfoArgs']]]] = None,
              target_group_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
              target_group_pair_info_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupPairInfoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if elb_info_list is None and 'elbInfoList' in kwargs:
+            elb_info_list = kwargs['elbInfoList']
+        if target_group_info_list is None and 'targetGroupInfoList' in kwargs:
+            target_group_info_list = kwargs['targetGroupInfoList']
+        if target_group_pair_info_list is None and 'targetGroupPairInfoList' in kwargs:
+            target_group_pair_info_list = kwargs['targetGroupPairInfoList']
+
         if elb_info_list is not None:
             _setter("elb_info_list", elb_info_list)
         if target_group_info_list is not None:
@@ -895,7 +1013,11 @@ class DeploymentGroupOnPremisesTagSetListObjectArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              on_premises_tag_group: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_premises_tag_group is None and 'onPremisesTagGroup' in kwargs:
+            on_premises_tag_group = kwargs['onPremisesTagGroup']
+
         if on_premises_tag_group is not None:
             _setter("on_premises_tag_group", on_premises_tag_group)
 
@@ -921,7 +1043,11 @@ class DeploymentGroupOnPremisesTagSetArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              on_premises_tag_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupOnPremisesTagSetListObjectArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_premises_tag_set_list is None and 'onPremisesTagSetList' in kwargs:
+            on_premises_tag_set_list = kwargs['onPremisesTagSetList']
+
         if on_premises_tag_set_list is not None:
             _setter("on_premises_tag_set_list", on_premises_tag_set_list)
 
@@ -953,7 +1079,15 @@ class DeploymentGroupRevisionLocationArgs:
              git_hub_location: Optional[pulumi.Input['DeploymentGroupGitHubLocationArgs']] = None,
              revision_type: Optional[pulumi.Input[str]] = None,
              s3_location: Optional[pulumi.Input['DeploymentGroupS3LocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if git_hub_location is None and 'gitHubLocation' in kwargs:
+            git_hub_location = kwargs['gitHubLocation']
+        if revision_type is None and 'revisionType' in kwargs:
+            revision_type = kwargs['revisionType']
+        if s3_location is None and 's3Location' in kwargs:
+            s3_location = kwargs['s3Location']
+
         if git_hub_location is not None:
             _setter("git_hub_location", git_hub_location)
         if revision_type is not None:
@@ -1008,12 +1142,22 @@ class DeploymentGroupS3LocationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
              bundle_type: Optional[pulumi.Input[str]] = None,
              e_tag: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if bundle_type is None and 'bundleType' in kwargs:
+            bundle_type = kwargs['bundleType']
+        if e_tag is None and 'eTag' in kwargs:
+            e_tag = kwargs['eTag']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if bundle_type is not None:
@@ -1087,7 +1231,9 @@ class DeploymentGroupTagFilterArgs:
              key: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if type is not None:
@@ -1136,9 +1282,15 @@ class DeploymentGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1173,7 +1325,9 @@ class DeploymentGroupTargetGroupInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -1205,7 +1359,15 @@ class DeploymentGroupTargetGroupPairInfoArgs:
              prod_traffic_route: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']] = None,
              target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTargetGroupInfoArgs']]]] = None,
              test_traffic_route: Optional[pulumi.Input['DeploymentGroupTrafficRouteArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prod_traffic_route is None and 'prodTrafficRoute' in kwargs:
+            prod_traffic_route = kwargs['prodTrafficRoute']
+        if target_groups is None and 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+        if test_traffic_route is None and 'testTrafficRoute' in kwargs:
+            test_traffic_route = kwargs['testTrafficRoute']
+
         if prod_traffic_route is not None:
             _setter("prod_traffic_route", prod_traffic_route)
         if target_groups is not None:
@@ -1253,7 +1415,11 @@ class DeploymentGroupTrafficRouteArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              listener_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if listener_arns is None and 'listenerArns' in kwargs:
+            listener_arns = kwargs['listenerArns']
+
         if listener_arns is not None:
             _setter("listener_arns", listener_arns)
 
@@ -1285,7 +1451,15 @@ class DeploymentGroupTriggerConfigArgs:
              trigger_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              trigger_name: Optional[pulumi.Input[str]] = None,
              trigger_target_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if trigger_events is None and 'triggerEvents' in kwargs:
+            trigger_events = kwargs['triggerEvents']
+        if trigger_name is None and 'triggerName' in kwargs:
+            trigger_name = kwargs['triggerName']
+        if trigger_target_arn is None and 'triggerTargetArn' in kwargs:
+            trigger_target_arn = kwargs['triggerTargetArn']
+
         if trigger_events is not None:
             _setter("trigger_events", trigger_events)
         if trigger_name is not None:

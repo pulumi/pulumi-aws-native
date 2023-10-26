@@ -63,9 +63,17 @@ class LifecyclePolicyAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cross_region_copy: Sequence['outputs.LifecyclePolicyCrossRegionCopyAction'],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cross_region_copy: Optional[Sequence['outputs.LifecyclePolicyCrossRegionCopyAction']] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cross_region_copy is None and 'crossRegionCopy' in kwargs:
+            cross_region_copy = kwargs['crossRegionCopy']
+        if cross_region_copy is None:
+            raise TypeError("Missing 'cross_region_copy' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("cross_region_copy", cross_region_copy)
         _setter("name", name)
 
@@ -108,8 +116,14 @@ class LifecyclePolicyArchiveRetainRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retention_archive_tier: 'outputs.LifecyclePolicyRetentionArchiveTier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             retention_archive_tier: Optional['outputs.LifecyclePolicyRetentionArchiveTier'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_archive_tier is None and 'retentionArchiveTier' in kwargs:
+            retention_archive_tier = kwargs['retentionArchiveTier']
+        if retention_archive_tier is None:
+            raise TypeError("Missing 'retention_archive_tier' argument")
+
         _setter("retention_archive_tier", retention_archive_tier)
 
     @property
@@ -146,8 +160,14 @@ class LifecyclePolicyArchiveRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             retain_rule: 'outputs.LifecyclePolicyArchiveRetainRule',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             retain_rule: Optional['outputs.LifecyclePolicyArchiveRetainRule'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retain_rule is None and 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+        if retain_rule is None:
+            raise TypeError("Missing 'retain_rule' argument")
+
         _setter("retain_rule", retain_rule)
 
     @property
@@ -199,7 +219,13 @@ class LifecyclePolicyCreateRule(dict):
              interval_unit: Optional[str] = None,
              location: Optional[str] = None,
              times: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cron_expression is None and 'cronExpression' in kwargs:
+            cron_expression = kwargs['cronExpression']
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if cron_expression is not None:
             _setter("cron_expression", cron_expression)
         if interval is not None:
@@ -271,10 +297,20 @@ class LifecyclePolicyCrossRegionCopyAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_configuration: 'outputs.LifecyclePolicyEncryptionConfiguration',
-             target: str,
+             encryption_configuration: Optional['outputs.LifecyclePolicyEncryptionConfiguration'] = None,
+             target: Optional[str] = None,
              retain_rule: Optional['outputs.LifecyclePolicyCrossRegionCopyRetainRule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_configuration is None and 'encryptionConfiguration' in kwargs:
+            encryption_configuration = kwargs['encryptionConfiguration']
+        if encryption_configuration is None:
+            raise TypeError("Missing 'encryption_configuration' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if retain_rule is None and 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+
         _setter("encryption_configuration", encryption_configuration)
         _setter("target", target)
         if retain_rule is not None:
@@ -326,9 +362,17 @@ class LifecyclePolicyCrossRegionCopyDeprecateRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interval: int,
-             interval_unit: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             interval: Optional[int] = None,
+             interval_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+        if interval_unit is None:
+            raise TypeError("Missing 'interval_unit' argument")
+
         _setter("interval", interval)
         _setter("interval_unit", interval_unit)
 
@@ -373,9 +417,17 @@ class LifecyclePolicyCrossRegionCopyRetainRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interval: int,
-             interval_unit: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             interval: Optional[int] = None,
+             interval_unit: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+        if interval_unit is None:
+            raise TypeError("Missing 'interval_unit' argument")
+
         _setter("interval", interval)
         _setter("interval_unit", interval_unit)
 
@@ -438,14 +490,28 @@ class LifecyclePolicyCrossRegionCopyRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encrypted: bool,
+             encrypted: Optional[bool] = None,
              cmk_arn: Optional[str] = None,
              copy_tags: Optional[bool] = None,
              deprecate_rule: Optional['outputs.LifecyclePolicyCrossRegionCopyDeprecateRule'] = None,
              retain_rule: Optional['outputs.LifecyclePolicyCrossRegionCopyRetainRule'] = None,
              target: Optional[str] = None,
              target_region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if cmk_arn is None and 'cmkArn' in kwargs:
+            cmk_arn = kwargs['cmkArn']
+        if copy_tags is None and 'copyTags' in kwargs:
+            copy_tags = kwargs['copyTags']
+        if deprecate_rule is None and 'deprecateRule' in kwargs:
+            deprecate_rule = kwargs['deprecateRule']
+        if retain_rule is None and 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+        if target_region is None and 'targetRegion' in kwargs:
+            target_region = kwargs['targetRegion']
+
         _setter("encrypted", encrypted)
         if cmk_arn is not None:
             _setter("cmk_arn", cmk_arn)
@@ -531,7 +597,11 @@ class LifecyclePolicyDeprecateRule(dict):
              count: Optional[int] = None,
              interval: Optional[int] = None,
              interval_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if count is not None:
             _setter("count", count)
         if interval is not None:
@@ -585,9 +655,15 @@ class LifecyclePolicyEncryptionConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encrypted: bool,
+             encrypted: Optional[bool] = None,
              cmk_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if cmk_arn is None and 'cmkArn' in kwargs:
+            cmk_arn = kwargs['cmkArn']
+
         _setter("encrypted", encrypted)
         if cmk_arn is not None:
             _setter("cmk_arn", cmk_arn)
@@ -639,10 +715,22 @@ class LifecyclePolicyEventParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_type: str,
-             snapshot_owner: Sequence[str],
+             event_type: Optional[str] = None,
+             snapshot_owner: Optional[Sequence[str]] = None,
              description_regex: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if snapshot_owner is None and 'snapshotOwner' in kwargs:
+            snapshot_owner = kwargs['snapshotOwner']
+        if snapshot_owner is None:
+            raise TypeError("Missing 'snapshot_owner' argument")
+        if description_regex is None and 'descriptionRegex' in kwargs:
+            description_regex = kwargs['descriptionRegex']
+
         _setter("event_type", event_type)
         _setter("snapshot_owner", snapshot_owner)
         if description_regex is not None:
@@ -677,9 +765,13 @@ class LifecyclePolicyEventSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              parameters: Optional['outputs.LifecyclePolicyEventParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -735,7 +827,13 @@ class LifecyclePolicyFastRestoreRule(dict):
              count: Optional[int] = None,
              interval: Optional[int] = None,
              interval_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if availability_zones is not None:
             _setter("availability_zones", availability_zones)
         if count is not None:
@@ -805,7 +903,15 @@ class LifecyclePolicyParameters(dict):
              exclude_boot_volume: Optional[bool] = None,
              exclude_data_volume_tags: Optional[Sequence['outputs.LifecyclePolicyTag']] = None,
              no_reboot: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_boot_volume is None and 'excludeBootVolume' in kwargs:
+            exclude_boot_volume = kwargs['excludeBootVolume']
+        if exclude_data_volume_tags is None and 'excludeDataVolumeTags' in kwargs:
+            exclude_data_volume_tags = kwargs['excludeDataVolumeTags']
+        if no_reboot is None and 'noReboot' in kwargs:
+            no_reboot = kwargs['noReboot']
+
         if exclude_boot_volume is not None:
             _setter("exclude_boot_volume", exclude_boot_volume)
         if exclude_data_volume_tags is not None:
@@ -887,7 +993,19 @@ class LifecyclePolicyPolicyDetails(dict):
              resource_types: Optional[Sequence[str]] = None,
              schedules: Optional[Sequence['outputs.LifecyclePolicySchedule']] = None,
              target_tags: Optional[Sequence['outputs.LifecyclePolicyTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_source is None and 'eventSource' in kwargs:
+            event_source = kwargs['eventSource']
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if resource_locations is None and 'resourceLocations' in kwargs:
+            resource_locations = kwargs['resourceLocations']
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+        if target_tags is None and 'targetTags' in kwargs:
+            target_tags = kwargs['targetTags']
+
         if actions is not None:
             _setter("actions", actions)
         if event_source is not None:
@@ -981,7 +1099,11 @@ class LifecyclePolicyRetainRule(dict):
              count: Optional[int] = None,
              interval: Optional[int] = None,
              interval_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if count is not None:
             _setter("count", count)
         if interval is not None:
@@ -1040,7 +1162,11 @@ class LifecyclePolicyRetentionArchiveTier(dict):
              count: Optional[int] = None,
              interval: Optional[int] = None,
              interval_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval_unit is None and 'intervalUnit' in kwargs:
+            interval_unit = kwargs['intervalUnit']
+
         if count is not None:
             _setter("count", count)
         if interval is not None:
@@ -1141,7 +1267,29 @@ class LifecyclePolicySchedule(dict):
              share_rules: Optional[Sequence['outputs.LifecyclePolicyShareRule']] = None,
              tags_to_add: Optional[Sequence['outputs.LifecyclePolicyTag']] = None,
              variable_tags: Optional[Sequence['outputs.LifecyclePolicyTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if archive_rule is None and 'archiveRule' in kwargs:
+            archive_rule = kwargs['archiveRule']
+        if copy_tags is None and 'copyTags' in kwargs:
+            copy_tags = kwargs['copyTags']
+        if create_rule is None and 'createRule' in kwargs:
+            create_rule = kwargs['createRule']
+        if cross_region_copy_rules is None and 'crossRegionCopyRules' in kwargs:
+            cross_region_copy_rules = kwargs['crossRegionCopyRules']
+        if deprecate_rule is None and 'deprecateRule' in kwargs:
+            deprecate_rule = kwargs['deprecateRule']
+        if fast_restore_rule is None and 'fastRestoreRule' in kwargs:
+            fast_restore_rule = kwargs['fastRestoreRule']
+        if retain_rule is None and 'retainRule' in kwargs:
+            retain_rule = kwargs['retainRule']
+        if share_rules is None and 'shareRules' in kwargs:
+            share_rules = kwargs['shareRules']
+        if tags_to_add is None and 'tagsToAdd' in kwargs:
+            tags_to_add = kwargs['tagsToAdd']
+        if variable_tags is None and 'variableTags' in kwargs:
+            variable_tags = kwargs['variableTags']
+
         if archive_rule is not None:
             _setter("archive_rule", archive_rule)
         if copy_tags is not None:
@@ -1260,7 +1408,15 @@ class LifecyclePolicyShareRule(dict):
              target_accounts: Optional[Sequence[str]] = None,
              unshare_interval: Optional[int] = None,
              unshare_interval_unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_accounts is None and 'targetAccounts' in kwargs:
+            target_accounts = kwargs['targetAccounts']
+        if unshare_interval is None and 'unshareInterval' in kwargs:
+            unshare_interval = kwargs['unshareInterval']
+        if unshare_interval_unit is None and 'unshareIntervalUnit' in kwargs:
+            unshare_interval_unit = kwargs['unshareIntervalUnit']
+
         if target_accounts is not None:
             _setter("target_accounts", target_accounts)
         if unshare_interval is not None:
@@ -1297,9 +1453,15 @@ class LifecyclePolicyTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

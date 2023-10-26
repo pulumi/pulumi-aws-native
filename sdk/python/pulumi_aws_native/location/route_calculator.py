@@ -32,11 +32,23 @@ class RouteCalculatorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             calculator_name: pulumi.Input[str],
-             data_source: pulumi.Input[str],
+             calculator_name: Optional[pulumi.Input[str]] = None,
+             data_source: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if calculator_name is None and 'calculatorName' in kwargs:
+            calculator_name = kwargs['calculatorName']
+        if calculator_name is None:
+            raise TypeError("Missing 'calculator_name' argument")
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if pricing_plan is None and 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         _setter("calculator_name", calculator_name)
         _setter("data_source", data_source)
         if description is not None:

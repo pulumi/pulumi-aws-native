@@ -40,13 +40,19 @@ class ExtensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: Any,
+             actions: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              latest_version_number: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExtensionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if latest_version_number is None and 'latestVersionNumber' in kwargs:
+            latest_version_number = kwargs['latestVersionNumber']
+
         _setter("actions", actions)
         if description is not None:
             _setter("description", description)

@@ -44,13 +44,25 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
              magnetic_store_write_properties: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesArgs']] = None,
              retention_properties: Optional[pulumi.Input['RetentionPropertiesPropertiesArgs']] = None,
              schema: Optional[pulumi.Input['SchemaPropertiesArgs']] = None,
              table_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if magnetic_store_write_properties is None and 'magneticStoreWriteProperties' in kwargs:
+            magnetic_store_write_properties = kwargs['magneticStoreWriteProperties']
+        if retention_properties is None and 'retentionProperties' in kwargs:
+            retention_properties = kwargs['retentionProperties']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("database_name", database_name)
         if magnetic_store_write_properties is not None:
             _setter("magnetic_store_write_properties", magnetic_store_write_properties)
@@ -206,23 +218,11 @@ class Table(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if magnetic_store_write_properties is not None and not isinstance(magnetic_store_write_properties, MagneticStoreWritePropertiesPropertiesArgs):
-                magnetic_store_write_properties = magnetic_store_write_properties or {}
-                def _setter(key, value):
-                    magnetic_store_write_properties[key] = value
-                MagneticStoreWritePropertiesPropertiesArgs._configure(_setter, **magnetic_store_write_properties)
+            magnetic_store_write_properties = _utilities.configure(magnetic_store_write_properties, MagneticStoreWritePropertiesPropertiesArgs, True)
             __props__.__dict__["magnetic_store_write_properties"] = magnetic_store_write_properties
-            if retention_properties is not None and not isinstance(retention_properties, RetentionPropertiesPropertiesArgs):
-                retention_properties = retention_properties or {}
-                def _setter(key, value):
-                    retention_properties[key] = value
-                RetentionPropertiesPropertiesArgs._configure(_setter, **retention_properties)
+            retention_properties = _utilities.configure(retention_properties, RetentionPropertiesPropertiesArgs, True)
             __props__.__dict__["retention_properties"] = retention_properties
-            if schema is not None and not isinstance(schema, SchemaPropertiesArgs):
-                schema = schema or {}
-                def _setter(key, value):
-                    schema[key] = value
-                SchemaPropertiesArgs._configure(_setter, **schema)
+            schema = _utilities.configure(schema, SchemaPropertiesArgs, True)
             __props__.__dict__["schema"] = schema
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags

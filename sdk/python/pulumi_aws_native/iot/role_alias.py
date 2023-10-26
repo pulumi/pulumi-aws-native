@@ -33,11 +33,21 @@ class RoleAliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              credential_duration_seconds: Optional[pulumi.Input[int]] = None,
              role_alias: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAliasTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if credential_duration_seconds is None and 'credentialDurationSeconds' in kwargs:
+            credential_duration_seconds = kwargs['credentialDurationSeconds']
+        if role_alias is None and 'roleAlias' in kwargs:
+            role_alias = kwargs['roleAlias']
+
         _setter("role_arn", role_arn)
         if credential_duration_seconds is not None:
             _setter("credential_duration_seconds", credential_duration_seconds)

@@ -31,11 +31,23 @@ class UserProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iam_user_arn: pulumi.Input[str],
+             iam_user_arn: Optional[pulumi.Input[str]] = None,
              allow_self_management: Optional[pulumi.Input[bool]] = None,
              ssh_public_key: Optional[pulumi.Input[str]] = None,
              ssh_username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_user_arn is None and 'iamUserArn' in kwargs:
+            iam_user_arn = kwargs['iamUserArn']
+        if iam_user_arn is None:
+            raise TypeError("Missing 'iam_user_arn' argument")
+        if allow_self_management is None and 'allowSelfManagement' in kwargs:
+            allow_self_management = kwargs['allowSelfManagement']
+        if ssh_public_key is None and 'sshPublicKey' in kwargs:
+            ssh_public_key = kwargs['sshPublicKey']
+        if ssh_username is None and 'sshUsername' in kwargs:
+            ssh_username = kwargs['sshUsername']
+
         _setter("iam_user_arn", iam_user_arn)
         if allow_self_management is not None:
             _setter("allow_self_management", allow_self_management)

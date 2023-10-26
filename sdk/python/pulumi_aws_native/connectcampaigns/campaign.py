@@ -38,12 +38,26 @@ class CampaignArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connect_instance_arn: pulumi.Input[str],
-             dialer_config: pulumi.Input['CampaignDialerConfigArgs'],
-             outbound_call_config: pulumi.Input['CampaignOutboundCallConfigArgs'],
+             connect_instance_arn: Optional[pulumi.Input[str]] = None,
+             dialer_config: Optional[pulumi.Input['CampaignDialerConfigArgs']] = None,
+             outbound_call_config: Optional[pulumi.Input['CampaignOutboundCallConfigArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connect_instance_arn is None and 'connectInstanceArn' in kwargs:
+            connect_instance_arn = kwargs['connectInstanceArn']
+        if connect_instance_arn is None:
+            raise TypeError("Missing 'connect_instance_arn' argument")
+        if dialer_config is None and 'dialerConfig' in kwargs:
+            dialer_config = kwargs['dialerConfig']
+        if dialer_config is None:
+            raise TypeError("Missing 'dialer_config' argument")
+        if outbound_call_config is None and 'outboundCallConfig' in kwargs:
+            outbound_call_config = kwargs['outboundCallConfig']
+        if outbound_call_config is None:
+            raise TypeError("Missing 'outbound_call_config' argument")
+
         _setter("connect_instance_arn", connect_instance_arn)
         _setter("dialer_config", dialer_config)
         _setter("outbound_call_config", outbound_call_config)
@@ -172,20 +186,12 @@ class Campaign(pulumi.CustomResource):
             if connect_instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'connect_instance_arn'")
             __props__.__dict__["connect_instance_arn"] = connect_instance_arn
-            if dialer_config is not None and not isinstance(dialer_config, CampaignDialerConfigArgs):
-                dialer_config = dialer_config or {}
-                def _setter(key, value):
-                    dialer_config[key] = value
-                CampaignDialerConfigArgs._configure(_setter, **dialer_config)
+            dialer_config = _utilities.configure(dialer_config, CampaignDialerConfigArgs, True)
             if dialer_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dialer_config'")
             __props__.__dict__["dialer_config"] = dialer_config
             __props__.__dict__["name"] = name
-            if outbound_call_config is not None and not isinstance(outbound_call_config, CampaignOutboundCallConfigArgs):
-                outbound_call_config = outbound_call_config or {}
-                def _setter(key, value):
-                    outbound_call_config[key] = value
-                CampaignOutboundCallConfigArgs._configure(_setter, **outbound_call_config)
+            outbound_call_config = _utilities.configure(outbound_call_config, CampaignOutboundCallConfigArgs, True)
             if outbound_call_config is None and not opts.urn:
                 raise TypeError("Missing required property 'outbound_call_config'")
             __props__.__dict__["outbound_call_config"] = outbound_call_config

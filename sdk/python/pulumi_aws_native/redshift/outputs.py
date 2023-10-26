@@ -41,7 +41,9 @@ class ClusterEndpoint(dict):
              _setter: Callable[[Any, Any], None],
              address: Optional[str] = None,
              port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
         if port is not None:
@@ -90,9 +92,17 @@ class ClusterLoggingProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
+             bucket_name: Optional[str] = None,
              s3_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         _setter("bucket_name", bucket_name)
         if s3_key_prefix is not None:
             _setter("s3_key_prefix", s3_key_prefix)
@@ -144,9 +154,19 @@ class ClusterParameterGroupParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_name: str,
-             parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parameter_name: Optional[str] = None,
+             parameter_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_name is None and 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if parameter_name is None:
+            raise TypeError("Missing 'parameter_name' argument")
+        if parameter_value is None and 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+        if parameter_value is None:
+            raise TypeError("Missing 'parameter_value' argument")
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -188,9 +208,15 @@ class ClusterParameterGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -224,9 +250,15 @@ class ClusterSecurityGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -262,9 +294,15 @@ class ClusterSubnetGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -306,9 +344,15 @@ class ClusterTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -383,7 +427,17 @@ class EndpointAccessNetworkInterface(dict):
              network_interface_id: Optional[str] = None,
              private_ip_address: Optional[str] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -466,7 +520,11 @@ class EndpointAccessVpcSecurityGroup(dict):
              _setter: Callable[[Any, Any], None],
              status: Optional[str] = None,
              vpc_security_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_security_group_id is None and 'vpcSecurityGroupId' in kwargs:
+            vpc_security_group_id = kwargs['vpcSecurityGroupId']
+
         if status is not None:
             _setter("status", status)
         if vpc_security_group_id is not None:
@@ -510,9 +568,15 @@ class EventSubscriptionTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -540,8 +604,10 @@ class ScheduledActionType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -592,7 +658,15 @@ class VpcEndpointProperties(dict):
              network_interfaces: Optional[Sequence['outputs.EndpointAccessNetworkInterface']] = None,
              vpc_endpoint_id: Optional[str] = None,
              vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if network_interfaces is not None:
             _setter("network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:

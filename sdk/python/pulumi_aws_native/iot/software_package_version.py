@@ -37,12 +37,20 @@ class SoftwarePackageVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             package_name: pulumi.Input[str],
+             package_name: Optional[pulumi.Input[str]] = None,
              attributes: Optional[pulumi.Input['SoftwarePackageVersionResourceAttributesArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwarePackageVersionTagArgs']]]] = None,
              version_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if package_name is None and 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if package_name is None:
+            raise TypeError("Missing 'package_name' argument")
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+
         _setter("package_name", package_name)
         if attributes is not None:
             _setter("attributes", attributes)
@@ -162,11 +170,7 @@ class SoftwarePackageVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SoftwarePackageVersionArgs.__new__(SoftwarePackageVersionArgs)
 
-            if attributes is not None and not isinstance(attributes, SoftwarePackageVersionResourceAttributesArgs):
-                attributes = attributes or {}
-                def _setter(key, value):
-                    attributes[key] = value
-                SoftwarePackageVersionResourceAttributesArgs._configure(_setter, **attributes)
+            attributes = _utilities.configure(attributes, SoftwarePackageVersionResourceAttributesArgs, True)
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["description"] = description
             if package_name is None and not opts.urn:

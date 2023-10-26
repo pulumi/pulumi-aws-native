@@ -43,8 +43,8 @@ class SubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: pulumi.Input[str],
-             topic_arn: pulumi.Input[str],
+             protocol: Optional[pulumi.Input[str]] = None,
+             topic_arn: Optional[pulumi.Input[str]] = None,
              delivery_policy: Optional[Any] = None,
              endpoint: Optional[pulumi.Input[str]] = None,
              filter_policy: Optional[Any] = None,
@@ -53,7 +53,27 @@ class SubscriptionArgs:
              redrive_policy: Optional[Any] = None,
              region: Optional[pulumi.Input[str]] = None,
              subscription_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if topic_arn is None:
+            raise TypeError("Missing 'topic_arn' argument")
+        if delivery_policy is None and 'deliveryPolicy' in kwargs:
+            delivery_policy = kwargs['deliveryPolicy']
+        if filter_policy is None and 'filterPolicy' in kwargs:
+            filter_policy = kwargs['filterPolicy']
+        if filter_policy_scope is None and 'filterPolicyScope' in kwargs:
+            filter_policy_scope = kwargs['filterPolicyScope']
+        if raw_message_delivery is None and 'rawMessageDelivery' in kwargs:
+            raw_message_delivery = kwargs['rawMessageDelivery']
+        if redrive_policy is None and 'redrivePolicy' in kwargs:
+            redrive_policy = kwargs['redrivePolicy']
+        if subscription_role_arn is None and 'subscriptionRoleArn' in kwargs:
+            subscription_role_arn = kwargs['subscriptionRoleArn']
+
         _setter("protocol", protocol)
         _setter("topic_arn", topic_arn)
         if delivery_policy is not None:

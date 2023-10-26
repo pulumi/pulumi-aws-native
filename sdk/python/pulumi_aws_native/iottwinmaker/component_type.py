@@ -52,8 +52,8 @@ class ComponentTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             component_type_id: pulumi.Input[str],
-             workspace_id: pulumi.Input[str],
+             component_type_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              functions: Optional[Any] = None,
@@ -61,7 +61,25 @@ class ComponentTypeArgs:
              property_definitions: Optional[Any] = None,
              property_groups: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_type_id is None and 'componentTypeId' in kwargs:
+            component_type_id = kwargs['componentTypeId']
+        if component_type_id is None:
+            raise TypeError("Missing 'component_type_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if extends_from is None and 'extendsFrom' in kwargs:
+            extends_from = kwargs['extendsFrom']
+        if is_singleton is None and 'isSingleton' in kwargs:
+            is_singleton = kwargs['isSingleton']
+        if property_definitions is None and 'propertyDefinitions' in kwargs:
+            property_definitions = kwargs['propertyDefinitions']
+        if property_groups is None and 'propertyGroups' in kwargs:
+            property_groups = kwargs['propertyGroups']
+
         _setter("component_type_id", component_type_id)
         _setter("workspace_id", workspace_id)
         if description is not None:

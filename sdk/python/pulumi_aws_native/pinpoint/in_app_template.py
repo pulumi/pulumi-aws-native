@@ -38,13 +38,23 @@ class InAppTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             template_name: pulumi.Input[str],
+             template_name: Optional[pulumi.Input[str]] = None,
              content: Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]] = None,
              custom_config: Optional[Any] = None,
              layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
              tags: Optional[Any] = None,
              template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+        if custom_config is None and 'customConfig' in kwargs:
+            custom_config = kwargs['customConfig']
+        if template_description is None and 'templateDescription' in kwargs:
+            template_description = kwargs['templateDescription']
+
         _setter("template_name", template_name)
         if content is not None:
             _setter("content", content)

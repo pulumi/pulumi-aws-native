@@ -40,12 +40,22 @@ class LocationS3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_config: pulumi.Input['LocationS3s3ConfigArgs'],
+             s3_config: Optional[pulumi.Input['LocationS3s3ConfigArgs']] = None,
              s3_bucket_arn: Optional[pulumi.Input[str]] = None,
              s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_config is None and 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+        if s3_config is None:
+            raise TypeError("Missing 's3_config' argument")
+        if s3_bucket_arn is None and 's3BucketArn' in kwargs:
+            s3_bucket_arn = kwargs['s3BucketArn']
+        if s3_storage_class is None and 's3StorageClass' in kwargs:
+            s3_storage_class = kwargs['s3StorageClass']
+
         _setter("s3_config", s3_config)
         if s3_bucket_arn is not None:
             _setter("s3_bucket_arn", s3_bucket_arn)
@@ -178,11 +188,7 @@ class LocationS3(pulumi.CustomResource):
             __props__ = LocationS3Args.__new__(LocationS3Args)
 
             __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
-            if s3_config is not None and not isinstance(s3_config, LocationS3s3ConfigArgs):
-                s3_config = s3_config or {}
-                def _setter(key, value):
-                    s3_config[key] = value
-                LocationS3s3ConfigArgs._configure(_setter, **s3_config)
+            s3_config = _utilities.configure(s3_config, LocationS3s3ConfigArgs, True)
             if s3_config is None and not opts.urn:
                 raise TypeError("Missing required property 's3_config'")
             __props__.__dict__["s3_config"] = s3_config

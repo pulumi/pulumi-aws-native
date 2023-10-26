@@ -41,7 +41,17 @@ class ThingGroupArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupTagArgs']]]] = None,
              thing_group_name: Optional[pulumi.Input[str]] = None,
              thing_group_properties: Optional[pulumi.Input['ThingGroupPropertiesPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_group_name is None and 'parentGroupName' in kwargs:
+            parent_group_name = kwargs['parentGroupName']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if thing_group_name is None and 'thingGroupName' in kwargs:
+            thing_group_name = kwargs['thingGroupName']
+        if thing_group_properties is None and 'thingGroupProperties' in kwargs:
+            thing_group_properties = kwargs['thingGroupProperties']
+
         if parent_group_name is not None:
             _setter("parent_group_name", parent_group_name)
         if query_string is not None:
@@ -166,11 +176,7 @@ class ThingGroup(pulumi.CustomResource):
             __props__.__dict__["query_string"] = query_string
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thing_group_name"] = thing_group_name
-            if thing_group_properties is not None and not isinstance(thing_group_properties, ThingGroupPropertiesPropertiesArgs):
-                thing_group_properties = thing_group_properties or {}
-                def _setter(key, value):
-                    thing_group_properties[key] = value
-                ThingGroupPropertiesPropertiesArgs._configure(_setter, **thing_group_properties)
+            thing_group_properties = _utilities.configure(thing_group_properties, ThingGroupPropertiesPropertiesArgs, True)
             __props__.__dict__["thing_group_properties"] = thing_group_properties
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["parent_group_name", "thing_group_name"])

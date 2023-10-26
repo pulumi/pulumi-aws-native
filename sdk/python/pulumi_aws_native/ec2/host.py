@@ -47,7 +47,7 @@ class HostArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
+             availability_zone: Optional[pulumi.Input[str]] = None,
              asset_id: Optional[pulumi.Input[str]] = None,
              auto_placement: Optional[pulumi.Input[str]] = None,
              host_maintenance: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,27 @@ class HostArgs:
              instance_family: Optional[pulumi.Input[str]] = None,
              instance_type: Optional[pulumi.Input[str]] = None,
              outpost_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if asset_id is None and 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if auto_placement is None and 'autoPlacement' in kwargs:
+            auto_placement = kwargs['autoPlacement']
+        if host_maintenance is None and 'hostMaintenance' in kwargs:
+            host_maintenance = kwargs['hostMaintenance']
+        if host_recovery is None and 'hostRecovery' in kwargs:
+            host_recovery = kwargs['hostRecovery']
+        if instance_family is None and 'instanceFamily' in kwargs:
+            instance_family = kwargs['instanceFamily']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if outpost_arn is None and 'outpostArn' in kwargs:
+            outpost_arn = kwargs['outpostArn']
+
         _setter("availability_zone", availability_zone)
         if asset_id is not None:
             _setter("asset_id", asset_id)

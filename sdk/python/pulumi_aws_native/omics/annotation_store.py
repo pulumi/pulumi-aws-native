@@ -40,14 +40,24 @@ class AnnotationStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             store_format: pulumi.Input['AnnotationStoreStoreFormat'],
+             store_format: Optional[pulumi.Input['AnnotationStoreStoreFormat']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              reference: Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']] = None,
              sse_config: Optional[pulumi.Input['AnnotationStoreSseConfigArgs']] = None,
              store_options: Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']] = None,
              tags: Optional[pulumi.Input['AnnotationStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if store_format is None and 'storeFormat' in kwargs:
+            store_format = kwargs['storeFormat']
+        if store_format is None:
+            raise TypeError("Missing 'store_format' argument")
+        if sse_config is None and 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+        if store_options is None and 'storeOptions' in kwargs:
+            store_options = kwargs['storeOptions']
+
         _setter("store_format", store_format)
         if description is not None:
             _setter("description", description)
@@ -191,32 +201,16 @@ class AnnotationStore(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if reference is not None and not isinstance(reference, AnnotationStoreReferenceItemArgs):
-                reference = reference or {}
-                def _setter(key, value):
-                    reference[key] = value
-                AnnotationStoreReferenceItemArgs._configure(_setter, **reference)
+            reference = _utilities.configure(reference, AnnotationStoreReferenceItemArgs, True)
             __props__.__dict__["reference"] = reference
-            if sse_config is not None and not isinstance(sse_config, AnnotationStoreSseConfigArgs):
-                sse_config = sse_config or {}
-                def _setter(key, value):
-                    sse_config[key] = value
-                AnnotationStoreSseConfigArgs._configure(_setter, **sse_config)
+            sse_config = _utilities.configure(sse_config, AnnotationStoreSseConfigArgs, True)
             __props__.__dict__["sse_config"] = sse_config
             if store_format is None and not opts.urn:
                 raise TypeError("Missing required property 'store_format'")
             __props__.__dict__["store_format"] = store_format
-            if store_options is not None and not isinstance(store_options, AnnotationStoreStoreOptionsPropertiesArgs):
-                store_options = store_options or {}
-                def _setter(key, value):
-                    store_options[key] = value
-                AnnotationStoreStoreOptionsPropertiesArgs._configure(_setter, **store_options)
+            store_options = _utilities.configure(store_options, AnnotationStoreStoreOptionsPropertiesArgs, True)
             __props__.__dict__["store_options"] = store_options
-            if tags is not None and not isinstance(tags, AnnotationStoreTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                AnnotationStoreTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, AnnotationStoreTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None

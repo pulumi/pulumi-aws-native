@@ -30,9 +30,19 @@ class ResolverConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             autodefined_reverse_flag: pulumi.Input['ResolverConfigAutodefinedReverseFlag'],
-             resource_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             autodefined_reverse_flag: Optional[pulumi.Input['ResolverConfigAutodefinedReverseFlag']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autodefined_reverse_flag is None and 'autodefinedReverseFlag' in kwargs:
+            autodefined_reverse_flag = kwargs['autodefinedReverseFlag']
+        if autodefined_reverse_flag is None:
+            raise TypeError("Missing 'autodefined_reverse_flag' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+
         _setter("autodefined_reverse_flag", autodefined_reverse_flag)
         _setter("resource_id", resource_id)
 

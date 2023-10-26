@@ -32,10 +32,20 @@ class SchemaVersionMetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             schema_version_id: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             schema_version_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if schema_version_id is None and 'schemaVersionId' in kwargs:
+            schema_version_id = kwargs['schemaVersionId']
+        if schema_version_id is None:
+            raise TypeError("Missing 'schema_version_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("schema_version_id", schema_version_id)
         _setter("value", value)

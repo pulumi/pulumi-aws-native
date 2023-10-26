@@ -63,9 +63,19 @@ class BackupPlanAdvancedBackupSettingResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_options: Any,
-             resource_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             backup_options: Optional[Any] = None,
+             resource_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_options is None and 'backupOptions' in kwargs:
+            backup_options = kwargs['backupOptions']
+        if backup_options is None:
+            raise TypeError("Missing 'backup_options' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+
         _setter("backup_options", backup_options)
         _setter("resource_type", resource_type)
 
@@ -142,8 +152,8 @@ class BackupPlanBackupRuleResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_name: str,
-             target_backup_vault: str,
+             rule_name: Optional[str] = None,
+             target_backup_vault: Optional[str] = None,
              completion_window_minutes: Optional[float] = None,
              copy_actions: Optional[Sequence['outputs.BackupPlanCopyActionResourceType']] = None,
              enable_continuous_backup: Optional[bool] = None,
@@ -152,7 +162,31 @@ class BackupPlanBackupRuleResourceType(dict):
              schedule_expression: Optional[str] = None,
              schedule_expression_timezone: Optional[str] = None,
              start_window_minutes: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+        if target_backup_vault is None and 'targetBackupVault' in kwargs:
+            target_backup_vault = kwargs['targetBackupVault']
+        if target_backup_vault is None:
+            raise TypeError("Missing 'target_backup_vault' argument")
+        if completion_window_minutes is None and 'completionWindowMinutes' in kwargs:
+            completion_window_minutes = kwargs['completionWindowMinutes']
+        if copy_actions is None and 'copyActions' in kwargs:
+            copy_actions = kwargs['copyActions']
+        if enable_continuous_backup is None and 'enableContinuousBackup' in kwargs:
+            enable_continuous_backup = kwargs['enableContinuousBackup']
+        if recovery_point_tags is None and 'recoveryPointTags' in kwargs:
+            recovery_point_tags = kwargs['recoveryPointTags']
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression_timezone is None and 'scheduleExpressionTimezone' in kwargs:
+            schedule_expression_timezone = kwargs['scheduleExpressionTimezone']
+        if start_window_minutes is None and 'startWindowMinutes' in kwargs:
+            start_window_minutes = kwargs['startWindowMinutes']
+
         _setter("rule_name", rule_name)
         _setter("target_backup_vault", target_backup_vault)
         if completion_window_minutes is not None:
@@ -253,9 +287,15 @@ class BackupPlanCopyActionResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_backup_vault_arn: str,
+             destination_backup_vault_arn: Optional[str] = None,
              lifecycle: Optional['outputs.BackupPlanLifecycleResourceType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_backup_vault_arn is None and 'destinationBackupVaultArn' in kwargs:
+            destination_backup_vault_arn = kwargs['destinationBackupVaultArn']
+        if destination_backup_vault_arn is None:
+            raise TypeError("Missing 'destination_backup_vault_arn' argument")
+
         _setter("destination_backup_vault_arn", destination_backup_vault_arn)
         if lifecycle is not None:
             _setter("lifecycle", lifecycle)
@@ -305,7 +345,13 @@ class BackupPlanLifecycleResourceType(dict):
              _setter: Callable[[Any, Any], None],
              delete_after_days: Optional[float] = None,
              move_to_cold_storage_after_days: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_after_days is None and 'deleteAfterDays' in kwargs:
+            delete_after_days = kwargs['deleteAfterDays']
+        if move_to_cold_storage_after_days is None and 'moveToColdStorageAfterDays' in kwargs:
+            move_to_cold_storage_after_days = kwargs['moveToColdStorageAfterDays']
+
         if delete_after_days is not None:
             _setter("delete_after_days", delete_after_days)
         if move_to_cold_storage_after_days is not None:
@@ -358,10 +404,22 @@ class BackupPlanResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_plan_name: str,
-             backup_plan_rule: Sequence['outputs.BackupPlanBackupRuleResourceType'],
+             backup_plan_name: Optional[str] = None,
+             backup_plan_rule: Optional[Sequence['outputs.BackupPlanBackupRuleResourceType']] = None,
              advanced_backup_settings: Optional[Sequence['outputs.BackupPlanAdvancedBackupSettingResourceType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_plan_name is None and 'backupPlanName' in kwargs:
+            backup_plan_name = kwargs['backupPlanName']
+        if backup_plan_name is None:
+            raise TypeError("Missing 'backup_plan_name' argument")
+        if backup_plan_rule is None and 'backupPlanRule' in kwargs:
+            backup_plan_rule = kwargs['backupPlanRule']
+        if backup_plan_rule is None:
+            raise TypeError("Missing 'backup_plan_rule' argument")
+        if advanced_backup_settings is None and 'advancedBackupSettings' in kwargs:
+            advanced_backup_settings = kwargs['advancedBackupSettings']
+
         _setter("backup_plan_name", backup_plan_name)
         _setter("backup_plan_rule", backup_plan_rule)
         if advanced_backup_settings is not None:
@@ -417,7 +475,13 @@ class BackupSelectionConditionParameter(dict):
              _setter: Callable[[Any, Any], None],
              condition_key: Optional[str] = None,
              condition_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition_key is None and 'conditionKey' in kwargs:
+            condition_key = kwargs['conditionKey']
+        if condition_value is None and 'conditionValue' in kwargs:
+            condition_value = kwargs['conditionValue']
+
         if condition_key is not None:
             _setter("condition_key", condition_key)
         if condition_value is not None:
@@ -470,10 +534,24 @@ class BackupSelectionConditionResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             condition_key: str,
-             condition_type: str,
-             condition_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             condition_key: Optional[str] = None,
+             condition_type: Optional[str] = None,
+             condition_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition_key is None and 'conditionKey' in kwargs:
+            condition_key = kwargs['conditionKey']
+        if condition_key is None:
+            raise TypeError("Missing 'condition_key' argument")
+        if condition_type is None and 'conditionType' in kwargs:
+            condition_type = kwargs['conditionType']
+        if condition_type is None:
+            raise TypeError("Missing 'condition_type' argument")
+        if condition_value is None and 'conditionValue' in kwargs:
+            condition_value = kwargs['conditionValue']
+        if condition_value is None:
+            raise TypeError("Missing 'condition_value' argument")
+
         _setter("condition_key", condition_key)
         _setter("condition_type", condition_type)
         _setter("condition_value", condition_value)
@@ -538,13 +616,27 @@ class BackupSelectionResourceType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iam_role_arn: str,
-             selection_name: str,
+             iam_role_arn: Optional[str] = None,
+             selection_name: Optional[str] = None,
              conditions: Optional['outputs.BackupSelectionResourceTypeConditionsProperties'] = None,
              list_of_tags: Optional[Sequence['outputs.BackupSelectionConditionResourceType']] = None,
              not_resources: Optional[Sequence[str]] = None,
              resources: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if iam_role_arn is None:
+            raise TypeError("Missing 'iam_role_arn' argument")
+        if selection_name is None and 'selectionName' in kwargs:
+            selection_name = kwargs['selectionName']
+        if selection_name is None:
+            raise TypeError("Missing 'selection_name' argument")
+        if list_of_tags is None and 'listOfTags' in kwargs:
+            list_of_tags = kwargs['listOfTags']
+        if not_resources is None and 'notResources' in kwargs:
+            not_resources = kwargs['notResources']
+
         _setter("iam_role_arn", iam_role_arn)
         _setter("selection_name", selection_name)
         if conditions is not None:
@@ -631,7 +723,17 @@ class BackupSelectionResourceTypeConditionsProperties(dict):
              string_like: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None,
              string_not_equals: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None,
              string_not_like: Optional[Sequence['outputs.BackupSelectionConditionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if string_equals is None and 'stringEquals' in kwargs:
+            string_equals = kwargs['stringEquals']
+        if string_like is None and 'stringLike' in kwargs:
+            string_like = kwargs['stringLike']
+        if string_not_equals is None and 'stringNotEquals' in kwargs:
+            string_not_equals = kwargs['stringNotEquals']
+        if string_not_like is None and 'stringNotLike' in kwargs:
+            string_not_like = kwargs['stringNotLike']
+
         if string_equals is not None:
             _setter("string_equals", string_equals)
         if string_like is not None:
@@ -698,10 +800,20 @@ class BackupVaultLockConfigurationType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             min_retention_days: int,
+             min_retention_days: Optional[int] = None,
              changeable_for_days: Optional[int] = None,
              max_retention_days: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if min_retention_days is None and 'minRetentionDays' in kwargs:
+            min_retention_days = kwargs['minRetentionDays']
+        if min_retention_days is None:
+            raise TypeError("Missing 'min_retention_days' argument")
+        if changeable_for_days is None and 'changeableForDays' in kwargs:
+            changeable_for_days = kwargs['changeableForDays']
+        if max_retention_days is None and 'maxRetentionDays' in kwargs:
+            max_retention_days = kwargs['maxRetentionDays']
+
         _setter("min_retention_days", min_retention_days)
         if changeable_for_days is not None:
             _setter("changeable_for_days", changeable_for_days)
@@ -756,9 +868,19 @@ class BackupVaultNotificationObjectType(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_vault_events: Sequence[str],
-             sns_topic_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             backup_vault_events: Optional[Sequence[str]] = None,
+             sns_topic_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_vault_events is None and 'backupVaultEvents' in kwargs:
+            backup_vault_events = kwargs['backupVaultEvents']
+        if backup_vault_events is None:
+            raise TypeError("Missing 'backup_vault_events' argument")
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if sns_topic_arn is None:
+            raise TypeError("Missing 'sns_topic_arn' argument")
+
         _setter("backup_vault_events", backup_vault_events)
         _setter("sns_topic_arn", sns_topic_arn)
 
@@ -814,10 +936,20 @@ class FrameworkControl(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             control_name: str,
+             control_name: Optional[str] = None,
              control_input_parameters: Optional[Sequence['outputs.FrameworkControlInputParameter']] = None,
              control_scope: Optional['outputs.FrameworkControlControlScopeProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_name is None and 'controlName' in kwargs:
+            control_name = kwargs['controlName']
+        if control_name is None:
+            raise TypeError("Missing 'control_name' argument")
+        if control_input_parameters is None and 'controlInputParameters' in kwargs:
+            control_input_parameters = kwargs['controlInputParameters']
+        if control_scope is None and 'controlScope' in kwargs:
+            control_scope = kwargs['controlScope']
+
         _setter("control_name", control_name)
         if control_input_parameters is not None:
             _setter("control_input_parameters", control_input_parameters)
@@ -895,7 +1027,13 @@ class FrameworkControlControlScopeProperties(dict):
              compliance_resource_ids: Optional[Sequence[str]] = None,
              compliance_resource_types: Optional[Sequence[str]] = None,
              tags: Optional[Sequence['outputs.FrameworkTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compliance_resource_ids is None and 'complianceResourceIds' in kwargs:
+            compliance_resource_ids = kwargs['complianceResourceIds']
+        if compliance_resource_types is None and 'complianceResourceTypes' in kwargs:
+            compliance_resource_types = kwargs['complianceResourceTypes']
+
         if compliance_resource_ids is not None:
             _setter("compliance_resource_ids", compliance_resource_ids)
         if compliance_resource_types is not None:
@@ -960,9 +1098,19 @@ class FrameworkControlInputParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_name: str,
-             parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parameter_name: Optional[str] = None,
+             parameter_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_name is None and 'parameterName' in kwargs:
+            parameter_name = kwargs['parameterName']
+        if parameter_name is None:
+            raise TypeError("Missing 'parameter_name' argument")
+        if parameter_value is None and 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+        if parameter_value is None:
+            raise TypeError("Missing 'parameter_value' argument")
+
         _setter("parameter_name", parameter_name)
         _setter("parameter_value", parameter_value)
 
@@ -1000,7 +1148,9 @@ class FrameworkTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1066,10 +1216,18 @@ class ReportDeliveryChannelProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket_name: str,
+             s3_bucket_name: Optional[str] = None,
              formats: Optional[Sequence[str]] = None,
              s3_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_key_prefix is None and 's3KeyPrefix' in kwargs:
+            s3_key_prefix = kwargs['s3KeyPrefix']
+
         _setter("s3_bucket_name", s3_bucket_name)
         if formats is not None:
             _setter("formats", formats)
@@ -1124,7 +1282,9 @@ class ReportPlanTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1198,12 +1358,22 @@ class ReportSettingProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             report_template: str,
+             report_template: Optional[str] = None,
              accounts: Optional[Sequence[str]] = None,
              framework_arns: Optional[Sequence[str]] = None,
              organization_units: Optional[Sequence[str]] = None,
              regions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if report_template is None and 'reportTemplate' in kwargs:
+            report_template = kwargs['reportTemplate']
+        if report_template is None:
+            raise TypeError("Missing 'report_template' argument")
+        if framework_arns is None and 'frameworkArns' in kwargs:
+            framework_arns = kwargs['frameworkArns']
+        if organization_units is None and 'organizationUnits' in kwargs:
+            organization_units = kwargs['organizationUnits']
+
         _setter("report_template", report_template)
         if accounts is not None:
             _setter("accounts", accounts)

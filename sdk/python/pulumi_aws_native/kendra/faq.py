@@ -47,14 +47,30 @@ class FaqArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             index_id: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             s3_path: pulumi.Input['FaqS3PathArgs'],
+             index_id: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             s3_path: Optional[pulumi.Input['FaqS3PathArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if index_id is None and 'indexId' in kwargs:
+            index_id = kwargs['indexId']
+        if index_id is None:
+            raise TypeError("Missing 'index_id' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if s3_path is None and 's3Path' in kwargs:
+            s3_path = kwargs['s3Path']
+        if s3_path is None:
+            raise TypeError("Missing 's3_path' argument")
+        if file_format is None and 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+
         _setter("index_id", index_id)
         _setter("role_arn", role_arn)
         _setter("s3_path", s3_path)
@@ -231,11 +247,7 @@ class Faq(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if s3_path is not None and not isinstance(s3_path, FaqS3PathArgs):
-                s3_path = s3_path or {}
-                def _setter(key, value):
-                    s3_path[key] = value
-                FaqS3PathArgs._configure(_setter, **s3_path)
+            s3_path = _utilities.configure(s3_path, FaqS3PathArgs, True)
             if s3_path is None and not opts.urn:
                 raise TypeError("Missing required property 's3_path'")
             __props__.__dict__["s3_path"] = s3_path

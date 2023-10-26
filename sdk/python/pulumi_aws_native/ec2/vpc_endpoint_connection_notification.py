@@ -35,11 +35,25 @@ class VpcEndpointConnectionNotificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_events: pulumi.Input[Sequence[pulumi.Input[str]]],
-             connection_notification_arn: pulumi.Input[str],
+             connection_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_notification_arn: Optional[pulumi.Input[str]] = None,
              service_id: Optional[pulumi.Input[str]] = None,
              vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_events is None and 'connectionEvents' in kwargs:
+            connection_events = kwargs['connectionEvents']
+        if connection_events is None:
+            raise TypeError("Missing 'connection_events' argument")
+        if connection_notification_arn is None and 'connectionNotificationArn' in kwargs:
+            connection_notification_arn = kwargs['connectionNotificationArn']
+        if connection_notification_arn is None:
+            raise TypeError("Missing 'connection_notification_arn' argument")
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+
         _setter("connection_events", connection_events)
         _setter("connection_notification_arn", connection_notification_arn)
         if service_id is not None:

@@ -43,7 +43,13 @@ class DataQualityRulesetArgs:
              ruleset: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              target_table: Optional[pulumi.Input['DataQualityRulesetDataQualityTargetTableArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if target_table is None and 'targetTable' in kwargs:
+            target_table = kwargs['targetTable']
+
         if client_token is not None:
             _setter("client_token", client_token)
         if description is not None:
@@ -184,11 +190,7 @@ class DataQualityRuleset(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["ruleset"] = ruleset
             __props__.__dict__["tags"] = tags
-            if target_table is not None and not isinstance(target_table, DataQualityRulesetDataQualityTargetTableArgs):
-                target_table = target_table or {}
-                def _setter(key, value):
-                    target_table[key] = value
-                DataQualityRulesetDataQualityTargetTableArgs._configure(_setter, **target_table)
+            target_table = _utilities.configure(target_table, DataQualityRulesetDataQualityTargetTableArgs, True)
             __props__.__dict__["target_table"] = target_table
         super(DataQualityRuleset, __self__).__init__(
             'aws-native:glue:DataQualityRuleset',

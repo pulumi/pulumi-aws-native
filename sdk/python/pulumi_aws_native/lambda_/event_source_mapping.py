@@ -95,7 +95,7 @@ class EventSourceMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
+             function_name: Optional[pulumi.Input[str]] = None,
              amazon_managed_kafka_event_source_config: Optional[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs']] = None,
              batch_size: Optional[pulumi.Input[int]] = None,
              bisect_batch_on_function_error: Optional[pulumi.Input[bool]] = None,
@@ -118,7 +118,51 @@ class EventSourceMappingArgs:
              starting_position_timestamp: Optional[pulumi.Input[float]] = None,
              topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if amazon_managed_kafka_event_source_config is None and 'amazonManagedKafkaEventSourceConfig' in kwargs:
+            amazon_managed_kafka_event_source_config = kwargs['amazonManagedKafkaEventSourceConfig']
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if bisect_batch_on_function_error is None and 'bisectBatchOnFunctionError' in kwargs:
+            bisect_batch_on_function_error = kwargs['bisectBatchOnFunctionError']
+        if destination_config is None and 'destinationConfig' in kwargs:
+            destination_config = kwargs['destinationConfig']
+        if document_db_event_source_config is None and 'documentDbEventSourceConfig' in kwargs:
+            document_db_event_source_config = kwargs['documentDbEventSourceConfig']
+        if event_source_arn is None and 'eventSourceArn' in kwargs:
+            event_source_arn = kwargs['eventSourceArn']
+        if filter_criteria is None and 'filterCriteria' in kwargs:
+            filter_criteria = kwargs['filterCriteria']
+        if function_response_types is None and 'functionResponseTypes' in kwargs:
+            function_response_types = kwargs['functionResponseTypes']
+        if maximum_batching_window_in_seconds is None and 'maximumBatchingWindowInSeconds' in kwargs:
+            maximum_batching_window_in_seconds = kwargs['maximumBatchingWindowInSeconds']
+        if maximum_record_age_in_seconds is None and 'maximumRecordAgeInSeconds' in kwargs:
+            maximum_record_age_in_seconds = kwargs['maximumRecordAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+        if parallelization_factor is None and 'parallelizationFactor' in kwargs:
+            parallelization_factor = kwargs['parallelizationFactor']
+        if scaling_config is None and 'scalingConfig' in kwargs:
+            scaling_config = kwargs['scalingConfig']
+        if self_managed_event_source is None and 'selfManagedEventSource' in kwargs:
+            self_managed_event_source = kwargs['selfManagedEventSource']
+        if self_managed_kafka_event_source_config is None and 'selfManagedKafkaEventSourceConfig' in kwargs:
+            self_managed_kafka_event_source_config = kwargs['selfManagedKafkaEventSourceConfig']
+        if source_access_configurations is None and 'sourceAccessConfigurations' in kwargs:
+            source_access_configurations = kwargs['sourceAccessConfigurations']
+        if starting_position is None and 'startingPosition' in kwargs:
+            starting_position = kwargs['startingPosition']
+        if starting_position_timestamp is None and 'startingPositionTimestamp' in kwargs:
+            starting_position_timestamp = kwargs['startingPositionTimestamp']
+        if tumbling_window_in_seconds is None and 'tumblingWindowInSeconds' in kwargs:
+            tumbling_window_in_seconds = kwargs['tumblingWindowInSeconds']
+
         _setter("function_name", function_name)
         if amazon_managed_kafka_event_source_config is not None:
             _setter("amazon_managed_kafka_event_source_config", amazon_managed_kafka_event_source_config)
@@ -560,33 +604,17 @@ class EventSourceMapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventSourceMappingArgs.__new__(EventSourceMappingArgs)
 
-            if amazon_managed_kafka_event_source_config is not None and not isinstance(amazon_managed_kafka_event_source_config, EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs):
-                amazon_managed_kafka_event_source_config = amazon_managed_kafka_event_source_config or {}
-                def _setter(key, value):
-                    amazon_managed_kafka_event_source_config[key] = value
-                EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs._configure(_setter, **amazon_managed_kafka_event_source_config)
+            amazon_managed_kafka_event_source_config = _utilities.configure(amazon_managed_kafka_event_source_config, EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs, True)
             __props__.__dict__["amazon_managed_kafka_event_source_config"] = amazon_managed_kafka_event_source_config
             __props__.__dict__["batch_size"] = batch_size
             __props__.__dict__["bisect_batch_on_function_error"] = bisect_batch_on_function_error
-            if destination_config is not None and not isinstance(destination_config, EventSourceMappingDestinationConfigArgs):
-                destination_config = destination_config or {}
-                def _setter(key, value):
-                    destination_config[key] = value
-                EventSourceMappingDestinationConfigArgs._configure(_setter, **destination_config)
+            destination_config = _utilities.configure(destination_config, EventSourceMappingDestinationConfigArgs, True)
             __props__.__dict__["destination_config"] = destination_config
-            if document_db_event_source_config is not None and not isinstance(document_db_event_source_config, EventSourceMappingDocumentDbEventSourceConfigArgs):
-                document_db_event_source_config = document_db_event_source_config or {}
-                def _setter(key, value):
-                    document_db_event_source_config[key] = value
-                EventSourceMappingDocumentDbEventSourceConfigArgs._configure(_setter, **document_db_event_source_config)
+            document_db_event_source_config = _utilities.configure(document_db_event_source_config, EventSourceMappingDocumentDbEventSourceConfigArgs, True)
             __props__.__dict__["document_db_event_source_config"] = document_db_event_source_config
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_source_arn"] = event_source_arn
-            if filter_criteria is not None and not isinstance(filter_criteria, EventSourceMappingFilterCriteriaArgs):
-                filter_criteria = filter_criteria or {}
-                def _setter(key, value):
-                    filter_criteria[key] = value
-                EventSourceMappingFilterCriteriaArgs._configure(_setter, **filter_criteria)
+            filter_criteria = _utilities.configure(filter_criteria, EventSourceMappingFilterCriteriaArgs, True)
             __props__.__dict__["filter_criteria"] = filter_criteria
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
@@ -597,23 +625,11 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
             __props__.__dict__["parallelization_factor"] = parallelization_factor
             __props__.__dict__["queues"] = queues
-            if scaling_config is not None and not isinstance(scaling_config, EventSourceMappingScalingConfigArgs):
-                scaling_config = scaling_config or {}
-                def _setter(key, value):
-                    scaling_config[key] = value
-                EventSourceMappingScalingConfigArgs._configure(_setter, **scaling_config)
+            scaling_config = _utilities.configure(scaling_config, EventSourceMappingScalingConfigArgs, True)
             __props__.__dict__["scaling_config"] = scaling_config
-            if self_managed_event_source is not None and not isinstance(self_managed_event_source, EventSourceMappingSelfManagedEventSourceArgs):
-                self_managed_event_source = self_managed_event_source or {}
-                def _setter(key, value):
-                    self_managed_event_source[key] = value
-                EventSourceMappingSelfManagedEventSourceArgs._configure(_setter, **self_managed_event_source)
+            self_managed_event_source = _utilities.configure(self_managed_event_source, EventSourceMappingSelfManagedEventSourceArgs, True)
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
-            if self_managed_kafka_event_source_config is not None and not isinstance(self_managed_kafka_event_source_config, EventSourceMappingSelfManagedKafkaEventSourceConfigArgs):
-                self_managed_kafka_event_source_config = self_managed_kafka_event_source_config or {}
-                def _setter(key, value):
-                    self_managed_kafka_event_source_config[key] = value
-                EventSourceMappingSelfManagedKafkaEventSourceConfigArgs._configure(_setter, **self_managed_kafka_event_source_config)
+            self_managed_kafka_event_source_config = _utilities.configure(self_managed_kafka_event_source_config, EventSourceMappingSelfManagedKafkaEventSourceConfigArgs, True)
             __props__.__dict__["self_managed_kafka_event_source_config"] = self_managed_kafka_event_source_config
             __props__.__dict__["source_access_configurations"] = source_access_configurations
             __props__.__dict__["starting_position"] = starting_position

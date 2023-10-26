@@ -36,12 +36,18 @@ class VariantStoreArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             reference: pulumi.Input['VariantStoreReferenceItemArgs'],
+             reference: Optional[pulumi.Input['VariantStoreReferenceItemArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              sse_config: Optional[pulumi.Input['VariantStoreSseConfigArgs']] = None,
              tags: Optional[pulumi.Input['VariantStoreTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reference is None:
+            raise TypeError("Missing 'reference' argument")
+        if sse_config is None and 'sseConfig' in kwargs:
+            sse_config = kwargs['sseConfig']
+
         _setter("reference", reference)
         if description is not None:
             _setter("description", description)
@@ -159,25 +165,13 @@ class VariantStore(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if reference is not None and not isinstance(reference, VariantStoreReferenceItemArgs):
-                reference = reference or {}
-                def _setter(key, value):
-                    reference[key] = value
-                VariantStoreReferenceItemArgs._configure(_setter, **reference)
+            reference = _utilities.configure(reference, VariantStoreReferenceItemArgs, True)
             if reference is None and not opts.urn:
                 raise TypeError("Missing required property 'reference'")
             __props__.__dict__["reference"] = reference
-            if sse_config is not None and not isinstance(sse_config, VariantStoreSseConfigArgs):
-                sse_config = sse_config or {}
-                def _setter(key, value):
-                    sse_config[key] = value
-                VariantStoreSseConfigArgs._configure(_setter, **sse_config)
+            sse_config = _utilities.configure(sse_config, VariantStoreSseConfigArgs, True)
             __props__.__dict__["sse_config"] = sse_config
-            if tags is not None and not isinstance(tags, VariantStoreTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                VariantStoreTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, VariantStoreTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None

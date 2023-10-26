@@ -35,12 +35,24 @@ class VirtualRouterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mesh_name: pulumi.Input[str],
-             spec: pulumi.Input['VirtualRouterSpecArgs'],
+             mesh_name: Optional[pulumi.Input[str]] = None,
+             spec: Optional[pulumi.Input['VirtualRouterSpecArgs']] = None,
              mesh_owner: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualRouterTagArgs']]]] = None,
              virtual_router_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mesh_name is None and 'meshName' in kwargs:
+            mesh_name = kwargs['meshName']
+        if mesh_name is None:
+            raise TypeError("Missing 'mesh_name' argument")
+        if spec is None:
+            raise TypeError("Missing 'spec' argument")
+        if mesh_owner is None and 'meshOwner' in kwargs:
+            mesh_owner = kwargs['meshOwner']
+        if virtual_router_name is None and 'virtualRouterName' in kwargs:
+            virtual_router_name = kwargs['virtualRouterName']
+
         _setter("mesh_name", mesh_name)
         _setter("spec", spec)
         if mesh_owner is not None:
@@ -165,11 +177,7 @@ class VirtualRouter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'mesh_name'")
             __props__.__dict__["mesh_name"] = mesh_name
             __props__.__dict__["mesh_owner"] = mesh_owner
-            if spec is not None and not isinstance(spec, VirtualRouterSpecArgs):
-                spec = spec or {}
-                def _setter(key, value):
-                    spec[key] = value
-                VirtualRouterSpecArgs._configure(_setter, **spec)
+            spec = _utilities.configure(spec, VirtualRouterSpecArgs, True)
             if spec is None and not opts.urn:
                 raise TypeError("Missing required property 'spec'")
             __props__.__dict__["spec"] = spec

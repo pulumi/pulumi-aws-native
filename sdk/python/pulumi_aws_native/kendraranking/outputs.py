@@ -42,8 +42,14 @@ class ExecutionPlanCapacityUnitsConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rescore_capacity_units: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rescore_capacity_units: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rescore_capacity_units is None and 'rescoreCapacityUnits' in kwargs:
+            rescore_capacity_units = kwargs['rescoreCapacityUnits']
+        if rescore_capacity_units is None:
+            raise TypeError("Missing 'rescore_capacity_units' argument")
+
         _setter("rescore_capacity_units", rescore_capacity_units)
 
     @property
@@ -73,9 +79,15 @@ class ExecutionPlanTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

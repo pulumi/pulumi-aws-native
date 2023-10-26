@@ -44,13 +44,25 @@ class HoursOfOperationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]],
-             instance_arn: pulumi.Input[str],
-             time_zone: pulumi.Input[str],
+             config: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]] = None,
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config is None:
+            raise TypeError("Missing 'config' argument")
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+
         _setter("config", config)
         _setter("instance_arn", instance_arn)
         _setter("time_zone", time_zone)

@@ -37,7 +37,15 @@ class ResourceDefaultVersionArgs:
              type_name: Optional[pulumi.Input[str]] = None,
              type_version_arn: Optional[pulumi.Input[str]] = None,
              version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_version_arn is None and 'typeVersionArn' in kwargs:
+            type_version_arn = kwargs['typeVersionArn']
+        if version_id is None and 'versionId' in kwargs:
+            version_id = kwargs['versionId']
+
         if type_name is not None:
             _setter("type_name", type_name)
         if type_version_arn is not None:

@@ -37,11 +37,23 @@ class TransitGatewayRouteTableAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             peering_id: pulumi.Input[str],
-             transit_gateway_route_table_arn: pulumi.Input[str],
+             peering_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_route_table_arn: Optional[pulumi.Input[str]] = None,
              proposed_segment_change: Optional[pulumi.Input['TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if peering_id is None and 'peeringId' in kwargs:
+            peering_id = kwargs['peeringId']
+        if peering_id is None:
+            raise TypeError("Missing 'peering_id' argument")
+        if transit_gateway_route_table_arn is None and 'transitGatewayRouteTableArn' in kwargs:
+            transit_gateway_route_table_arn = kwargs['transitGatewayRouteTableArn']
+        if transit_gateway_route_table_arn is None:
+            raise TypeError("Missing 'transit_gateway_route_table_arn' argument")
+        if proposed_segment_change is None and 'proposedSegmentChange' in kwargs:
+            proposed_segment_change = kwargs['proposedSegmentChange']
+
         _setter("peering_id", peering_id)
         _setter("transit_gateway_route_table_arn", transit_gateway_route_table_arn)
         if proposed_segment_change is not None:
@@ -162,11 +174,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             if peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_id'")
             __props__.__dict__["peering_id"] = peering_id
-            if proposed_segment_change is not None and not isinstance(proposed_segment_change, TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs):
-                proposed_segment_change = proposed_segment_change or {}
-                def _setter(key, value):
-                    proposed_segment_change[key] = value
-                TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs._configure(_setter, **proposed_segment_change)
+            proposed_segment_change = _utilities.configure(proposed_segment_change, TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs, True)
             __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["tags"] = tags
             if transit_gateway_route_table_arn is None and not opts.urn:

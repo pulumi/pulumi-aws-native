@@ -60,19 +60,59 @@ class ReportDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             compression: pulumi.Input['ReportDefinitionCompression'],
-             format: pulumi.Input['ReportDefinitionFormat'],
-             refresh_closed_reports: pulumi.Input[bool],
-             report_name: pulumi.Input[str],
-             report_versioning: pulumi.Input['ReportDefinitionReportVersioning'],
-             s3_bucket: pulumi.Input[str],
-             s3_prefix: pulumi.Input[str],
-             s3_region: pulumi.Input[str],
-             time_unit: pulumi.Input['ReportDefinitionTimeUnit'],
+             compression: Optional[pulumi.Input['ReportDefinitionCompression']] = None,
+             format: Optional[pulumi.Input['ReportDefinitionFormat']] = None,
+             refresh_closed_reports: Optional[pulumi.Input[bool]] = None,
+             report_name: Optional[pulumi.Input[str]] = None,
+             report_versioning: Optional[pulumi.Input['ReportDefinitionReportVersioning']] = None,
+             s3_bucket: Optional[pulumi.Input[str]] = None,
+             s3_prefix: Optional[pulumi.Input[str]] = None,
+             s3_region: Optional[pulumi.Input[str]] = None,
+             time_unit: Optional[pulumi.Input['ReportDefinitionTimeUnit']] = None,
              additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalArtifactsItem']]]] = None,
              additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalSchemaElementsItem']]]] = None,
              billing_view_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compression is None:
+            raise TypeError("Missing 'compression' argument")
+        if format is None:
+            raise TypeError("Missing 'format' argument")
+        if refresh_closed_reports is None and 'refreshClosedReports' in kwargs:
+            refresh_closed_reports = kwargs['refreshClosedReports']
+        if refresh_closed_reports is None:
+            raise TypeError("Missing 'refresh_closed_reports' argument")
+        if report_name is None and 'reportName' in kwargs:
+            report_name = kwargs['reportName']
+        if report_name is None:
+            raise TypeError("Missing 'report_name' argument")
+        if report_versioning is None and 'reportVersioning' in kwargs:
+            report_versioning = kwargs['reportVersioning']
+        if report_versioning is None:
+            raise TypeError("Missing 'report_versioning' argument")
+        if s3_bucket is None and 's3Bucket' in kwargs:
+            s3_bucket = kwargs['s3Bucket']
+        if s3_bucket is None:
+            raise TypeError("Missing 's3_bucket' argument")
+        if s3_prefix is None and 's3Prefix' in kwargs:
+            s3_prefix = kwargs['s3Prefix']
+        if s3_prefix is None:
+            raise TypeError("Missing 's3_prefix' argument")
+        if s3_region is None and 's3Region' in kwargs:
+            s3_region = kwargs['s3Region']
+        if s3_region is None:
+            raise TypeError("Missing 's3_region' argument")
+        if time_unit is None and 'timeUnit' in kwargs:
+            time_unit = kwargs['timeUnit']
+        if time_unit is None:
+            raise TypeError("Missing 'time_unit' argument")
+        if additional_artifacts is None and 'additionalArtifacts' in kwargs:
+            additional_artifacts = kwargs['additionalArtifacts']
+        if additional_schema_elements is None and 'additionalSchemaElements' in kwargs:
+            additional_schema_elements = kwargs['additionalSchemaElements']
+        if billing_view_arn is None and 'billingViewArn' in kwargs:
+            billing_view_arn = kwargs['billingViewArn']
+
         _setter("compression", compression)
         _setter("format", format)
         _setter("refresh_closed_reports", refresh_closed_reports)

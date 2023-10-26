@@ -58,7 +58,21 @@ class ScheduledActionArgs:
              scheduled_action_name: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
              target_action: Optional[pulumi.Input['ScheduledActionTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if iam_role is None and 'iamRole' in kwargs:
+            iam_role = kwargs['iamRole']
+        if scheduled_action_description is None and 'scheduledActionDescription' in kwargs:
+            scheduled_action_description = kwargs['scheduledActionDescription']
+        if scheduled_action_name is None and 'scheduledActionName' in kwargs:
+            scheduled_action_name = kwargs['scheduledActionName']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if target_action is None and 'targetAction' in kwargs:
+            target_action = kwargs['targetAction']
+
         if enable is not None:
             _setter("enable", enable)
         if end_time is not None:
@@ -253,11 +267,7 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["scheduled_action_description"] = scheduled_action_description
             __props__.__dict__["scheduled_action_name"] = scheduled_action_name
             __props__.__dict__["start_time"] = start_time
-            if target_action is not None and not isinstance(target_action, ScheduledActionTypeArgs):
-                target_action = target_action or {}
-                def _setter(key, value):
-                    target_action[key] = value
-                ScheduledActionTypeArgs._configure(_setter, **target_action)
+            target_action = _utilities.configure(target_action, ScheduledActionTypeArgs, True)
             __props__.__dict__["target_action"] = target_action
             __props__.__dict__["next_invocations"] = None
             __props__.__dict__["state"] = None

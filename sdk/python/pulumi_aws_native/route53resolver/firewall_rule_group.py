@@ -38,7 +38,11 @@ class FirewallRuleGroupArgs:
              firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupFirewallRuleArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_rules is None and 'firewallRules' in kwargs:
+            firewall_rules = kwargs['firewallRules']
+
         if firewall_rules is not None:
             _setter("firewall_rules", firewall_rules)
         if name is not None:

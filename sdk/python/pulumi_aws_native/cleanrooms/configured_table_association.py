@@ -38,13 +38,27 @@ class ConfiguredTableAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configured_table_identifier: pulumi.Input[str],
-             membership_identifier: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             configured_table_identifier: Optional[pulumi.Input[str]] = None,
+             membership_identifier: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configured_table_identifier is None and 'configuredTableIdentifier' in kwargs:
+            configured_table_identifier = kwargs['configuredTableIdentifier']
+        if configured_table_identifier is None:
+            raise TypeError("Missing 'configured_table_identifier' argument")
+        if membership_identifier is None and 'membershipIdentifier' in kwargs:
+            membership_identifier = kwargs['membershipIdentifier']
+        if membership_identifier is None:
+            raise TypeError("Missing 'membership_identifier' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("configured_table_identifier", configured_table_identifier)
         _setter("membership_identifier", membership_identifier)
         _setter("role_arn", role_arn)

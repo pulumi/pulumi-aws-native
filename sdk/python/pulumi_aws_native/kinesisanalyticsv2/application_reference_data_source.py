@@ -29,9 +29,19 @@ class ApplicationReferenceDataSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
-             reference_data_source: pulumi.Input['ApplicationReferenceDataSourceReferenceDataSourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_name: Optional[pulumi.Input[str]] = None,
+             reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceReferenceDataSourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if reference_data_source is None and 'referenceDataSource' in kwargs:
+            reference_data_source = kwargs['referenceDataSource']
+        if reference_data_source is None:
+            raise TypeError("Missing 'reference_data_source' argument")
+
         _setter("application_name", application_name)
         _setter("reference_data_source", reference_data_source)
 
@@ -116,11 +126,7 @@ class ApplicationReferenceDataSource(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
-            if reference_data_source is not None and not isinstance(reference_data_source, ApplicationReferenceDataSourceReferenceDataSourceArgs):
-                reference_data_source = reference_data_source or {}
-                def _setter(key, value):
-                    reference_data_source[key] = value
-                ApplicationReferenceDataSourceReferenceDataSourceArgs._configure(_setter, **reference_data_source)
+            reference_data_source = _utilities.configure(reference_data_source, ApplicationReferenceDataSourceReferenceDataSourceArgs, True)
             if reference_data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'reference_data_source'")
             __props__.__dict__["reference_data_source"] = reference_data_source

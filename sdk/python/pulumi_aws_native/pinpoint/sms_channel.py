@@ -31,11 +31,21 @@ class SmsChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              sender_id: Optional[pulumi.Input[str]] = None,
              short_code: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if sender_id is None and 'senderId' in kwargs:
+            sender_id = kwargs['senderId']
+        if short_code is None and 'shortCode' in kwargs:
+            short_code = kwargs['shortCode']
+
         _setter("application_id", application_id)
         if enabled is not None:
             _setter("enabled", enabled)

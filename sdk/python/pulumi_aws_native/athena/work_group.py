@@ -54,7 +54,15 @@ class WorkGroupArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkGroupTagArgs']]]] = None,
              work_group_configuration: Optional[pulumi.Input['WorkGroupConfigurationArgs']] = None,
              work_group_configuration_updates: Optional[pulumi.Input['WorkGroupConfigurationUpdatesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recursive_delete_option is None and 'recursiveDeleteOption' in kwargs:
+            recursive_delete_option = kwargs['recursiveDeleteOption']
+        if work_group_configuration is None and 'workGroupConfiguration' in kwargs:
+            work_group_configuration = kwargs['workGroupConfiguration']
+        if work_group_configuration_updates is None and 'workGroupConfigurationUpdates' in kwargs:
+            work_group_configuration_updates = kwargs['workGroupConfigurationUpdates']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -230,17 +238,9 @@ class WorkGroup(pulumi.CustomResource):
             __props__.__dict__["recursive_delete_option"] = recursive_delete_option
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
-            if work_group_configuration is not None and not isinstance(work_group_configuration, WorkGroupConfigurationArgs):
-                work_group_configuration = work_group_configuration or {}
-                def _setter(key, value):
-                    work_group_configuration[key] = value
-                WorkGroupConfigurationArgs._configure(_setter, **work_group_configuration)
+            work_group_configuration = _utilities.configure(work_group_configuration, WorkGroupConfigurationArgs, True)
             __props__.__dict__["work_group_configuration"] = work_group_configuration
-            if work_group_configuration_updates is not None and not isinstance(work_group_configuration_updates, WorkGroupConfigurationUpdatesArgs):
-                work_group_configuration_updates = work_group_configuration_updates or {}
-                def _setter(key, value):
-                    work_group_configuration_updates[key] = value
-                WorkGroupConfigurationUpdatesArgs._configure(_setter, **work_group_configuration_updates)
+            work_group_configuration_updates = _utilities.configure(work_group_configuration_updates, WorkGroupConfigurationUpdatesArgs, True)
             __props__.__dict__["work_group_configuration_updates"] = work_group_configuration_updates
             __props__.__dict__["creation_time"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

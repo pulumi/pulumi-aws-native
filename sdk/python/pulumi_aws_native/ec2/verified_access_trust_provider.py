@@ -50,8 +50,8 @@ class VerifiedAccessTrustProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_reference_name: pulumi.Input[str],
-             trust_provider_type: pulumi.Input[str],
+             policy_reference_name: Optional[pulumi.Input[str]] = None,
+             trust_provider_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              device_options: Optional[pulumi.Input['VerifiedAccessTrustProviderDeviceOptionsArgs']] = None,
              device_trust_provider_type: Optional[pulumi.Input[str]] = None,
@@ -59,7 +59,27 @@ class VerifiedAccessTrustProviderArgs:
              sse_specification: Optional[pulumi.Input['SseSpecificationPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessTrustProviderTagArgs']]]] = None,
              user_trust_provider_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_reference_name is None and 'policyReferenceName' in kwargs:
+            policy_reference_name = kwargs['policyReferenceName']
+        if policy_reference_name is None:
+            raise TypeError("Missing 'policy_reference_name' argument")
+        if trust_provider_type is None and 'trustProviderType' in kwargs:
+            trust_provider_type = kwargs['trustProviderType']
+        if trust_provider_type is None:
+            raise TypeError("Missing 'trust_provider_type' argument")
+        if device_options is None and 'deviceOptions' in kwargs:
+            device_options = kwargs['deviceOptions']
+        if device_trust_provider_type is None and 'deviceTrustProviderType' in kwargs:
+            device_trust_provider_type = kwargs['deviceTrustProviderType']
+        if oidc_options is None and 'oidcOptions' in kwargs:
+            oidc_options = kwargs['oidcOptions']
+        if sse_specification is None and 'sseSpecification' in kwargs:
+            sse_specification = kwargs['sseSpecification']
+        if user_trust_provider_type is None and 'userTrustProviderType' in kwargs:
+            user_trust_provider_type = kwargs['userTrustProviderType']
+
         _setter("policy_reference_name", policy_reference_name)
         _setter("trust_provider_type", trust_provider_type)
         if description is not None:
@@ -255,27 +275,15 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
             __props__ = VerifiedAccessTrustProviderArgs.__new__(VerifiedAccessTrustProviderArgs)
 
             __props__.__dict__["description"] = description
-            if device_options is not None and not isinstance(device_options, VerifiedAccessTrustProviderDeviceOptionsArgs):
-                device_options = device_options or {}
-                def _setter(key, value):
-                    device_options[key] = value
-                VerifiedAccessTrustProviderDeviceOptionsArgs._configure(_setter, **device_options)
+            device_options = _utilities.configure(device_options, VerifiedAccessTrustProviderDeviceOptionsArgs, True)
             __props__.__dict__["device_options"] = device_options
             __props__.__dict__["device_trust_provider_type"] = device_trust_provider_type
-            if oidc_options is not None and not isinstance(oidc_options, VerifiedAccessTrustProviderOidcOptionsArgs):
-                oidc_options = oidc_options or {}
-                def _setter(key, value):
-                    oidc_options[key] = value
-                VerifiedAccessTrustProviderOidcOptionsArgs._configure(_setter, **oidc_options)
+            oidc_options = _utilities.configure(oidc_options, VerifiedAccessTrustProviderOidcOptionsArgs, True)
             __props__.__dict__["oidc_options"] = oidc_options
             if policy_reference_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_reference_name'")
             __props__.__dict__["policy_reference_name"] = policy_reference_name
-            if sse_specification is not None and not isinstance(sse_specification, SseSpecificationPropertiesArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                SseSpecificationPropertiesArgs._configure(_setter, **sse_specification)
+            sse_specification = _utilities.configure(sse_specification, SseSpecificationPropertiesArgs, True)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if trust_provider_type is None and not opts.urn:

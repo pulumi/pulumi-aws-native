@@ -29,9 +29,15 @@ class ExtensionResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             properties: pulumi.Input[Mapping[str, Any]],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("properties", properties)
         _setter("type", type)
 

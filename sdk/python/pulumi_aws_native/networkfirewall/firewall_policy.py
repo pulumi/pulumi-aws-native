@@ -34,11 +34,19 @@ class FirewallPolicyInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_policy: pulumi.Input['FirewallPolicyArgs'],
+             firewall_policy: Optional[pulumi.Input['FirewallPolicyArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              firewall_policy_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_policy is None and 'firewallPolicy' in kwargs:
+            firewall_policy = kwargs['firewallPolicy']
+        if firewall_policy is None:
+            raise TypeError("Missing 'firewall_policy' argument")
+        if firewall_policy_name is None and 'firewallPolicyName' in kwargs:
+            firewall_policy_name = kwargs['firewallPolicyName']
+
         _setter("firewall_policy", firewall_policy)
         if description is not None:
             _setter("description", description)
@@ -142,11 +150,7 @@ class FirewallPolicy(pulumi.CustomResource):
             __props__ = FirewallPolicyInitArgs.__new__(FirewallPolicyInitArgs)
 
             __props__.__dict__["description"] = description
-            if firewall_policy is not None and not isinstance(firewall_policy, FirewallPolicyArgs):
-                firewall_policy = firewall_policy or {}
-                def _setter(key, value):
-                    firewall_policy[key] = value
-                FirewallPolicyArgs._configure(_setter, **firewall_policy)
+            firewall_policy = _utilities.configure(firewall_policy, FirewallPolicyArgs, True)
             if firewall_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy'")
             __props__.__dict__["firewall_policy"] = firewall_policy

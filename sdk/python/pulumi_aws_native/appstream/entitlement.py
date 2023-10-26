@@ -35,12 +35,24 @@ class EntitlementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_visibility: pulumi.Input[str],
-             attributes: pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]],
-             stack_name: pulumi.Input[str],
+             app_visibility: Optional[pulumi.Input[str]] = None,
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]]] = None,
+             stack_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_visibility is None and 'appVisibility' in kwargs:
+            app_visibility = kwargs['appVisibility']
+        if app_visibility is None:
+            raise TypeError("Missing 'app_visibility' argument")
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if stack_name is None and 'stackName' in kwargs:
+            stack_name = kwargs['stackName']
+        if stack_name is None:
+            raise TypeError("Missing 'stack_name' argument")
+
         _setter("app_visibility", app_visibility)
         _setter("attributes", attributes)
         _setter("stack_name", stack_name)

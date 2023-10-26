@@ -35,11 +35,21 @@ class NetworkPerformanceMetricSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             metric: pulumi.Input[str],
-             source: pulumi.Input[str],
-             statistic: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             destination: Optional[pulumi.Input[str]] = None,
+             metric: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             statistic: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if metric is None:
+            raise TypeError("Missing 'metric' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if statistic is None:
+            raise TypeError("Missing 'statistic' argument")
+
         _setter("destination", destination)
         _setter("metric", metric)
         _setter("source", source)

@@ -54,9 +54,9 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             exclude_resource_tags: pulumi.Input[bool],
-             remediation_enabled: pulumi.Input[bool],
-             security_service_policy_data: pulumi.Input['PolicySecurityServicePolicyDataArgs'],
+             exclude_resource_tags: Optional[pulumi.Input[bool]] = None,
+             remediation_enabled: Optional[pulumi.Input[bool]] = None,
+             security_service_policy_data: Optional[pulumi.Input['PolicySecurityServicePolicyDataArgs']] = None,
              delete_all_policy_resources: Optional[pulumi.Input[bool]] = None,
              exclude_map: Optional[pulumi.Input['PolicyIeMapArgs']] = None,
              include_map: Optional[pulumi.Input['PolicyIeMapArgs']] = None,
@@ -68,7 +68,41 @@ class PolicyArgs:
              resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resources_clean_up: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_resource_tags is None and 'excludeResourceTags' in kwargs:
+            exclude_resource_tags = kwargs['excludeResourceTags']
+        if exclude_resource_tags is None:
+            raise TypeError("Missing 'exclude_resource_tags' argument")
+        if remediation_enabled is None and 'remediationEnabled' in kwargs:
+            remediation_enabled = kwargs['remediationEnabled']
+        if remediation_enabled is None:
+            raise TypeError("Missing 'remediation_enabled' argument")
+        if security_service_policy_data is None and 'securityServicePolicyData' in kwargs:
+            security_service_policy_data = kwargs['securityServicePolicyData']
+        if security_service_policy_data is None:
+            raise TypeError("Missing 'security_service_policy_data' argument")
+        if delete_all_policy_resources is None and 'deleteAllPolicyResources' in kwargs:
+            delete_all_policy_resources = kwargs['deleteAllPolicyResources']
+        if exclude_map is None and 'excludeMap' in kwargs:
+            exclude_map = kwargs['excludeMap']
+        if include_map is None and 'includeMap' in kwargs:
+            include_map = kwargs['includeMap']
+        if policy_description is None and 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if resource_set_ids is None and 'resourceSetIds' in kwargs:
+            resource_set_ids = kwargs['resourceSetIds']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type_list is None and 'resourceTypeList' in kwargs:
+            resource_type_list = kwargs['resourceTypeList']
+        if resources_clean_up is None and 'resourcesCleanUp' in kwargs:
+            resources_clean_up = kwargs['resourcesCleanUp']
+
         _setter("exclude_resource_tags", exclude_resource_tags)
         _setter("remediation_enabled", remediation_enabled)
         _setter("security_service_policy_data", security_service_policy_data)
@@ -300,20 +334,12 @@ class Policy(pulumi.CustomResource):
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
             __props__.__dict__["delete_all_policy_resources"] = delete_all_policy_resources
-            if exclude_map is not None and not isinstance(exclude_map, PolicyIeMapArgs):
-                exclude_map = exclude_map or {}
-                def _setter(key, value):
-                    exclude_map[key] = value
-                PolicyIeMapArgs._configure(_setter, **exclude_map)
+            exclude_map = _utilities.configure(exclude_map, PolicyIeMapArgs, True)
             __props__.__dict__["exclude_map"] = exclude_map
             if exclude_resource_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'exclude_resource_tags'")
             __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
-            if include_map is not None and not isinstance(include_map, PolicyIeMapArgs):
-                include_map = include_map or {}
-                def _setter(key, value):
-                    include_map[key] = value
-                PolicyIeMapArgs._configure(_setter, **include_map)
+            include_map = _utilities.configure(include_map, PolicyIeMapArgs, True)
             __props__.__dict__["include_map"] = include_map
             __props__.__dict__["policy_description"] = policy_description
             __props__.__dict__["policy_name"] = policy_name
@@ -325,11 +351,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["resource_type_list"] = resource_type_list
             __props__.__dict__["resources_clean_up"] = resources_clean_up
-            if security_service_policy_data is not None and not isinstance(security_service_policy_data, PolicySecurityServicePolicyDataArgs):
-                security_service_policy_data = security_service_policy_data or {}
-                def _setter(key, value):
-                    security_service_policy_data[key] = value
-                PolicySecurityServicePolicyDataArgs._configure(_setter, **security_service_policy_data)
+            security_service_policy_data = _utilities.configure(security_service_policy_data, PolicySecurityServicePolicyDataArgs, True)
             if security_service_policy_data is None and not opts.urn:
                 raise TypeError("Missing required property 'security_service_policy_data'")
             __props__.__dict__["security_service_policy_data"] = security_service_policy_data

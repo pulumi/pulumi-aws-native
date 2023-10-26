@@ -42,13 +42,31 @@ class SubscriptionFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_arn: pulumi.Input[str],
-             filter_pattern: pulumi.Input[str],
-             log_group_name: pulumi.Input[str],
+             destination_arn: Optional[pulumi.Input[str]] = None,
+             filter_pattern: Optional[pulumi.Input[str]] = None,
+             log_group_name: Optional[pulumi.Input[str]] = None,
              distribution: Optional[pulumi.Input['SubscriptionFilterDistribution']] = None,
              filter_name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_arn is None:
+            raise TypeError("Missing 'destination_arn' argument")
+        if filter_pattern is None and 'filterPattern' in kwargs:
+            filter_pattern = kwargs['filterPattern']
+        if filter_pattern is None:
+            raise TypeError("Missing 'filter_pattern' argument")
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if filter_name is None and 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("destination_arn", destination_arn)
         _setter("filter_pattern", filter_pattern)
         _setter("log_group_name", log_group_name)

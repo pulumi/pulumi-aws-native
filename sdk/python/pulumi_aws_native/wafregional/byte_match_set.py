@@ -31,7 +31,11 @@ class ByteMatchSetArgs:
              _setter: Callable[[Any, Any], None],
              byte_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['ByteMatchSetByteMatchTupleArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if byte_match_tuples is None and 'byteMatchTuples' in kwargs:
+            byte_match_tuples = kwargs['byteMatchTuples']
+
         if byte_match_tuples is not None:
             _setter("byte_match_tuples", byte_match_tuples)
         if name is not None:

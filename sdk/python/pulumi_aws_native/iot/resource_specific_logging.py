@@ -33,10 +33,24 @@ class ResourceSpecificLoggingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_level: pulumi.Input['ResourceSpecificLoggingLogLevel'],
-             target_name: pulumi.Input[str],
-             target_type: pulumi.Input['ResourceSpecificLoggingTargetType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             log_level: Optional[pulumi.Input['ResourceSpecificLoggingLogLevel']] = None,
+             target_name: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input['ResourceSpecificLoggingTargetType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_level is None and 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if log_level is None:
+            raise TypeError("Missing 'log_level' argument")
+        if target_name is None and 'targetName' in kwargs:
+            target_name = kwargs['targetName']
+        if target_name is None:
+            raise TypeError("Missing 'target_name' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+
         _setter("log_level", log_level)
         _setter("target_name", target_name)
         _setter("target_type", target_type)

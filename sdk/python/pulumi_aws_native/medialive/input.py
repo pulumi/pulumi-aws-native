@@ -55,7 +55,17 @@ class InputArgs:
              tags: Optional[Any] = None,
              type: Optional[pulumi.Input[str]] = None,
              vpc: Optional[pulumi.Input['InputVpcRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_devices is None and 'inputDevices' in kwargs:
+            input_devices = kwargs['inputDevices']
+        if input_security_groups is None and 'inputSecurityGroups' in kwargs:
+            input_security_groups = kwargs['inputSecurityGroups']
+        if media_connect_flows is None and 'mediaConnectFlows' in kwargs:
+            media_connect_flows = kwargs['mediaConnectFlows']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if destinations is not None:
             _setter("destinations", destinations)
         if input_devices is not None:
@@ -252,11 +262,7 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
-            if vpc is not None and not isinstance(vpc, InputVpcRequestArgs):
-                vpc = vpc or {}
-                def _setter(key, value):
-                    vpc[key] = value
-                InputVpcRequestArgs._configure(_setter, **vpc)
+            vpc = _utilities.configure(vpc, InputVpcRequestArgs, True)
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type", "vpc"])

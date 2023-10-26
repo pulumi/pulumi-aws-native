@@ -35,11 +35,25 @@ class ApiMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             stage: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             stage: Optional[pulumi.Input[str]] = None,
              api_mapping_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if stage is None:
+            raise TypeError("Missing 'stage' argument")
+        if api_mapping_key is None and 'apiMappingKey' in kwargs:
+            api_mapping_key = kwargs['apiMappingKey']
+
         _setter("api_id", api_id)
         _setter("domain_name", domain_name)
         _setter("stage", stage)

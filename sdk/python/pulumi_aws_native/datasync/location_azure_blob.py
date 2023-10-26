@@ -49,15 +49,33 @@ class LocationAzureBlobArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             azure_blob_authentication_type: pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             azure_blob_authentication_type: Optional[pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType']] = None,
              azure_access_tier: Optional[pulumi.Input['LocationAzureBlobAzureAccessTier']] = None,
              azure_blob_container_url: Optional[pulumi.Input[str]] = None,
              azure_blob_sas_configuration: Optional[pulumi.Input['LocationAzureBlobAzureBlobSasConfigurationArgs']] = None,
              azure_blob_type: Optional[pulumi.Input['LocationAzureBlobAzureBlobType']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationAzureBlobTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if agent_arns is None:
+            raise TypeError("Missing 'agent_arns' argument")
+        if azure_blob_authentication_type is None and 'azureBlobAuthenticationType' in kwargs:
+            azure_blob_authentication_type = kwargs['azureBlobAuthenticationType']
+        if azure_blob_authentication_type is None:
+            raise TypeError("Missing 'azure_blob_authentication_type' argument")
+        if azure_access_tier is None and 'azureAccessTier' in kwargs:
+            azure_access_tier = kwargs['azureAccessTier']
+        if azure_blob_container_url is None and 'azureBlobContainerUrl' in kwargs:
+            azure_blob_container_url = kwargs['azureBlobContainerUrl']
+        if azure_blob_sas_configuration is None and 'azureBlobSasConfiguration' in kwargs:
+            azure_blob_sas_configuration = kwargs['azureBlobSasConfiguration']
+        if azure_blob_type is None and 'azureBlobType' in kwargs:
+            azure_blob_type = kwargs['azureBlobType']
+
         _setter("agent_arns", agent_arns)
         _setter("azure_blob_authentication_type", azure_blob_authentication_type)
         if azure_access_tier is not None:
@@ -247,11 +265,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                 raise TypeError("Missing required property 'azure_blob_authentication_type'")
             __props__.__dict__["azure_blob_authentication_type"] = azure_blob_authentication_type
             __props__.__dict__["azure_blob_container_url"] = azure_blob_container_url
-            if azure_blob_sas_configuration is not None and not isinstance(azure_blob_sas_configuration, LocationAzureBlobAzureBlobSasConfigurationArgs):
-                azure_blob_sas_configuration = azure_blob_sas_configuration or {}
-                def _setter(key, value):
-                    azure_blob_sas_configuration[key] = value
-                LocationAzureBlobAzureBlobSasConfigurationArgs._configure(_setter, **azure_blob_sas_configuration)
+            azure_blob_sas_configuration = _utilities.configure(azure_blob_sas_configuration, LocationAzureBlobAzureBlobSasConfigurationArgs, True)
             __props__.__dict__["azure_blob_sas_configuration"] = azure_blob_sas_configuration
             __props__.__dict__["azure_blob_type"] = azure_blob_type
             __props__.__dict__["subdirectory"] = subdirectory

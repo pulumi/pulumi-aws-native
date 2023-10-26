@@ -34,10 +34,20 @@ class AggregationAuthorizationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorized_account_id: pulumi.Input[str],
-             authorized_aws_region: pulumi.Input[str],
+             authorized_account_id: Optional[pulumi.Input[str]] = None,
+             authorized_aws_region: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AggregationAuthorizationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorized_account_id is None and 'authorizedAccountId' in kwargs:
+            authorized_account_id = kwargs['authorizedAccountId']
+        if authorized_account_id is None:
+            raise TypeError("Missing 'authorized_account_id' argument")
+        if authorized_aws_region is None and 'authorizedAwsRegion' in kwargs:
+            authorized_aws_region = kwargs['authorizedAwsRegion']
+        if authorized_aws_region is None:
+            raise TypeError("Missing 'authorized_aws_region' argument")
+
         _setter("authorized_account_id", authorized_account_id)
         _setter("authorized_aws_region", authorized_aws_region)
         if tags is not None:

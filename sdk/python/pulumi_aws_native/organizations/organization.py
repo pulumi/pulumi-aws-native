@@ -28,7 +28,11 @@ class OrganizationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              feature_set: Optional[pulumi.Input['OrganizationFeatureSet']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if feature_set is None and 'featureSet' in kwargs:
+            feature_set = kwargs['featureSet']
+
         if feature_set is not None:
             _setter("feature_set", feature_set)
 

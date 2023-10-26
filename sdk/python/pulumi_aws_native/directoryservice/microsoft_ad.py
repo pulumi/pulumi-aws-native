@@ -39,14 +39,28 @@ class MicrosoftAdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             vpc_settings: pulumi.Input['MicrosoftAdVpcSettingsArgs'],
+             password: Optional[pulumi.Input[str]] = None,
+             vpc_settings: Optional[pulumi.Input['MicrosoftAdVpcSettingsArgs']] = None,
              create_alias: Optional[pulumi.Input[bool]] = None,
              edition: Optional[pulumi.Input[str]] = None,
              enable_sso: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              short_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if vpc_settings is None and 'vpcSettings' in kwargs:
+            vpc_settings = kwargs['vpcSettings']
+        if vpc_settings is None:
+            raise TypeError("Missing 'vpc_settings' argument")
+        if create_alias is None and 'createAlias' in kwargs:
+            create_alias = kwargs['createAlias']
+        if enable_sso is None and 'enableSso' in kwargs:
+            enable_sso = kwargs['enableSso']
+        if short_name is None and 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+
         _setter("password", password)
         _setter("vpc_settings", vpc_settings)
         if create_alias is not None:
@@ -201,11 +215,7 @@ class MicrosoftAd(pulumi.CustomResource):
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = password
             __props__.__dict__["short_name"] = short_name
-            if vpc_settings is not None and not isinstance(vpc_settings, MicrosoftAdVpcSettingsArgs):
-                vpc_settings = vpc_settings or {}
-                def _setter(key, value):
-                    vpc_settings[key] = value
-                MicrosoftAdVpcSettingsArgs._configure(_setter, **vpc_settings)
+            vpc_settings = _utilities.configure(vpc_settings, MicrosoftAdVpcSettingsArgs, True)
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings

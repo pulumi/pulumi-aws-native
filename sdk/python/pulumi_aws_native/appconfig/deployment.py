@@ -41,15 +41,39 @@ class DeploymentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             configuration_profile_id: pulumi.Input[str],
-             configuration_version: pulumi.Input[str],
-             deployment_strategy_id: pulumi.Input[str],
-             environment_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             configuration_profile_id: Optional[pulumi.Input[str]] = None,
+             configuration_version: Optional[pulumi.Input[str]] = None,
+             deployment_strategy_id: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              kms_key_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if configuration_profile_id is None and 'configurationProfileId' in kwargs:
+            configuration_profile_id = kwargs['configurationProfileId']
+        if configuration_profile_id is None:
+            raise TypeError("Missing 'configuration_profile_id' argument")
+        if configuration_version is None and 'configurationVersion' in kwargs:
+            configuration_version = kwargs['configurationVersion']
+        if configuration_version is None:
+            raise TypeError("Missing 'configuration_version' argument")
+        if deployment_strategy_id is None and 'deploymentStrategyId' in kwargs:
+            deployment_strategy_id = kwargs['deploymentStrategyId']
+        if deployment_strategy_id is None:
+            raise TypeError("Missing 'deployment_strategy_id' argument")
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if environment_id is None:
+            raise TypeError("Missing 'environment_id' argument")
+        if kms_key_identifier is None and 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         _setter("application_id", application_id)
         _setter("configuration_profile_id", configuration_profile_id)
         _setter("configuration_version", configuration_version)

@@ -44,13 +44,27 @@ class PackagingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             packaging_group_id: pulumi.Input[str],
+             packaging_group_id: Optional[pulumi.Input[str]] = None,
              cmaf_package: Optional[pulumi.Input['PackagingConfigurationCmafPackageArgs']] = None,
              dash_package: Optional[pulumi.Input['PackagingConfigurationDashPackageArgs']] = None,
              hls_package: Optional[pulumi.Input['PackagingConfigurationHlsPackageArgs']] = None,
              mss_package: Optional[pulumi.Input['PackagingConfigurationMssPackageArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packaging_group_id is None and 'packagingGroupId' in kwargs:
+            packaging_group_id = kwargs['packagingGroupId']
+        if packaging_group_id is None:
+            raise TypeError("Missing 'packaging_group_id' argument")
+        if cmaf_package is None and 'cmafPackage' in kwargs:
+            cmaf_package = kwargs['cmafPackage']
+        if dash_package is None and 'dashPackage' in kwargs:
+            dash_package = kwargs['dashPackage']
+        if hls_package is None and 'hlsPackage' in kwargs:
+            hls_package = kwargs['hlsPackage']
+        if mss_package is None and 'mssPackage' in kwargs:
+            mss_package = kwargs['mssPackage']
+
         _setter("packaging_group_id", packaging_group_id)
         if cmaf_package is not None:
             _setter("cmaf_package", cmaf_package)
@@ -203,29 +217,13 @@ class PackagingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PackagingConfigurationArgs.__new__(PackagingConfigurationArgs)
 
-            if cmaf_package is not None and not isinstance(cmaf_package, PackagingConfigurationCmafPackageArgs):
-                cmaf_package = cmaf_package or {}
-                def _setter(key, value):
-                    cmaf_package[key] = value
-                PackagingConfigurationCmafPackageArgs._configure(_setter, **cmaf_package)
+            cmaf_package = _utilities.configure(cmaf_package, PackagingConfigurationCmafPackageArgs, True)
             __props__.__dict__["cmaf_package"] = cmaf_package
-            if dash_package is not None and not isinstance(dash_package, PackagingConfigurationDashPackageArgs):
-                dash_package = dash_package or {}
-                def _setter(key, value):
-                    dash_package[key] = value
-                PackagingConfigurationDashPackageArgs._configure(_setter, **dash_package)
+            dash_package = _utilities.configure(dash_package, PackagingConfigurationDashPackageArgs, True)
             __props__.__dict__["dash_package"] = dash_package
-            if hls_package is not None and not isinstance(hls_package, PackagingConfigurationHlsPackageArgs):
-                hls_package = hls_package or {}
-                def _setter(key, value):
-                    hls_package[key] = value
-                PackagingConfigurationHlsPackageArgs._configure(_setter, **hls_package)
+            hls_package = _utilities.configure(hls_package, PackagingConfigurationHlsPackageArgs, True)
             __props__.__dict__["hls_package"] = hls_package
-            if mss_package is not None and not isinstance(mss_package, PackagingConfigurationMssPackageArgs):
-                mss_package = mss_package or {}
-                def _setter(key, value):
-                    mss_package[key] = value
-                PackagingConfigurationMssPackageArgs._configure(_setter, **mss_package)
+            mss_package = _utilities.configure(mss_package, PackagingConfigurationMssPackageArgs, True)
             __props__.__dict__["mss_package"] = mss_package
             if packaging_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'packaging_group_id'")

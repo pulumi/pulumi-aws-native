@@ -38,7 +38,15 @@ class ThingTypeArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypeTagArgs']]]] = None,
              thing_type_name: Optional[pulumi.Input[str]] = None,
              thing_type_properties: Optional[pulumi.Input['ThingTypePropertiesPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deprecate_thing_type is None and 'deprecateThingType' in kwargs:
+            deprecate_thing_type = kwargs['deprecateThingType']
+        if thing_type_name is None and 'thingTypeName' in kwargs:
+            thing_type_name = kwargs['thingTypeName']
+        if thing_type_properties is None and 'thingTypeProperties' in kwargs:
+            thing_type_properties = kwargs['thingTypeProperties']
+
         if deprecate_thing_type is not None:
             _setter("deprecate_thing_type", deprecate_thing_type)
         if tags is not None:
@@ -149,11 +157,7 @@ class ThingType(pulumi.CustomResource):
             __props__.__dict__["deprecate_thing_type"] = deprecate_thing_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thing_type_name"] = thing_type_name
-            if thing_type_properties is not None and not isinstance(thing_type_properties, ThingTypePropertiesPropertiesArgs):
-                thing_type_properties = thing_type_properties or {}
-                def _setter(key, value):
-                    thing_type_properties[key] = value
-                ThingTypePropertiesPropertiesArgs._configure(_setter, **thing_type_properties)
+            thing_type_properties = _utilities.configure(thing_type_properties, ThingTypePropertiesPropertiesArgs, True)
             __props__.__dict__["thing_type_properties"] = thing_type_properties
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thing_type_name", "thing_type_properties"])

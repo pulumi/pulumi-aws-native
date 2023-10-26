@@ -36,7 +36,11 @@ class IpamArgs:
              description: Optional[pulumi.Input[str]] = None,
              operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operating_regions is None and 'operatingRegions' in kwargs:
+            operating_regions = kwargs['operatingRegions']
+
         if description is not None:
             _setter("description", description)
         if operating_regions is not None:

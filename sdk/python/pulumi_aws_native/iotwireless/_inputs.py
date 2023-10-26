@@ -60,7 +60,9 @@ class DestinationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -151,7 +153,47 @@ class DeviceProfileLoRaWanDeviceProfileArgs:
              supports_class_b: Optional[pulumi.Input[bool]] = None,
              supports_class_c: Optional[pulumi.Input[bool]] = None,
              supports_join: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if class_b_timeout is None and 'classBTimeout' in kwargs:
+            class_b_timeout = kwargs['classBTimeout']
+        if class_c_timeout is None and 'classCTimeout' in kwargs:
+            class_c_timeout = kwargs['classCTimeout']
+        if factory_preset_freqs_list is None and 'factoryPresetFreqsList' in kwargs:
+            factory_preset_freqs_list = kwargs['factoryPresetFreqsList']
+        if mac_version is None and 'macVersion' in kwargs:
+            mac_version = kwargs['macVersion']
+        if max_duty_cycle is None and 'maxDutyCycle' in kwargs:
+            max_duty_cycle = kwargs['maxDutyCycle']
+        if max_eirp is None and 'maxEirp' in kwargs:
+            max_eirp = kwargs['maxEirp']
+        if ping_slot_dr is None and 'pingSlotDr' in kwargs:
+            ping_slot_dr = kwargs['pingSlotDr']
+        if ping_slot_freq is None and 'pingSlotFreq' in kwargs:
+            ping_slot_freq = kwargs['pingSlotFreq']
+        if ping_slot_period is None and 'pingSlotPeriod' in kwargs:
+            ping_slot_period = kwargs['pingSlotPeriod']
+        if reg_params_revision is None and 'regParamsRevision' in kwargs:
+            reg_params_revision = kwargs['regParamsRevision']
+        if rf_region is None and 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if rx_data_rate2 is None and 'rxDataRate2' in kwargs:
+            rx_data_rate2 = kwargs['rxDataRate2']
+        if rx_delay1 is None and 'rxDelay1' in kwargs:
+            rx_delay1 = kwargs['rxDelay1']
+        if rx_dr_offset1 is None and 'rxDrOffset1' in kwargs:
+            rx_dr_offset1 = kwargs['rxDrOffset1']
+        if rx_freq2 is None and 'rxFreq2' in kwargs:
+            rx_freq2 = kwargs['rxFreq2']
+        if supports32_bit_f_cnt is None and 'supports32BitFCnt' in kwargs:
+            supports32_bit_f_cnt = kwargs['supports32BitFCnt']
+        if supports_class_b is None and 'supportsClassB' in kwargs:
+            supports_class_b = kwargs['supportsClassB']
+        if supports_class_c is None and 'supportsClassC' in kwargs:
+            supports_class_c = kwargs['supportsClassC']
+        if supports_join is None and 'supportsJoin' in kwargs:
+            supports_join = kwargs['supportsJoin']
+
         if class_b_timeout is not None:
             _setter("class_b_timeout", class_b_timeout)
         if class_c_timeout is not None:
@@ -378,7 +420,9 @@ class DeviceProfileTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -420,9 +464,17 @@ class FuotaTaskLoRaWanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rf_region: pulumi.Input[str],
+             rf_region: Optional[pulumi.Input[str]] = None,
              start_time: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rf_region is None and 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if rf_region is None:
+            raise TypeError("Missing 'rf_region' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+
         _setter("rf_region", rf_region)
         if start_time is not None:
             _setter("start_time", start_time)
@@ -467,7 +519,9 @@ class FuotaTaskTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -515,11 +569,25 @@ class MulticastGroupLoRaWanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dl_class: pulumi.Input[str],
-             rf_region: pulumi.Input[str],
+             dl_class: Optional[pulumi.Input[str]] = None,
+             rf_region: Optional[pulumi.Input[str]] = None,
              number_of_devices_in_group: Optional[pulumi.Input[int]] = None,
              number_of_devices_requested: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dl_class is None and 'dlClass' in kwargs:
+            dl_class = kwargs['dlClass']
+        if dl_class is None:
+            raise TypeError("Missing 'dl_class' argument")
+        if rf_region is None and 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if rf_region is None:
+            raise TypeError("Missing 'rf_region' argument")
+        if number_of_devices_in_group is None and 'numberOfDevicesInGroup' in kwargs:
+            number_of_devices_in_group = kwargs['numberOfDevicesInGroup']
+        if number_of_devices_requested is None and 'numberOfDevicesRequested' in kwargs:
+            number_of_devices_requested = kwargs['numberOfDevicesRequested']
+
         _setter("dl_class", dl_class)
         _setter("rf_region", rf_region)
         if number_of_devices_in_group is not None:
@@ -591,7 +659,9 @@ class MulticastGroupTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -634,9 +704,15 @@ class NetworkAnalyzerConfigurationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -683,7 +759,11 @@ class PartnerAccountSidewalkAccountInfoWithFingerprintArgs:
              amazon_id: Optional[pulumi.Input[str]] = None,
              arn: Optional[pulumi.Input[str]] = None,
              fingerprint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amazon_id is None and 'amazonId' in kwargs:
+            amazon_id = kwargs['amazonId']
+
         if amazon_id is not None:
             _setter("amazon_id", amazon_id)
         if arn is not None:
@@ -730,8 +810,14 @@ class PartnerAccountSidewalkAccountInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_server_private_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_server_private_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_server_private_key is None and 'appServerPrivateKey' in kwargs:
+            app_server_private_key = kwargs['appServerPrivateKey']
+        if app_server_private_key is None:
+            raise TypeError("Missing 'app_server_private_key' argument")
+
         _setter("app_server_private_key", app_server_private_key)
 
     @property
@@ -756,7 +842,11 @@ class PartnerAccountSidewalkUpdateAccountArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              app_server_private_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_server_private_key is None and 'appServerPrivateKey' in kwargs:
+            app_server_private_key = kwargs['appServerPrivateKey']
+
         if app_server_private_key is not None:
             _setter("app_server_private_key", app_server_private_key)
 
@@ -785,7 +875,9 @@ class PartnerAccountTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -876,7 +968,47 @@ class ServiceProfileLoRaWanServiceProfileArgs:
              ul_bucket_size: Optional[pulumi.Input[int]] = None,
              ul_rate: Optional[pulumi.Input[int]] = None,
              ul_rate_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if add_gw_metadata is None and 'addGwMetadata' in kwargs:
+            add_gw_metadata = kwargs['addGwMetadata']
+        if channel_mask is None and 'channelMask' in kwargs:
+            channel_mask = kwargs['channelMask']
+        if dev_status_req_freq is None and 'devStatusReqFreq' in kwargs:
+            dev_status_req_freq = kwargs['devStatusReqFreq']
+        if dl_bucket_size is None and 'dlBucketSize' in kwargs:
+            dl_bucket_size = kwargs['dlBucketSize']
+        if dl_rate is None and 'dlRate' in kwargs:
+            dl_rate = kwargs['dlRate']
+        if dl_rate_policy is None and 'dlRatePolicy' in kwargs:
+            dl_rate_policy = kwargs['dlRatePolicy']
+        if dr_max is None and 'drMax' in kwargs:
+            dr_max = kwargs['drMax']
+        if dr_min is None and 'drMin' in kwargs:
+            dr_min = kwargs['drMin']
+        if hr_allowed is None and 'hrAllowed' in kwargs:
+            hr_allowed = kwargs['hrAllowed']
+        if min_gw_diversity is None and 'minGwDiversity' in kwargs:
+            min_gw_diversity = kwargs['minGwDiversity']
+        if nwk_geo_loc is None and 'nwkGeoLoc' in kwargs:
+            nwk_geo_loc = kwargs['nwkGeoLoc']
+        if pr_allowed is None and 'prAllowed' in kwargs:
+            pr_allowed = kwargs['prAllowed']
+        if ra_allowed is None and 'raAllowed' in kwargs:
+            ra_allowed = kwargs['raAllowed']
+        if report_dev_status_battery is None and 'reportDevStatusBattery' in kwargs:
+            report_dev_status_battery = kwargs['reportDevStatusBattery']
+        if report_dev_status_margin is None and 'reportDevStatusMargin' in kwargs:
+            report_dev_status_margin = kwargs['reportDevStatusMargin']
+        if target_per is None and 'targetPer' in kwargs:
+            target_per = kwargs['targetPer']
+        if ul_bucket_size is None and 'ulBucketSize' in kwargs:
+            ul_bucket_size = kwargs['ulBucketSize']
+        if ul_rate is None and 'ulRate' in kwargs:
+            ul_rate = kwargs['ulRate']
+        if ul_rate_policy is None and 'ulRatePolicy' in kwargs:
+            ul_rate_policy = kwargs['ulRatePolicy']
+
         if add_gw_metadata is not None:
             _setter("add_gw_metadata", add_gw_metadata)
         if channel_mask is not None:
@@ -1103,7 +1235,9 @@ class ServiceProfileTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1152,7 +1286,15 @@ class SidewalkPropertiesArgs:
              device_creation_file_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role: Optional[pulumi.Input[str]] = None,
              sidewalk_manufacturing_sn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_creation_file is None and 'deviceCreationFile' in kwargs:
+            device_creation_file = kwargs['deviceCreationFile']
+        if device_creation_file_list is None and 'deviceCreationFileList' in kwargs:
+            device_creation_file_list = kwargs['deviceCreationFileList']
+        if sidewalk_manufacturing_sn is None and 'sidewalkManufacturingSn' in kwargs:
+            sidewalk_manufacturing_sn = kwargs['sidewalkManufacturingSn']
+
         if device_creation_file is not None:
             _setter("device_creation_file", device_creation_file)
         if device_creation_file_list is not None:
@@ -1217,7 +1359,11 @@ class TaskDefinitionLoRaWanGatewayVersionArgs:
              model: Optional[pulumi.Input[str]] = None,
              package_version: Optional[pulumi.Input[str]] = None,
              station: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if package_version is None and 'packageVersion' in kwargs:
+            package_version = kwargs['packageVersion']
+
         if model is not None:
             _setter("model", model)
         if package_version is not None:
@@ -1274,7 +1420,17 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs:
              sig_key_crc: Optional[pulumi.Input[int]] = None,
              update_signature: Optional[pulumi.Input[str]] = None,
              update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_version is None and 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if sig_key_crc is None and 'sigKeyCrc' in kwargs:
+            sig_key_crc = kwargs['sigKeyCrc']
+        if update_signature is None and 'updateSignature' in kwargs:
+            update_signature = kwargs['updateSignature']
+        if update_version is None and 'updateVersion' in kwargs:
+            update_version = kwargs['updateVersion']
+
         if current_version is not None:
             _setter("current_version", current_version)
         if sig_key_crc is not None:
@@ -1336,7 +1492,13 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs:
              _setter: Callable[[Any, Any], None],
              current_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
              update_version: Optional[pulumi.Input['TaskDefinitionLoRaWanGatewayVersionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if current_version is None and 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if update_version is None and 'updateVersion' in kwargs:
+            update_version = kwargs['updateVersion']
+
         if current_version is not None:
             _setter("current_version", current_version)
         if update_version is not None:
@@ -1376,7 +1538,9 @@ class TaskDefinitionTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1419,7 +1583,15 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
              lo_ra_wan: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs']] = None,
              update_data_role: Optional[pulumi.Input[str]] = None,
              update_data_source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lo_ra_wan is None and 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if update_data_role is None and 'updateDataRole' in kwargs:
+            update_data_role = kwargs['updateDataRole']
+        if update_data_source is None and 'updateDataSource' in kwargs:
+            update_data_source = kwargs['updateDataSource']
+
         if lo_ra_wan is not None:
             _setter("lo_ra_wan", lo_ra_wan)
         if update_data_role is not None:
@@ -1473,7 +1645,13 @@ class TraceContentPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              log_level: Optional[pulumi.Input['NetworkAnalyzerConfigurationLogLevel']] = None,
              wireless_device_frame_info: Optional[pulumi.Input['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_level is None and 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if wireless_device_frame_info is None and 'wirelessDeviceFrameInfo' in kwargs:
+            wireless_device_frame_info = kwargs['wirelessDeviceFrameInfo']
+
         if log_level is not None:
             _setter("log_level", log_level)
         if wireless_device_frame_info is not None:
@@ -1511,9 +1689,19 @@ class WirelessDeviceAbpV10xArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dev_addr: pulumi.Input[str],
-             session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dev_addr: Optional[pulumi.Input[str]] = None,
+             session_keys: Optional[pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dev_addr is None and 'devAddr' in kwargs:
+            dev_addr = kwargs['devAddr']
+        if dev_addr is None:
+            raise TypeError("Missing 'dev_addr' argument")
+        if session_keys is None and 'sessionKeys' in kwargs:
+            session_keys = kwargs['sessionKeys']
+        if session_keys is None:
+            raise TypeError("Missing 'session_keys' argument")
+
         _setter("dev_addr", dev_addr)
         _setter("session_keys", session_keys)
 
@@ -1549,9 +1737,19 @@ class WirelessDeviceAbpV11Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dev_addr: pulumi.Input[str],
-             session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV11Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dev_addr: Optional[pulumi.Input[str]] = None,
+             session_keys: Optional[pulumi.Input['WirelessDeviceSessionKeysAbpV11Args']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dev_addr is None and 'devAddr' in kwargs:
+            dev_addr = kwargs['devAddr']
+        if dev_addr is None:
+            raise TypeError("Missing 'dev_addr' argument")
+        if session_keys is None and 'sessionKeys' in kwargs:
+            session_keys = kwargs['sessionKeys']
+        if session_keys is None:
+            raise TypeError("Missing 'session_keys' argument")
+
         _setter("dev_addr", dev_addr)
         _setter("session_keys", session_keys)
 
@@ -1592,9 +1790,15 @@ class WirelessDeviceImportTaskTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1653,7 +1857,23 @@ class WirelessDeviceLoRaWanDeviceArgs:
              otaa_v10x: Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']] = None,
              otaa_v11: Optional[pulumi.Input['WirelessDeviceOtaaV11Args']] = None,
              service_profile_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if abp_v10x is None and 'abpV10x' in kwargs:
+            abp_v10x = kwargs['abpV10x']
+        if abp_v11 is None and 'abpV11' in kwargs:
+            abp_v11 = kwargs['abpV11']
+        if dev_eui is None and 'devEui' in kwargs:
+            dev_eui = kwargs['devEui']
+        if device_profile_id is None and 'deviceProfileId' in kwargs:
+            device_profile_id = kwargs['deviceProfileId']
+        if otaa_v10x is None and 'otaaV10x' in kwargs:
+            otaa_v10x = kwargs['otaaV10x']
+        if otaa_v11 is None and 'otaaV11' in kwargs:
+            otaa_v11 = kwargs['otaaV11']
+        if service_profile_id is None and 'serviceProfileId' in kwargs:
+            service_profile_id = kwargs['serviceProfileId']
+
         if abp_v10x is not None:
             _setter("abp_v10x", abp_v10x)
         if abp_v11 is not None:
@@ -1746,9 +1966,19 @@ class WirelessDeviceOtaaV10xArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_eui: pulumi.Input[str],
-             app_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_eui: Optional[pulumi.Input[str]] = None,
+             app_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_eui is None and 'appEui' in kwargs:
+            app_eui = kwargs['appEui']
+        if app_eui is None:
+            raise TypeError("Missing 'app_eui' argument")
+        if app_key is None and 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+        if app_key is None:
+            raise TypeError("Missing 'app_key' argument")
+
         _setter("app_eui", app_eui)
         _setter("app_key", app_key)
 
@@ -1786,10 +2016,24 @@ class WirelessDeviceOtaaV11Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_key: pulumi.Input[str],
-             join_eui: pulumi.Input[str],
-             nwk_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_key: Optional[pulumi.Input[str]] = None,
+             join_eui: Optional[pulumi.Input[str]] = None,
+             nwk_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_key is None and 'appKey' in kwargs:
+            app_key = kwargs['appKey']
+        if app_key is None:
+            raise TypeError("Missing 'app_key' argument")
+        if join_eui is None and 'joinEui' in kwargs:
+            join_eui = kwargs['joinEui']
+        if join_eui is None:
+            raise TypeError("Missing 'join_eui' argument")
+        if nwk_key is None and 'nwkKey' in kwargs:
+            nwk_key = kwargs['nwkKey']
+        if nwk_key is None:
+            raise TypeError("Missing 'nwk_key' argument")
+
         _setter("app_key", app_key)
         _setter("join_eui", join_eui)
         _setter("nwk_key", nwk_key)
@@ -1835,9 +2079,19 @@ class WirelessDeviceSessionKeysAbpV10xArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_s_key: pulumi.Input[str],
-             nwk_s_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_s_key: Optional[pulumi.Input[str]] = None,
+             nwk_s_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_s_key is None and 'appSKey' in kwargs:
+            app_s_key = kwargs['appSKey']
+        if app_s_key is None:
+            raise TypeError("Missing 'app_s_key' argument")
+        if nwk_s_key is None and 'nwkSKey' in kwargs:
+            nwk_s_key = kwargs['nwkSKey']
+        if nwk_s_key is None:
+            raise TypeError("Missing 'nwk_s_key' argument")
+
         _setter("app_s_key", app_s_key)
         _setter("nwk_s_key", nwk_s_key)
 
@@ -1877,11 +2131,29 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_s_key: pulumi.Input[str],
-             f_nwk_s_int_key: pulumi.Input[str],
-             nwk_s_enc_key: pulumi.Input[str],
-             s_nwk_s_int_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             app_s_key: Optional[pulumi.Input[str]] = None,
+             f_nwk_s_int_key: Optional[pulumi.Input[str]] = None,
+             nwk_s_enc_key: Optional[pulumi.Input[str]] = None,
+             s_nwk_s_int_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_s_key is None and 'appSKey' in kwargs:
+            app_s_key = kwargs['appSKey']
+        if app_s_key is None:
+            raise TypeError("Missing 'app_s_key' argument")
+        if f_nwk_s_int_key is None and 'fNwkSIntKey' in kwargs:
+            f_nwk_s_int_key = kwargs['fNwkSIntKey']
+        if f_nwk_s_int_key is None:
+            raise TypeError("Missing 'f_nwk_s_int_key' argument")
+        if nwk_s_enc_key is None and 'nwkSEncKey' in kwargs:
+            nwk_s_enc_key = kwargs['nwkSEncKey']
+        if nwk_s_enc_key is None:
+            raise TypeError("Missing 'nwk_s_enc_key' argument")
+        if s_nwk_s_int_key is None and 'sNwkSIntKey' in kwargs:
+            s_nwk_s_int_key = kwargs['sNwkSIntKey']
+        if s_nwk_s_int_key is None:
+            raise TypeError("Missing 's_nwk_s_int_key' argument")
+
         _setter("app_s_key", app_s_key)
         _setter("f_nwk_s_int_key", f_nwk_s_int_key)
         _setter("nwk_s_enc_key", nwk_s_enc_key)
@@ -1939,7 +2211,9 @@ class WirelessDeviceTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1977,9 +2251,19 @@ class WirelessGatewayLoRaWanGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gateway_eui: pulumi.Input[str],
-             rf_region: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             gateway_eui: Optional[pulumi.Input[str]] = None,
+             rf_region: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_eui is None and 'gatewayEui' in kwargs:
+            gateway_eui = kwargs['gatewayEui']
+        if gateway_eui is None:
+            raise TypeError("Missing 'gateway_eui' argument")
+        if rf_region is None and 'rfRegion' in kwargs:
+            rf_region = kwargs['rfRegion']
+        if rf_region is None:
+            raise TypeError("Missing 'rf_region' argument")
+
         _setter("gateway_eui", gateway_eui)
         _setter("rf_region", rf_region)
 
@@ -2017,7 +2301,9 @@ class WirelessGatewayTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

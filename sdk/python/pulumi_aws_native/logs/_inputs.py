@@ -34,9 +34,15 @@ class LogGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -83,9 +89,15 @@ class MetricFilterDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -143,13 +155,29 @@ class MetricFilterMetricTransformationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             metric_namespace: pulumi.Input[str],
-             metric_value: pulumi.Input[str],
+             metric_name: Optional[pulumi.Input[str]] = None,
+             metric_namespace: Optional[pulumi.Input[str]] = None,
+             metric_value: Optional[pulumi.Input[str]] = None,
              default_value: Optional[pulumi.Input[float]] = None,
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]] = None,
              unit: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if metric_namespace is None and 'metricNamespace' in kwargs:
+            metric_namespace = kwargs['metricNamespace']
+        if metric_namespace is None:
+            raise TypeError("Missing 'metric_namespace' argument")
+        if metric_value is None and 'metricValue' in kwargs:
+            metric_value = kwargs['metricValue']
+        if metric_value is None:
+            raise TypeError("Missing 'metric_value' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("metric_name", metric_name)
         _setter("metric_namespace", metric_namespace)
         _setter("metric_value", metric_value)

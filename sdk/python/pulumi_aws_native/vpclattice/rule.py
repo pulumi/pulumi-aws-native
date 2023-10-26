@@ -40,14 +40,26 @@ class RuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['RuleActionArgs'],
-             match: pulumi.Input['RuleMatchArgs'],
-             priority: pulumi.Input[int],
+             action: Optional[pulumi.Input['RuleActionArgs']] = None,
+             match: Optional[pulumi.Input['RuleMatchArgs']] = None,
+             priority: Optional[pulumi.Input[int]] = None,
              listener_identifier: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              service_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if match is None:
+            raise TypeError("Missing 'match' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if listener_identifier is None and 'listenerIdentifier' in kwargs:
+            listener_identifier = kwargs['listenerIdentifier']
+        if service_identifier is None and 'serviceIdentifier' in kwargs:
+            service_identifier = kwargs['serviceIdentifier']
+
         _setter("action", action)
         _setter("match", match)
         _setter("priority", priority)
@@ -187,20 +199,12 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RuleArgs.__new__(RuleArgs)
 
-            if action is not None and not isinstance(action, RuleActionArgs):
-                action = action or {}
-                def _setter(key, value):
-                    action[key] = value
-                RuleActionArgs._configure(_setter, **action)
+            action = _utilities.configure(action, RuleActionArgs, True)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
             __props__.__dict__["listener_identifier"] = listener_identifier
-            if match is not None and not isinstance(match, RuleMatchArgs):
-                match = match or {}
-                def _setter(key, value):
-                    match[key] = value
-                RuleMatchArgs._configure(_setter, **match)
+            match = _utilities.configure(match, RuleMatchArgs, True)
             if match is None and not opts.urn:
                 raise TypeError("Missing required property 'match'")
             __props__.__dict__["match"] = match

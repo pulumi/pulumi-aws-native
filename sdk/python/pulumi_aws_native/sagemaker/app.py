@@ -44,13 +44,31 @@ class AppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_type: pulumi.Input['AppType'],
-             domain_id: pulumi.Input[str],
-             user_profile_name: pulumi.Input[str],
+             app_type: Optional[pulumi.Input['AppType']] = None,
+             domain_id: Optional[pulumi.Input[str]] = None,
+             user_profile_name: Optional[pulumi.Input[str]] = None,
              app_name: Optional[pulumi.Input[str]] = None,
              resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_type is None and 'appType' in kwargs:
+            app_type = kwargs['appType']
+        if app_type is None:
+            raise TypeError("Missing 'app_type' argument")
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_id is None:
+            raise TypeError("Missing 'domain_id' argument")
+        if user_profile_name is None and 'userProfileName' in kwargs:
+            user_profile_name = kwargs['userProfileName']
+        if user_profile_name is None:
+            raise TypeError("Missing 'user_profile_name' argument")
+        if app_name is None and 'appName' in kwargs:
+            app_name = kwargs['appName']
+        if resource_spec is None and 'resourceSpec' in kwargs:
+            resource_spec = kwargs['resourceSpec']
+
         _setter("app_type", app_type)
         _setter("domain_id", domain_id)
         _setter("user_profile_name", user_profile_name)
@@ -208,11 +226,7 @@ class App(pulumi.CustomResource):
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
-            if resource_spec is not None and not isinstance(resource_spec, AppResourceSpecArgs):
-                resource_spec = resource_spec or {}
-                def _setter(key, value):
-                    resource_spec[key] = value
-                AppResourceSpecArgs._configure(_setter, **resource_spec)
+            resource_spec = _utilities.configure(resource_spec, AppResourceSpecArgs, True)
             __props__.__dict__["resource_spec"] = resource_spec
             __props__.__dict__["tags"] = tags
             if user_profile_name is None and not opts.urn:

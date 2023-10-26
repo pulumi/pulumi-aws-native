@@ -101,7 +101,35 @@ class TargetGroupArgs:
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetDescriptionArgs']]]] = None,
              unhealthy_threshold_count: Optional[pulumi.Input[int]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check_enabled is None and 'healthCheckEnabled' in kwargs:
+            health_check_enabled = kwargs['healthCheckEnabled']
+        if health_check_interval_seconds is None and 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if health_check_port is None and 'healthCheckPort' in kwargs:
+            health_check_port = kwargs['healthCheckPort']
+        if health_check_protocol is None and 'healthCheckProtocol' in kwargs:
+            health_check_protocol = kwargs['healthCheckProtocol']
+        if health_check_timeout_seconds is None and 'healthCheckTimeoutSeconds' in kwargs:
+            health_check_timeout_seconds = kwargs['healthCheckTimeoutSeconds']
+        if healthy_threshold_count is None and 'healthyThresholdCount' in kwargs:
+            healthy_threshold_count = kwargs['healthyThresholdCount']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if target_group_attributes is None and 'targetGroupAttributes' in kwargs:
+            target_group_attributes = kwargs['targetGroupAttributes']
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if unhealthy_threshold_count is None and 'unhealthyThresholdCount' in kwargs:
+            unhealthy_threshold_count = kwargs['unhealthyThresholdCount']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if health_check_enabled is not None:
             _setter("health_check_enabled", health_check_enabled)
         if health_check_interval_seconds is not None:
@@ -484,11 +512,7 @@ class TargetGroup(pulumi.CustomResource):
             __props__.__dict__["health_check_timeout_seconds"] = health_check_timeout_seconds
             __props__.__dict__["healthy_threshold_count"] = healthy_threshold_count
             __props__.__dict__["ip_address_type"] = ip_address_type
-            if matcher is not None and not isinstance(matcher, TargetGroupMatcherArgs):
-                matcher = matcher or {}
-                def _setter(key, value):
-                    matcher[key] = value
-                TargetGroupMatcherArgs._configure(_setter, **matcher)
+            matcher = _utilities.configure(matcher, TargetGroupMatcherArgs, True)
             __props__.__dict__["matcher"] = matcher
             __props__.__dict__["name"] = name
             __props__.__dict__["port"] = port

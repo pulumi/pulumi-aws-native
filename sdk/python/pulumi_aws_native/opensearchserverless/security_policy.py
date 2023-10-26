@@ -35,11 +35,17 @@ class SecurityPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: pulumi.Input[str],
-             type: pulumi.Input['SecurityPolicyType'],
+             policy: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['SecurityPolicyType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("policy", policy)
         _setter("type", type)
         if description is not None:

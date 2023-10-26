@@ -27,9 +27,15 @@ class TopicSubscriptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint: pulumi.Input[str],
-             protocol: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             endpoint: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint is None:
+            raise TypeError("Missing 'endpoint' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+
         _setter("endpoint", endpoint)
         _setter("protocol", protocol)
 
@@ -69,9 +75,15 @@ class TopicTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

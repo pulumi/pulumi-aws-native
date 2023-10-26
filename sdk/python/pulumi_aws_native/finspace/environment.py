@@ -56,7 +56,19 @@ class EnvironmentArgs:
              name: Optional[pulumi.Input[str]] = None,
              superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_bundles is None and 'dataBundles' in kwargs:
+            data_bundles = kwargs['dataBundles']
+        if federation_mode is None and 'federationMode' in kwargs:
+            federation_mode = kwargs['federationMode']
+        if federation_parameters is None and 'federationParameters' in kwargs:
+            federation_parameters = kwargs['federationParameters']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if superuser_parameters is None and 'superuserParameters' in kwargs:
+            superuser_parameters = kwargs['superuserParameters']
+
         if data_bundles is not None:
             _setter("data_bundles", data_bundles)
         if description is not None:
@@ -239,19 +251,11 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["data_bundles"] = data_bundles
             __props__.__dict__["description"] = description
             __props__.__dict__["federation_mode"] = federation_mode
-            if federation_parameters is not None and not isinstance(federation_parameters, EnvironmentFederationParametersArgs):
-                federation_parameters = federation_parameters or {}
-                def _setter(key, value):
-                    federation_parameters[key] = value
-                EnvironmentFederationParametersArgs._configure(_setter, **federation_parameters)
+            federation_parameters = _utilities.configure(federation_parameters, EnvironmentFederationParametersArgs, True)
             __props__.__dict__["federation_parameters"] = federation_parameters
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
-            if superuser_parameters is not None and not isinstance(superuser_parameters, EnvironmentSuperuserParametersArgs):
-                superuser_parameters = superuser_parameters or {}
-                def _setter(key, value):
-                    superuser_parameters[key] = value
-                EnvironmentSuperuserParametersArgs._configure(_setter, **superuser_parameters)
+            superuser_parameters = _utilities.configure(superuser_parameters, EnvironmentSuperuserParametersArgs, True)
             __props__.__dict__["superuser_parameters"] = superuser_parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_account_id"] = None

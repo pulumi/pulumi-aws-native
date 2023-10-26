@@ -44,8 +44,8 @@ class TemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aws_account_id: pulumi.Input[str],
-             template_id: pulumi.Input[str],
+             aws_account_id: Optional[pulumi.Input[str]] = None,
+             template_id: Optional[pulumi.Input[str]] = None,
              definition: Optional[pulumi.Input['TemplateVersionDefinitionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
@@ -53,7 +53,23 @@ class TemplateArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
              validation_strategy: Optional[pulumi.Input['TemplateValidationStrategyArgs']] = None,
              version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_account_id is None:
+            raise TypeError("Missing 'aws_account_id' argument")
+        if template_id is None and 'templateId' in kwargs:
+            template_id = kwargs['templateId']
+        if template_id is None:
+            raise TypeError("Missing 'template_id' argument")
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if validation_strategy is None and 'validationStrategy' in kwargs:
+            validation_strategy = kwargs['validationStrategy']
+        if version_description is None and 'versionDescription' in kwargs:
+            version_description = kwargs['versionDescription']
+
         _setter("aws_account_id", aws_account_id)
         _setter("template_id", template_id)
         if definition is not None:
@@ -223,29 +239,17 @@ class Template(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
-            if definition is not None and not isinstance(definition, TemplateVersionDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                TemplateVersionDefinitionArgs._configure(_setter, **definition)
+            definition = _utilities.configure(definition, TemplateVersionDefinitionArgs, True)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
-            if source_entity is not None and not isinstance(source_entity, TemplateSourceEntityArgs):
-                source_entity = source_entity or {}
-                def _setter(key, value):
-                    source_entity[key] = value
-                TemplateSourceEntityArgs._configure(_setter, **source_entity)
+            source_entity = _utilities.configure(source_entity, TemplateSourceEntityArgs, True)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             if template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'template_id'")
             __props__.__dict__["template_id"] = template_id
-            if validation_strategy is not None and not isinstance(validation_strategy, TemplateValidationStrategyArgs):
-                validation_strategy = validation_strategy or {}
-                def _setter(key, value):
-                    validation_strategy[key] = value
-                TemplateValidationStrategyArgs._configure(_setter, **validation_strategy)
+            validation_strategy = _utilities.configure(validation_strategy, TemplateValidationStrategyArgs, True)
             __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["version_description"] = version_description
             __props__.__dict__["arn"] = None

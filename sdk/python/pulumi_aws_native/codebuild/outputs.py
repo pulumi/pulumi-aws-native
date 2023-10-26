@@ -86,7 +86,7 @@ class ProjectArtifacts(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              artifact_identifier: Optional[str] = None,
              encryption_disabled: Optional[bool] = None,
              location: Optional[str] = None,
@@ -95,7 +95,19 @@ class ProjectArtifacts(dict):
              override_artifact_name: Optional[bool] = None,
              packaging: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if artifact_identifier is None and 'artifactIdentifier' in kwargs:
+            artifact_identifier = kwargs['artifactIdentifier']
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+        if namespace_type is None and 'namespaceType' in kwargs:
+            namespace_type = kwargs['namespaceType']
+        if override_artifact_name is None and 'overrideArtifactName' in kwargs:
+            override_artifact_name = kwargs['overrideArtifactName']
+
         _setter("type", type)
         if artifact_identifier is not None:
             _setter("artifact_identifier", artifact_identifier)
@@ -194,7 +206,13 @@ class ProjectBatchRestrictions(dict):
              _setter: Callable[[Any, Any], None],
              compute_types_allowed: Optional[Sequence[str]] = None,
              maximum_builds_allowed: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_types_allowed is None and 'computeTypesAllowed' in kwargs:
+            compute_types_allowed = kwargs['computeTypesAllowed']
+        if maximum_builds_allowed is None and 'maximumBuildsAllowed' in kwargs:
+            maximum_builds_allowed = kwargs['maximumBuildsAllowed']
+
         if compute_types_allowed is not None:
             _setter("compute_types_allowed", compute_types_allowed)
         if maximum_builds_allowed is not None:
@@ -258,7 +276,17 @@ class ProjectBuildBatchConfig(dict):
              restrictions: Optional['outputs.ProjectBatchRestrictions'] = None,
              service_role: Optional[str] = None,
              timeout_in_mins: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch_report_mode is None and 'batchReportMode' in kwargs:
+            batch_report_mode = kwargs['batchReportMode']
+        if combine_artifacts is None and 'combineArtifacts' in kwargs:
+            combine_artifacts = kwargs['combineArtifacts']
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if timeout_in_mins is None and 'timeoutInMins' in kwargs:
+            timeout_in_mins = kwargs['timeoutInMins']
+
         if batch_report_mode is not None:
             _setter("batch_report_mode", batch_report_mode)
         if combine_artifacts is not None:
@@ -328,7 +356,11 @@ class ProjectBuildStatusConfig(dict):
              _setter: Callable[[Any, Any], None],
              context: Optional[str] = None,
              target_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_url is None and 'targetUrl' in kwargs:
+            target_url = kwargs['targetUrl']
+
         if context is not None:
             _setter("context", context)
         if target_url is not None:
@@ -360,10 +392,14 @@ class ProjectCache(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              location: Optional[str] = None,
              modes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if location is not None:
             _setter("location", location)
@@ -420,10 +456,18 @@ class ProjectCloudWatchLogsConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
+             status: Optional[str] = None,
              group_name: Optional[str] = None,
              stream_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if stream_name is None and 'streamName' in kwargs:
+            stream_name = kwargs['streamName']
+
         _setter("status", status)
         if group_name is not None:
             _setter("group_name", group_name)
@@ -496,15 +540,33 @@ class ProjectEnvironment(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             compute_type: str,
-             image: str,
-             type: str,
+             compute_type: Optional[str] = None,
+             image: Optional[str] = None,
+             type: Optional[str] = None,
              certificate: Optional[str] = None,
              environment_variables: Optional[Sequence['outputs.ProjectEnvironmentVariable']] = None,
              image_pull_credentials_type: Optional[str] = None,
              privileged_mode: Optional[bool] = None,
              registry_credential: Optional['outputs.ProjectRegistryCredential'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if compute_type is None:
+            raise TypeError("Missing 'compute_type' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if image_pull_credentials_type is None and 'imagePullCredentialsType' in kwargs:
+            image_pull_credentials_type = kwargs['imagePullCredentialsType']
+        if privileged_mode is None and 'privilegedMode' in kwargs:
+            privileged_mode = kwargs['privilegedMode']
+        if registry_credential is None and 'registryCredential' in kwargs:
+            registry_credential = kwargs['registryCredential']
+
         _setter("compute_type", compute_type)
         _setter("image", image)
         _setter("type", type)
@@ -575,10 +637,16 @@ class ProjectEnvironmentVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
         if type is not None:
@@ -638,12 +706,26 @@ class ProjectFileSystemLocation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identifier: str,
-             location: str,
-             mount_point: str,
-             type: str,
+             identifier: Optional[str] = None,
+             location: Optional[str] = None,
+             mount_point: Optional[str] = None,
+             type: Optional[str] = None,
              mount_options: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if mount_point is None and 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if mount_point is None:
+            raise TypeError("Missing 'mount_point' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if mount_options is None and 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+
         _setter("identifier", identifier)
         _setter("location", location)
         _setter("mount_point", mount_point)
@@ -684,8 +766,10 @@ class ProjectFilterGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -716,8 +800,14 @@ class ProjectGitSubmodulesConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fetch_submodules: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fetch_submodules: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fetch_submodules is None and 'fetchSubmodules' in kwargs:
+            fetch_submodules = kwargs['fetchSubmodules']
+        if fetch_submodules is None:
+            raise TypeError("Missing 'fetch_submodules' argument")
+
         _setter("fetch_submodules", fetch_submodules)
 
     @property
@@ -760,7 +850,13 @@ class ProjectLogsConfig(dict):
              _setter: Callable[[Any, Any], None],
              cloud_watch_logs: Optional['outputs.ProjectCloudWatchLogsConfig'] = None,
              s3_logs: Optional['outputs.ProjectS3LogsConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs is None and 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+        if s3_logs is None and 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if s3_logs is not None:
@@ -807,9 +903,17 @@ class ProjectRegistryCredential(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             credential: str,
-             credential_provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             credential: Optional[str] = None,
+             credential_provider: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if credential is None:
+            raise TypeError("Missing 'credential' argument")
+        if credential_provider is None and 'credentialProvider' in kwargs:
+            credential_provider = kwargs['credentialProvider']
+        if credential_provider is None:
+            raise TypeError("Missing 'credential_provider' argument")
+
         _setter("credential", credential)
         _setter("credential_provider", credential_provider)
 
@@ -856,10 +960,16 @@ class ProjectS3LogsConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
+             status: Optional[str] = None,
              encryption_disabled: Optional[bool] = None,
              location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+
         _setter("status", status)
         if encryption_disabled is not None:
             _setter("encryption_disabled", encryption_disabled)
@@ -940,7 +1050,7 @@ class ProjectSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              auth: Optional['outputs.ProjectSourceAuth'] = None,
              build_spec: Optional[str] = None,
              build_status_config: Optional['outputs.ProjectBuildStatusConfig'] = None,
@@ -950,7 +1060,25 @@ class ProjectSource(dict):
              location: Optional[str] = None,
              report_build_status: Optional[bool] = None,
              source_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if build_spec is None and 'buildSpec' in kwargs:
+            build_spec = kwargs['buildSpec']
+        if build_status_config is None and 'buildStatusConfig' in kwargs:
+            build_status_config = kwargs['buildStatusConfig']
+        if git_clone_depth is None and 'gitCloneDepth' in kwargs:
+            git_clone_depth = kwargs['gitCloneDepth']
+        if git_submodules_config is None and 'gitSubmodulesConfig' in kwargs:
+            git_submodules_config = kwargs['gitSubmodulesConfig']
+        if insecure_ssl is None and 'insecureSsl' in kwargs:
+            insecure_ssl = kwargs['insecureSsl']
+        if report_build_status is None and 'reportBuildStatus' in kwargs:
+            report_build_status = kwargs['reportBuildStatus']
+        if source_identifier is None and 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+
         _setter("type", type)
         if auth is not None:
             _setter("auth", auth)
@@ -1035,9 +1163,13 @@ class ProjectSourceAuth(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              resource: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if resource is not None:
             _setter("resource", resource)
@@ -1085,9 +1217,17 @@ class ProjectSourceVersion(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_identifier: str,
+             source_identifier: Optional[str] = None,
              source_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_identifier is None and 'sourceIdentifier' in kwargs:
+            source_identifier = kwargs['sourceIdentifier']
+        if source_identifier is None:
+            raise TypeError("Missing 'source_identifier' argument")
+        if source_version is None and 'sourceVersion' in kwargs:
+            source_version = kwargs['sourceVersion']
+
         _setter("source_identifier", source_identifier)
         if source_version is not None:
             _setter("source_version", source_version)
@@ -1116,9 +1256,15 @@ class ProjectTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1170,7 +1316,13 @@ class ProjectTriggers(dict):
              build_type: Optional[str] = None,
              filter_groups: Optional[Sequence['outputs.ProjectFilterGroup']] = None,
              webhook: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if build_type is None and 'buildType' in kwargs:
+            build_type = kwargs['buildType']
+        if filter_groups is None and 'filterGroups' in kwargs:
+            filter_groups = kwargs['filterGroups']
+
         if build_type is not None:
             _setter("build_type", build_type)
         if filter_groups is not None:
@@ -1231,7 +1383,13 @@ class ProjectVpcConfig(dict):
              security_group_ids: Optional[Sequence[str]] = None,
              subnets: Optional[Sequence[str]] = None,
              vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnets is not None:
@@ -1287,9 +1445,17 @@ class ReportGroupReportExportConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             export_config_type: str,
+             export_config_type: Optional[str] = None,
              s3_destination: Optional['outputs.ReportGroupS3ReportExportConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if export_config_type is None and 'exportConfigType' in kwargs:
+            export_config_type = kwargs['exportConfigType']
+        if export_config_type is None:
+            raise TypeError("Missing 'export_config_type' argument")
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         _setter("export_config_type", export_config_type)
         if s3_destination is not None:
             _setter("s3_destination", s3_destination)
@@ -1347,13 +1513,23 @@ class ReportGroupS3ReportExportConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
+             bucket: Optional[str] = None,
              bucket_owner: Optional[str] = None,
              encryption_disabled: Optional[bool] = None,
              encryption_key: Optional[str] = None,
              packaging: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if bucket_owner is None and 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+        if encryption_disabled is None and 'encryptionDisabled' in kwargs:
+            encryption_disabled = kwargs['encryptionDisabled']
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+
         _setter("bucket", bucket)
         if bucket_owner is not None:
             _setter("bucket_owner", bucket_owner)
@@ -1410,9 +1586,15 @@ class ReportGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

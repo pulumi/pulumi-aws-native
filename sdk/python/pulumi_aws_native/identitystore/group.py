@@ -32,10 +32,20 @@ class GroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             identity_store_id: pulumi.Input[str],
+             display_name: Optional[pulumi.Input[str]] = None,
+             identity_store_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if identity_store_id is None and 'identityStoreId' in kwargs:
+            identity_store_id = kwargs['identityStoreId']
+        if identity_store_id is None:
+            raise TypeError("Missing 'identity_store_id' argument")
+
         _setter("display_name", display_name)
         _setter("identity_store_id", identity_store_id)
         if description is not None:

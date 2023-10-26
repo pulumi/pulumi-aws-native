@@ -42,15 +42,33 @@ class CalculatedAttributeDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_details: pulumi.Input['CalculatedAttributeDefinitionAttributeDetailsArgs'],
-             calculated_attribute_name: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             statistic: pulumi.Input['CalculatedAttributeDefinitionStatistic'],
+             attribute_details: Optional[pulumi.Input['CalculatedAttributeDefinitionAttributeDetailsArgs']] = None,
+             calculated_attribute_name: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             statistic: Optional[pulumi.Input['CalculatedAttributeDefinitionStatistic']] = None,
              conditions: Optional[pulumi.Input['CalculatedAttributeDefinitionConditionsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_details is None and 'attributeDetails' in kwargs:
+            attribute_details = kwargs['attributeDetails']
+        if attribute_details is None:
+            raise TypeError("Missing 'attribute_details' argument")
+        if calculated_attribute_name is None and 'calculatedAttributeName' in kwargs:
+            calculated_attribute_name = kwargs['calculatedAttributeName']
+        if calculated_attribute_name is None:
+            raise TypeError("Missing 'calculated_attribute_name' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if statistic is None:
+            raise TypeError("Missing 'statistic' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         _setter("attribute_details", attribute_details)
         _setter("calculated_attribute_name", calculated_attribute_name)
         _setter("domain_name", domain_name)
@@ -202,22 +220,14 @@ class CalculatedAttributeDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CalculatedAttributeDefinitionArgs.__new__(CalculatedAttributeDefinitionArgs)
 
-            if attribute_details is not None and not isinstance(attribute_details, CalculatedAttributeDefinitionAttributeDetailsArgs):
-                attribute_details = attribute_details or {}
-                def _setter(key, value):
-                    attribute_details[key] = value
-                CalculatedAttributeDefinitionAttributeDetailsArgs._configure(_setter, **attribute_details)
+            attribute_details = _utilities.configure(attribute_details, CalculatedAttributeDefinitionAttributeDetailsArgs, True)
             if attribute_details is None and not opts.urn:
                 raise TypeError("Missing required property 'attribute_details'")
             __props__.__dict__["attribute_details"] = attribute_details
             if calculated_attribute_name is None and not opts.urn:
                 raise TypeError("Missing required property 'calculated_attribute_name'")
             __props__.__dict__["calculated_attribute_name"] = calculated_attribute_name
-            if conditions is not None and not isinstance(conditions, CalculatedAttributeDefinitionConditionsArgs):
-                conditions = conditions or {}
-                def _setter(key, value):
-                    conditions[key] = value
-                CalculatedAttributeDefinitionConditionsArgs._configure(_setter, **conditions)
+            conditions = _utilities.configure(conditions, CalculatedAttributeDefinitionConditionsArgs, True)
             __props__.__dict__["conditions"] = conditions
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

@@ -68,7 +68,11 @@ class AppDataSource(dict):
              arn: Optional[str] = None,
              database_name: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if arn is not None:
             _setter("arn", arn)
         if database_name is not None:
@@ -107,10 +111,16 @@ class AppEnvironmentVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              secure: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
         if secure is not None:
@@ -176,7 +186,11 @@ class AppSource(dict):
              type: Optional[str] = None,
              url: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ssh_key is None and 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
         if password is not None:
             _setter("password", password)
         if revision is not None:
@@ -256,7 +270,11 @@ class AppSslConfiguration(dict):
              certificate: Optional[str] = None,
              chain: Optional[str] = None,
              private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         if certificate is not None:
             _setter("certificate", certificate)
         if chain is not None:
@@ -322,7 +340,15 @@ class InstanceBlockDeviceMapping(dict):
              ebs: Optional['outputs.InstanceEbsBlockDevice'] = None,
              no_device: Optional[str] = None,
              virtual_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if ebs is not None:
@@ -400,7 +426,17 @@ class InstanceEbsBlockDevice(dict):
              snapshot_id: Optional[str] = None,
              volume_size: Optional[int] = None,
              volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if iops is not None:
@@ -468,7 +504,9 @@ class InstanceTimeBasedAutoScaling(dict):
              thursday: Optional[Any] = None,
              tuesday: Optional[Any] = None,
              wednesday: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if friday is not None:
             _setter("friday", friday)
         if monday is not None:
@@ -574,7 +612,21 @@ class LayerAutoScalingThresholds(dict):
              load_threshold: Optional[float] = None,
              memory_threshold: Optional[float] = None,
              thresholds_wait_time: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_threshold is None and 'cpuThreshold' in kwargs:
+            cpu_threshold = kwargs['cpuThreshold']
+        if ignore_metrics_time is None and 'ignoreMetricsTime' in kwargs:
+            ignore_metrics_time = kwargs['ignoreMetricsTime']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if load_threshold is None and 'loadThreshold' in kwargs:
+            load_threshold = kwargs['loadThreshold']
+        if memory_threshold is None and 'memoryThreshold' in kwargs:
+            memory_threshold = kwargs['memoryThreshold']
+        if thresholds_wait_time is None and 'thresholdsWaitTime' in kwargs:
+            thresholds_wait_time = kwargs['thresholdsWaitTime']
+
         if cpu_threshold is not None:
             _setter("cpu_threshold", cpu_threshold)
         if ignore_metrics_time is not None:
@@ -648,7 +700,11 @@ class LayerLifecycleEventConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              shutdown_event_configuration: Optional['outputs.LayerShutdownEventConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if shutdown_event_configuration is None and 'shutdownEventConfiguration' in kwargs:
+            shutdown_event_configuration = kwargs['shutdownEventConfiguration']
+
         if shutdown_event_configuration is not None:
             _setter("shutdown_event_configuration", shutdown_event_configuration)
 
@@ -695,7 +751,13 @@ class LayerLoadBasedAutoScaling(dict):
              down_scaling: Optional['outputs.LayerAutoScalingThresholds'] = None,
              enable: Optional[bool] = None,
              up_scaling: Optional['outputs.LayerAutoScalingThresholds'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if down_scaling is None and 'downScaling' in kwargs:
+            down_scaling = kwargs['downScaling']
+        if up_scaling is None and 'upScaling' in kwargs:
+            up_scaling = kwargs['upScaling']
+
         if down_scaling is not None:
             _setter("down_scaling", down_scaling)
         if enable is not None:
@@ -743,7 +805,9 @@ class LayerRecipes(dict):
              setup: Optional[Sequence[str]] = None,
              shutdown: Optional[Sequence[str]] = None,
              undeploy: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configure is not None:
             _setter("configure", configure)
         if deploy is not None:
@@ -815,7 +879,13 @@ class LayerShutdownEventConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              delay_until_elb_connections_drained: Optional[bool] = None,
              execution_timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delay_until_elb_connections_drained is None and 'delayUntilElbConnectionsDrained' in kwargs:
+            delay_until_elb_connections_drained = kwargs['delayUntilElbConnectionsDrained']
+        if execution_timeout is None and 'executionTimeout' in kwargs:
+            execution_timeout = kwargs['executionTimeout']
+
         if delay_until_elb_connections_drained is not None:
             _setter("delay_until_elb_connections_drained", delay_until_elb_connections_drained)
         if execution_timeout is not None:
@@ -845,9 +915,15 @@ class LayerTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -915,7 +991,17 @@ class LayerVolumeConfiguration(dict):
              raid_level: Optional[int] = None,
              size: Optional[int] = None,
              volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mount_point is None and 'mountPoint' in kwargs:
+            mount_point = kwargs['mountPoint']
+        if number_of_disks is None and 'numberOfDisks' in kwargs:
+            number_of_disks = kwargs['numberOfDisks']
+        if raid_level is None and 'raidLevel' in kwargs:
+            raid_level = kwargs['raidLevel']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if encrypted is not None:
             _setter("encrypted", encrypted)
         if iops is not None:
@@ -1001,7 +1087,13 @@ class StackChefConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              berkshelf_version: Optional[str] = None,
              manage_berkshelf: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if berkshelf_version is None and 'berkshelfVersion' in kwargs:
+            berkshelf_version = kwargs['berkshelfVersion']
+        if manage_berkshelf is None and 'manageBerkshelf' in kwargs:
+            manage_berkshelf = kwargs['manageBerkshelf']
+
         if berkshelf_version is not None:
             _setter("berkshelf_version", berkshelf_version)
         if manage_berkshelf is not None:
@@ -1033,7 +1125,9 @@ class StackConfigurationManager(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if version is not None:
@@ -1063,9 +1157,13 @@ class StackElasticIp(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
+             ip: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+
         _setter("ip", ip)
         if name is not None:
             _setter("name", name)
@@ -1117,10 +1215,24 @@ class StackRdsDbInstance(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_password: str,
-             db_user: str,
-             rds_db_instance_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             db_password: Optional[str] = None,
+             db_user: Optional[str] = None,
+             rds_db_instance_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_password is None and 'dbPassword' in kwargs:
+            db_password = kwargs['dbPassword']
+        if db_password is None:
+            raise TypeError("Missing 'db_password' argument")
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if db_user is None:
+            raise TypeError("Missing 'db_user' argument")
+        if rds_db_instance_arn is None and 'rdsDbInstanceArn' in kwargs:
+            rds_db_instance_arn = kwargs['rdsDbInstanceArn']
+        if rds_db_instance_arn is None:
+            raise TypeError("Missing 'rds_db_instance_arn' argument")
+
         _setter("db_password", db_password)
         _setter("db_user", db_user)
         _setter("rds_db_instance_arn", rds_db_instance_arn)
@@ -1185,7 +1297,11 @@ class StackSource(dict):
              type: Optional[str] = None,
              url: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ssh_key is None and 'sshKey' in kwargs:
+            ssh_key = kwargs['sshKey']
+
         if password is not None:
             _setter("password", password)
         if revision is not None:
@@ -1243,9 +1359,15 @@ class StackTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

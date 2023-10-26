@@ -48,8 +48,8 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resources_vpc_config: pulumi.Input['ClusterResourcesVpcConfigArgs'],
-             role_arn: pulumi.Input[str],
+             resources_vpc_config: Optional[pulumi.Input['ClusterResourcesVpcConfigArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
              kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
              logging: Optional[pulumi.Input['LoggingArgs']] = None,
@@ -57,7 +57,23 @@ class ClusterArgs:
              outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resources_vpc_config is None and 'resourcesVpcConfig' in kwargs:
+            resources_vpc_config = kwargs['resourcesVpcConfig']
+        if resources_vpc_config is None:
+            raise TypeError("Missing 'resources_vpc_config' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if encryption_config is None and 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+        if kubernetes_network_config is None and 'kubernetesNetworkConfig' in kwargs:
+            kubernetes_network_config = kwargs['kubernetesNetworkConfig']
+        if outpost_config is None and 'outpostConfig' in kwargs:
+            outpost_config = kwargs['outpostConfig']
+
         _setter("resources_vpc_config", resources_vpc_config)
         _setter("role_arn", role_arn)
         if encryption_config is not None:
@@ -241,30 +257,14 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["encryption_config"] = encryption_config
-            if kubernetes_network_config is not None and not isinstance(kubernetes_network_config, ClusterKubernetesNetworkConfigArgs):
-                kubernetes_network_config = kubernetes_network_config or {}
-                def _setter(key, value):
-                    kubernetes_network_config[key] = value
-                ClusterKubernetesNetworkConfigArgs._configure(_setter, **kubernetes_network_config)
+            kubernetes_network_config = _utilities.configure(kubernetes_network_config, ClusterKubernetesNetworkConfigArgs, True)
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
-            if logging is not None and not isinstance(logging, LoggingArgs):
-                logging = logging or {}
-                def _setter(key, value):
-                    logging[key] = value
-                LoggingArgs._configure(_setter, **logging)
+            logging = _utilities.configure(logging, LoggingArgs, True)
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
-            if outpost_config is not None and not isinstance(outpost_config, ClusterOutpostConfigArgs):
-                outpost_config = outpost_config or {}
-                def _setter(key, value):
-                    outpost_config[key] = value
-                ClusterOutpostConfigArgs._configure(_setter, **outpost_config)
+            outpost_config = _utilities.configure(outpost_config, ClusterOutpostConfigArgs, True)
             __props__.__dict__["outpost_config"] = outpost_config
-            if resources_vpc_config is not None and not isinstance(resources_vpc_config, ClusterResourcesVpcConfigArgs):
-                resources_vpc_config = resources_vpc_config or {}
-                def _setter(key, value):
-                    resources_vpc_config[key] = value
-                ClusterResourcesVpcConfigArgs._configure(_setter, **resources_vpc_config)
+            resources_vpc_config = _utilities.configure(resources_vpc_config, ClusterResourcesVpcConfigArgs, True)
             if resources_vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'resources_vpc_config'")
             __props__.__dict__["resources_vpc_config"] = resources_vpc_config

@@ -56,18 +56,50 @@ class AlarmArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             evaluation_periods: pulumi.Input[int],
-             metric_name: pulumi.Input[str],
-             monitored_resource_name: pulumi.Input[str],
-             threshold: pulumi.Input[float],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             evaluation_periods: Optional[pulumi.Input[int]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             monitored_resource_name: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
              alarm_name: Optional[pulumi.Input[str]] = None,
              contact_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
              notification_enabled: Optional[pulumi.Input[bool]] = None,
              notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              treat_missing_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if evaluation_periods is None and 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+        if evaluation_periods is None:
+            raise TypeError("Missing 'evaluation_periods' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if monitored_resource_name is None and 'monitoredResourceName' in kwargs:
+            monitored_resource_name = kwargs['monitoredResourceName']
+        if monitored_resource_name is None:
+            raise TypeError("Missing 'monitored_resource_name' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if alarm_name is None and 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if contact_protocols is None and 'contactProtocols' in kwargs:
+            contact_protocols = kwargs['contactProtocols']
+        if datapoints_to_alarm is None and 'datapointsToAlarm' in kwargs:
+            datapoints_to_alarm = kwargs['datapointsToAlarm']
+        if notification_enabled is None and 'notificationEnabled' in kwargs:
+            notification_enabled = kwargs['notificationEnabled']
+        if notification_triggers is None and 'notificationTriggers' in kwargs:
+            notification_triggers = kwargs['notificationTriggers']
+        if treat_missing_data is None and 'treatMissingData' in kwargs:
+            treat_missing_data = kwargs['treatMissingData']
+
         _setter("comparison_operator", comparison_operator)
         _setter("evaluation_periods", evaluation_periods)
         _setter("metric_name", metric_name)

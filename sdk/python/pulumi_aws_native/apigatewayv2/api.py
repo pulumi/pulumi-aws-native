@@ -93,7 +93,31 @@ class ApiArgs:
              tags: Optional[Any] = None,
              target: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key_selection_expression is None and 'apiKeySelectionExpression' in kwargs:
+            api_key_selection_expression = kwargs['apiKeySelectionExpression']
+        if base_path is None and 'basePath' in kwargs:
+            base_path = kwargs['basePath']
+        if body_s3_location is None and 'bodyS3Location' in kwargs:
+            body_s3_location = kwargs['bodyS3Location']
+        if cors_configuration is None and 'corsConfiguration' in kwargs:
+            cors_configuration = kwargs['corsConfiguration']
+        if credentials_arn is None and 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if disable_execute_api_endpoint is None and 'disableExecuteApiEndpoint' in kwargs:
+            disable_execute_api_endpoint = kwargs['disableExecuteApiEndpoint']
+        if disable_schema_validation is None and 'disableSchemaValidation' in kwargs:
+            disable_schema_validation = kwargs['disableSchemaValidation']
+        if fail_on_warnings is None and 'failOnWarnings' in kwargs:
+            fail_on_warnings = kwargs['failOnWarnings']
+        if protocol_type is None and 'protocolType' in kwargs:
+            protocol_type = kwargs['protocolType']
+        if route_key is None and 'routeKey' in kwargs:
+            route_key = kwargs['routeKey']
+        if route_selection_expression is None and 'routeSelectionExpression' in kwargs:
+            route_selection_expression = kwargs['routeSelectionExpression']
+
         if api_key_selection_expression is not None:
             _setter("api_key_selection_expression", api_key_selection_expression)
         if base_path is not None:
@@ -437,17 +461,9 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["api_key_selection_expression"] = api_key_selection_expression
             __props__.__dict__["base_path"] = base_path
             __props__.__dict__["body"] = body
-            if body_s3_location is not None and not isinstance(body_s3_location, ApiBodyS3LocationArgs):
-                body_s3_location = body_s3_location or {}
-                def _setter(key, value):
-                    body_s3_location[key] = value
-                ApiBodyS3LocationArgs._configure(_setter, **body_s3_location)
+            body_s3_location = _utilities.configure(body_s3_location, ApiBodyS3LocationArgs, True)
             __props__.__dict__["body_s3_location"] = body_s3_location
-            if cors_configuration is not None and not isinstance(cors_configuration, ApiCorsArgs):
-                cors_configuration = cors_configuration or {}
-                def _setter(key, value):
-                    cors_configuration[key] = value
-                ApiCorsArgs._configure(_setter, **cors_configuration)
+            cors_configuration = _utilities.configure(cors_configuration, ApiCorsArgs, True)
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["credentials_arn"] = credentials_arn
             __props__.__dict__["description"] = description

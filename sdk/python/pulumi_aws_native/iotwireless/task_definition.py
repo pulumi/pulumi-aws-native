@@ -44,13 +44,23 @@ class TaskDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_create_tasks: pulumi.Input[bool],
+             auto_create_tasks: Optional[pulumi.Input[bool]] = None,
              lo_ra_wan_update_gateway_task_entry: Optional[pulumi.Input['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
              task_definition_type: Optional[pulumi.Input['TaskDefinitionType']] = None,
              update: Optional[pulumi.Input['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_create_tasks is None and 'autoCreateTasks' in kwargs:
+            auto_create_tasks = kwargs['autoCreateTasks']
+        if auto_create_tasks is None:
+            raise TypeError("Missing 'auto_create_tasks' argument")
+        if lo_ra_wan_update_gateway_task_entry is None and 'loRaWanUpdateGatewayTaskEntry' in kwargs:
+            lo_ra_wan_update_gateway_task_entry = kwargs['loRaWanUpdateGatewayTaskEntry']
+        if task_definition_type is None and 'taskDefinitionType' in kwargs:
+            task_definition_type = kwargs['taskDefinitionType']
+
         _setter("auto_create_tasks", auto_create_tasks)
         if lo_ra_wan_update_gateway_task_entry is not None:
             _setter("lo_ra_wan_update_gateway_task_entry", lo_ra_wan_update_gateway_task_entry)
@@ -206,20 +216,12 @@ class TaskDefinition(pulumi.CustomResource):
             if auto_create_tasks is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_create_tasks'")
             __props__.__dict__["auto_create_tasks"] = auto_create_tasks
-            if lo_ra_wan_update_gateway_task_entry is not None and not isinstance(lo_ra_wan_update_gateway_task_entry, TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs):
-                lo_ra_wan_update_gateway_task_entry = lo_ra_wan_update_gateway_task_entry or {}
-                def _setter(key, value):
-                    lo_ra_wan_update_gateway_task_entry[key] = value
-                TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs._configure(_setter, **lo_ra_wan_update_gateway_task_entry)
+            lo_ra_wan_update_gateway_task_entry = _utilities.configure(lo_ra_wan_update_gateway_task_entry, TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs, True)
             __props__.__dict__["lo_ra_wan_update_gateway_task_entry"] = lo_ra_wan_update_gateway_task_entry
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition_type"] = task_definition_type
-            if update is not None and not isinstance(update, TaskDefinitionUpdateWirelessGatewayTaskCreateArgs):
-                update = update or {}
-                def _setter(key, value):
-                    update[key] = value
-                TaskDefinitionUpdateWirelessGatewayTaskCreateArgs._configure(_setter, **update)
+            update = _utilities.configure(update, TaskDefinitionUpdateWirelessGatewayTaskCreateArgs, True)
             __props__.__dict__["update"] = update
             __props__.__dict__["arn"] = None
         super(TaskDefinition, __self__).__init__(

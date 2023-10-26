@@ -48,7 +48,7 @@ class RotationScheduleHostedRotationLambdaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rotation_type: pulumi.Input[str],
+             rotation_type: Optional[pulumi.Input[str]] = None,
              exclude_characters: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
              master_secret_arn: Optional[pulumi.Input[str]] = None,
@@ -59,7 +59,31 @@ class RotationScheduleHostedRotationLambdaArgs:
              superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
              vpc_subnet_ids: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rotation_type is None and 'rotationType' in kwargs:
+            rotation_type = kwargs['rotationType']
+        if rotation_type is None:
+            raise TypeError("Missing 'rotation_type' argument")
+        if exclude_characters is None and 'excludeCharacters' in kwargs:
+            exclude_characters = kwargs['excludeCharacters']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if master_secret_arn is None and 'masterSecretArn' in kwargs:
+            master_secret_arn = kwargs['masterSecretArn']
+        if master_secret_kms_key_arn is None and 'masterSecretKmsKeyArn' in kwargs:
+            master_secret_kms_key_arn = kwargs['masterSecretKmsKeyArn']
+        if rotation_lambda_name is None and 'rotationLambdaName' in kwargs:
+            rotation_lambda_name = kwargs['rotationLambdaName']
+        if superuser_secret_arn is None and 'superuserSecretArn' in kwargs:
+            superuser_secret_arn = kwargs['superuserSecretArn']
+        if superuser_secret_kms_key_arn is None and 'superuserSecretKmsKeyArn' in kwargs:
+            superuser_secret_kms_key_arn = kwargs['superuserSecretKmsKeyArn']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+        if vpc_subnet_ids is None and 'vpcSubnetIds' in kwargs:
+            vpc_subnet_ids = kwargs['vpcSubnetIds']
+
         _setter("rotation_type", rotation_type)
         if exclude_characters is not None:
             _setter("exclude_characters", exclude_characters)
@@ -200,7 +224,13 @@ class RotationScheduleRotationRulesArgs:
              automatically_after_days: Optional[pulumi.Input[int]] = None,
              duration: Optional[pulumi.Input[str]] = None,
              schedule_expression: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if automatically_after_days is None and 'automaticallyAfterDays' in kwargs:
+            automatically_after_days = kwargs['automaticallyAfterDays']
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         if automatically_after_days is not None:
             _setter("automatically_after_days", automatically_after_days)
         if duration is not None:
@@ -287,7 +317,29 @@ class SecretGenerateSecretStringArgs:
              password_length: Optional[pulumi.Input[int]] = None,
              require_each_included_type: Optional[pulumi.Input[bool]] = None,
              secret_string_template: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exclude_characters is None and 'excludeCharacters' in kwargs:
+            exclude_characters = kwargs['excludeCharacters']
+        if exclude_lowercase is None and 'excludeLowercase' in kwargs:
+            exclude_lowercase = kwargs['excludeLowercase']
+        if exclude_numbers is None and 'excludeNumbers' in kwargs:
+            exclude_numbers = kwargs['excludeNumbers']
+        if exclude_punctuation is None and 'excludePunctuation' in kwargs:
+            exclude_punctuation = kwargs['excludePunctuation']
+        if exclude_uppercase is None and 'excludeUppercase' in kwargs:
+            exclude_uppercase = kwargs['excludeUppercase']
+        if generate_string_key is None and 'generateStringKey' in kwargs:
+            generate_string_key = kwargs['generateStringKey']
+        if include_space is None and 'includeSpace' in kwargs:
+            include_space = kwargs['includeSpace']
+        if password_length is None and 'passwordLength' in kwargs:
+            password_length = kwargs['passwordLength']
+        if require_each_included_type is None and 'requireEachIncludedType' in kwargs:
+            require_each_included_type = kwargs['requireEachIncludedType']
+        if secret_string_template is None and 'secretStringTemplate' in kwargs:
+            secret_string_template = kwargs['secretStringTemplate']
+
         if exclude_characters is not None:
             _setter("exclude_characters", exclude_characters)
         if exclude_lowercase is not None:
@@ -448,9 +500,15 @@ class SecretReplicaRegionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             region: pulumi.Input[str],
+             region: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("region", region)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -498,9 +556,15 @@ class SecretTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

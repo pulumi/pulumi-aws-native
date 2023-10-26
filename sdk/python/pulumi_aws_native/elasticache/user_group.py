@@ -38,11 +38,23 @@ class UserGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             engine: pulumi.Input['UserGroupEngine'],
-             user_group_id: pulumi.Input[str],
-             user_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             engine: Optional[pulumi.Input['UserGroupEngine']] = None,
+             user_group_id: Optional[pulumi.Input[str]] = None,
+             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if engine is None:
+            raise TypeError("Missing 'engine' argument")
+        if user_group_id is None and 'userGroupId' in kwargs:
+            user_group_id = kwargs['userGroupId']
+        if user_group_id is None:
+            raise TypeError("Missing 'user_group_id' argument")
+        if user_ids is None and 'userIds' in kwargs:
+            user_ids = kwargs['userIds']
+        if user_ids is None:
+            raise TypeError("Missing 'user_ids' argument")
+
         _setter("engine", engine)
         _setter("user_group_id", user_group_id)
         _setter("user_ids", user_ids)

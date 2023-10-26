@@ -40,9 +40,15 @@ class FirewallDomainListTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -89,9 +95,15 @@ class FirewallRuleGroupAssociationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -153,14 +165,32 @@ class FirewallRuleGroupFirewallRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['FirewallRuleGroupFirewallRuleAction'],
-             firewall_domain_list_id: pulumi.Input[str],
-             priority: pulumi.Input[int],
+             action: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleAction']] = None,
+             firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
              block_override_dns_type: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockOverrideDnsType']] = None,
              block_override_domain: Optional[pulumi.Input[str]] = None,
              block_override_ttl: Optional[pulumi.Input[int]] = None,
              block_response: Optional[pulumi.Input['FirewallRuleGroupFirewallRuleBlockResponse']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if firewall_domain_list_id is None and 'firewallDomainListId' in kwargs:
+            firewall_domain_list_id = kwargs['firewallDomainListId']
+        if firewall_domain_list_id is None:
+            raise TypeError("Missing 'firewall_domain_list_id' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if block_override_dns_type is None and 'blockOverrideDnsType' in kwargs:
+            block_override_dns_type = kwargs['blockOverrideDnsType']
+        if block_override_domain is None and 'blockOverrideDomain' in kwargs:
+            block_override_domain = kwargs['blockOverrideDomain']
+        if block_override_ttl is None and 'blockOverrideTtl' in kwargs:
+            block_override_ttl = kwargs['blockOverrideTtl']
+        if block_response is None and 'blockResponse' in kwargs:
+            block_response = kwargs['blockResponse']
+
         _setter("action", action)
         _setter("firewall_domain_list_id", firewall_domain_list_id)
         _setter("priority", priority)
@@ -276,9 +306,15 @@ class FirewallRuleGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -325,9 +361,15 @@ class OutpostResolverTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -371,10 +413,16 @@ class ResolverEndpointIpAddressRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              ip: Optional[pulumi.Input[str]] = None,
              ipv6: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
         _setter("subnet_id", subnet_id)
         if ip is not None:
             _setter("ip", ip)
@@ -422,9 +470,15 @@ class ResolverEndpointTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -464,9 +518,15 @@ class ResolverRuleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -518,7 +578,9 @@ class ResolverRuleTargetAddressArgs:
              ip: Optional[pulumi.Input[str]] = None,
              ipv6: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if ip is not None:
             _setter("ip", ip)
         if ipv6 is not None:

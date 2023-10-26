@@ -58,7 +58,7 @@ class ScalingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
+             auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
              adjustment_type: Optional[pulumi.Input[str]] = None,
              cooldown: Optional[pulumi.Input[str]] = None,
              estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
@@ -69,7 +69,31 @@ class ScalingPolicyArgs:
              scaling_adjustment: Optional[pulumi.Input[int]] = None,
              step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]] = None,
              target_tracking_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_name is None and 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if auto_scaling_group_name is None:
+            raise TypeError("Missing 'auto_scaling_group_name' argument")
+        if adjustment_type is None and 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if estimated_instance_warmup is None and 'estimatedInstanceWarmup' in kwargs:
+            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
+        if metric_aggregation_type is None and 'metricAggregationType' in kwargs:
+            metric_aggregation_type = kwargs['metricAggregationType']
+        if min_adjustment_magnitude is None and 'minAdjustmentMagnitude' in kwargs:
+            min_adjustment_magnitude = kwargs['minAdjustmentMagnitude']
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if predictive_scaling_configuration is None and 'predictiveScalingConfiguration' in kwargs:
+            predictive_scaling_configuration = kwargs['predictiveScalingConfiguration']
+        if scaling_adjustment is None and 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if step_adjustments is None and 'stepAdjustments' in kwargs:
+            step_adjustments = kwargs['stepAdjustments']
+        if target_tracking_configuration is None and 'targetTrackingConfiguration' in kwargs:
+            target_tracking_configuration = kwargs['targetTrackingConfiguration']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)
@@ -316,19 +340,11 @@ class ScalingPolicy(pulumi.CustomResource):
             __props__.__dict__["metric_aggregation_type"] = metric_aggregation_type
             __props__.__dict__["min_adjustment_magnitude"] = min_adjustment_magnitude
             __props__.__dict__["policy_type"] = policy_type
-            if predictive_scaling_configuration is not None and not isinstance(predictive_scaling_configuration, ScalingPolicyPredictiveScalingConfigurationArgs):
-                predictive_scaling_configuration = predictive_scaling_configuration or {}
-                def _setter(key, value):
-                    predictive_scaling_configuration[key] = value
-                ScalingPolicyPredictiveScalingConfigurationArgs._configure(_setter, **predictive_scaling_configuration)
+            predictive_scaling_configuration = _utilities.configure(predictive_scaling_configuration, ScalingPolicyPredictiveScalingConfigurationArgs, True)
             __props__.__dict__["predictive_scaling_configuration"] = predictive_scaling_configuration
             __props__.__dict__["scaling_adjustment"] = scaling_adjustment
             __props__.__dict__["step_adjustments"] = step_adjustments
-            if target_tracking_configuration is not None and not isinstance(target_tracking_configuration, ScalingPolicyTargetTrackingConfigurationArgs):
-                target_tracking_configuration = target_tracking_configuration or {}
-                def _setter(key, value):
-                    target_tracking_configuration[key] = value
-                ScalingPolicyTargetTrackingConfigurationArgs._configure(_setter, **target_tracking_configuration)
+            target_tracking_configuration = _utilities.configure(target_tracking_configuration, ScalingPolicyTargetTrackingConfigurationArgs, True)
             __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_name"] = None

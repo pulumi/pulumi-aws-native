@@ -31,8 +31,12 @@ class AgentPermissionsPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principals: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principals is None:
+            raise TypeError("Missing 'principals' argument")
+
         _setter("principals", principals)
 
     @property
@@ -64,9 +68,17 @@ class ProfilingGroupChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_uri: pulumi.Input[str],
+             channel_uri: Optional[pulumi.Input[str]] = None,
              channel_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_uri is None and 'channelUri' in kwargs:
+            channel_uri = kwargs['channelUri']
+        if channel_uri is None:
+            raise TypeError("Missing 'channel_uri' argument")
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+
         _setter("channel_uri", channel_uri)
         if channel_id is not None:
             _setter("channel_id", channel_id)
@@ -108,9 +120,15 @@ class ProfilingGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

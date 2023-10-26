@@ -35,13 +35,27 @@ class MemberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detector_id: pulumi.Input[str],
-             email: pulumi.Input[str],
-             member_id: pulumi.Input[str],
+             detector_id: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             member_id: Optional[pulumi.Input[str]] = None,
              disable_email_notification: Optional[pulumi.Input[bool]] = None,
              message: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if member_id is None and 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if member_id is None:
+            raise TypeError("Missing 'member_id' argument")
+        if disable_email_notification is None and 'disableEmailNotification' in kwargs:
+            disable_email_notification = kwargs['disableEmailNotification']
+
         _setter("detector_id", detector_id)
         _setter("email", email)
         _setter("member_id", member_id)

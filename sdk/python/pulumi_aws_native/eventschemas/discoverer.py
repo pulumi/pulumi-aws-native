@@ -33,11 +33,19 @@ class DiscovererArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_arn: pulumi.Input[str],
+             source_arn: Optional[pulumi.Input[str]] = None,
              cross_account: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiscovererTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if source_arn is None:
+            raise TypeError("Missing 'source_arn' argument")
+        if cross_account is None and 'crossAccount' in kwargs:
+            cross_account = kwargs['crossAccount']
+
         _setter("source_arn", source_arn)
         if cross_account is not None:
             _setter("cross_account", cross_account)

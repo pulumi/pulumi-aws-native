@@ -73,10 +73,10 @@ class ProjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             artifacts: pulumi.Input['ProjectArtifactsArgs'],
-             environment: pulumi.Input['ProjectEnvironmentArgs'],
-             service_role: pulumi.Input[str],
-             source: pulumi.Input['ProjectSourceArgs'],
+             artifacts: Optional[pulumi.Input['ProjectArtifactsArgs']] = None,
+             environment: Optional[pulumi.Input['ProjectEnvironmentArgs']] = None,
+             service_role: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input['ProjectSourceArgs']] = None,
              badge_enabled: Optional[pulumi.Input[bool]] = None,
              build_batch_config: Optional[pulumi.Input['ProjectBuildBatchConfigArgs']] = None,
              cache: Optional[pulumi.Input['ProjectCacheArgs']] = None,
@@ -97,7 +97,47 @@ class ProjectArgs:
              triggers: Optional[pulumi.Input['ProjectTriggersArgs']] = None,
              visibility: Optional[pulumi.Input[str]] = None,
              vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if artifacts is None:
+            raise TypeError("Missing 'artifacts' argument")
+        if environment is None:
+            raise TypeError("Missing 'environment' argument")
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if service_role is None:
+            raise TypeError("Missing 'service_role' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if badge_enabled is None and 'badgeEnabled' in kwargs:
+            badge_enabled = kwargs['badgeEnabled']
+        if build_batch_config is None and 'buildBatchConfig' in kwargs:
+            build_batch_config = kwargs['buildBatchConfig']
+        if concurrent_build_limit is None and 'concurrentBuildLimit' in kwargs:
+            concurrent_build_limit = kwargs['concurrentBuildLimit']
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if file_system_locations is None and 'fileSystemLocations' in kwargs:
+            file_system_locations = kwargs['fileSystemLocations']
+        if logs_config is None and 'logsConfig' in kwargs:
+            logs_config = kwargs['logsConfig']
+        if queued_timeout_in_minutes is None and 'queuedTimeoutInMinutes' in kwargs:
+            queued_timeout_in_minutes = kwargs['queuedTimeoutInMinutes']
+        if resource_access_role is None and 'resourceAccessRole' in kwargs:
+            resource_access_role = kwargs['resourceAccessRole']
+        if secondary_artifacts is None and 'secondaryArtifacts' in kwargs:
+            secondary_artifacts = kwargs['secondaryArtifacts']
+        if secondary_source_versions is None and 'secondarySourceVersions' in kwargs:
+            secondary_source_versions = kwargs['secondarySourceVersions']
+        if secondary_sources is None and 'secondarySources' in kwargs:
+            secondary_sources = kwargs['secondarySources']
+        if source_version is None and 'sourceVersion' in kwargs:
+            source_version = kwargs['sourceVersion']
+        if timeout_in_minutes is None and 'timeoutInMinutes' in kwargs:
+            timeout_in_minutes = kwargs['timeoutInMinutes']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("artifacts", artifacts)
         _setter("environment", environment)
         _setter("service_role", service_role)
@@ -463,44 +503,24 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
-            if artifacts is not None and not isinstance(artifacts, ProjectArtifactsArgs):
-                artifacts = artifacts or {}
-                def _setter(key, value):
-                    artifacts[key] = value
-                ProjectArtifactsArgs._configure(_setter, **artifacts)
+            artifacts = _utilities.configure(artifacts, ProjectArtifactsArgs, True)
             if artifacts is None and not opts.urn:
                 raise TypeError("Missing required property 'artifacts'")
             __props__.__dict__["artifacts"] = artifacts
             __props__.__dict__["badge_enabled"] = badge_enabled
-            if build_batch_config is not None and not isinstance(build_batch_config, ProjectBuildBatchConfigArgs):
-                build_batch_config = build_batch_config or {}
-                def _setter(key, value):
-                    build_batch_config[key] = value
-                ProjectBuildBatchConfigArgs._configure(_setter, **build_batch_config)
+            build_batch_config = _utilities.configure(build_batch_config, ProjectBuildBatchConfigArgs, True)
             __props__.__dict__["build_batch_config"] = build_batch_config
-            if cache is not None and not isinstance(cache, ProjectCacheArgs):
-                cache = cache or {}
-                def _setter(key, value):
-                    cache[key] = value
-                ProjectCacheArgs._configure(_setter, **cache)
+            cache = _utilities.configure(cache, ProjectCacheArgs, True)
             __props__.__dict__["cache"] = cache
             __props__.__dict__["concurrent_build_limit"] = concurrent_build_limit
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption_key"] = encryption_key
-            if environment is not None and not isinstance(environment, ProjectEnvironmentArgs):
-                environment = environment or {}
-                def _setter(key, value):
-                    environment[key] = value
-                ProjectEnvironmentArgs._configure(_setter, **environment)
+            environment = _utilities.configure(environment, ProjectEnvironmentArgs, True)
             if environment is None and not opts.urn:
                 raise TypeError("Missing required property 'environment'")
             __props__.__dict__["environment"] = environment
             __props__.__dict__["file_system_locations"] = file_system_locations
-            if logs_config is not None and not isinstance(logs_config, ProjectLogsConfigArgs):
-                logs_config = logs_config or {}
-                def _setter(key, value):
-                    logs_config[key] = value
-                ProjectLogsConfigArgs._configure(_setter, **logs_config)
+            logs_config = _utilities.configure(logs_config, ProjectLogsConfigArgs, True)
             __props__.__dict__["logs_config"] = logs_config
             __props__.__dict__["name"] = name
             __props__.__dict__["queued_timeout_in_minutes"] = queued_timeout_in_minutes
@@ -511,29 +531,17 @@ class Project(pulumi.CustomResource):
             if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
             __props__.__dict__["service_role"] = service_role
-            if source is not None and not isinstance(source, ProjectSourceArgs):
-                source = source or {}
-                def _setter(key, value):
-                    source[key] = value
-                ProjectSourceArgs._configure(_setter, **source)
+            source = _utilities.configure(source, ProjectSourceArgs, True)
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
             __props__.__dict__["source_version"] = source_version
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_minutes"] = timeout_in_minutes
-            if triggers is not None and not isinstance(triggers, ProjectTriggersArgs):
-                triggers = triggers or {}
-                def _setter(key, value):
-                    triggers[key] = value
-                ProjectTriggersArgs._configure(_setter, **triggers)
+            triggers = _utilities.configure(triggers, ProjectTriggersArgs, True)
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["visibility"] = visibility
-            if vpc_config is not None and not isinstance(vpc_config, ProjectVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                ProjectVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, ProjectVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

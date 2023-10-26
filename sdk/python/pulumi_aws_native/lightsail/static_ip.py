@@ -31,7 +31,13 @@ class StaticIpArgs:
              _setter: Callable[[Any, Any], None],
              attached_to: Optional[pulumi.Input[str]] = None,
              static_ip_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attached_to is None and 'attachedTo' in kwargs:
+            attached_to = kwargs['attachedTo']
+        if static_ip_name is None and 'staticIpName' in kwargs:
+            static_ip_name = kwargs['staticIpName']
+
         if attached_to is not None:
             _setter("attached_to", attached_to)
         if static_ip_name is not None:

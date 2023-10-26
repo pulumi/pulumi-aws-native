@@ -34,8 +34,12 @@ class AgentPermissionsProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principals: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             principals: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principals is None:
+            raise TypeError("Missing 'principals' argument")
+
         _setter("principals", principals)
 
     @property
@@ -85,9 +89,17 @@ class ProfilingGroupChannel(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_uri: str,
+             channel_uri: Optional[str] = None,
              channel_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_uri is None and 'channelUri' in kwargs:
+            channel_uri = kwargs['channelUri']
+        if channel_uri is None:
+            raise TypeError("Missing 'channel_uri' argument")
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+
         _setter("channel_uri", channel_uri)
         if channel_id is not None:
             _setter("channel_id", channel_id)
@@ -124,9 +136,15 @@ class ProfilingGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

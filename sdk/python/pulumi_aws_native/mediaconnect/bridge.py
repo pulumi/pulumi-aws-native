@@ -44,14 +44,28 @@ class BridgeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             placement_arn: pulumi.Input[str],
-             sources: pulumi.Input[Sequence[pulumi.Input['BridgeSourceArgs']]],
+             placement_arn: Optional[pulumi.Input[str]] = None,
+             sources: Optional[pulumi.Input[Sequence[pulumi.Input['BridgeSourceArgs']]]] = None,
              egress_gateway_bridge: Optional[pulumi.Input['BridgeEgressGatewayBridgeArgs']] = None,
              ingress_gateway_bridge: Optional[pulumi.Input['BridgeIngressGatewayBridgeArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              outputs: Optional[pulumi.Input[Sequence[pulumi.Input['BridgeOutputArgs']]]] = None,
              source_failover_config: Optional[pulumi.Input['BridgeFailoverConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if placement_arn is None and 'placementArn' in kwargs:
+            placement_arn = kwargs['placementArn']
+        if placement_arn is None:
+            raise TypeError("Missing 'placement_arn' argument")
+        if sources is None:
+            raise TypeError("Missing 'sources' argument")
+        if egress_gateway_bridge is None and 'egressGatewayBridge' in kwargs:
+            egress_gateway_bridge = kwargs['egressGatewayBridge']
+        if ingress_gateway_bridge is None and 'ingressGatewayBridge' in kwargs:
+            ingress_gateway_bridge = kwargs['ingressGatewayBridge']
+        if source_failover_config is None and 'sourceFailoverConfig' in kwargs:
+            source_failover_config = kwargs['sourceFailoverConfig']
+
         _setter("placement_arn", placement_arn)
         _setter("sources", sources)
         if egress_gateway_bridge is not None:
@@ -208,28 +222,16 @@ class Bridge(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BridgeArgs.__new__(BridgeArgs)
 
-            if egress_gateway_bridge is not None and not isinstance(egress_gateway_bridge, BridgeEgressGatewayBridgeArgs):
-                egress_gateway_bridge = egress_gateway_bridge or {}
-                def _setter(key, value):
-                    egress_gateway_bridge[key] = value
-                BridgeEgressGatewayBridgeArgs._configure(_setter, **egress_gateway_bridge)
+            egress_gateway_bridge = _utilities.configure(egress_gateway_bridge, BridgeEgressGatewayBridgeArgs, True)
             __props__.__dict__["egress_gateway_bridge"] = egress_gateway_bridge
-            if ingress_gateway_bridge is not None and not isinstance(ingress_gateway_bridge, BridgeIngressGatewayBridgeArgs):
-                ingress_gateway_bridge = ingress_gateway_bridge or {}
-                def _setter(key, value):
-                    ingress_gateway_bridge[key] = value
-                BridgeIngressGatewayBridgeArgs._configure(_setter, **ingress_gateway_bridge)
+            ingress_gateway_bridge = _utilities.configure(ingress_gateway_bridge, BridgeIngressGatewayBridgeArgs, True)
             __props__.__dict__["ingress_gateway_bridge"] = ingress_gateway_bridge
             __props__.__dict__["name"] = name
             __props__.__dict__["outputs"] = outputs
             if placement_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'placement_arn'")
             __props__.__dict__["placement_arn"] = placement_arn
-            if source_failover_config is not None and not isinstance(source_failover_config, BridgeFailoverConfigArgs):
-                source_failover_config = source_failover_config or {}
-                def _setter(key, value):
-                    source_failover_config[key] = value
-                BridgeFailoverConfigArgs._configure(_setter, **source_failover_config)
+            source_failover_config = _utilities.configure(source_failover_config, BridgeFailoverConfigArgs, True)
             __props__.__dict__["source_failover_config"] = source_failover_config
             if sources is None and not opts.urn:
                 raise TypeError("Missing required property 'sources'")

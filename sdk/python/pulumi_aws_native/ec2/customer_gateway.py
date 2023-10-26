@@ -40,12 +40,26 @@ class CustomerGatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bgp_asn: pulumi.Input[int],
-             ip_address: pulumi.Input[str],
-             type: pulumi.Input[str],
+             bgp_asn: Optional[pulumi.Input[int]] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              device_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomerGatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bgp_asn is None and 'bgpAsn' in kwargs:
+            bgp_asn = kwargs['bgpAsn']
+        if bgp_asn is None:
+            raise TypeError("Missing 'bgp_asn' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+
         _setter("bgp_asn", bgp_asn)
         _setter("ip_address", ip_address)
         _setter("type", type)

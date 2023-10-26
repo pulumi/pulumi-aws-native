@@ -43,7 +43,17 @@ class VolumeArgs:
              open_zfs_configuration: Optional[pulumi.Input['VolumeOpenZfsConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_id is None and 'backupId' in kwargs:
+            backup_id = kwargs['backupId']
+        if ontap_configuration is None and 'ontapConfiguration' in kwargs:
+            ontap_configuration = kwargs['ontapConfiguration']
+        if open_zfs_configuration is None and 'openZfsConfiguration' in kwargs:
+            open_zfs_configuration = kwargs['openZfsConfiguration']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if backup_id is not None:
             _setter("backup_id", backup_id)
         if name is not None:
@@ -181,17 +191,9 @@ class Volume(pulumi.CustomResource):
 
             __props__.__dict__["backup_id"] = backup_id
             __props__.__dict__["name"] = name
-            if ontap_configuration is not None and not isinstance(ontap_configuration, VolumeOntapConfigurationArgs):
-                ontap_configuration = ontap_configuration or {}
-                def _setter(key, value):
-                    ontap_configuration[key] = value
-                VolumeOntapConfigurationArgs._configure(_setter, **ontap_configuration)
+            ontap_configuration = _utilities.configure(ontap_configuration, VolumeOntapConfigurationArgs, True)
             __props__.__dict__["ontap_configuration"] = ontap_configuration
-            if open_zfs_configuration is not None and not isinstance(open_zfs_configuration, VolumeOpenZfsConfigurationArgs):
-                open_zfs_configuration = open_zfs_configuration or {}
-                def _setter(key, value):
-                    open_zfs_configuration[key] = value
-                VolumeOpenZfsConfigurationArgs._configure(_setter, **open_zfs_configuration)
+            open_zfs_configuration = _utilities.configure(open_zfs_configuration, VolumeOpenZfsConfigurationArgs, True)
             __props__.__dict__["open_zfs_configuration"] = open_zfs_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["volume_type"] = volume_type

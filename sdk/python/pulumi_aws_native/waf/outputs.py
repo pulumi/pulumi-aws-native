@@ -69,12 +69,30 @@ class ByteMatchSetByteMatchTuple(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.ByteMatchSetFieldToMatch',
-             positional_constraint: str,
-             text_transformation: str,
+             field_to_match: Optional['outputs.ByteMatchSetFieldToMatch'] = None,
+             positional_constraint: Optional[str] = None,
+             text_transformation: Optional[str] = None,
              target_string: Optional[str] = None,
              target_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if positional_constraint is None and 'positionalConstraint' in kwargs:
+            positional_constraint = kwargs['positionalConstraint']
+        if positional_constraint is None:
+            raise TypeError("Missing 'positional_constraint' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+        if target_string is None and 'targetString' in kwargs:
+            target_string = kwargs['targetString']
+        if target_string_base64 is None and 'targetStringBase64' in kwargs:
+            target_string_base64 = kwargs['targetStringBase64']
+
         _setter("field_to_match", field_to_match)
         _setter("positional_constraint", positional_constraint)
         _setter("text_transformation", text_transformation)
@@ -122,9 +140,13 @@ class ByteMatchSetFieldToMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -153,9 +175,15 @@ class IpSetIpSetDescriptor(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 
@@ -202,10 +230,20 @@ class RulePredicate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_id: str,
-             negated: bool,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             data_id: Optional[str] = None,
+             negated: Optional[bool] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_id is None and 'dataId' in kwargs:
+            data_id = kwargs['dataId']
+        if data_id is None:
+            raise TypeError("Missing 'data_id' argument")
+        if negated is None:
+            raise TypeError("Missing 'negated' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("data_id", data_id)
         _setter("negated", negated)
         _setter("type", type)
@@ -239,9 +277,13 @@ class SizeConstraintSetFieldToMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -295,11 +337,27 @@ class SizeConstraintSetSizeConstraint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: str,
-             field_to_match: 'outputs.SizeConstraintSetFieldToMatch',
-             size: int,
-             text_transformation: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison_operator: Optional[str] = None,
+             field_to_match: Optional['outputs.SizeConstraintSetFieldToMatch'] = None,
+             size: Optional[int] = None,
+             text_transformation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
         _setter("comparison_operator", comparison_operator)
         _setter("field_to_match", field_to_match)
         _setter("size", size)
@@ -339,9 +397,13 @@ class SqlInjectionMatchSetFieldToMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -389,9 +451,19 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.SqlInjectionMatchSetFieldToMatch',
-             text_transformation: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional['outputs.SqlInjectionMatchSetFieldToMatch'] = None,
+             text_transformation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformation", text_transformation)
 
@@ -438,10 +510,18 @@ class WebAclActivatedRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: int,
-             rule_id: str,
+             priority: Optional[int] = None,
+             rule_id: Optional[str] = None,
              action: Optional['outputs.WebAclWafAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if rule_id is None:
+            raise TypeError("Missing 'rule_id' argument")
+
         _setter("priority", priority)
         _setter("rule_id", rule_id)
         if action is not None:
@@ -474,8 +554,12 @@ class WebAclWafAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
 
     @property
@@ -497,9 +581,13 @@ class XssMatchSetFieldToMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
+             type: Optional[str] = None,
              data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if data is not None:
             _setter("data", data)
@@ -547,9 +635,19 @@ class XssMatchSetXssMatchTuple(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.XssMatchSetFieldToMatch',
-             text_transformation: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             field_to_match: Optional['outputs.XssMatchSetFieldToMatch'] = None,
+             text_transformation: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_to_match is None and 'fieldToMatch' in kwargs:
+            field_to_match = kwargs['fieldToMatch']
+        if field_to_match is None:
+            raise TypeError("Missing 'field_to_match' argument")
+        if text_transformation is None and 'textTransformation' in kwargs:
+            text_transformation = kwargs['textTransformation']
+        if text_transformation is None:
+            raise TypeError("Missing 'text_transformation' argument")
+
         _setter("field_to_match", field_to_match)
         _setter("text_transformation", text_transformation)
 

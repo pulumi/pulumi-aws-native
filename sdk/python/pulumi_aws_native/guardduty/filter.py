@@ -39,14 +39,30 @@ class FilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             description: pulumi.Input[str],
-             detector_id: pulumi.Input[str],
-             finding_criteria: pulumi.Input['FilterFindingCriteriaArgs'],
-             rank: pulumi.Input[int],
+             action: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             detector_id: Optional[pulumi.Input[str]] = None,
+             finding_criteria: Optional[pulumi.Input['FilterFindingCriteriaArgs']] = None,
+             rank: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if finding_criteria is None and 'findingCriteria' in kwargs:
+            finding_criteria = kwargs['findingCriteria']
+        if finding_criteria is None:
+            raise TypeError("Missing 'finding_criteria' argument")
+        if rank is None:
+            raise TypeError("Missing 'rank' argument")
+
         _setter("action", action)
         _setter("description", description)
         _setter("detector_id", detector_id)
@@ -199,11 +215,7 @@ class Filter(pulumi.CustomResource):
             if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
-            if finding_criteria is not None and not isinstance(finding_criteria, FilterFindingCriteriaArgs):
-                finding_criteria = finding_criteria or {}
-                def _setter(key, value):
-                    finding_criteria[key] = value
-                FilterFindingCriteriaArgs._configure(_setter, **finding_criteria)
+            finding_criteria = _utilities.configure(finding_criteria, FilterFindingCriteriaArgs, True)
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria

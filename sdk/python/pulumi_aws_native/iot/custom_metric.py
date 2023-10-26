@@ -38,11 +38,21 @@ class CustomMetricArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_type: pulumi.Input['CustomMetricMetricType'],
+             metric_type: Optional[pulumi.Input['CustomMetricMetricType']] = None,
              display_name: Optional[pulumi.Input[str]] = None,
              metric_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomMetricTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_type is None and 'metricType' in kwargs:
+            metric_type = kwargs['metricType']
+        if metric_type is None:
+            raise TypeError("Missing 'metric_type' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+
         _setter("metric_type", metric_type)
         if display_name is not None:
             _setter("display_name", display_name)

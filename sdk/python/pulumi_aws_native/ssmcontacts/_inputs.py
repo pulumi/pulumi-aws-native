@@ -45,9 +45,19 @@ class ContactChannelTargetInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             retry_interval_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             channel_id: Optional[pulumi.Input[str]] = None,
+             retry_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if retry_interval_in_minutes is None and 'retryIntervalInMinutes' in kwargs:
+            retry_interval_in_minutes = kwargs['retryIntervalInMinutes']
+        if retry_interval_in_minutes is None:
+            raise TypeError("Missing 'retry_interval_in_minutes' argument")
+
         _setter("channel_id", channel_id)
         _setter("retry_interval_in_minutes", retry_interval_in_minutes)
 
@@ -100,7 +110,13 @@ class ContactStageArgs:
              duration_in_minutes: Optional[pulumi.Input[int]] = None,
              rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_minutes is None and 'durationInMinutes' in kwargs:
+            duration_in_minutes = kwargs['durationInMinutes']
+        if rotation_ids is None and 'rotationIds' in kwargs:
+            rotation_ids = kwargs['rotationIds']
+
         if duration_in_minutes is not None:
             _setter("duration_in_minutes", duration_in_minutes)
         if rotation_ids is not None:
@@ -163,9 +179,19 @@ class ContactTargetInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_id: pulumi.Input[str],
-             is_essential: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             contact_id: Optional[pulumi.Input[str]] = None,
+             is_essential: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_id is None and 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if contact_id is None:
+            raise TypeError("Missing 'contact_id' argument")
+        if is_essential is None and 'isEssential' in kwargs:
+            is_essential = kwargs['isEssential']
+        if is_essential is None:
+            raise TypeError("Missing 'is_essential' argument")
+
         _setter("contact_id", contact_id)
         _setter("is_essential", is_essential)
 
@@ -212,7 +238,13 @@ class ContactTargetsArgs:
              _setter: Callable[[Any, Any], None],
              channel_target_info: Optional[pulumi.Input['ContactChannelTargetInfoArgs']] = None,
              contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_target_info is None and 'channelTargetInfo' in kwargs:
+            channel_target_info = kwargs['channelTargetInfo']
+        if contact_target_info is None and 'contactTargetInfo' in kwargs:
+            contact_target_info = kwargs['contactTargetInfo']
+
         if channel_target_info is not None:
             _setter("channel_target_info", channel_target_info)
         if contact_target_info is not None:
@@ -255,9 +287,19 @@ class PlanChannelTargetInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             retry_interval_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             channel_id: Optional[pulumi.Input[str]] = None,
+             retry_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if retry_interval_in_minutes is None and 'retryIntervalInMinutes' in kwargs:
+            retry_interval_in_minutes = kwargs['retryIntervalInMinutes']
+        if retry_interval_in_minutes is None:
+            raise TypeError("Missing 'retry_interval_in_minutes' argument")
+
         _setter("channel_id", channel_id)
         _setter("retry_interval_in_minutes", retry_interval_in_minutes)
 
@@ -304,9 +346,19 @@ class PlanContactTargetInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_id: pulumi.Input[str],
-             is_essential: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             contact_id: Optional[pulumi.Input[str]] = None,
+             is_essential: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_id is None and 'contactId' in kwargs:
+            contact_id = kwargs['contactId']
+        if contact_id is None:
+            raise TypeError("Missing 'contact_id' argument")
+        if is_essential is None and 'isEssential' in kwargs:
+            is_essential = kwargs['isEssential']
+        if is_essential is None:
+            raise TypeError("Missing 'is_essential' argument")
+
         _setter("contact_id", contact_id)
         _setter("is_essential", is_essential)
 
@@ -353,9 +405,15 @@ class PlanStageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             duration_in_minutes: pulumi.Input[int],
+             duration_in_minutes: Optional[pulumi.Input[int]] = None,
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if duration_in_minutes is None and 'durationInMinutes' in kwargs:
+            duration_in_minutes = kwargs['durationInMinutes']
+        if duration_in_minutes is None:
+            raise TypeError("Missing 'duration_in_minutes' argument")
+
         _setter("duration_in_minutes", duration_in_minutes)
         if targets is not None:
             _setter("targets", targets)
@@ -403,7 +461,13 @@ class PlanTargetsArgs:
              _setter: Callable[[Any, Any], None],
              channel_target_info: Optional[pulumi.Input['PlanChannelTargetInfoArgs']] = None,
              contact_target_info: Optional[pulumi.Input['PlanContactTargetInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_target_info is None and 'channelTargetInfo' in kwargs:
+            channel_target_info = kwargs['channelTargetInfo']
+        if contact_target_info is None and 'contactTargetInfo' in kwargs:
+            contact_target_info = kwargs['contactTargetInfo']
+
         if channel_target_info is not None:
             _setter("channel_target_info", channel_target_info)
         if contact_target_info is not None:
@@ -444,9 +508,19 @@ class RotationCoverageTimeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_time: pulumi.Input[str],
-             start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             end_time: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
         _setter("end_time", end_time)
         _setter("start_time", start_time)
 
@@ -486,9 +560,19 @@ class RotationMonthlySettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_month: pulumi.Input[int],
-             hand_off_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             day_of_month: Optional[pulumi.Input[int]] = None,
+             hand_off_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if day_of_month is None and 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if day_of_month is None:
+            raise TypeError("Missing 'day_of_month' argument")
+        if hand_off_time is None and 'handOffTime' in kwargs:
+            hand_off_time = kwargs['handOffTime']
+        if hand_off_time is None:
+            raise TypeError("Missing 'hand_off_time' argument")
+
         _setter("day_of_month", day_of_month)
         _setter("hand_off_time", hand_off_time)
 
@@ -550,7 +634,21 @@ class RotationRecurrenceSettingsArgs:
              recurrence_multiplier: Optional[pulumi.Input[int]] = None,
              shift_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]] = None,
              weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if daily_settings is None and 'dailySettings' in kwargs:
+            daily_settings = kwargs['dailySettings']
+        if monthly_settings is None and 'monthlySettings' in kwargs:
+            monthly_settings = kwargs['monthlySettings']
+        if number_of_on_calls is None and 'numberOfOnCalls' in kwargs:
+            number_of_on_calls = kwargs['numberOfOnCalls']
+        if recurrence_multiplier is None and 'recurrenceMultiplier' in kwargs:
+            recurrence_multiplier = kwargs['recurrenceMultiplier']
+        if shift_coverages is None and 'shiftCoverages' in kwargs:
+            shift_coverages = kwargs['shiftCoverages']
+        if weekly_settings is None and 'weeklySettings' in kwargs:
+            weekly_settings = kwargs['weeklySettings']
+
         if daily_settings is not None:
             _setter("daily_settings", daily_settings)
         if monthly_settings is not None:
@@ -654,9 +752,19 @@ class RotationShiftCoverageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             coverage_times: pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgs']]],
-             day_of_week: pulumi.Input['RotationDayOfWeek'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             coverage_times: Optional[pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgs']]]] = None,
+             day_of_week: Optional[pulumi.Input['RotationDayOfWeek']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if coverage_times is None and 'coverageTimes' in kwargs:
+            coverage_times = kwargs['coverageTimes']
+        if coverage_times is None:
+            raise TypeError("Missing 'coverage_times' argument")
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+
         _setter("coverage_times", coverage_times)
         _setter("day_of_week", day_of_week)
 
@@ -700,9 +808,15 @@ class RotationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -747,9 +861,19 @@ class RotationWeeklySettingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input['RotationDayOfWeek'],
-             hand_off_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             day_of_week: Optional[pulumi.Input['RotationDayOfWeek']] = None,
+             hand_off_time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if hand_off_time is None and 'handOffTime' in kwargs:
+            hand_off_time = kwargs['handOffTime']
+        if hand_off_time is None:
+            raise TypeError("Missing 'hand_off_time' argument")
+
         _setter("day_of_week", day_of_week)
         _setter("hand_off_time", hand_off_time)
 

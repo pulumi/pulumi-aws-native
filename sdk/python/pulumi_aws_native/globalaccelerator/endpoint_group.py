@@ -54,8 +54,8 @@ class EndpointGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_group_region: pulumi.Input[str],
-             listener_arn: pulumi.Input[str],
+             endpoint_group_region: Optional[pulumi.Input[str]] = None,
+             listener_arn: Optional[pulumi.Input[str]] = None,
              endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
              health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
              health_check_path: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,33 @@ class EndpointGroupArgs:
              port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
              threshold_count: Optional[pulumi.Input[int]] = None,
              traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_group_region is None and 'endpointGroupRegion' in kwargs:
+            endpoint_group_region = kwargs['endpointGroupRegion']
+        if endpoint_group_region is None:
+            raise TypeError("Missing 'endpoint_group_region' argument")
+        if listener_arn is None and 'listenerArn' in kwargs:
+            listener_arn = kwargs['listenerArn']
+        if listener_arn is None:
+            raise TypeError("Missing 'listener_arn' argument")
+        if endpoint_configurations is None and 'endpointConfigurations' in kwargs:
+            endpoint_configurations = kwargs['endpointConfigurations']
+        if health_check_interval_seconds is None and 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if health_check_path is None and 'healthCheckPath' in kwargs:
+            health_check_path = kwargs['healthCheckPath']
+        if health_check_port is None and 'healthCheckPort' in kwargs:
+            health_check_port = kwargs['healthCheckPort']
+        if health_check_protocol is None and 'healthCheckProtocol' in kwargs:
+            health_check_protocol = kwargs['healthCheckProtocol']
+        if port_overrides is None and 'portOverrides' in kwargs:
+            port_overrides = kwargs['portOverrides']
+        if threshold_count is None and 'thresholdCount' in kwargs:
+            threshold_count = kwargs['thresholdCount']
+        if traffic_dial_percentage is None and 'trafficDialPercentage' in kwargs:
+            traffic_dial_percentage = kwargs['trafficDialPercentage']
+
         _setter("endpoint_group_region", endpoint_group_region)
         _setter("listener_arn", listener_arn)
         if endpoint_configurations is not None:

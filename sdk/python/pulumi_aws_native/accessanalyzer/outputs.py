@@ -53,9 +53,17 @@ class AnalyzerArchiveRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: Sequence['outputs.AnalyzerFilter'],
-             rule_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             filter: Optional[Sequence['outputs.AnalyzerFilter']] = None,
+             rule_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+
         _setter("filter", filter)
         _setter("rule_name", rule_name)
 
@@ -92,12 +100,16 @@ class AnalyzerFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property: str,
+             property: Optional[str] = None,
              contains: Optional[Sequence[str]] = None,
              eq: Optional[Sequence[str]] = None,
              exists: Optional[bool] = None,
              neq: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+
         _setter("property", property)
         if contains is not None:
             _setter("contains", contains)
@@ -155,9 +167,15 @@ class AnalyzerTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

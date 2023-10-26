@@ -40,12 +40,18 @@ class ParameterGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             family: pulumi.Input[str],
+             family: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              parameter_group_name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if parameter_group_name is None and 'parameterGroupName' in kwargs:
+            parameter_group_name = kwargs['parameterGroupName']
+
         _setter("family", family)
         if description is not None:
             _setter("description", description)

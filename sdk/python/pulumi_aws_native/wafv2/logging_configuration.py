@@ -38,11 +38,25 @@ class LoggingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             log_destination_configs: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_arn: pulumi.Input[str],
+             log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_arn: Optional[pulumi.Input[str]] = None,
              logging_filter: Optional[pulumi.Input['LoggingFilterPropertiesArgs']] = None,
              redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_destination_configs is None and 'logDestinationConfigs' in kwargs:
+            log_destination_configs = kwargs['logDestinationConfigs']
+        if log_destination_configs is None:
+            raise TypeError("Missing 'log_destination_configs' argument")
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if logging_filter is None and 'loggingFilter' in kwargs:
+            logging_filter = kwargs['loggingFilter']
+        if redacted_fields is None and 'redactedFields' in kwargs:
+            redacted_fields = kwargs['redactedFields']
+
         _setter("log_destination_configs", log_destination_configs)
         _setter("resource_arn", resource_arn)
         if logging_filter is not None:
@@ -163,11 +177,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             if log_destination_configs is None and not opts.urn:
                 raise TypeError("Missing required property 'log_destination_configs'")
             __props__.__dict__["log_destination_configs"] = log_destination_configs
-            if logging_filter is not None and not isinstance(logging_filter, LoggingFilterPropertiesArgs):
-                logging_filter = logging_filter or {}
-                def _setter(key, value):
-                    logging_filter[key] = value
-                LoggingFilterPropertiesArgs._configure(_setter, **logging_filter)
+            logging_filter = _utilities.configure(logging_filter, LoggingFilterPropertiesArgs, True)
             __props__.__dict__["logging_filter"] = logging_filter
             __props__.__dict__["redacted_fields"] = redacted_fields
             if resource_arn is None and not opts.urn:

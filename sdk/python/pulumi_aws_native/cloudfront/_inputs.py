@@ -109,13 +109,33 @@ class CachePolicyConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_ttl: pulumi.Input[float],
-             max_ttl: pulumi.Input[float],
-             min_ttl: pulumi.Input[float],
-             name: pulumi.Input[str],
-             parameters_in_cache_key_and_forwarded_to_origin: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'],
+             default_ttl: Optional[pulumi.Input[float]] = None,
+             max_ttl: Optional[pulumi.Input[float]] = None,
+             min_ttl: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] = None,
              comment: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_ttl is None and 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if default_ttl is None:
+            raise TypeError("Missing 'default_ttl' argument")
+        if max_ttl is None and 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if max_ttl is None:
+            raise TypeError("Missing 'max_ttl' argument")
+        if min_ttl is None and 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if min_ttl is None:
+            raise TypeError("Missing 'min_ttl' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if parameters_in_cache_key_and_forwarded_to_origin is None and 'parametersInCacheKeyAndForwardedToOrigin' in kwargs:
+            parameters_in_cache_key_and_forwarded_to_origin = kwargs['parametersInCacheKeyAndForwardedToOrigin']
+        if parameters_in_cache_key_and_forwarded_to_origin is None:
+            raise TypeError("Missing 'parameters_in_cache_key_and_forwarded_to_origin' argument")
+
         _setter("default_ttl", default_ttl)
         _setter("max_ttl", max_ttl)
         _setter("min_ttl", min_ttl)
@@ -192,9 +212,15 @@ class CachePolicyCookiesConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cookie_behavior: pulumi.Input[str],
+             cookie_behavior: Optional[pulumi.Input[str]] = None,
              cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookie_behavior is None and 'cookieBehavior' in kwargs:
+            cookie_behavior = kwargs['cookieBehavior']
+        if cookie_behavior is None:
+            raise TypeError("Missing 'cookie_behavior' argument")
+
         _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
             _setter("cookies", cookies)
@@ -231,9 +257,15 @@ class CachePolicyHeadersConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_behavior: pulumi.Input[str],
+             header_behavior: Optional[pulumi.Input[str]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_behavior is None and 'headerBehavior' in kwargs:
+            header_behavior = kwargs['headerBehavior']
+        if header_behavior is None:
+            raise TypeError("Missing 'header_behavior' argument")
+
         _setter("header_behavior", header_behavior)
         if headers is not None:
             _setter("headers", headers)
@@ -276,12 +308,32 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cookies_config: pulumi.Input['CachePolicyCookiesConfigArgs'],
-             enable_accept_encoding_gzip: pulumi.Input[bool],
-             headers_config: pulumi.Input['CachePolicyHeadersConfigArgs'],
-             query_strings_config: pulumi.Input['CachePolicyQueryStringsConfigArgs'],
+             cookies_config: Optional[pulumi.Input['CachePolicyCookiesConfigArgs']] = None,
+             enable_accept_encoding_gzip: Optional[pulumi.Input[bool]] = None,
+             headers_config: Optional[pulumi.Input['CachePolicyHeadersConfigArgs']] = None,
+             query_strings_config: Optional[pulumi.Input['CachePolicyQueryStringsConfigArgs']] = None,
              enable_accept_encoding_brotli: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookies_config is None and 'cookiesConfig' in kwargs:
+            cookies_config = kwargs['cookiesConfig']
+        if cookies_config is None:
+            raise TypeError("Missing 'cookies_config' argument")
+        if enable_accept_encoding_gzip is None and 'enableAcceptEncodingGzip' in kwargs:
+            enable_accept_encoding_gzip = kwargs['enableAcceptEncodingGzip']
+        if enable_accept_encoding_gzip is None:
+            raise TypeError("Missing 'enable_accept_encoding_gzip' argument")
+        if headers_config is None and 'headersConfig' in kwargs:
+            headers_config = kwargs['headersConfig']
+        if headers_config is None:
+            raise TypeError("Missing 'headers_config' argument")
+        if query_strings_config is None and 'queryStringsConfig' in kwargs:
+            query_strings_config = kwargs['queryStringsConfig']
+        if query_strings_config is None:
+            raise TypeError("Missing 'query_strings_config' argument")
+        if enable_accept_encoding_brotli is None and 'enableAcceptEncodingBrotli' in kwargs:
+            enable_accept_encoding_brotli = kwargs['enableAcceptEncodingBrotli']
+
         _setter("cookies_config", cookies_config)
         _setter("enable_accept_encoding_gzip", enable_accept_encoding_gzip)
         _setter("headers_config", headers_config)
@@ -348,9 +400,17 @@ class CachePolicyQueryStringsConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_string_behavior: pulumi.Input[str],
+             query_string_behavior: Optional[pulumi.Input[str]] = None,
              query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string_behavior is None and 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if query_string_behavior is None:
+            raise TypeError("Missing 'query_string_behavior' argument")
+        if query_strings is None and 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
             _setter("query_strings", query_strings)
@@ -385,8 +445,12 @@ class CloudFrontOriginAccessIdentityConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comment: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comment is None:
+            raise TypeError("Missing 'comment' argument")
+
         _setter("comment", comment)
 
     @property
@@ -412,9 +476,15 @@ class ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             header: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("header", header)
         _setter("value", value)
 
@@ -450,9 +520,15 @@ class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             weight: pulumi.Input[float],
+             weight: Optional[pulumi.Input[float]] = None,
              session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+        if session_stickiness_config is None and 'sessionStickinessConfig' in kwargs:
+            session_stickiness_config = kwargs['sessionStickinessConfig']
+
         _setter("weight", weight)
         if session_stickiness_config is not None:
             _setter("session_stickiness_config", session_stickiness_config)
@@ -497,13 +573,27 @@ class ContinuousDeploymentPolicyConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             staging_distribution_dns_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             staging_distribution_dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              single_header_policy_config: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigPropertiesArgs']] = None,
              single_weight_policy_config: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigPropertiesArgs']] = None,
              traffic_config: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigArgs']] = None,
              type: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if staging_distribution_dns_names is None and 'stagingDistributionDnsNames' in kwargs:
+            staging_distribution_dns_names = kwargs['stagingDistributionDnsNames']
+        if staging_distribution_dns_names is None:
+            raise TypeError("Missing 'staging_distribution_dns_names' argument")
+        if single_header_policy_config is None and 'singleHeaderPolicyConfig' in kwargs:
+            single_header_policy_config = kwargs['singleHeaderPolicyConfig']
+        if single_weight_policy_config is None and 'singleWeightPolicyConfig' in kwargs:
+            single_weight_policy_config = kwargs['singleWeightPolicyConfig']
+        if traffic_config is None and 'trafficConfig' in kwargs:
+            traffic_config = kwargs['trafficConfig']
+
         _setter("enabled", enabled)
         _setter("staging_distribution_dns_names", staging_distribution_dns_names)
         if single_header_policy_config is not None:
@@ -583,9 +673,19 @@ class ContinuousDeploymentPolicySessionStickinessConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             idle_ttl: pulumi.Input[int],
-             maximum_ttl: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             idle_ttl: Optional[pulumi.Input[int]] = None,
+             maximum_ttl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idle_ttl is None and 'idleTtl' in kwargs:
+            idle_ttl = kwargs['idleTtl']
+        if idle_ttl is None:
+            raise TypeError("Missing 'idle_ttl' argument")
+        if maximum_ttl is None and 'maximumTtl' in kwargs:
+            maximum_ttl = kwargs['maximumTtl']
+        if maximum_ttl is None:
+            raise TypeError("Missing 'maximum_ttl' argument")
+
         _setter("idle_ttl", idle_ttl)
         _setter("maximum_ttl", maximum_ttl)
 
@@ -621,9 +721,15 @@ class ContinuousDeploymentPolicySingleHeaderConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             header: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("header", header)
         _setter("value", value)
 
@@ -659,9 +765,15 @@ class ContinuousDeploymentPolicySingleWeightConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             weight: pulumi.Input[float],
+             weight: Optional[pulumi.Input[float]] = None,
              session_stickiness_config: Optional[pulumi.Input['ContinuousDeploymentPolicySessionStickinessConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+        if session_stickiness_config is None and 'sessionStickinessConfig' in kwargs:
+            session_stickiness_config = kwargs['sessionStickinessConfig']
+
         _setter("weight", weight)
         if session_stickiness_config is not None:
             _setter("session_stickiness_config", session_stickiness_config)
@@ -700,10 +812,18 @@ class ContinuousDeploymentPolicyTrafficConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType'],
+             type: Optional[pulumi.Input['ContinuousDeploymentPolicyTrafficConfigType']] = None,
              single_header_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleHeaderConfigArgs']] = None,
              single_weight_config: Optional[pulumi.Input['ContinuousDeploymentPolicySingleWeightConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if single_header_config is None and 'singleHeaderConfig' in kwargs:
+            single_header_config = kwargs['singleHeaderConfig']
+        if single_weight_config is None and 'singleWeightConfig' in kwargs:
+            single_weight_config = kwargs['singleWeightConfig']
+
         _setter("type", type)
         if single_header_config is not None:
             _setter("single_header_config", single_header_config)
@@ -787,9 +907,9 @@ class DistributionCacheBehaviorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path_pattern: pulumi.Input[str],
-             target_origin_id: pulumi.Input[str],
-             viewer_protocol_policy: pulumi.Input[str],
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             target_origin_id: Optional[pulumi.Input[str]] = None,
+             viewer_protocol_policy: Optional[pulumi.Input[str]] = None,
              allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cache_policy_id: Optional[pulumi.Input[str]] = None,
              cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -807,7 +927,53 @@ class DistributionCacheBehaviorArgs:
              smooth_streaming: Optional[pulumi.Input[bool]] = None,
              trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if path_pattern is None:
+            raise TypeError("Missing 'path_pattern' argument")
+        if target_origin_id is None and 'targetOriginId' in kwargs:
+            target_origin_id = kwargs['targetOriginId']
+        if target_origin_id is None:
+            raise TypeError("Missing 'target_origin_id' argument")
+        if viewer_protocol_policy is None and 'viewerProtocolPolicy' in kwargs:
+            viewer_protocol_policy = kwargs['viewerProtocolPolicy']
+        if viewer_protocol_policy is None:
+            raise TypeError("Missing 'viewer_protocol_policy' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if cache_policy_id is None and 'cachePolicyId' in kwargs:
+            cache_policy_id = kwargs['cachePolicyId']
+        if cached_methods is None and 'cachedMethods' in kwargs:
+            cached_methods = kwargs['cachedMethods']
+        if default_ttl is None and 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if field_level_encryption_id is None and 'fieldLevelEncryptionId' in kwargs:
+            field_level_encryption_id = kwargs['fieldLevelEncryptionId']
+        if forwarded_values is None and 'forwardedValues' in kwargs:
+            forwarded_values = kwargs['forwardedValues']
+        if function_associations is None and 'functionAssociations' in kwargs:
+            function_associations = kwargs['functionAssociations']
+        if lambda_function_associations is None and 'lambdaFunctionAssociations' in kwargs:
+            lambda_function_associations = kwargs['lambdaFunctionAssociations']
+        if max_ttl is None and 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if min_ttl is None and 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if origin_request_policy_id is None and 'originRequestPolicyId' in kwargs:
+            origin_request_policy_id = kwargs['originRequestPolicyId']
+        if realtime_log_config_arn is None and 'realtimeLogConfigArn' in kwargs:
+            realtime_log_config_arn = kwargs['realtimeLogConfigArn']
+        if response_headers_policy_id is None and 'responseHeadersPolicyId' in kwargs:
+            response_headers_policy_id = kwargs['responseHeadersPolicyId']
+        if smooth_streaming is None and 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if trusted_key_groups is None and 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if trusted_signers is None and 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+
         _setter("path_pattern", path_pattern)
         _setter("target_origin_id", target_origin_id)
         _setter("viewer_protocol_policy", viewer_protocol_policy)
@@ -1078,8 +1244,8 @@ class DistributionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_cache_behavior: pulumi.Input['DistributionDefaultCacheBehaviorArgs'],
-             enabled: pulumi.Input[bool],
+             default_cache_behavior: Optional[pulumi.Input['DistributionDefaultCacheBehaviorArgs']] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
              aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
              cnames: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1099,7 +1265,39 @@ class DistributionConfigArgs:
              staging: Optional[pulumi.Input[bool]] = None,
              viewer_certificate: Optional[pulumi.Input['DistributionViewerCertificateArgs']] = None,
              web_acl_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
+            default_cache_behavior = kwargs['defaultCacheBehavior']
+        if default_cache_behavior is None:
+            raise TypeError("Missing 'default_cache_behavior' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if cache_behaviors is None and 'cacheBehaviors' in kwargs:
+            cache_behaviors = kwargs['cacheBehaviors']
+        if continuous_deployment_policy_id is None and 'continuousDeploymentPolicyId' in kwargs:
+            continuous_deployment_policy_id = kwargs['continuousDeploymentPolicyId']
+        if custom_error_responses is None and 'customErrorResponses' in kwargs:
+            custom_error_responses = kwargs['customErrorResponses']
+        if custom_origin is None and 'customOrigin' in kwargs:
+            custom_origin = kwargs['customOrigin']
+        if default_root_object is None and 'defaultRootObject' in kwargs:
+            default_root_object = kwargs['defaultRootObject']
+        if http_version is None and 'httpVersion' in kwargs:
+            http_version = kwargs['httpVersion']
+        if ipv6_enabled is None and 'ipv6Enabled' in kwargs:
+            ipv6_enabled = kwargs['ipv6Enabled']
+        if origin_groups is None and 'originGroups' in kwargs:
+            origin_groups = kwargs['originGroups']
+        if price_class is None and 'priceClass' in kwargs:
+            price_class = kwargs['priceClass']
+        if s3_origin is None and 's3Origin' in kwargs:
+            s3_origin = kwargs['s3Origin']
+        if viewer_certificate is None and 'viewerCertificate' in kwargs:
+            viewer_certificate = kwargs['viewerCertificate']
+        if web_acl_id is None and 'webAclId' in kwargs:
+            web_acl_id = kwargs['webAclId']
+
         _setter("default_cache_behavior", default_cache_behavior)
         _setter("enabled", enabled)
         if aliases is not None:
@@ -1344,9 +1542,15 @@ class DistributionCookiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             forward: pulumi.Input[str],
+             forward: Optional[pulumi.Input[str]] = None,
              whitelisted_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forward is None:
+            raise TypeError("Missing 'forward' argument")
+        if whitelisted_names is None and 'whitelistedNames' in kwargs:
+            whitelisted_names = kwargs['whitelistedNames']
+
         _setter("forward", forward)
         if whitelisted_names is not None:
             _setter("whitelisted_names", whitelisted_names)
@@ -1387,11 +1591,23 @@ class DistributionCustomErrorResponseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             error_code: pulumi.Input[int],
+             error_code: Optional[pulumi.Input[int]] = None,
              error_caching_min_ttl: Optional[pulumi.Input[float]] = None,
              response_code: Optional[pulumi.Input[int]] = None,
              response_page_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if error_code is None and 'errorCode' in kwargs:
+            error_code = kwargs['errorCode']
+        if error_code is None:
+            raise TypeError("Missing 'error_code' argument")
+        if error_caching_min_ttl is None and 'errorCachingMinTtl' in kwargs:
+            error_caching_min_ttl = kwargs['errorCachingMinTtl']
+        if response_code is None and 'responseCode' in kwargs:
+            response_code = kwargs['responseCode']
+        if response_page_path is None and 'responsePagePath' in kwargs:
+            response_page_path = kwargs['responsePagePath']
+
         _setter("error_code", error_code)
         if error_caching_min_ttl is not None:
             _setter("error_caching_min_ttl", error_caching_min_ttl)
@@ -1458,13 +1674,29 @@ class DistributionCustomOriginConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             origin_protocol_policy: pulumi.Input[str],
+             origin_protocol_policy: Optional[pulumi.Input[str]] = None,
              http_port: Optional[pulumi.Input[int]] = None,
              https_port: Optional[pulumi.Input[int]] = None,
              origin_keepalive_timeout: Optional[pulumi.Input[int]] = None,
              origin_read_timeout: Optional[pulumi.Input[int]] = None,
              origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_protocol_policy is None and 'originProtocolPolicy' in kwargs:
+            origin_protocol_policy = kwargs['originProtocolPolicy']
+        if origin_protocol_policy is None:
+            raise TypeError("Missing 'origin_protocol_policy' argument")
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if origin_keepalive_timeout is None and 'originKeepaliveTimeout' in kwargs:
+            origin_keepalive_timeout = kwargs['originKeepaliveTimeout']
+        if origin_read_timeout is None and 'originReadTimeout' in kwargs:
+            origin_read_timeout = kwargs['originReadTimeout']
+        if origin_ssl_protocols is None and 'originSslProtocols' in kwargs:
+            origin_ssl_protocols = kwargs['originSslProtocols']
+
         _setter("origin_protocol_policy", origin_protocol_policy)
         if http_port is not None:
             _setter("http_port", http_port)
@@ -1579,8 +1811,8 @@ class DistributionDefaultCacheBehaviorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_origin_id: pulumi.Input[str],
-             viewer_protocol_policy: pulumi.Input[str],
+             target_origin_id: Optional[pulumi.Input[str]] = None,
+             viewer_protocol_policy: Optional[pulumi.Input[str]] = None,
              allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              cache_policy_id: Optional[pulumi.Input[str]] = None,
              cached_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1598,7 +1830,49 @@ class DistributionDefaultCacheBehaviorArgs:
              smooth_streaming: Optional[pulumi.Input[bool]] = None,
              trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_origin_id is None and 'targetOriginId' in kwargs:
+            target_origin_id = kwargs['targetOriginId']
+        if target_origin_id is None:
+            raise TypeError("Missing 'target_origin_id' argument")
+        if viewer_protocol_policy is None and 'viewerProtocolPolicy' in kwargs:
+            viewer_protocol_policy = kwargs['viewerProtocolPolicy']
+        if viewer_protocol_policy is None:
+            raise TypeError("Missing 'viewer_protocol_policy' argument")
+        if allowed_methods is None and 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if cache_policy_id is None and 'cachePolicyId' in kwargs:
+            cache_policy_id = kwargs['cachePolicyId']
+        if cached_methods is None and 'cachedMethods' in kwargs:
+            cached_methods = kwargs['cachedMethods']
+        if default_ttl is None and 'defaultTtl' in kwargs:
+            default_ttl = kwargs['defaultTtl']
+        if field_level_encryption_id is None and 'fieldLevelEncryptionId' in kwargs:
+            field_level_encryption_id = kwargs['fieldLevelEncryptionId']
+        if forwarded_values is None and 'forwardedValues' in kwargs:
+            forwarded_values = kwargs['forwardedValues']
+        if function_associations is None and 'functionAssociations' in kwargs:
+            function_associations = kwargs['functionAssociations']
+        if lambda_function_associations is None and 'lambdaFunctionAssociations' in kwargs:
+            lambda_function_associations = kwargs['lambdaFunctionAssociations']
+        if max_ttl is None and 'maxTtl' in kwargs:
+            max_ttl = kwargs['maxTtl']
+        if min_ttl is None and 'minTtl' in kwargs:
+            min_ttl = kwargs['minTtl']
+        if origin_request_policy_id is None and 'originRequestPolicyId' in kwargs:
+            origin_request_policy_id = kwargs['originRequestPolicyId']
+        if realtime_log_config_arn is None and 'realtimeLogConfigArn' in kwargs:
+            realtime_log_config_arn = kwargs['realtimeLogConfigArn']
+        if response_headers_policy_id is None and 'responseHeadersPolicyId' in kwargs:
+            response_headers_policy_id = kwargs['responseHeadersPolicyId']
+        if smooth_streaming is None and 'smoothStreaming' in kwargs:
+            smooth_streaming = kwargs['smoothStreaming']
+        if trusted_key_groups is None and 'trustedKeyGroups' in kwargs:
+            trusted_key_groups = kwargs['trustedKeyGroups']
+        if trusted_signers is None and 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+
         _setter("target_origin_id", target_origin_id)
         _setter("viewer_protocol_policy", viewer_protocol_policy)
         if allowed_methods is not None:
@@ -1825,11 +2099,19 @@ class DistributionForwardedValuesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_string: pulumi.Input[bool],
+             query_string: Optional[pulumi.Input[bool]] = None,
              cookies: Optional[pulumi.Input['DistributionCookiesArgs']] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              query_string_cache_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if query_string_cache_keys is None and 'queryStringCacheKeys' in kwargs:
+            query_string_cache_keys = kwargs['queryStringCacheKeys']
+
         _setter("query_string", query_string)
         if cookies is not None:
             _setter("cookies", cookies)
@@ -1890,7 +2172,13 @@ class DistributionFunctionAssociationArgs:
              _setter: Callable[[Any, Any], None],
              event_type: Optional[pulumi.Input[str]] = None,
              function_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         if event_type is not None:
             _setter("event_type", event_type)
         if function_arn is not None:
@@ -1928,9 +2216,15 @@ class DistributionGeoRestrictionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             restriction_type: pulumi.Input[str],
+             restriction_type: Optional[pulumi.Input[str]] = None,
              locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if restriction_type is None and 'restrictionType' in kwargs:
+            restriction_type = kwargs['restrictionType']
+        if restriction_type is None:
+            raise TypeError("Missing 'restriction_type' argument")
+
         _setter("restriction_type", restriction_type)
         if locations is not None:
             _setter("locations", locations)
@@ -1972,7 +2266,15 @@ class DistributionLambdaFunctionAssociationArgs:
              event_type: Optional[pulumi.Input[str]] = None,
              include_body: Optional[pulumi.Input[bool]] = None,
              lambda_function_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if include_body is None and 'includeBody' in kwargs:
+            include_body = kwargs['includeBody']
+        if lambda_function_arn is None and 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+
         if event_type is not None:
             _setter("event_type", event_type)
         if include_body is not None:
@@ -2027,12 +2329,30 @@ class DistributionLegacyCustomOriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_name: pulumi.Input[str],
-             origin_protocol_policy: pulumi.Input[str],
-             origin_ssl_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
+             dns_name: Optional[pulumi.Input[str]] = None,
+             origin_protocol_policy: Optional[pulumi.Input[str]] = None,
+             origin_ssl_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              http_port: Optional[pulumi.Input[int]] = None,
              https_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_name is None:
+            raise TypeError("Missing 'dns_name' argument")
+        if origin_protocol_policy is None and 'originProtocolPolicy' in kwargs:
+            origin_protocol_policy = kwargs['originProtocolPolicy']
+        if origin_protocol_policy is None:
+            raise TypeError("Missing 'origin_protocol_policy' argument")
+        if origin_ssl_protocols is None and 'originSslProtocols' in kwargs:
+            origin_ssl_protocols = kwargs['originSslProtocols']
+        if origin_ssl_protocols is None:
+            raise TypeError("Missing 'origin_ssl_protocols' argument")
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+
         _setter("dns_name", dns_name)
         _setter("origin_protocol_policy", origin_protocol_policy)
         _setter("origin_ssl_protocols", origin_ssl_protocols)
@@ -2100,9 +2420,17 @@ class DistributionLegacyS3OriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dns_name: pulumi.Input[str],
+             dns_name: Optional[pulumi.Input[str]] = None,
              origin_access_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if dns_name is None:
+            raise TypeError("Missing 'dns_name' argument")
+        if origin_access_identity is None and 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+
         _setter("dns_name", dns_name)
         if origin_access_identity is not None:
             _setter("origin_access_identity", origin_access_identity)
@@ -2141,10 +2469,16 @@ class DistributionLoggingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
+             bucket: Optional[pulumi.Input[str]] = None,
              include_cookies: Optional[pulumi.Input[bool]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if include_cookies is None and 'includeCookies' in kwargs:
+            include_cookies = kwargs['includeCookies']
+
         _setter("bucket", bucket)
         if include_cookies is not None:
             _setter("include_cookies", include_cookies)
@@ -2192,9 +2526,19 @@ class DistributionOriginCustomHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_name: pulumi.Input[str],
-             header_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             header_name: Optional[pulumi.Input[str]] = None,
+             header_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_name is None and 'headerName' in kwargs:
+            header_name = kwargs['headerName']
+        if header_name is None:
+            raise TypeError("Missing 'header_name' argument")
+        if header_value is None and 'headerValue' in kwargs:
+            header_value = kwargs['headerValue']
+        if header_value is None:
+            raise TypeError("Missing 'header_value' argument")
+
         _setter("header_name", header_name)
         _setter("header_value", header_value)
 
@@ -2228,8 +2572,14 @@ class DistributionOriginGroupFailoverCriteriaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status_codes: pulumi.Input['DistributionStatusCodesArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status_codes: Optional[pulumi.Input['DistributionStatusCodesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_codes is None and 'statusCodes' in kwargs:
+            status_codes = kwargs['statusCodes']
+        if status_codes is None:
+            raise TypeError("Missing 'status_codes' argument")
+
         _setter("status_codes", status_codes)
 
     @property
@@ -2255,9 +2605,15 @@ class DistributionOriginGroupMembersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]],
-             quantity: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupMemberArgs']]]] = None,
+             quantity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+        if quantity is None:
+            raise TypeError("Missing 'quantity' argument")
+
         _setter("items", items)
         _setter("quantity", quantity)
 
@@ -2291,8 +2647,14 @@ class DistributionOriginGroupMemberArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             origin_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             origin_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+        if origin_id is None:
+            raise TypeError("Missing 'origin_id' argument")
+
         _setter("origin_id", origin_id)
 
     @property
@@ -2318,9 +2680,13 @@ class DistributionOriginGroupsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             quantity: pulumi.Input[int],
+             quantity: Optional[pulumi.Input[int]] = None,
              items: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionOriginGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if quantity is None:
+            raise TypeError("Missing 'quantity' argument")
+
         _setter("quantity", quantity)
         if items is not None:
             _setter("items", items)
@@ -2359,10 +2725,20 @@ class DistributionOriginGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'],
-             id: pulumi.Input[str],
-             members: pulumi.Input['DistributionOriginGroupMembersArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             failover_criteria: Optional[pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs']] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input['DistributionOriginGroupMembersArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_criteria is None and 'failoverCriteria' in kwargs:
+            failover_criteria = kwargs['failoverCriteria']
+        if failover_criteria is None:
+            raise TypeError("Missing 'failover_criteria' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+
         _setter("failover_criteria", failover_criteria)
         _setter("id", id)
         _setter("members", members)
@@ -2410,7 +2786,11 @@ class DistributionOriginShieldArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              origin_shield_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_shield_region is None and 'originShieldRegion' in kwargs:
+            origin_shield_region = kwargs['originShieldRegion']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if origin_shield_region is not None:
@@ -2464,8 +2844,8 @@ class DistributionOriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             id: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
              connection_attempts: Optional[pulumi.Input[int]] = None,
              connection_timeout: Optional[pulumi.Input[int]] = None,
              custom_origin_config: Optional[pulumi.Input['DistributionCustomOriginConfigArgs']] = None,
@@ -2474,7 +2854,31 @@ class DistributionOriginArgs:
              origin_path: Optional[pulumi.Input[str]] = None,
              origin_shield: Optional[pulumi.Input['DistributionOriginShieldArgs']] = None,
              s3_origin_config: Optional[pulumi.Input['DistributionS3OriginConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if connection_attempts is None and 'connectionAttempts' in kwargs:
+            connection_attempts = kwargs['connectionAttempts']
+        if connection_timeout is None and 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if custom_origin_config is None and 'customOriginConfig' in kwargs:
+            custom_origin_config = kwargs['customOriginConfig']
+        if origin_access_control_id is None and 'originAccessControlId' in kwargs:
+            origin_access_control_id = kwargs['originAccessControlId']
+        if origin_custom_headers is None and 'originCustomHeaders' in kwargs:
+            origin_custom_headers = kwargs['originCustomHeaders']
+        if origin_path is None and 'originPath' in kwargs:
+            origin_path = kwargs['originPath']
+        if origin_shield is None and 'originShield' in kwargs:
+            origin_shield = kwargs['originShield']
+        if s3_origin_config is None and 's3OriginConfig' in kwargs:
+            s3_origin_config = kwargs['s3OriginConfig']
+
         _setter("domain_name", domain_name)
         _setter("id", id)
         if connection_attempts is not None:
@@ -2596,8 +3000,14 @@ class DistributionRestrictionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             geo_restriction: pulumi.Input['DistributionGeoRestrictionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             geo_restriction: Optional[pulumi.Input['DistributionGeoRestrictionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if geo_restriction is None and 'geoRestriction' in kwargs:
+            geo_restriction = kwargs['geoRestriction']
+        if geo_restriction is None:
+            raise TypeError("Missing 'geo_restriction' argument")
+
         _setter("geo_restriction", geo_restriction)
 
     @property
@@ -2622,7 +3032,11 @@ class DistributionS3OriginConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              origin_access_identity: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_access_identity is None and 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+
         if origin_access_identity is not None:
             _setter("origin_access_identity", origin_access_identity)
 
@@ -2649,9 +3063,15 @@ class DistributionStatusCodesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input[int]]],
-             quantity: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             quantity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+        if quantity is None:
+            raise TypeError("Missing 'quantity' argument")
+
         _setter("items", items)
         _setter("quantity", quantity)
 
@@ -2687,9 +3107,15 @@ class DistributionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2736,7 +3162,19 @@ class DistributionViewerCertificateArgs:
              iam_certificate_id: Optional[pulumi.Input[str]] = None,
              minimum_protocol_version: Optional[pulumi.Input[str]] = None,
              ssl_support_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acm_certificate_arn is None and 'acmCertificateArn' in kwargs:
+            acm_certificate_arn = kwargs['acmCertificateArn']
+        if cloud_front_default_certificate is None and 'cloudFrontDefaultCertificate' in kwargs:
+            cloud_front_default_certificate = kwargs['cloudFrontDefaultCertificate']
+        if iam_certificate_id is None and 'iamCertificateId' in kwargs:
+            iam_certificate_id = kwargs['iamCertificateId']
+        if minimum_protocol_version is None and 'minimumProtocolVersion' in kwargs:
+            minimum_protocol_version = kwargs['minimumProtocolVersion']
+        if ssl_support_method is None and 'sslSupportMethod' in kwargs:
+            ssl_support_method = kwargs['sslSupportMethod']
+
         if acm_certificate_arn is not None:
             _setter("acm_certificate_arn", acm_certificate_arn)
         if cloud_front_default_certificate is not None:
@@ -2807,9 +3245,15 @@ class FunctionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comment: pulumi.Input[str],
-             runtime: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comment: Optional[pulumi.Input[str]] = None,
+             runtime: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comment is None:
+            raise TypeError("Missing 'comment' argument")
+        if runtime is None:
+            raise TypeError("Missing 'runtime' argument")
+
         _setter("comment", comment)
         _setter("runtime", runtime)
 
@@ -2844,7 +3288,11 @@ class FunctionMetadataArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              function_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+
         if function_arn is not None:
             _setter("function_arn", function_arn)
 
@@ -2873,10 +3321,16 @@ class KeyGroupConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("items", items)
         _setter("name", name)
         if comment is not None:
@@ -2921,8 +3375,14 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             realtime_metrics_subscription_status: pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             realtime_metrics_subscription_status: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if realtime_metrics_subscription_status is None and 'realtimeMetricsSubscriptionStatus' in kwargs:
+            realtime_metrics_subscription_status = kwargs['realtimeMetricsSubscriptionStatus']
+        if realtime_metrics_subscription_status is None:
+            raise TypeError("Missing 'realtime_metrics_subscription_status' argument")
+
         _setter("realtime_metrics_subscription_status", realtime_metrics_subscription_status)
 
     @property
@@ -2947,7 +3407,11 @@ class MonitoringSubscriptionArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              realtime_metrics_subscription_config: Optional[pulumi.Input['MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if realtime_metrics_subscription_config is None and 'realtimeMetricsSubscriptionConfig' in kwargs:
+            realtime_metrics_subscription_config = kwargs['realtimeMetricsSubscriptionConfig']
+
         if realtime_metrics_subscription_config is not None:
             _setter("realtime_metrics_subscription_config", realtime_metrics_subscription_config)
 
@@ -2980,12 +3444,28 @@ class OriginAccessControlConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             origin_access_control_origin_type: pulumi.Input[str],
-             signing_behavior: pulumi.Input[str],
-             signing_protocol: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             origin_access_control_origin_type: Optional[pulumi.Input[str]] = None,
+             signing_behavior: Optional[pulumi.Input[str]] = None,
+             signing_protocol: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if origin_access_control_origin_type is None and 'originAccessControlOriginType' in kwargs:
+            origin_access_control_origin_type = kwargs['originAccessControlOriginType']
+        if origin_access_control_origin_type is None:
+            raise TypeError("Missing 'origin_access_control_origin_type' argument")
+        if signing_behavior is None and 'signingBehavior' in kwargs:
+            signing_behavior = kwargs['signingBehavior']
+        if signing_behavior is None:
+            raise TypeError("Missing 'signing_behavior' argument")
+        if signing_protocol is None and 'signingProtocol' in kwargs:
+            signing_protocol = kwargs['signingProtocol']
+        if signing_protocol is None:
+            raise TypeError("Missing 'signing_protocol' argument")
+
         _setter("name", name)
         _setter("origin_access_control_origin_type", origin_access_control_origin_type)
         _setter("signing_behavior", signing_behavior)
@@ -3058,12 +3538,28 @@ class OriginRequestPolicyConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cookies_config: pulumi.Input['OriginRequestPolicyCookiesConfigArgs'],
-             headers_config: pulumi.Input['OriginRequestPolicyHeadersConfigArgs'],
-             name: pulumi.Input[str],
-             query_strings_config: pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'],
+             cookies_config: Optional[pulumi.Input['OriginRequestPolicyCookiesConfigArgs']] = None,
+             headers_config: Optional[pulumi.Input['OriginRequestPolicyHeadersConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_strings_config: Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']] = None,
              comment: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookies_config is None and 'cookiesConfig' in kwargs:
+            cookies_config = kwargs['cookiesConfig']
+        if cookies_config is None:
+            raise TypeError("Missing 'cookies_config' argument")
+        if headers_config is None and 'headersConfig' in kwargs:
+            headers_config = kwargs['headersConfig']
+        if headers_config is None:
+            raise TypeError("Missing 'headers_config' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if query_strings_config is None and 'queryStringsConfig' in kwargs:
+            query_strings_config = kwargs['queryStringsConfig']
+        if query_strings_config is None:
+            raise TypeError("Missing 'query_strings_config' argument")
+
         _setter("cookies_config", cookies_config)
         _setter("headers_config", headers_config)
         _setter("name", name)
@@ -3130,9 +3626,15 @@ class OriginRequestPolicyCookiesConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cookie_behavior: pulumi.Input[str],
+             cookie_behavior: Optional[pulumi.Input[str]] = None,
              cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cookie_behavior is None and 'cookieBehavior' in kwargs:
+            cookie_behavior = kwargs['cookieBehavior']
+        if cookie_behavior is None:
+            raise TypeError("Missing 'cookie_behavior' argument")
+
         _setter("cookie_behavior", cookie_behavior)
         if cookies is not None:
             _setter("cookies", cookies)
@@ -3169,9 +3671,15 @@ class OriginRequestPolicyHeadersConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header_behavior: pulumi.Input[str],
+             header_behavior: Optional[pulumi.Input[str]] = None,
              headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_behavior is None and 'headerBehavior' in kwargs:
+            header_behavior = kwargs['headerBehavior']
+        if header_behavior is None:
+            raise TypeError("Missing 'header_behavior' argument")
+
         _setter("header_behavior", header_behavior)
         if headers is not None:
             _setter("headers", headers)
@@ -3208,9 +3716,17 @@ class OriginRequestPolicyQueryStringsConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_string_behavior: pulumi.Input[str],
+             query_string_behavior: Optional[pulumi.Input[str]] = None,
              query_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string_behavior is None and 'queryStringBehavior' in kwargs:
+            query_string_behavior = kwargs['queryStringBehavior']
+        if query_string_behavior is None:
+            raise TypeError("Missing 'query_string_behavior' argument")
+        if query_strings is None and 'queryStrings' in kwargs:
+            query_strings = kwargs['queryStrings']
+
         _setter("query_string_behavior", query_string_behavior)
         if query_strings is not None:
             _setter("query_strings", query_strings)
@@ -3251,11 +3767,23 @@ class PublicKeyConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             caller_reference: pulumi.Input[str],
-             encoded_key: pulumi.Input[str],
-             name: pulumi.Input[str],
+             caller_reference: Optional[pulumi.Input[str]] = None,
+             encoded_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if caller_reference is None and 'callerReference' in kwargs:
+            caller_reference = kwargs['callerReference']
+        if caller_reference is None:
+            raise TypeError("Missing 'caller_reference' argument")
+        if encoded_key is None and 'encodedKey' in kwargs:
+            encoded_key = kwargs['encodedKey']
+        if encoded_key is None:
+            raise TypeError("Missing 'encoded_key' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("caller_reference", caller_reference)
         _setter("encoded_key", encoded_key)
         _setter("name", name)
@@ -3312,9 +3840,19 @@ class RealtimeLogConfigEndPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kinesis_stream_config: pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs'],
-             stream_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             kinesis_stream_config: Optional[pulumi.Input['RealtimeLogConfigKinesisStreamConfigArgs']] = None,
+             stream_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kinesis_stream_config is None and 'kinesisStreamConfig' in kwargs:
+            kinesis_stream_config = kwargs['kinesisStreamConfig']
+        if kinesis_stream_config is None:
+            raise TypeError("Missing 'kinesis_stream_config' argument")
+        if stream_type is None and 'streamType' in kwargs:
+            stream_type = kwargs['streamType']
+        if stream_type is None:
+            raise TypeError("Missing 'stream_type' argument")
+
         _setter("kinesis_stream_config", kinesis_stream_config)
         _setter("stream_type", stream_type)
 
@@ -3350,9 +3888,19 @@ class RealtimeLogConfigKinesisStreamConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             role_arn: Optional[pulumi.Input[str]] = None,
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+        if stream_arn is None:
+            raise TypeError("Missing 'stream_arn' argument")
+
         _setter("role_arn", role_arn)
         _setter("stream_arn", stream_arn)
 
@@ -3386,8 +3934,12 @@ class ResponseHeadersPolicyAccessControlAllowHeadersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
         _setter("items", items)
 
     @property
@@ -3411,8 +3963,12 @@ class ResponseHeadersPolicyAccessControlAllowMethodsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
         _setter("items", items)
 
     @property
@@ -3436,8 +3992,12 @@ class ResponseHeadersPolicyAccessControlAllowOriginsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
         _setter("items", items)
 
     @property
@@ -3461,8 +4021,12 @@ class ResponseHeadersPolicyAccessControlExposeHeadersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
         _setter("items", items)
 
     @property
@@ -3498,14 +4062,28 @@ class ResponseHeadersPolicyConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              comment: Optional[pulumi.Input[str]] = None,
              cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
              custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
              remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
              security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
              server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if cors_config is None and 'corsConfig' in kwargs:
+            cors_config = kwargs['corsConfig']
+        if custom_headers_config is None and 'customHeadersConfig' in kwargs:
+            custom_headers_config = kwargs['customHeadersConfig']
+        if remove_headers_config is None and 'removeHeadersConfig' in kwargs:
+            remove_headers_config = kwargs['removeHeadersConfig']
+        if security_headers_config is None and 'securityHeadersConfig' in kwargs:
+            security_headers_config = kwargs['securityHeadersConfig']
+        if server_timing_headers_config is None and 'serverTimingHeadersConfig' in kwargs:
+            server_timing_headers_config = kwargs['serverTimingHeadersConfig']
+
         _setter("name", name)
         if comment is not None:
             _setter("comment", comment)
@@ -3597,9 +4175,17 @@ class ResponseHeadersPolicyContentSecurityPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_security_policy: pulumi.Input[str],
-             override: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             content_security_policy: Optional[pulumi.Input[str]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_security_policy is None and 'contentSecurityPolicy' in kwargs:
+            content_security_policy = kwargs['contentSecurityPolicy']
+        if content_security_policy is None:
+            raise TypeError("Missing 'content_security_policy' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+
         _setter("content_security_policy", content_security_policy)
         _setter("override", override)
 
@@ -3633,8 +4219,12 @@ class ResponseHeadersPolicyContentTypeOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             override: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             override: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+
         _setter("override", override)
 
     @property
@@ -3670,14 +4260,40 @@ class ResponseHeadersPolicyCorsConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_control_allow_credentials: pulumi.Input[bool],
-             access_control_allow_headers: pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs'],
-             access_control_allow_methods: pulumi.Input['ResponseHeadersPolicyAccessControlAllowMethodsArgs'],
-             access_control_allow_origins: pulumi.Input['ResponseHeadersPolicyAccessControlAllowOriginsArgs'],
-             origin_override: pulumi.Input[bool],
+             access_control_allow_credentials: Optional[pulumi.Input[bool]] = None,
+             access_control_allow_headers: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlAllowHeadersArgs']] = None,
+             access_control_allow_methods: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlAllowMethodsArgs']] = None,
+             access_control_allow_origins: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlAllowOriginsArgs']] = None,
+             origin_override: Optional[pulumi.Input[bool]] = None,
              access_control_expose_headers: Optional[pulumi.Input['ResponseHeadersPolicyAccessControlExposeHeadersArgs']] = None,
              access_control_max_age_sec: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control_allow_credentials is None and 'accessControlAllowCredentials' in kwargs:
+            access_control_allow_credentials = kwargs['accessControlAllowCredentials']
+        if access_control_allow_credentials is None:
+            raise TypeError("Missing 'access_control_allow_credentials' argument")
+        if access_control_allow_headers is None and 'accessControlAllowHeaders' in kwargs:
+            access_control_allow_headers = kwargs['accessControlAllowHeaders']
+        if access_control_allow_headers is None:
+            raise TypeError("Missing 'access_control_allow_headers' argument")
+        if access_control_allow_methods is None and 'accessControlAllowMethods' in kwargs:
+            access_control_allow_methods = kwargs['accessControlAllowMethods']
+        if access_control_allow_methods is None:
+            raise TypeError("Missing 'access_control_allow_methods' argument")
+        if access_control_allow_origins is None and 'accessControlAllowOrigins' in kwargs:
+            access_control_allow_origins = kwargs['accessControlAllowOrigins']
+        if access_control_allow_origins is None:
+            raise TypeError("Missing 'access_control_allow_origins' argument")
+        if origin_override is None and 'originOverride' in kwargs:
+            origin_override = kwargs['originOverride']
+        if origin_override is None:
+            raise TypeError("Missing 'origin_override' argument")
+        if access_control_expose_headers is None and 'accessControlExposeHeaders' in kwargs:
+            access_control_expose_headers = kwargs['accessControlExposeHeaders']
+        if access_control_max_age_sec is None and 'accessControlMaxAgeSec' in kwargs:
+            access_control_max_age_sec = kwargs['accessControlMaxAgeSec']
+
         _setter("access_control_allow_credentials", access_control_allow_credentials)
         _setter("access_control_allow_headers", access_control_allow_headers)
         _setter("access_control_allow_methods", access_control_allow_methods)
@@ -3763,8 +4379,12 @@ class ResponseHeadersPolicyCustomHeadersConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeaderArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
         _setter("items", items)
 
     @property
@@ -3792,10 +4412,18 @@ class ResponseHeadersPolicyCustomHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header: pulumi.Input[str],
-             override: pulumi.Input[bool],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             header: Optional[pulumi.Input[str]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("header", header)
         _setter("override", override)
         _setter("value", value)
@@ -3841,9 +4469,17 @@ class ResponseHeadersPolicyFrameOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             frame_option: pulumi.Input[str],
-             override: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             frame_option: Optional[pulumi.Input[str]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if frame_option is None and 'frameOption' in kwargs:
+            frame_option = kwargs['frameOption']
+        if frame_option is None:
+            raise TypeError("Missing 'frame_option' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+
         _setter("frame_option", frame_option)
         _setter("override", override)
 
@@ -3879,9 +4515,17 @@ class ResponseHeadersPolicyReferrerPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             override: pulumi.Input[bool],
-             referrer_policy: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             override: Optional[pulumi.Input[bool]] = None,
+             referrer_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if referrer_policy is None and 'referrerPolicy' in kwargs:
+            referrer_policy = kwargs['referrerPolicy']
+        if referrer_policy is None:
+            raise TypeError("Missing 'referrer_policy' argument")
+
         _setter("override", override)
         _setter("referrer_policy", referrer_policy)
 
@@ -3915,8 +4559,12 @@ class ResponseHeadersPolicyRemoveHeadersConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             items: pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeaderArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyRemoveHeaderArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if items is None:
+            raise TypeError("Missing 'items' argument")
+
         _setter("items", items)
 
     @property
@@ -3940,8 +4588,12 @@ class ResponseHeadersPolicyRemoveHeaderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             header: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             header: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header is None:
+            raise TypeError("Missing 'header' argument")
+
         _setter("header", header)
 
     @property
@@ -3981,7 +4633,21 @@ class ResponseHeadersPolicySecurityHeadersConfigArgs:
              referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicyReferrerPolicyArgs']] = None,
              strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicyStrictTransportSecurityArgs']] = None,
              xss_protection: Optional[pulumi.Input['ResponseHeadersPolicyXssProtectionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_security_policy is None and 'contentSecurityPolicy' in kwargs:
+            content_security_policy = kwargs['contentSecurityPolicy']
+        if content_type_options is None and 'contentTypeOptions' in kwargs:
+            content_type_options = kwargs['contentTypeOptions']
+        if frame_options is None and 'frameOptions' in kwargs:
+            frame_options = kwargs['frameOptions']
+        if referrer_policy is None and 'referrerPolicy' in kwargs:
+            referrer_policy = kwargs['referrerPolicy']
+        if strict_transport_security is None and 'strictTransportSecurity' in kwargs:
+            strict_transport_security = kwargs['strictTransportSecurity']
+        if xss_protection is None and 'xssProtection' in kwargs:
+            xss_protection = kwargs['xssProtection']
+
         if content_security_policy is not None:
             _setter("content_security_policy", content_security_policy)
         if content_type_options is not None:
@@ -4063,9 +4729,15 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              sampling_rate: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+
         _setter("enabled", enabled)
         if sampling_rate is not None:
             _setter("sampling_rate", sampling_rate)
@@ -4106,11 +4778,21 @@ class ResponseHeadersPolicyStrictTransportSecurityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_control_max_age_sec: pulumi.Input[int],
-             override: pulumi.Input[bool],
+             access_control_max_age_sec: Optional[pulumi.Input[int]] = None,
+             override: Optional[pulumi.Input[bool]] = None,
              include_subdomains: Optional[pulumi.Input[bool]] = None,
              preload: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_control_max_age_sec is None and 'accessControlMaxAgeSec' in kwargs:
+            access_control_max_age_sec = kwargs['accessControlMaxAgeSec']
+        if access_control_max_age_sec is None:
+            raise TypeError("Missing 'access_control_max_age_sec' argument")
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+
         _setter("access_control_max_age_sec", access_control_max_age_sec)
         _setter("override", override)
         if include_subdomains is not None:
@@ -4172,11 +4854,21 @@ class ResponseHeadersPolicyXssProtectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             override: pulumi.Input[bool],
-             protection: pulumi.Input[bool],
+             override: Optional[pulumi.Input[bool]] = None,
+             protection: Optional[pulumi.Input[bool]] = None,
              mode_block: Optional[pulumi.Input[bool]] = None,
              report_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if override is None:
+            raise TypeError("Missing 'override' argument")
+        if protection is None:
+            raise TypeError("Missing 'protection' argument")
+        if mode_block is None and 'modeBlock' in kwargs:
+            mode_block = kwargs['modeBlock']
+        if report_uri is None and 'reportUri' in kwargs:
+            report_uri = kwargs['reportUri']
+
         _setter("override", override)
         _setter("protection", protection)
         if mode_block is not None:
@@ -4244,14 +4936,30 @@ class StreamingDistributionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comment: pulumi.Input[str],
-             enabled: pulumi.Input[bool],
-             s3_origin: pulumi.Input['StreamingDistributionS3OriginArgs'],
-             trusted_signers: pulumi.Input['StreamingDistributionTrustedSignersArgs'],
+             comment: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             s3_origin: Optional[pulumi.Input['StreamingDistributionS3OriginArgs']] = None,
+             trusted_signers: Optional[pulumi.Input['StreamingDistributionTrustedSignersArgs']] = None,
              aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              logging: Optional[pulumi.Input['StreamingDistributionLoggingArgs']] = None,
              price_class: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comment is None:
+            raise TypeError("Missing 'comment' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if s3_origin is None and 's3Origin' in kwargs:
+            s3_origin = kwargs['s3Origin']
+        if s3_origin is None:
+            raise TypeError("Missing 's3_origin' argument")
+        if trusted_signers is None and 'trustedSigners' in kwargs:
+            trusted_signers = kwargs['trustedSigners']
+        if trusted_signers is None:
+            raise TypeError("Missing 'trusted_signers' argument")
+        if price_class is None and 'priceClass' in kwargs:
+            price_class = kwargs['priceClass']
+
         _setter("comment", comment)
         _setter("enabled", enabled)
         _setter("s3_origin", s3_origin)
@@ -4342,10 +5050,18 @@ class StreamingDistributionLoggingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             enabled: pulumi.Input[bool],
-             prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if prefix is None:
+            raise TypeError("Missing 'prefix' argument")
+
         _setter("bucket", bucket)
         _setter("enabled", enabled)
         _setter("prefix", prefix)
@@ -4391,9 +5107,19 @@ class StreamingDistributionS3OriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             origin_access_identity: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             domain_name: Optional[pulumi.Input[str]] = None,
+             origin_access_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if origin_access_identity is None and 'originAccessIdentity' in kwargs:
+            origin_access_identity = kwargs['originAccessIdentity']
+        if origin_access_identity is None:
+            raise TypeError("Missing 'origin_access_identity' argument")
+
         _setter("domain_name", domain_name)
         _setter("origin_access_identity", origin_access_identity)
 
@@ -4429,9 +5155,15 @@ class StreamingDistributionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -4467,9 +5199,15 @@ class StreamingDistributionTrustedSignersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              aws_account_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if aws_account_numbers is None and 'awsAccountNumbers' in kwargs:
+            aws_account_numbers = kwargs['awsAccountNumbers']
+
         _setter("enabled", enabled)
         if aws_account_numbers is not None:
             _setter("aws_account_numbers", aws_account_numbers)

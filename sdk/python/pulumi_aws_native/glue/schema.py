@@ -48,15 +48,29 @@ class SchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             compatibility: pulumi.Input['SchemaCompatibility'],
-             data_format: pulumi.Input['SchemaDataFormat'],
-             schema_definition: pulumi.Input[str],
+             compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
+             data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
+             schema_definition: Optional[pulumi.Input[str]] = None,
              checkpoint_version: Optional[pulumi.Input['SchemaVersionArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compatibility is None:
+            raise TypeError("Missing 'compatibility' argument")
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if data_format is None:
+            raise TypeError("Missing 'data_format' argument")
+        if schema_definition is None and 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if schema_definition is None:
+            raise TypeError("Missing 'schema_definition' argument")
+        if checkpoint_version is None and 'checkpointVersion' in kwargs:
+            checkpoint_version = kwargs['checkpointVersion']
+
         _setter("compatibility", compatibility)
         _setter("data_format", data_format)
         _setter("schema_definition", schema_definition)
@@ -233,11 +247,7 @@ class Schema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaArgs.__new__(SchemaArgs)
 
-            if checkpoint_version is not None and not isinstance(checkpoint_version, SchemaVersionArgs):
-                checkpoint_version = checkpoint_version or {}
-                def _setter(key, value):
-                    checkpoint_version[key] = value
-                SchemaVersionArgs._configure(_setter, **checkpoint_version)
+            checkpoint_version = _utilities.configure(checkpoint_version, SchemaVersionArgs, True)
             __props__.__dict__["checkpoint_version"] = checkpoint_version
             if compatibility is None and not opts.urn:
                 raise TypeError("Missing required property 'compatibility'")
@@ -247,11 +257,7 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["data_format"] = data_format
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if registry is not None and not isinstance(registry, SchemaRegistryArgs):
-                registry = registry or {}
-                def _setter(key, value):
-                    registry[key] = value
-                SchemaRegistryArgs._configure(_setter, **registry)
+            registry = _utilities.configure(registry, SchemaRegistryArgs, True)
             __props__.__dict__["registry"] = registry
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")

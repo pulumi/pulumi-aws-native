@@ -62,9 +62,15 @@ class AgreementTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -141,7 +147,25 @@ class As2ConfigPropertiesArgs:
              message_subject: Optional[pulumi.Input[str]] = None,
              partner_profile_id: Optional[pulumi.Input[str]] = None,
              signing_algorithm: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if basic_auth_secret_id is None and 'basicAuthSecretId' in kwargs:
+            basic_auth_secret_id = kwargs['basicAuthSecretId']
+        if encryption_algorithm is None and 'encryptionAlgorithm' in kwargs:
+            encryption_algorithm = kwargs['encryptionAlgorithm']
+        if local_profile_id is None and 'localProfileId' in kwargs:
+            local_profile_id = kwargs['localProfileId']
+        if mdn_response is None and 'mdnResponse' in kwargs:
+            mdn_response = kwargs['mdnResponse']
+        if mdn_signing_algorithm is None and 'mdnSigningAlgorithm' in kwargs:
+            mdn_signing_algorithm = kwargs['mdnSigningAlgorithm']
+        if message_subject is None and 'messageSubject' in kwargs:
+            message_subject = kwargs['messageSubject']
+        if partner_profile_id is None and 'partnerProfileId' in kwargs:
+            partner_profile_id = kwargs['partnerProfileId']
+        if signing_algorithm is None and 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+
         if basic_auth_secret_id is not None:
             _setter("basic_auth_secret_id", basic_auth_secret_id)
         if compression is not None:
@@ -288,9 +312,15 @@ class CertificateTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -337,9 +367,15 @@ class ConnectorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -386,9 +422,15 @@ class ProfileTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -424,8 +466,10 @@ class ServerAs2TransportArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -452,7 +496,19 @@ class ServerEndpointDetailsArgs:
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_allocation_ids is None and 'addressAllocationIds' in kwargs:
+            address_allocation_ids = kwargs['addressAllocationIds']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+
         if address_allocation_ids is not None:
             _setter("address_allocation_ids", address_allocation_ids)
         if security_group_ids is not None:
@@ -534,7 +590,15 @@ class ServerIdentityProviderDetailsArgs:
              invocation_role: Optional[pulumi.Input[str]] = None,
              sftp_authentication_methods: Optional[pulumi.Input[str]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if invocation_role is None and 'invocationRole' in kwargs:
+            invocation_role = kwargs['invocationRole']
+        if sftp_authentication_methods is None and 'sftpAuthenticationMethods' in kwargs:
+            sftp_authentication_methods = kwargs['sftpAuthenticationMethods']
+
         if directory_id is not None:
             _setter("directory_id", directory_id)
         if function is not None:
@@ -613,7 +677,17 @@ class ServerProtocolDetailsArgs:
              passive_ip: Optional[pulumi.Input[str]] = None,
              set_stat_option: Optional[pulumi.Input[str]] = None,
              tls_session_resumption_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if as2_transports is None and 'as2Transports' in kwargs:
+            as2_transports = kwargs['as2Transports']
+        if passive_ip is None and 'passiveIp' in kwargs:
+            passive_ip = kwargs['passiveIp']
+        if set_stat_option is None and 'setStatOption' in kwargs:
+            set_stat_option = kwargs['setStatOption']
+        if tls_session_resumption_mode is None and 'tlsSessionResumptionMode' in kwargs:
+            tls_session_resumption_mode = kwargs['tlsSessionResumptionMode']
+
         if as2_transports is not None:
             _setter("as2_transports", as2_transports)
         if passive_ip is not None:
@@ -667,8 +741,10 @@ class ServerProtocolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -678,8 +754,10 @@ class ServerStructuredLogDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -695,9 +773,15 @@ class ServerTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -735,7 +819,13 @@ class ServerWorkflowDetailsArgs:
              _setter: Callable[[Any, Any], None],
              on_partial_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None,
              on_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_partial_upload is None and 'onPartialUpload' in kwargs:
+            on_partial_upload = kwargs['onPartialUpload']
+        if on_upload is None and 'onUpload' in kwargs:
+            on_upload = kwargs['onUpload']
+
         if on_partial_upload is not None:
             _setter("on_partial_upload", on_partial_upload)
         if on_upload is not None:
@@ -773,9 +863,19 @@ class ServerWorkflowDetailArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             execution_role: pulumi.Input[str],
-             workflow_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             execution_role: Optional[pulumi.Input[str]] = None,
+             workflow_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution_role is None and 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if execution_role is None:
+            raise TypeError("Missing 'execution_role' argument")
+        if workflow_id is None and 'workflowId' in kwargs:
+            workflow_id = kwargs['workflowId']
+        if workflow_id is None:
+            raise TypeError("Missing 'workflow_id' argument")
+
         _setter("execution_role", execution_role)
         _setter("workflow_id", workflow_id)
 
@@ -818,7 +918,13 @@ class SftpConfigPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              trusted_host_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_secret_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if trusted_host_keys is None and 'trustedHostKeys' in kwargs:
+            trusted_host_keys = kwargs['trustedHostKeys']
+        if user_secret_id is None and 'userSecretId' in kwargs:
+            user_secret_id = kwargs['userSecretId']
+
         if trusted_host_keys is not None:
             _setter("trusted_host_keys", trusted_host_keys)
         if user_secret_id is not None:
@@ -862,9 +968,15 @@ class UserHomeDirectoryMapEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entry: pulumi.Input[str],
-             target: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             entry: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entry is None:
+            raise TypeError("Missing 'entry' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+
         _setter("entry", entry)
         _setter("target", target)
 
@@ -902,10 +1014,18 @@ class UserPosixProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gid: pulumi.Input[float],
-             uid: pulumi.Input[float],
+             gid: Optional[pulumi.Input[float]] = None,
+             uid: Optional[pulumi.Input[float]] = None,
              secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gid is None:
+            raise TypeError("Missing 'gid' argument")
+        if uid is None:
+            raise TypeError("Missing 'uid' argument")
+        if secondary_gids is None and 'secondaryGids' in kwargs:
+            secondary_gids = kwargs['secondaryGids']
+
         _setter("gid", gid)
         _setter("uid", uid)
         if secondary_gids is not None:
@@ -946,8 +1066,10 @@ class UserSshPublicKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -963,9 +1085,15 @@ class UserTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1008,7 +1136,11 @@ class WorkflowEfsInputFileLocationArgs:
              _setter: Callable[[Any, Any], None],
              file_system_id: Optional[pulumi.Input[str]] = None,
              path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+
         if file_system_id is not None:
             _setter("file_system_id", file_system_id)
         if path is not None:
@@ -1057,7 +1189,13 @@ class WorkflowInputFileLocationArgs:
              _setter: Callable[[Any, Any], None],
              efs_file_location: Optional[pulumi.Input['WorkflowEfsInputFileLocationArgs']] = None,
              s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if efs_file_location is None and 'efsFileLocation' in kwargs:
+            efs_file_location = kwargs['efsFileLocation']
+        if s3_file_location is None and 's3FileLocation' in kwargs:
+            s3_file_location = kwargs['s3FileLocation']
+
         if efs_file_location is not None:
             _setter("efs_file_location", efs_file_location)
         if s3_file_location is not None:
@@ -1097,7 +1235,11 @@ class WorkflowS3FileLocationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_file_location: Optional[pulumi.Input['WorkflowS3InputFileLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_file_location is None and 's3FileLocation' in kwargs:
+            s3_file_location = kwargs['s3FileLocation']
+
         if s3_file_location is not None:
             _setter("s3_file_location", s3_file_location)
 
@@ -1131,7 +1273,9 @@ class WorkflowS3InputFileLocationArgs:
              _setter: Callable[[Any, Any], None],
              bucket: Optional[pulumi.Input[str]] = None,
              key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if bucket is not None:
             _setter("bucket", bucket)
         if key is not None:
@@ -1180,9 +1324,15 @@ class WorkflowS3TagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1238,7 +1388,15 @@ class WorkflowStepCopyStepDetailsPropertiesArgs:
              name: Optional[pulumi.Input[str]] = None,
              overwrite_existing: Optional[pulumi.Input['WorkflowStepCopyStepDetailsPropertiesOverwriteExisting']] = None,
              source_file_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_file_location is None and 'destinationFileLocation' in kwargs:
+            destination_file_location = kwargs['destinationFileLocation']
+        if overwrite_existing is None and 'overwriteExisting' in kwargs:
+            overwrite_existing = kwargs['overwriteExisting']
+        if source_file_location is None and 'sourceFileLocation' in kwargs:
+            source_file_location = kwargs['sourceFileLocation']
+
         if destination_file_location is not None:
             _setter("destination_file_location", destination_file_location)
         if name is not None:
@@ -1322,7 +1480,13 @@ class WorkflowStepCustomStepDetailsPropertiesArgs:
              source_file_location: Optional[pulumi.Input[str]] = None,
              target: Optional[pulumi.Input[str]] = None,
              timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_file_location is None and 'sourceFileLocation' in kwargs:
+            source_file_location = kwargs['sourceFileLocation']
+        if timeout_seconds is None and 'timeoutSeconds' in kwargs:
+            timeout_seconds = kwargs['timeoutSeconds']
+
         if name is not None:
             _setter("name", name)
         if source_file_location is not None:
@@ -1412,7 +1576,15 @@ class WorkflowStepDecryptStepDetailsPropertiesArgs:
              overwrite_existing: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting']] = None,
              source_file_location: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['WorkflowStepDecryptStepDetailsPropertiesType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_file_location is None and 'destinationFileLocation' in kwargs:
+            destination_file_location = kwargs['destinationFileLocation']
+        if overwrite_existing is None and 'overwriteExisting' in kwargs:
+            overwrite_existing = kwargs['overwriteExisting']
+        if source_file_location is None and 'sourceFileLocation' in kwargs:
+            source_file_location = kwargs['sourceFileLocation']
+
         if destination_file_location is not None:
             _setter("destination_file_location", destination_file_location)
         if name is not None:
@@ -1502,7 +1674,11 @@ class WorkflowStepDeleteStepDetailsPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              source_file_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_file_location is None and 'sourceFileLocation' in kwargs:
+            source_file_location = kwargs['sourceFileLocation']
+
         if name is not None:
             _setter("name", name)
         if source_file_location is not None:
@@ -1557,7 +1733,11 @@ class WorkflowStepTagStepDetailsPropertiesArgs:
              name: Optional[pulumi.Input[str]] = None,
              source_file_location: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkflowS3TagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_file_location is None and 'sourceFileLocation' in kwargs:
+            source_file_location = kwargs['sourceFileLocation']
+
         if name is not None:
             _setter("name", name)
         if source_file_location is not None:
@@ -1637,7 +1817,19 @@ class WorkflowStepArgs:
              delete_step_details: Optional[pulumi.Input['WorkflowStepDeleteStepDetailsPropertiesArgs']] = None,
              tag_step_details: Optional[pulumi.Input['WorkflowStepTagStepDetailsPropertiesArgs']] = None,
              type: Optional[pulumi.Input['WorkflowStepType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if copy_step_details is None and 'copyStepDetails' in kwargs:
+            copy_step_details = kwargs['copyStepDetails']
+        if custom_step_details is None and 'customStepDetails' in kwargs:
+            custom_step_details = kwargs['customStepDetails']
+        if decrypt_step_details is None and 'decryptStepDetails' in kwargs:
+            decrypt_step_details = kwargs['decryptStepDetails']
+        if delete_step_details is None and 'deleteStepDetails' in kwargs:
+            delete_step_details = kwargs['deleteStepDetails']
+        if tag_step_details is None and 'tagStepDetails' in kwargs:
+            tag_step_details = kwargs['tagStepDetails']
+
         if copy_step_details is not None:
             _setter("copy_step_details", copy_step_details)
         if custom_step_details is not None:
@@ -1739,9 +1931,15 @@ class WorkflowTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

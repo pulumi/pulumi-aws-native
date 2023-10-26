@@ -61,10 +61,22 @@ class AccessPointCreationInfo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             owner_gid: str,
-             owner_uid: str,
-             permissions: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             owner_gid: Optional[str] = None,
+             owner_uid: Optional[str] = None,
+             permissions: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if owner_gid is None and 'ownerGid' in kwargs:
+            owner_gid = kwargs['ownerGid']
+        if owner_gid is None:
+            raise TypeError("Missing 'owner_gid' argument")
+        if owner_uid is None and 'ownerUid' in kwargs:
+            owner_uid = kwargs['ownerUid']
+        if owner_uid is None:
+            raise TypeError("Missing 'owner_uid' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+
         _setter("owner_gid", owner_gid)
         _setter("owner_uid", owner_uid)
         _setter("permissions", permissions)
@@ -131,10 +143,18 @@ class AccessPointPosixUser(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             gid: str,
-             uid: str,
+             gid: Optional[str] = None,
+             uid: Optional[str] = None,
              secondary_gids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gid is None:
+            raise TypeError("Missing 'gid' argument")
+        if uid is None:
+            raise TypeError("Missing 'uid' argument")
+        if secondary_gids is None and 'secondaryGids' in kwargs:
+            secondary_gids = kwargs['secondaryGids']
+
         _setter("gid", gid)
         _setter("uid", uid)
         if secondary_gids is not None:
@@ -201,7 +221,11 @@ class AccessPointRootDirectory(dict):
              _setter: Callable[[Any, Any], None],
              creation_info: Optional['outputs.AccessPointCreationInfo'] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_info is None and 'creationInfo' in kwargs:
+            creation_info = kwargs['creationInfo']
+
         if creation_info is not None:
             _setter("creation_info", creation_info)
         if path is not None:
@@ -239,7 +263,9 @@ class AccessPointTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -267,8 +293,12 @@ class FileSystemBackupPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("status", status)
 
     @property
@@ -290,9 +320,15 @@ class FileSystemElasticFileSystemTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -341,7 +377,13 @@ class FileSystemLifecyclePolicy(dict):
              _setter: Callable[[Any, Any], None],
              transition_to_ia: Optional[str] = None,
              transition_to_primary_storage_class: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transition_to_ia is None and 'transitionToIa' in kwargs:
+            transition_to_ia = kwargs['transitionToIa']
+        if transition_to_primary_storage_class is None and 'transitionToPrimaryStorageClass' in kwargs:
+            transition_to_primary_storage_class = kwargs['transitionToPrimaryStorageClass']
+
         if transition_to_ia is not None:
             _setter("transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
@@ -370,7 +412,9 @@ class FileSystemReplicationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              destinations: Optional[Sequence['outputs.FileSystemReplicationDestination']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if destinations is not None:
             _setter("destinations", destinations)
 
@@ -422,7 +466,15 @@ class FileSystemReplicationDestination(dict):
              file_system_id: Optional[str] = None,
              kms_key_id: Optional[str] = None,
              region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone_name is None and 'availabilityZoneName' in kwargs:
+            availability_zone_name = kwargs['availabilityZoneName']
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if availability_zone_name is not None:
             _setter("availability_zone_name", availability_zone_name)
         if file_system_id is not None:

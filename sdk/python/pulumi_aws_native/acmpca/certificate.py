@@ -46,14 +46,36 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_authority_arn: pulumi.Input[str],
-             certificate_signing_request: pulumi.Input[str],
-             signing_algorithm: pulumi.Input[str],
-             validity: pulumi.Input['CertificateValidityArgs'],
+             certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+             certificate_signing_request: Optional[pulumi.Input[str]] = None,
+             signing_algorithm: Optional[pulumi.Input[str]] = None,
+             validity: Optional[pulumi.Input['CertificateValidityArgs']] = None,
              api_passthrough: Optional[pulumi.Input['CertificateApiPassthroughArgs']] = None,
              template_arn: Optional[pulumi.Input[str]] = None,
              validity_not_before: Optional[pulumi.Input['CertificateValidityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_authority_arn is None:
+            raise TypeError("Missing 'certificate_authority_arn' argument")
+        if certificate_signing_request is None and 'certificateSigningRequest' in kwargs:
+            certificate_signing_request = kwargs['certificateSigningRequest']
+        if certificate_signing_request is None:
+            raise TypeError("Missing 'certificate_signing_request' argument")
+        if signing_algorithm is None and 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+        if signing_algorithm is None:
+            raise TypeError("Missing 'signing_algorithm' argument")
+        if validity is None:
+            raise TypeError("Missing 'validity' argument")
+        if api_passthrough is None and 'apiPassthrough' in kwargs:
+            api_passthrough = kwargs['apiPassthrough']
+        if template_arn is None and 'templateArn' in kwargs:
+            template_arn = kwargs['templateArn']
+        if validity_not_before is None and 'validityNotBefore' in kwargs:
+            validity_not_before = kwargs['validityNotBefore']
+
         _setter("certificate_authority_arn", certificate_authority_arn)
         _setter("certificate_signing_request", certificate_signing_request)
         _setter("signing_algorithm", signing_algorithm)
@@ -220,11 +242,7 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
-            if api_passthrough is not None and not isinstance(api_passthrough, CertificateApiPassthroughArgs):
-                api_passthrough = api_passthrough or {}
-                def _setter(key, value):
-                    api_passthrough[key] = value
-                CertificateApiPassthroughArgs._configure(_setter, **api_passthrough)
+            api_passthrough = _utilities.configure(api_passthrough, CertificateApiPassthroughArgs, True)
             __props__.__dict__["api_passthrough"] = api_passthrough
             if certificate_authority_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_authority_arn'")
@@ -236,19 +254,11 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'signing_algorithm'")
             __props__.__dict__["signing_algorithm"] = signing_algorithm
             __props__.__dict__["template_arn"] = template_arn
-            if validity is not None and not isinstance(validity, CertificateValidityArgs):
-                validity = validity or {}
-                def _setter(key, value):
-                    validity[key] = value
-                CertificateValidityArgs._configure(_setter, **validity)
+            validity = _utilities.configure(validity, CertificateValidityArgs, True)
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity
-            if validity_not_before is not None and not isinstance(validity_not_before, CertificateValidityArgs):
-                validity_not_before = validity_not_before or {}
-                def _setter(key, value):
-                    validity_not_before[key] = value
-                CertificateValidityArgs._configure(_setter, **validity_not_before)
+            validity_not_before = _utilities.configure(validity_not_before, CertificateValidityArgs, True)
             __props__.__dict__["validity_not_before"] = validity_not_before
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate"] = None

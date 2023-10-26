@@ -61,7 +61,23 @@ class ChannelArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              vpc: Optional[pulumi.Input['ChannelVpcOutputSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cdi_input_specification is None and 'cdiInputSpecification' in kwargs:
+            cdi_input_specification = kwargs['cdiInputSpecification']
+        if channel_class is None and 'channelClass' in kwargs:
+            channel_class = kwargs['channelClass']
+        if encoder_settings is None and 'encoderSettings' in kwargs:
+            encoder_settings = kwargs['encoderSettings']
+        if input_attachments is None and 'inputAttachments' in kwargs:
+            input_attachments = kwargs['inputAttachments']
+        if input_specification is None and 'inputSpecification' in kwargs:
+            input_specification = kwargs['inputSpecification']
+        if log_level is None and 'logLevel' in kwargs:
+            log_level = kwargs['logLevel']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if cdi_input_specification is not None:
             _setter("cdi_input_specification", cdi_input_specification)
         if channel_class is not None:
@@ -275,42 +291,22 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
-            if cdi_input_specification is not None and not isinstance(cdi_input_specification, ChannelCdiInputSpecificationArgs):
-                cdi_input_specification = cdi_input_specification or {}
-                def _setter(key, value):
-                    cdi_input_specification[key] = value
-                ChannelCdiInputSpecificationArgs._configure(_setter, **cdi_input_specification)
+            cdi_input_specification = _utilities.configure(cdi_input_specification, ChannelCdiInputSpecificationArgs, True)
             __props__.__dict__["cdi_input_specification"] = cdi_input_specification
             __props__.__dict__["channel_class"] = channel_class
             __props__.__dict__["destinations"] = destinations
-            if encoder_settings is not None and not isinstance(encoder_settings, ChannelEncoderSettingsArgs):
-                encoder_settings = encoder_settings or {}
-                def _setter(key, value):
-                    encoder_settings[key] = value
-                ChannelEncoderSettingsArgs._configure(_setter, **encoder_settings)
+            encoder_settings = _utilities.configure(encoder_settings, ChannelEncoderSettingsArgs, True)
             __props__.__dict__["encoder_settings"] = encoder_settings
             __props__.__dict__["input_attachments"] = input_attachments
-            if input_specification is not None and not isinstance(input_specification, ChannelInputSpecificationArgs):
-                input_specification = input_specification or {}
-                def _setter(key, value):
-                    input_specification[key] = value
-                ChannelInputSpecificationArgs._configure(_setter, **input_specification)
+            input_specification = _utilities.configure(input_specification, ChannelInputSpecificationArgs, True)
             __props__.__dict__["input_specification"] = input_specification
             __props__.__dict__["log_level"] = log_level
-            if maintenance is not None and not isinstance(maintenance, ChannelMaintenanceCreateSettingsArgs):
-                maintenance = maintenance or {}
-                def _setter(key, value):
-                    maintenance[key] = value
-                ChannelMaintenanceCreateSettingsArgs._configure(_setter, **maintenance)
+            maintenance = _utilities.configure(maintenance, ChannelMaintenanceCreateSettingsArgs, True)
             __props__.__dict__["maintenance"] = maintenance
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-            if vpc is not None and not isinstance(vpc, ChannelVpcOutputSettingsArgs):
-                vpc = vpc or {}
-                def _setter(key, value):
-                    vpc[key] = value
-                ChannelVpcOutputSettingsArgs._configure(_setter, **vpc)
+            vpc = _utilities.configure(vpc, ChannelVpcOutputSettingsArgs, True)
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
             __props__.__dict__["inputs"] = None

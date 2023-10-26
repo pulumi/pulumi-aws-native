@@ -34,11 +34,25 @@ class TemplateGroupAccessControlEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_rights: pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs'],
-             group_display_name: pulumi.Input[str],
+             access_rights: Optional[pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs']] = None,
+             group_display_name: Optional[pulumi.Input[str]] = None,
              group_security_identifier: Optional[pulumi.Input[str]] = None,
              template_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_rights is None and 'accessRights' in kwargs:
+            access_rights = kwargs['accessRights']
+        if access_rights is None:
+            raise TypeError("Missing 'access_rights' argument")
+        if group_display_name is None and 'groupDisplayName' in kwargs:
+            group_display_name = kwargs['groupDisplayName']
+        if group_display_name is None:
+            raise TypeError("Missing 'group_display_name' argument")
+        if group_security_identifier is None and 'groupSecurityIdentifier' in kwargs:
+            group_security_identifier = kwargs['groupSecurityIdentifier']
+        if template_arn is None and 'templateArn' in kwargs:
+            template_arn = kwargs['templateArn']
+
         _setter("access_rights", access_rights)
         _setter("group_display_name", group_display_name)
         if group_security_identifier is not None:
@@ -140,11 +154,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateGroupAccessControlEntryArgs.__new__(TemplateGroupAccessControlEntryArgs)
 
-            if access_rights is not None and not isinstance(access_rights, TemplateGroupAccessControlEntryAccessRightsArgs):
-                access_rights = access_rights or {}
-                def _setter(key, value):
-                    access_rights[key] = value
-                TemplateGroupAccessControlEntryAccessRightsArgs._configure(_setter, **access_rights)
+            access_rights = _utilities.configure(access_rights, TemplateGroupAccessControlEntryAccessRightsArgs, True)
             if access_rights is None and not opts.urn:
                 raise TypeError("Missing required property 'access_rights'")
             __props__.__dict__["access_rights"] = access_rights

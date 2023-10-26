@@ -49,7 +49,13 @@ class UsagePlanArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]] = None,
              throttle: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
              usage_plan_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_stages is None and 'apiStages' in kwargs:
+            api_stages = kwargs['apiStages']
+        if usage_plan_name is None and 'usagePlanName' in kwargs:
+            usage_plan_name = kwargs['usagePlanName']
+
         if api_stages is not None:
             _setter("api_stages", api_stages)
         if description is not None:
@@ -205,18 +211,10 @@ class UsagePlan(pulumi.CustomResource):
 
             __props__.__dict__["api_stages"] = api_stages
             __props__.__dict__["description"] = description
-            if quota is not None and not isinstance(quota, UsagePlanQuotaSettingsArgs):
-                quota = quota or {}
-                def _setter(key, value):
-                    quota[key] = value
-                UsagePlanQuotaSettingsArgs._configure(_setter, **quota)
+            quota = _utilities.configure(quota, UsagePlanQuotaSettingsArgs, True)
             __props__.__dict__["quota"] = quota
             __props__.__dict__["tags"] = tags
-            if throttle is not None and not isinstance(throttle, UsagePlanThrottleSettingsArgs):
-                throttle = throttle or {}
-                def _setter(key, value):
-                    throttle[key] = value
-                UsagePlanThrottleSettingsArgs._configure(_setter, **throttle)
+            throttle = _utilities.configure(throttle, UsagePlanThrottleSettingsArgs, True)
             __props__.__dict__["throttle"] = throttle
             __props__.__dict__["usage_plan_name"] = usage_plan_name
         super(UsagePlan, __self__).__init__(

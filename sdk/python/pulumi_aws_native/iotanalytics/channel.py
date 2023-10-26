@@ -37,7 +37,15 @@ class ChannelArgs:
              channel_storage: Optional[pulumi.Input['ChannelStorageArgs']] = None,
              retention_period: Optional[pulumi.Input['ChannelRetentionPeriodArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_storage is None and 'channelStorage' in kwargs:
+            channel_storage = kwargs['channelStorage']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+
         if channel_name is not None:
             _setter("channel_name", channel_name)
         if channel_storage is not None:
@@ -142,17 +150,9 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["channel_name"] = channel_name
-            if channel_storage is not None and not isinstance(channel_storage, ChannelStorageArgs):
-                channel_storage = channel_storage or {}
-                def _setter(key, value):
-                    channel_storage[key] = value
-                ChannelStorageArgs._configure(_setter, **channel_storage)
+            channel_storage = _utilities.configure(channel_storage, ChannelStorageArgs, True)
             __props__.__dict__["channel_storage"] = channel_storage
-            if retention_period is not None and not isinstance(retention_period, ChannelRetentionPeriodArgs):
-                retention_period = retention_period or {}
-                def _setter(key, value):
-                    retention_period[key] = value
-                ChannelRetentionPeriodArgs._configure(_setter, **retention_period)
+            retention_period = _utilities.configure(retention_period, ChannelRetentionPeriodArgs, True)
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["channel_name"])

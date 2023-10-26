@@ -47,7 +47,7 @@ class IdentityPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_unauthenticated_identities: pulumi.Input[bool],
+             allow_unauthenticated_identities: Optional[pulumi.Input[bool]] = None,
              allow_classic_flow: Optional[pulumi.Input[bool]] = None,
              cognito_events: Optional[Any] = None,
              cognito_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]] = None,
@@ -58,7 +58,33 @@ class IdentityPoolArgs:
              push_sync: Optional[pulumi.Input['IdentityPoolPushSyncArgs']] = None,
              saml_provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              supported_login_providers: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_unauthenticated_identities is None and 'allowUnauthenticatedIdentities' in kwargs:
+            allow_unauthenticated_identities = kwargs['allowUnauthenticatedIdentities']
+        if allow_unauthenticated_identities is None:
+            raise TypeError("Missing 'allow_unauthenticated_identities' argument")
+        if allow_classic_flow is None and 'allowClassicFlow' in kwargs:
+            allow_classic_flow = kwargs['allowClassicFlow']
+        if cognito_events is None and 'cognitoEvents' in kwargs:
+            cognito_events = kwargs['cognitoEvents']
+        if cognito_identity_providers is None and 'cognitoIdentityProviders' in kwargs:
+            cognito_identity_providers = kwargs['cognitoIdentityProviders']
+        if cognito_streams is None and 'cognitoStreams' in kwargs:
+            cognito_streams = kwargs['cognitoStreams']
+        if developer_provider_name is None and 'developerProviderName' in kwargs:
+            developer_provider_name = kwargs['developerProviderName']
+        if identity_pool_name is None and 'identityPoolName' in kwargs:
+            identity_pool_name = kwargs['identityPoolName']
+        if open_id_connect_provider_arns is None and 'openIdConnectProviderArns' in kwargs:
+            open_id_connect_provider_arns = kwargs['openIdConnectProviderArns']
+        if push_sync is None and 'pushSync' in kwargs:
+            push_sync = kwargs['pushSync']
+        if saml_provider_arns is None and 'samlProviderArns' in kwargs:
+            saml_provider_arns = kwargs['samlProviderArns']
+        if supported_login_providers is None and 'supportedLoginProviders' in kwargs:
+            supported_login_providers = kwargs['supportedLoginProviders']
+
         _setter("allow_unauthenticated_identities", allow_unauthenticated_identities)
         if allow_classic_flow is not None:
             _setter("allow_classic_flow", allow_classic_flow)
@@ -258,20 +284,12 @@ class IdentityPool(pulumi.CustomResource):
             __props__.__dict__["allow_unauthenticated_identities"] = allow_unauthenticated_identities
             __props__.__dict__["cognito_events"] = cognito_events
             __props__.__dict__["cognito_identity_providers"] = cognito_identity_providers
-            if cognito_streams is not None and not isinstance(cognito_streams, IdentityPoolCognitoStreamsArgs):
-                cognito_streams = cognito_streams or {}
-                def _setter(key, value):
-                    cognito_streams[key] = value
-                IdentityPoolCognitoStreamsArgs._configure(_setter, **cognito_streams)
+            cognito_streams = _utilities.configure(cognito_streams, IdentityPoolCognitoStreamsArgs, True)
             __props__.__dict__["cognito_streams"] = cognito_streams
             __props__.__dict__["developer_provider_name"] = developer_provider_name
             __props__.__dict__["identity_pool_name"] = identity_pool_name
             __props__.__dict__["open_id_connect_provider_arns"] = open_id_connect_provider_arns
-            if push_sync is not None and not isinstance(push_sync, IdentityPoolPushSyncArgs):
-                push_sync = push_sync or {}
-                def _setter(key, value):
-                    push_sync[key] = value
-                IdentityPoolPushSyncArgs._configure(_setter, **push_sync)
+            push_sync = _utilities.configure(push_sync, IdentityPoolPushSyncArgs, True)
             __props__.__dict__["push_sync"] = push_sync
             __props__.__dict__["saml_provider_arns"] = saml_provider_arns
             __props__.__dict__["supported_login_providers"] = supported_login_providers

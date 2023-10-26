@@ -28,8 +28,14 @@ class SpotFleetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             spot_fleet_request_config_data: pulumi.Input['SpotFleetRequestConfigDataArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             spot_fleet_request_config_data: Optional[pulumi.Input['SpotFleetRequestConfigDataArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if spot_fleet_request_config_data is None and 'spotFleetRequestConfigData' in kwargs:
+            spot_fleet_request_config_data = kwargs['spotFleetRequestConfigData']
+        if spot_fleet_request_config_data is None:
+            raise TypeError("Missing 'spot_fleet_request_config_data' argument")
+
         _setter("spot_fleet_request_config_data", spot_fleet_request_config_data)
 
     @property
@@ -93,11 +99,7 @@ class SpotFleet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpotFleetArgs.__new__(SpotFleetArgs)
 
-            if spot_fleet_request_config_data is not None and not isinstance(spot_fleet_request_config_data, SpotFleetRequestConfigDataArgs):
-                spot_fleet_request_config_data = spot_fleet_request_config_data or {}
-                def _setter(key, value):
-                    spot_fleet_request_config_data[key] = value
-                SpotFleetRequestConfigDataArgs._configure(_setter, **spot_fleet_request_config_data)
+            spot_fleet_request_config_data = _utilities.configure(spot_fleet_request_config_data, SpotFleetRequestConfigDataArgs, True)
             if spot_fleet_request_config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'spot_fleet_request_config_data'")
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data

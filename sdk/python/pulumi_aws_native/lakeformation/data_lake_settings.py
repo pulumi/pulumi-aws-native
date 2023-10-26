@@ -55,7 +55,25 @@ class DataLakeSettingsArgs:
              mutation_type: Optional[pulumi.Input[str]] = None,
              parameters: Optional[Any] = None,
              trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_external_data_filtering is None and 'allowExternalDataFiltering' in kwargs:
+            allow_external_data_filtering = kwargs['allowExternalDataFiltering']
+        if allow_full_table_external_data_access is None and 'allowFullTableExternalDataAccess' in kwargs:
+            allow_full_table_external_data_access = kwargs['allowFullTableExternalDataAccess']
+        if authorized_session_tag_value_list is None and 'authorizedSessionTagValueList' in kwargs:
+            authorized_session_tag_value_list = kwargs['authorizedSessionTagValueList']
+        if create_database_default_permissions is None and 'createDatabaseDefaultPermissions' in kwargs:
+            create_database_default_permissions = kwargs['createDatabaseDefaultPermissions']
+        if create_table_default_permissions is None and 'createTableDefaultPermissions' in kwargs:
+            create_table_default_permissions = kwargs['createTableDefaultPermissions']
+        if external_data_filtering_allow_list is None and 'externalDataFilteringAllowList' in kwargs:
+            external_data_filtering_allow_list = kwargs['externalDataFilteringAllowList']
+        if mutation_type is None and 'mutationType' in kwargs:
+            mutation_type = kwargs['mutationType']
+        if trusted_resource_owners is None and 'trustedResourceOwners' in kwargs:
+            trusted_resource_owners = kwargs['trustedResourceOwners']
+
         if admins is not None:
             _setter("admins", admins)
         if allow_external_data_filtering is not None:
@@ -243,32 +261,16 @@ class DataLakeSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataLakeSettingsArgs.__new__(DataLakeSettingsArgs)
 
-            if admins is not None and not isinstance(admins, DataLakeSettingsAdminsArgs):
-                admins = admins or {}
-                def _setter(key, value):
-                    admins[key] = value
-                DataLakeSettingsAdminsArgs._configure(_setter, **admins)
+            admins = _utilities.configure(admins, DataLakeSettingsAdminsArgs, True)
             __props__.__dict__["admins"] = admins
             __props__.__dict__["allow_external_data_filtering"] = allow_external_data_filtering
             __props__.__dict__["allow_full_table_external_data_access"] = allow_full_table_external_data_access
             __props__.__dict__["authorized_session_tag_value_list"] = authorized_session_tag_value_list
-            if create_database_default_permissions is not None and not isinstance(create_database_default_permissions, DataLakeSettingsCreateDatabaseDefaultPermissionsArgs):
-                create_database_default_permissions = create_database_default_permissions or {}
-                def _setter(key, value):
-                    create_database_default_permissions[key] = value
-                DataLakeSettingsCreateDatabaseDefaultPermissionsArgs._configure(_setter, **create_database_default_permissions)
+            create_database_default_permissions = _utilities.configure(create_database_default_permissions, DataLakeSettingsCreateDatabaseDefaultPermissionsArgs, True)
             __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
-            if create_table_default_permissions is not None and not isinstance(create_table_default_permissions, DataLakeSettingsCreateTableDefaultPermissionsArgs):
-                create_table_default_permissions = create_table_default_permissions or {}
-                def _setter(key, value):
-                    create_table_default_permissions[key] = value
-                DataLakeSettingsCreateTableDefaultPermissionsArgs._configure(_setter, **create_table_default_permissions)
+            create_table_default_permissions = _utilities.configure(create_table_default_permissions, DataLakeSettingsCreateTableDefaultPermissionsArgs, True)
             __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
-            if external_data_filtering_allow_list is not None and not isinstance(external_data_filtering_allow_list, DataLakeSettingsExternalDataFilteringAllowListArgs):
-                external_data_filtering_allow_list = external_data_filtering_allow_list or {}
-                def _setter(key, value):
-                    external_data_filtering_allow_list[key] = value
-                DataLakeSettingsExternalDataFilteringAllowListArgs._configure(_setter, **external_data_filtering_allow_list)
+            external_data_filtering_allow_list = _utilities.configure(external_data_filtering_allow_list, DataLakeSettingsExternalDataFilteringAllowListArgs, True)
             __props__.__dict__["external_data_filtering_allow_list"] = external_data_filtering_allow_list
             __props__.__dict__["mutation_type"] = mutation_type
             __props__.__dict__["parameters"] = parameters

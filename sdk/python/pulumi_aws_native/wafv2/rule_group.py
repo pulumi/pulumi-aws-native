@@ -49,9 +49,9 @@ class RuleGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             scope: pulumi.Input['RuleGroupScope'],
-             visibility_config: pulumi.Input['RuleGroupVisibilityConfigArgs'],
+             capacity: Optional[pulumi.Input[int]] = None,
+             scope: Optional[pulumi.Input['RuleGroupScope']] = None,
+             visibility_config: Optional[pulumi.Input['RuleGroupVisibilityConfigArgs']] = None,
              available_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
              consumed_labels: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupLabelSummaryArgs']]]] = None,
              custom_response_bodies: Optional[pulumi.Input['RuleGroupCustomResponseBodiesArgs']] = None,
@@ -59,7 +59,23 @@ class RuleGroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if visibility_config is None and 'visibilityConfig' in kwargs:
+            visibility_config = kwargs['visibilityConfig']
+        if visibility_config is None:
+            raise TypeError("Missing 'visibility_config' argument")
+        if available_labels is None and 'availableLabels' in kwargs:
+            available_labels = kwargs['availableLabels']
+        if consumed_labels is None and 'consumedLabels' in kwargs:
+            consumed_labels = kwargs['consumedLabels']
+        if custom_response_bodies is None and 'customResponseBodies' in kwargs:
+            custom_response_bodies = kwargs['customResponseBodies']
+
         _setter("capacity", capacity)
         _setter("scope", scope)
         _setter("visibility_config", visibility_config)
@@ -255,11 +271,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["consumed_labels"] = consumed_labels
-            if custom_response_bodies is not None and not isinstance(custom_response_bodies, RuleGroupCustomResponseBodiesArgs):
-                custom_response_bodies = custom_response_bodies or {}
-                def _setter(key, value):
-                    custom_response_bodies[key] = value
-                RuleGroupCustomResponseBodiesArgs._configure(_setter, **custom_response_bodies)
+            custom_response_bodies = _utilities.configure(custom_response_bodies, RuleGroupCustomResponseBodiesArgs, True)
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -268,11 +280,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
-            if visibility_config is not None and not isinstance(visibility_config, RuleGroupVisibilityConfigArgs):
-                visibility_config = visibility_config or {}
-                def _setter(key, value):
-                    visibility_config[key] = value
-                RuleGroupVisibilityConfigArgs._configure(_setter, **visibility_config)
+            visibility_config = _utilities.configure(visibility_config, RuleGroupVisibilityConfigArgs, True)
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config

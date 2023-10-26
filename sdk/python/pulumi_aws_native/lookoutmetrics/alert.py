@@ -40,12 +40,28 @@ class AlertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['AlertActionArgs'],
-             alert_sensitivity_threshold: pulumi.Input[int],
-             anomaly_detector_arn: pulumi.Input[str],
+             action: Optional[pulumi.Input['AlertActionArgs']] = None,
+             alert_sensitivity_threshold: Optional[pulumi.Input[int]] = None,
+             anomaly_detector_arn: Optional[pulumi.Input[str]] = None,
              alert_description: Optional[pulumi.Input[str]] = None,
              alert_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if alert_sensitivity_threshold is None and 'alertSensitivityThreshold' in kwargs:
+            alert_sensitivity_threshold = kwargs['alertSensitivityThreshold']
+        if alert_sensitivity_threshold is None:
+            raise TypeError("Missing 'alert_sensitivity_threshold' argument")
+        if anomaly_detector_arn is None and 'anomalyDetectorArn' in kwargs:
+            anomaly_detector_arn = kwargs['anomalyDetectorArn']
+        if anomaly_detector_arn is None:
+            raise TypeError("Missing 'anomaly_detector_arn' argument")
+        if alert_description is None and 'alertDescription' in kwargs:
+            alert_description = kwargs['alertDescription']
+        if alert_name is None and 'alertName' in kwargs:
+            alert_name = kwargs['alertName']
+
         _setter("action", action)
         _setter("alert_sensitivity_threshold", alert_sensitivity_threshold)
         _setter("anomaly_detector_arn", anomaly_detector_arn)
@@ -179,11 +195,7 @@ class Alert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertArgs.__new__(AlertArgs)
 
-            if action is not None and not isinstance(action, AlertActionArgs):
-                action = action or {}
-                def _setter(key, value):
-                    action[key] = value
-                AlertActionArgs._configure(_setter, **action)
+            action = _utilities.configure(action, AlertActionArgs, True)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action

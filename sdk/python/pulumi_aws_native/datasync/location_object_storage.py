@@ -56,7 +56,7 @@ class LocationObjectStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              access_key: Optional[pulumi.Input[str]] = None,
              bucket_name: Optional[pulumi.Input[str]] = None,
              secret_key: Optional[pulumi.Input[str]] = None,
@@ -66,7 +66,27 @@ class LocationObjectStorageArgs:
              server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if agent_arns is None:
+            raise TypeError("Missing 'agent_arns' argument")
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if secret_key is None and 'secretKey' in kwargs:
+            secret_key = kwargs['secretKey']
+        if server_certificate is None and 'serverCertificate' in kwargs:
+            server_certificate = kwargs['serverCertificate']
+        if server_hostname is None and 'serverHostname' in kwargs:
+            server_hostname = kwargs['serverHostname']
+        if server_port is None and 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if server_protocol is None and 'serverProtocol' in kwargs:
+            server_protocol = kwargs['serverProtocol']
+
         _setter("agent_arns", agent_arns)
         if access_key is not None:
             _setter("access_key", access_key)

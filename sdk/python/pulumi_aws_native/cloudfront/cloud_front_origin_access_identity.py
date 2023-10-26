@@ -27,8 +27,14 @@ class CloudFrontOriginAccessIdentityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_front_origin_access_identity_config: Optional[pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_front_origin_access_identity_config is None and 'cloudFrontOriginAccessIdentityConfig' in kwargs:
+            cloud_front_origin_access_identity_config = kwargs['cloudFrontOriginAccessIdentityConfig']
+        if cloud_front_origin_access_identity_config is None:
+            raise TypeError("Missing 'cloud_front_origin_access_identity_config' argument")
+
         _setter("cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
 
     @property
@@ -92,11 +98,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CloudFrontOriginAccessIdentityArgs.__new__(CloudFrontOriginAccessIdentityArgs)
 
-            if cloud_front_origin_access_identity_config is not None and not isinstance(cloud_front_origin_access_identity_config, CloudFrontOriginAccessIdentityConfigArgs):
-                cloud_front_origin_access_identity_config = cloud_front_origin_access_identity_config or {}
-                def _setter(key, value):
-                    cloud_front_origin_access_identity_config[key] = value
-                CloudFrontOriginAccessIdentityConfigArgs._configure(_setter, **cloud_front_origin_access_identity_config)
+            cloud_front_origin_access_identity_config = _utilities.configure(cloud_front_origin_access_identity_config, CloudFrontOriginAccessIdentityConfigArgs, True)
             if cloud_front_origin_access_identity_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_front_origin_access_identity_config'")
             __props__.__dict__["cloud_front_origin_access_identity_config"] = cloud_front_origin_access_identity_config

@@ -27,9 +27,19 @@ class StreamConsumerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_name: pulumi.Input[str],
-             stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             consumer_name: Optional[pulumi.Input[str]] = None,
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_name is None and 'consumerName' in kwargs:
+            consumer_name = kwargs['consumerName']
+        if consumer_name is None:
+            raise TypeError("Missing 'consumer_name' argument")
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+        if stream_arn is None:
+            raise TypeError("Missing 'stream_arn' argument")
+
         _setter("consumer_name", consumer_name)
         _setter("stream_arn", stream_arn)
 

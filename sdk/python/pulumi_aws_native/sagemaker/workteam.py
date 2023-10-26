@@ -43,7 +43,17 @@ class WorkteamArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkteamTagArgs']]]] = None,
              workforce_name: Optional[pulumi.Input[str]] = None,
              workteam_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if member_definitions is None and 'memberDefinitions' in kwargs:
+            member_definitions = kwargs['memberDefinitions']
+        if notification_configuration is None and 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if workforce_name is None and 'workforceName' in kwargs:
+            workforce_name = kwargs['workforceName']
+        if workteam_name is None and 'workteamName' in kwargs:
+            workteam_name = kwargs['workteamName']
+
         if description is not None:
             _setter("description", description)
         if member_definitions is not None:
@@ -181,11 +191,7 @@ class Workteam(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["member_definitions"] = member_definitions
-            if notification_configuration is not None and not isinstance(notification_configuration, WorkteamNotificationConfigurationArgs):
-                notification_configuration = notification_configuration or {}
-                def _setter(key, value):
-                    notification_configuration[key] = value
-                WorkteamNotificationConfigurationArgs._configure(_setter, **notification_configuration)
+            notification_configuration = _utilities.configure(notification_configuration, WorkteamNotificationConfigurationArgs, True)
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workforce_name"] = workforce_name

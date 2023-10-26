@@ -29,9 +29,17 @@ class StreamingDistributionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             streaming_distribution_config: pulumi.Input['StreamingDistributionConfigArgs'],
-             tags: pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             streaming_distribution_config: Optional[pulumi.Input['StreamingDistributionConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if streaming_distribution_config is None and 'streamingDistributionConfig' in kwargs:
+            streaming_distribution_config = kwargs['streamingDistributionConfig']
+        if streaming_distribution_config is None:
+            raise TypeError("Missing 'streaming_distribution_config' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+
         _setter("streaming_distribution_config", streaming_distribution_config)
         _setter("tags", tags)
 
@@ -113,11 +121,7 @@ class StreamingDistribution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingDistributionArgs.__new__(StreamingDistributionArgs)
 
-            if streaming_distribution_config is not None and not isinstance(streaming_distribution_config, StreamingDistributionConfigArgs):
-                streaming_distribution_config = streaming_distribution_config or {}
-                def _setter(key, value):
-                    streaming_distribution_config[key] = value
-                StreamingDistributionConfigArgs._configure(_setter, **streaming_distribution_config)
+            streaming_distribution_config = _utilities.configure(streaming_distribution_config, StreamingDistributionConfigArgs, True)
             if streaming_distribution_config is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_distribution_config'")
             __props__.__dict__["streaming_distribution_config"] = streaming_distribution_config

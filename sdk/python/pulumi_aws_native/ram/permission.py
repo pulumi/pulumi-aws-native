@@ -36,11 +36,21 @@ class PermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_template: Any,
-             resource_type: pulumi.Input[str],
+             policy_template: Optional[Any] = None,
+             resource_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_template is None and 'policyTemplate' in kwargs:
+            policy_template = kwargs['policyTemplate']
+        if policy_template is None:
+            raise TypeError("Missing 'policy_template' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+
         _setter("policy_template", policy_template)
         _setter("resource_type", resource_type)
         if name is not None:

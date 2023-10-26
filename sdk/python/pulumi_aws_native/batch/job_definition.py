@@ -49,7 +49,7 @@ class JobDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              container_properties: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
              eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
              job_definition_name: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,27 @@ class JobDefinitionArgs:
              scheduling_priority: Optional[pulumi.Input[int]] = None,
              tags: Optional[Any] = None,
              timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if container_properties is None and 'containerProperties' in kwargs:
+            container_properties = kwargs['containerProperties']
+        if eks_properties is None and 'eksProperties' in kwargs:
+            eks_properties = kwargs['eksProperties']
+        if job_definition_name is None and 'jobDefinitionName' in kwargs:
+            job_definition_name = kwargs['jobDefinitionName']
+        if node_properties is None and 'nodeProperties' in kwargs:
+            node_properties = kwargs['nodeProperties']
+        if platform_capabilities is None and 'platformCapabilities' in kwargs:
+            platform_capabilities = kwargs['platformCapabilities']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if retry_strategy is None and 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+        if scheduling_priority is None and 'schedulingPriority' in kwargs:
+            scheduling_priority = kwargs['schedulingPriority']
+
         _setter("type", type)
         if container_properties is not None:
             _setter("container_properties", container_properties)
@@ -274,41 +294,21 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-            if container_properties is not None and not isinstance(container_properties, JobDefinitionContainerPropertiesArgs):
-                container_properties = container_properties or {}
-                def _setter(key, value):
-                    container_properties[key] = value
-                JobDefinitionContainerPropertiesArgs._configure(_setter, **container_properties)
+            container_properties = _utilities.configure(container_properties, JobDefinitionContainerPropertiesArgs, True)
             __props__.__dict__["container_properties"] = container_properties
-            if eks_properties is not None and not isinstance(eks_properties, JobDefinitionEksPropertiesArgs):
-                eks_properties = eks_properties or {}
-                def _setter(key, value):
-                    eks_properties[key] = value
-                JobDefinitionEksPropertiesArgs._configure(_setter, **eks_properties)
+            eks_properties = _utilities.configure(eks_properties, JobDefinitionEksPropertiesArgs, True)
             __props__.__dict__["eks_properties"] = eks_properties
             __props__.__dict__["job_definition_name"] = job_definition_name
-            if node_properties is not None and not isinstance(node_properties, JobDefinitionNodePropertiesArgs):
-                node_properties = node_properties or {}
-                def _setter(key, value):
-                    node_properties[key] = value
-                JobDefinitionNodePropertiesArgs._configure(_setter, **node_properties)
+            node_properties = _utilities.configure(node_properties, JobDefinitionNodePropertiesArgs, True)
             __props__.__dict__["node_properties"] = node_properties
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["propagate_tags"] = propagate_tags
-            if retry_strategy is not None and not isinstance(retry_strategy, JobDefinitionRetryStrategyArgs):
-                retry_strategy = retry_strategy or {}
-                def _setter(key, value):
-                    retry_strategy[key] = value
-                JobDefinitionRetryStrategyArgs._configure(_setter, **retry_strategy)
+            retry_strategy = _utilities.configure(retry_strategy, JobDefinitionRetryStrategyArgs, True)
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["scheduling_priority"] = scheduling_priority
             __props__.__dict__["tags"] = tags
-            if timeout is not None and not isinstance(timeout, JobDefinitionTimeoutArgs):
-                timeout = timeout or {}
-                def _setter(key, value):
-                    timeout[key] = value
-                JobDefinitionTimeoutArgs._configure(_setter, **timeout)
+            timeout = _utilities.configure(timeout, JobDefinitionTimeoutArgs, True)
             __props__.__dict__["timeout"] = timeout
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

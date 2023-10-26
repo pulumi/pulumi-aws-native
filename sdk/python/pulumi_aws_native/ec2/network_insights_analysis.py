@@ -34,11 +34,21 @@ class NetworkInsightsAnalysisArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_insights_path_id: pulumi.Input[str],
+             network_insights_path_id: Optional[pulumi.Input[str]] = None,
              additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_insights_path_id is None and 'networkInsightsPathId' in kwargs:
+            network_insights_path_id = kwargs['networkInsightsPathId']
+        if network_insights_path_id is None:
+            raise TypeError("Missing 'network_insights_path_id' argument")
+        if additional_accounts is None and 'additionalAccounts' in kwargs:
+            additional_accounts = kwargs['additionalAccounts']
+        if filter_in_arns is None and 'filterInArns' in kwargs:
+            filter_in_arns = kwargs['filterInArns']
+
         _setter("network_insights_path_id", network_insights_path_id)
         if additional_accounts is not None:
             _setter("additional_accounts", additional_accounts)

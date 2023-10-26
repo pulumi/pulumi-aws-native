@@ -32,7 +32,13 @@ class ResolverQueryLoggingConfigAssociationArgs:
              _setter: Callable[[Any, Any], None],
              resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resolver_query_log_config_id is None and 'resolverQueryLogConfigId' in kwargs:
+            resolver_query_log_config_id = kwargs['resolverQueryLogConfigId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if resolver_query_log_config_id is not None:
             _setter("resolver_query_log_config_id", resolver_query_log_config_id)
         if resource_id is not None:

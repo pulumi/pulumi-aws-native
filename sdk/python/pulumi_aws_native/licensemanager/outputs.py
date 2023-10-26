@@ -52,9 +52,19 @@ class LicenseBorrowConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_early_check_in: bool,
-             max_time_to_live_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allow_early_check_in: Optional[bool] = None,
+             max_time_to_live_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_early_check_in is None and 'allowEarlyCheckIn' in kwargs:
+            allow_early_check_in = kwargs['allowEarlyCheckIn']
+        if allow_early_check_in is None:
+            raise TypeError("Missing 'allow_early_check_in' argument")
+        if max_time_to_live_in_minutes is None and 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+        if max_time_to_live_in_minutes is None:
+            raise TypeError("Missing 'max_time_to_live_in_minutes' argument")
+
         _setter("allow_early_check_in", allow_early_check_in)
         _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
@@ -108,7 +118,15 @@ class LicenseConsumptionConfiguration(dict):
              borrow_configuration: Optional['outputs.LicenseBorrowConfiguration'] = None,
              provisional_configuration: Optional['outputs.LicenseProvisionalConfiguration'] = None,
              renew_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if borrow_configuration is None and 'borrowConfiguration' in kwargs:
+            borrow_configuration = kwargs['borrowConfiguration']
+        if provisional_configuration is None and 'provisionalConfiguration' in kwargs:
+            provisional_configuration = kwargs['provisionalConfiguration']
+        if renew_type is None and 'renewType' in kwargs:
+            renew_type = kwargs['renewType']
+
         if borrow_configuration is not None:
             _setter("borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
@@ -172,13 +190,23 @@ class LicenseEntitlement(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             unit: str,
+             name: Optional[str] = None,
+             unit: Optional[str] = None,
              allow_check_in: Optional[bool] = None,
              max_count: Optional[int] = None,
              overage: Optional[bool] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+        if allow_check_in is None and 'allowCheckIn' in kwargs:
+            allow_check_in = kwargs['allowCheckIn']
+        if max_count is None and 'maxCount' in kwargs:
+            max_count = kwargs['maxCount']
+
         _setter("name", name)
         _setter("unit", unit)
         if allow_check_in is not None:
@@ -251,9 +279,15 @@ class LicenseIssuerData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              sign_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sign_key is None and 'signKey' in kwargs:
+            sign_key = kwargs['signKey']
+
         _setter("name", name)
         if sign_key is not None:
             _setter("sign_key", sign_key)
@@ -282,9 +316,15 @@ class LicenseMetadata(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -327,8 +367,14 @@ class LicenseProvisionalConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_time_to_live_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             max_time_to_live_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_time_to_live_in_minutes is None and 'maxTimeToLiveInMinutes' in kwargs:
+            max_time_to_live_in_minutes = kwargs['maxTimeToLiveInMinutes']
+        if max_time_to_live_in_minutes is None:
+            raise TypeError("Missing 'max_time_to_live_in_minutes' argument")
+
         _setter("max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
@@ -354,9 +400,15 @@ class LicenseValidityDateFormat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             begin: str,
-             end: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             begin: Optional[str] = None,
+             end: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if begin is None:
+            raise TypeError("Missing 'begin' argument")
+        if end is None:
+            raise TypeError("Missing 'end' argument")
+
         _setter("begin", begin)
         _setter("end", end)
 

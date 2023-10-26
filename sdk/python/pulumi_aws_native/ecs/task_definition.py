@@ -77,7 +77,33 @@ class TaskDefinitionArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionTagArgs']]]] = None,
              task_role_arn: Optional[pulumi.Input[str]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_definitions is None and 'containerDefinitions' in kwargs:
+            container_definitions = kwargs['containerDefinitions']
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if inference_accelerators is None and 'inferenceAccelerators' in kwargs:
+            inference_accelerators = kwargs['inferenceAccelerators']
+        if ipc_mode is None and 'ipcMode' in kwargs:
+            ipc_mode = kwargs['ipcMode']
+        if network_mode is None and 'networkMode' in kwargs:
+            network_mode = kwargs['networkMode']
+        if pid_mode is None and 'pidMode' in kwargs:
+            pid_mode = kwargs['pidMode']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if proxy_configuration is None and 'proxyConfiguration' in kwargs:
+            proxy_configuration = kwargs['proxyConfiguration']
+        if requires_compatibilities is None and 'requiresCompatibilities' in kwargs:
+            requires_compatibilities = kwargs['requiresCompatibilities']
+        if runtime_platform is None and 'runtimePlatform' in kwargs:
+            runtime_platform = kwargs['runtimePlatform']
+        if task_role_arn is None and 'taskRoleArn' in kwargs:
+            task_role_arn = kwargs['taskRoleArn']
+
         if container_definitions is not None:
             _setter("container_definitions", container_definitions)
         if cpu is not None:
@@ -352,11 +378,7 @@ class TaskDefinition(pulumi.CustomResource):
 
             __props__.__dict__["container_definitions"] = container_definitions
             __props__.__dict__["cpu"] = cpu
-            if ephemeral_storage is not None and not isinstance(ephemeral_storage, TaskDefinitionEphemeralStorageArgs):
-                ephemeral_storage = ephemeral_storage or {}
-                def _setter(key, value):
-                    ephemeral_storage[key] = value
-                TaskDefinitionEphemeralStorageArgs._configure(_setter, **ephemeral_storage)
+            ephemeral_storage = _utilities.configure(ephemeral_storage, TaskDefinitionEphemeralStorageArgs, True)
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["family"] = family
@@ -366,18 +388,10 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["network_mode"] = network_mode
             __props__.__dict__["pid_mode"] = pid_mode
             __props__.__dict__["placement_constraints"] = placement_constraints
-            if proxy_configuration is not None and not isinstance(proxy_configuration, TaskDefinitionProxyConfigurationArgs):
-                proxy_configuration = proxy_configuration or {}
-                def _setter(key, value):
-                    proxy_configuration[key] = value
-                TaskDefinitionProxyConfigurationArgs._configure(_setter, **proxy_configuration)
+            proxy_configuration = _utilities.configure(proxy_configuration, TaskDefinitionProxyConfigurationArgs, True)
             __props__.__dict__["proxy_configuration"] = proxy_configuration
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
-            if runtime_platform is not None and not isinstance(runtime_platform, TaskDefinitionRuntimePlatformArgs):
-                runtime_platform = runtime_platform or {}
-                def _setter(key, value):
-                    runtime_platform[key] = value
-                TaskDefinitionRuntimePlatformArgs._configure(_setter, **runtime_platform)
+            runtime_platform = _utilities.configure(runtime_platform, TaskDefinitionRuntimePlatformArgs, True)
             __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn

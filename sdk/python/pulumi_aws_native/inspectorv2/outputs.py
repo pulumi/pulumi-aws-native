@@ -196,7 +196,67 @@ class FilterCriteria(dict):
              vulnerability_id: Optional[Sequence['outputs.FilterStringFilter']] = None,
              vulnerability_source: Optional[Sequence['outputs.FilterStringFilter']] = None,
              vulnerable_packages: Optional[Sequence['outputs.FilterPackageFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if component_id is None and 'componentId' in kwargs:
+            component_id = kwargs['componentId']
+        if component_type is None and 'componentType' in kwargs:
+            component_type = kwargs['componentType']
+        if ec2_instance_image_id is None and 'ec2InstanceImageId' in kwargs:
+            ec2_instance_image_id = kwargs['ec2InstanceImageId']
+        if ec2_instance_subnet_id is None and 'ec2InstanceSubnetId' in kwargs:
+            ec2_instance_subnet_id = kwargs['ec2InstanceSubnetId']
+        if ec2_instance_vpc_id is None and 'ec2InstanceVpcId' in kwargs:
+            ec2_instance_vpc_id = kwargs['ec2InstanceVpcId']
+        if ecr_image_architecture is None and 'ecrImageArchitecture' in kwargs:
+            ecr_image_architecture = kwargs['ecrImageArchitecture']
+        if ecr_image_hash is None and 'ecrImageHash' in kwargs:
+            ecr_image_hash = kwargs['ecrImageHash']
+        if ecr_image_pushed_at is None and 'ecrImagePushedAt' in kwargs:
+            ecr_image_pushed_at = kwargs['ecrImagePushedAt']
+        if ecr_image_registry is None and 'ecrImageRegistry' in kwargs:
+            ecr_image_registry = kwargs['ecrImageRegistry']
+        if ecr_image_repository_name is None and 'ecrImageRepositoryName' in kwargs:
+            ecr_image_repository_name = kwargs['ecrImageRepositoryName']
+        if ecr_image_tags is None and 'ecrImageTags' in kwargs:
+            ecr_image_tags = kwargs['ecrImageTags']
+        if finding_arn is None and 'findingArn' in kwargs:
+            finding_arn = kwargs['findingArn']
+        if finding_status is None and 'findingStatus' in kwargs:
+            finding_status = kwargs['findingStatus']
+        if finding_type is None and 'findingType' in kwargs:
+            finding_type = kwargs['findingType']
+        if first_observed_at is None and 'firstObservedAt' in kwargs:
+            first_observed_at = kwargs['firstObservedAt']
+        if inspector_score is None and 'inspectorScore' in kwargs:
+            inspector_score = kwargs['inspectorScore']
+        if last_observed_at is None and 'lastObservedAt' in kwargs:
+            last_observed_at = kwargs['lastObservedAt']
+        if network_protocol is None and 'networkProtocol' in kwargs:
+            network_protocol = kwargs['networkProtocol']
+        if port_range is None and 'portRange' in kwargs:
+            port_range = kwargs['portRange']
+        if related_vulnerabilities is None and 'relatedVulnerabilities' in kwargs:
+            related_vulnerabilities = kwargs['relatedVulnerabilities']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if vendor_severity is None and 'vendorSeverity' in kwargs:
+            vendor_severity = kwargs['vendorSeverity']
+        if vulnerability_id is None and 'vulnerabilityId' in kwargs:
+            vulnerability_id = kwargs['vulnerabilityId']
+        if vulnerability_source is None and 'vulnerabilitySource' in kwargs:
+            vulnerability_source = kwargs['vulnerabilitySource']
+        if vulnerable_packages is None and 'vulnerablePackages' in kwargs:
+            vulnerable_packages = kwargs['vulnerablePackages']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if component_id is not None:
@@ -450,7 +510,13 @@ class FilterDateFilter(dict):
              _setter: Callable[[Any, Any], None],
              end_inclusive: Optional[int] = None,
              start_inclusive: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_inclusive is None and 'endInclusive' in kwargs:
+            end_inclusive = kwargs['endInclusive']
+        if start_inclusive is None and 'startInclusive' in kwargs:
+            start_inclusive = kwargs['startInclusive']
+
         if end_inclusive is not None:
             _setter("end_inclusive", end_inclusive)
         if start_inclusive is not None:
@@ -482,10 +548,14 @@ class FilterMapFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison: 'FilterMapComparison',
+             comparison: Optional['FilterMapComparison'] = None,
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison is None:
+            raise TypeError("Missing 'comparison' argument")
+
         _setter("comparison", comparison)
         if key is not None:
             _setter("key", key)
@@ -542,7 +612,13 @@ class FilterNumberFilter(dict):
              _setter: Callable[[Any, Any], None],
              lower_inclusive: Optional[float] = None,
              upper_inclusive: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lower_inclusive is None and 'lowerInclusive' in kwargs:
+            lower_inclusive = kwargs['lowerInclusive']
+        if upper_inclusive is None and 'upperInclusive' in kwargs:
+            upper_inclusive = kwargs['upperInclusive']
+
         if lower_inclusive is not None:
             _setter("lower_inclusive", lower_inclusive)
         if upper_inclusive is not None:
@@ -603,7 +679,11 @@ class FilterPackageFilter(dict):
              release: Optional['outputs.FilterStringFilter'] = None,
              source_layer_hash: Optional['outputs.FilterStringFilter'] = None,
              version: Optional['outputs.FilterStringFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_layer_hash is None and 'sourceLayerHash' in kwargs:
+            source_layer_hash = kwargs['sourceLayerHash']
+
         if architecture is not None:
             _setter("architecture", architecture)
         if epoch is not None:
@@ -682,7 +762,13 @@ class FilterPortRangeFilter(dict):
              _setter: Callable[[Any, Any], None],
              begin_inclusive: Optional[int] = None,
              end_inclusive: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if begin_inclusive is None and 'beginInclusive' in kwargs:
+            begin_inclusive = kwargs['beginInclusive']
+        if end_inclusive is None and 'endInclusive' in kwargs:
+            end_inclusive = kwargs['endInclusive']
+
         if begin_inclusive is not None:
             _setter("begin_inclusive", begin_inclusive)
         if end_inclusive is not None:
@@ -712,9 +798,15 @@ class FilterStringFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison: 'FilterStringComparison',
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison: Optional['FilterStringComparison'] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison is None:
+            raise TypeError("Missing 'comparison' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("comparison", comparison)
         _setter("value", value)
 

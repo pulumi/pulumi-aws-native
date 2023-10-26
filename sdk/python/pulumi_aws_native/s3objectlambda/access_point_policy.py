@@ -29,9 +29,19 @@ class AccessPointPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_lambda_access_point: pulumi.Input[str],
-             policy_document: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object_lambda_access_point: Optional[pulumi.Input[str]] = None,
+             policy_document: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_lambda_access_point is None and 'objectLambdaAccessPoint' in kwargs:
+            object_lambda_access_point = kwargs['objectLambdaAccessPoint']
+        if object_lambda_access_point is None:
+            raise TypeError("Missing 'object_lambda_access_point' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if policy_document is None:
+            raise TypeError("Missing 'policy_document' argument")
+
         _setter("object_lambda_access_point", object_lambda_access_point)
         _setter("policy_document", policy_document)
 

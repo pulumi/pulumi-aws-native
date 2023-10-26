@@ -36,12 +36,24 @@ class PrincipalPermissionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permissions: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]],
-             permissions_with_grant_option: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]],
-             principal: pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs'],
-             resource: pulumi.Input['PrincipalPermissionsResourceArgs'],
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
+             permissions_with_grant_option: Optional[pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]]] = None,
+             principal: Optional[pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs']] = None,
+             resource: Optional[pulumi.Input['PrincipalPermissionsResourceArgs']] = None,
              catalog: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if permissions_with_grant_option is None and 'permissionsWithGrantOption' in kwargs:
+            permissions_with_grant_option = kwargs['permissionsWithGrantOption']
+        if permissions_with_grant_option is None:
+            raise TypeError("Missing 'permissions_with_grant_option' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+
         _setter("permissions", permissions)
         _setter("permissions_with_grant_option", permissions_with_grant_option)
         _setter("principal", principal)
@@ -161,19 +173,11 @@ class PrincipalPermissions(pulumi.CustomResource):
             if permissions_with_grant_option is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions_with_grant_option'")
             __props__.__dict__["permissions_with_grant_option"] = permissions_with_grant_option
-            if principal is not None and not isinstance(principal, PrincipalPermissionsDataLakePrincipalArgs):
-                principal = principal or {}
-                def _setter(key, value):
-                    principal[key] = value
-                PrincipalPermissionsDataLakePrincipalArgs._configure(_setter, **principal)
+            principal = _utilities.configure(principal, PrincipalPermissionsDataLakePrincipalArgs, True)
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
-            if resource is not None and not isinstance(resource, PrincipalPermissionsResourceArgs):
-                resource = resource or {}
-                def _setter(key, value):
-                    resource[key] = value
-                PrincipalPermissionsResourceArgs._configure(_setter, **resource)
+            resource = _utilities.configure(resource, PrincipalPermissionsResourceArgs, True)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

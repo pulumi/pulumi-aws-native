@@ -47,9 +47,15 @@ class RepositoryCode(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3: 'outputs.RepositoryS3',
+             s3: Optional['outputs.RepositoryS3'] = None,
              branch_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3 is None:
+            raise TypeError("Missing 's3' argument")
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+
         _setter("s3", s3)
         if branch_name is not None:
             _setter("branch_name", branch_name)
@@ -97,10 +103,18 @@ class RepositoryS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
-             key: str,
+             bucket: Optional[str] = None,
+             key: Optional[str] = None,
              object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if object_version is None and 'objectVersion' in kwargs:
+            object_version = kwargs['objectVersion']
+
         _setter("bucket", bucket)
         _setter("key", key)
         if object_version is not None:
@@ -135,9 +149,15 @@ class RepositoryTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -190,12 +210,24 @@ class RepositoryTrigger(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_arn: str,
-             events: Sequence[str],
-             name: str,
+             destination_arn: Optional[str] = None,
+             events: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
              branches: Optional[Sequence[str]] = None,
              custom_data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_arn is None and 'destinationArn' in kwargs:
+            destination_arn = kwargs['destinationArn']
+        if destination_arn is None:
+            raise TypeError("Missing 'destination_arn' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if custom_data is None and 'customData' in kwargs:
+            custom_data = kwargs['customData']
+
         _setter("destination_arn", destination_arn)
         _setter("events", events)
         _setter("name", name)

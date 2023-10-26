@@ -97,7 +97,53 @@ class UserPoolArgs:
              username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
              verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_recovery_setting is None and 'accountRecoverySetting' in kwargs:
+            account_recovery_setting = kwargs['accountRecoverySetting']
+        if admin_create_user_config is None and 'adminCreateUserConfig' in kwargs:
+            admin_create_user_config = kwargs['adminCreateUserConfig']
+        if alias_attributes is None and 'aliasAttributes' in kwargs:
+            alias_attributes = kwargs['aliasAttributes']
+        if auto_verified_attributes is None and 'autoVerifiedAttributes' in kwargs:
+            auto_verified_attributes = kwargs['autoVerifiedAttributes']
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if device_configuration is None and 'deviceConfiguration' in kwargs:
+            device_configuration = kwargs['deviceConfiguration']
+        if email_configuration is None and 'emailConfiguration' in kwargs:
+            email_configuration = kwargs['emailConfiguration']
+        if email_verification_message is None and 'emailVerificationMessage' in kwargs:
+            email_verification_message = kwargs['emailVerificationMessage']
+        if email_verification_subject is None and 'emailVerificationSubject' in kwargs:
+            email_verification_subject = kwargs['emailVerificationSubject']
+        if enabled_mfas is None and 'enabledMfas' in kwargs:
+            enabled_mfas = kwargs['enabledMfas']
+        if lambda_config is None and 'lambdaConfig' in kwargs:
+            lambda_config = kwargs['lambdaConfig']
+        if mfa_configuration is None and 'mfaConfiguration' in kwargs:
+            mfa_configuration = kwargs['mfaConfiguration']
+        if sms_authentication_message is None and 'smsAuthenticationMessage' in kwargs:
+            sms_authentication_message = kwargs['smsAuthenticationMessage']
+        if sms_configuration is None and 'smsConfiguration' in kwargs:
+            sms_configuration = kwargs['smsConfiguration']
+        if sms_verification_message is None and 'smsVerificationMessage' in kwargs:
+            sms_verification_message = kwargs['smsVerificationMessage']
+        if user_attribute_update_settings is None and 'userAttributeUpdateSettings' in kwargs:
+            user_attribute_update_settings = kwargs['userAttributeUpdateSettings']
+        if user_pool_add_ons is None and 'userPoolAddOns' in kwargs:
+            user_pool_add_ons = kwargs['userPoolAddOns']
+        if user_pool_name is None and 'userPoolName' in kwargs:
+            user_pool_name = kwargs['userPoolName']
+        if user_pool_tags is None and 'userPoolTags' in kwargs:
+            user_pool_tags = kwargs['userPoolTags']
+        if username_attributes is None and 'usernameAttributes' in kwargs:
+            username_attributes = kwargs['usernameAttributes']
+        if username_configuration is None and 'usernameConfiguration' in kwargs:
+            username_configuration = kwargs['usernameConfiguration']
+        if verification_message_template is None and 'verificationMessageTemplate' in kwargs:
+            verification_message_template = kwargs['verificationMessageTemplate']
+
         if account_recovery_setting is not None:
             _setter("account_recovery_setting", account_recovery_setting)
         if admin_create_user_config is not None:
@@ -461,84 +507,40 @@ class UserPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserPoolArgs.__new__(UserPoolArgs)
 
-            if account_recovery_setting is not None and not isinstance(account_recovery_setting, UserPoolAccountRecoverySettingArgs):
-                account_recovery_setting = account_recovery_setting or {}
-                def _setter(key, value):
-                    account_recovery_setting[key] = value
-                UserPoolAccountRecoverySettingArgs._configure(_setter, **account_recovery_setting)
+            account_recovery_setting = _utilities.configure(account_recovery_setting, UserPoolAccountRecoverySettingArgs, True)
             __props__.__dict__["account_recovery_setting"] = account_recovery_setting
-            if admin_create_user_config is not None and not isinstance(admin_create_user_config, UserPoolAdminCreateUserConfigArgs):
-                admin_create_user_config = admin_create_user_config or {}
-                def _setter(key, value):
-                    admin_create_user_config[key] = value
-                UserPoolAdminCreateUserConfigArgs._configure(_setter, **admin_create_user_config)
+            admin_create_user_config = _utilities.configure(admin_create_user_config, UserPoolAdminCreateUserConfigArgs, True)
             __props__.__dict__["admin_create_user_config"] = admin_create_user_config
             __props__.__dict__["alias_attributes"] = alias_attributes
             __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
             __props__.__dict__["deletion_protection"] = deletion_protection
-            if device_configuration is not None and not isinstance(device_configuration, UserPoolDeviceConfigurationArgs):
-                device_configuration = device_configuration or {}
-                def _setter(key, value):
-                    device_configuration[key] = value
-                UserPoolDeviceConfigurationArgs._configure(_setter, **device_configuration)
+            device_configuration = _utilities.configure(device_configuration, UserPoolDeviceConfigurationArgs, True)
             __props__.__dict__["device_configuration"] = device_configuration
-            if email_configuration is not None and not isinstance(email_configuration, UserPoolEmailConfigurationArgs):
-                email_configuration = email_configuration or {}
-                def _setter(key, value):
-                    email_configuration[key] = value
-                UserPoolEmailConfigurationArgs._configure(_setter, **email_configuration)
+            email_configuration = _utilities.configure(email_configuration, UserPoolEmailConfigurationArgs, True)
             __props__.__dict__["email_configuration"] = email_configuration
             __props__.__dict__["email_verification_message"] = email_verification_message
             __props__.__dict__["email_verification_subject"] = email_verification_subject
             __props__.__dict__["enabled_mfas"] = enabled_mfas
-            if lambda_config is not None and not isinstance(lambda_config, UserPoolLambdaConfigArgs):
-                lambda_config = lambda_config or {}
-                def _setter(key, value):
-                    lambda_config[key] = value
-                UserPoolLambdaConfigArgs._configure(_setter, **lambda_config)
+            lambda_config = _utilities.configure(lambda_config, UserPoolLambdaConfigArgs, True)
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["mfa_configuration"] = mfa_configuration
-            if policies is not None and not isinstance(policies, UserPoolPoliciesArgs):
-                policies = policies or {}
-                def _setter(key, value):
-                    policies[key] = value
-                UserPoolPoliciesArgs._configure(_setter, **policies)
+            policies = _utilities.configure(policies, UserPoolPoliciesArgs, True)
             __props__.__dict__["policies"] = policies
             __props__.__dict__["schema"] = schema
             __props__.__dict__["sms_authentication_message"] = sms_authentication_message
-            if sms_configuration is not None and not isinstance(sms_configuration, UserPoolSmsConfigurationArgs):
-                sms_configuration = sms_configuration or {}
-                def _setter(key, value):
-                    sms_configuration[key] = value
-                UserPoolSmsConfigurationArgs._configure(_setter, **sms_configuration)
+            sms_configuration = _utilities.configure(sms_configuration, UserPoolSmsConfigurationArgs, True)
             __props__.__dict__["sms_configuration"] = sms_configuration
             __props__.__dict__["sms_verification_message"] = sms_verification_message
-            if user_attribute_update_settings is not None and not isinstance(user_attribute_update_settings, UserPoolUserAttributeUpdateSettingsArgs):
-                user_attribute_update_settings = user_attribute_update_settings or {}
-                def _setter(key, value):
-                    user_attribute_update_settings[key] = value
-                UserPoolUserAttributeUpdateSettingsArgs._configure(_setter, **user_attribute_update_settings)
+            user_attribute_update_settings = _utilities.configure(user_attribute_update_settings, UserPoolUserAttributeUpdateSettingsArgs, True)
             __props__.__dict__["user_attribute_update_settings"] = user_attribute_update_settings
-            if user_pool_add_ons is not None and not isinstance(user_pool_add_ons, UserPoolAddOnsArgs):
-                user_pool_add_ons = user_pool_add_ons or {}
-                def _setter(key, value):
-                    user_pool_add_ons[key] = value
-                UserPoolAddOnsArgs._configure(_setter, **user_pool_add_ons)
+            user_pool_add_ons = _utilities.configure(user_pool_add_ons, UserPoolAddOnsArgs, True)
             __props__.__dict__["user_pool_add_ons"] = user_pool_add_ons
             __props__.__dict__["user_pool_name"] = user_pool_name
             __props__.__dict__["user_pool_tags"] = user_pool_tags
             __props__.__dict__["username_attributes"] = username_attributes
-            if username_configuration is not None and not isinstance(username_configuration, UserPoolUsernameConfigurationArgs):
-                username_configuration = username_configuration or {}
-                def _setter(key, value):
-                    username_configuration[key] = value
-                UserPoolUsernameConfigurationArgs._configure(_setter, **username_configuration)
+            username_configuration = _utilities.configure(username_configuration, UserPoolUsernameConfigurationArgs, True)
             __props__.__dict__["username_configuration"] = username_configuration
-            if verification_message_template is not None and not isinstance(verification_message_template, UserPoolVerificationMessageTemplateArgs):
-                verification_message_template = verification_message_template or {}
-                def _setter(key, value):
-                    verification_message_template[key] = value
-                UserPoolVerificationMessageTemplateArgs._configure(_setter, **verification_message_template)
+            verification_message_template = _utilities.configure(verification_message_template, UserPoolVerificationMessageTemplateArgs, True)
             __props__.__dict__["verification_message_template"] = verification_message_template
             __props__.__dict__["arn"] = None
             __props__.__dict__["provider_name"] = None

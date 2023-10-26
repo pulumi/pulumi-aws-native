@@ -30,9 +30,15 @@ class SuiteDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             suite_definition_configuration: pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs'],
+             suite_definition_configuration: Optional[pulumi.Input['SuiteDefinitionConfigurationPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SuiteDefinitionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if suite_definition_configuration is None and 'suiteDefinitionConfiguration' in kwargs:
+            suite_definition_configuration = kwargs['suiteDefinitionConfiguration']
+        if suite_definition_configuration is None:
+            raise TypeError("Missing 'suite_definition_configuration' argument")
+
         _setter("suite_definition_configuration", suite_definition_configuration)
         if tags is not None:
             _setter("tags", tags)
@@ -113,11 +119,7 @@ class SuiteDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SuiteDefinitionArgs.__new__(SuiteDefinitionArgs)
 
-            if suite_definition_configuration is not None and not isinstance(suite_definition_configuration, SuiteDefinitionConfigurationPropertiesArgs):
-                suite_definition_configuration = suite_definition_configuration or {}
-                def _setter(key, value):
-                    suite_definition_configuration[key] = value
-                SuiteDefinitionConfigurationPropertiesArgs._configure(_setter, **suite_definition_configuration)
+            suite_definition_configuration = _utilities.configure(suite_definition_configuration, SuiteDefinitionConfigurationPropertiesArgs, True)
             if suite_definition_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'suite_definition_configuration'")
             __props__.__dict__["suite_definition_configuration"] = suite_definition_configuration

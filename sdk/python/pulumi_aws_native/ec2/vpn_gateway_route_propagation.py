@@ -27,9 +27,19 @@ class VpnGatewayRoutePropagationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             route_table_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             vpn_gateway_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_ids is None and 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if route_table_ids is None:
+            raise TypeError("Missing 'route_table_ids' argument")
+        if vpn_gateway_id is None and 'vpnGatewayId' in kwargs:
+            vpn_gateway_id = kwargs['vpnGatewayId']
+        if vpn_gateway_id is None:
+            raise TypeError("Missing 'vpn_gateway_id' argument")
+
         _setter("route_table_ids", route_table_ids)
         _setter("vpn_gateway_id", vpn_gateway_id)
 

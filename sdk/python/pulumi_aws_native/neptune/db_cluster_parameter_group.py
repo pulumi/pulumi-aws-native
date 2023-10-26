@@ -35,12 +35,20 @@ class DbClusterParameterGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             family: pulumi.Input[str],
-             parameters: Any,
+             description: Optional[pulumi.Input[str]] = None,
+             family: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[Any] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterParameterGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if parameters is None:
+            raise TypeError("Missing 'parameters' argument")
+
         _setter("description", description)
         _setter("family", family)
         _setter("parameters", parameters)

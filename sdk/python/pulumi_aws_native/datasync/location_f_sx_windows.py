@@ -46,14 +46,24 @@ class LocationFSxWindowsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             user: pulumi.Input[str],
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input[str]] = None,
              domain: Optional[pulumi.Input[str]] = None,
              fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxWindowsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_arns is None and 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if security_group_arns is None:
+            raise TypeError("Missing 'security_group_arns' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if fsx_filesystem_arn is None and 'fsxFilesystemArn' in kwargs:
+            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
+
         _setter("security_group_arns", security_group_arns)
         _setter("user", user)
         if domain is not None:

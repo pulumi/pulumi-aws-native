@@ -37,7 +37,13 @@ class ChannelArgs:
              channel_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_group_name is None and 'channelGroupName' in kwargs:
+            channel_group_name = kwargs['channelGroupName']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+
         if channel_group_name is not None:
             _setter("channel_group_name", channel_group_name)
         if channel_name is not None:

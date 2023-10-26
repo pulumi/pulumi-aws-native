@@ -57,10 +57,10 @@ class ClientVpnEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_options: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointClientAuthenticationRequestArgs']]],
-             client_cidr_block: pulumi.Input[str],
-             connection_log_options: pulumi.Input['ClientVpnEndpointConnectionLogOptionsArgs'],
-             server_certificate_arn: pulumi.Input[str],
+             authentication_options: Optional[pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointClientAuthenticationRequestArgs']]]] = None,
+             client_cidr_block: Optional[pulumi.Input[str]] = None,
+             connection_log_options: Optional[pulumi.Input['ClientVpnEndpointConnectionLogOptionsArgs']] = None,
+             server_certificate_arn: Optional[pulumi.Input[str]] = None,
              client_connect_options: Optional[pulumi.Input['ClientVpnEndpointClientConnectOptionsArgs']] = None,
              client_login_banner_options: Optional[pulumi.Input['ClientVpnEndpointClientLoginBannerOptionsArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -73,7 +73,47 @@ class ClientVpnEndpointArgs:
              transport_protocol: Optional[pulumi.Input[str]] = None,
              vpc_id: Optional[pulumi.Input[str]] = None,
              vpn_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_options is None and 'authenticationOptions' in kwargs:
+            authentication_options = kwargs['authenticationOptions']
+        if authentication_options is None:
+            raise TypeError("Missing 'authentication_options' argument")
+        if client_cidr_block is None and 'clientCidrBlock' in kwargs:
+            client_cidr_block = kwargs['clientCidrBlock']
+        if client_cidr_block is None:
+            raise TypeError("Missing 'client_cidr_block' argument")
+        if connection_log_options is None and 'connectionLogOptions' in kwargs:
+            connection_log_options = kwargs['connectionLogOptions']
+        if connection_log_options is None:
+            raise TypeError("Missing 'connection_log_options' argument")
+        if server_certificate_arn is None and 'serverCertificateArn' in kwargs:
+            server_certificate_arn = kwargs['serverCertificateArn']
+        if server_certificate_arn is None:
+            raise TypeError("Missing 'server_certificate_arn' argument")
+        if client_connect_options is None and 'clientConnectOptions' in kwargs:
+            client_connect_options = kwargs['clientConnectOptions']
+        if client_login_banner_options is None and 'clientLoginBannerOptions' in kwargs:
+            client_login_banner_options = kwargs['clientLoginBannerOptions']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if self_service_portal is None and 'selfServicePortal' in kwargs:
+            self_service_portal = kwargs['selfServicePortal']
+        if session_timeout_hours is None and 'sessionTimeoutHours' in kwargs:
+            session_timeout_hours = kwargs['sessionTimeoutHours']
+        if split_tunnel is None and 'splitTunnel' in kwargs:
+            split_tunnel = kwargs['splitTunnel']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if transport_protocol is None and 'transportProtocol' in kwargs:
+            transport_protocol = kwargs['transportProtocol']
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpn_port is None and 'vpnPort' in kwargs:
+            vpn_port = kwargs['vpnPort']
+
         _setter("authentication_options", authentication_options)
         _setter("client_cidr_block", client_cidr_block)
         _setter("connection_log_options", connection_log_options)
@@ -341,23 +381,11 @@ class ClientVpnEndpoint(pulumi.CustomResource):
             if client_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'client_cidr_block'")
             __props__.__dict__["client_cidr_block"] = client_cidr_block
-            if client_connect_options is not None and not isinstance(client_connect_options, ClientVpnEndpointClientConnectOptionsArgs):
-                client_connect_options = client_connect_options or {}
-                def _setter(key, value):
-                    client_connect_options[key] = value
-                ClientVpnEndpointClientConnectOptionsArgs._configure(_setter, **client_connect_options)
+            client_connect_options = _utilities.configure(client_connect_options, ClientVpnEndpointClientConnectOptionsArgs, True)
             __props__.__dict__["client_connect_options"] = client_connect_options
-            if client_login_banner_options is not None and not isinstance(client_login_banner_options, ClientVpnEndpointClientLoginBannerOptionsArgs):
-                client_login_banner_options = client_login_banner_options or {}
-                def _setter(key, value):
-                    client_login_banner_options[key] = value
-                ClientVpnEndpointClientLoginBannerOptionsArgs._configure(_setter, **client_login_banner_options)
+            client_login_banner_options = _utilities.configure(client_login_banner_options, ClientVpnEndpointClientLoginBannerOptionsArgs, True)
             __props__.__dict__["client_login_banner_options"] = client_login_banner_options
-            if connection_log_options is not None and not isinstance(connection_log_options, ClientVpnEndpointConnectionLogOptionsArgs):
-                connection_log_options = connection_log_options or {}
-                def _setter(key, value):
-                    connection_log_options[key] = value
-                ClientVpnEndpointConnectionLogOptionsArgs._configure(_setter, **connection_log_options)
+            connection_log_options = _utilities.configure(connection_log_options, ClientVpnEndpointConnectionLogOptionsArgs, True)
             if connection_log_options is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_log_options'")
             __props__.__dict__["connection_log_options"] = connection_log_options

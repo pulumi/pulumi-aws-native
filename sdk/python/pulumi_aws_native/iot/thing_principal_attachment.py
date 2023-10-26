@@ -27,9 +27,17 @@ class ThingPrincipalAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             principal: pulumi.Input[str],
-             thing_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             principal: Optional[pulumi.Input[str]] = None,
+             thing_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if thing_name is None and 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+        if thing_name is None:
+            raise TypeError("Missing 'thing_name' argument")
+
         _setter("principal", principal)
         _setter("thing_name", thing_name)
 

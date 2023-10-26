@@ -29,9 +29,17 @@ class AliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_key_id: pulumi.Input[str],
+             target_key_id: Optional[pulumi.Input[str]] = None,
              alias_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_key_id is None and 'targetKeyId' in kwargs:
+            target_key_id = kwargs['targetKeyId']
+        if target_key_id is None:
+            raise TypeError("Missing 'target_key_id' argument")
+        if alias_name is None and 'aliasName' in kwargs:
+            alias_name = kwargs['aliasName']
+
         _setter("target_key_id", target_key_id)
         if alias_name is not None:
             _setter("alias_name", alias_name)

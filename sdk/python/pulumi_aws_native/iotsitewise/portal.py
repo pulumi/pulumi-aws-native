@@ -49,15 +49,33 @@ class PortalArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             portal_contact_email: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
+             portal_contact_email: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              alarms: Optional[pulumi.Input['AlarmsPropertiesArgs']] = None,
              notification_sender_email: Optional[pulumi.Input[str]] = None,
              portal_auth_mode: Optional[pulumi.Input[str]] = None,
              portal_description: Optional[pulumi.Input[str]] = None,
              portal_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortalTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if portal_contact_email is None and 'portalContactEmail' in kwargs:
+            portal_contact_email = kwargs['portalContactEmail']
+        if portal_contact_email is None:
+            raise TypeError("Missing 'portal_contact_email' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if portal_auth_mode is None and 'portalAuthMode' in kwargs:
+            portal_auth_mode = kwargs['portalAuthMode']
+        if portal_description is None and 'portalDescription' in kwargs:
+            portal_description = kwargs['portalDescription']
+        if portal_name is None and 'portalName' in kwargs:
+            portal_name = kwargs['portalName']
+
         _setter("portal_contact_email", portal_contact_email)
         _setter("role_arn", role_arn)
         if alarms is not None:
@@ -243,11 +261,7 @@ class Portal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PortalArgs.__new__(PortalArgs)
 
-            if alarms is not None and not isinstance(alarms, AlarmsPropertiesArgs):
-                alarms = alarms or {}
-                def _setter(key, value):
-                    alarms[key] = value
-                AlarmsPropertiesArgs._configure(_setter, **alarms)
+            alarms = _utilities.configure(alarms, AlarmsPropertiesArgs, True)
             __props__.__dict__["alarms"] = alarms
             __props__.__dict__["notification_sender_email"] = notification_sender_email
             __props__.__dict__["portal_auth_mode"] = portal_auth_mode

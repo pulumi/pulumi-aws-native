@@ -34,9 +34,15 @@ class CrlTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -64,9 +70,15 @@ class ProfileTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -98,11 +110,17 @@ class TrustAnchorNotificationSetting(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             event: 'TrustAnchorNotificationEvent',
+             enabled: Optional[bool] = None,
+             event: Optional['TrustAnchorNotificationEvent'] = None,
              channel: Optional['TrustAnchorNotificationChannel'] = None,
              threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if event is None:
+            raise TypeError("Missing 'event' argument")
+
         _setter("enabled", enabled)
         _setter("event", event)
         if channel is not None:
@@ -165,7 +183,13 @@ class TrustAnchorSource(dict):
              _setter: Callable[[Any, Any], None],
              source_data: Optional[Any] = None,
              source_type: Optional['TrustAnchorType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_data is None and 'sourceData' in kwargs:
+            source_data = kwargs['sourceData']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+
         if source_data is not None:
             _setter("source_data", source_data)
         if source_type is not None:
@@ -210,8 +234,14 @@ class TrustAnchorSourceData0Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             x509_certificate_data: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             x509_certificate_data: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if x509_certificate_data is None and 'x509CertificateData' in kwargs:
+            x509_certificate_data = kwargs['x509CertificateData']
+        if x509_certificate_data is None:
+            raise TypeError("Missing 'x509_certificate_data' argument")
+
         _setter("x509_certificate_data", x509_certificate_data)
 
     @property
@@ -248,8 +278,14 @@ class TrustAnchorSourceData1Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             acm_pca_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             acm_pca_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acm_pca_arn is None and 'acmPcaArn' in kwargs:
+            acm_pca_arn = kwargs['acmPcaArn']
+        if acm_pca_arn is None:
+            raise TypeError("Missing 'acm_pca_arn' argument")
+
         _setter("acm_pca_arn", acm_pca_arn)
 
     @property
@@ -271,9 +307,15 @@ class TrustAnchorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

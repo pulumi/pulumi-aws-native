@@ -47,7 +47,9 @@ class CollectionArgs:
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]] = None,
              type: Optional[pulumi.Input['CollectionType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:

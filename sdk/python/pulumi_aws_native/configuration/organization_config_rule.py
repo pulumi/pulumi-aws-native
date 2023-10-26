@@ -40,7 +40,19 @@ class OrganizationConfigRuleArgs:
              organization_custom_policy_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs']] = None,
              organization_custom_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationCustomRuleMetadataArgs']] = None,
              organization_managed_rule_metadata: Optional[pulumi.Input['OrganizationConfigRuleOrganizationManagedRuleMetadataArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excluded_accounts is None and 'excludedAccounts' in kwargs:
+            excluded_accounts = kwargs['excludedAccounts']
+        if organization_config_rule_name is None and 'organizationConfigRuleName' in kwargs:
+            organization_config_rule_name = kwargs['organizationConfigRuleName']
+        if organization_custom_policy_rule_metadata is None and 'organizationCustomPolicyRuleMetadata' in kwargs:
+            organization_custom_policy_rule_metadata = kwargs['organizationCustomPolicyRuleMetadata']
+        if organization_custom_rule_metadata is None and 'organizationCustomRuleMetadata' in kwargs:
+            organization_custom_rule_metadata = kwargs['organizationCustomRuleMetadata']
+        if organization_managed_rule_metadata is None and 'organizationManagedRuleMetadata' in kwargs:
+            organization_managed_rule_metadata = kwargs['organizationManagedRuleMetadata']
+
         if excluded_accounts is not None:
             _setter("excluded_accounts", excluded_accounts)
         if organization_config_rule_name is not None:
@@ -165,23 +177,11 @@ class OrganizationConfigRule(pulumi.CustomResource):
 
             __props__.__dict__["excluded_accounts"] = excluded_accounts
             __props__.__dict__["organization_config_rule_name"] = organization_config_rule_name
-            if organization_custom_policy_rule_metadata is not None and not isinstance(organization_custom_policy_rule_metadata, OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs):
-                organization_custom_policy_rule_metadata = organization_custom_policy_rule_metadata or {}
-                def _setter(key, value):
-                    organization_custom_policy_rule_metadata[key] = value
-                OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs._configure(_setter, **organization_custom_policy_rule_metadata)
+            organization_custom_policy_rule_metadata = _utilities.configure(organization_custom_policy_rule_metadata, OrganizationConfigRuleOrganizationCustomPolicyRuleMetadataArgs, True)
             __props__.__dict__["organization_custom_policy_rule_metadata"] = organization_custom_policy_rule_metadata
-            if organization_custom_rule_metadata is not None and not isinstance(organization_custom_rule_metadata, OrganizationConfigRuleOrganizationCustomRuleMetadataArgs):
-                organization_custom_rule_metadata = organization_custom_rule_metadata or {}
-                def _setter(key, value):
-                    organization_custom_rule_metadata[key] = value
-                OrganizationConfigRuleOrganizationCustomRuleMetadataArgs._configure(_setter, **organization_custom_rule_metadata)
+            organization_custom_rule_metadata = _utilities.configure(organization_custom_rule_metadata, OrganizationConfigRuleOrganizationCustomRuleMetadataArgs, True)
             __props__.__dict__["organization_custom_rule_metadata"] = organization_custom_rule_metadata
-            if organization_managed_rule_metadata is not None and not isinstance(organization_managed_rule_metadata, OrganizationConfigRuleOrganizationManagedRuleMetadataArgs):
-                organization_managed_rule_metadata = organization_managed_rule_metadata or {}
-                def _setter(key, value):
-                    organization_managed_rule_metadata[key] = value
-                OrganizationConfigRuleOrganizationManagedRuleMetadataArgs._configure(_setter, **organization_managed_rule_metadata)
+            organization_managed_rule_metadata = _utilities.configure(organization_managed_rule_metadata, OrganizationConfigRuleOrganizationManagedRuleMetadataArgs, True)
             __props__.__dict__["organization_managed_rule_metadata"] = organization_managed_rule_metadata
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["organization_config_rule_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

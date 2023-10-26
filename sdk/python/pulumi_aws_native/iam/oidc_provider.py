@@ -33,11 +33,19 @@ class OidcProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             thumbprint_list: pulumi.Input[Sequence[pulumi.Input[str]]],
+             thumbprint_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              client_id_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OidcProviderTagArgs']]]] = None,
              url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if thumbprint_list is None and 'thumbprintList' in kwargs:
+            thumbprint_list = kwargs['thumbprintList']
+        if thumbprint_list is None:
+            raise TypeError("Missing 'thumbprint_list' argument")
+        if client_id_list is None and 'clientIdList' in kwargs:
+            client_id_list = kwargs['clientIdList']
+
         _setter("thumbprint_list", thumbprint_list)
         if client_id_list is not None:
             _setter("client_id_list", client_id_list)

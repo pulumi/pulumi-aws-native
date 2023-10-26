@@ -53,16 +53,32 @@ class CustomDbEngineVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_installation_files_s3_bucket_name: pulumi.Input[str],
-             engine: pulumi.Input[str],
-             engine_version: pulumi.Input[str],
+             database_installation_files_s3_bucket_name: Optional[pulumi.Input[str]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
              database_installation_files_s3_prefix: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              manifest: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_installation_files_s3_bucket_name is None and 'databaseInstallationFilesS3BucketName' in kwargs:
+            database_installation_files_s3_bucket_name = kwargs['databaseInstallationFilesS3BucketName']
+        if database_installation_files_s3_bucket_name is None:
+            raise TypeError("Missing 'database_installation_files_s3_bucket_name' argument")
+        if engine is None:
+            raise TypeError("Missing 'engine' argument")
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if engine_version is None:
+            raise TypeError("Missing 'engine_version' argument")
+        if database_installation_files_s3_prefix is None and 'databaseInstallationFilesS3Prefix' in kwargs:
+            database_installation_files_s3_prefix = kwargs['databaseInstallationFilesS3Prefix']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
         _setter("engine", engine)
         _setter("engine_version", engine_version)

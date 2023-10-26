@@ -71,10 +71,18 @@ class AnalysisTemplateAnalysisParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: 'AnalysisTemplateAnalysisParameterType',
+             name: Optional[str] = None,
+             type: Optional['AnalysisTemplateAnalysisParameterType'] = None,
              default_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         _setter("name", name)
         _setter("type", type)
         if default_value is not None:
@@ -124,8 +132,14 @@ class AnalysisTemplateAnalysisSchema(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             referenced_tables: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             referenced_tables: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if referenced_tables is None and 'referencedTables' in kwargs:
+            referenced_tables = kwargs['referencedTables']
+        if referenced_tables is None:
+            raise TypeError("Missing 'referenced_tables' argument")
+
         _setter("referenced_tables", referenced_tables)
 
     @property
@@ -145,8 +159,12 @@ class AnalysisTemplateAnalysisSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+
         _setter("text", text)
 
     @property
@@ -168,9 +186,15 @@ class AnalysisTemplateTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -225,11 +249,29 @@ class CollaborationDataEncryptionMetadata(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow_cleartext: bool,
-             allow_duplicates: bool,
-             allow_joins_on_columns_with_different_names: bool,
-             preserve_nulls: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allow_cleartext: Optional[bool] = None,
+             allow_duplicates: Optional[bool] = None,
+             allow_joins_on_columns_with_different_names: Optional[bool] = None,
+             preserve_nulls: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_cleartext is None and 'allowCleartext' in kwargs:
+            allow_cleartext = kwargs['allowCleartext']
+        if allow_cleartext is None:
+            raise TypeError("Missing 'allow_cleartext' argument")
+        if allow_duplicates is None and 'allowDuplicates' in kwargs:
+            allow_duplicates = kwargs['allowDuplicates']
+        if allow_duplicates is None:
+            raise TypeError("Missing 'allow_duplicates' argument")
+        if allow_joins_on_columns_with_different_names is None and 'allowJoinsOnColumnsWithDifferentNames' in kwargs:
+            allow_joins_on_columns_with_different_names = kwargs['allowJoinsOnColumnsWithDifferentNames']
+        if allow_joins_on_columns_with_different_names is None:
+            raise TypeError("Missing 'allow_joins_on_columns_with_different_names' argument")
+        if preserve_nulls is None and 'preserveNulls' in kwargs:
+            preserve_nulls = kwargs['preserveNulls']
+        if preserve_nulls is None:
+            raise TypeError("Missing 'preserve_nulls' argument")
+
         _setter("allow_cleartext", allow_cleartext)
         _setter("allow_duplicates", allow_duplicates)
         _setter("allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
@@ -292,10 +334,24 @@ class CollaborationMemberSpecification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: str,
-             display_name: str,
-             member_abilities: Sequence['CollaborationMemberAbility'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             account_id: Optional[str] = None,
+             display_name: Optional[str] = None,
+             member_abilities: Optional[Sequence['CollaborationMemberAbility']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if member_abilities is None and 'memberAbilities' in kwargs:
+            member_abilities = kwargs['memberAbilities']
+        if member_abilities is None:
+            raise TypeError("Missing 'member_abilities' argument")
+
         _setter("account_id", account_id)
         _setter("display_name", display_name)
         _setter("member_abilities", member_abilities)
@@ -329,9 +385,15 @@ class CollaborationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -376,9 +438,17 @@ class ConfiguredTableAggregateColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_names: Sequence[str],
-             function: 'ConfiguredTableAggregateFunctionName',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             column_names: Optional[Sequence[str]] = None,
+             function: Optional['ConfiguredTableAggregateFunctionName'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if column_names is None:
+            raise TypeError("Missing 'column_names' argument")
+        if function is None:
+            raise TypeError("Missing 'function' argument")
+
         _setter("column_names", column_names)
         _setter("function", function)
 
@@ -425,10 +495,20 @@ class ConfiguredTableAggregationConstraint(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: str,
-             minimum: float,
-             type: 'ConfiguredTableAggregationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             column_name: Optional[str] = None,
+             minimum: Optional[float] = None,
+             type: Optional['ConfiguredTableAggregationType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_name is None and 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if minimum is None:
+            raise TypeError("Missing 'minimum' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("column_name", column_name)
         _setter("minimum", minimum)
         _setter("type", type)
@@ -462,9 +542,15 @@ class ConfiguredTableAnalysisRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: 'outputs.ConfiguredTableAnalysisRulePolicy',
-             type: 'ConfiguredTableAnalysisRuleType',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy: Optional['outputs.ConfiguredTableAnalysisRulePolicy'] = None,
+             type: Optional['ConfiguredTableAnalysisRuleType'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("policy", policy)
         _setter("type", type)
 
@@ -531,14 +617,40 @@ class ConfiguredTableAnalysisRuleAggregation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregate_columns: Sequence['outputs.ConfiguredTableAggregateColumn'],
-             dimension_columns: Sequence[str],
-             join_columns: Sequence[str],
-             output_constraints: Sequence['outputs.ConfiguredTableAggregationConstraint'],
-             scalar_functions: Sequence['ConfiguredTableScalarFunctions'],
+             aggregate_columns: Optional[Sequence['outputs.ConfiguredTableAggregateColumn']] = None,
+             dimension_columns: Optional[Sequence[str]] = None,
+             join_columns: Optional[Sequence[str]] = None,
+             output_constraints: Optional[Sequence['outputs.ConfiguredTableAggregationConstraint']] = None,
+             scalar_functions: Optional[Sequence['ConfiguredTableScalarFunctions']] = None,
              allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None,
              join_required: Optional['ConfiguredTableJoinRequiredOption'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregate_columns is None and 'aggregateColumns' in kwargs:
+            aggregate_columns = kwargs['aggregateColumns']
+        if aggregate_columns is None:
+            raise TypeError("Missing 'aggregate_columns' argument")
+        if dimension_columns is None and 'dimensionColumns' in kwargs:
+            dimension_columns = kwargs['dimensionColumns']
+        if dimension_columns is None:
+            raise TypeError("Missing 'dimension_columns' argument")
+        if join_columns is None and 'joinColumns' in kwargs:
+            join_columns = kwargs['joinColumns']
+        if join_columns is None:
+            raise TypeError("Missing 'join_columns' argument")
+        if output_constraints is None and 'outputConstraints' in kwargs:
+            output_constraints = kwargs['outputConstraints']
+        if output_constraints is None:
+            raise TypeError("Missing 'output_constraints' argument")
+        if scalar_functions is None and 'scalarFunctions' in kwargs:
+            scalar_functions = kwargs['scalarFunctions']
+        if scalar_functions is None:
+            raise TypeError("Missing 'scalar_functions' argument")
+        if allowed_join_operators is None and 'allowedJoinOperators' in kwargs:
+            allowed_join_operators = kwargs['allowedJoinOperators']
+        if join_required is None and 'joinRequired' in kwargs:
+            join_required = kwargs['joinRequired']
+
         _setter("aggregate_columns", aggregate_columns)
         _setter("dimension_columns", dimension_columns)
         _setter("join_columns", join_columns)
@@ -617,9 +729,17 @@ class ConfiguredTableAnalysisRuleCustom(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_analyses: Sequence[str],
+             allowed_analyses: Optional[Sequence[str]] = None,
              allowed_analysis_providers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_analyses is None and 'allowedAnalyses' in kwargs:
+            allowed_analyses = kwargs['allowedAnalyses']
+        if allowed_analyses is None:
+            raise TypeError("Missing 'allowed_analyses' argument")
+        if allowed_analysis_providers is None and 'allowedAnalysisProviders' in kwargs:
+            allowed_analysis_providers = kwargs['allowedAnalysisProviders']
+
         _setter("allowed_analyses", allowed_analyses)
         if allowed_analysis_providers is not None:
             _setter("allowed_analysis_providers", allowed_analysis_providers)
@@ -671,10 +791,22 @@ class ConfiguredTableAnalysisRuleList(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             join_columns: Sequence[str],
-             list_columns: Sequence[str],
+             join_columns: Optional[Sequence[str]] = None,
+             list_columns: Optional[Sequence[str]] = None,
              allowed_join_operators: Optional[Sequence['ConfiguredTableJoinOperator']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if join_columns is None and 'joinColumns' in kwargs:
+            join_columns = kwargs['joinColumns']
+        if join_columns is None:
+            raise TypeError("Missing 'join_columns' argument")
+        if list_columns is None and 'listColumns' in kwargs:
+            list_columns = kwargs['listColumns']
+        if list_columns is None:
+            raise TypeError("Missing 'list_columns' argument")
+        if allowed_join_operators is None and 'allowedJoinOperators' in kwargs:
+            allowed_join_operators = kwargs['allowedJoinOperators']
+
         _setter("join_columns", join_columns)
         _setter("list_columns", list_columns)
         if allowed_join_operators is not None:
@@ -707,8 +839,12 @@ class ConfiguredTableAnalysisRulePolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             v1: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             v1: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if v1 is None:
+            raise TypeError("Missing 'v1' argument")
+
         _setter("v1", v1)
 
     @property
@@ -728,8 +864,12 @@ class ConfiguredTableAnalysisRulePolicyV10Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             list: 'outputs.ConfiguredTableAnalysisRuleList',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             list: Optional['outputs.ConfiguredTableAnalysisRuleList'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if list is None:
+            raise TypeError("Missing 'list' argument")
+
         _setter("list", list)
 
     @property
@@ -749,8 +889,12 @@ class ConfiguredTableAnalysisRulePolicyV11Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation: 'outputs.ConfiguredTableAnalysisRuleAggregation',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             aggregation: Optional['outputs.ConfiguredTableAnalysisRuleAggregation'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregation is None:
+            raise TypeError("Missing 'aggregation' argument")
+
         _setter("aggregation", aggregation)
 
     @property
@@ -770,8 +914,12 @@ class ConfiguredTableAnalysisRulePolicyV12Properties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             custom: 'outputs.ConfiguredTableAnalysisRuleCustom',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             custom: Optional['outputs.ConfiguredTableAnalysisRuleCustom'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom is None:
+            raise TypeError("Missing 'custom' argument")
+
         _setter("custom", custom)
 
     @property
@@ -793,9 +941,15 @@ class ConfiguredTableAssociationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -842,9 +996,19 @@ class ConfiguredTableGlueTableReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: str,
-             table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             database_name: Optional[str] = None,
+             table_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("database_name", database_name)
         _setter("table_name", table_name)
 
@@ -870,8 +1034,12 @@ class ConfiguredTableTableReference(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             glue: 'outputs.ConfiguredTableGlueTableReference',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             glue: Optional['outputs.ConfiguredTableGlueTableReference'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if glue is None:
+            raise TypeError("Missing 'glue' argument")
+
         _setter("glue", glue)
 
     @property
@@ -893,9 +1061,15 @@ class ConfiguredTableTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -921,8 +1095,12 @@ class MembershipProtectedQueryOutputConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3: 'outputs.MembershipProtectedQueryS3OutputConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3: Optional['outputs.MembershipProtectedQueryS3OutputConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3 is None:
+            raise TypeError("Missing 's3' argument")
+
         _setter("s3", s3)
 
     @property
@@ -963,9 +1141,17 @@ class MembershipProtectedQueryResultConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             output_configuration: 'outputs.MembershipProtectedQueryOutputConfiguration',
+             output_configuration: Optional['outputs.MembershipProtectedQueryOutputConfiguration'] = None,
              role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output_configuration is None and 'outputConfiguration' in kwargs:
+            output_configuration = kwargs['outputConfiguration']
+        if output_configuration is None:
+            raise TypeError("Missing 'output_configuration' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("output_configuration", output_configuration)
         if role_arn is not None:
             _setter("role_arn", role_arn)
@@ -1015,10 +1201,20 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
-             result_format: 'MembershipResultFormat',
+             bucket: Optional[str] = None,
+             result_format: Optional['MembershipResultFormat'] = None,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if result_format is None and 'resultFormat' in kwargs:
+            result_format = kwargs['resultFormat']
+        if result_format is None:
+            raise TypeError("Missing 'result_format' argument")
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         _setter("result_format", result_format)
         if key_prefix is not None:
@@ -1053,9 +1249,15 @@ class MembershipTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

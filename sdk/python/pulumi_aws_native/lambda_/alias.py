@@ -37,13 +37,27 @@ class AliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
-             function_version: pulumi.Input[str],
+             function_name: Optional[pulumi.Input[str]] = None,
+             function_version: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              provisioned_concurrency_config: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']] = None,
              routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_name is None and 'functionName' in kwargs:
+            function_name = kwargs['functionName']
+        if function_name is None:
+            raise TypeError("Missing 'function_name' argument")
+        if function_version is None and 'functionVersion' in kwargs:
+            function_version = kwargs['functionVersion']
+        if function_version is None:
+            raise TypeError("Missing 'function_version' argument")
+        if provisioned_concurrency_config is None and 'provisionedConcurrencyConfig' in kwargs:
+            provisioned_concurrency_config = kwargs['provisionedConcurrencyConfig']
+        if routing_config is None and 'routingConfig' in kwargs:
+            routing_config = kwargs['routingConfig']
+
         _setter("function_name", function_name)
         _setter("function_version", function_version)
         if description is not None:
@@ -185,17 +199,9 @@ class Alias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
             __props__.__dict__["name"] = name
-            if provisioned_concurrency_config is not None and not isinstance(provisioned_concurrency_config, AliasProvisionedConcurrencyConfigurationArgs):
-                provisioned_concurrency_config = provisioned_concurrency_config or {}
-                def _setter(key, value):
-                    provisioned_concurrency_config[key] = value
-                AliasProvisionedConcurrencyConfigurationArgs._configure(_setter, **provisioned_concurrency_config)
+            provisioned_concurrency_config = _utilities.configure(provisioned_concurrency_config, AliasProvisionedConcurrencyConfigurationArgs, True)
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
-            if routing_config is not None and not isinstance(routing_config, AliasRoutingConfigurationArgs):
-                routing_config = routing_config or {}
-                def _setter(key, value):
-                    routing_config[key] = value
-                AliasRoutingConfigurationArgs._configure(_setter, **routing_config)
+            routing_config = _utilities.configure(routing_config, AliasRoutingConfigurationArgs, True)
             __props__.__dict__["routing_config"] = routing_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

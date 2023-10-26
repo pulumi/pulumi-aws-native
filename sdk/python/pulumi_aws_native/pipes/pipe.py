@@ -48,9 +48,9 @@ class PipeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             source: pulumi.Input[str],
-             target: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
              enrichment: Optional[pulumi.Input[str]] = None,
@@ -59,7 +59,25 @@ class PipeArgs:
              source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
              tags: Optional[pulumi.Input['PipeTagMapArgs']] = None,
              target_parameters: Optional[pulumi.Input['PipeTargetParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if desired_state is None and 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+        if enrichment_parameters is None and 'enrichmentParameters' in kwargs:
+            enrichment_parameters = kwargs['enrichmentParameters']
+        if source_parameters is None and 'sourceParameters' in kwargs:
+            source_parameters = kwargs['sourceParameters']
+        if target_parameters is None and 'targetParameters' in kwargs:
+            target_parameters = kwargs['targetParameters']
+
         _setter("role_arn", role_arn)
         _setter("source", source)
         _setter("target", target)
@@ -254,11 +272,7 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["enrichment"] = enrichment
-            if enrichment_parameters is not None and not isinstance(enrichment_parameters, PipeEnrichmentParametersArgs):
-                enrichment_parameters = enrichment_parameters or {}
-                def _setter(key, value):
-                    enrichment_parameters[key] = value
-                PipeEnrichmentParametersArgs._configure(_setter, **enrichment_parameters)
+            enrichment_parameters = _utilities.configure(enrichment_parameters, PipeEnrichmentParametersArgs, True)
             __props__.__dict__["enrichment_parameters"] = enrichment_parameters
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
@@ -267,26 +281,14 @@ class Pipe(pulumi.CustomResource):
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
-            if source_parameters is not None and not isinstance(source_parameters, PipeSourceParametersArgs):
-                source_parameters = source_parameters or {}
-                def _setter(key, value):
-                    source_parameters[key] = value
-                PipeSourceParametersArgs._configure(_setter, **source_parameters)
+            source_parameters = _utilities.configure(source_parameters, PipeSourceParametersArgs, True)
             __props__.__dict__["source_parameters"] = source_parameters
-            if tags is not None and not isinstance(tags, PipeTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                PipeTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, PipeTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
-            if target_parameters is not None and not isinstance(target_parameters, PipeTargetParametersArgs):
-                target_parameters = target_parameters or {}
-                def _setter(key, value):
-                    target_parameters[key] = value
-                PipeTargetParametersArgs._configure(_setter, **target_parameters)
+            target_parameters = _utilities.configure(target_parameters, PipeTargetParametersArgs, True)
             __props__.__dict__["target_parameters"] = target_parameters
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

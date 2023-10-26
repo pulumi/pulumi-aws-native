@@ -25,8 +25,14 @@ class CustomResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             service_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_token is None and 'serviceToken' in kwargs:
+            service_token = kwargs['serviceToken']
+        if service_token is None:
+            raise TypeError("Missing 'service_token' argument")
+
         _setter("service_token", service_token)
 
     @property

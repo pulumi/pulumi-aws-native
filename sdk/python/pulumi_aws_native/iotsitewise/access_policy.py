@@ -34,10 +34,24 @@ class AccessPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_policy_identity: pulumi.Input['AccessPolicyIdentityArgs'],
-             access_policy_permission: pulumi.Input[str],
-             access_policy_resource: pulumi.Input['AccessPolicyResourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             access_policy_identity: Optional[pulumi.Input['AccessPolicyIdentityArgs']] = None,
+             access_policy_permission: Optional[pulumi.Input[str]] = None,
+             access_policy_resource: Optional[pulumi.Input['AccessPolicyResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policy_identity is None and 'accessPolicyIdentity' in kwargs:
+            access_policy_identity = kwargs['accessPolicyIdentity']
+        if access_policy_identity is None:
+            raise TypeError("Missing 'access_policy_identity' argument")
+        if access_policy_permission is None and 'accessPolicyPermission' in kwargs:
+            access_policy_permission = kwargs['accessPolicyPermission']
+        if access_policy_permission is None:
+            raise TypeError("Missing 'access_policy_permission' argument")
+        if access_policy_resource is None and 'accessPolicyResource' in kwargs:
+            access_policy_resource = kwargs['accessPolicyResource']
+        if access_policy_resource is None:
+            raise TypeError("Missing 'access_policy_resource' argument")
+
         _setter("access_policy_identity", access_policy_identity)
         _setter("access_policy_permission", access_policy_permission)
         _setter("access_policy_resource", access_policy_resource)
@@ -137,22 +151,14 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
-            if access_policy_identity is not None and not isinstance(access_policy_identity, AccessPolicyIdentityArgs):
-                access_policy_identity = access_policy_identity or {}
-                def _setter(key, value):
-                    access_policy_identity[key] = value
-                AccessPolicyIdentityArgs._configure(_setter, **access_policy_identity)
+            access_policy_identity = _utilities.configure(access_policy_identity, AccessPolicyIdentityArgs, True)
             if access_policy_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_identity'")
             __props__.__dict__["access_policy_identity"] = access_policy_identity
             if access_policy_permission is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_permission'")
             __props__.__dict__["access_policy_permission"] = access_policy_permission
-            if access_policy_resource is not None and not isinstance(access_policy_resource, AccessPolicyResourceArgs):
-                access_policy_resource = access_policy_resource or {}
-                def _setter(key, value):
-                    access_policy_resource[key] = value
-                AccessPolicyResourceArgs._configure(_setter, **access_policy_resource)
+            access_policy_resource = _utilities.configure(access_policy_resource, AccessPolicyResourceArgs, True)
             if access_policy_resource is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_resource'")
             __props__.__dict__["access_policy_resource"] = access_policy_resource

@@ -44,13 +44,27 @@ class ConnectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_role: pulumi.Input[str],
-             url: pulumi.Input[str],
+             access_role: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
              as2_config: Optional[pulumi.Input['As2ConfigPropertiesArgs']] = None,
              logging_role: Optional[pulumi.Input[str]] = None,
              sftp_config: Optional[pulumi.Input['SftpConfigPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_role is None and 'accessRole' in kwargs:
+            access_role = kwargs['accessRole']
+        if access_role is None:
+            raise TypeError("Missing 'access_role' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if as2_config is None and 'as2Config' in kwargs:
+            as2_config = kwargs['as2Config']
+        if logging_role is None and 'loggingRole' in kwargs:
+            logging_role = kwargs['loggingRole']
+        if sftp_config is None and 'sftpConfig' in kwargs:
+            sftp_config = kwargs['sftpConfig']
+
         _setter("access_role", access_role)
         _setter("url", url)
         if as2_config is not None:
@@ -205,18 +219,10 @@ class Connector(pulumi.CustomResource):
             if access_role is None and not opts.urn:
                 raise TypeError("Missing required property 'access_role'")
             __props__.__dict__["access_role"] = access_role
-            if as2_config is not None and not isinstance(as2_config, As2ConfigPropertiesArgs):
-                as2_config = as2_config or {}
-                def _setter(key, value):
-                    as2_config[key] = value
-                As2ConfigPropertiesArgs._configure(_setter, **as2_config)
+            as2_config = _utilities.configure(as2_config, As2ConfigPropertiesArgs, True)
             __props__.__dict__["as2_config"] = as2_config
             __props__.__dict__["logging_role"] = logging_role
-            if sftp_config is not None and not isinstance(sftp_config, SftpConfigPropertiesArgs):
-                sftp_config = sftp_config or {}
-                def _setter(key, value):
-                    sftp_config[key] = value
-                SftpConfigPropertiesArgs._configure(_setter, **sftp_config)
+            sftp_config = _utilities.configure(sftp_config, SftpConfigPropertiesArgs, True)
             __props__.__dict__["sftp_config"] = sftp_config
             __props__.__dict__["tags"] = tags
             if url is None and not opts.urn:

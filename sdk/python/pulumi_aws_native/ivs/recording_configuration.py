@@ -41,13 +41,25 @@ class RecordingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_configuration: pulumi.Input['RecordingConfigurationDestinationConfigurationArgs'],
+             destination_configuration: Optional[pulumi.Input['RecordingConfigurationDestinationConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              recording_reconnect_window_seconds: Optional[pulumi.Input[int]] = None,
              rendition_configuration: Optional[pulumi.Input['RecordingConfigurationRenditionConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecordingConfigurationTagArgs']]]] = None,
              thumbnail_configuration: Optional[pulumi.Input['RecordingConfigurationThumbnailConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_configuration is None and 'destinationConfiguration' in kwargs:
+            destination_configuration = kwargs['destinationConfiguration']
+        if destination_configuration is None:
+            raise TypeError("Missing 'destination_configuration' argument")
+        if recording_reconnect_window_seconds is None and 'recordingReconnectWindowSeconds' in kwargs:
+            recording_reconnect_window_seconds = kwargs['recordingReconnectWindowSeconds']
+        if rendition_configuration is None and 'renditionConfiguration' in kwargs:
+            rendition_configuration = kwargs['renditionConfiguration']
+        if thumbnail_configuration is None and 'thumbnailConfiguration' in kwargs:
+            thumbnail_configuration = kwargs['thumbnailConfiguration']
+
         _setter("destination_configuration", destination_configuration)
         if name is not None:
             _setter("name", name)
@@ -188,28 +200,16 @@ class RecordingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RecordingConfigurationArgs.__new__(RecordingConfigurationArgs)
 
-            if destination_configuration is not None and not isinstance(destination_configuration, RecordingConfigurationDestinationConfigurationArgs):
-                destination_configuration = destination_configuration or {}
-                def _setter(key, value):
-                    destination_configuration[key] = value
-                RecordingConfigurationDestinationConfigurationArgs._configure(_setter, **destination_configuration)
+            destination_configuration = _utilities.configure(destination_configuration, RecordingConfigurationDestinationConfigurationArgs, True)
             if destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_configuration'")
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_reconnect_window_seconds"] = recording_reconnect_window_seconds
-            if rendition_configuration is not None and not isinstance(rendition_configuration, RecordingConfigurationRenditionConfigurationArgs):
-                rendition_configuration = rendition_configuration or {}
-                def _setter(key, value):
-                    rendition_configuration[key] = value
-                RecordingConfigurationRenditionConfigurationArgs._configure(_setter, **rendition_configuration)
+            rendition_configuration = _utilities.configure(rendition_configuration, RecordingConfigurationRenditionConfigurationArgs, True)
             __props__.__dict__["rendition_configuration"] = rendition_configuration
             __props__.__dict__["tags"] = tags
-            if thumbnail_configuration is not None and not isinstance(thumbnail_configuration, RecordingConfigurationThumbnailConfigurationArgs):
-                thumbnail_configuration = thumbnail_configuration or {}
-                def _setter(key, value):
-                    thumbnail_configuration[key] = value
-                RecordingConfigurationThumbnailConfigurationArgs._configure(_setter, **thumbnail_configuration)
+            thumbnail_configuration = _utilities.configure(thumbnail_configuration, RecordingConfigurationThumbnailConfigurationArgs, True)
             __props__.__dict__["thumbnail_configuration"] = thumbnail_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None

@@ -43,7 +43,13 @@ class HookVersionLoggingConfigArgs:
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[pulumi.Input[str]] = None,
              log_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_role_arn is None and 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
@@ -89,7 +95,9 @@ class ManagedExecutionPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              active: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if active is not None:
             _setter("active", active)
 
@@ -122,7 +130,13 @@ class ResourceVersionLoggingConfigArgs:
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[pulumi.Input[str]] = None,
              log_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_role_arn is None and 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
         if log_role_arn is not None:
@@ -172,7 +186,11 @@ class StackSetAutoDeploymentArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              retain_stacks_on_account_removal: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retain_stacks_on_account_removal is None and 'retainStacksOnAccountRemoval' in kwargs:
+            retain_stacks_on_account_removal = kwargs['retainStacksOnAccountRemoval']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if retain_stacks_on_account_removal is not None:
@@ -231,7 +249,15 @@ class StackSetDeploymentTargetsArgs:
              accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              accounts_url: Optional[pulumi.Input[str]] = None,
              organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_filter_type is None and 'accountFilterType' in kwargs:
+            account_filter_type = kwargs['accountFilterType']
+        if accounts_url is None and 'accountsUrl' in kwargs:
+            accounts_url = kwargs['accountsUrl']
+        if organizational_unit_ids is None and 'organizationalUnitIds' in kwargs:
+            organizational_unit_ids = kwargs['organizationalUnitIds']
+
         if account_filter_type is not None:
             _setter("account_filter_type", account_filter_type)
         if accounts is not None:
@@ -320,7 +346,21 @@ class StackSetOperationPreferencesArgs:
              max_concurrent_percentage: Optional[pulumi.Input[int]] = None,
              region_concurrency_type: Optional[pulumi.Input['StackSetRegionConcurrencyType']] = None,
              region_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failure_tolerance_count is None and 'failureToleranceCount' in kwargs:
+            failure_tolerance_count = kwargs['failureToleranceCount']
+        if failure_tolerance_percentage is None and 'failureTolerancePercentage' in kwargs:
+            failure_tolerance_percentage = kwargs['failureTolerancePercentage']
+        if max_concurrent_count is None and 'maxConcurrentCount' in kwargs:
+            max_concurrent_count = kwargs['maxConcurrentCount']
+        if max_concurrent_percentage is None and 'maxConcurrentPercentage' in kwargs:
+            max_concurrent_percentage = kwargs['maxConcurrentPercentage']
+        if region_concurrency_type is None and 'regionConcurrencyType' in kwargs:
+            region_concurrency_type = kwargs['regionConcurrencyType']
+        if region_order is None and 'regionOrder' in kwargs:
+            region_order = kwargs['regionOrder']
+
         if failure_tolerance_count is not None:
             _setter("failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -406,9 +446,19 @@ class StackSetParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parameter_key: pulumi.Input[str],
-             parameter_value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parameter_key: Optional[pulumi.Input[str]] = None,
+             parameter_value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parameter_key is None and 'parameterKey' in kwargs:
+            parameter_key = kwargs['parameterKey']
+        if parameter_key is None:
+            raise TypeError("Missing 'parameter_key' argument")
+        if parameter_value is None and 'parameterValue' in kwargs:
+            parameter_value = kwargs['parameterValue']
+        if parameter_value is None:
+            raise TypeError("Missing 'parameter_value' argument")
+
         _setter("parameter_key", parameter_key)
         _setter("parameter_value", parameter_value)
 
@@ -457,10 +507,20 @@ class StackSetStackInstancesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_targets: pulumi.Input['StackSetDeploymentTargetsArgs'],
-             regions: pulumi.Input[Sequence[pulumi.Input[str]]],
+             deployment_targets: Optional[pulumi.Input['StackSetDeploymentTargetsArgs']] = None,
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              parameter_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_targets is None and 'deploymentTargets' in kwargs:
+            deployment_targets = kwargs['deploymentTargets']
+        if deployment_targets is None:
+            raise TypeError("Missing 'deployment_targets' argument")
+        if regions is None:
+            raise TypeError("Missing 'regions' argument")
+        if parameter_overrides is None and 'parameterOverrides' in kwargs:
+            parameter_overrides = kwargs['parameterOverrides']
+
         _setter("deployment_targets", deployment_targets)
         _setter("regions", regions)
         if parameter_overrides is not None:
@@ -518,9 +578,15 @@ class StackSetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -562,9 +628,15 @@ class StackTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -606,7 +678,13 @@ class TypeActivationLoggingConfigArgs:
              _setter: Callable[[Any, Any], None],
              log_group_name: Optional[pulumi.Input[str]] = None,
              log_role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_role_arn is None and 'logRoleArn' in kwargs:
+            log_role_arn = kwargs['logRoleArn']
+
         if log_group_name is not None:
             _setter("log_group_name", log_group_name)
         if log_role_arn is not None:

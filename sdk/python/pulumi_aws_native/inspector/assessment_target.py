@@ -29,7 +29,13 @@ class AssessmentTargetArgs:
              _setter: Callable[[Any, Any], None],
              assessment_target_name: Optional[pulumi.Input[str]] = None,
              resource_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_target_name is None and 'assessmentTargetName' in kwargs:
+            assessment_target_name = kwargs['assessmentTargetName']
+        if resource_group_arn is None and 'resourceGroupArn' in kwargs:
+            resource_group_arn = kwargs['resourceGroupArn']
+
         if assessment_target_name is not None:
             _setter("assessment_target_name", assessment_target_name)
         if resource_group_arn is not None:

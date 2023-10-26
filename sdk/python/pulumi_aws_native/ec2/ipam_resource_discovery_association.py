@@ -34,10 +34,20 @@ class IpamResourceDiscoveryAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipam_id: pulumi.Input[str],
-             ipam_resource_discovery_id: pulumi.Input[str],
+             ipam_id: Optional[pulumi.Input[str]] = None,
+             ipam_resource_discovery_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipam_id is None and 'ipamId' in kwargs:
+            ipam_id = kwargs['ipamId']
+        if ipam_id is None:
+            raise TypeError("Missing 'ipam_id' argument")
+        if ipam_resource_discovery_id is None and 'ipamResourceDiscoveryId' in kwargs:
+            ipam_resource_discovery_id = kwargs['ipamResourceDiscoveryId']
+        if ipam_resource_discovery_id is None:
+            raise TypeError("Missing 'ipam_resource_discovery_id' argument")
+
         _setter("ipam_id", ipam_id)
         _setter("ipam_resource_discovery_id", ipam_resource_discovery_id)
         if tags is not None:

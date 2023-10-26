@@ -42,9 +42,15 @@ class ChannelDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input[str],
-             type: pulumi.Input['ChannelDestinationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             location: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['ChannelDestinationType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("location", location)
         _setter("type", type)
 
@@ -91,9 +97,15 @@ class ChannelTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -140,9 +152,15 @@ class EventDataStoreAdvancedEventSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_selectors: pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedFieldSelectorArgs']]],
+             field_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedFieldSelectorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_selectors is None and 'fieldSelectors' in kwargs:
+            field_selectors = kwargs['fieldSelectors']
+        if field_selectors is None:
+            raise TypeError("Missing 'field_selectors' argument")
+
         _setter("field_selectors", field_selectors)
         if name is not None:
             _setter("name", name)
@@ -205,14 +223,28 @@ class EventDataStoreAdvancedFieldSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field: pulumi.Input[str],
+             field: Optional[pulumi.Input[str]] = None,
              ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field is None:
+            raise TypeError("Missing 'field' argument")
+        if ends_with is None and 'endsWith' in kwargs:
+            ends_with = kwargs['endsWith']
+        if not_ends_with is None and 'notEndsWith' in kwargs:
+            not_ends_with = kwargs['notEndsWith']
+        if not_equals is None and 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+        if not_starts_with is None and 'notStartsWith' in kwargs:
+            not_starts_with = kwargs['notStartsWith']
+        if starts_with is None and 'startsWith' in kwargs:
+            starts_with = kwargs['startsWith']
+
         _setter("field", field)
         if ends_with is not None:
             _setter("ends_with", ends_with)
@@ -330,9 +362,15 @@ class EventDataStoreTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -379,9 +417,15 @@ class TrailAdvancedEventSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgs']]],
+             field_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedFieldSelectorArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_selectors is None and 'fieldSelectors' in kwargs:
+            field_selectors = kwargs['fieldSelectors']
+        if field_selectors is None:
+            raise TypeError("Missing 'field_selectors' argument")
+
         _setter("field_selectors", field_selectors)
         if name is not None:
             _setter("name", name)
@@ -444,14 +488,28 @@ class TrailAdvancedFieldSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             field: pulumi.Input[str],
+             field: Optional[pulumi.Input[str]] = None,
              ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_ends_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              not_starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              starts_with: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field is None:
+            raise TypeError("Missing 'field' argument")
+        if ends_with is None and 'endsWith' in kwargs:
+            ends_with = kwargs['endsWith']
+        if not_ends_with is None and 'notEndsWith' in kwargs:
+            not_ends_with = kwargs['notEndsWith']
+        if not_equals is None and 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+        if not_starts_with is None and 'notStartsWith' in kwargs:
+            not_starts_with = kwargs['notStartsWith']
+        if starts_with is None and 'startsWith' in kwargs:
+            starts_with = kwargs['startsWith']
+
         _setter("field", field)
         if ends_with is not None:
             _setter("ends_with", ends_with)
@@ -569,9 +627,13 @@ class TrailDataResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if values is not None:
             _setter("values", values)
@@ -628,7 +690,17 @@ class TrailEventSelectorArgs:
              exclude_management_event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              include_management_events: Optional[pulumi.Input[bool]] = None,
              read_write_type: Optional[pulumi.Input['TrailEventSelectorReadWriteType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_resources is None and 'dataResources' in kwargs:
+            data_resources = kwargs['dataResources']
+        if exclude_management_event_sources is None and 'excludeManagementEventSources' in kwargs:
+            exclude_management_event_sources = kwargs['excludeManagementEventSources']
+        if include_management_events is None and 'includeManagementEvents' in kwargs:
+            include_management_events = kwargs['includeManagementEvents']
+        if read_write_type is None and 'readWriteType' in kwargs:
+            read_write_type = kwargs['readWriteType']
+
         if data_resources is not None:
             _setter("data_resources", data_resources)
         if exclude_management_event_sources is not None:
@@ -700,7 +772,11 @@ class TrailInsightSelectorArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              insight_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insight_type is None and 'insightType' in kwargs:
+            insight_type = kwargs['insightType']
+
         if insight_type is not None:
             _setter("insight_type", insight_type)
 
@@ -735,9 +811,15 @@ class TrailTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

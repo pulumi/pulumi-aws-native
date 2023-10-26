@@ -68,8 +68,8 @@ class FlowOutputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flow_arn: pulumi.Input[str],
-             protocol: pulumi.Input['FlowOutputProtocol'],
+             flow_arn: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input['FlowOutputProtocol']] = None,
              cidr_allow_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              destination: Optional[pulumi.Input[str]] = None,
@@ -82,7 +82,29 @@ class FlowOutputArgs:
              smoothing_latency: Optional[pulumi.Input[int]] = None,
              stream_id: Optional[pulumi.Input[str]] = None,
              vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flow_arn is None and 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if flow_arn is None:
+            raise TypeError("Missing 'flow_arn' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if cidr_allow_list is None and 'cidrAllowList' in kwargs:
+            cidr_allow_list = kwargs['cidrAllowList']
+        if max_latency is None and 'maxLatency' in kwargs:
+            max_latency = kwargs['maxLatency']
+        if min_latency is None and 'minLatency' in kwargs:
+            min_latency = kwargs['minLatency']
+        if remote_id is None and 'remoteId' in kwargs:
+            remote_id = kwargs['remoteId']
+        if smoothing_latency is None and 'smoothingLatency' in kwargs:
+            smoothing_latency = kwargs['smoothingLatency']
+        if stream_id is None and 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if vpc_interface_attachment is None and 'vpcInterfaceAttachment' in kwargs:
+            vpc_interface_attachment = kwargs['vpcInterfaceAttachment']
+
         _setter("flow_arn", flow_arn)
         _setter("protocol", protocol)
         if cidr_allow_list is not None:
@@ -373,11 +395,7 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["cidr_allow_list"] = cidr_allow_list
             __props__.__dict__["description"] = description
             __props__.__dict__["destination"] = destination
-            if encryption is not None and not isinstance(encryption, FlowOutputEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                FlowOutputEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, FlowOutputEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             if flow_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_arn'")
@@ -392,11 +410,7 @@ class FlowOutput(pulumi.CustomResource):
             __props__.__dict__["remote_id"] = remote_id
             __props__.__dict__["smoothing_latency"] = smoothing_latency
             __props__.__dict__["stream_id"] = stream_id
-            if vpc_interface_attachment is not None and not isinstance(vpc_interface_attachment, FlowOutputVpcInterfaceAttachmentArgs):
-                vpc_interface_attachment = vpc_interface_attachment or {}
-                def _setter(key, value):
-                    vpc_interface_attachment[key] = value
-                FlowOutputVpcInterfaceAttachmentArgs._configure(_setter, **vpc_interface_attachment)
+            vpc_interface_attachment = _utilities.configure(vpc_interface_attachment, FlowOutputVpcInterfaceAttachmentArgs, True)
             __props__.__dict__["vpc_interface_attachment"] = vpc_interface_attachment
             __props__.__dict__["output_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

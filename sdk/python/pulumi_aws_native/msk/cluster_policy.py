@@ -29,9 +29,17 @@ class ClusterPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_arn: pulumi.Input[str],
-             policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cluster_arn: Optional[pulumi.Input[str]] = None,
+             policy: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_arn is None and 'clusterArn' in kwargs:
+            cluster_arn = kwargs['clusterArn']
+        if cluster_arn is None:
+            raise TypeError("Missing 'cluster_arn' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
         _setter("cluster_arn", cluster_arn)
         _setter("policy", policy)
 

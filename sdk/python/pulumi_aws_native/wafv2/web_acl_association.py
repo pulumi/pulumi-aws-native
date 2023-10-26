@@ -27,9 +27,19 @@ class WebAclAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             web_acl_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[pulumi.Input[str]] = None,
+             web_acl_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if web_acl_arn is None and 'webAclArn' in kwargs:
+            web_acl_arn = kwargs['webAclArn']
+        if web_acl_arn is None:
+            raise TypeError("Missing 'web_acl_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("web_acl_arn", web_acl_arn)
 

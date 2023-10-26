@@ -38,13 +38,23 @@ class DevicePoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             project_arn: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]],
+             project_arn: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              max_devices: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DevicePoolTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_arn is None and 'projectArn' in kwargs:
+            project_arn = kwargs['projectArn']
+        if project_arn is None:
+            raise TypeError("Missing 'project_arn' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if max_devices is None and 'maxDevices' in kwargs:
+            max_devices = kwargs['maxDevices']
+
         _setter("project_arn", project_arn)
         _setter("rules", rules)
         if description is not None:

@@ -41,7 +41,15 @@ class PublicRepositoryArgs:
              repository_name: Optional[pulumi.Input[str]] = None,
              repository_policy_text: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PublicRepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_catalog_data is None and 'repositoryCatalogData' in kwargs:
+            repository_catalog_data = kwargs['repositoryCatalogData']
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_policy_text is None and 'repositoryPolicyText' in kwargs:
+            repository_policy_text = kwargs['repositoryPolicyText']
+
         if repository_catalog_data is not None:
             _setter("repository_catalog_data", repository_catalog_data)
         if repository_name is not None:
@@ -167,11 +175,7 @@ class PublicRepository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicRepositoryArgs.__new__(PublicRepositoryArgs)
 
-            if repository_catalog_data is not None and not isinstance(repository_catalog_data, RepositoryCatalogDataPropertiesArgs):
-                repository_catalog_data = repository_catalog_data or {}
-                def _setter(key, value):
-                    repository_catalog_data[key] = value
-                RepositoryCatalogDataPropertiesArgs._configure(_setter, **repository_catalog_data)
+            repository_catalog_data = _utilities.configure(repository_catalog_data, RepositoryCatalogDataPropertiesArgs, True)
             __props__.__dict__["repository_catalog_data"] = repository_catalog_data
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["repository_policy_text"] = repository_policy_text

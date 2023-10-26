@@ -51,15 +51,37 @@ class LaunchProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ec2_subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             launch_profile_protocol_versions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             stream_configuration: pulumi.Input['LaunchProfileStreamConfigurationArgs'],
-             studio_component_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             studio_id: pulumi.Input[str],
+             ec2_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             launch_profile_protocol_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             stream_configuration: Optional[pulumi.Input['LaunchProfileStreamConfigurationArgs']] = None,
+             studio_component_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             studio_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['LaunchProfileTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_subnet_ids is None and 'ec2SubnetIds' in kwargs:
+            ec2_subnet_ids = kwargs['ec2SubnetIds']
+        if ec2_subnet_ids is None:
+            raise TypeError("Missing 'ec2_subnet_ids' argument")
+        if launch_profile_protocol_versions is None and 'launchProfileProtocolVersions' in kwargs:
+            launch_profile_protocol_versions = kwargs['launchProfileProtocolVersions']
+        if launch_profile_protocol_versions is None:
+            raise TypeError("Missing 'launch_profile_protocol_versions' argument")
+        if stream_configuration is None and 'streamConfiguration' in kwargs:
+            stream_configuration = kwargs['streamConfiguration']
+        if stream_configuration is None:
+            raise TypeError("Missing 'stream_configuration' argument")
+        if studio_component_ids is None and 'studioComponentIds' in kwargs:
+            studio_component_ids = kwargs['studioComponentIds']
+        if studio_component_ids is None:
+            raise TypeError("Missing 'studio_component_ids' argument")
+        if studio_id is None and 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+        if studio_id is None:
+            raise TypeError("Missing 'studio_id' argument")
+
         _setter("ec2_subnet_ids", ec2_subnet_ids)
         _setter("launch_profile_protocol_versions", launch_profile_protocol_versions)
         _setter("stream_configuration", stream_configuration)
@@ -248,11 +270,7 @@ class LaunchProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'launch_profile_protocol_versions'")
             __props__.__dict__["launch_profile_protocol_versions"] = launch_profile_protocol_versions
             __props__.__dict__["name"] = name
-            if stream_configuration is not None and not isinstance(stream_configuration, LaunchProfileStreamConfigurationArgs):
-                stream_configuration = stream_configuration or {}
-                def _setter(key, value):
-                    stream_configuration[key] = value
-                LaunchProfileStreamConfigurationArgs._configure(_setter, **stream_configuration)
+            stream_configuration = _utilities.configure(stream_configuration, LaunchProfileStreamConfigurationArgs, True)
             if stream_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_configuration'")
             __props__.__dict__["stream_configuration"] = stream_configuration
@@ -262,11 +280,7 @@ class LaunchProfile(pulumi.CustomResource):
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
-            if tags is not None and not isinstance(tags, LaunchProfileTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                LaunchProfileTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, LaunchProfileTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["launch_profile_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ec2_subnet_ids[*]", "studio_id", "tags"])

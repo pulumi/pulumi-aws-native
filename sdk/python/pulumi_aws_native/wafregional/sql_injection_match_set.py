@@ -31,7 +31,11 @@ class SqlInjectionMatchSetArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              sql_injection_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sql_injection_match_tuples is None and 'sqlInjectionMatchTuples' in kwargs:
+            sql_injection_match_tuples = kwargs['sqlInjectionMatchTuples']
+
         if name is not None:
             _setter("name", name)
         if sql_injection_match_tuples is not None:

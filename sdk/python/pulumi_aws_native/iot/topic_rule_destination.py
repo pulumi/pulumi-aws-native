@@ -38,7 +38,13 @@ class TopicRuleDestinationArgs:
              http_url_properties: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
              status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
              vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_url_properties is None and 'httpUrlProperties' in kwargs:
+            http_url_properties = kwargs['httpUrlProperties']
+        if vpc_properties is None and 'vpcProperties' in kwargs:
+            vpc_properties = kwargs['vpcProperties']
+
         if http_url_properties is not None:
             _setter("http_url_properties", http_url_properties)
         if status is not None:
@@ -141,18 +147,10 @@ class TopicRuleDestination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicRuleDestinationArgs.__new__(TopicRuleDestinationArgs)
 
-            if http_url_properties is not None and not isinstance(http_url_properties, TopicRuleDestinationHttpUrlDestinationSummaryArgs):
-                http_url_properties = http_url_properties or {}
-                def _setter(key, value):
-                    http_url_properties[key] = value
-                TopicRuleDestinationHttpUrlDestinationSummaryArgs._configure(_setter, **http_url_properties)
+            http_url_properties = _utilities.configure(http_url_properties, TopicRuleDestinationHttpUrlDestinationSummaryArgs, True)
             __props__.__dict__["http_url_properties"] = http_url_properties
             __props__.__dict__["status"] = status
-            if vpc_properties is not None and not isinstance(vpc_properties, TopicRuleDestinationVpcDestinationPropertiesArgs):
-                vpc_properties = vpc_properties or {}
-                def _setter(key, value):
-                    vpc_properties[key] = value
-                TopicRuleDestinationVpcDestinationPropertiesArgs._configure(_setter, **vpc_properties)
+            vpc_properties = _utilities.configure(vpc_properties, TopicRuleDestinationVpcDestinationPropertiesArgs, True)
             __props__.__dict__["vpc_properties"] = vpc_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["status_reason"] = None

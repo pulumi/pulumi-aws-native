@@ -30,10 +30,24 @@ class IntegrationAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_id: pulumi.Input[str],
-             integration_arn: pulumi.Input[str],
-             integration_type: pulumi.Input['IntegrationAssociationIntegrationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             instance_id: Optional[pulumi.Input[str]] = None,
+             integration_arn: Optional[pulumi.Input[str]] = None,
+             integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if integration_arn is None and 'integrationArn' in kwargs:
+            integration_arn = kwargs['integrationArn']
+        if integration_arn is None:
+            raise TypeError("Missing 'integration_arn' argument")
+        if integration_type is None and 'integrationType' in kwargs:
+            integration_type = kwargs['integrationType']
+        if integration_type is None:
+            raise TypeError("Missing 'integration_type' argument")
+
         _setter("instance_id", instance_id)
         _setter("integration_arn", integration_arn)
         _setter("integration_type", integration_type)

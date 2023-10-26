@@ -56,7 +56,23 @@ class MonitorArgs:
              status: Optional[pulumi.Input['MonitorConfigState']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagArgs']]]] = None,
              traffic_percentage_to_monitor: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_events_config is None and 'healthEventsConfig' in kwargs:
+            health_events_config = kwargs['healthEventsConfig']
+        if internet_measurements_log_delivery is None and 'internetMeasurementsLogDelivery' in kwargs:
+            internet_measurements_log_delivery = kwargs['internetMeasurementsLogDelivery']
+        if max_city_networks_to_monitor is None and 'maxCityNetworksToMonitor' in kwargs:
+            max_city_networks_to_monitor = kwargs['maxCityNetworksToMonitor']
+        if monitor_name is None and 'monitorName' in kwargs:
+            monitor_name = kwargs['monitorName']
+        if resources_to_add is None and 'resourcesToAdd' in kwargs:
+            resources_to_add = kwargs['resourcesToAdd']
+        if resources_to_remove is None and 'resourcesToRemove' in kwargs:
+            resources_to_remove = kwargs['resourcesToRemove']
+        if traffic_percentage_to_monitor is None and 'trafficPercentageToMonitor' in kwargs:
+            traffic_percentage_to_monitor = kwargs['trafficPercentageToMonitor']
+
         if health_events_config is not None:
             _setter("health_events_config", health_events_config)
         if internet_measurements_log_delivery is not None:
@@ -238,17 +254,9 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
-            if health_events_config is not None and not isinstance(health_events_config, MonitorHealthEventsConfigArgs):
-                health_events_config = health_events_config or {}
-                def _setter(key, value):
-                    health_events_config[key] = value
-                MonitorHealthEventsConfigArgs._configure(_setter, **health_events_config)
+            health_events_config = _utilities.configure(health_events_config, MonitorHealthEventsConfigArgs, True)
             __props__.__dict__["health_events_config"] = health_events_config
-            if internet_measurements_log_delivery is not None and not isinstance(internet_measurements_log_delivery, MonitorInternetMeasurementsLogDeliveryArgs):
-                internet_measurements_log_delivery = internet_measurements_log_delivery or {}
-                def _setter(key, value):
-                    internet_measurements_log_delivery[key] = value
-                MonitorInternetMeasurementsLogDeliveryArgs._configure(_setter, **internet_measurements_log_delivery)
+            internet_measurements_log_delivery = _utilities.configure(internet_measurements_log_delivery, MonitorInternetMeasurementsLogDeliveryArgs, True)
             __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
             __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
             __props__.__dict__["monitor_name"] = monitor_name

@@ -39,13 +39,25 @@ class JobQueueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             compute_environment_order: pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]],
-             priority: pulumi.Input[int],
+             compute_environment_order: Optional[pulumi.Input[Sequence[pulumi.Input['JobQueueComputeEnvironmentOrderArgs']]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
              job_queue_name: Optional[pulumi.Input[str]] = None,
              scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['JobQueueState']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_environment_order is None and 'computeEnvironmentOrder' in kwargs:
+            compute_environment_order = kwargs['computeEnvironmentOrder']
+        if compute_environment_order is None:
+            raise TypeError("Missing 'compute_environment_order' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if job_queue_name is None and 'jobQueueName' in kwargs:
+            job_queue_name = kwargs['jobQueueName']
+        if scheduling_policy_arn is None and 'schedulingPolicyArn' in kwargs:
+            scheduling_policy_arn = kwargs['schedulingPolicyArn']
+
         _setter("compute_environment_order", compute_environment_order)
         _setter("priority", priority)
         if job_queue_name is not None:

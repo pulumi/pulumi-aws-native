@@ -41,7 +41,7 @@ class VpcCidrBlockArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             vpc_id: pulumi.Input[str],
+             vpc_id: Optional[pulumi.Input[str]] = None,
              amazon_provided_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
              cidr_block: Optional[pulumi.Input[str]] = None,
              ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
@@ -50,7 +50,29 @@ class VpcCidrBlockArgs:
              ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
              ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
              ipv6_pool: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if amazon_provided_ipv6_cidr_block is None and 'amazonProvidedIpv6CidrBlock' in kwargs:
+            amazon_provided_ipv6_cidr_block = kwargs['amazonProvidedIpv6CidrBlock']
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if ipv4_ipam_pool_id is None and 'ipv4IpamPoolId' in kwargs:
+            ipv4_ipam_pool_id = kwargs['ipv4IpamPoolId']
+        if ipv4_netmask_length is None and 'ipv4NetmaskLength' in kwargs:
+            ipv4_netmask_length = kwargs['ipv4NetmaskLength']
+        if ipv6_cidr_block is None and 'ipv6CidrBlock' in kwargs:
+            ipv6_cidr_block = kwargs['ipv6CidrBlock']
+        if ipv6_ipam_pool_id is None and 'ipv6IpamPoolId' in kwargs:
+            ipv6_ipam_pool_id = kwargs['ipv6IpamPoolId']
+        if ipv6_netmask_length is None and 'ipv6NetmaskLength' in kwargs:
+            ipv6_netmask_length = kwargs['ipv6NetmaskLength']
+        if ipv6_pool is None and 'ipv6Pool' in kwargs:
+            ipv6_pool = kwargs['ipv6Pool']
+
         _setter("vpc_id", vpc_id)
         if amazon_provided_ipv6_cidr_block is not None:
             _setter("amazon_provided_ipv6_cidr_block", amazon_provided_ipv6_cidr_block)

@@ -34,11 +34,23 @@ class AssistantAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assistant_id: pulumi.Input[str],
-             association: pulumi.Input['AssistantAssociationAssociationDataArgs'],
-             association_type: pulumi.Input['AssistantAssociationAssociationType'],
+             assistant_id: Optional[pulumi.Input[str]] = None,
+             association: Optional[pulumi.Input['AssistantAssociationAssociationDataArgs']] = None,
+             association_type: Optional[pulumi.Input['AssistantAssociationAssociationType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssistantAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assistant_id is None and 'assistantId' in kwargs:
+            assistant_id = kwargs['assistantId']
+        if assistant_id is None:
+            raise TypeError("Missing 'assistant_id' argument")
+        if association is None:
+            raise TypeError("Missing 'association' argument")
+        if association_type is None and 'associationType' in kwargs:
+            association_type = kwargs['associationType']
+        if association_type is None:
+            raise TypeError("Missing 'association_type' argument")
+
         _setter("assistant_id", assistant_id)
         _setter("association", association)
         _setter("association_type", association_type)
@@ -142,11 +154,7 @@ class AssistantAssociation(pulumi.CustomResource):
             if assistant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'assistant_id'")
             __props__.__dict__["assistant_id"] = assistant_id
-            if association is not None and not isinstance(association, AssistantAssociationAssociationDataArgs):
-                association = association or {}
-                def _setter(key, value):
-                    association[key] = value
-                AssistantAssociationAssociationDataArgs._configure(_setter, **association)
+            association = _utilities.configure(association, AssistantAssociationAssociationDataArgs, True)
             if association is None and not opts.urn:
                 raise TypeError("Missing required property 'association'")
             __props__.__dict__["association"] = association

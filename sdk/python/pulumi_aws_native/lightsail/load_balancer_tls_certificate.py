@@ -41,13 +41,33 @@ class LoadBalancerTlsCertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_domain_name: pulumi.Input[str],
-             certificate_name: pulumi.Input[str],
-             load_balancer_name: pulumi.Input[str],
+             certificate_domain_name: Optional[pulumi.Input[str]] = None,
+             certificate_name: Optional[pulumi.Input[str]] = None,
+             load_balancer_name: Optional[pulumi.Input[str]] = None,
              certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              https_redirection_enabled: Optional[pulumi.Input[bool]] = None,
              is_attached: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_domain_name is None and 'certificateDomainName' in kwargs:
+            certificate_domain_name = kwargs['certificateDomainName']
+        if certificate_domain_name is None:
+            raise TypeError("Missing 'certificate_domain_name' argument")
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if certificate_name is None:
+            raise TypeError("Missing 'certificate_name' argument")
+        if load_balancer_name is None and 'loadBalancerName' in kwargs:
+            load_balancer_name = kwargs['loadBalancerName']
+        if load_balancer_name is None:
+            raise TypeError("Missing 'load_balancer_name' argument")
+        if certificate_alternative_names is None and 'certificateAlternativeNames' in kwargs:
+            certificate_alternative_names = kwargs['certificateAlternativeNames']
+        if https_redirection_enabled is None and 'httpsRedirectionEnabled' in kwargs:
+            https_redirection_enabled = kwargs['httpsRedirectionEnabled']
+        if is_attached is None and 'isAttached' in kwargs:
+            is_attached = kwargs['isAttached']
+
         _setter("certificate_domain_name", certificate_domain_name)
         _setter("certificate_name", certificate_name)
         _setter("load_balancer_name", load_balancer_name)

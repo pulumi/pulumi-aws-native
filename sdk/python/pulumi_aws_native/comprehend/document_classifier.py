@@ -50,9 +50,9 @@ class DocumentClassifierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_access_role_arn: pulumi.Input[str],
-             input_data_config: pulumi.Input['DocumentClassifierInputDataConfigArgs'],
-             language_code: pulumi.Input['DocumentClassifierLanguageCode'],
+             data_access_role_arn: Optional[pulumi.Input[str]] = None,
+             input_data_config: Optional[pulumi.Input['DocumentClassifierInputDataConfigArgs']] = None,
+             language_code: Optional[pulumi.Input['DocumentClassifierLanguageCode']] = None,
              document_classifier_name: Optional[pulumi.Input[str]] = None,
              mode: Optional[pulumi.Input['DocumentClassifierMode']] = None,
              model_kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -62,7 +62,35 @@ class DocumentClassifierArgs:
              version_name: Optional[pulumi.Input[str]] = None,
              volume_kms_key_id: Optional[pulumi.Input[str]] = None,
              vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_access_role_arn is None and 'dataAccessRoleArn' in kwargs:
+            data_access_role_arn = kwargs['dataAccessRoleArn']
+        if data_access_role_arn is None:
+            raise TypeError("Missing 'data_access_role_arn' argument")
+        if input_data_config is None and 'inputDataConfig' in kwargs:
+            input_data_config = kwargs['inputDataConfig']
+        if input_data_config is None:
+            raise TypeError("Missing 'input_data_config' argument")
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if language_code is None:
+            raise TypeError("Missing 'language_code' argument")
+        if document_classifier_name is None and 'documentClassifierName' in kwargs:
+            document_classifier_name = kwargs['documentClassifierName']
+        if model_kms_key_id is None and 'modelKmsKeyId' in kwargs:
+            model_kms_key_id = kwargs['modelKmsKeyId']
+        if model_policy is None and 'modelPolicy' in kwargs:
+            model_policy = kwargs['modelPolicy']
+        if output_data_config is None and 'outputDataConfig' in kwargs:
+            output_data_config = kwargs['outputDataConfig']
+        if version_name is None and 'versionName' in kwargs:
+            version_name = kwargs['versionName']
+        if volume_kms_key_id is None and 'volumeKmsKeyId' in kwargs:
+            volume_kms_key_id = kwargs['volumeKmsKeyId']
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+
         _setter("data_access_role_arn", data_access_role_arn)
         _setter("input_data_config", input_data_config)
         _setter("language_code", language_code)
@@ -271,11 +299,7 @@ class DocumentClassifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_access_role_arn'")
             __props__.__dict__["data_access_role_arn"] = data_access_role_arn
             __props__.__dict__["document_classifier_name"] = document_classifier_name
-            if input_data_config is not None and not isinstance(input_data_config, DocumentClassifierInputDataConfigArgs):
-                input_data_config = input_data_config or {}
-                def _setter(key, value):
-                    input_data_config[key] = value
-                DocumentClassifierInputDataConfigArgs._configure(_setter, **input_data_config)
+            input_data_config = _utilities.configure(input_data_config, DocumentClassifierInputDataConfigArgs, True)
             if input_data_config is None and not opts.urn:
                 raise TypeError("Missing required property 'input_data_config'")
             __props__.__dict__["input_data_config"] = input_data_config
@@ -285,20 +309,12 @@ class DocumentClassifier(pulumi.CustomResource):
             __props__.__dict__["mode"] = mode
             __props__.__dict__["model_kms_key_id"] = model_kms_key_id
             __props__.__dict__["model_policy"] = model_policy
-            if output_data_config is not None and not isinstance(output_data_config, DocumentClassifierOutputDataConfigArgs):
-                output_data_config = output_data_config or {}
-                def _setter(key, value):
-                    output_data_config[key] = value
-                DocumentClassifierOutputDataConfigArgs._configure(_setter, **output_data_config)
+            output_data_config = _utilities.configure(output_data_config, DocumentClassifierOutputDataConfigArgs, True)
             __props__.__dict__["output_data_config"] = output_data_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version_name"] = version_name
             __props__.__dict__["volume_kms_key_id"] = volume_kms_key_id
-            if vpc_config is not None and not isinstance(vpc_config, DocumentClassifierVpcConfigArgs):
-                vpc_config = vpc_config or {}
-                def _setter(key, value):
-                    vpc_config[key] = value
-                DocumentClassifierVpcConfigArgs._configure(_setter, **vpc_config)
+            vpc_config = _utilities.configure(vpc_config, DocumentClassifierVpcConfigArgs, True)
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_access_role_arn", "document_classifier_name", "input_data_config", "language_code", "mode", "model_kms_key_id", "output_data_config", "version_name", "volume_kms_key_id", "vpc_config"])

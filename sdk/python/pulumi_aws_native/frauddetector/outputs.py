@@ -86,7 +86,13 @@ class DetectorEntityType(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -220,7 +226,17 @@ class DetectorEventType(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if entity_types is None and 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+        if event_variables is None and 'eventVariables' in kwargs:
+            event_variables = kwargs['eventVariables']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -386,7 +402,21 @@ class DetectorEventVariable(dict):
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
              variable_type: Optional['DetectorEventVariableVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if variable_type is None and 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -533,7 +563,13 @@ class DetectorLabel(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -615,7 +651,9 @@ class DetectorModel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -680,7 +718,13 @@ class DetectorOutcome(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -817,7 +861,19 @@ class DetectorRule(dict):
              rule_id: Optional[str] = None,
              rule_version: Optional[str] = None,
              tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if rule_id is None and 'ruleId' in kwargs:
+            rule_id = kwargs['ruleId']
+        if rule_version is None and 'ruleVersion' in kwargs:
+            rule_version = kwargs['ruleVersion']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -922,9 +978,15 @@ class DetectorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -952,9 +1014,15 @@ class EntityTypeTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1024,7 +1092,13 @@ class EventTypeEntityType(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -1163,7 +1237,21 @@ class EventTypeEventVariable(dict):
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.EventTypeTag']] = None,
              variable_type: Optional['EventTypeEventVariableVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+        if variable_type is None and 'variableType' in kwargs:
+            variable_type = kwargs['variableType']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -1310,7 +1398,13 @@ class EventTypeLabel(dict):
              last_updated_time: Optional[str] = None,
              name: Optional[str] = None,
              tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if created_time is None and 'createdTime' in kwargs:
+            created_time = kwargs['createdTime']
+        if last_updated_time is None and 'lastUpdatedTime' in kwargs:
+            last_updated_time = kwargs['lastUpdatedTime']
+
         if arn is not None:
             _setter("arn", arn)
         if created_time is not None:
@@ -1387,9 +1481,15 @@ class EventTypeTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1417,9 +1517,15 @@ class LabelTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1455,9 +1561,15 @@ class ListTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1491,9 +1603,15 @@ class OutcomeTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1521,9 +1639,15 @@ class VariableTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -41,12 +41,24 @@ class KeyPairArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_name: pulumi.Input[str],
+             key_name: Optional[pulumi.Input[str]] = None,
              key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
              key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
              public_key_material: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_format is None and 'keyFormat' in kwargs:
+            key_format = kwargs['keyFormat']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if public_key_material is None and 'publicKeyMaterial' in kwargs:
+            public_key_material = kwargs['publicKeyMaterial']
+
         _setter("key_name", key_name)
         if key_format is not None:
             _setter("key_format", key_format)

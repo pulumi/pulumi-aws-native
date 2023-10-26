@@ -29,10 +29,18 @@ class IdentityPoolRoleAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identity_pool_id: pulumi.Input[str],
+             identity_pool_id: Optional[pulumi.Input[str]] = None,
              role_mappings: Optional[Any] = None,
              roles: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identity_pool_id is None and 'identityPoolId' in kwargs:
+            identity_pool_id = kwargs['identityPoolId']
+        if identity_pool_id is None:
+            raise TypeError("Missing 'identity_pool_id' argument")
+        if role_mappings is None and 'roleMappings' in kwargs:
+            role_mappings = kwargs['roleMappings']
+
         _setter("identity_pool_id", identity_pool_id)
         if role_mappings is not None:
             _setter("role_mappings", role_mappings)

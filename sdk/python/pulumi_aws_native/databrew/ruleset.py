@@ -40,12 +40,20 @@ class RulesetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['RulesetRuleArgs']]],
-             target_arn: pulumi.Input[str],
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetRuleArgs']]]] = None,
+             target_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RulesetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+
         _setter("rules", rules)
         _setter("target_arn", target_arn)
         if description is not None:

@@ -56,8 +56,8 @@ class StudioComponentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             studio_id: pulumi.Input[str],
-             type: pulumi.Input['StudioComponentType'],
+             studio_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['StudioComponentType']] = None,
              configuration: Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]] = None,
              description: Optional[pulumi.Input[str]] = None,
              ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -68,7 +68,25 @@ class StudioComponentArgs:
              secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
              subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
              tags: Optional[pulumi.Input['StudioComponentTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if studio_id is None and 'studioId' in kwargs:
+            studio_id = kwargs['studioId']
+        if studio_id is None:
+            raise TypeError("Missing 'studio_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if ec2_security_group_ids is None and 'ec2SecurityGroupIds' in kwargs:
+            ec2_security_group_ids = kwargs['ec2SecurityGroupIds']
+        if initialization_scripts is None and 'initializationScripts' in kwargs:
+            initialization_scripts = kwargs['initializationScripts']
+        if runtime_role_arn is None and 'runtimeRoleArn' in kwargs:
+            runtime_role_arn = kwargs['runtimeRoleArn']
+        if script_parameters is None and 'scriptParameters' in kwargs:
+            script_parameters = kwargs['scriptParameters']
+        if secure_initialization_role_arn is None and 'secureInitializationRoleArn' in kwargs:
+            secure_initialization_role_arn = kwargs['secureInitializationRoleArn']
+
         _setter("studio_id", studio_id)
         _setter("type", type)
         if configuration is not None:
@@ -310,11 +328,7 @@ class StudioComponent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
             __props__.__dict__["subtype"] = subtype
-            if tags is not None and not isinstance(tags, StudioComponentTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                StudioComponentTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, StudioComponentTagsArgs, True)
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

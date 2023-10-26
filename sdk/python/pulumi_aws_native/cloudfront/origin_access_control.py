@@ -27,8 +27,14 @@ class OriginAccessControlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             origin_access_control_config: pulumi.Input['OriginAccessControlConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             origin_access_control_config: Optional[pulumi.Input['OriginAccessControlConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if origin_access_control_config is None and 'originAccessControlConfig' in kwargs:
+            origin_access_control_config = kwargs['originAccessControlConfig']
+        if origin_access_control_config is None:
+            raise TypeError("Missing 'origin_access_control_config' argument")
+
         _setter("origin_access_control_config", origin_access_control_config)
 
     @property
@@ -92,11 +98,7 @@ class OriginAccessControl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginAccessControlArgs.__new__(OriginAccessControlArgs)
 
-            if origin_access_control_config is not None and not isinstance(origin_access_control_config, OriginAccessControlConfigArgs):
-                origin_access_control_config = origin_access_control_config or {}
-                def _setter(key, value):
-                    origin_access_control_config[key] = value
-                OriginAccessControlConfigArgs._configure(_setter, **origin_access_control_config)
+            origin_access_control_config = _utilities.configure(origin_access_control_config, OriginAccessControlConfigArgs, True)
             if origin_access_control_config is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_access_control_config'")
             __props__.__dict__["origin_access_control_config"] = origin_access_control_config

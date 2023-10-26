@@ -41,7 +41,13 @@ class ProjectArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_config_resource is None and 'appConfigResource' in kwargs:
+            app_config_resource = kwargs['appConfigResource']
+        if data_delivery is None and 'dataDelivery' in kwargs:
+            data_delivery = kwargs['dataDelivery']
+
         if app_config_resource is not None:
             _setter("app_config_resource", app_config_resource)
         if data_delivery is not None:
@@ -162,17 +168,9 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProjectArgs.__new__(ProjectArgs)
 
-            if app_config_resource is not None and not isinstance(app_config_resource, ProjectAppConfigResourceObjectArgs):
-                app_config_resource = app_config_resource or {}
-                def _setter(key, value):
-                    app_config_resource[key] = value
-                ProjectAppConfigResourceObjectArgs._configure(_setter, **app_config_resource)
+            app_config_resource = _utilities.configure(app_config_resource, ProjectAppConfigResourceObjectArgs, True)
             __props__.__dict__["app_config_resource"] = app_config_resource
-            if data_delivery is not None and not isinstance(data_delivery, ProjectDataDeliveryObjectArgs):
-                data_delivery = data_delivery or {}
-                def _setter(key, value):
-                    data_delivery[key] = value
-                ProjectDataDeliveryObjectArgs._configure(_setter, **data_delivery)
+            data_delivery = _utilities.configure(data_delivery, ProjectDataDeliveryObjectArgs, True)
             __props__.__dict__["data_delivery"] = data_delivery
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

@@ -31,10 +31,18 @@ class ReceiptRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule: pulumi.Input['ReceiptRuleRuleArgs'],
-             rule_set_name: pulumi.Input[str],
+             rule: Optional[pulumi.Input['ReceiptRuleRuleArgs']] = None,
+             rule_set_name: Optional[pulumi.Input[str]] = None,
              after: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule is None:
+            raise TypeError("Missing 'rule' argument")
+        if rule_set_name is None and 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+        if rule_set_name is None:
+            raise TypeError("Missing 'rule_set_name' argument")
+
         _setter("rule", rule)
         _setter("rule_set_name", rule_set_name)
         if after is not None:
@@ -130,11 +138,7 @@ class ReceiptRule(pulumi.CustomResource):
             __props__ = ReceiptRuleArgs.__new__(ReceiptRuleArgs)
 
             __props__.__dict__["after"] = after
-            if rule is not None and not isinstance(rule, ReceiptRuleRuleArgs):
-                rule = rule or {}
-                def _setter(key, value):
-                    rule[key] = value
-                ReceiptRuleRuleArgs._configure(_setter, **rule)
+            rule = _utilities.configure(rule, ReceiptRuleRuleArgs, True)
             if rule is None and not opts.urn:
                 raise TypeError("Missing required property 'rule'")
             __props__.__dict__["rule"] = rule

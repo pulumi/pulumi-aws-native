@@ -64,9 +64,9 @@ class LocationHdfsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             authentication_type: pulumi.Input['LocationHdfsAuthenticationType'],
-             name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]],
+             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication_type: Optional[pulumi.Input['LocationHdfsAuthenticationType']] = None,
+             name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]] = None,
              block_size: Optional[pulumi.Input[int]] = None,
              kerberos_keytab: Optional[pulumi.Input[str]] = None,
              kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
@@ -77,7 +77,37 @@ class LocationHdfsArgs:
              simple_user: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_arns is None and 'agentArns' in kwargs:
+            agent_arns = kwargs['agentArns']
+        if agent_arns is None:
+            raise TypeError("Missing 'agent_arns' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if name_nodes is None and 'nameNodes' in kwargs:
+            name_nodes = kwargs['nameNodes']
+        if name_nodes is None:
+            raise TypeError("Missing 'name_nodes' argument")
+        if block_size is None and 'blockSize' in kwargs:
+            block_size = kwargs['blockSize']
+        if kerberos_keytab is None and 'kerberosKeytab' in kwargs:
+            kerberos_keytab = kwargs['kerberosKeytab']
+        if kerberos_krb5_conf is None and 'kerberosKrb5Conf' in kwargs:
+            kerberos_krb5_conf = kwargs['kerberosKrb5Conf']
+        if kerberos_principal is None and 'kerberosPrincipal' in kwargs:
+            kerberos_principal = kwargs['kerberosPrincipal']
+        if kms_key_provider_uri is None and 'kmsKeyProviderUri' in kwargs:
+            kms_key_provider_uri = kwargs['kmsKeyProviderUri']
+        if qop_configuration is None and 'qopConfiguration' in kwargs:
+            qop_configuration = kwargs['qopConfiguration']
+        if replication_factor is None and 'replicationFactor' in kwargs:
+            replication_factor = kwargs['replicationFactor']
+        if simple_user is None and 'simpleUser' in kwargs:
+            simple_user = kwargs['simpleUser']
+
         _setter("agent_arns", agent_arns)
         _setter("authentication_type", authentication_type)
         _setter("name_nodes", name_nodes)
@@ -357,11 +387,7 @@ class LocationHdfs(pulumi.CustomResource):
             if name_nodes is None and not opts.urn:
                 raise TypeError("Missing required property 'name_nodes'")
             __props__.__dict__["name_nodes"] = name_nodes
-            if qop_configuration is not None and not isinstance(qop_configuration, LocationHdfsQopConfigurationArgs):
-                qop_configuration = qop_configuration or {}
-                def _setter(key, value):
-                    qop_configuration[key] = value
-                LocationHdfsQopConfigurationArgs._configure(_setter, **qop_configuration)
+            qop_configuration = _utilities.configure(qop_configuration, LocationHdfsQopConfigurationArgs, True)
             __props__.__dict__["qop_configuration"] = qop_configuration
             __props__.__dict__["replication_factor"] = replication_factor
             __props__.__dict__["simple_user"] = simple_user

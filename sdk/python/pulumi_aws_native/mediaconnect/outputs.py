@@ -72,8 +72,14 @@ class BridgeEgressGatewayBridge(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_bitrate: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             max_bitrate: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if max_bitrate is None:
+            raise TypeError("Missing 'max_bitrate' argument")
+
         _setter("max_bitrate", max_bitrate)
 
     @property
@@ -127,10 +133,18 @@ class BridgeFailoverConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failover_mode: 'BridgeFailoverModeEnum',
+             failover_mode: Optional['BridgeFailoverModeEnum'] = None,
              source_priority: Optional['outputs.BridgeSourcePriority'] = None,
              state: Optional['BridgeFailoverConfigStateEnum'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_mode is None and 'failoverMode' in kwargs:
+            failover_mode = kwargs['failoverMode']
+        if failover_mode is None:
+            raise TypeError("Missing 'failover_mode' argument")
+        if source_priority is None and 'sourcePriority' in kwargs:
+            source_priority = kwargs['sourcePriority']
+
         _setter("failover_mode", failover_mode)
         if source_priority is not None:
             _setter("source_priority", source_priority)
@@ -202,10 +216,20 @@ class BridgeFlowSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flow_arn: str,
-             name: str,
+             flow_arn: Optional[str] = None,
+             name: Optional[str] = None,
              flow_vpc_interface_attachment: Optional['outputs.BridgeVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flow_arn is None and 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if flow_arn is None:
+            raise TypeError("Missing 'flow_arn' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if flow_vpc_interface_attachment is None and 'flowVpcInterfaceAttachment' in kwargs:
+            flow_vpc_interface_attachment = kwargs['flowVpcInterfaceAttachment']
+
         _setter("flow_arn", flow_arn)
         _setter("name", name)
         if flow_vpc_interface_attachment is not None:
@@ -272,9 +296,19 @@ class BridgeIngressGatewayBridge(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_bitrate: int,
-             max_outputs: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             max_bitrate: Optional[int] = None,
+             max_outputs: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if max_bitrate is None:
+            raise TypeError("Missing 'max_bitrate' argument")
+        if max_outputs is None and 'maxOutputs' in kwargs:
+            max_outputs = kwargs['maxOutputs']
+        if max_outputs is None:
+            raise TypeError("Missing 'max_outputs' argument")
+
         _setter("max_bitrate", max_bitrate)
         _setter("max_outputs", max_outputs)
 
@@ -347,13 +381,31 @@ class BridgeNetworkOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_address: str,
-             name: str,
-             network_name: str,
-             port: int,
-             protocol: 'BridgeProtocolEnum',
-             ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip_address: Optional[str] = None,
+             name: Optional[str] = None,
+             network_name: Optional[str] = None,
+             port: Optional[int] = None,
+             protocol: Optional['BridgeProtocolEnum'] = None,
+             ttl: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+
         _setter("ip_address", ip_address)
         _setter("name", name)
         _setter("network_name", network_name)
@@ -459,12 +511,28 @@ class BridgeNetworkSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             multicast_ip: str,
-             name: str,
-             network_name: str,
-             port: int,
-             protocol: 'BridgeProtocolEnum',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             multicast_ip: Optional[str] = None,
+             name: Optional[str] = None,
+             network_name: Optional[str] = None,
+             port: Optional[int] = None,
+             protocol: Optional['BridgeProtocolEnum'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multicast_ip is None and 'multicastIp' in kwargs:
+            multicast_ip = kwargs['multicastIp']
+        if multicast_ip is None:
+            raise TypeError("Missing 'multicast_ip' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+
         _setter("multicast_ip", multicast_ip)
         _setter("name", name)
         _setter("network_name", network_name)
@@ -547,7 +615,11 @@ class BridgeOutput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              network_output: Optional['outputs.BridgeNetworkOutput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_output is None and 'networkOutput' in kwargs:
+            network_output = kwargs['networkOutput']
+
         if network_output is not None:
             _setter("network_output", network_output)
 
@@ -606,12 +678,28 @@ class BridgeOutputResourceBridgeNetworkOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_address: str,
-             network_name: str,
-             port: int,
-             protocol: 'BridgeOutputResourceBridgeNetworkOutputProtocol',
-             ttl: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip_address: Optional[str] = None,
+             network_name: Optional[str] = None,
+             port: Optional[int] = None,
+             protocol: Optional['BridgeOutputResourceBridgeNetworkOutputProtocol'] = None,
+             ttl: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+
         _setter("ip_address", ip_address)
         _setter("network_name", network_name)
         _setter("port", port)
@@ -699,7 +787,13 @@ class BridgeSource(dict):
              _setter: Callable[[Any, Any], None],
              flow_source: Optional['outputs.BridgeFlowSource'] = None,
              network_source: Optional['outputs.BridgeNetworkSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flow_source is None and 'flowSource' in kwargs:
+            flow_source = kwargs['flowSource']
+        if network_source is None and 'networkSource' in kwargs:
+            network_source = kwargs['networkSource']
+
         if flow_source is not None:
             _setter("flow_source", flow_source)
         if network_source is not None:
@@ -756,9 +850,17 @@ class BridgeSourceBridgeFlowSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flow_arn: str,
+             flow_arn: Optional[str] = None,
              flow_vpc_interface_attachment: Optional['outputs.BridgeSourceVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flow_arn is None and 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if flow_arn is None:
+            raise TypeError("Missing 'flow_arn' argument")
+        if flow_vpc_interface_attachment is None and 'flowVpcInterfaceAttachment' in kwargs:
+            flow_vpc_interface_attachment = kwargs['flowVpcInterfaceAttachment']
+
         _setter("flow_arn", flow_arn)
         if flow_vpc_interface_attachment is not None:
             _setter("flow_vpc_interface_attachment", flow_vpc_interface_attachment)
@@ -826,11 +928,25 @@ class BridgeSourceBridgeNetworkSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             multicast_ip: str,
-             network_name: str,
-             port: int,
-             protocol: 'BridgeSourceProtocolEnum',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             multicast_ip: Optional[str] = None,
+             network_name: Optional[str] = None,
+             port: Optional[int] = None,
+             protocol: Optional['BridgeSourceProtocolEnum'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multicast_ip is None and 'multicastIp' in kwargs:
+            multicast_ip = kwargs['multicastIp']
+        if multicast_ip is None:
+            raise TypeError("Missing 'multicast_ip' argument")
+        if network_name is None and 'networkName' in kwargs:
+            network_name = kwargs['networkName']
+        if network_name is None:
+            raise TypeError("Missing 'network_name' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+
         _setter("multicast_ip", multicast_ip)
         _setter("network_name", network_name)
         _setter("port", port)
@@ -905,7 +1021,11 @@ class BridgeSourcePriority(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              primary_source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary_source is None and 'primarySource' in kwargs:
+            primary_source = kwargs['primarySource']
+
         if primary_source is not None:
             _setter("primary_source", primary_source)
 
@@ -954,7 +1074,11 @@ class BridgeSourceVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -1003,7 +1127,11 @@ class BridgeVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -1085,7 +1213,7 @@ class FlowEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: str,
+             role_arn: Optional[str] = None,
              algorithm: Optional['FlowEncryptionAlgorithm'] = None,
              constant_initialization_vector: Optional[str] = None,
              device_id: Optional[str] = None,
@@ -1094,7 +1222,23 @@ class FlowEncryption(dict):
              resource_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if constant_initialization_vector is None and 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("role_arn", role_arn)
         if algorithm is not None:
             _setter("algorithm", algorithm)
@@ -1255,8 +1399,8 @@ class FlowEntitlementEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             algorithm: 'FlowEntitlementEncryptionAlgorithm',
-             role_arn: str,
+             algorithm: Optional['FlowEntitlementEncryptionAlgorithm'] = None,
+             role_arn: Optional[str] = None,
              constant_initialization_vector: Optional[str] = None,
              device_id: Optional[str] = None,
              key_type: Optional['FlowEntitlementEncryptionKeyType'] = None,
@@ -1264,7 +1408,25 @@ class FlowEntitlementEncryption(dict):
              resource_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if constant_initialization_vector is None and 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("algorithm", algorithm)
         _setter("role_arn", role_arn)
         if constant_initialization_vector is not None:
@@ -1406,7 +1568,15 @@ class FlowFailoverConfig(dict):
              recovery_window: Optional[int] = None,
              source_priority: Optional['outputs.FlowFailoverConfigSourcePriorityProperties'] = None,
              state: Optional['FlowFailoverConfigState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_mode is None and 'failoverMode' in kwargs:
+            failover_mode = kwargs['failoverMode']
+        if recovery_window is None and 'recoveryWindow' in kwargs:
+            recovery_window = kwargs['recoveryWindow']
+        if source_priority is None and 'sourcePriority' in kwargs:
+            source_priority = kwargs['sourcePriority']
+
         if failover_mode is not None:
             _setter("failover_mode", failover_mode)
         if recovery_window is not None:
@@ -1481,8 +1651,14 @@ class FlowFailoverConfigSourcePriorityProperties(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary_source: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             primary_source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary_source is None and 'primarySource' in kwargs:
+            primary_source = kwargs['primarySource']
+        if primary_source is None:
+            raise TypeError("Missing 'primary_source' argument")
+
         _setter("primary_source", primary_source)
 
     @property
@@ -1534,9 +1710,17 @@ class FlowGatewayBridgeSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bridge_arn: str,
+             bridge_arn: Optional[str] = None,
              vpc_interface_attachment: Optional['outputs.FlowVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bridge_arn is None and 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if bridge_arn is None:
+            raise TypeError("Missing 'bridge_arn' argument")
+        if vpc_interface_attachment is None and 'vpcInterfaceAttachment' in kwargs:
+            vpc_interface_attachment = kwargs['vpcInterfaceAttachment']
+
         _setter("bridge_arn", bridge_arn)
         if vpc_interface_attachment is not None:
             _setter("vpc_interface_attachment", vpc_interface_attachment)
@@ -1606,11 +1790,23 @@ class FlowOutputEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: str,
-             secret_arn: str,
+             role_arn: Optional[str] = None,
+             secret_arn: Optional[str] = None,
              algorithm: Optional['FlowOutputEncryptionAlgorithm'] = None,
              key_type: Optional['FlowOutputEncryptionKeyType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+        if secret_arn is None:
+            raise TypeError("Missing 'secret_arn' argument")
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+
         _setter("role_arn", role_arn)
         _setter("secret_arn", secret_arn)
         if algorithm is not None:
@@ -1687,7 +1883,11 @@ class FlowOutputVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -1842,7 +2042,41 @@ class FlowSource(dict):
              stream_id: Optional[str] = None,
              vpc_interface_name: Optional[str] = None,
              whitelist_cidr: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entitlement_arn is None and 'entitlementArn' in kwargs:
+            entitlement_arn = kwargs['entitlementArn']
+        if gateway_bridge_source is None and 'gatewayBridgeSource' in kwargs:
+            gateway_bridge_source = kwargs['gatewayBridgeSource']
+        if ingest_ip is None and 'ingestIp' in kwargs:
+            ingest_ip = kwargs['ingestIp']
+        if ingest_port is None and 'ingestPort' in kwargs:
+            ingest_port = kwargs['ingestPort']
+        if max_bitrate is None and 'maxBitrate' in kwargs:
+            max_bitrate = kwargs['maxBitrate']
+        if max_latency is None and 'maxLatency' in kwargs:
+            max_latency = kwargs['maxLatency']
+        if min_latency is None and 'minLatency' in kwargs:
+            min_latency = kwargs['minLatency']
+        if sender_control_port is None and 'senderControlPort' in kwargs:
+            sender_control_port = kwargs['senderControlPort']
+        if sender_ip_address is None and 'senderIpAddress' in kwargs:
+            sender_ip_address = kwargs['senderIpAddress']
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if source_ingest_port is None and 'sourceIngestPort' in kwargs:
+            source_ingest_port = kwargs['sourceIngestPort']
+        if source_listener_address is None and 'sourceListenerAddress' in kwargs:
+            source_listener_address = kwargs['sourceListenerAddress']
+        if source_listener_port is None and 'sourceListenerPort' in kwargs:
+            source_listener_port = kwargs['sourceListenerPort']
+        if stream_id is None and 'streamId' in kwargs:
+            stream_id = kwargs['streamId']
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+        if whitelist_cidr is None and 'whitelistCidr' in kwargs:
+            whitelist_cidr = kwargs['whitelistCidr']
+
         if decryption is not None:
             _setter("decryption", decryption)
         if description is not None:
@@ -2114,7 +2348,7 @@ class FlowSourceEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: str,
+             role_arn: Optional[str] = None,
              algorithm: Optional['FlowSourceEncryptionAlgorithm'] = None,
              constant_initialization_vector: Optional[str] = None,
              device_id: Optional[str] = None,
@@ -2123,7 +2357,23 @@ class FlowSourceEncryption(dict):
              resource_id: Optional[str] = None,
              secret_arn: Optional[str] = None,
              url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if constant_initialization_vector is None and 'constantInitializationVector' in kwargs:
+            constant_initialization_vector = kwargs['constantInitializationVector']
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         _setter("role_arn", role_arn)
         if algorithm is not None:
             _setter("algorithm", algorithm)
@@ -2255,9 +2505,17 @@ class FlowSourceGatewayBridgeSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bridge_arn: str,
+             bridge_arn: Optional[str] = None,
              vpc_interface_attachment: Optional['outputs.FlowSourceVpcInterfaceAttachment'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bridge_arn is None and 'bridgeArn' in kwargs:
+            bridge_arn = kwargs['bridgeArn']
+        if bridge_arn is None:
+            raise TypeError("Missing 'bridge_arn' argument")
+        if vpc_interface_attachment is None and 'vpcInterfaceAttachment' in kwargs:
+            vpc_interface_attachment = kwargs['vpcInterfaceAttachment']
+
         _setter("bridge_arn", bridge_arn)
         if vpc_interface_attachment is not None:
             _setter("vpc_interface_attachment", vpc_interface_attachment)
@@ -2315,7 +2573,11 @@ class FlowSourceVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -2364,7 +2626,11 @@ class FlowVpcInterfaceAttachment(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              vpc_interface_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if vpc_interface_name is None and 'vpcInterfaceName' in kwargs:
+            vpc_interface_name = kwargs['vpcInterfaceName']
+
         if vpc_interface_name is not None:
             _setter("vpc_interface_name", vpc_interface_name)
 
@@ -2415,9 +2681,17 @@ class GatewayNetwork(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr_block: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cidr_block: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if cidr_block is None:
+            raise TypeError("Missing 'cidr_block' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("cidr_block", cidr_block)
         _setter("name", name)
 

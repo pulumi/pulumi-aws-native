@@ -35,11 +35,17 @@ class EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_fabric_type: pulumi.Input['EnvironmentNetworkFabricType'],
+             network_fabric_type: Optional[pulumi.Input['EnvironmentNetworkFabricType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_fabric_type is None and 'networkFabricType' in kwargs:
+            network_fabric_type = kwargs['networkFabricType']
+        if network_fabric_type is None:
+            raise TypeError("Missing 'network_fabric_type' argument")
+
         _setter("network_fabric_type", network_fabric_type)
         if description is not None:
             _setter("description", description)

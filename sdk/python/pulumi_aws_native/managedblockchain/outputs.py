@@ -45,9 +45,15 @@ class AccessorTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -107,7 +113,15 @@ class MemberApprovalThresholdPolicy(dict):
              proposal_duration_in_hours: Optional[int] = None,
              threshold_comparator: Optional[str] = None,
              threshold_percentage: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if proposal_duration_in_hours is None and 'proposalDurationInHours' in kwargs:
+            proposal_duration_in_hours = kwargs['proposalDurationInHours']
+        if threshold_comparator is None and 'thresholdComparator' in kwargs:
+            threshold_comparator = kwargs['thresholdComparator']
+        if threshold_percentage is None and 'thresholdPercentage' in kwargs:
+            threshold_percentage = kwargs['thresholdPercentage']
+
         if proposal_duration_in_hours is not None:
             _setter("proposal_duration_in_hours", proposal_duration_in_hours)
         if threshold_comparator is not None:
@@ -163,10 +177,16 @@ class MemberConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              description: Optional[str] = None,
              member_framework_configuration: Optional['outputs.MemberFrameworkConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if member_framework_configuration is None and 'memberFrameworkConfiguration' in kwargs:
+            member_framework_configuration = kwargs['memberFrameworkConfiguration']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -221,9 +241,19 @@ class MemberFabricConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_password: str,
-             admin_username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             admin_password: Optional[str] = None,
+             admin_username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if admin_password is None:
+            raise TypeError("Missing 'admin_password' argument")
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+
         _setter("admin_password", admin_password)
         _setter("admin_username", admin_username)
 
@@ -267,7 +297,11 @@ class MemberFrameworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              member_fabric_configuration: Optional['outputs.MemberFabricConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if member_fabric_configuration is None and 'memberFabricConfiguration' in kwargs:
+            member_fabric_configuration = kwargs['memberFabricConfiguration']
+
         if member_fabric_configuration is not None:
             _setter("member_fabric_configuration", member_fabric_configuration)
 
@@ -319,13 +353,29 @@ class MemberNetworkConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             framework: str,
-             framework_version: str,
-             name: str,
-             voting_policy: 'outputs.MemberVotingPolicy',
+             framework: Optional[str] = None,
+             framework_version: Optional[str] = None,
+             name: Optional[str] = None,
+             voting_policy: Optional['outputs.MemberVotingPolicy'] = None,
              description: Optional[str] = None,
              network_framework_configuration: Optional['outputs.MemberNetworkFrameworkConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if framework is None:
+            raise TypeError("Missing 'framework' argument")
+        if framework_version is None and 'frameworkVersion' in kwargs:
+            framework_version = kwargs['frameworkVersion']
+        if framework_version is None:
+            raise TypeError("Missing 'framework_version' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if voting_policy is None and 'votingPolicy' in kwargs:
+            voting_policy = kwargs['votingPolicy']
+        if voting_policy is None:
+            raise TypeError("Missing 'voting_policy' argument")
+        if network_framework_configuration is None and 'networkFrameworkConfiguration' in kwargs:
+            network_framework_configuration = kwargs['networkFrameworkConfiguration']
+
         _setter("framework", framework)
         _setter("framework_version", framework_version)
         _setter("name", name)
@@ -377,8 +427,12 @@ class MemberNetworkFabricConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             edition: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             edition: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if edition is None:
+            raise TypeError("Missing 'edition' argument")
+
         _setter("edition", edition)
 
     @property
@@ -416,7 +470,11 @@ class MemberNetworkFrameworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              network_fabric_configuration: Optional['outputs.MemberNetworkFabricConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_fabric_configuration is None and 'networkFabricConfiguration' in kwargs:
+            network_fabric_configuration = kwargs['networkFabricConfiguration']
+
         if network_fabric_configuration is not None:
             _setter("network_fabric_configuration", network_fabric_configuration)
 
@@ -455,7 +513,11 @@ class MemberVotingPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              approval_threshold_policy: Optional['outputs.MemberApprovalThresholdPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if approval_threshold_policy is None and 'approvalThresholdPolicy' in kwargs:
+            approval_threshold_policy = kwargs['approvalThresholdPolicy']
+
         if approval_threshold_policy is not None:
             _setter("approval_threshold_policy", approval_threshold_policy)
 
@@ -497,9 +559,19 @@ class NodeConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             availability_zone: str,
-             instance_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             availability_zone: Optional[str] = None,
+             instance_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+
         _setter("availability_zone", availability_zone)
         _setter("instance_type", instance_type)
 

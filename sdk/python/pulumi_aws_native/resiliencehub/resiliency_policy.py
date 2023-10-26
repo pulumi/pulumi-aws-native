@@ -42,13 +42,27 @@ class ResiliencyPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: pulumi.Input['ResiliencyPolicyPolicyMapArgs'],
-             policy_name: pulumi.Input[str],
-             tier: pulumi.Input['ResiliencyPolicyTier'],
+             policy: Optional[pulumi.Input['ResiliencyPolicyPolicyMapArgs']] = None,
+             policy_name: Optional[pulumi.Input[str]] = None,
+             tier: Optional[pulumi.Input['ResiliencyPolicyTier']] = None,
              data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
              policy_description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ResiliencyPolicyTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+        if data_location_constraint is None and 'dataLocationConstraint' in kwargs:
+            data_location_constraint = kwargs['dataLocationConstraint']
+        if policy_description is None and 'policyDescription' in kwargs:
+            policy_description = kwargs['policyDescription']
+
         _setter("policy", policy)
         _setter("policy_name", policy_name)
         _setter("tier", tier)
@@ -192,11 +206,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
             __props__ = ResiliencyPolicyArgs.__new__(ResiliencyPolicyArgs)
 
             __props__.__dict__["data_location_constraint"] = data_location_constraint
-            if policy is not None and not isinstance(policy, ResiliencyPolicyPolicyMapArgs):
-                policy = policy or {}
-                def _setter(key, value):
-                    policy[key] = value
-                ResiliencyPolicyPolicyMapArgs._configure(_setter, **policy)
+            policy = _utilities.configure(policy, ResiliencyPolicyPolicyMapArgs, True)
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
@@ -204,11 +214,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
-            if tags is not None and not isinstance(tags, ResiliencyPolicyTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ResiliencyPolicyTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, ResiliencyPolicyTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")

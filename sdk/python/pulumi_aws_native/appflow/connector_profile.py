@@ -44,13 +44,31 @@ class ConnectorProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_mode: pulumi.Input['ConnectorProfileConnectionMode'],
-             connector_type: pulumi.Input['ConnectorProfileConnectorType'],
+             connection_mode: Optional[pulumi.Input['ConnectorProfileConnectionMode']] = None,
+             connector_type: Optional[pulumi.Input['ConnectorProfileConnectorType']] = None,
              connector_label: Optional[pulumi.Input[str]] = None,
              connector_profile_config: Optional[pulumi.Input['ConnectorProfileConfigArgs']] = None,
              connector_profile_name: Optional[pulumi.Input[str]] = None,
              kms_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_mode is None and 'connectionMode' in kwargs:
+            connection_mode = kwargs['connectionMode']
+        if connection_mode is None:
+            raise TypeError("Missing 'connection_mode' argument")
+        if connector_type is None and 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if connector_type is None:
+            raise TypeError("Missing 'connector_type' argument")
+        if connector_label is None and 'connectorLabel' in kwargs:
+            connector_label = kwargs['connectorLabel']
+        if connector_profile_config is None and 'connectorProfileConfig' in kwargs:
+            connector_profile_config = kwargs['connectorProfileConfig']
+        if connector_profile_name is None and 'connectorProfileName' in kwargs:
+            connector_profile_name = kwargs['connectorProfileName']
+        if kms_arn is None and 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+
         _setter("connection_mode", connection_mode)
         _setter("connector_type", connector_type)
         if connector_label is not None:
@@ -206,11 +224,7 @@ class ConnectorProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_mode'")
             __props__.__dict__["connection_mode"] = connection_mode
             __props__.__dict__["connector_label"] = connector_label
-            if connector_profile_config is not None and not isinstance(connector_profile_config, ConnectorProfileConfigArgs):
-                connector_profile_config = connector_profile_config or {}
-                def _setter(key, value):
-                    connector_profile_config[key] = value
-                ConnectorProfileConfigArgs._configure(_setter, **connector_profile_config)
+            connector_profile_config = _utilities.configure(connector_profile_config, ConnectorProfileConfigArgs, True)
             __props__.__dict__["connector_profile_config"] = connector_profile_config
             __props__.__dict__["connector_profile_name"] = connector_profile_name
             if connector_type is None and not opts.urn:

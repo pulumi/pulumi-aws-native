@@ -31,9 +31,17 @@ class MultiRegionAccessPointPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mrap_name: pulumi.Input[str],
-             policy: Any,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             mrap_name: Optional[pulumi.Input[str]] = None,
+             policy: Optional[Any] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mrap_name is None and 'mrapName' in kwargs:
+            mrap_name = kwargs['mrapName']
+        if mrap_name is None:
+            raise TypeError("Missing 'mrap_name' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+
         _setter("mrap_name", mrap_name)
         _setter("policy", policy)
 

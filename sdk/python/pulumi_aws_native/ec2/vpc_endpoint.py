@@ -47,15 +47,37 @@ class VpcEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_name: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
+             service_name: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              policy_document: Optional[pulumi.Input[str]] = None,
              private_dns_enabled: Optional[pulumi.Input[bool]] = None,
              route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if policy_document is None and 'policyDocument' in kwargs:
+            policy_document = kwargs['policyDocument']
+        if private_dns_enabled is None and 'privateDnsEnabled' in kwargs:
+            private_dns_enabled = kwargs['privateDnsEnabled']
+        if route_table_ids is None and 'routeTableIds' in kwargs:
+            route_table_ids = kwargs['routeTableIds']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if vpc_endpoint_type is None and 'vpcEndpointType' in kwargs:
+            vpc_endpoint_type = kwargs['vpcEndpointType']
+
         _setter("service_name", service_name)
         _setter("vpc_id", vpc_id)
         if policy_document is not None:

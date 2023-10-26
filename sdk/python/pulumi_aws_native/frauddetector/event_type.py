@@ -41,13 +41,25 @@ class EventTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity_types: pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]],
-             event_variables: pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]],
-             labels: pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]],
+             entity_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]]] = None,
+             event_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_types is None and 'entityTypes' in kwargs:
+            entity_types = kwargs['entityTypes']
+        if entity_types is None:
+            raise TypeError("Missing 'entity_types' argument")
+        if event_variables is None and 'eventVariables' in kwargs:
+            event_variables = kwargs['eventVariables']
+        if event_variables is None:
+            raise TypeError("Missing 'event_variables' argument")
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+
         _setter("entity_types", entity_types)
         _setter("event_variables", event_variables)
         _setter("labels", labels)

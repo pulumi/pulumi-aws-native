@@ -37,7 +37,15 @@ class RecordSetGroupArgs:
              hosted_zone_id: Optional[pulumi.Input[str]] = None,
              hosted_zone_name: Optional[pulumi.Input[str]] = None,
              record_sets: Optional[pulumi.Input[Sequence[pulumi.Input['RecordSetGroupRecordSetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+        if hosted_zone_name is None and 'hostedZoneName' in kwargs:
+            hosted_zone_name = kwargs['hostedZoneName']
+        if record_sets is None and 'recordSets' in kwargs:
+            record_sets = kwargs['recordSets']
+
         if comment is not None:
             _setter("comment", comment)
         if hosted_zone_id is not None:

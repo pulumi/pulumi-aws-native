@@ -28,8 +28,14 @@ class GroupMembershipMemberIdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             user_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+
         _setter("user_id", user_id)
 
     @property

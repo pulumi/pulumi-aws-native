@@ -83,9 +83,19 @@ class ConnectionApiKeyAuthParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_key_name: str,
-             api_key_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             api_key_name: Optional[str] = None,
+             api_key_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key_name is None and 'apiKeyName' in kwargs:
+            api_key_name = kwargs['apiKeyName']
+        if api_key_name is None:
+            raise TypeError("Missing 'api_key_name' argument")
+        if api_key_value is None and 'apiKeyValue' in kwargs:
+            api_key_value = kwargs['apiKeyValue']
+        if api_key_value is None:
+            raise TypeError("Missing 'api_key_value' argument")
+
         _setter("api_key_name", api_key_name)
         _setter("api_key_value", api_key_value)
 
@@ -144,7 +154,17 @@ class ConnectionAuthParameters(dict):
              basic_auth_parameters: Optional['outputs.ConnectionBasicAuthParameters'] = None,
              invocation_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
              o_auth_parameters: Optional['outputs.ConnectionOAuthParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_key_auth_parameters is None and 'apiKeyAuthParameters' in kwargs:
+            api_key_auth_parameters = kwargs['apiKeyAuthParameters']
+        if basic_auth_parameters is None and 'basicAuthParameters' in kwargs:
+            basic_auth_parameters = kwargs['basicAuthParameters']
+        if invocation_http_parameters is None and 'invocationHttpParameters' in kwargs:
+            invocation_http_parameters = kwargs['invocationHttpParameters']
+        if o_auth_parameters is None and 'oAuthParameters' in kwargs:
+            o_auth_parameters = kwargs['oAuthParameters']
+
         if api_key_auth_parameters is not None:
             _setter("api_key_auth_parameters", api_key_auth_parameters)
         if basic_auth_parameters is not None:
@@ -188,9 +208,15 @@ class ConnectionBasicAuthParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: str,
-             username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
         _setter("password", password)
         _setter("username", username)
 
@@ -237,9 +263,19 @@ class ConnectionClientParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_id: str,
-             client_secret: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+
         _setter("client_id", client_id)
         _setter("client_secret", client_secret)
 
@@ -293,7 +329,15 @@ class ConnectionHttpParameters(dict):
              body_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
              header_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
              query_string_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if body_parameters is None and 'bodyParameters' in kwargs:
+            body_parameters = kwargs['bodyParameters']
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if body_parameters is not None:
             _setter("body_parameters", body_parameters)
         if header_parameters is not None:
@@ -357,11 +401,27 @@ class ConnectionOAuthParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorization_endpoint: str,
-             client_parameters: 'outputs.ConnectionClientParameters',
-             http_method: 'ConnectionOAuthParametersHttpMethod',
+             authorization_endpoint: Optional[str] = None,
+             client_parameters: Optional['outputs.ConnectionClientParameters'] = None,
+             http_method: Optional['ConnectionOAuthParametersHttpMethod'] = None,
              o_auth_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if authorization_endpoint is None:
+            raise TypeError("Missing 'authorization_endpoint' argument")
+        if client_parameters is None and 'clientParameters' in kwargs:
+            client_parameters = kwargs['clientParameters']
+        if client_parameters is None:
+            raise TypeError("Missing 'client_parameters' argument")
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if o_auth_http_parameters is None and 'oAuthHttpParameters' in kwargs:
+            o_auth_http_parameters = kwargs['oAuthHttpParameters']
+
         _setter("authorization_endpoint", authorization_endpoint)
         _setter("client_parameters", client_parameters)
         _setter("http_method", http_method)
@@ -421,10 +481,18 @@ class ConnectionParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
+             key: Optional[str] = None,
+             value: Optional[str] = None,
              is_value_secret: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if is_value_secret is None and 'isValueSecret' in kwargs:
+            is_value_secret = kwargs['isValueSecret']
+
         _setter("key", key)
         _setter("value", value)
         if is_value_secret is not None:
@@ -474,8 +542,14 @@ class EndpointEventBus(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_bus_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             event_bus_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_bus_arn is None and 'eventBusArn' in kwargs:
+            event_bus_arn = kwargs['eventBusArn']
+        if event_bus_arn is None:
+            raise TypeError("Missing 'event_bus_arn' argument")
+
         _setter("event_bus_arn", event_bus_arn)
 
     @property
@@ -497,9 +571,15 @@ class EndpointFailoverConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary: 'outputs.EndpointPrimary',
-             secondary: 'outputs.EndpointSecondary',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             primary: Optional['outputs.EndpointPrimary'] = None,
+             secondary: Optional['outputs.EndpointSecondary'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if secondary is None:
+            raise TypeError("Missing 'secondary' argument")
+
         _setter("primary", primary)
         _setter("secondary", secondary)
 
@@ -542,8 +622,14 @@ class EndpointPrimary(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             health_check: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             health_check: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if health_check is None:
+            raise TypeError("Missing 'health_check' argument")
+
         _setter("health_check", health_check)
 
     @property
@@ -563,8 +649,12 @@ class EndpointReplicationConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             state: 'EndpointReplicationState',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             state: Optional['EndpointReplicationState'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
         _setter("state", state)
 
     @property
@@ -601,8 +691,14 @@ class EndpointRoutingConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             failover_config: 'outputs.EndpointFailoverConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             failover_config: Optional['outputs.EndpointFailoverConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if failover_config is None and 'failoverConfig' in kwargs:
+            failover_config = kwargs['failoverConfig']
+        if failover_config is None:
+            raise TypeError("Missing 'failover_config' argument")
+
         _setter("failover_config", failover_config)
 
     @property
@@ -622,8 +718,12 @@ class EndpointSecondary(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             route: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             route: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route is None:
+            raise TypeError("Missing 'route' argument")
+
         _setter("route", route)
 
     @property
@@ -650,7 +750,9 @@ class EventBusPolicyCondition(dict):
              key: Optional[str] = None,
              type: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if type is not None:
@@ -687,9 +789,15 @@ class EventBusTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -738,10 +846,18 @@ class RuleAwsVpcConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnets: Sequence[str],
+             subnets: Optional[Sequence[str]] = None,
              assign_public_ip: Optional[str] = None,
              security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnets is None:
+            raise TypeError("Missing 'subnets' argument")
+        if assign_public_ip is None and 'assignPublicIp' in kwargs:
+            assign_public_ip = kwargs['assignPublicIp']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnets", subnets)
         if assign_public_ip is not None:
             _setter("assign_public_ip", assign_public_ip)
@@ -776,7 +892,9 @@ class RuleBatchArrayProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if size is not None:
             _setter("size", size)
 
@@ -826,11 +944,25 @@ class RuleBatchParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             job_definition: str,
-             job_name: str,
+             job_definition: Optional[str] = None,
+             job_name: Optional[str] = None,
              array_properties: Optional['outputs.RuleBatchArrayProperties'] = None,
              retry_strategy: Optional['outputs.RuleBatchRetryStrategy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_definition is None and 'jobDefinition' in kwargs:
+            job_definition = kwargs['jobDefinition']
+        if job_definition is None:
+            raise TypeError("Missing 'job_definition' argument")
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if job_name is None:
+            raise TypeError("Missing 'job_name' argument")
+        if array_properties is None and 'arrayProperties' in kwargs:
+            array_properties = kwargs['arrayProperties']
+        if retry_strategy is None and 'retryStrategy' in kwargs:
+            retry_strategy = kwargs['retryStrategy']
+
         _setter("job_definition", job_definition)
         _setter("job_name", job_name)
         if array_properties is not None:
@@ -871,7 +1003,9 @@ class RuleBatchRetryStrategy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              attempts: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if attempts is not None:
             _setter("attempts", attempts)
 
@@ -913,10 +1047,16 @@ class RuleCapacityProviderStrategyItem(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity_provider: str,
+             capacity_provider: Optional[str] = None,
              base: Optional[int] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_provider is None and 'capacityProvider' in kwargs:
+            capacity_provider = kwargs['capacityProvider']
+        if capacity_provider is None:
+            raise TypeError("Missing 'capacity_provider' argument")
+
         _setter("capacity_provider", capacity_provider)
         if base is not None:
             _setter("base", base)
@@ -951,7 +1091,9 @@ class RuleDeadLetterConfig(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -1039,7 +1181,7 @@ class RuleEcsParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             task_definition_arn: str,
+             task_definition_arn: Optional[str] = None,
              capacity_provider_strategy: Optional[Sequence['outputs.RuleCapacityProviderStrategyItem']] = None,
              enable_ecs_managed_tags: Optional[bool] = None,
              enable_execute_command: Optional[bool] = None,
@@ -1053,7 +1195,37 @@ class RuleEcsParameters(dict):
              reference_id: Optional[str] = None,
              tag_list: Optional[Sequence['outputs.RuleTag']] = None,
              task_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if task_definition_arn is None and 'taskDefinitionArn' in kwargs:
+            task_definition_arn = kwargs['taskDefinitionArn']
+        if task_definition_arn is None:
+            raise TypeError("Missing 'task_definition_arn' argument")
+        if capacity_provider_strategy is None and 'capacityProviderStrategy' in kwargs:
+            capacity_provider_strategy = kwargs['capacityProviderStrategy']
+        if enable_ecs_managed_tags is None and 'enableEcsManagedTags' in kwargs:
+            enable_ecs_managed_tags = kwargs['enableEcsManagedTags']
+        if enable_execute_command is None and 'enableExecuteCommand' in kwargs:
+            enable_execute_command = kwargs['enableExecuteCommand']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if placement_constraints is None and 'placementConstraints' in kwargs:
+            placement_constraints = kwargs['placementConstraints']
+        if placement_strategies is None and 'placementStrategies' in kwargs:
+            placement_strategies = kwargs['placementStrategies']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if propagate_tags is None and 'propagateTags' in kwargs:
+            propagate_tags = kwargs['propagateTags']
+        if reference_id is None and 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+        if tag_list is None and 'tagList' in kwargs:
+            tag_list = kwargs['tagList']
+        if task_count is None and 'taskCount' in kwargs:
+            task_count = kwargs['taskCount']
+
         _setter("task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
             _setter("capacity_provider_strategy", capacity_provider_strategy)
@@ -1192,7 +1364,15 @@ class RuleHttpParameters(dict):
              header_parameters: Optional[Any] = None,
              path_parameter_values: Optional[Sequence[str]] = None,
              query_string_parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_parameters is None and 'headerParameters' in kwargs:
+            header_parameters = kwargs['headerParameters']
+        if path_parameter_values is None and 'pathParameterValues' in kwargs:
+            path_parameter_values = kwargs['pathParameterValues']
+        if query_string_parameters is None and 'queryStringParameters' in kwargs:
+            query_string_parameters = kwargs['queryStringParameters']
+
         if header_parameters is not None:
             _setter("header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -1248,9 +1428,17 @@ class RuleInputTransformer(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_template: str,
+             input_template: Optional[str] = None,
              input_paths_map: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_template is None and 'inputTemplate' in kwargs:
+            input_template = kwargs['inputTemplate']
+        if input_template is None:
+            raise TypeError("Missing 'input_template' argument")
+        if input_paths_map is None and 'inputPathsMap' in kwargs:
+            input_paths_map = kwargs['inputPathsMap']
+
         _setter("input_template", input_template)
         if input_paths_map is not None:
             _setter("input_paths_map", input_paths_map)
@@ -1294,8 +1482,14 @@ class RuleKinesisParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             partition_key_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             partition_key_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partition_key_path is None and 'partitionKeyPath' in kwargs:
+            partition_key_path = kwargs['partitionKeyPath']
+        if partition_key_path is None:
+            raise TypeError("Missing 'partition_key_path' argument")
+
         _setter("partition_key_path", partition_key_path)
 
     @property
@@ -1333,7 +1527,11 @@ class RuleNetworkConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              aws_vpc_configuration: Optional['outputs.RuleAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_vpc_configuration is None and 'awsVpcConfiguration' in kwargs:
+            aws_vpc_configuration = kwargs['awsVpcConfiguration']
+
         if aws_vpc_configuration is not None:
             _setter("aws_vpc_configuration", aws_vpc_configuration)
 
@@ -1358,7 +1556,9 @@ class RulePlacementConstraint(dict):
              _setter: Callable[[Any, Any], None],
              expression: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if expression is not None:
             _setter("expression", expression)
         if type is not None:
@@ -1390,7 +1590,9 @@ class RulePlacementStrategy(dict):
              _setter: Callable[[Any, Any], None],
              field: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if field is not None:
             _setter("field", field)
         if type is not None:
@@ -1451,13 +1653,25 @@ class RuleRedshiftDataParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: str,
+             database: Optional[str] = None,
              db_user: Optional[str] = None,
              secret_manager_arn: Optional[str] = None,
              sql: Optional[str] = None,
              statement_name: Optional[str] = None,
              with_event: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if db_user is None and 'dbUser' in kwargs:
+            db_user = kwargs['dbUser']
+        if secret_manager_arn is None and 'secretManagerArn' in kwargs:
+            secret_manager_arn = kwargs['secretManagerArn']
+        if statement_name is None and 'statementName' in kwargs:
+            statement_name = kwargs['statementName']
+        if with_event is None and 'withEvent' in kwargs:
+            with_event = kwargs['withEvent']
+
         _setter("database", database)
         if db_user is not None:
             _setter("db_user", db_user)
@@ -1535,7 +1749,13 @@ class RuleRetryPolicy(dict):
              _setter: Callable[[Any, Any], None],
              maximum_event_age_in_seconds: Optional[int] = None,
              maximum_retry_attempts: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_event_age_in_seconds is None and 'maximumEventAgeInSeconds' in kwargs:
+            maximum_event_age_in_seconds = kwargs['maximumEventAgeInSeconds']
+        if maximum_retry_attempts is None and 'maximumRetryAttempts' in kwargs:
+            maximum_retry_attempts = kwargs['maximumRetryAttempts']
+
         if maximum_event_age_in_seconds is not None:
             _setter("maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -1580,8 +1800,14 @@ class RuleRunCommandParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             run_command_targets: Sequence['outputs.RuleRunCommandTarget'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             run_command_targets: Optional[Sequence['outputs.RuleRunCommandTarget']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if run_command_targets is None and 'runCommandTargets' in kwargs:
+            run_command_targets = kwargs['runCommandTargets']
+        if run_command_targets is None:
+            raise TypeError("Missing 'run_command_targets' argument")
+
         _setter("run_command_targets", run_command_targets)
 
     @property
@@ -1603,9 +1829,15 @@ class RuleRunCommandTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -1633,9 +1865,15 @@ class RuleSageMakerPipelineParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -1679,7 +1917,11 @@ class RuleSageMakerPipelineParameters(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pipeline_parameter_list: Optional[Sequence['outputs.RuleSageMakerPipelineParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_parameter_list is None and 'pipelineParameterList' in kwargs:
+            pipeline_parameter_list = kwargs['pipelineParameterList']
+
         if pipeline_parameter_list is not None:
             _setter("pipeline_parameter_list", pipeline_parameter_list)
 
@@ -1717,8 +1959,14 @@ class RuleSqsParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             message_group_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             message_group_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if message_group_id is None and 'messageGroupId' in kwargs:
+            message_group_id = kwargs['messageGroupId']
+        if message_group_id is None:
+            raise TypeError("Missing 'message_group_id' argument")
+
         _setter("message_group_id", message_group_id)
 
     @property
@@ -1742,7 +1990,9 @@ class RuleTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1841,8 +2091,8 @@ class RuleTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: str,
-             id: str,
+             arn: Optional[str] = None,
+             id: Optional[str] = None,
              batch_parameters: Optional['outputs.RuleBatchParameters'] = None,
              dead_letter_config: Optional['outputs.RuleDeadLetterConfig'] = None,
              ecs_parameters: Optional['outputs.RuleEcsParameters'] = None,
@@ -1857,7 +2107,39 @@ class RuleTarget(dict):
              run_command_parameters: Optional['outputs.RuleRunCommandParameters'] = None,
              sage_maker_pipeline_parameters: Optional['outputs.RuleSageMakerPipelineParameters'] = None,
              sqs_parameters: Optional['outputs.RuleSqsParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if batch_parameters is None and 'batchParameters' in kwargs:
+            batch_parameters = kwargs['batchParameters']
+        if dead_letter_config is None and 'deadLetterConfig' in kwargs:
+            dead_letter_config = kwargs['deadLetterConfig']
+        if ecs_parameters is None and 'ecsParameters' in kwargs:
+            ecs_parameters = kwargs['ecsParameters']
+        if http_parameters is None and 'httpParameters' in kwargs:
+            http_parameters = kwargs['httpParameters']
+        if input_path is None and 'inputPath' in kwargs:
+            input_path = kwargs['inputPath']
+        if input_transformer is None and 'inputTransformer' in kwargs:
+            input_transformer = kwargs['inputTransformer']
+        if kinesis_parameters is None and 'kinesisParameters' in kwargs:
+            kinesis_parameters = kwargs['kinesisParameters']
+        if redshift_data_parameters is None and 'redshiftDataParameters' in kwargs:
+            redshift_data_parameters = kwargs['redshiftDataParameters']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if run_command_parameters is None and 'runCommandParameters' in kwargs:
+            run_command_parameters = kwargs['runCommandParameters']
+        if sage_maker_pipeline_parameters is None and 'sageMakerPipelineParameters' in kwargs:
+            sage_maker_pipeline_parameters = kwargs['sageMakerPipelineParameters']
+        if sqs_parameters is None and 'sqsParameters' in kwargs:
+            sqs_parameters = kwargs['sqsParameters']
+
         _setter("arn", arn)
         _setter("id", id)
         if batch_parameters is not None:

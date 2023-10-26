@@ -35,10 +35,20 @@ class DocumentationPartArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             location: pulumi.Input['DocumentationPartLocationArgs'],
-             properties: pulumi.Input[str],
-             rest_api_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             location: Optional[pulumi.Input['DocumentationPartLocationArgs']] = None,
+             properties: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if properties is None:
+            raise TypeError("Missing 'properties' argument")
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+
         _setter("location", location)
         _setter("properties", properties)
         _setter("rest_api_id", rest_api_id)
@@ -138,11 +148,7 @@ class DocumentationPart(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DocumentationPartArgs.__new__(DocumentationPartArgs)
 
-            if location is not None and not isinstance(location, DocumentationPartLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                DocumentationPartLocationArgs._configure(_setter, **location)
+            location = _utilities.configure(location, DocumentationPartLocationArgs, True)
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location

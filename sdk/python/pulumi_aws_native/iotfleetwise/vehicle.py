@@ -38,13 +38,25 @@ class VehicleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             decoder_manifest_arn: pulumi.Input[str],
-             model_manifest_arn: pulumi.Input[str],
+             decoder_manifest_arn: Optional[pulumi.Input[str]] = None,
+             model_manifest_arn: Optional[pulumi.Input[str]] = None,
              association_behavior: Optional[pulumi.Input['VehicleAssociationBehavior']] = None,
              attributes: Optional[pulumi.Input['VehicleattributesMapArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VehicleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if decoder_manifest_arn is None and 'decoderManifestArn' in kwargs:
+            decoder_manifest_arn = kwargs['decoderManifestArn']
+        if decoder_manifest_arn is None:
+            raise TypeError("Missing 'decoder_manifest_arn' argument")
+        if model_manifest_arn is None and 'modelManifestArn' in kwargs:
+            model_manifest_arn = kwargs['modelManifestArn']
+        if model_manifest_arn is None:
+            raise TypeError("Missing 'model_manifest_arn' argument")
+        if association_behavior is None and 'associationBehavior' in kwargs:
+            association_behavior = kwargs['associationBehavior']
+
         _setter("decoder_manifest_arn", decoder_manifest_arn)
         _setter("model_manifest_arn", model_manifest_arn)
         if association_behavior is not None:
@@ -179,11 +191,7 @@ class Vehicle(pulumi.CustomResource):
             __props__ = VehicleArgs.__new__(VehicleArgs)
 
             __props__.__dict__["association_behavior"] = association_behavior
-            if attributes is not None and not isinstance(attributes, VehicleattributesMapArgs):
-                attributes = attributes or {}
-                def _setter(key, value):
-                    attributes[key] = value
-                VehicleattributesMapArgs._configure(_setter, **attributes)
+            attributes = _utilities.configure(attributes, VehicleattributesMapArgs, True)
             __props__.__dict__["attributes"] = attributes
             if decoder_manifest_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'decoder_manifest_arn'")

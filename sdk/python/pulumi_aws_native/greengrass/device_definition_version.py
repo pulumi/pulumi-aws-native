@@ -29,9 +29,17 @@ class DeviceDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_definition_id: pulumi.Input[str],
-             devices: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionVersionDeviceArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             device_definition_id: Optional[pulumi.Input[str]] = None,
+             devices: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionVersionDeviceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_definition_id is None and 'deviceDefinitionId' in kwargs:
+            device_definition_id = kwargs['deviceDefinitionId']
+        if device_definition_id is None:
+            raise TypeError("Missing 'device_definition_id' argument")
+        if devices is None:
+            raise TypeError("Missing 'devices' argument")
+
         _setter("device_definition_id", device_definition_id)
         _setter("devices", devices)
 

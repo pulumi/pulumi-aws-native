@@ -30,9 +30,13 @@ class IndexArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['IndexType'],
+             type: Optional[pulumi.Input['IndexType']] = None,
              tags: Optional[pulumi.Input['IndexTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if tags is not None:
             _setter("tags", tags)
@@ -109,11 +113,7 @@ class Index(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IndexArgs.__new__(IndexArgs)
 
-            if tags is not None and not isinstance(tags, IndexTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                IndexTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, IndexTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

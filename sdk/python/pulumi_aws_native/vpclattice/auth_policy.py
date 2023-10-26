@@ -28,9 +28,17 @@ class AuthPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: Any,
-             resource_identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy: Optional[Any] = None,
+             resource_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if resource_identifier is None:
+            raise TypeError("Missing 'resource_identifier' argument")
+
         _setter("policy", policy)
         _setter("resource_identifier", resource_identifier)
 

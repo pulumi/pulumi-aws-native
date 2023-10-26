@@ -58,7 +58,15 @@ class ChannelArgs:
              recording_configuration_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
              type: Optional[pulumi.Input['ChannelType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if insecure_ingest is None and 'insecureIngest' in kwargs:
+            insecure_ingest = kwargs['insecureIngest']
+        if latency_mode is None and 'latencyMode' in kwargs:
+            latency_mode = kwargs['latencyMode']
+        if recording_configuration_arn is None and 'recordingConfigurationArn' in kwargs:
+            recording_configuration_arn = kwargs['recordingConfigurationArn']
+
         if authorized is not None:
             _setter("authorized", authorized)
         if insecure_ingest is not None:

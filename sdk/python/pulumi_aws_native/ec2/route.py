@@ -65,7 +65,7 @@ class RouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             route_table_id: pulumi.Input[str],
+             route_table_id: Optional[pulumi.Input[str]] = None,
              carrier_gateway_id: Optional[pulumi.Input[str]] = None,
              destination_cidr_block: Optional[pulumi.Input[str]] = None,
              destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
@@ -79,7 +79,39 @@ class RouteArgs:
              transit_gateway_id: Optional[pulumi.Input[str]] = None,
              vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
              vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if route_table_id is None and 'routeTableId' in kwargs:
+            route_table_id = kwargs['routeTableId']
+        if route_table_id is None:
+            raise TypeError("Missing 'route_table_id' argument")
+        if carrier_gateway_id is None and 'carrierGatewayId' in kwargs:
+            carrier_gateway_id = kwargs['carrierGatewayId']
+        if destination_cidr_block is None and 'destinationCidrBlock' in kwargs:
+            destination_cidr_block = kwargs['destinationCidrBlock']
+        if destination_ipv6_cidr_block is None and 'destinationIpv6CidrBlock' in kwargs:
+            destination_ipv6_cidr_block = kwargs['destinationIpv6CidrBlock']
+        if destination_prefix_list_id is None and 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if egress_only_internet_gateway_id is None and 'egressOnlyInternetGatewayId' in kwargs:
+            egress_only_internet_gateway_id = kwargs['egressOnlyInternetGatewayId']
+        if gateway_id is None and 'gatewayId' in kwargs:
+            gateway_id = kwargs['gatewayId']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if local_gateway_id is None and 'localGatewayId' in kwargs:
+            local_gateway_id = kwargs['localGatewayId']
+        if nat_gateway_id is None and 'natGatewayId' in kwargs:
+            nat_gateway_id = kwargs['natGatewayId']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if vpc_endpoint_id is None and 'vpcEndpointId' in kwargs:
+            vpc_endpoint_id = kwargs['vpcEndpointId']
+        if vpc_peering_connection_id is None and 'vpcPeeringConnectionId' in kwargs:
+            vpc_peering_connection_id = kwargs['vpcPeeringConnectionId']
+
         _setter("route_table_id", route_table_id)
         if carrier_gateway_id is not None:
             _setter("carrier_gateway_id", carrier_gateway_id)

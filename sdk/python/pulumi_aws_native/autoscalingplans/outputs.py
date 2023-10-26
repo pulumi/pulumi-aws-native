@@ -56,7 +56,13 @@ class ScalingPlanApplicationSource(dict):
              _setter: Callable[[Any, Any], None],
              cloud_formation_stack_arn: Optional[str] = None,
              tag_filters: Optional[Sequence['outputs.ScalingPlanTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_formation_stack_arn is None and 'cloudFormationStackArn' in kwargs:
+            cloud_formation_stack_arn = kwargs['cloudFormationStackArn']
+        if tag_filters is None and 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         if cloud_formation_stack_arn is not None:
             _setter("cloud_formation_stack_arn", cloud_formation_stack_arn)
         if tag_filters is not None:
@@ -109,12 +115,22 @@ class ScalingPlanCustomizedLoadMetricSpecification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: str,
-             namespace: str,
-             statistic: str,
+             metric_name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             statistic: Optional[str] = None,
              dimensions: Optional[Sequence['outputs.ScalingPlanMetricDimension']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if statistic is None:
+            raise TypeError("Missing 'statistic' argument")
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         _setter("statistic", statistic)
@@ -185,12 +201,22 @@ class ScalingPlanCustomizedScalingMetricSpecification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: str,
-             namespace: str,
-             statistic: str,
+             metric_name: Optional[str] = None,
+             namespace: Optional[str] = None,
+             statistic: Optional[str] = None,
              dimensions: Optional[Sequence['outputs.ScalingPlanMetricDimension']] = None,
              unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if namespace is None:
+            raise TypeError("Missing 'namespace' argument")
+        if statistic is None:
+            raise TypeError("Missing 'statistic' argument")
+
         _setter("metric_name", metric_name)
         _setter("namespace", namespace)
         _setter("statistic", statistic)
@@ -238,9 +264,15 @@ class ScalingPlanMetricDimension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -287,9 +319,17 @@ class ScalingPlanPredefinedLoadMetricSpecification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             predefined_load_metric_type: str,
+             predefined_load_metric_type: Optional[str] = None,
              resource_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if predefined_load_metric_type is None and 'predefinedLoadMetricType' in kwargs:
+            predefined_load_metric_type = kwargs['predefinedLoadMetricType']
+        if predefined_load_metric_type is None:
+            raise TypeError("Missing 'predefined_load_metric_type' argument")
+        if resource_label is None and 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_load_metric_type", predefined_load_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -337,9 +377,17 @@ class ScalingPlanPredefinedScalingMetricSpecification(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             predefined_scaling_metric_type: str,
+             predefined_scaling_metric_type: Optional[str] = None,
              resource_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if predefined_scaling_metric_type is None and 'predefinedScalingMetricType' in kwargs:
+            predefined_scaling_metric_type = kwargs['predefinedScalingMetricType']
+        if predefined_scaling_metric_type is None:
+            raise TypeError("Missing 'predefined_scaling_metric_type' argument")
+        if resource_label is None and 'resourceLabel' in kwargs:
+            resource_label = kwargs['resourceLabel']
+
         _setter("predefined_scaling_metric_type", predefined_scaling_metric_type)
         if resource_label is not None:
             _setter("resource_label", resource_label)
@@ -435,12 +483,12 @@ class ScalingPlanScalingInstruction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_capacity: int,
-             min_capacity: int,
-             resource_id: str,
-             scalable_dimension: str,
-             service_namespace: str,
-             target_tracking_configurations: Sequence['outputs.ScalingPlanTargetTrackingConfiguration'],
+             max_capacity: Optional[int] = None,
+             min_capacity: Optional[int] = None,
+             resource_id: Optional[str] = None,
+             scalable_dimension: Optional[str] = None,
+             service_namespace: Optional[str] = None,
+             target_tracking_configurations: Optional[Sequence['outputs.ScalingPlanTargetTrackingConfiguration']] = None,
              customized_load_metric_specification: Optional['outputs.ScalingPlanCustomizedLoadMetricSpecification'] = None,
              disable_dynamic_scaling: Optional[bool] = None,
              predefined_load_metric_specification: Optional['outputs.ScalingPlanPredefinedLoadMetricSpecification'] = None,
@@ -449,7 +497,49 @@ class ScalingPlanScalingInstruction(dict):
              predictive_scaling_mode: Optional[str] = None,
              scaling_policy_update_behavior: Optional[str] = None,
              scheduled_action_buffer_time: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if scalable_dimension is None and 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if scalable_dimension is None:
+            raise TypeError("Missing 'scalable_dimension' argument")
+        if service_namespace is None and 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if service_namespace is None:
+            raise TypeError("Missing 'service_namespace' argument")
+        if target_tracking_configurations is None and 'targetTrackingConfigurations' in kwargs:
+            target_tracking_configurations = kwargs['targetTrackingConfigurations']
+        if target_tracking_configurations is None:
+            raise TypeError("Missing 'target_tracking_configurations' argument")
+        if customized_load_metric_specification is None and 'customizedLoadMetricSpecification' in kwargs:
+            customized_load_metric_specification = kwargs['customizedLoadMetricSpecification']
+        if disable_dynamic_scaling is None and 'disableDynamicScaling' in kwargs:
+            disable_dynamic_scaling = kwargs['disableDynamicScaling']
+        if predefined_load_metric_specification is None and 'predefinedLoadMetricSpecification' in kwargs:
+            predefined_load_metric_specification = kwargs['predefinedLoadMetricSpecification']
+        if predictive_scaling_max_capacity_behavior is None and 'predictiveScalingMaxCapacityBehavior' in kwargs:
+            predictive_scaling_max_capacity_behavior = kwargs['predictiveScalingMaxCapacityBehavior']
+        if predictive_scaling_max_capacity_buffer is None and 'predictiveScalingMaxCapacityBuffer' in kwargs:
+            predictive_scaling_max_capacity_buffer = kwargs['predictiveScalingMaxCapacityBuffer']
+        if predictive_scaling_mode is None and 'predictiveScalingMode' in kwargs:
+            predictive_scaling_mode = kwargs['predictiveScalingMode']
+        if scaling_policy_update_behavior is None and 'scalingPolicyUpdateBehavior' in kwargs:
+            scaling_policy_update_behavior = kwargs['scalingPolicyUpdateBehavior']
+        if scheduled_action_buffer_time is None and 'scheduledActionBufferTime' in kwargs:
+            scheduled_action_buffer_time = kwargs['scheduledActionBufferTime']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
         _setter("resource_id", resource_id)
@@ -557,9 +647,13 @@ class ScalingPlanTagFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
+             key: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if values is not None:
             _setter("values", values)
@@ -627,14 +721,32 @@ class ScalingPlanTargetTrackingConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_value: float,
+             target_value: Optional[float] = None,
              customized_scaling_metric_specification: Optional['outputs.ScalingPlanCustomizedScalingMetricSpecification'] = None,
              disable_scale_in: Optional[bool] = None,
              estimated_instance_warmup: Optional[int] = None,
              predefined_scaling_metric_specification: Optional['outputs.ScalingPlanPredefinedScalingMetricSpecification'] = None,
              scale_in_cooldown: Optional[int] = None,
              scale_out_cooldown: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_value is None and 'targetValue' in kwargs:
+            target_value = kwargs['targetValue']
+        if target_value is None:
+            raise TypeError("Missing 'target_value' argument")
+        if customized_scaling_metric_specification is None and 'customizedScalingMetricSpecification' in kwargs:
+            customized_scaling_metric_specification = kwargs['customizedScalingMetricSpecification']
+        if disable_scale_in is None and 'disableScaleIn' in kwargs:
+            disable_scale_in = kwargs['disableScaleIn']
+        if estimated_instance_warmup is None and 'estimatedInstanceWarmup' in kwargs:
+            estimated_instance_warmup = kwargs['estimatedInstanceWarmup']
+        if predefined_scaling_metric_specification is None and 'predefinedScalingMetricSpecification' in kwargs:
+            predefined_scaling_metric_specification = kwargs['predefinedScalingMetricSpecification']
+        if scale_in_cooldown is None and 'scaleInCooldown' in kwargs:
+            scale_in_cooldown = kwargs['scaleInCooldown']
+        if scale_out_cooldown is None and 'scaleOutCooldown' in kwargs:
+            scale_out_cooldown = kwargs['scaleOutCooldown']
+
         _setter("target_value", target_value)
         if customized_scaling_metric_specification is not None:
             _setter("customized_scaling_metric_specification", customized_scaling_metric_specification)

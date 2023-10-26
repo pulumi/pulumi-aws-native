@@ -45,7 +45,15 @@ class ChannelArgs:
              hls_ingest: Optional[pulumi.Input['ChannelHlsIngestArgs']] = None,
              ingress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if egress_access_logs is None and 'egressAccessLogs' in kwargs:
+            egress_access_logs = kwargs['egressAccessLogs']
+        if hls_ingest is None and 'hlsIngest' in kwargs:
+            hls_ingest = kwargs['hlsIngest']
+        if ingress_access_logs is None and 'ingressAccessLogs' in kwargs:
+            ingress_access_logs = kwargs['ingressAccessLogs']
+
         if description is not None:
             _setter("description", description)
         if egress_access_logs is not None:
@@ -183,23 +191,11 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["description"] = description
-            if egress_access_logs is not None and not isinstance(egress_access_logs, ChannelLogConfigurationArgs):
-                egress_access_logs = egress_access_logs or {}
-                def _setter(key, value):
-                    egress_access_logs[key] = value
-                ChannelLogConfigurationArgs._configure(_setter, **egress_access_logs)
+            egress_access_logs = _utilities.configure(egress_access_logs, ChannelLogConfigurationArgs, True)
             __props__.__dict__["egress_access_logs"] = egress_access_logs
-            if hls_ingest is not None and not isinstance(hls_ingest, ChannelHlsIngestArgs):
-                hls_ingest = hls_ingest or {}
-                def _setter(key, value):
-                    hls_ingest[key] = value
-                ChannelHlsIngestArgs._configure(_setter, **hls_ingest)
+            hls_ingest = _utilities.configure(hls_ingest, ChannelHlsIngestArgs, True)
             __props__.__dict__["hls_ingest"] = hls_ingest
-            if ingress_access_logs is not None and not isinstance(ingress_access_logs, ChannelLogConfigurationArgs):
-                ingress_access_logs = ingress_access_logs or {}
-                def _setter(key, value):
-                    ingress_access_logs[key] = value
-                ChannelLogConfigurationArgs._configure(_setter, **ingress_access_logs)
+            ingress_access_logs = _utilities.configure(ingress_access_logs, ChannelLogConfigurationArgs, True)
             __props__.__dict__["ingress_access_logs"] = ingress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -43,8 +43,8 @@ class ConfigurationProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             location_uri: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             location_uri: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              kms_key_identifier: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,21 @@ class ConfigurationProfileArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileTagsArgs']]]] = None,
              type: Optional[pulumi.Input[str]] = None,
              validators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationProfileValidatorsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if location_uri is None and 'locationUri' in kwargs:
+            location_uri = kwargs['locationUri']
+        if location_uri is None:
+            raise TypeError("Missing 'location_uri' argument")
+        if kms_key_identifier is None and 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+        if retrieval_role_arn is None and 'retrievalRoleArn' in kwargs:
+            retrieval_role_arn = kwargs['retrievalRoleArn']
+
         _setter("application_id", application_id)
         _setter("location_uri", location_uri)
         if description is not None:

@@ -41,13 +41,27 @@ class FargateProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             pod_execution_role_arn: pulumi.Input[str],
-             selectors: pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             pod_execution_role_arn: Optional[pulumi.Input[str]] = None,
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]] = None,
              fargate_profile_name: Optional[pulumi.Input[str]] = None,
              subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if pod_execution_role_arn is None and 'podExecutionRoleArn' in kwargs:
+            pod_execution_role_arn = kwargs['podExecutionRoleArn']
+        if pod_execution_role_arn is None:
+            raise TypeError("Missing 'pod_execution_role_arn' argument")
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
+        if fargate_profile_name is None and 'fargateProfileName' in kwargs:
+            fargate_profile_name = kwargs['fargateProfileName']
+
         _setter("cluster_name", cluster_name)
         _setter("pod_execution_role_arn", pod_execution_role_arn)
         _setter("selectors", selectors)

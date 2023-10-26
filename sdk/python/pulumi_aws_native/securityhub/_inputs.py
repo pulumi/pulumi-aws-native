@@ -46,7 +46,11 @@ class AutomationRuleDateFilterArgs:
              date_range: Optional[pulumi.Input['AutomationRuleDateRangeArgs']] = None,
              end: Optional[pulumi.Input[str]] = None,
              start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if date_range is None and 'dateRange' in kwargs:
+            date_range = kwargs['dateRange']
+
         if date_range is not None:
             _setter("date_range", date_range)
         if end is not None:
@@ -95,9 +99,15 @@ class AutomationRuleDateRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             unit: pulumi.Input['AutomationRuleDateRangeUnit'],
-             value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             unit: Optional[pulumi.Input['AutomationRuleDateRangeUnit']] = None,
+             value: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -135,10 +145,18 @@ class AutomationRuleMapFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison: pulumi.Input['AutomationRuleMapFilterComparison'],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison: Optional[pulumi.Input['AutomationRuleMapFilterComparison']] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison is None:
+            raise TypeError("Missing 'comparison' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("comparison", comparison)
         _setter("key", key)
         _setter("value", value)
@@ -184,9 +202,17 @@ class AutomationRuleNoteUpdateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             text: pulumi.Input[str],
-             updated_by: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             text: Optional[pulumi.Input[str]] = None,
+             updated_by: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if updated_by is None and 'updatedBy' in kwargs:
+            updated_by = kwargs['updatedBy']
+        if updated_by is None:
+            raise TypeError("Missing 'updated_by' argument")
+
         _setter("text", text)
         _setter("updated_by", updated_by)
 
@@ -227,7 +253,9 @@ class AutomationRuleNumberFilterArgs:
              eq: Optional[pulumi.Input[float]] = None,
              gte: Optional[pulumi.Input[float]] = None,
              lte: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if eq is not None:
             _setter("eq", eq)
         if gte is not None:
@@ -276,9 +304,17 @@ class AutomationRuleRelatedFindingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             product_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[str]] = None,
+             product_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if product_arn is None and 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+        if product_arn is None:
+            raise TypeError("Missing 'product_arn' argument")
+
         _setter("id", id)
         _setter("product_arn", product_arn)
 
@@ -319,7 +355,9 @@ class AutomationRuleSeverityUpdateArgs:
              label: Optional[pulumi.Input['AutomationRuleSeverityUpdateLabel']] = None,
              normalized: Optional[pulumi.Input[int]] = None,
              product: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if label is not None:
             _setter("label", label)
         if normalized is not None:
@@ -368,9 +406,15 @@ class AutomationRuleStringFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison: pulumi.Input['AutomationRuleStringFilterComparison'],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison: Optional[pulumi.Input['AutomationRuleStringFilterComparison']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison is None:
+            raise TypeError("Missing 'comparison' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("comparison", comparison)
         _setter("value", value)
 
@@ -403,8 +447,10 @@ class AutomationRuleTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -418,8 +464,12 @@ class AutomationRuleWorkflowUpdateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: pulumi.Input['AutomationRuleWorkflowUpdateStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status: Optional[pulumi.Input['AutomationRuleWorkflowUpdateStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("status", status)
 
     @property
@@ -439,8 +489,10 @@ class AutomationRulemapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -456,9 +508,17 @@ class AutomationRulesActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             finding_fields_update: pulumi.Input['AutomationRulesFindingFieldsUpdateArgs'],
-             type: pulumi.Input['AutomationRulesActionType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             finding_fields_update: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateArgs']] = None,
+             type: Optional[pulumi.Input['AutomationRulesActionType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if finding_fields_update is None and 'findingFieldsUpdate' in kwargs:
+            finding_fields_update = kwargs['findingFieldsUpdate']
+        if finding_fields_update is None:
+            raise TypeError("Missing 'finding_fields_update' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("finding_fields_update", finding_fields_update)
         _setter("type", type)
 
@@ -522,7 +582,15 @@ class AutomationRulesFindingFieldsUpdateArgs:
              user_defined_fields: Optional[pulumi.Input['AutomationRulemapArgs']] = None,
              verification_state: Optional[pulumi.Input['AutomationRulesFindingFieldsUpdateVerificationState']] = None,
              workflow: Optional[pulumi.Input['AutomationRuleWorkflowUpdateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if related_findings is None and 'relatedFindings' in kwargs:
+            related_findings = kwargs['relatedFindings']
+        if user_defined_fields is None and 'userDefinedFields' in kwargs:
+            user_defined_fields = kwargs['userDefinedFields']
+        if verification_state is None and 'verificationState' in kwargs:
+            verification_state = kwargs['verificationState']
+
         if confidence is not None:
             _setter("confidence", confidence)
         if criticality is not None:
@@ -747,7 +815,67 @@ class AutomationRulesFindingFiltersArgs:
              user_defined_fields: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleMapFilterArgs']]]] = None,
              verification_state: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
              workflow_status: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if company_name is None and 'companyName' in kwargs:
+            company_name = kwargs['companyName']
+        if compliance_associated_standards_id is None and 'complianceAssociatedStandardsId' in kwargs:
+            compliance_associated_standards_id = kwargs['complianceAssociatedStandardsId']
+        if compliance_security_control_id is None and 'complianceSecurityControlId' in kwargs:
+            compliance_security_control_id = kwargs['complianceSecurityControlId']
+        if compliance_status is None and 'complianceStatus' in kwargs:
+            compliance_status = kwargs['complianceStatus']
+        if created_at is None and 'createdAt' in kwargs:
+            created_at = kwargs['createdAt']
+        if first_observed_at is None and 'firstObservedAt' in kwargs:
+            first_observed_at = kwargs['firstObservedAt']
+        if generator_id is None and 'generatorId' in kwargs:
+            generator_id = kwargs['generatorId']
+        if last_observed_at is None and 'lastObservedAt' in kwargs:
+            last_observed_at = kwargs['lastObservedAt']
+        if note_text is None and 'noteText' in kwargs:
+            note_text = kwargs['noteText']
+        if note_updated_at is None and 'noteUpdatedAt' in kwargs:
+            note_updated_at = kwargs['noteUpdatedAt']
+        if note_updated_by is None and 'noteUpdatedBy' in kwargs:
+            note_updated_by = kwargs['noteUpdatedBy']
+        if product_arn is None and 'productArn' in kwargs:
+            product_arn = kwargs['productArn']
+        if product_name is None and 'productName' in kwargs:
+            product_name = kwargs['productName']
+        if record_state is None and 'recordState' in kwargs:
+            record_state = kwargs['recordState']
+        if related_findings_id is None and 'relatedFindingsId' in kwargs:
+            related_findings_id = kwargs['relatedFindingsId']
+        if related_findings_product_arn is None and 'relatedFindingsProductArn' in kwargs:
+            related_findings_product_arn = kwargs['relatedFindingsProductArn']
+        if resource_details_other is None and 'resourceDetailsOther' in kwargs:
+            resource_details_other = kwargs['resourceDetailsOther']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_partition is None and 'resourcePartition' in kwargs:
+            resource_partition = kwargs['resourcePartition']
+        if resource_region is None and 'resourceRegion' in kwargs:
+            resource_region = kwargs['resourceRegion']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if severity_label is None and 'severityLabel' in kwargs:
+            severity_label = kwargs['severityLabel']
+        if source_url is None and 'sourceUrl' in kwargs:
+            source_url = kwargs['sourceUrl']
+        if updated_at is None and 'updatedAt' in kwargs:
+            updated_at = kwargs['updatedAt']
+        if user_defined_fields is None and 'userDefinedFields' in kwargs:
+            user_defined_fields = kwargs['userDefinedFields']
+        if verification_state is None and 'verificationState' in kwargs:
+            verification_state = kwargs['verificationState']
+        if workflow_status is None and 'workflowStatus' in kwargs:
+            workflow_status = kwargs['workflowStatus']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if company_name is not None:
@@ -1153,9 +1281,15 @@ class StandardsControlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             standards_control_arn: pulumi.Input[str],
+             standards_control_arn: Optional[pulumi.Input[str]] = None,
              reason: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if standards_control_arn is None and 'standardsControlArn' in kwargs:
+            standards_control_arn = kwargs['standardsControlArn']
+        if standards_control_arn is None:
+            raise TypeError("Missing 'standards_control_arn' argument")
+
         _setter("standards_control_arn", standards_control_arn)
         if reason is not None:
             _setter("reason", reason)

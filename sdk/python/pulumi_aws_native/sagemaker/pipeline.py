@@ -43,14 +43,32 @@ class PipelineArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             pipeline_definition: pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']],
-             role_arn: pulumi.Input[str],
+             pipeline_definition: Optional[pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              parallelism_configuration: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']] = None,
              pipeline_description: Optional[pulumi.Input[str]] = None,
              pipeline_display_name: Optional[pulumi.Input[str]] = None,
              pipeline_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_definition is None and 'pipelineDefinition' in kwargs:
+            pipeline_definition = kwargs['pipelineDefinition']
+        if pipeline_definition is None:
+            raise TypeError("Missing 'pipeline_definition' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if parallelism_configuration is None and 'parallelismConfiguration' in kwargs:
+            parallelism_configuration = kwargs['parallelismConfiguration']
+        if pipeline_description is None and 'pipelineDescription' in kwargs:
+            pipeline_description = kwargs['pipelineDescription']
+        if pipeline_display_name is None and 'pipelineDisplayName' in kwargs:
+            pipeline_display_name = kwargs['pipelineDisplayName']
+        if pipeline_name is None and 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+
         _setter("pipeline_definition", pipeline_definition)
         _setter("role_arn", role_arn)
         if parallelism_configuration is not None:
@@ -207,11 +225,7 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            if parallelism_configuration is not None and not isinstance(parallelism_configuration, ParallelismConfigurationPropertiesArgs):
-                parallelism_configuration = parallelism_configuration or {}
-                def _setter(key, value):
-                    parallelism_configuration[key] = value
-                ParallelismConfigurationPropertiesArgs._configure(_setter, **parallelism_configuration)
+            parallelism_configuration = _utilities.configure(parallelism_configuration, ParallelismConfigurationPropertiesArgs, True)
             __props__.__dict__["parallelism_configuration"] = parallelism_configuration
             if pipeline_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_definition'")

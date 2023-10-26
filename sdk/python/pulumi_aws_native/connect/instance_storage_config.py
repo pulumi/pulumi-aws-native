@@ -41,14 +41,36 @@ class InstanceStorageConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             resource_type: pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'],
-             storage_type: pulumi.Input['InstanceStorageConfigStorageType'],
+             instance_arn: Optional[pulumi.Input[str]] = None,
+             resource_type: Optional[pulumi.Input['InstanceStorageConfigInstanceStorageResourceType']] = None,
+             storage_type: Optional[pulumi.Input['InstanceStorageConfigStorageType']] = None,
              kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs']] = None,
              kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']] = None,
              kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']] = None,
              s3_config: Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if storage_type is None:
+            raise TypeError("Missing 'storage_type' argument")
+        if kinesis_firehose_config is None and 'kinesisFirehoseConfig' in kwargs:
+            kinesis_firehose_config = kwargs['kinesisFirehoseConfig']
+        if kinesis_stream_config is None and 'kinesisStreamConfig' in kwargs:
+            kinesis_stream_config = kwargs['kinesisStreamConfig']
+        if kinesis_video_stream_config is None and 'kinesisVideoStreamConfig' in kwargs:
+            kinesis_video_stream_config = kwargs['kinesisVideoStreamConfig']
+        if s3_config is None and 's3Config' in kwargs:
+            s3_config = kwargs['s3Config']
+
         _setter("instance_arn", instance_arn)
         _setter("resource_type", resource_type)
         _setter("storage_type", storage_type)
@@ -195,32 +217,16 @@ class InstanceStorageConfig(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
-            if kinesis_firehose_config is not None and not isinstance(kinesis_firehose_config, InstanceStorageConfigKinesisFirehoseConfigArgs):
-                kinesis_firehose_config = kinesis_firehose_config or {}
-                def _setter(key, value):
-                    kinesis_firehose_config[key] = value
-                InstanceStorageConfigKinesisFirehoseConfigArgs._configure(_setter, **kinesis_firehose_config)
+            kinesis_firehose_config = _utilities.configure(kinesis_firehose_config, InstanceStorageConfigKinesisFirehoseConfigArgs, True)
             __props__.__dict__["kinesis_firehose_config"] = kinesis_firehose_config
-            if kinesis_stream_config is not None and not isinstance(kinesis_stream_config, InstanceStorageConfigKinesisStreamConfigArgs):
-                kinesis_stream_config = kinesis_stream_config or {}
-                def _setter(key, value):
-                    kinesis_stream_config[key] = value
-                InstanceStorageConfigKinesisStreamConfigArgs._configure(_setter, **kinesis_stream_config)
+            kinesis_stream_config = _utilities.configure(kinesis_stream_config, InstanceStorageConfigKinesisStreamConfigArgs, True)
             __props__.__dict__["kinesis_stream_config"] = kinesis_stream_config
-            if kinesis_video_stream_config is not None and not isinstance(kinesis_video_stream_config, InstanceStorageConfigKinesisVideoStreamConfigArgs):
-                kinesis_video_stream_config = kinesis_video_stream_config or {}
-                def _setter(key, value):
-                    kinesis_video_stream_config[key] = value
-                InstanceStorageConfigKinesisVideoStreamConfigArgs._configure(_setter, **kinesis_video_stream_config)
+            kinesis_video_stream_config = _utilities.configure(kinesis_video_stream_config, InstanceStorageConfigKinesisVideoStreamConfigArgs, True)
             __props__.__dict__["kinesis_video_stream_config"] = kinesis_video_stream_config
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
-            if s3_config is not None and not isinstance(s3_config, InstanceStorageConfigS3ConfigArgs):
-                s3_config = s3_config or {}
-                def _setter(key, value):
-                    s3_config[key] = value
-                InstanceStorageConfigS3ConfigArgs._configure(_setter, **s3_config)
+            s3_config = _utilities.configure(s3_config, InstanceStorageConfigS3ConfigArgs, True)
             __props__.__dict__["s3_config"] = s3_config
             if storage_type is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_type'")

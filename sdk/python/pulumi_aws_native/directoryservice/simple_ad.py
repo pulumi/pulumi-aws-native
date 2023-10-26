@@ -49,15 +49,29 @@ class SimpleAdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size: pulumi.Input[str],
-             vpc_settings: pulumi.Input['SimpleAdVpcSettingsArgs'],
+             size: Optional[pulumi.Input[str]] = None,
+             vpc_settings: Optional[pulumi.Input['SimpleAdVpcSettingsArgs']] = None,
              create_alias: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              enable_sso: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              password: Optional[pulumi.Input[str]] = None,
              short_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if vpc_settings is None and 'vpcSettings' in kwargs:
+            vpc_settings = kwargs['vpcSettings']
+        if vpc_settings is None:
+            raise TypeError("Missing 'vpc_settings' argument")
+        if create_alias is None and 'createAlias' in kwargs:
+            create_alias = kwargs['createAlias']
+        if enable_sso is None and 'enableSso' in kwargs:
+            enable_sso = kwargs['enableSso']
+        if short_name is None and 'shortName' in kwargs:
+            short_name = kwargs['shortName']
+
         _setter("size", size)
         _setter("vpc_settings", vpc_settings)
         if create_alias is not None:
@@ -252,11 +266,7 @@ class SimpleAd(pulumi.CustomResource):
             if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
-            if vpc_settings is not None and not isinstance(vpc_settings, SimpleAdVpcSettingsArgs):
-                vpc_settings = vpc_settings or {}
-                def _setter(key, value):
-                    vpc_settings[key] = value
-                SimpleAdVpcSettingsArgs._configure(_setter, **vpc_settings)
+            vpc_settings = _utilities.configure(vpc_settings, SimpleAdVpcSettingsArgs, True)
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings

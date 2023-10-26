@@ -253,7 +253,19 @@ class CapacityReservationFleetInstanceTypeSpecificationArgs:
              instance_type: Optional[pulumi.Input[str]] = None,
              priority: Optional[pulumi.Input[int]] = None,
              weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone_id is None and 'availabilityZoneId' in kwargs:
+            availability_zone_id = kwargs['availabilityZoneId']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if instance_platform is None and 'instancePlatform' in kwargs:
+            instance_platform = kwargs['instancePlatform']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if availability_zone_id is not None:
@@ -348,7 +360,11 @@ class CapacityReservationFleetTagSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -386,9 +402,15 @@ class CapacityReservationFleetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -426,7 +448,11 @@ class CapacityReservationTagSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -464,9 +490,15 @@ class CapacityReservationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -504,7 +536,9 @@ class CarrierGatewayTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -540,8 +574,14 @@ class ClientVpnEndpointCertificateAuthenticationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_root_certificate_chain_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_root_certificate_chain_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_root_certificate_chain_arn is None and 'clientRootCertificateChainArn' in kwargs:
+            client_root_certificate_chain_arn = kwargs['clientRootCertificateChainArn']
+        if client_root_certificate_chain_arn is None:
+            raise TypeError("Missing 'client_root_certificate_chain_arn' argument")
+
         _setter("client_root_certificate_chain_arn", client_root_certificate_chain_arn)
 
     @property
@@ -571,11 +611,21 @@ class ClientVpnEndpointClientAuthenticationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              active_directory: Optional[pulumi.Input['ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs']] = None,
              federated_authentication: Optional[pulumi.Input['ClientVpnEndpointFederatedAuthenticationRequestArgs']] = None,
              mutual_authentication: Optional[pulumi.Input['ClientVpnEndpointCertificateAuthenticationRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if active_directory is None and 'activeDirectory' in kwargs:
+            active_directory = kwargs['activeDirectory']
+        if federated_authentication is None and 'federatedAuthentication' in kwargs:
+            federated_authentication = kwargs['federatedAuthentication']
+        if mutual_authentication is None and 'mutualAuthentication' in kwargs:
+            mutual_authentication = kwargs['mutualAuthentication']
+
         _setter("type", type)
         if active_directory is not None:
             _setter("active_directory", active_directory)
@@ -634,9 +684,15 @@ class ClientVpnEndpointClientConnectOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              lambda_function_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if lambda_function_arn is None and 'lambdaFunctionArn' in kwargs:
+            lambda_function_arn = kwargs['lambdaFunctionArn']
+
         _setter("enabled", enabled)
         if lambda_function_arn is not None:
             _setter("lambda_function_arn", lambda_function_arn)
@@ -673,9 +729,15 @@ class ClientVpnEndpointClientLoginBannerOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              banner_text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if banner_text is None and 'bannerText' in kwargs:
+            banner_text = kwargs['bannerText']
+
         _setter("enabled", enabled)
         if banner_text is not None:
             _setter("banner_text", banner_text)
@@ -714,10 +776,18 @@ class ClientVpnEndpointConnectionLogOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              cloudwatch_log_group: Optional[pulumi.Input[str]] = None,
              cloudwatch_log_stream: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if cloudwatch_log_group is None and 'cloudwatchLogGroup' in kwargs:
+            cloudwatch_log_group = kwargs['cloudwatchLogGroup']
+        if cloudwatch_log_stream is None and 'cloudwatchLogStream' in kwargs:
+            cloudwatch_log_stream = kwargs['cloudwatchLogStream']
+
         _setter("enabled", enabled)
         if cloudwatch_log_group is not None:
             _setter("cloudwatch_log_group", cloudwatch_log_group)
@@ -763,8 +833,14 @@ class ClientVpnEndpointDirectoryServiceAuthenticationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             directory_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             directory_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if directory_id is None:
+            raise TypeError("Missing 'directory_id' argument")
+
         _setter("directory_id", directory_id)
 
     @property
@@ -790,9 +866,17 @@ class ClientVpnEndpointFederatedAuthenticationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             saml_provider_arn: pulumi.Input[str],
+             saml_provider_arn: Optional[pulumi.Input[str]] = None,
              self_service_saml_provider_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if saml_provider_arn is None and 'samlProviderArn' in kwargs:
+            saml_provider_arn = kwargs['samlProviderArn']
+        if saml_provider_arn is None:
+            raise TypeError("Missing 'saml_provider_arn' argument")
+        if self_service_saml_provider_arn is None and 'selfServiceSamlProviderArn' in kwargs:
+            self_service_saml_provider_arn = kwargs['selfServiceSamlProviderArn']
+
         _setter("saml_provider_arn", saml_provider_arn)
         if self_service_saml_provider_arn is not None:
             _setter("self_service_saml_provider_arn", self_service_saml_provider_arn)
@@ -829,9 +913,17 @@ class ClientVpnEndpointTagSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_type: pulumi.Input[str],
-             tags: pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClientVpnEndpointTagArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if resource_type is None:
+            raise TypeError("Missing 'resource_type' argument")
+        if tags is None:
+            raise TypeError("Missing 'tags' argument")
+
         _setter("resource_type", resource_type)
         _setter("tags", tags)
 
@@ -867,9 +959,15 @@ class ClientVpnEndpointTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -905,9 +1003,15 @@ class CustomerGatewayTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -945,10 +1049,24 @@ class DestinationOptionsPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_format: pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat'],
-             hive_compatible_partitions: pulumi.Input[bool],
-             per_hour_partition: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             file_format: Optional[pulumi.Input['FlowLogDestinationOptionsPropertiesFileFormat']] = None,
+             hive_compatible_partitions: Optional[pulumi.Input[bool]] = None,
+             per_hour_partition: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_format is None and 'fileFormat' in kwargs:
+            file_format = kwargs['fileFormat']
+        if file_format is None:
+            raise TypeError("Missing 'file_format' argument")
+        if hive_compatible_partitions is None and 'hiveCompatiblePartitions' in kwargs:
+            hive_compatible_partitions = kwargs['hiveCompatiblePartitions']
+        if hive_compatible_partitions is None:
+            raise TypeError("Missing 'hive_compatible_partitions' argument")
+        if per_hour_partition is None and 'perHourPartition' in kwargs:
+            per_hour_partition = kwargs['perHourPartition']
+        if per_hour_partition is None:
+            raise TypeError("Missing 'per_hour_partition' argument")
+
         _setter("file_format", file_format)
         _setter("hive_compatible_partitions", hive_compatible_partitions)
         _setter("per_hour_partition", per_hour_partition)
@@ -994,9 +1112,15 @@ class DhcpOptionsTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1034,7 +1158,9 @@ class Ec2FleetAcceleratorCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1074,7 +1200,9 @@ class Ec2FleetAcceleratorTotalMemoryMiBRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1114,7 +1242,9 @@ class Ec2FleetBaselineEbsBandwidthMbpsRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1154,7 +1284,13 @@ class Ec2FleetCapacityRebalanceArgs:
              _setter: Callable[[Any, Any], None],
              replacement_strategy: Optional[pulumi.Input['Ec2FleetCapacityRebalanceReplacementStrategy']] = None,
              termination_delay: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replacement_strategy is None and 'replacementStrategy' in kwargs:
+            replacement_strategy = kwargs['replacementStrategy']
+        if termination_delay is None and 'terminationDelay' in kwargs:
+            termination_delay = kwargs['terminationDelay']
+
         if replacement_strategy is not None:
             _setter("replacement_strategy", replacement_strategy)
         if termination_delay is not None:
@@ -1191,7 +1327,11 @@ class Ec2FleetCapacityReservationOptionsRequestArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              usage_strategy: Optional[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestUsageStrategy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if usage_strategy is None and 'usageStrategy' in kwargs:
+            usage_strategy = kwargs['usageStrategy']
+
         if usage_strategy is not None:
             _setter("usage_strategy", usage_strategy)
 
@@ -1220,7 +1360,11 @@ class Ec2FleetFleetLaunchTemplateConfigRequestArgs:
              _setter: Callable[[Any, Any], None],
              launch_template_specification: Optional[pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgs']] = None,
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if launch_template_specification is None and 'launchTemplateSpecification' in kwargs:
+            launch_template_specification = kwargs['launchTemplateSpecification']
+
         if launch_template_specification is not None:
             _setter("launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -1278,7 +1422,21 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
              priority: Optional[pulumi.Input[float]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              weighted_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if instance_requirements is None and 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if max_price is None and 'maxPrice' in kwargs:
+            max_price = kwargs['maxPrice']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if instance_requirements is not None:
@@ -1384,10 +1542,18 @@ class Ec2FleetFleetLaunchTemplateSpecificationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             version: pulumi.Input[str],
+             version: Optional[pulumi.Input[str]] = None,
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -1500,7 +1666,55 @@ class Ec2FleetInstanceRequirementsRequestArgs:
              spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
              total_local_storage_gb: Optional[pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgs']] = None,
              v_cpu_count: Optional[pulumi.Input['Ec2FleetVCpuCountRangeRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_count is None and 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if accelerator_manufacturers is None and 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if accelerator_names is None and 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if accelerator_total_memory_mi_b is None and 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if accelerator_types is None and 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if allowed_instance_types is None and 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if bare_metal is None and 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if baseline_ebs_bandwidth_mbps is None and 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if burstable_performance is None and 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if cpu_manufacturers is None and 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if excluded_instance_types is None and 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if instance_generations is None and 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if local_storage is None and 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if local_storage_types is None and 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if memory_gi_b_per_v_cpu is None and 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if memory_mi_b is None and 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if network_bandwidth_gbps is None and 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if network_interface_count is None and 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if on_demand_max_price_percentage_over_lowest_price is None and 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if require_hibernate_support is None and 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if spot_max_price_percentage_over_lowest_price is None and 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if total_local_storage_gb is None and 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if v_cpu_count is None and 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -1768,7 +1982,11 @@ class Ec2FleetMaintenanceStrategiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              capacity_rebalance: Optional[pulumi.Input['Ec2FleetCapacityRebalanceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_rebalance is None and 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+
         if capacity_rebalance is not None:
             _setter("capacity_rebalance", capacity_rebalance)
 
@@ -1797,7 +2015,9 @@ class Ec2FleetMemoryGiBPerVCpuRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1837,7 +2057,9 @@ class Ec2FleetMemoryMiBRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1877,7 +2099,9 @@ class Ec2FleetNetworkBandwidthGbpsRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1917,7 +2141,9 @@ class Ec2FleetNetworkInterfaceCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -1969,7 +2195,21 @@ class Ec2FleetOnDemandOptionsRequestArgs:
              min_target_capacity: Optional[pulumi.Input[int]] = None,
              single_availability_zone: Optional[pulumi.Input[bool]] = None,
              single_instance_type: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if capacity_reservation_options is None and 'capacityReservationOptions' in kwargs:
+            capacity_reservation_options = kwargs['capacityReservationOptions']
+        if max_total_price is None and 'maxTotalPrice' in kwargs:
+            max_total_price = kwargs['maxTotalPrice']
+        if min_target_capacity is None and 'minTargetCapacity' in kwargs:
+            min_target_capacity = kwargs['minTargetCapacity']
+        if single_availability_zone is None and 'singleAvailabilityZone' in kwargs:
+            single_availability_zone = kwargs['singleAvailabilityZone']
+        if single_instance_type is None and 'singleInstanceType' in kwargs:
+            single_instance_type = kwargs['singleInstanceType']
+
         if allocation_strategy is not None:
             _setter("allocation_strategy", allocation_strategy)
         if capacity_reservation_options is not None:
@@ -2071,7 +2311,21 @@ class Ec2FleetPlacementArgs:
              partition_number: Optional[pulumi.Input[int]] = None,
              spread_domain: Optional[pulumi.Input[str]] = None,
              tenancy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if host_resource_group_arn is None and 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if partition_number is None and 'partitionNumber' in kwargs:
+            partition_number = kwargs['partitionNumber']
+        if spread_domain is None and 'spreadDomain' in kwargs:
+            spread_domain = kwargs['spreadDomain']
+
         if affinity is not None:
             _setter("affinity", affinity)
         if availability_zone is not None:
@@ -2195,7 +2449,25 @@ class Ec2FleetSpotOptionsRequestArgs:
              min_target_capacity: Optional[pulumi.Input[int]] = None,
              single_availability_zone: Optional[pulumi.Input[bool]] = None,
              single_instance_type: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if instance_interruption_behavior is None and 'instanceInterruptionBehavior' in kwargs:
+            instance_interruption_behavior = kwargs['instanceInterruptionBehavior']
+        if instance_pools_to_use_count is None and 'instancePoolsToUseCount' in kwargs:
+            instance_pools_to_use_count = kwargs['instancePoolsToUseCount']
+        if maintenance_strategies is None and 'maintenanceStrategies' in kwargs:
+            maintenance_strategies = kwargs['maintenanceStrategies']
+        if max_total_price is None and 'maxTotalPrice' in kwargs:
+            max_total_price = kwargs['maxTotalPrice']
+        if min_target_capacity is None and 'minTargetCapacity' in kwargs:
+            min_target_capacity = kwargs['minTargetCapacity']
+        if single_availability_zone is None and 'singleAvailabilityZone' in kwargs:
+            single_availability_zone = kwargs['singleAvailabilityZone']
+        if single_instance_type is None and 'singleInstanceType' in kwargs:
+            single_instance_type = kwargs['singleInstanceType']
+
         if allocation_strategy is not None:
             _setter("allocation_strategy", allocation_strategy)
         if instance_interruption_behavior is not None:
@@ -2301,7 +2573,11 @@ class Ec2FleetTagSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[pulumi.Input['Ec2FleetTagSpecificationResourceType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -2339,9 +2615,15 @@ class Ec2FleetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2383,12 +2665,26 @@ class Ec2FleetTargetCapacitySpecificationRequestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             total_target_capacity: pulumi.Input[int],
+             total_target_capacity: Optional[pulumi.Input[int]] = None,
              default_target_capacity_type: Optional[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']] = None,
              on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
              spot_target_capacity: Optional[pulumi.Input[int]] = None,
              target_capacity_unit_type: Optional[pulumi.Input['Ec2FleetTargetCapacitySpecificationRequestTargetCapacityUnitType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if total_target_capacity is None and 'totalTargetCapacity' in kwargs:
+            total_target_capacity = kwargs['totalTargetCapacity']
+        if total_target_capacity is None:
+            raise TypeError("Missing 'total_target_capacity' argument")
+        if default_target_capacity_type is None and 'defaultTargetCapacityType' in kwargs:
+            default_target_capacity_type = kwargs['defaultTargetCapacityType']
+        if on_demand_target_capacity is None and 'onDemandTargetCapacity' in kwargs:
+            on_demand_target_capacity = kwargs['onDemandTargetCapacity']
+        if spot_target_capacity is None and 'spotTargetCapacity' in kwargs:
+            spot_target_capacity = kwargs['spotTargetCapacity']
+        if target_capacity_unit_type is None and 'targetCapacityUnitType' in kwargs:
+            target_capacity_unit_type = kwargs['targetCapacityUnitType']
+
         _setter("total_target_capacity", total_target_capacity)
         if default_target_capacity_type is not None:
             _setter("default_target_capacity_type", default_target_capacity_type)
@@ -2460,7 +2756,9 @@ class Ec2FleetTotalLocalStorageGbRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -2500,7 +2798,9 @@ class Ec2FleetVCpuCountRangeRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -2538,9 +2838,15 @@ class EipTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2576,9 +2882,15 @@ class FlowLogTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2614,9 +2926,15 @@ class InstanceAssociationParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2656,11 +2974,21 @@ class InstanceBlockDeviceMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_name: pulumi.Input[str],
+             device_name: Optional[pulumi.Input[str]] = None,
              ebs: Optional[pulumi.Input['InstanceEbsArgs']] = None,
              no_device: Optional[pulumi.Input['InstanceNoDeviceArgs']] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         _setter("device_name", device_name)
         if ebs is not None:
             _setter("ebs", ebs)
@@ -2722,9 +3050,15 @@ class InstanceConnectEndpointTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2762,7 +3096,13 @@ class InstanceCpuOptionsArgs:
              _setter: Callable[[Any, Any], None],
              core_count: Optional[pulumi.Input[int]] = None,
              threads_per_core: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_count is None and 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if threads_per_core is None and 'threadsPerCore' in kwargs:
+            threads_per_core = kwargs['threadsPerCore']
+
         if core_count is not None:
             _setter("core_count", core_count)
         if threads_per_core is not None:
@@ -2799,7 +3139,11 @@ class InstanceCreditSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu_credits: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_credits is None and 'cpuCredits' in kwargs:
+            cpu_credits = kwargs['cpuCredits']
+
         if cpu_credits is not None:
             _setter("cpu_credits", cpu_credits)
 
@@ -2843,7 +3187,19 @@ class InstanceEbsArgs:
              snapshot_id: Optional[pulumi.Input[str]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -2934,8 +3290,12 @@ class InstanceElasticGpuSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
 
     @property
@@ -2961,9 +3321,13 @@ class InstanceElasticInferenceAcceleratorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("type", type)
         if count is not None:
             _setter("count", count)
@@ -2999,7 +3363,9 @@ class InstanceEnclaveOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -3025,7 +3391,9 @@ class InstanceHibernationOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              configured: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configured is not None:
             _setter("configured", configured)
 
@@ -3050,8 +3418,14 @@ class InstanceIpv6AddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipv6_address: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ipv6_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if ipv6_address is None:
+            raise TypeError("Missing 'ipv6_address' argument")
+
         _setter("ipv6_address", ipv6_address)
 
     @property
@@ -3079,10 +3453,18 @@ class InstanceLaunchTemplateSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             version: pulumi.Input[str],
+             version: Optional[pulumi.Input[str]] = None,
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -3128,8 +3510,14 @@ class InstanceLicenseSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             license_configuration_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             license_configuration_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if license_configuration_arn is None and 'licenseConfigurationArn' in kwargs:
+            license_configuration_arn = kwargs['licenseConfigurationArn']
+        if license_configuration_arn is None:
+            raise TypeError("Missing 'license_configuration_arn' argument")
+
         _setter("license_configuration_arn", license_configuration_arn)
 
     @property
@@ -3177,7 +3565,7 @@ class InstanceNetworkInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_index: pulumi.Input[str],
+             device_index: Optional[pulumi.Input[str]] = None,
              associate_carrier_ip_address: Optional[pulumi.Input[bool]] = None,
              associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
              delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -3190,7 +3578,35 @@ class InstanceNetworkInterfaceArgs:
              private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstancePrivateIpAddressSpecificationArgs']]]] = None,
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_index is None and 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if device_index is None:
+            raise TypeError("Missing 'device_index' argument")
+        if associate_carrier_ip_address is None and 'associateCarrierIpAddress' in kwargs:
+            associate_carrier_ip_address = kwargs['associateCarrierIpAddress']
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if group_set is None and 'groupSet' in kwargs:
+            group_set = kwargs['groupSet']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if secondary_private_ip_address_count is None and 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         _setter("device_index", device_index)
         if associate_carrier_ip_address is not None:
             _setter("associate_carrier_ip_address", associate_carrier_ip_address)
@@ -3342,8 +3758,10 @@ class InstanceNoDeviceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -3364,7 +3782,15 @@ class InstancePrivateDnsNameOptionsArgs:
              enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
              enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
              hostname_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_resource_name_dns_a_record is None and 'enableResourceNameDnsARecord' in kwargs:
+            enable_resource_name_dns_a_record = kwargs['enableResourceNameDnsARecord']
+        if enable_resource_name_dns_aaaa_record is None and 'enableResourceNameDnsAaaaRecord' in kwargs:
+            enable_resource_name_dns_aaaa_record = kwargs['enableResourceNameDnsAaaaRecord']
+        if hostname_type is None and 'hostnameType' in kwargs:
+            hostname_type = kwargs['hostnameType']
+
         if enable_resource_name_dns_a_record is not None:
             _setter("enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -3413,9 +3839,17 @@ class InstancePrivateIpAddressSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary: pulumi.Input[bool],
-             private_ip_address: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             primary: Optional[pulumi.Input[bool]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+
         _setter("primary", primary)
         _setter("private_ip_address", private_ip_address)
 
@@ -3451,9 +3885,17 @@ class InstanceSsmAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_name: pulumi.Input[str],
+             document_name: Optional[pulumi.Input[str]] = None,
              association_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAssociationParameterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_name is None and 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if document_name is None:
+            raise TypeError("Missing 'document_name' argument")
+        if association_parameters is None and 'associationParameters' in kwargs:
+            association_parameters = kwargs['associationParameters']
+
         _setter("document_name", document_name)
         if association_parameters is not None:
             _setter("association_parameters", association_parameters)
@@ -3490,9 +3932,15 @@ class InstanceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3528,9 +3976,17 @@ class InstanceVolumeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device: pulumi.Input[str],
-             volume_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             device: Optional[pulumi.Input[str]] = None,
+             volume_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device is None:
+            raise TypeError("Missing 'device' argument")
+        if volume_id is None and 'volumeId' in kwargs:
+            volume_id = kwargs['volumeId']
+        if volume_id is None:
+            raise TypeError("Missing 'volume_id' argument")
+
         _setter("device", device)
         _setter("volume_id", volume_id)
 
@@ -3566,9 +4022,15 @@ class InternetGatewayTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3606,8 +4068,14 @@ class IpamOperatingRegionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             region_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             region_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region_name is None and 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+        if region_name is None:
+            raise TypeError("Missing 'region_name' argument")
+
         _setter("region_name", region_name)
 
     @property
@@ -3637,8 +4105,12 @@ class IpamPoolProvisionedCidrArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cidr: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+
         _setter("cidr", cidr)
 
     @property
@@ -3669,9 +4141,15 @@ class IpamPoolTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3718,9 +4196,15 @@ class IpamResourceDiscoveryAssociationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3764,8 +4248,14 @@ class IpamResourceDiscoveryIpamOperatingRegionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             region_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             region_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region_name is None and 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+        if region_name is None:
+            raise TypeError("Missing 'region_name' argument")
+
         _setter("region_name", region_name)
 
     @property
@@ -3799,9 +4289,15 @@ class IpamResourceDiscoveryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3848,9 +4344,15 @@ class IpamScopeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3897,9 +4399,15 @@ class IpamTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3946,9 +4454,15 @@ class KeyPairTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3997,7 +4511,9 @@ class LaunchTemplateAcceleratorCountArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -4048,7 +4564,9 @@ class LaunchTemplateAcceleratorTotalMemoryMiBArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -4099,7 +4617,9 @@ class LaunchTemplateBaselineEbsBandwidthMbpsArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -4157,7 +4677,15 @@ class LaunchTemplateBlockDeviceMappingArgs:
              ebs: Optional[pulumi.Input['LaunchTemplateEbsArgs']] = None,
              no_device: Optional[pulumi.Input[str]] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         if device_name is not None:
             _setter("device_name", device_name)
         if ebs is not None:
@@ -4232,7 +4760,13 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
              capacity_reservation_target: Optional[pulumi.Input['LaunchTemplateCapacityReservationTargetArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_reservation_preference is None and 'capacityReservationPreference' in kwargs:
+            capacity_reservation_preference = kwargs['capacityReservationPreference']
+        if capacity_reservation_target is None and 'capacityReservationTarget' in kwargs:
+            capacity_reservation_target = kwargs['capacityReservationTarget']
+
         if capacity_reservation_preference is not None:
             _setter("capacity_reservation_preference", capacity_reservation_preference)
         if capacity_reservation_target is not None:
@@ -4280,7 +4814,13 @@ class LaunchTemplateCapacityReservationTargetArgs:
              _setter: Callable[[Any, Any], None],
              capacity_reservation_id: Optional[pulumi.Input[str]] = None,
              capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_reservation_id is None and 'capacityReservationId' in kwargs:
+            capacity_reservation_id = kwargs['capacityReservationId']
+        if capacity_reservation_resource_group_arn is None and 'capacityReservationResourceGroupArn' in kwargs:
+            capacity_reservation_resource_group_arn = kwargs['capacityReservationResourceGroupArn']
+
         if capacity_reservation_id is not None:
             _setter("capacity_reservation_id", capacity_reservation_id)
         if capacity_reservation_resource_group_arn is not None:
@@ -4335,7 +4875,15 @@ class LaunchTemplateCpuOptionsArgs:
              amd_sev_snp: Optional[pulumi.Input['LaunchTemplateCpuOptionsAmdSevSnp']] = None,
              core_count: Optional[pulumi.Input[int]] = None,
              threads_per_core: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amd_sev_snp is None and 'amdSevSnp' in kwargs:
+            amd_sev_snp = kwargs['amdSevSnp']
+        if core_count is None and 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if threads_per_core is None and 'threadsPerCore' in kwargs:
+            threads_per_core = kwargs['threadsPerCore']
+
         if amd_sev_snp is not None:
             _setter("amd_sev_snp", amd_sev_snp)
         if core_count is not None:
@@ -4396,7 +4944,11 @@ class LaunchTemplateCreditSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              cpu_credits: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_credits is None and 'cpuCredits' in kwargs:
+            cpu_credits = kwargs['cpuCredits']
+
         if cpu_credits is not None:
             _setter("cpu_credits", cpu_credits)
 
@@ -4534,7 +5086,67 @@ class LaunchTemplateDataArgs:
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['TagSpecificationArgs']]]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if capacity_reservation_specification is None and 'capacityReservationSpecification' in kwargs:
+            capacity_reservation_specification = kwargs['capacityReservationSpecification']
+        if cpu_options is None and 'cpuOptions' in kwargs:
+            cpu_options = kwargs['cpuOptions']
+        if credit_specification is None and 'creditSpecification' in kwargs:
+            credit_specification = kwargs['creditSpecification']
+        if disable_api_stop is None and 'disableApiStop' in kwargs:
+            disable_api_stop = kwargs['disableApiStop']
+        if disable_api_termination is None and 'disableApiTermination' in kwargs:
+            disable_api_termination = kwargs['disableApiTermination']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if elastic_gpu_specifications is None and 'elasticGpuSpecifications' in kwargs:
+            elastic_gpu_specifications = kwargs['elasticGpuSpecifications']
+        if elastic_inference_accelerators is None and 'elasticInferenceAccelerators' in kwargs:
+            elastic_inference_accelerators = kwargs['elasticInferenceAccelerators']
+        if enclave_options is None and 'enclaveOptions' in kwargs:
+            enclave_options = kwargs['enclaveOptions']
+        if hibernation_options is None and 'hibernationOptions' in kwargs:
+            hibernation_options = kwargs['hibernationOptions']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if instance_initiated_shutdown_behavior is None and 'instanceInitiatedShutdownBehavior' in kwargs:
+            instance_initiated_shutdown_behavior = kwargs['instanceInitiatedShutdownBehavior']
+        if instance_market_options is None and 'instanceMarketOptions' in kwargs:
+            instance_market_options = kwargs['instanceMarketOptions']
+        if instance_requirements is None and 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if kernel_id is None and 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if license_specifications is None and 'licenseSpecifications' in kwargs:
+            license_specifications = kwargs['licenseSpecifications']
+        if maintenance_options is None and 'maintenanceOptions' in kwargs:
+            maintenance_options = kwargs['maintenanceOptions']
+        if metadata_options is None and 'metadataOptions' in kwargs:
+            metadata_options = kwargs['metadataOptions']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if private_dns_name_options is None and 'privateDnsNameOptions' in kwargs:
+            private_dns_name_options = kwargs['privateDnsNameOptions']
+        if ram_disk_id is None and 'ramDiskId' in kwargs:
+            ram_disk_id = kwargs['ramDiskId']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+
         if block_device_mappings is not None:
             _setter("block_device_mappings", block_device_mappings)
         if capacity_reservation_specification is not None:
@@ -4970,7 +5582,19 @@ class LaunchTemplateEbsArgs:
              throughput: Optional[pulumi.Input[int]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -5101,7 +5725,9 @@ class LaunchTemplateElasticGpuSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -5138,7 +5764,9 @@ class LaunchTemplateElasticInferenceAcceleratorArgs:
              _setter: Callable[[Any, Any], None],
              count: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
         if type is not None:
@@ -5185,7 +5813,9 @@ class LaunchTemplateEnclaveOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -5218,7 +5848,9 @@ class LaunchTemplateHibernationOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              configured: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if configured is not None:
             _setter("configured", configured)
 
@@ -5255,7 +5887,9 @@ class LaunchTemplateIamInstanceProfileArgs:
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
         if name is not None:
@@ -5305,7 +5939,13 @@ class LaunchTemplateInstanceMarketOptionsArgs:
              _setter: Callable[[Any, Any], None],
              market_type: Optional[pulumi.Input[str]] = None,
              spot_options: Optional[pulumi.Input['LaunchTemplateSpotOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if market_type is None and 'marketType' in kwargs:
+            market_type = kwargs['marketType']
+        if spot_options is None and 'spotOptions' in kwargs:
+            spot_options = kwargs['spotOptions']
+
         if market_type is not None:
             _setter("market_type", market_type)
         if spot_options is not None:
@@ -5427,7 +6067,55 @@ class LaunchTemplateInstanceRequirementsArgs:
              spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
              total_local_storage_gb: Optional[pulumi.Input['LaunchTemplateTotalLocalStorageGbArgs']] = None,
              v_cpu_count: Optional[pulumi.Input['LaunchTemplateVCpuCountArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_count is None and 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if accelerator_manufacturers is None and 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if accelerator_names is None and 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if accelerator_total_memory_mi_b is None and 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if accelerator_types is None and 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if allowed_instance_types is None and 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if bare_metal is None and 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if baseline_ebs_bandwidth_mbps is None and 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if burstable_performance is None and 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if cpu_manufacturers is None and 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if excluded_instance_types is None and 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if instance_generations is None and 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if local_storage is None and 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if local_storage_types is None and 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if memory_gi_b_per_v_cpu is None and 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if memory_mi_b is None and 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if network_bandwidth_gbps is None and 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if network_interface_count is None and 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if on_demand_max_price_percentage_over_lowest_price is None and 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if require_hibernate_support is None and 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if spot_max_price_percentage_over_lowest_price is None and 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if total_local_storage_gb is None and 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if v_cpu_count is None and 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -5738,7 +6426,11 @@ class LaunchTemplateIpv4PrefixSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv4_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv4_prefix is None and 'ipv4Prefix' in kwargs:
+            ipv4_prefix = kwargs['ipv4Prefix']
+
         if ipv4_prefix is not None:
             _setter("ipv4_prefix", ipv4_prefix)
 
@@ -5770,7 +6462,11 @@ class LaunchTemplateIpv6AddArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+
         if ipv6_address is not None:
             _setter("ipv6_address", ipv6_address)
 
@@ -5799,7 +6495,11 @@ class LaunchTemplateIpv6PrefixSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ipv6_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_prefix is None and 'ipv6Prefix' in kwargs:
+            ipv6_prefix = kwargs['ipv6Prefix']
+
         if ipv6_prefix is not None:
             _setter("ipv6_prefix", ipv6_prefix)
 
@@ -5829,7 +6529,11 @@ class LaunchTemplateLicenseSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              license_configuration_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if license_configuration_arn is None and 'licenseConfigurationArn' in kwargs:
+            license_configuration_arn = kwargs['licenseConfigurationArn']
+
         if license_configuration_arn is not None:
             _setter("license_configuration_arn", license_configuration_arn)
 
@@ -5862,7 +6566,11 @@ class LaunchTemplateMaintenanceOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              auto_recovery: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_recovery is None and 'autoRecovery' in kwargs:
+            auto_recovery = kwargs['autoRecovery']
+
         if auto_recovery is not None:
             _setter("auto_recovery", auto_recovery)
 
@@ -5899,7 +6607,9 @@ class LaunchTemplateMemoryGiBPerVCpuArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -5950,7 +6660,9 @@ class LaunchTemplateMemoryMiBArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6013,7 +6725,19 @@ class LaunchTemplateMetadataOptionsArgs:
              http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
              http_tokens: Optional[pulumi.Input[str]] = None,
              instance_metadata_tags: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_endpoint is None and 'httpEndpoint' in kwargs:
+            http_endpoint = kwargs['httpEndpoint']
+        if http_protocol_ipv6 is None and 'httpProtocolIpv6' in kwargs:
+            http_protocol_ipv6 = kwargs['httpProtocolIpv6']
+        if http_put_response_hop_limit is None and 'httpPutResponseHopLimit' in kwargs:
+            http_put_response_hop_limit = kwargs['httpPutResponseHopLimit']
+        if http_tokens is None and 'httpTokens' in kwargs:
+            http_tokens = kwargs['httpTokens']
+        if instance_metadata_tags is None and 'instanceMetadataTags' in kwargs:
+            instance_metadata_tags = kwargs['instanceMetadataTags']
+
         if http_endpoint is not None:
             _setter("http_endpoint", http_endpoint)
         if http_protocol_ipv6 is not None:
@@ -6102,7 +6826,9 @@ class LaunchTemplateMonitoringArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -6139,7 +6865,9 @@ class LaunchTemplateNetworkBandwidthGbpsArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6188,7 +6916,9 @@ class LaunchTemplateNetworkInterfaceCountArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -6305,7 +7035,45 @@ class LaunchTemplateNetworkInterfaceArgs:
              private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplatePrivateIpAddArgs']]]] = None,
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associate_carrier_ip_address is None and 'associateCarrierIpAddress' in kwargs:
+            associate_carrier_ip_address = kwargs['associateCarrierIpAddress']
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if device_index is None and 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if interface_type is None and 'interfaceType' in kwargs:
+            interface_type = kwargs['interfaceType']
+        if ipv4_prefix_count is None and 'ipv4PrefixCount' in kwargs:
+            ipv4_prefix_count = kwargs['ipv4PrefixCount']
+        if ipv4_prefixes is None and 'ipv4Prefixes' in kwargs:
+            ipv4_prefixes = kwargs['ipv4Prefixes']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if ipv6_prefix_count is None and 'ipv6PrefixCount' in kwargs:
+            ipv6_prefix_count = kwargs['ipv6PrefixCount']
+        if ipv6_prefixes is None and 'ipv6Prefixes' in kwargs:
+            ipv6_prefixes = kwargs['ipv6Prefixes']
+        if network_card_index is None and 'networkCardIndex' in kwargs:
+            network_card_index = kwargs['networkCardIndex']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if primary_ipv6 is None and 'primaryIpv6' in kwargs:
+            primary_ipv6 = kwargs['primaryIpv6']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if secondary_private_ip_address_count is None and 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if associate_carrier_ip_address is not None:
             _setter("associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
@@ -6636,7 +7404,23 @@ class LaunchTemplatePlacementArgs:
              partition_number: Optional[pulumi.Input[int]] = None,
              spread_domain: Optional[pulumi.Input[str]] = None,
              tenancy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if host_id is None and 'hostId' in kwargs:
+            host_id = kwargs['hostId']
+        if host_resource_group_arn is None and 'hostResourceGroupArn' in kwargs:
+            host_resource_group_arn = kwargs['hostResourceGroupArn']
+        if partition_number is None and 'partitionNumber' in kwargs:
+            partition_number = kwargs['partitionNumber']
+        if spread_domain is None and 'spreadDomain' in kwargs:
+            spread_domain = kwargs['spreadDomain']
+
         if affinity is not None:
             _setter("affinity", affinity)
         if availability_zone is not None:
@@ -6789,7 +7573,15 @@ class LaunchTemplatePrivateDnsNameOptionsArgs:
              enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
              enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
              hostname_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_resource_name_dns_a_record is None and 'enableResourceNameDnsARecord' in kwargs:
+            enable_resource_name_dns_a_record = kwargs['enableResourceNameDnsARecord']
+        if enable_resource_name_dns_aaaa_record is None and 'enableResourceNameDnsAaaaRecord' in kwargs:
+            enable_resource_name_dns_aaaa_record = kwargs['enableResourceNameDnsAaaaRecord']
+        if hostname_type is None and 'hostnameType' in kwargs:
+            hostname_type = kwargs['hostnameType']
+
         if enable_resource_name_dns_a_record is not None:
             _setter("enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -6854,7 +7646,11 @@ class LaunchTemplatePrivateIpAddArgs:
              _setter: Callable[[Any, Any], None],
              primary: Optional[pulumi.Input[bool]] = None,
              private_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+
         if primary is not None:
             _setter("primary", primary)
         if private_ip_address is not None:
@@ -6917,7 +7713,19 @@ class LaunchTemplateSpotOptionsArgs:
              max_price: Optional[pulumi.Input[str]] = None,
              spot_instance_type: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if block_duration_minutes is None and 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+        if instance_interruption_behavior is None and 'instanceInterruptionBehavior' in kwargs:
+            instance_interruption_behavior = kwargs['instanceInterruptionBehavior']
+        if max_price is None and 'maxPrice' in kwargs:
+            max_price = kwargs['maxPrice']
+        if spot_instance_type is None and 'spotInstanceType' in kwargs:
+            spot_instance_type = kwargs['spotInstanceType']
+        if valid_until is None and 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         if block_duration_minutes is not None:
             _setter("block_duration_minutes", block_duration_minutes)
         if instance_interruption_behavior is not None:
@@ -7010,7 +7818,11 @@ class LaunchTemplateTagSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -7057,9 +7869,15 @@ class LaunchTemplateTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -7100,7 +7918,9 @@ class LaunchTemplateTotalLocalStorageGbArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -7145,7 +7965,9 @@ class LaunchTemplateVCpuCountArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -7191,7 +8013,9 @@ class LocalGatewayRouteTableTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7231,7 +8055,9 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7271,7 +8097,9 @@ class LocalGatewayRouteTableVpcAssociationTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -7309,9 +8137,15 @@ class NatGatewayTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -7349,7 +8183,9 @@ class NetworkAclEntryIcmpArgs:
              _setter: Callable[[Any, Any], None],
              code: Optional[pulumi.Input[int]] = None,
              type: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
             _setter("code", code)
         if type is not None:
@@ -7389,7 +8225,11 @@ class NetworkAclEntryPortRangeArgs:
              _setter: Callable[[Any, Any], None],
              from_: Optional[pulumi.Input[int]] = None,
              to: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_ is None and 'from' in kwargs:
+            from_ = kwargs['from']
+
         if from_ is not None:
             _setter("from_", from_)
         if to is not None:
@@ -7427,9 +8267,15 @@ class NetworkAclTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -7470,7 +8316,11 @@ class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
              destination: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']] = None,
              source: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']] = None,
              through_resources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if through_resources is None and 'throughResources' in kwargs:
+            through_resources = kwargs['throughResources']
+
         if destination is not None:
             _setter("destination", destination)
         if source is not None:
@@ -7519,9 +8369,13 @@ class NetworkInsightsAccessScopeAnalysisTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -7575,7 +8429,21 @@ class NetworkInsightsAccessScopePacketHeaderStatementRequestArgs:
              source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              source_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              source_prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_addresses is None and 'destinationAddresses' in kwargs:
+            destination_addresses = kwargs['destinationAddresses']
+        if destination_ports is None and 'destinationPorts' in kwargs:
+            destination_ports = kwargs['destinationPorts']
+        if destination_prefix_lists is None and 'destinationPrefixLists' in kwargs:
+            destination_prefix_lists = kwargs['destinationPrefixLists']
+        if source_addresses is None and 'sourceAddresses' in kwargs:
+            source_addresses = kwargs['sourceAddresses']
+        if source_ports is None and 'sourcePorts' in kwargs:
+            source_ports = kwargs['sourcePorts']
+        if source_prefix_lists is None and 'sourcePrefixLists' in kwargs:
+            source_prefix_lists = kwargs['sourcePrefixLists']
+
         if destination_addresses is not None:
             _setter("destination_addresses", destination_addresses)
         if destination_ports is not None:
@@ -7670,7 +8538,13 @@ class NetworkInsightsAccessScopePathStatementRequestArgs:
              _setter: Callable[[Any, Any], None],
              packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs']] = None,
              resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packet_header_statement is None and 'packetHeaderStatement' in kwargs:
+            packet_header_statement = kwargs['packetHeaderStatement']
+        if resource_statement is None and 'resourceStatement' in kwargs:
+            resource_statement = kwargs['resourceStatement']
+
         if packet_header_statement is not None:
             _setter("packet_header_statement", packet_header_statement)
         if resource_statement is not None:
@@ -7710,7 +8584,11 @@ class NetworkInsightsAccessScopeResourceStatementRequestArgs:
              _setter: Callable[[Any, Any], None],
              resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_types is None and 'resourceTypes' in kwargs:
+            resource_types = kwargs['resourceTypes']
+
         if resource_types is not None:
             _setter("resource_types", resource_types)
         if resources is not None:
@@ -7748,9 +8626,13 @@ class NetworkInsightsAccessScopeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -7786,7 +8668,11 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_statement is None and 'resourceStatement' in kwargs:
+            resource_statement = kwargs['resourceStatement']
+
         if resource_statement is not None:
             _setter("resource_statement", resource_statement)
 
@@ -7813,9 +8699,13 @@ class NetworkInsightsAnalysisTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -7854,7 +8744,13 @@ class NetworkInsightsPathFilterPortRangeArgs:
              _setter: Callable[[Any, Any], None],
              from_port: Optional[pulumi.Input[int]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         if from_port is not None:
             _setter("from_port", from_port)
         if to_port is not None:
@@ -7900,7 +8796,17 @@ class NetworkInsightsPathPathFilterArgs:
              destination_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']] = None,
              source_address: Optional[pulumi.Input[str]] = None,
              source_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_port_range is None and 'destinationPortRange' in kwargs:
+            destination_port_range = kwargs['destinationPortRange']
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if source_port_range is None and 'sourcePortRange' in kwargs:
+            source_port_range = kwargs['sourcePortRange']
+
         if destination_address is not None:
             _setter("destination_address", destination_address)
         if destination_port_range is not None:
@@ -7960,9 +8866,13 @@ class NetworkInsightsPathTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -7997,8 +8907,14 @@ class NetworkInterfaceInstanceIpv6AddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipv6_address: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ipv6_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if ipv6_address is None:
+            raise TypeError("Missing 'ipv6_address' argument")
+
         _setter("ipv6_address", ipv6_address)
 
     @property
@@ -8022,8 +8938,14 @@ class NetworkInterfaceIpv4PrefixSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipv4_prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ipv4_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv4_prefix is None and 'ipv4Prefix' in kwargs:
+            ipv4_prefix = kwargs['ipv4Prefix']
+        if ipv4_prefix is None:
+            raise TypeError("Missing 'ipv4_prefix' argument")
+
         _setter("ipv4_prefix", ipv4_prefix)
 
     @property
@@ -8047,8 +8969,14 @@ class NetworkInterfaceIpv6PrefixSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipv6_prefix: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ipv6_prefix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_prefix is None and 'ipv6Prefix' in kwargs:
+            ipv6_prefix = kwargs['ipv6Prefix']
+        if ipv6_prefix is None:
+            raise TypeError("Missing 'ipv6_prefix' argument")
+
         _setter("ipv6_prefix", ipv6_prefix)
 
     @property
@@ -8074,9 +9002,17 @@ class NetworkInterfacePrivateIpAddressSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary: pulumi.Input[bool],
-             private_ip_address: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             primary: Optional[pulumi.Input[bool]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+
         _setter("primary", primary)
         _setter("private_ip_address", private_ip_address)
 
@@ -8112,9 +9048,15 @@ class NetworkInterfaceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -8161,7 +9103,15 @@ class OptionsPropertiesArgs:
              appliance_mode_support: Optional[pulumi.Input[str]] = None,
              dns_support: Optional[pulumi.Input[str]] = None,
              ipv6_support: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if appliance_mode_support is None and 'applianceModeSupport' in kwargs:
+            appliance_mode_support = kwargs['applianceModeSupport']
+        if dns_support is None and 'dnsSupport' in kwargs:
+            dns_support = kwargs['dnsSupport']
+        if ipv6_support is None and 'ipv6Support' in kwargs:
+            ipv6_support = kwargs['ipv6Support']
+
         if appliance_mode_support is not None:
             _setter("appliance_mode_support", appliance_mode_support)
         if dns_support is not None:
@@ -8224,9 +9174,15 @@ class PlacementGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -8268,9 +9224,13 @@ class PrefixListEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cidr: pulumi.Input[str],
+             cidr: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+
         _setter("cidr", cidr)
         if description is not None:
             _setter("description", description)
@@ -8307,9 +9267,13 @@ class PrefixListTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -8351,7 +9315,15 @@ class PrivateDnsNameOptionsOnLaunchPropertiesArgs:
              enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
              enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
              hostname_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_resource_name_dns_a_record is None and 'enableResourceNameDnsARecord' in kwargs:
+            enable_resource_name_dns_a_record = kwargs['enableResourceNameDnsARecord']
+        if enable_resource_name_dns_aaaa_record is None and 'enableResourceNameDnsAaaaRecord' in kwargs:
+            enable_resource_name_dns_aaaa_record = kwargs['enableResourceNameDnsAaaaRecord']
+        if hostname_type is None and 'hostnameType' in kwargs:
+            hostname_type = kwargs['hostnameType']
+
         if enable_resource_name_dns_a_record is not None:
             _setter("enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
         if enable_resource_name_dns_aaaa_record is not None:
@@ -8400,9 +9372,15 @@ class RouteTableTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -8450,7 +9428,7 @@ class SecurityGroupEgressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_protocol: pulumi.Input[str],
+             ip_protocol: Optional[pulumi.Input[str]] = None,
              cidr_ip: Optional[pulumi.Input[str]] = None,
              cidr_ipv6: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -8458,7 +9436,25 @@ class SecurityGroupEgressArgs:
              destination_security_group_id: Optional[pulumi.Input[str]] = None,
              from_port: Optional[pulumi.Input[int]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ip_protocol is None:
+            raise TypeError("Missing 'ip_protocol' argument")
+        if cidr_ip is None and 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if cidr_ipv6 is None and 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if destination_prefix_list_id is None and 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if destination_security_group_id is None and 'destinationSecurityGroupId' in kwargs:
+            destination_security_group_id = kwargs['destinationSecurityGroupId']
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:
             _setter("cidr_ip", cidr_ip)
@@ -8577,7 +9573,7 @@ class SecurityGroupIngressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_protocol: pulumi.Input[str],
+             ip_protocol: Optional[pulumi.Input[str]] = None,
              cidr_ip: Optional[pulumi.Input[str]] = None,
              cidr_ipv6: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -8587,7 +9583,29 @@ class SecurityGroupIngressArgs:
              source_security_group_name: Optional[pulumi.Input[str]] = None,
              source_security_group_owner_id: Optional[pulumi.Input[str]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ip_protocol is None:
+            raise TypeError("Missing 'ip_protocol' argument")
+        if cidr_ip is None and 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if cidr_ipv6 is None and 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if source_prefix_list_id is None and 'sourcePrefixListId' in kwargs:
+            source_prefix_list_id = kwargs['sourcePrefixListId']
+        if source_security_group_id is None and 'sourceSecurityGroupId' in kwargs:
+            source_security_group_id = kwargs['sourceSecurityGroupId']
+        if source_security_group_name is None and 'sourceSecurityGroupName' in kwargs:
+            source_security_group_name = kwargs['sourceSecurityGroupName']
+        if source_security_group_owner_id is None and 'sourceSecurityGroupOwnerId' in kwargs:
+            source_security_group_owner_id = kwargs['sourceSecurityGroupOwnerId']
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:
             _setter("cidr_ip", cidr_ip)
@@ -8712,9 +9730,15 @@ class SecurityGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -8752,7 +9776,9 @@ class SpotFleetAcceleratorCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -8792,7 +9818,9 @@ class SpotFleetAcceleratorTotalMemoryMiBRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -8832,7 +9860,9 @@ class SpotFleetBaselineEbsBandwidthMbpsRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -8874,11 +9904,21 @@ class SpotFleetBlockDeviceMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_name: pulumi.Input[str],
+             device_name: Optional[pulumi.Input[str]] = None,
              ebs: Optional[pulumi.Input['SpotFleetEbsBlockDeviceArgs']] = None,
              no_device: Optional[pulumi.Input[str]] = None,
              virtual_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_name is None and 'deviceName' in kwargs:
+            device_name = kwargs['deviceName']
+        if device_name is None:
+            raise TypeError("Missing 'device_name' argument")
+        if no_device is None and 'noDevice' in kwargs:
+            no_device = kwargs['noDevice']
+        if virtual_name is None and 'virtualName' in kwargs:
+            virtual_name = kwargs['virtualName']
+
         _setter("device_name", device_name)
         if ebs is not None:
             _setter("ebs", ebs)
@@ -8935,8 +9975,14 @@ class SpotFleetClassicLoadBalancersConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             classic_load_balancers: pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             classic_load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if classic_load_balancers is None and 'classicLoadBalancers' in kwargs:
+            classic_load_balancers = kwargs['classicLoadBalancers']
+        if classic_load_balancers is None:
+            raise TypeError("Missing 'classic_load_balancers' argument")
+
         _setter("classic_load_balancers", classic_load_balancers)
 
     @property
@@ -8960,8 +10006,12 @@ class SpotFleetClassicLoadBalancerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -9001,7 +10051,17 @@ class SpotFleetEbsBlockDeviceArgs:
              snapshot_id: Optional[pulumi.Input[str]] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
              volume_type: Optional[pulumi.Input['SpotFleetEbsBlockDeviceVolumeType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if snapshot_id is None and 'snapshotId' in kwargs:
+            snapshot_id = kwargs['snapshotId']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+
         if delete_on_termination is not None:
             _setter("delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -9085,10 +10145,18 @@ class SpotFleetFleetLaunchTemplateSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             version: pulumi.Input[str],
+             version: Optional[pulumi.Input[str]] = None,
              launch_template_id: Optional[pulumi.Input[str]] = None,
              launch_template_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if launch_template_id is None and 'launchTemplateId' in kwargs:
+            launch_template_id = kwargs['launchTemplateId']
+        if launch_template_name is None and 'launchTemplateName' in kwargs:
+            launch_template_name = kwargs['launchTemplateName']
+
         _setter("version", version)
         if launch_template_id is not None:
             _setter("launch_template_id", launch_template_id)
@@ -9134,8 +10202,14 @@ class SpotFleetGroupIdentifierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+
         _setter("group_id", group_id)
 
     @property
@@ -9160,7 +10234,9 @@ class SpotFleetIamInstanceProfileSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -9185,8 +10261,14 @@ class SpotFleetInstanceIpv6AddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ipv6_address: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ipv6_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ipv6_address is None and 'ipv6Address' in kwargs:
+            ipv6_address = kwargs['ipv6Address']
+        if ipv6_address is None:
+            raise TypeError("Missing 'ipv6_address' argument")
+
         _setter("ipv6_address", ipv6_address)
 
     @property
@@ -9241,7 +10323,27 @@ class SpotFleetInstanceNetworkInterfaceSpecificationArgs:
              private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetPrivateIpAddressSpecificationArgs']]]] = None,
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associate_public_ip_address is None and 'associatePublicIpAddress' in kwargs:
+            associate_public_ip_address = kwargs['associatePublicIpAddress']
+        if delete_on_termination is None and 'deleteOnTermination' in kwargs:
+            delete_on_termination = kwargs['deleteOnTermination']
+        if device_index is None and 'deviceIndex' in kwargs:
+            device_index = kwargs['deviceIndex']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if secondary_private_ip_address_count is None and 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if associate_public_ip_address is not None:
             _setter("associate_public_ip_address", associate_public_ip_address)
         if delete_on_termination is not None:
@@ -9443,7 +10545,55 @@ class SpotFleetInstanceRequirementsRequestArgs:
              spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
              total_local_storage_gb: Optional[pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgs']] = None,
              v_cpu_count: Optional[pulumi.Input['SpotFleetVCpuCountRangeRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_count is None and 'acceleratorCount' in kwargs:
+            accelerator_count = kwargs['acceleratorCount']
+        if accelerator_manufacturers is None and 'acceleratorManufacturers' in kwargs:
+            accelerator_manufacturers = kwargs['acceleratorManufacturers']
+        if accelerator_names is None and 'acceleratorNames' in kwargs:
+            accelerator_names = kwargs['acceleratorNames']
+        if accelerator_total_memory_mi_b is None and 'acceleratorTotalMemoryMiB' in kwargs:
+            accelerator_total_memory_mi_b = kwargs['acceleratorTotalMemoryMiB']
+        if accelerator_types is None and 'acceleratorTypes' in kwargs:
+            accelerator_types = kwargs['acceleratorTypes']
+        if allowed_instance_types is None and 'allowedInstanceTypes' in kwargs:
+            allowed_instance_types = kwargs['allowedInstanceTypes']
+        if bare_metal is None and 'bareMetal' in kwargs:
+            bare_metal = kwargs['bareMetal']
+        if baseline_ebs_bandwidth_mbps is None and 'baselineEbsBandwidthMbps' in kwargs:
+            baseline_ebs_bandwidth_mbps = kwargs['baselineEbsBandwidthMbps']
+        if burstable_performance is None and 'burstablePerformance' in kwargs:
+            burstable_performance = kwargs['burstablePerformance']
+        if cpu_manufacturers is None and 'cpuManufacturers' in kwargs:
+            cpu_manufacturers = kwargs['cpuManufacturers']
+        if excluded_instance_types is None and 'excludedInstanceTypes' in kwargs:
+            excluded_instance_types = kwargs['excludedInstanceTypes']
+        if instance_generations is None and 'instanceGenerations' in kwargs:
+            instance_generations = kwargs['instanceGenerations']
+        if local_storage is None and 'localStorage' in kwargs:
+            local_storage = kwargs['localStorage']
+        if local_storage_types is None and 'localStorageTypes' in kwargs:
+            local_storage_types = kwargs['localStorageTypes']
+        if memory_gi_b_per_v_cpu is None and 'memoryGiBPerVCpu' in kwargs:
+            memory_gi_b_per_v_cpu = kwargs['memoryGiBPerVCpu']
+        if memory_mi_b is None and 'memoryMiB' in kwargs:
+            memory_mi_b = kwargs['memoryMiB']
+        if network_bandwidth_gbps is None and 'networkBandwidthGbps' in kwargs:
+            network_bandwidth_gbps = kwargs['networkBandwidthGbps']
+        if network_interface_count is None and 'networkInterfaceCount' in kwargs:
+            network_interface_count = kwargs['networkInterfaceCount']
+        if on_demand_max_price_percentage_over_lowest_price is None and 'onDemandMaxPricePercentageOverLowestPrice' in kwargs:
+            on_demand_max_price_percentage_over_lowest_price = kwargs['onDemandMaxPricePercentageOverLowestPrice']
+        if require_hibernate_support is None and 'requireHibernateSupport' in kwargs:
+            require_hibernate_support = kwargs['requireHibernateSupport']
+        if spot_max_price_percentage_over_lowest_price is None and 'spotMaxPricePercentageOverLowestPrice' in kwargs:
+            spot_max_price_percentage_over_lowest_price = kwargs['spotMaxPricePercentageOverLowestPrice']
+        if total_local_storage_gb is None and 'totalLocalStorageGb' in kwargs:
+            total_local_storage_gb = kwargs['totalLocalStorageGb']
+        if v_cpu_count is None and 'vCpuCount' in kwargs:
+            v_cpu_count = kwargs['vCpuCount']
+
         if accelerator_count is not None:
             _setter("accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -9744,7 +10894,7 @@ class SpotFleetLaunchSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             image_id: pulumi.Input[str],
+             image_id: Optional[pulumi.Input[str]] = None,
              block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetBlockDeviceMappingArgs']]]] = None,
              ebs_optimized: Optional[pulumi.Input[bool]] = None,
              iam_instance_profile: Optional[pulumi.Input['SpotFleetIamInstanceProfileSpecificationArgs']] = None,
@@ -9762,7 +10912,43 @@ class SpotFleetLaunchSpecificationArgs:
              tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]]] = None,
              user_data: Optional[pulumi.Input[str]] = None,
              weighted_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_id is None and 'imageId' in kwargs:
+            image_id = kwargs['imageId']
+        if image_id is None:
+            raise TypeError("Missing 'image_id' argument")
+        if block_device_mappings is None and 'blockDeviceMappings' in kwargs:
+            block_device_mappings = kwargs['blockDeviceMappings']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+        if iam_instance_profile is None and 'iamInstanceProfile' in kwargs:
+            iam_instance_profile = kwargs['iamInstanceProfile']
+        if instance_requirements is None and 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if kernel_id is None and 'kernelId' in kwargs:
+            kernel_id = kwargs['kernelId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if ramdisk_id is None and 'ramdiskId' in kwargs:
+            ramdisk_id = kwargs['ramdiskId']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("image_id", image_id)
         if block_device_mappings is not None:
             _setter("block_device_mappings", block_device_mappings)
@@ -9977,7 +11163,11 @@ class SpotFleetLaunchTemplateConfigArgs:
              _setter: Callable[[Any, Any], None],
              launch_template_specification: Optional[pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgs']] = None,
              overrides: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if launch_template_specification is None and 'launchTemplateSpecification' in kwargs:
+            launch_template_specification = kwargs['launchTemplateSpecification']
+
         if launch_template_specification is not None:
             _setter("launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -10032,7 +11222,21 @@ class SpotFleetLaunchTemplateOverridesArgs:
              spot_price: Optional[pulumi.Input[str]] = None,
              subnet_id: Optional[pulumi.Input[str]] = None,
              weighted_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if instance_requirements is None and 'instanceRequirements' in kwargs:
+            instance_requirements = kwargs['instanceRequirements']
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if instance_requirements is not None:
@@ -10127,7 +11331,13 @@ class SpotFleetLoadBalancersConfigArgs:
              _setter: Callable[[Any, Any], None],
              classic_load_balancers_config: Optional[pulumi.Input['SpotFleetClassicLoadBalancersConfigArgs']] = None,
              target_groups_config: Optional[pulumi.Input['SpotFleetTargetGroupsConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if classic_load_balancers_config is None and 'classicLoadBalancersConfig' in kwargs:
+            classic_load_balancers_config = kwargs['classicLoadBalancersConfig']
+        if target_groups_config is None and 'targetGroupsConfig' in kwargs:
+            target_groups_config = kwargs['targetGroupsConfig']
+
         if classic_load_balancers_config is not None:
             _setter("classic_load_balancers_config", classic_load_balancers_config)
         if target_groups_config is not None:
@@ -10167,7 +11377,9 @@ class SpotFleetMemoryGiBPerVCpuRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10207,7 +11419,9 @@ class SpotFleetMemoryMiBRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10244,7 +11458,9 @@ class SpotFleetMonitoringArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -10273,7 +11489,9 @@ class SpotFleetNetworkBandwidthGbpsRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10313,7 +11531,9 @@ class SpotFleetNetworkInterfaceCountRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -10351,9 +11571,15 @@ class SpotFleetPrivateIpAddressSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             private_ip_address: pulumi.Input[str],
+             private_ip_address: Optional[pulumi.Input[str]] = None,
              primary: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+
         _setter("private_ip_address", private_ip_address)
         if primary is not None:
             _setter("primary", primary)
@@ -10432,8 +11658,8 @@ class SpotFleetRequestConfigDataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iam_fleet_role: pulumi.Input[str],
-             target_capacity: pulumi.Input[int],
+             iam_fleet_role: Optional[pulumi.Input[str]] = None,
+             target_capacity: Optional[pulumi.Input[int]] = None,
              allocation_strategy: Optional[pulumi.Input['SpotFleetRequestConfigDataAllocationStrategy']] = None,
              context: Optional[pulumi.Input[str]] = None,
              excess_capacity_termination_policy: Optional[pulumi.Input['SpotFleetRequestConfigDataExcessCapacityTerminationPolicy']] = None,
@@ -10455,7 +11681,55 @@ class SpotFleetRequestConfigDataArgs:
              type: Optional[pulumi.Input['SpotFleetRequestConfigDataType']] = None,
              valid_from: Optional[pulumi.Input[str]] = None,
              valid_until: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_fleet_role is None and 'iamFleetRole' in kwargs:
+            iam_fleet_role = kwargs['iamFleetRole']
+        if iam_fleet_role is None:
+            raise TypeError("Missing 'iam_fleet_role' argument")
+        if target_capacity is None and 'targetCapacity' in kwargs:
+            target_capacity = kwargs['targetCapacity']
+        if target_capacity is None:
+            raise TypeError("Missing 'target_capacity' argument")
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if excess_capacity_termination_policy is None and 'excessCapacityTerminationPolicy' in kwargs:
+            excess_capacity_termination_policy = kwargs['excessCapacityTerminationPolicy']
+        if instance_interruption_behavior is None and 'instanceInterruptionBehavior' in kwargs:
+            instance_interruption_behavior = kwargs['instanceInterruptionBehavior']
+        if instance_pools_to_use_count is None and 'instancePoolsToUseCount' in kwargs:
+            instance_pools_to_use_count = kwargs['instancePoolsToUseCount']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if launch_template_configs is None and 'launchTemplateConfigs' in kwargs:
+            launch_template_configs = kwargs['launchTemplateConfigs']
+        if load_balancers_config is None and 'loadBalancersConfig' in kwargs:
+            load_balancers_config = kwargs['loadBalancersConfig']
+        if on_demand_allocation_strategy is None and 'onDemandAllocationStrategy' in kwargs:
+            on_demand_allocation_strategy = kwargs['onDemandAllocationStrategy']
+        if on_demand_max_total_price is None and 'onDemandMaxTotalPrice' in kwargs:
+            on_demand_max_total_price = kwargs['onDemandMaxTotalPrice']
+        if on_demand_target_capacity is None and 'onDemandTargetCapacity' in kwargs:
+            on_demand_target_capacity = kwargs['onDemandTargetCapacity']
+        if replace_unhealthy_instances is None and 'replaceUnhealthyInstances' in kwargs:
+            replace_unhealthy_instances = kwargs['replaceUnhealthyInstances']
+        if spot_maintenance_strategies is None and 'spotMaintenanceStrategies' in kwargs:
+            spot_maintenance_strategies = kwargs['spotMaintenanceStrategies']
+        if spot_max_total_price is None and 'spotMaxTotalPrice' in kwargs:
+            spot_max_total_price = kwargs['spotMaxTotalPrice']
+        if spot_price is None and 'spotPrice' in kwargs:
+            spot_price = kwargs['spotPrice']
+        if tag_specifications is None and 'tagSpecifications' in kwargs:
+            tag_specifications = kwargs['tagSpecifications']
+        if target_capacity_unit_type is None and 'targetCapacityUnitType' in kwargs:
+            target_capacity_unit_type = kwargs['targetCapacityUnitType']
+        if terminate_instances_with_expiration is None and 'terminateInstancesWithExpiration' in kwargs:
+            terminate_instances_with_expiration = kwargs['terminateInstancesWithExpiration']
+        if valid_from is None and 'validFrom' in kwargs:
+            valid_from = kwargs['validFrom']
+        if valid_until is None and 'validUntil' in kwargs:
+            valid_until = kwargs['validUntil']
+
         _setter("iam_fleet_role", iam_fleet_role)
         _setter("target_capacity", target_capacity)
         if allocation_strategy is not None:
@@ -10724,7 +11998,13 @@ class SpotFleetSpotCapacityRebalanceArgs:
              _setter: Callable[[Any, Any], None],
              replacement_strategy: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']] = None,
              termination_delay: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replacement_strategy is None and 'replacementStrategy' in kwargs:
+            replacement_strategy = kwargs['replacementStrategy']
+        if termination_delay is None and 'terminationDelay' in kwargs:
+            termination_delay = kwargs['terminationDelay']
+
         if replacement_strategy is not None:
             _setter("replacement_strategy", replacement_strategy)
         if termination_delay is not None:
@@ -10761,7 +12041,11 @@ class SpotFleetSpotMaintenanceStrategiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              capacity_rebalance: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_rebalance is None and 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+
         if capacity_rebalance is not None:
             _setter("capacity_rebalance", capacity_rebalance)
 
@@ -10793,7 +12077,13 @@ class SpotFleetSpotPlacementArgs:
              availability_zone: Optional[pulumi.Input[str]] = None,
              group_name: Optional[pulumi.Input[str]] = None,
              tenancy: Optional[pulumi.Input['SpotFleetSpotPlacementTenancy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if group_name is not None:
@@ -10844,7 +12134,11 @@ class SpotFleetTagSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[pulumi.Input['SpotFleetTagSpecificationResourceType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -10882,9 +12176,15 @@ class SpotFleetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -10918,8 +12218,14 @@ class SpotFleetTargetGroupsConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_groups: pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_groups is None and 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+        if target_groups is None:
+            raise TypeError("Missing 'target_groups' argument")
+
         _setter("target_groups", target_groups)
 
     @property
@@ -10943,8 +12249,12 @@ class SpotFleetTargetGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+
         _setter("arn", arn)
 
     @property
@@ -10972,7 +12282,9 @@ class SpotFleetTotalLocalStorageGbRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[float]] = None,
              min: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -11012,7 +12324,9 @@ class SpotFleetVCpuCountRangeRequestArgs:
              _setter: Callable[[Any, Any], None],
              max: Optional[pulumi.Input[int]] = None,
              min: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if max is not None:
             _setter("max", max)
         if min is not None:
@@ -11057,7 +12371,13 @@ class SseSpecificationPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -11101,9 +12421,15 @@ class SubnetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11146,7 +12472,11 @@ class TagSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              resource_type: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         if resource_type is not None:
             _setter("resource_type", resource_type)
         if tags is not None:
@@ -11190,9 +12520,19 @@ class TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             from_port: pulumi.Input[int],
-             to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             from_port: Optional[pulumi.Input[int]] = None,
+             to_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if from_port is None:
+            raise TypeError("Missing 'from_port' argument")
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+        if to_port is None:
+            raise TypeError("Missing 'to_port' argument")
+
         _setter("from_port", from_port)
         _setter("to_port", to_port)
 
@@ -11228,9 +12568,15 @@ class TrafficMirrorFilterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11266,9 +12612,15 @@ class TrafficMirrorSessionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11304,9 +12656,15 @@ class TrafficMirrorTargetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11342,9 +12700,15 @@ class TransitGatewayAttachmentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11382,7 +12746,9 @@ class TransitGatewayConnectOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if protocol is not None:
             _setter("protocol", protocol)
 
@@ -11418,7 +12784,9 @@ class TransitGatewayConnectTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -11468,7 +12836,9 @@ class TransitGatewayMulticastDomainTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -11518,7 +12888,9 @@ class TransitGatewayPeeringAttachmentTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -11566,9 +12938,15 @@ class TransitGatewayRouteTableTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11610,9 +12988,15 @@ class TransitGatewayTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11648,9 +13032,15 @@ class TransitGatewayVpcAttachmentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11701,7 +13091,13 @@ class VerifiedAccessEndpointLoadBalancerOptionsArgs:
              port: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if load_balancer_arn is None and 'loadBalancerArn' in kwargs:
+            load_balancer_arn = kwargs['loadBalancerArn']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if load_balancer_arn is not None:
             _setter("load_balancer_arn", load_balancer_arn)
         if port is not None:
@@ -11784,7 +13180,11 @@ class VerifiedAccessEndpointNetworkInterfaceOptionsArgs:
              network_interface_id: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         if network_interface_id is not None:
             _setter("network_interface_id", network_interface_id)
         if port is not None:
@@ -11849,7 +13249,13 @@ class VerifiedAccessEndpointSseSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -11898,9 +13304,15 @@ class VerifiedAccessEndpointTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -11949,7 +13361,13 @@ class VerifiedAccessGroupSseSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if customer_managed_key_enabled is not None:
             _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -11998,9 +13416,15 @@ class VerifiedAccessGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12047,9 +13471,15 @@ class VerifiedAccessInstanceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12098,7 +13528,11 @@ class VerifiedAccessInstanceVerifiedAccessLogsCloudWatchLogsPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if log_group is not None:
@@ -12149,7 +13583,11 @@ class VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs:
              _setter: Callable[[Any, Any], None],
              delivery_stream: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         if delivery_stream is not None:
             _setter("delivery_stream", delivery_stream)
         if enabled is not None:
@@ -12208,7 +13646,13 @@ class VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs:
              bucket_owner: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_owner is None and 'bucketOwner' in kwargs:
+            bucket_owner = kwargs['bucketOwner']
+
         if bucket_name is not None:
             _setter("bucket_name", bucket_name)
         if bucket_owner is not None:
@@ -12299,7 +13743,17 @@ class VerifiedAccessInstanceVerifiedAccessLogsArgs:
              kinesis_data_firehose: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsKinesisDataFirehosePropertiesArgs']] = None,
              log_version: Optional[pulumi.Input[str]] = None,
              s3: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsS3PropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs is None and 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+        if include_trust_context is None and 'includeTrustContext' in kwargs:
+            include_trust_context = kwargs['includeTrustContext']
+        if kinesis_data_firehose is None and 'kinesisDataFirehose' in kwargs:
+            kinesis_data_firehose = kwargs['kinesisDataFirehose']
+        if log_version is None and 'logVersion' in kwargs:
+            log_version = kwargs['logVersion']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if include_trust_context is not None:
@@ -12404,7 +13858,17 @@ class VerifiedAccessInstanceVerifiedAccessTrustProviderArgs:
              trust_provider_type: Optional[pulumi.Input[str]] = None,
              user_trust_provider_type: Optional[pulumi.Input[str]] = None,
              verified_access_trust_provider_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_trust_provider_type is None and 'deviceTrustProviderType' in kwargs:
+            device_trust_provider_type = kwargs['deviceTrustProviderType']
+        if trust_provider_type is None and 'trustProviderType' in kwargs:
+            trust_provider_type = kwargs['trustProviderType']
+        if user_trust_provider_type is None and 'userTrustProviderType' in kwargs:
+            user_trust_provider_type = kwargs['userTrustProviderType']
+        if verified_access_trust_provider_id is None and 'verifiedAccessTrustProviderId' in kwargs:
+            verified_access_trust_provider_id = kwargs['verifiedAccessTrustProviderId']
+
         if description is not None:
             _setter("description", description)
         if device_trust_provider_type is not None:
@@ -12493,7 +13957,11 @@ class VerifiedAccessTrustProviderDeviceOptionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              tenant_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if tenant_id is not None:
             _setter("tenant_id", tenant_id)
 
@@ -12550,7 +14018,19 @@ class VerifiedAccessTrustProviderOidcOptionsArgs:
              scope: Optional[pulumi.Input[str]] = None,
              token_endpoint: Optional[pulumi.Input[str]] = None,
              user_info_endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorization_endpoint is None and 'authorizationEndpoint' in kwargs:
+            authorization_endpoint = kwargs['authorizationEndpoint']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if token_endpoint is None and 'tokenEndpoint' in kwargs:
+            token_endpoint = kwargs['tokenEndpoint']
+        if user_info_endpoint is None and 'userInfoEndpoint' in kwargs:
+            user_info_endpoint = kwargs['userInfoEndpoint']
+
         if authorization_endpoint is not None:
             _setter("authorization_endpoint", authorization_endpoint)
         if client_id is not None:
@@ -12669,9 +14149,15 @@ class VerifiedAccessTrustProviderTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12717,9 +14203,15 @@ class VolumeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12766,9 +14258,15 @@ class VpcPeeringConnectionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12810,9 +14308,15 @@ class VpcTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12848,9 +14352,15 @@ class VpnConnectionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -12888,7 +14398,13 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              pre_shared_key: Optional[pulumi.Input[str]] = None,
              tunnel_inside_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pre_shared_key is None and 'preSharedKey' in kwargs:
+            pre_shared_key = kwargs['preSharedKey']
+        if tunnel_inside_cidr is None and 'tunnelInsideCidr' in kwargs:
+            tunnel_inside_cidr = kwargs['tunnelInsideCidr']
+
         if pre_shared_key is not None:
             _setter("pre_shared_key", pre_shared_key)
         if tunnel_inside_cidr is not None:
@@ -12926,9 +14442,15 @@ class VpnGatewayTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

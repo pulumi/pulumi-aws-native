@@ -42,14 +42,28 @@ class ChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             outputs: pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]],
-             playback_mode: pulumi.Input['ChannelPlaybackMode'],
+             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]]] = None,
+             playback_mode: Optional[pulumi.Input['ChannelPlaybackMode']] = None,
              channel_name: Optional[pulumi.Input[str]] = None,
              filler_slate: Optional[pulumi.Input['ChannelSlateSourceArgs']] = None,
              log_configuration: Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
              tier: Optional[pulumi.Input['ChannelTier']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if outputs is None:
+            raise TypeError("Missing 'outputs' argument")
+        if playback_mode is None and 'playbackMode' in kwargs:
+            playback_mode = kwargs['playbackMode']
+        if playback_mode is None:
+            raise TypeError("Missing 'playback_mode' argument")
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if filler_slate is None and 'fillerSlate' in kwargs:
+            filler_slate = kwargs['fillerSlate']
+        if log_configuration is None and 'logConfiguration' in kwargs:
+            log_configuration = kwargs['logConfiguration']
+
         _setter("outputs", outputs)
         _setter("playback_mode", playback_mode)
         if channel_name is not None:
@@ -199,17 +213,9 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["channel_name"] = channel_name
-            if filler_slate is not None and not isinstance(filler_slate, ChannelSlateSourceArgs):
-                filler_slate = filler_slate or {}
-                def _setter(key, value):
-                    filler_slate[key] = value
-                ChannelSlateSourceArgs._configure(_setter, **filler_slate)
+            filler_slate = _utilities.configure(filler_slate, ChannelSlateSourceArgs, True)
             __props__.__dict__["filler_slate"] = filler_slate
-            if log_configuration is not None and not isinstance(log_configuration, ChannelLogConfigurationForChannelArgs):
-                log_configuration = log_configuration or {}
-                def _setter(key, value):
-                    log_configuration[key] = value
-                ChannelLogConfigurationForChannelArgs._configure(_setter, **log_configuration)
+            log_configuration = _utilities.configure(log_configuration, ChannelLogConfigurationForChannelArgs, True)
             __props__.__dict__["log_configuration"] = log_configuration
             if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")

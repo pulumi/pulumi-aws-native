@@ -41,7 +41,15 @@ class UserArgs:
              authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_string is None and 'accessString' in kwargs:
+            access_string = kwargs['accessString']
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if access_string is not None:
             _setter("access_string", access_string)
         if authentication_mode is not None:
@@ -158,11 +166,7 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             __props__.__dict__["access_string"] = access_string
-            if authentication_mode is not None and not isinstance(authentication_mode, AuthenticationModePropertiesArgs):
-                authentication_mode = authentication_mode or {}
-                def _setter(key, value):
-                    authentication_mode[key] = value
-                AuthenticationModePropertiesArgs._configure(_setter, **authentication_mode)
+            authentication_mode = _utilities.configure(authentication_mode, AuthenticationModePropertiesArgs, True)
             __props__.__dict__["authentication_mode"] = authentication_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_name"] = user_name

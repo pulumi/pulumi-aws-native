@@ -55,9 +55,15 @@ class AccessLogSubscriptionTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -104,7 +110,11 @@ class ListenerDefaultAction(dict):
              _setter: Callable[[Any, Any], None],
              fixed_response: Optional['outputs.ListenerFixedResponse'] = None,
              forward: Optional['outputs.ListenerForward'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fixed_response is None and 'fixedResponse' in kwargs:
+            fixed_response = kwargs['fixedResponse']
+
         if fixed_response is not None:
             _setter("fixed_response", fixed_response)
         if forward is not None:
@@ -149,8 +159,14 @@ class ListenerFixedResponse(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status_code: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status_code: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
+
         _setter("status_code", status_code)
 
     @property
@@ -187,8 +203,14 @@ class ListenerForward(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_groups: Sequence['outputs.ListenerWeightedTargetGroup'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             target_groups: Optional[Sequence['outputs.ListenerWeightedTargetGroup']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_groups is None and 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+        if target_groups is None:
+            raise TypeError("Missing 'target_groups' argument")
+
         _setter("target_groups", target_groups)
 
     @property
@@ -210,9 +232,15 @@ class ListenerTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -257,9 +285,15 @@ class ListenerWeightedTargetGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_group_identifier: str,
+             target_group_identifier: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_group_identifier is None and 'targetGroupIdentifier' in kwargs:
+            target_group_identifier = kwargs['targetGroupIdentifier']
+        if target_group_identifier is None:
+            raise TypeError("Missing 'target_group_identifier' argument")
+
         _setter("target_group_identifier", target_group_identifier)
         if weight is not None:
             _setter("weight", weight)
@@ -307,7 +341,11 @@ class RuleAction(dict):
              _setter: Callable[[Any, Any], None],
              fixed_response: Optional['outputs.RuleFixedResponse'] = None,
              forward: Optional['outputs.RuleForward'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fixed_response is None and 'fixedResponse' in kwargs:
+            fixed_response = kwargs['fixedResponse']
+
         if fixed_response is not None:
             _setter("fixed_response", fixed_response)
         if forward is not None:
@@ -352,8 +390,14 @@ class RuleFixedResponse(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status_code: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             status_code: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status_code is None and 'statusCode' in kwargs:
+            status_code = kwargs['statusCode']
+        if status_code is None:
+            raise TypeError("Missing 'status_code' argument")
+
         _setter("status_code", status_code)
 
     @property
@@ -390,8 +434,14 @@ class RuleForward(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_groups: Sequence['outputs.RuleWeightedTargetGroup'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             target_groups: Optional[Sequence['outputs.RuleWeightedTargetGroup']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_groups is None and 'targetGroups' in kwargs:
+            target_groups = kwargs['targetGroups']
+        if target_groups is None:
+            raise TypeError("Missing 'target_groups' argument")
+
         _setter("target_groups", target_groups)
 
     @property
@@ -432,10 +482,18 @@ class RuleHeaderMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match: 'outputs.RuleHeaderMatchType',
-             name: str,
+             match: Optional['outputs.RuleHeaderMatchType'] = None,
+             name: Optional[str] = None,
              case_sensitive: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match is None:
+            raise TypeError("Missing 'match' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if case_sensitive is None and 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+
         _setter("match", match)
         _setter("name", name)
         if case_sensitive is not None:
@@ -475,7 +533,9 @@ class RuleHeaderMatchType(dict):
              contains: Optional[str] = None,
              exact: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if contains is not None:
             _setter("contains", contains)
         if exact is not None:
@@ -536,7 +596,13 @@ class RuleHttpMatch(dict):
              header_matches: Optional[Sequence['outputs.RuleHeaderMatch']] = None,
              method: Optional['RuleHttpMatchMethod'] = None,
              path_match: Optional['outputs.RulePathMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if header_matches is None and 'headerMatches' in kwargs:
+            header_matches = kwargs['headerMatches']
+        if path_match is None and 'pathMatch' in kwargs:
+            path_match = kwargs['pathMatch']
+
         if header_matches is not None:
             _setter("header_matches", header_matches)
         if method is not None:
@@ -588,8 +654,14 @@ class RuleMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             http_match: 'outputs.RuleHttpMatch',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             http_match: Optional['outputs.RuleHttpMatch'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_match is None and 'httpMatch' in kwargs:
+            http_match = kwargs['httpMatch']
+        if http_match is None:
+            raise TypeError("Missing 'http_match' argument")
+
         _setter("http_match", http_match)
 
     @property
@@ -628,9 +700,15 @@ class RulePathMatch(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             match: 'outputs.RulePathMatchType',
+             match: Optional['outputs.RulePathMatchType'] = None,
              case_sensitive: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match is None:
+            raise TypeError("Missing 'match' argument")
+        if case_sensitive is None and 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+
         _setter("match", match)
         if case_sensitive is not None:
             _setter("case_sensitive", case_sensitive)
@@ -661,7 +739,9 @@ class RulePathMatchType(dict):
              _setter: Callable[[Any, Any], None],
              exact: Optional[str] = None,
              prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if exact is not None:
             _setter("exact", exact)
         if prefix is not None:
@@ -691,9 +771,15 @@ class RuleTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -738,9 +824,15 @@ class RuleWeightedTargetGroup(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_group_identifier: str,
+             target_group_identifier: Optional[str] = None,
              weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_group_identifier is None and 'targetGroupIdentifier' in kwargs:
+            target_group_identifier = kwargs['targetGroupIdentifier']
+        if target_group_identifier is None:
+            raise TypeError("Missing 'target_group_identifier' argument")
+
         _setter("target_group_identifier", target_group_identifier)
         if weight is not None:
             _setter("weight", weight)
@@ -790,7 +882,13 @@ class ServiceDnsEntry(dict):
              _setter: Callable[[Any, Any], None],
              domain_name: Optional[str] = None,
              hosted_zone_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -841,7 +939,13 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
              _setter: Callable[[Any, Any], None],
              domain_name: Optional[str] = None,
              hosted_zone_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if hosted_zone_id is not None:
@@ -871,9 +975,15 @@ class ServiceNetworkServiceAssociationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -901,9 +1011,15 @@ class ServiceNetworkTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -931,9 +1047,15 @@ class ServiceNetworkVpcAssociationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -961,9 +1083,15 @@ class ServiceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1033,7 +1161,19 @@ class TargetGroupConfig(dict):
              protocol: Optional['TargetGroupConfigProtocol'] = None,
              protocol_version: Optional['TargetGroupConfigProtocolVersion'] = None,
              vpc_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check is None and 'healthCheck' in kwargs:
+            health_check = kwargs['healthCheck']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if lambda_event_structure_version is None and 'lambdaEventStructureVersion' in kwargs:
+            lambda_event_structure_version = kwargs['lambdaEventStructureVersion']
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if vpc_identifier is None and 'vpcIdentifier' in kwargs:
+            vpc_identifier = kwargs['vpcIdentifier']
+
         if health_check is not None:
             _setter("health_check", health_check)
         if ip_address_type is not None:
@@ -1149,7 +1289,19 @@ class TargetGroupHealthCheckConfig(dict):
              protocol: Optional['TargetGroupHealthCheckConfigProtocol'] = None,
              protocol_version: Optional['TargetGroupHealthCheckConfigProtocolVersion'] = None,
              unhealthy_threshold_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check_interval_seconds is None and 'healthCheckIntervalSeconds' in kwargs:
+            health_check_interval_seconds = kwargs['healthCheckIntervalSeconds']
+        if health_check_timeout_seconds is None and 'healthCheckTimeoutSeconds' in kwargs:
+            health_check_timeout_seconds = kwargs['healthCheckTimeoutSeconds']
+        if healthy_threshold_count is None and 'healthyThresholdCount' in kwargs:
+            healthy_threshold_count = kwargs['healthyThresholdCount']
+        if protocol_version is None and 'protocolVersion' in kwargs:
+            protocol_version = kwargs['protocolVersion']
+        if unhealthy_threshold_count is None and 'unhealthyThresholdCount' in kwargs:
+            unhealthy_threshold_count = kwargs['unhealthyThresholdCount']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if health_check_interval_seconds is not None:
@@ -1250,8 +1402,14 @@ class TargetGroupMatcher(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             http_code: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             http_code: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_code is None and 'httpCode' in kwargs:
+            http_code = kwargs['httpCode']
+        if http_code is None:
+            raise TypeError("Missing 'http_code' argument")
+
         _setter("http_code", http_code)
 
     @property
@@ -1273,9 +1431,15 @@ class TargetGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1303,9 +1467,13 @@ class TargetGroupTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
+             id: Optional[str] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("id", id)
         if port is not None:
             _setter("port", port)

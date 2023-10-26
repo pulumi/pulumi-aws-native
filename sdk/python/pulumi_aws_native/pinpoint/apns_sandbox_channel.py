@@ -41,7 +41,7 @@ class ApnsSandboxChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
              bundle_id: Optional[pulumi.Input[str]] = None,
              certificate: Optional[pulumi.Input[str]] = None,
              default_authentication_method: Optional[pulumi.Input[str]] = None,
@@ -50,7 +50,25 @@ class ApnsSandboxChannelArgs:
              team_id: Optional[pulumi.Input[str]] = None,
              token_key: Optional[pulumi.Input[str]] = None,
              token_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if default_authentication_method is None and 'defaultAuthenticationMethod' in kwargs:
+            default_authentication_method = kwargs['defaultAuthenticationMethod']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if token_key is None and 'tokenKey' in kwargs:
+            token_key = kwargs['tokenKey']
+        if token_key_id is None and 'tokenKeyId' in kwargs:
+            token_key_id = kwargs['tokenKeyId']
+
         _setter("application_id", application_id)
         if bundle_id is not None:
             _setter("bundle_id", bundle_id)

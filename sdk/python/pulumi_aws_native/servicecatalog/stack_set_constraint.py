@@ -41,16 +41,50 @@ class StackSetConstraintArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_list: pulumi.Input[Sequence[pulumi.Input[str]]],
-             admin_role: pulumi.Input[str],
-             description: pulumi.Input[str],
-             execution_role: pulumi.Input[str],
-             portfolio_id: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             region_list: pulumi.Input[Sequence[pulumi.Input[str]]],
-             stack_instance_control: pulumi.Input[str],
+             account_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             admin_role: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             execution_role: Optional[pulumi.Input[str]] = None,
+             portfolio_id: Optional[pulumi.Input[str]] = None,
+             product_id: Optional[pulumi.Input[str]] = None,
+             region_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             stack_instance_control: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_list is None and 'accountList' in kwargs:
+            account_list = kwargs['accountList']
+        if account_list is None:
+            raise TypeError("Missing 'account_list' argument")
+        if admin_role is None and 'adminRole' in kwargs:
+            admin_role = kwargs['adminRole']
+        if admin_role is None:
+            raise TypeError("Missing 'admin_role' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if execution_role is None and 'executionRole' in kwargs:
+            execution_role = kwargs['executionRole']
+        if execution_role is None:
+            raise TypeError("Missing 'execution_role' argument")
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if region_list is None and 'regionList' in kwargs:
+            region_list = kwargs['regionList']
+        if region_list is None:
+            raise TypeError("Missing 'region_list' argument")
+        if stack_instance_control is None and 'stackInstanceControl' in kwargs:
+            stack_instance_control = kwargs['stackInstanceControl']
+        if stack_instance_control is None:
+            raise TypeError("Missing 'stack_instance_control' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+
         _setter("account_list", account_list)
         _setter("admin_role", admin_role)
         _setter("description", description)

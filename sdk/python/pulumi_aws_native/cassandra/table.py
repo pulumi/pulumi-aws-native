@@ -57,8 +57,8 @@ class TableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             keyspace_name: pulumi.Input[str],
-             partition_key_columns: pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]],
+             keyspace_name: Optional[pulumi.Input[str]] = None,
+             partition_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
              billing_mode: Optional[pulumi.Input['TableBillingModeArgs']] = None,
              client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
              clustering_key_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]] = None,
@@ -68,7 +68,33 @@ class TableArgs:
              regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
              table_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if keyspace_name is None and 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if keyspace_name is None:
+            raise TypeError("Missing 'keyspace_name' argument")
+        if partition_key_columns is None and 'partitionKeyColumns' in kwargs:
+            partition_key_columns = kwargs['partitionKeyColumns']
+        if partition_key_columns is None:
+            raise TypeError("Missing 'partition_key_columns' argument")
+        if billing_mode is None and 'billingMode' in kwargs:
+            billing_mode = kwargs['billingMode']
+        if client_side_timestamps_enabled is None and 'clientSideTimestampsEnabled' in kwargs:
+            client_side_timestamps_enabled = kwargs['clientSideTimestampsEnabled']
+        if clustering_key_columns is None and 'clusteringKeyColumns' in kwargs:
+            clustering_key_columns = kwargs['clusteringKeyColumns']
+        if default_time_to_live is None and 'defaultTimeToLive' in kwargs:
+            default_time_to_live = kwargs['defaultTimeToLive']
+        if encryption_specification is None and 'encryptionSpecification' in kwargs:
+            encryption_specification = kwargs['encryptionSpecification']
+        if point_in_time_recovery_enabled is None and 'pointInTimeRecoveryEnabled' in kwargs:
+            point_in_time_recovery_enabled = kwargs['pointInTimeRecoveryEnabled']
+        if regular_columns is None and 'regularColumns' in kwargs:
+            regular_columns = kwargs['regularColumns']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("keyspace_name", keyspace_name)
         _setter("partition_key_columns", partition_key_columns)
         if billing_mode is not None:
@@ -297,20 +323,12 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TableArgs.__new__(TableArgs)
 
-            if billing_mode is not None and not isinstance(billing_mode, TableBillingModeArgs):
-                billing_mode = billing_mode or {}
-                def _setter(key, value):
-                    billing_mode[key] = value
-                TableBillingModeArgs._configure(_setter, **billing_mode)
+            billing_mode = _utilities.configure(billing_mode, TableBillingModeArgs, True)
             __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["client_side_timestamps_enabled"] = client_side_timestamps_enabled
             __props__.__dict__["clustering_key_columns"] = clustering_key_columns
             __props__.__dict__["default_time_to_live"] = default_time_to_live
-            if encryption_specification is not None and not isinstance(encryption_specification, TableEncryptionSpecificationArgs):
-                encryption_specification = encryption_specification or {}
-                def _setter(key, value):
-                    encryption_specification[key] = value
-                TableEncryptionSpecificationArgs._configure(_setter, **encryption_specification)
+            encryption_specification = _utilities.configure(encryption_specification, TableEncryptionSpecificationArgs, True)
             __props__.__dict__["encryption_specification"] = encryption_specification
             if keyspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'keyspace_name'")

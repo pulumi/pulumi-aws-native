@@ -33,11 +33,17 @@ class DomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             server_side_encryption_configuration: pulumi.Input['DomainServerSideEncryptionConfigurationArgs'],
+             server_side_encryption_configuration: Optional[pulumi.Input['DomainServerSideEncryptionConfigurationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if server_side_encryption_configuration is None and 'serverSideEncryptionConfiguration' in kwargs:
+            server_side_encryption_configuration = kwargs['serverSideEncryptionConfiguration']
+        if server_side_encryption_configuration is None:
+            raise TypeError("Missing 'server_side_encryption_configuration' argument")
+
         _setter("server_side_encryption_configuration", server_side_encryption_configuration)
         if description is not None:
             _setter("description", description)
@@ -142,11 +148,7 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if server_side_encryption_configuration is not None and not isinstance(server_side_encryption_configuration, DomainServerSideEncryptionConfigurationArgs):
-                server_side_encryption_configuration = server_side_encryption_configuration or {}
-                def _setter(key, value):
-                    server_side_encryption_configuration[key] = value
-                DomainServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
+            server_side_encryption_configuration = _utilities.configure(server_side_encryption_configuration, DomainServerSideEncryptionConfigurationArgs, True)
             if server_side_encryption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'server_side_encryption_configuration'")
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration

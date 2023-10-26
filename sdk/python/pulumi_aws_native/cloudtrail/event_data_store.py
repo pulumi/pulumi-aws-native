@@ -60,7 +60,23 @@ class EventDataStoreArgs:
              retention_period: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreTagArgs']]]] = None,
              termination_protection_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if advanced_event_selectors is None and 'advancedEventSelectors' in kwargs:
+            advanced_event_selectors = kwargs['advancedEventSelectors']
+        if ingestion_enabled is None and 'ingestionEnabled' in kwargs:
+            ingestion_enabled = kwargs['ingestionEnabled']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if multi_region_enabled is None and 'multiRegionEnabled' in kwargs:
+            multi_region_enabled = kwargs['multiRegionEnabled']
+        if organization_enabled is None and 'organizationEnabled' in kwargs:
+            organization_enabled = kwargs['organizationEnabled']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if termination_protection_enabled is None and 'terminationProtectionEnabled' in kwargs:
+            termination_protection_enabled = kwargs['terminationProtectionEnabled']
+
         if advanced_event_selectors is not None:
             _setter("advanced_event_selectors", advanced_event_selectors)
         if ingestion_enabled is not None:

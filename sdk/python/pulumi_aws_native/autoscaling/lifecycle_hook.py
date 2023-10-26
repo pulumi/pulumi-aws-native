@@ -47,15 +47,37 @@ class LifecycleHookArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
-             lifecycle_transition: pulumi.Input[str],
+             auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
+             lifecycle_transition: Optional[pulumi.Input[str]] = None,
              default_result: Optional[pulumi.Input[str]] = None,
              heartbeat_timeout: Optional[pulumi.Input[int]] = None,
              lifecycle_hook_name: Optional[pulumi.Input[str]] = None,
              notification_metadata: Optional[pulumi.Input[str]] = None,
              notification_target_arn: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_name is None and 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if auto_scaling_group_name is None:
+            raise TypeError("Missing 'auto_scaling_group_name' argument")
+        if lifecycle_transition is None and 'lifecycleTransition' in kwargs:
+            lifecycle_transition = kwargs['lifecycleTransition']
+        if lifecycle_transition is None:
+            raise TypeError("Missing 'lifecycle_transition' argument")
+        if default_result is None and 'defaultResult' in kwargs:
+            default_result = kwargs['defaultResult']
+        if heartbeat_timeout is None and 'heartbeatTimeout' in kwargs:
+            heartbeat_timeout = kwargs['heartbeatTimeout']
+        if lifecycle_hook_name is None and 'lifecycleHookName' in kwargs:
+            lifecycle_hook_name = kwargs['lifecycleHookName']
+        if notification_metadata is None and 'notificationMetadata' in kwargs:
+            notification_metadata = kwargs['notificationMetadata']
+        if notification_target_arn is None and 'notificationTargetArn' in kwargs:
+            notification_target_arn = kwargs['notificationTargetArn']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         _setter("lifecycle_transition", lifecycle_transition)
         if default_result is not None:

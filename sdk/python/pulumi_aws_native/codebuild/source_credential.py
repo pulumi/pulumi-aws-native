@@ -31,11 +31,23 @@ class SourceCredentialArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_type: pulumi.Input[str],
-             server_type: pulumi.Input[str],
-             token: pulumi.Input[str],
+             auth_type: Optional[pulumi.Input[str]] = None,
+             server_type: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if auth_type is None:
+            raise TypeError("Missing 'auth_type' argument")
+        if server_type is None and 'serverType' in kwargs:
+            server_type = kwargs['serverType']
+        if server_type is None:
+            raise TypeError("Missing 'server_type' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
         _setter("auth_type", auth_type)
         _setter("server_type", server_type)
         _setter("token", token)

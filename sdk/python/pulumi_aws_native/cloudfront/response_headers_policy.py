@@ -27,8 +27,14 @@ class ResponseHeadersPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             response_headers_policy_config: pulumi.Input['ResponseHeadersPolicyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             response_headers_policy_config: Optional[pulumi.Input['ResponseHeadersPolicyConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if response_headers_policy_config is None and 'responseHeadersPolicyConfig' in kwargs:
+            response_headers_policy_config = kwargs['responseHeadersPolicyConfig']
+        if response_headers_policy_config is None:
+            raise TypeError("Missing 'response_headers_policy_config' argument")
+
         _setter("response_headers_policy_config", response_headers_policy_config)
 
     @property
@@ -92,11 +98,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResponseHeadersPolicyArgs.__new__(ResponseHeadersPolicyArgs)
 
-            if response_headers_policy_config is not None and not isinstance(response_headers_policy_config, ResponseHeadersPolicyConfigArgs):
-                response_headers_policy_config = response_headers_policy_config or {}
-                def _setter(key, value):
-                    response_headers_policy_config[key] = value
-                ResponseHeadersPolicyConfigArgs._configure(_setter, **response_headers_policy_config)
+            response_headers_policy_config = _utilities.configure(response_headers_policy_config, ResponseHeadersPolicyConfigArgs, True)
             if response_headers_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'response_headers_policy_config'")
             __props__.__dict__["response_headers_policy_config"] = response_headers_policy_config

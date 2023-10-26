@@ -61,7 +61,9 @@ class CertificateApiPassthrough(dict):
              _setter: Callable[[Any, Any], None],
              extensions: Optional['outputs.CertificateExtensions'] = None,
              subject: Optional['outputs.CertificateSubject'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if extensions is not None:
             _setter("extensions", extensions)
         if subject is not None:
@@ -116,9 +118,19 @@ class CertificateAuthorityAccessDescription(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             access_location: 'outputs.CertificateAuthorityGeneralName',
-             access_method: 'outputs.CertificateAuthorityAccessMethod',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             access_location: Optional['outputs.CertificateAuthorityGeneralName'] = None,
+             access_method: Optional['outputs.CertificateAuthorityAccessMethod'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_location is None and 'accessLocation' in kwargs:
+            access_location = kwargs['accessLocation']
+        if access_location is None:
+            raise TypeError("Missing 'access_location' argument")
+        if access_method is None and 'accessMethod' in kwargs:
+            access_method = kwargs['accessMethod']
+        if access_method is None:
+            raise TypeError("Missing 'access_method' argument")
+
         _setter("access_location", access_location)
         _setter("access_method", access_method)
 
@@ -173,7 +185,13 @@ class CertificateAuthorityAccessMethod(dict):
              _setter: Callable[[Any, Any], None],
              access_method_type: Optional[str] = None,
              custom_object_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_method_type is None and 'accessMethodType' in kwargs:
+            access_method_type = kwargs['accessMethodType']
+        if custom_object_identifier is None and 'customObjectIdentifier' in kwargs:
+            custom_object_identifier = kwargs['customObjectIdentifier']
+
         if access_method_type is not None:
             _setter("access_method_type", access_method_type)
         if custom_object_identifier is not None:
@@ -243,7 +261,17 @@ class CertificateAuthorityCrlConfiguration(dict):
              expiration_in_days: Optional[int] = None,
              s3_bucket_name: Optional[str] = None,
              s3_object_acl: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if custom_cname is None and 'customCname' in kwargs:
+            custom_cname = kwargs['customCname']
+        if expiration_in_days is None and 'expirationInDays' in kwargs:
+            expiration_in_days = kwargs['expirationInDays']
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_object_acl is None and 's3ObjectAcl' in kwargs:
+            s3_object_acl = kwargs['s3ObjectAcl']
+
         if custom_cname is not None:
             _setter("custom_cname", custom_cname)
         if enabled is not None:
@@ -321,7 +349,13 @@ class CertificateAuthorityCsrExtensions(dict):
              _setter: Callable[[Any, Any], None],
              key_usage: Optional['outputs.CertificateAuthorityKeyUsage'] = None,
              subject_information_access: Optional[Sequence['outputs.CertificateAuthorityAccessDescription']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_usage is None and 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if subject_information_access is None and 'subjectInformationAccess' in kwargs:
+            subject_information_access = kwargs['subjectInformationAccess']
+
         if key_usage is not None:
             _setter("key_usage", key_usage)
         if subject_information_access is not None:
@@ -374,9 +408,17 @@ class CertificateAuthorityCustomAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_identifier: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object_identifier: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_identifier is None and 'objectIdentifier' in kwargs:
+            object_identifier = kwargs['objectIdentifier']
+        if object_identifier is None:
+            raise TypeError("Missing 'object_identifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("object_identifier", object_identifier)
         _setter("value", value)
 
@@ -429,9 +471,19 @@ class CertificateAuthorityEdiPartyName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name_assigner: str,
-             party_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name_assigner: Optional[str] = None,
+             party_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_assigner is None and 'nameAssigner' in kwargs:
+            name_assigner = kwargs['nameAssigner']
+        if name_assigner is None:
+            raise TypeError("Missing 'name_assigner' argument")
+        if party_name is None and 'partyName' in kwargs:
+            party_name = kwargs['partyName']
+        if party_name is None:
+            raise TypeError("Missing 'party_name' argument")
+
         _setter("name_assigner", name_assigner)
         _setter("party_name", party_name)
 
@@ -516,7 +568,25 @@ class CertificateAuthorityGeneralName(dict):
              registered_id: Optional[str] = None,
              rfc822_name: Optional[str] = None,
              uniform_resource_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_name is None and 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if edi_party_name is None and 'ediPartyName' in kwargs:
+            edi_party_name = kwargs['ediPartyName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if other_name is None and 'otherName' in kwargs:
+            other_name = kwargs['otherName']
+        if registered_id is None and 'registeredId' in kwargs:
+            registered_id = kwargs['registeredId']
+        if rfc822_name is None and 'rfc822Name' in kwargs:
+            rfc822_name = kwargs['rfc822Name']
+        if uniform_resource_identifier is None and 'uniformResourceIdentifier' in kwargs:
+            uniform_resource_identifier = kwargs['uniformResourceIdentifier']
+
         if directory_name is not None:
             _setter("directory_name", directory_name)
         if dns_name is not None:
@@ -650,7 +720,27 @@ class CertificateAuthorityKeyUsage(dict):
              key_cert_sign: Optional[bool] = None,
              key_encipherment: Optional[bool] = None,
              non_repudiation: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crl_sign is None and 'crlSign' in kwargs:
+            crl_sign = kwargs['crlSign']
+        if data_encipherment is None and 'dataEncipherment' in kwargs:
+            data_encipherment = kwargs['dataEncipherment']
+        if decipher_only is None and 'decipherOnly' in kwargs:
+            decipher_only = kwargs['decipherOnly']
+        if digital_signature is None and 'digitalSignature' in kwargs:
+            digital_signature = kwargs['digitalSignature']
+        if encipher_only is None and 'encipherOnly' in kwargs:
+            encipher_only = kwargs['encipherOnly']
+        if key_agreement is None and 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+        if key_cert_sign is None and 'keyCertSign' in kwargs:
+            key_cert_sign = kwargs['keyCertSign']
+        if key_encipherment is None and 'keyEncipherment' in kwargs:
+            key_encipherment = kwargs['keyEncipherment']
+        if non_repudiation is None and 'nonRepudiation' in kwargs:
+            non_repudiation = kwargs['nonRepudiation']
+
         if crl_sign is not None:
             _setter("crl_sign", crl_sign)
         if data_encipherment is not None:
@@ -754,7 +844,11 @@ class CertificateAuthorityOcspConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              ocsp_custom_cname: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ocsp_custom_cname is None and 'ocspCustomCname' in kwargs:
+            ocsp_custom_cname = kwargs['ocspCustomCname']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if ocsp_custom_cname is not None:
@@ -807,9 +901,17 @@ class CertificateAuthorityOtherName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type_id: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type_id: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type_id is None and 'typeId' in kwargs:
+            type_id = kwargs['typeId']
+        if type_id is None:
+            raise TypeError("Missing 'type_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type_id", type_id)
         _setter("value", value)
 
@@ -864,7 +966,13 @@ class CertificateAuthorityRevocationConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              crl_configuration: Optional['outputs.CertificateAuthorityCrlConfiguration'] = None,
              ocsp_configuration: Optional['outputs.CertificateAuthorityOcspConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crl_configuration is None and 'crlConfiguration' in kwargs:
+            crl_configuration = kwargs['crlConfiguration']
+        if ocsp_configuration is None and 'ocspConfiguration' in kwargs:
+            ocsp_configuration = kwargs['ocspConfiguration']
+
         if crl_configuration is not None:
             _setter("crl_configuration", crl_configuration)
         if ocsp_configuration is not None:
@@ -970,7 +1078,23 @@ class CertificateAuthoritySubject(dict):
              state: Optional[str] = None,
              surname: Optional[str] = None,
              title: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if custom_attributes is None and 'customAttributes' in kwargs:
+            custom_attributes = kwargs['customAttributes']
+        if distinguished_name_qualifier is None and 'distinguishedNameQualifier' in kwargs:
+            distinguished_name_qualifier = kwargs['distinguishedNameQualifier']
+        if generation_qualifier is None and 'generationQualifier' in kwargs:
+            generation_qualifier = kwargs['generationQualifier']
+        if given_name is None and 'givenName' in kwargs:
+            given_name = kwargs['givenName']
+        if organizational_unit is None and 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         if common_name is not None:
             _setter("common_name", common_name)
         if country is not None:
@@ -1093,7 +1217,9 @@ class CertificateAuthorityTag(dict):
              _setter: Callable[[Any, Any], None],
              key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1146,9 +1272,17 @@ class CertificateCustomAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_identifier: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object_identifier: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_identifier is None and 'objectIdentifier' in kwargs:
+            object_identifier = kwargs['objectIdentifier']
+        if object_identifier is None:
+            raise TypeError("Missing 'object_identifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("object_identifier", object_identifier)
         _setter("value", value)
 
@@ -1201,10 +1335,18 @@ class CertificateCustomExtension(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_identifier: str,
-             value: str,
+             object_identifier: Optional[str] = None,
+             value: Optional[str] = None,
              critical: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_identifier is None and 'objectIdentifier' in kwargs:
+            object_identifier = kwargs['objectIdentifier']
+        if object_identifier is None:
+            raise TypeError("Missing 'object_identifier' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("object_identifier", object_identifier)
         _setter("value", value)
         if critical is not None:
@@ -1264,9 +1406,19 @@ class CertificateEdiPartyName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name_assigner: str,
-             party_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name_assigner: Optional[str] = None,
+             party_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_assigner is None and 'nameAssigner' in kwargs:
+            name_assigner = kwargs['nameAssigner']
+        if name_assigner is None:
+            raise TypeError("Missing 'name_assigner' argument")
+        if party_name is None and 'partyName' in kwargs:
+            party_name = kwargs['partyName']
+        if party_name is None:
+            raise TypeError("Missing 'party_name' argument")
+
         _setter("name_assigner", name_assigner)
         _setter("party_name", party_name)
 
@@ -1321,7 +1473,13 @@ class CertificateExtendedKeyUsage(dict):
              _setter: Callable[[Any, Any], None],
              extended_key_usage_object_identifier: Optional[str] = None,
              extended_key_usage_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if extended_key_usage_object_identifier is None and 'extendedKeyUsageObjectIdentifier' in kwargs:
+            extended_key_usage_object_identifier = kwargs['extendedKeyUsageObjectIdentifier']
+        if extended_key_usage_type is None and 'extendedKeyUsageType' in kwargs:
+            extended_key_usage_type = kwargs['extendedKeyUsageType']
+
         if extended_key_usage_object_identifier is not None:
             _setter("extended_key_usage_object_identifier", extended_key_usage_object_identifier)
         if extended_key_usage_type is not None:
@@ -1393,7 +1551,19 @@ class CertificateExtensions(dict):
              extended_key_usage: Optional[Sequence['outputs.CertificateExtendedKeyUsage']] = None,
              key_usage: Optional['outputs.CertificateKeyUsage'] = None,
              subject_alternative_names: Optional[Sequence['outputs.CertificateGeneralName']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_policies is None and 'certificatePolicies' in kwargs:
+            certificate_policies = kwargs['certificatePolicies']
+        if custom_extensions is None and 'customExtensions' in kwargs:
+            custom_extensions = kwargs['customExtensions']
+        if extended_key_usage is None and 'extendedKeyUsage' in kwargs:
+            extended_key_usage = kwargs['extendedKeyUsage']
+        if key_usage is None and 'keyUsage' in kwargs:
+            key_usage = kwargs['keyUsage']
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+
         if certificate_policies is not None:
             _setter("certificate_policies", certificate_policies)
         if custom_extensions is not None:
@@ -1501,7 +1671,25 @@ class CertificateGeneralName(dict):
              registered_id: Optional[str] = None,
              rfc822_name: Optional[str] = None,
              uniform_resource_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if directory_name is None and 'directoryName' in kwargs:
+            directory_name = kwargs['directoryName']
+        if dns_name is None and 'dnsName' in kwargs:
+            dns_name = kwargs['dnsName']
+        if edi_party_name is None and 'ediPartyName' in kwargs:
+            edi_party_name = kwargs['ediPartyName']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if other_name is None and 'otherName' in kwargs:
+            other_name = kwargs['otherName']
+        if registered_id is None and 'registeredId' in kwargs:
+            registered_id = kwargs['registeredId']
+        if rfc822_name is None and 'rfc822Name' in kwargs:
+            rfc822_name = kwargs['rfc822Name']
+        if uniform_resource_identifier is None and 'uniformResourceIdentifier' in kwargs:
+            uniform_resource_identifier = kwargs['uniformResourceIdentifier']
+
         if directory_name is not None:
             _setter("directory_name", directory_name)
         if dns_name is not None:
@@ -1635,7 +1823,27 @@ class CertificateKeyUsage(dict):
              key_cert_sign: Optional[bool] = None,
              key_encipherment: Optional[bool] = None,
              non_repudiation: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crl_sign is None and 'crlSign' in kwargs:
+            crl_sign = kwargs['crlSign']
+        if data_encipherment is None and 'dataEncipherment' in kwargs:
+            data_encipherment = kwargs['dataEncipherment']
+        if decipher_only is None and 'decipherOnly' in kwargs:
+            decipher_only = kwargs['decipherOnly']
+        if digital_signature is None and 'digitalSignature' in kwargs:
+            digital_signature = kwargs['digitalSignature']
+        if encipher_only is None and 'encipherOnly' in kwargs:
+            encipher_only = kwargs['encipherOnly']
+        if key_agreement is None and 'keyAgreement' in kwargs:
+            key_agreement = kwargs['keyAgreement']
+        if key_cert_sign is None and 'keyCertSign' in kwargs:
+            key_cert_sign = kwargs['keyCertSign']
+        if key_encipherment is None and 'keyEncipherment' in kwargs:
+            key_encipherment = kwargs['keyEncipherment']
+        if non_repudiation is None and 'nonRepudiation' in kwargs:
+            non_repudiation = kwargs['nonRepudiation']
+
         if crl_sign is not None:
             _setter("crl_sign", crl_sign)
         if data_encipherment is not None:
@@ -1737,9 +1945,17 @@ class CertificateOtherName(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type_id: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type_id: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type_id is None and 'typeId' in kwargs:
+            type_id = kwargs['typeId']
+        if type_id is None:
+            raise TypeError("Missing 'type_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type_id", type_id)
         _setter("value", value)
 
@@ -1792,9 +2008,17 @@ class CertificatePolicyInformation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cert_policy_id: str,
+             cert_policy_id: Optional[str] = None,
              policy_qualifiers: Optional[Sequence['outputs.CertificatePolicyQualifierInfo']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cert_policy_id is None and 'certPolicyId' in kwargs:
+            cert_policy_id = kwargs['certPolicyId']
+        if cert_policy_id is None:
+            raise TypeError("Missing 'cert_policy_id' argument")
+        if policy_qualifiers is None and 'policyQualifiers' in kwargs:
+            policy_qualifiers = kwargs['policyQualifiers']
+
         _setter("cert_policy_id", cert_policy_id)
         if policy_qualifiers is not None:
             _setter("policy_qualifiers", policy_qualifiers)
@@ -1846,9 +2070,17 @@ class CertificatePolicyQualifierInfo(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_qualifier_id: str,
-             qualifier: 'outputs.CertificateQualifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_qualifier_id: Optional[str] = None,
+             qualifier: Optional['outputs.CertificateQualifier'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_qualifier_id is None and 'policyQualifierId' in kwargs:
+            policy_qualifier_id = kwargs['policyQualifierId']
+        if policy_qualifier_id is None:
+            raise TypeError("Missing 'policy_qualifier_id' argument")
+        if qualifier is None:
+            raise TypeError("Missing 'qualifier' argument")
+
         _setter("policy_qualifier_id", policy_qualifier_id)
         _setter("qualifier", qualifier)
 
@@ -1897,8 +2129,14 @@ class CertificateQualifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cps_uri: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cps_uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cps_uri is None and 'cpsUri' in kwargs:
+            cps_uri = kwargs['cpsUri']
+        if cps_uri is None:
+            raise TypeError("Missing 'cps_uri' argument")
+
         _setter("cps_uri", cps_uri)
 
     @property
@@ -1996,7 +2234,23 @@ class CertificateSubject(dict):
              state: Optional[str] = None,
              surname: Optional[str] = None,
              title: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if custom_attributes is None and 'customAttributes' in kwargs:
+            custom_attributes = kwargs['customAttributes']
+        if distinguished_name_qualifier is None and 'distinguishedNameQualifier' in kwargs:
+            distinguished_name_qualifier = kwargs['distinguishedNameQualifier']
+        if generation_qualifier is None and 'generationQualifier' in kwargs:
+            generation_qualifier = kwargs['generationQualifier']
+        if given_name is None and 'givenName' in kwargs:
+            given_name = kwargs['givenName']
+        if organizational_unit is None and 'organizationalUnit' in kwargs:
+            organizational_unit = kwargs['organizationalUnit']
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
         if common_name is not None:
             _setter("common_name", common_name)
         if country is not None:
@@ -2123,9 +2377,15 @@ class CertificateValidity(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: str,
-             value: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             type: Optional[str] = None,
+             value: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("type", type)
         _setter("value", value)
 

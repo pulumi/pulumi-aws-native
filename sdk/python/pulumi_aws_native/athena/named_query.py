@@ -38,12 +38,22 @@ class NamedQueryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database: pulumi.Input[str],
-             query_string: pulumi.Input[str],
+             database: Optional[pulumi.Input[str]] = None,
+             query_string: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              work_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if work_group is None and 'workGroup' in kwargs:
+            work_group = kwargs['workGroup']
+
         _setter("database", database)
         _setter("query_string", query_string)
         if description is not None:

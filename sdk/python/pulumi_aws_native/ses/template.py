@@ -28,7 +28,9 @@ class TemplateInitArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              template: Optional[pulumi.Input['TemplateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if template is not None:
             _setter("template", template)
 
@@ -93,11 +95,7 @@ class Template(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateInitArgs.__new__(TemplateInitArgs)
 
-            if template is not None and not isinstance(template, TemplateArgs):
-                template = template or {}
-                def _setter(key, value):
-                    template[key] = value
-                TemplateArgs._configure(_setter, **template)
+            template = _utilities.configure(template, TemplateArgs, True)
             __props__.__dict__["template"] = template
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["template.template_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

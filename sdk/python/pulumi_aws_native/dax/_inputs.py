@@ -25,7 +25,11 @@ class ClusterSseSpecificationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              sse_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sse_enabled is None and 'sseEnabled' in kwargs:
+            sse_enabled = kwargs['sseEnabled']
+
         if sse_enabled is not None:
             _setter("sse_enabled", sse_enabled)
 

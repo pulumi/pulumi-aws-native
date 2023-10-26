@@ -29,9 +29,19 @@ class TransitGatewayRegistrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             global_network_id: pulumi.Input[str],
-             transit_gateway_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             global_network_id: Optional[pulumi.Input[str]] = None,
+             transit_gateway_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if global_network_id is None and 'globalNetworkId' in kwargs:
+            global_network_id = kwargs['globalNetworkId']
+        if global_network_id is None:
+            raise TypeError("Missing 'global_network_id' argument")
+        if transit_gateway_arn is None and 'transitGatewayArn' in kwargs:
+            transit_gateway_arn = kwargs['transitGatewayArn']
+        if transit_gateway_arn is None:
+            raise TypeError("Missing 'transit_gateway_arn' argument")
+
         _setter("global_network_id", global_network_id)
         _setter("transit_gateway_arn", transit_gateway_arn)
 

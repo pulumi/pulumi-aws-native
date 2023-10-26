@@ -31,9 +31,17 @@ class TagAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lf_tags: pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]],
-             resource: pulumi.Input['TagAssociationResourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             lf_tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationLfTagPairArgs']]]] = None,
+             resource: Optional[pulumi.Input['TagAssociationResourceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lf_tags is None and 'lfTags' in kwargs:
+            lf_tags = kwargs['lfTags']
+        if lf_tags is None:
+            raise TypeError("Missing 'lf_tags' argument")
+        if resource is None:
+            raise TypeError("Missing 'resource' argument")
+
         _setter("lf_tags", lf_tags)
         _setter("resource", resource)
 
@@ -120,11 +128,7 @@ class TagAssociation(pulumi.CustomResource):
             if lf_tags is None and not opts.urn:
                 raise TypeError("Missing required property 'lf_tags'")
             __props__.__dict__["lf_tags"] = lf_tags
-            if resource is not None and not isinstance(resource, TagAssociationResourceArgs):
-                resource = resource or {}
-                def _setter(key, value):
-                    resource[key] = value
-                TagAssociationResourceArgs._configure(_setter, **resource)
+            resource = _utilities.configure(resource, TagAssociationResourceArgs, True)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

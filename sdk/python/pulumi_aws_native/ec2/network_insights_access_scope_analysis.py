@@ -30,9 +30,15 @@ class NetworkInsightsAccessScopeAnalysisArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_insights_access_scope_id: pulumi.Input[str],
+             network_insights_access_scope_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAnalysisTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_insights_access_scope_id is None and 'networkInsightsAccessScopeId' in kwargs:
+            network_insights_access_scope_id = kwargs['networkInsightsAccessScopeId']
+        if network_insights_access_scope_id is None:
+            raise TypeError("Missing 'network_insights_access_scope_id' argument")
+
         _setter("network_insights_access_scope_id", network_insights_access_scope_id)
         if tags is not None:
             _setter("tags", tags)

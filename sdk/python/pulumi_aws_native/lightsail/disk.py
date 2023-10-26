@@ -43,13 +43,25 @@ class DiskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_gb: pulumi.Input[int],
+             size_in_gb: Optional[pulumi.Input[int]] = None,
              add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]] = None,
              availability_zone: Optional[pulumi.Input[str]] = None,
              disk_name: Optional[pulumi.Input[str]] = None,
              location: Optional[pulumi.Input['DiskLocationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_gb is None and 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+        if add_ons is None and 'addOns' in kwargs:
+            add_ons = kwargs['addOns']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if disk_name is None and 'diskName' in kwargs:
+            disk_name = kwargs['diskName']
+
         _setter("size_in_gb", size_in_gb)
         if add_ons is not None:
             _setter("add_ons", add_ons)
@@ -201,11 +213,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["add_ons"] = add_ons
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["disk_name"] = disk_name
-            if location is not None and not isinstance(location, DiskLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                DiskLocationArgs._configure(_setter, **location)
+            location = _utilities.configure(location, DiskLocationArgs, True)
             __props__.__dict__["location"] = location
             if size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_gb'")

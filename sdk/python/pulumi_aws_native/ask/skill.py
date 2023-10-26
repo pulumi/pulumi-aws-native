@@ -31,10 +31,24 @@ class SkillArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authentication_configuration: pulumi.Input['SkillAuthenticationConfigurationArgs'],
-             skill_package: pulumi.Input['SkillPackageArgs'],
-             vendor_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             authentication_configuration: Optional[pulumi.Input['SkillAuthenticationConfigurationArgs']] = None,
+             skill_package: Optional[pulumi.Input['SkillPackageArgs']] = None,
+             vendor_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authentication_configuration is None and 'authenticationConfiguration' in kwargs:
+            authentication_configuration = kwargs['authenticationConfiguration']
+        if authentication_configuration is None:
+            raise TypeError("Missing 'authentication_configuration' argument")
+        if skill_package is None and 'skillPackage' in kwargs:
+            skill_package = kwargs['skillPackage']
+        if skill_package is None:
+            raise TypeError("Missing 'skill_package' argument")
+        if vendor_id is None and 'vendorId' in kwargs:
+            vendor_id = kwargs['vendorId']
+        if vendor_id is None:
+            raise TypeError("Missing 'vendor_id' argument")
+
         _setter("authentication_configuration", authentication_configuration)
         _setter("skill_package", skill_package)
         _setter("vendor_id", vendor_id)
@@ -128,19 +142,11 @@ class Skill(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SkillArgs.__new__(SkillArgs)
 
-            if authentication_configuration is not None and not isinstance(authentication_configuration, SkillAuthenticationConfigurationArgs):
-                authentication_configuration = authentication_configuration or {}
-                def _setter(key, value):
-                    authentication_configuration[key] = value
-                SkillAuthenticationConfigurationArgs._configure(_setter, **authentication_configuration)
+            authentication_configuration = _utilities.configure(authentication_configuration, SkillAuthenticationConfigurationArgs, True)
             if authentication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_configuration'")
             __props__.__dict__["authentication_configuration"] = authentication_configuration
-            if skill_package is not None and not isinstance(skill_package, SkillPackageArgs):
-                skill_package = skill_package or {}
-                def _setter(key, value):
-                    skill_package[key] = value
-                SkillPackageArgs._configure(_setter, **skill_package)
+            skill_package = _utilities.configure(skill_package, SkillPackageArgs, True)
             if skill_package is None and not opts.urn:
                 raise TypeError("Missing required property 'skill_package'")
             __props__.__dict__["skill_package"] = skill_package

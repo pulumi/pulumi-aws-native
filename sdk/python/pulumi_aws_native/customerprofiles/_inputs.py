@@ -69,9 +69,15 @@ class CalculatedAttributeDefinitionAttributeDetailsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]],
-             expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CalculatedAttributeDefinitionAttributeItemArgs']]]] = None,
+             expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+
         _setter("attributes", attributes)
         _setter("expression", expression)
 
@@ -108,8 +114,12 @@ class CalculatedAttributeDefinitionAttributeItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -143,7 +153,11 @@ class CalculatedAttributeDefinitionConditionsArgs:
              object_count: Optional[pulumi.Input[int]] = None,
              range: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeArgs']] = None,
              threshold: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_count is None and 'objectCount' in kwargs:
+            object_count = kwargs['objectCount']
+
         if object_count is not None:
             _setter("object_count", object_count)
         if range is not None:
@@ -195,9 +209,15 @@ class CalculatedAttributeDefinitionRangeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             unit: pulumi.Input['CalculatedAttributeDefinitionRangeUnit'],
-             value: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             unit: Optional[pulumi.Input['CalculatedAttributeDefinitionRangeUnit']] = None,
+             value: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if unit is None:
+            raise TypeError("Missing 'unit' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("unit", unit)
         _setter("value", value)
 
@@ -238,9 +258,15 @@ class CalculatedAttributeDefinitionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -285,9 +311,15 @@ class CalculatedAttributeDefinitionThresholdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator: pulumi.Input['CalculatedAttributeDefinitionThresholdOperator'],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             operator: Optional[pulumi.Input['CalculatedAttributeDefinitionThresholdOperator']] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator is None:
+            raise TypeError("Missing 'operator' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("operator", operator)
         _setter("value", value)
 
@@ -334,11 +366,21 @@ class DomainAttributeTypesSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_matching_model: pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel'],
+             attribute_matching_model: Optional[pulumi.Input['DomainAttributeTypesSelectorAttributeMatchingModel']] = None,
              address: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              email_address: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              phone_number: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_matching_model is None and 'attributeMatchingModel' in kwargs:
+            attribute_matching_model = kwargs['attributeMatchingModel']
+        if attribute_matching_model is None:
+            raise TypeError("Missing 'attribute_matching_model' argument")
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("attribute_matching_model", attribute_matching_model)
         if address is not None:
             _setter("address", address)
@@ -418,11 +460,19 @@ class DomainAutoMergingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
              consolidation: Optional[pulumi.Input['DomainConsolidationArgs']] = None,
              min_allowed_confidence_score_for_merging: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if conflict_resolution is None and 'conflictResolution' in kwargs:
+            conflict_resolution = kwargs['conflictResolution']
+        if min_allowed_confidence_score_for_merging is None and 'minAllowedConfidenceScoreForMerging' in kwargs:
+            min_allowed_confidence_score_for_merging = kwargs['minAllowedConfidenceScoreForMerging']
+
         _setter("enabled", enabled)
         if conflict_resolution is not None:
             _setter("conflict_resolution", conflict_resolution)
@@ -492,9 +542,17 @@ class DomainConflictResolutionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             conflict_resolving_model: pulumi.Input['DomainConflictResolutionConflictResolvingModel'],
+             conflict_resolving_model: Optional[pulumi.Input['DomainConflictResolutionConflictResolvingModel']] = None,
              source_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if conflict_resolving_model is None and 'conflictResolvingModel' in kwargs:
+            conflict_resolving_model = kwargs['conflictResolvingModel']
+        if conflict_resolving_model is None:
+            raise TypeError("Missing 'conflict_resolving_model' argument")
+        if source_name is None and 'sourceName' in kwargs:
+            source_name = kwargs['sourceName']
+
         _setter("conflict_resolving_model", conflict_resolving_model)
         if source_name is not None:
             _setter("source_name", source_name)
@@ -539,8 +597,14 @@ class DomainConsolidationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             matching_attributes_list: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             matching_attributes_list: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if matching_attributes_list is None and 'matchingAttributesList' in kwargs:
+            matching_attributes_list = kwargs['matchingAttributesList']
+        if matching_attributes_list is None:
+            raise TypeError("Missing 'matching_attributes_list' argument")
+
         _setter("matching_attributes_list", matching_attributes_list)
 
     @property
@@ -571,7 +635,11 @@ class DomainExportingConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_exporting: Optional[pulumi.Input['DomainS3ExportingConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_exporting is None and 's3Exporting' in kwargs:
+            s3_exporting = kwargs['s3Exporting']
+
         if s3_exporting is not None:
             _setter("s3_exporting", s3_exporting)
 
@@ -603,9 +671,17 @@ class DomainJobScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_the_week: pulumi.Input['DomainJobScheduleDayOfTheWeek'],
-             time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             day_of_the_week: Optional[pulumi.Input['DomainJobScheduleDayOfTheWeek']] = None,
+             time: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if day_of_the_week is None and 'dayOfTheWeek' in kwargs:
+            day_of_the_week = kwargs['dayOfTheWeek']
+        if day_of_the_week is None:
+            raise TypeError("Missing 'day_of_the_week' argument")
+        if time is None:
+            raise TypeError("Missing 'time' argument")
+
         _setter("day_of_the_week", day_of_the_week)
         _setter("time", time)
 
@@ -648,8 +724,12 @@ class DomainMatchingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rule: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule is None:
+            raise TypeError("Missing 'rule' argument")
+
         _setter("rule", rule)
 
     @property
@@ -683,11 +763,21 @@ class DomainMatchingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              auto_merging: Optional[pulumi.Input['DomainAutoMergingArgs']] = None,
              exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
              job_schedule: Optional[pulumi.Input['DomainJobScheduleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if auto_merging is None and 'autoMerging' in kwargs:
+            auto_merging = kwargs['autoMerging']
+        if exporting_config is None and 'exportingConfig' in kwargs:
+            exporting_config = kwargs['exportingConfig']
+        if job_schedule is None and 'jobSchedule' in kwargs:
+            job_schedule = kwargs['jobSchedule']
+
         _setter("enabled", enabled)
         if auto_merging is not None:
             _setter("auto_merging", auto_merging)
@@ -768,7 +858,7 @@ class DomainRuleBasedMatchingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              attribute_types_selector: Optional[pulumi.Input['DomainAttributeTypesSelectorArgs']] = None,
              conflict_resolution: Optional[pulumi.Input['DomainConflictResolutionArgs']] = None,
              exporting_config: Optional[pulumi.Input['DomainExportingConfigArgs']] = None,
@@ -776,7 +866,23 @@ class DomainRuleBasedMatchingArgs:
              max_allowed_rule_level_for_matching: Optional[pulumi.Input[int]] = None,
              max_allowed_rule_level_for_merging: Optional[pulumi.Input[int]] = None,
              status: Optional[pulumi.Input['DomainRuleBasedMatchingStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if attribute_types_selector is None and 'attributeTypesSelector' in kwargs:
+            attribute_types_selector = kwargs['attributeTypesSelector']
+        if conflict_resolution is None and 'conflictResolution' in kwargs:
+            conflict_resolution = kwargs['conflictResolution']
+        if exporting_config is None and 'exportingConfig' in kwargs:
+            exporting_config = kwargs['exportingConfig']
+        if matching_rules is None and 'matchingRules' in kwargs:
+            matching_rules = kwargs['matchingRules']
+        if max_allowed_rule_level_for_matching is None and 'maxAllowedRuleLevelForMatching' in kwargs:
+            max_allowed_rule_level_for_matching = kwargs['maxAllowedRuleLevelForMatching']
+        if max_allowed_rule_level_for_merging is None and 'maxAllowedRuleLevelForMerging' in kwargs:
+            max_allowed_rule_level_for_merging = kwargs['maxAllowedRuleLevelForMerging']
+
         _setter("enabled", enabled)
         if attribute_types_selector is not None:
             _setter("attribute_types_selector", attribute_types_selector)
@@ -896,9 +1002,17 @@ class DomainS3ExportingConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_bucket_name: pulumi.Input[str],
+             s3_bucket_name: Optional[pulumi.Input[str]] = None,
              s3_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_bucket_name is None and 's3BucketName' in kwargs:
+            s3_bucket_name = kwargs['s3BucketName']
+        if s3_bucket_name is None:
+            raise TypeError("Missing 's3_bucket_name' argument")
+        if s3_key_name is None and 's3KeyName' in kwargs:
+            s3_key_name = kwargs['s3KeyName']
+
         _setter("s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
             _setter("s3_key_name", s3_key_name)
@@ -941,9 +1055,15 @@ class DomainTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -984,9 +1104,15 @@ class EventStreamTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1039,7 +1165,11 @@ class IntegrationConnectorOperatorArgs:
              salesforce: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']] = None,
              service_now: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']] = None,
              zendesk: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_now is None and 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if marketo is not None:
             _setter("marketo", marketo)
         if s3 is not None:
@@ -1118,13 +1248,33 @@ class IntegrationFlowDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flow_name: pulumi.Input[str],
-             kms_arn: pulumi.Input[str],
-             source_flow_config: pulumi.Input['IntegrationSourceFlowConfigArgs'],
-             tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]],
-             trigger_config: pulumi.Input['IntegrationTriggerConfigArgs'],
+             flow_name: Optional[pulumi.Input[str]] = None,
+             kms_arn: Optional[pulumi.Input[str]] = None,
+             source_flow_config: Optional[pulumi.Input['IntegrationSourceFlowConfigArgs']] = None,
+             tasks: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]]] = None,
+             trigger_config: Optional[pulumi.Input['IntegrationTriggerConfigArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flow_name is None and 'flowName' in kwargs:
+            flow_name = kwargs['flowName']
+        if flow_name is None:
+            raise TypeError("Missing 'flow_name' argument")
+        if kms_arn is None and 'kmsArn' in kwargs:
+            kms_arn = kwargs['kmsArn']
+        if kms_arn is None:
+            raise TypeError("Missing 'kms_arn' argument")
+        if source_flow_config is None and 'sourceFlowConfig' in kwargs:
+            source_flow_config = kwargs['sourceFlowConfig']
+        if source_flow_config is None:
+            raise TypeError("Missing 'source_flow_config' argument")
+        if tasks is None:
+            raise TypeError("Missing 'tasks' argument")
+        if trigger_config is None and 'triggerConfig' in kwargs:
+            trigger_config = kwargs['triggerConfig']
+        if trigger_config is None:
+            raise TypeError("Missing 'trigger_config' argument")
+
         _setter("flow_name", flow_name)
         _setter("kms_arn", kms_arn)
         _setter("source_flow_config", source_flow_config)
@@ -1200,7 +1350,11 @@ class IntegrationIncrementalPullConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              datetime_type_field_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datetime_type_field_name is None and 'datetimeTypeFieldName' in kwargs:
+            datetime_type_field_name = kwargs['datetimeTypeFieldName']
+
         if datetime_type_field_name is not None:
             _setter("datetime_type_field_name", datetime_type_field_name)
 
@@ -1225,8 +1379,12 @@ class IntegrationMarketoSourcePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object is None:
+            raise TypeError("Missing 'object' argument")
+
         _setter("object", object)
 
     @property
@@ -1252,9 +1410,15 @@ class IntegrationObjectTypeMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1290,9 +1454,17 @@ class IntegrationS3SourcePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
              bucket_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+
         _setter("bucket_name", bucket_name)
         if bucket_prefix is not None:
             _setter("bucket_prefix", bucket_prefix)
@@ -1331,10 +1503,18 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object: pulumi.Input[str],
+             object: Optional[pulumi.Input[str]] = None,
              enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
              include_deleted_records: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object is None:
+            raise TypeError("Missing 'object' argument")
+        if enable_dynamic_field_update is None and 'enableDynamicFieldUpdate' in kwargs:
+            enable_dynamic_field_update = kwargs['enableDynamicFieldUpdate']
+        if include_deleted_records is None and 'includeDeletedRecords' in kwargs:
+            include_deleted_records = kwargs['includeDeletedRecords']
+
         _setter("object", object)
         if enable_dynamic_field_update is not None:
             _setter("enable_dynamic_field_update", enable_dynamic_field_update)
@@ -1392,14 +1572,30 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_expression: pulumi.Input[str],
+             schedule_expression: Optional[pulumi.Input[str]] = None,
              data_pull_mode: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']] = None,
              first_execution_from: Optional[pulumi.Input[float]] = None,
              schedule_end_time: Optional[pulumi.Input[float]] = None,
              schedule_offset: Optional[pulumi.Input[int]] = None,
              schedule_start_time: Optional[pulumi.Input[float]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+        if data_pull_mode is None and 'dataPullMode' in kwargs:
+            data_pull_mode = kwargs['dataPullMode']
+        if first_execution_from is None and 'firstExecutionFrom' in kwargs:
+            first_execution_from = kwargs['firstExecutionFrom']
+        if schedule_end_time is None and 'scheduleEndTime' in kwargs:
+            schedule_end_time = kwargs['scheduleEndTime']
+        if schedule_offset is None and 'scheduleOffset' in kwargs:
+            schedule_offset = kwargs['scheduleOffset']
+        if schedule_start_time is None and 'scheduleStartTime' in kwargs:
+            schedule_start_time = kwargs['scheduleStartTime']
+
         _setter("schedule_expression", schedule_expression)
         if data_pull_mode is not None:
             _setter("data_pull_mode", data_pull_mode)
@@ -1489,8 +1685,12 @@ class IntegrationServiceNowSourcePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object is None:
+            raise TypeError("Missing 'object' argument")
+
         _setter("object", object)
 
     @property
@@ -1527,7 +1727,11 @@ class IntegrationSourceConnectorPropertiesArgs:
              salesforce: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']] = None,
              service_now: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']] = None,
              zendesk: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_now is None and 'serviceNow' in kwargs:
+            service_now = kwargs['serviceNow']
+
         if marketo is not None:
             _setter("marketo", marketo)
         if s3 is not None:
@@ -1602,11 +1806,25 @@ class IntegrationSourceFlowConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connector_type: pulumi.Input['IntegrationConnectorType'],
-             source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
+             connector_type: Optional[pulumi.Input['IntegrationConnectorType']] = None,
+             source_connector_properties: Optional[pulumi.Input['IntegrationSourceConnectorPropertiesArgs']] = None,
              connector_profile_name: Optional[pulumi.Input[str]] = None,
              incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_type is None and 'connectorType' in kwargs:
+            connector_type = kwargs['connectorType']
+        if connector_type is None:
+            raise TypeError("Missing 'connector_type' argument")
+        if source_connector_properties is None and 'sourceConnectorProperties' in kwargs:
+            source_connector_properties = kwargs['sourceConnectorProperties']
+        if source_connector_properties is None:
+            raise TypeError("Missing 'source_connector_properties' argument")
+        if connector_profile_name is None and 'connectorProfileName' in kwargs:
+            connector_profile_name = kwargs['connectorProfileName']
+        if incremental_pull_config is None and 'incrementalPullConfig' in kwargs:
+            incremental_pull_config = kwargs['incrementalPullConfig']
+
         _setter("connector_type", connector_type)
         _setter("source_connector_properties", source_connector_properties)
         if connector_profile_name is not None:
@@ -1664,9 +1882,15 @@ class IntegrationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1702,9 +1926,17 @@ class IntegrationTaskPropertiesMapArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys'],
-             property: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             operator_property_key: Optional[pulumi.Input['IntegrationOperatorPropertiesKeys']] = None,
+             property: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operator_property_key is None and 'operatorPropertyKey' in kwargs:
+            operator_property_key = kwargs['operatorPropertyKey']
+        if operator_property_key is None:
+            raise TypeError("Missing 'operator_property_key' argument")
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+
         _setter("operator_property_key", operator_property_key)
         _setter("property", property)
 
@@ -1746,12 +1978,28 @@ class IntegrationTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-             task_type: pulumi.Input['IntegrationTaskType'],
+             source_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             task_type: Optional[pulumi.Input['IntegrationTaskType']] = None,
              connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
              destination_field: Optional[pulumi.Input[str]] = None,
              task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source_fields is None and 'sourceFields' in kwargs:
+            source_fields = kwargs['sourceFields']
+        if source_fields is None:
+            raise TypeError("Missing 'source_fields' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if connector_operator is None and 'connectorOperator' in kwargs:
+            connector_operator = kwargs['connectorOperator']
+        if destination_field is None and 'destinationField' in kwargs:
+            destination_field = kwargs['destinationField']
+        if task_properties is None and 'taskProperties' in kwargs:
+            task_properties = kwargs['taskProperties']
+
         _setter("source_fields", source_fields)
         _setter("task_type", task_type)
         if connector_operator is not None:
@@ -1820,9 +2068,17 @@ class IntegrationTriggerConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             trigger_type: pulumi.Input['IntegrationTriggerType'],
+             trigger_type: Optional[pulumi.Input['IntegrationTriggerType']] = None,
              trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if trigger_type is None and 'triggerType' in kwargs:
+            trigger_type = kwargs['triggerType']
+        if trigger_type is None:
+            raise TypeError("Missing 'trigger_type' argument")
+        if trigger_properties is None and 'triggerProperties' in kwargs:
+            trigger_properties = kwargs['triggerProperties']
+
         _setter("trigger_type", trigger_type)
         if trigger_properties is not None:
             _setter("trigger_properties", trigger_properties)
@@ -1858,7 +2114,9 @@ class IntegrationTriggerPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              scheduled: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if scheduled is not None:
             _setter("scheduled", scheduled)
 
@@ -1883,8 +2141,12 @@ class IntegrationZendeskSourcePropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object is None:
+            raise TypeError("Missing 'object' argument")
+
         _setter("object", object)
 
     @property
@@ -1912,7 +2174,11 @@ class ObjectTypeFieldMapArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              object_type_field: Optional[pulumi.Input['ObjectTypeFieldArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_type_field is None and 'objectTypeField' in kwargs:
+            object_type_field = kwargs['objectTypeField']
+
         if name is not None:
             _setter("name", name)
         if object_type_field is not None:
@@ -1961,7 +2227,11 @@ class ObjectTypeFieldArgs:
              content_type: Optional[pulumi.Input['ObjectTypeFieldContentType']] = None,
              source: Optional[pulumi.Input[str]] = None,
              target: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         if content_type is not None:
             _setter("content_type", content_type)
         if source is not None:
@@ -2021,7 +2291,11 @@ class ObjectTypeKeyMapArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_type_key_list is None and 'objectTypeKeyList' in kwargs:
+            object_type_key_list = kwargs['objectTypeKeyList']
+
         if name is not None:
             _setter("name", name)
         if object_type_key_list is not None:
@@ -2066,7 +2340,13 @@ class ObjectTypeKeyArgs:
              _setter: Callable[[Any, Any], None],
              field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeKeyStandardIdentifiersItem']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if field_names is None and 'fieldNames' in kwargs:
+            field_names = kwargs['fieldNames']
+        if standard_identifiers is None and 'standardIdentifiers' in kwargs:
+            standard_identifiers = kwargs['standardIdentifiers']
+
         if field_names is not None:
             _setter("field_names", field_names)
         if standard_identifiers is not None:
@@ -2110,9 +2390,15 @@ class ObjectTypeTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

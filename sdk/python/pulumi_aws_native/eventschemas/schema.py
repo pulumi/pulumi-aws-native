@@ -37,13 +37,25 @@ class SchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             registry_name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             registry_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              schema_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if registry_name is None:
+            raise TypeError("Missing 'registry_name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         _setter("content", content)
         _setter("registry_name", registry_name)
         _setter("type", type)

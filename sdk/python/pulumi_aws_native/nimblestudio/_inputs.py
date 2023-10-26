@@ -55,7 +55,11 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
              _setter: Callable[[Any, Any], None],
              max_backups_to_retain: Optional[pulumi.Input[float]] = None,
              mode: Optional[pulumi.Input['LaunchProfileSessionBackupMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_backups_to_retain is None and 'maxBackupsToRetain' in kwargs:
+            max_backups_to_retain = kwargs['maxBackupsToRetain']
+
         if max_backups_to_retain is not None:
             _setter("max_backups_to_retain", max_backups_to_retain)
         if mode is not None:
@@ -102,9 +106,13 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]],
+             mode: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]] = None,
              root: Optional[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+
         _setter("mode", mode)
         if root is not None:
             _setter("root", root)
@@ -188,9 +196,9 @@ class LaunchProfileStreamConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             clipboard_mode: pulumi.Input['LaunchProfileStreamingClipboardMode'],
-             ec2_instance_types: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]],
-             streaming_image_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             clipboard_mode: Optional[pulumi.Input['LaunchProfileStreamingClipboardMode']] = None,
+             ec2_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]]] = None,
+             streaming_image_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              automatic_termination_mode: Optional[pulumi.Input['LaunchProfileAutomaticTerminationMode']] = None,
              max_session_length_in_minutes: Optional[pulumi.Input[float]] = None,
              max_stopped_session_length_in_minutes: Optional[pulumi.Input[float]] = None,
@@ -198,7 +206,35 @@ class LaunchProfileStreamConfigurationArgs:
              session_persistence_mode: Optional[pulumi.Input['LaunchProfileSessionPersistenceMode']] = None,
              session_storage: Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs']] = None,
              volume_configuration: Optional[pulumi.Input['LaunchProfileVolumeConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if clipboard_mode is None and 'clipboardMode' in kwargs:
+            clipboard_mode = kwargs['clipboardMode']
+        if clipboard_mode is None:
+            raise TypeError("Missing 'clipboard_mode' argument")
+        if ec2_instance_types is None and 'ec2InstanceTypes' in kwargs:
+            ec2_instance_types = kwargs['ec2InstanceTypes']
+        if ec2_instance_types is None:
+            raise TypeError("Missing 'ec2_instance_types' argument")
+        if streaming_image_ids is None and 'streamingImageIds' in kwargs:
+            streaming_image_ids = kwargs['streamingImageIds']
+        if streaming_image_ids is None:
+            raise TypeError("Missing 'streaming_image_ids' argument")
+        if automatic_termination_mode is None and 'automaticTerminationMode' in kwargs:
+            automatic_termination_mode = kwargs['automaticTerminationMode']
+        if max_session_length_in_minutes is None and 'maxSessionLengthInMinutes' in kwargs:
+            max_session_length_in_minutes = kwargs['maxSessionLengthInMinutes']
+        if max_stopped_session_length_in_minutes is None and 'maxStoppedSessionLengthInMinutes' in kwargs:
+            max_stopped_session_length_in_minutes = kwargs['maxStoppedSessionLengthInMinutes']
+        if session_backup is None and 'sessionBackup' in kwargs:
+            session_backup = kwargs['sessionBackup']
+        if session_persistence_mode is None and 'sessionPersistenceMode' in kwargs:
+            session_persistence_mode = kwargs['sessionPersistenceMode']
+        if session_storage is None and 'sessionStorage' in kwargs:
+            session_storage = kwargs['sessionStorage']
+        if volume_configuration is None and 'volumeConfiguration' in kwargs:
+            volume_configuration = kwargs['volumeConfiguration']
+
         _setter("clipboard_mode", clipboard_mode)
         _setter("ec2_instance_types", ec2_instance_types)
         _setter("streaming_image_ids", streaming_image_ids)
@@ -361,7 +397,9 @@ class LaunchProfileStreamingSessionStorageRootArgs:
              _setter: Callable[[Any, Any], None],
              linux: Optional[pulumi.Input[str]] = None,
              windows: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if linux is not None:
             _setter("linux", linux)
         if windows is not None:
@@ -399,8 +437,10 @@ class LaunchProfileTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -433,7 +473,9 @@ class LaunchProfileVolumeConfigurationArgs:
              iops: Optional[pulumi.Input[float]] = None,
              size: Optional[pulumi.Input[float]] = None,
              throughput: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if iops is not None:
             _setter("iops", iops)
         if size is not None:
@@ -488,8 +530,10 @@ class StreamingImageTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -513,7 +557,9 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -571,7 +617,15 @@ class StudioComponentActiveDirectoryConfigurationArgs:
              computer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]] = None,
              directory_id: Optional[pulumi.Input[str]] = None,
              organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if computer_attributes is None and 'computerAttributes' in kwargs:
+            computer_attributes = kwargs['computerAttributes']
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if organizational_unit_distinguished_name is None and 'organizationalUnitDistinguishedName' in kwargs:
+            organizational_unit_distinguished_name = kwargs['organizationalUnitDistinguishedName']
+
         if computer_attributes is not None:
             _setter("computer_attributes", computer_attributes)
         if directory_id is not None:
@@ -640,7 +694,11 @@ class StudioComponentComputeFarmConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              active_directory_user: Optional[pulumi.Input[str]] = None,
              endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_directory_user is None and 'activeDirectoryUser' in kwargs:
+            active_directory_user = kwargs['activeDirectoryUser']
+
         if active_directory_user is not None:
             _setter("active_directory_user", active_directory_user)
         if endpoint is not None:
@@ -687,8 +745,14 @@ class StudioComponentConfiguration0PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             active_directory_configuration: pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             active_directory_configuration: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if active_directory_configuration is None and 'activeDirectoryConfiguration' in kwargs:
+            active_directory_configuration = kwargs['activeDirectoryConfiguration']
+        if active_directory_configuration is None:
+            raise TypeError("Missing 'active_directory_configuration' argument")
+
         _setter("active_directory_configuration", active_directory_configuration)
 
     @property
@@ -715,8 +779,14 @@ class StudioComponentConfiguration1PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             compute_farm_configuration: pulumi.Input['StudioComponentComputeFarmConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             compute_farm_configuration: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_farm_configuration is None and 'computeFarmConfiguration' in kwargs:
+            compute_farm_configuration = kwargs['computeFarmConfiguration']
+        if compute_farm_configuration is None:
+            raise TypeError("Missing 'compute_farm_configuration' argument")
+
         _setter("compute_farm_configuration", compute_farm_configuration)
 
     @property
@@ -743,8 +813,14 @@ class StudioComponentConfiguration2PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             license_service_configuration: pulumi.Input['StudioComponentLicenseServiceConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             license_service_configuration: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if license_service_configuration is None and 'licenseServiceConfiguration' in kwargs:
+            license_service_configuration = kwargs['licenseServiceConfiguration']
+        if license_service_configuration is None:
+            raise TypeError("Missing 'license_service_configuration' argument")
+
         _setter("license_service_configuration", license_service_configuration)
 
     @property
@@ -771,8 +847,14 @@ class StudioComponentConfiguration3PropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             shared_file_system_configuration: pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             shared_file_system_configuration: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if shared_file_system_configuration is None and 'sharedFileSystemConfiguration' in kwargs:
+            shared_file_system_configuration = kwargs['sharedFileSystemConfiguration']
+        if shared_file_system_configuration is None:
+            raise TypeError("Missing 'shared_file_system_configuration' argument")
+
         _setter("shared_file_system_configuration", shared_file_system_configuration)
 
     @property
@@ -812,7 +894,13 @@ class StudioComponentInitializationScriptArgs:
              platform: Optional[pulumi.Input['StudioComponentLaunchProfilePlatform']] = None,
              run_context: Optional[pulumi.Input['StudioComponentInitializationScriptRunContext']] = None,
              script: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if launch_profile_protocol_version is None and 'launchProfileProtocolVersion' in kwargs:
+            launch_profile_protocol_version = kwargs['launchProfileProtocolVersion']
+        if run_context is None and 'runContext' in kwargs:
+            run_context = kwargs['runContext']
+
         if launch_profile_protocol_version is not None:
             _setter("launch_profile_protocol_version", launch_profile_protocol_version)
         if platform is not None:
@@ -884,7 +972,9 @@ class StudioComponentLicenseServiceConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              endpoint: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if endpoint is not None:
             _setter("endpoint", endpoint)
 
@@ -922,7 +1012,9 @@ class StudioComponentScriptParameterKeyValueArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -987,7 +1079,17 @@ class StudioComponentSharedFileSystemConfigurationArgs:
              linux_mount_point: Optional[pulumi.Input[str]] = None,
              share_name: Optional[pulumi.Input[str]] = None,
              windows_mount_drive: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if linux_mount_point is None and 'linuxMountPoint' in kwargs:
+            linux_mount_point = kwargs['linuxMountPoint']
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if windows_mount_drive is None and 'windowsMountDrive' in kwargs:
+            windows_mount_drive = kwargs['windowsMountDrive']
+
         if endpoint is not None:
             _setter("endpoint", endpoint)
         if file_system_id is not None:
@@ -1068,8 +1170,10 @@ class StudioComponentTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -1089,9 +1193,17 @@ class StudioEncryptionConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_type: pulumi.Input['StudioEncryptionConfigurationKeyType'],
+             key_type: Optional[pulumi.Input['StudioEncryptionConfigurationKeyType']] = None,
              key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if key_arn is None and 'keyArn' in kwargs:
+            key_arn = kwargs['keyArn']
+
         _setter("key_type", key_type)
         if key_arn is not None:
             _setter("key_arn", key_arn)
@@ -1125,7 +1237,9 @@ class StudioTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

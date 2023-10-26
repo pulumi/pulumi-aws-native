@@ -55,9 +55,9 @@ class MatchmakingConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             acceptance_required: pulumi.Input[bool],
-             request_timeout_seconds: pulumi.Input[int],
-             rule_set_name: pulumi.Input[str],
+             acceptance_required: Optional[pulumi.Input[bool]] = None,
+             request_timeout_seconds: Optional[pulumi.Input[int]] = None,
+             rule_set_name: Optional[pulumi.Input[str]] = None,
              acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
              additional_player_count: Optional[pulumi.Input[int]] = None,
              backfill_mode: Optional[pulumi.Input[str]] = None,
@@ -70,7 +70,39 @@ class MatchmakingConfigurationArgs:
              name: Optional[pulumi.Input[str]] = None,
              notification_target: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acceptance_required is None and 'acceptanceRequired' in kwargs:
+            acceptance_required = kwargs['acceptanceRequired']
+        if acceptance_required is None:
+            raise TypeError("Missing 'acceptance_required' argument")
+        if request_timeout_seconds is None and 'requestTimeoutSeconds' in kwargs:
+            request_timeout_seconds = kwargs['requestTimeoutSeconds']
+        if request_timeout_seconds is None:
+            raise TypeError("Missing 'request_timeout_seconds' argument")
+        if rule_set_name is None and 'ruleSetName' in kwargs:
+            rule_set_name = kwargs['ruleSetName']
+        if rule_set_name is None:
+            raise TypeError("Missing 'rule_set_name' argument")
+        if acceptance_timeout_seconds is None and 'acceptanceTimeoutSeconds' in kwargs:
+            acceptance_timeout_seconds = kwargs['acceptanceTimeoutSeconds']
+        if additional_player_count is None and 'additionalPlayerCount' in kwargs:
+            additional_player_count = kwargs['additionalPlayerCount']
+        if backfill_mode is None and 'backfillMode' in kwargs:
+            backfill_mode = kwargs['backfillMode']
+        if custom_event_data is None and 'customEventData' in kwargs:
+            custom_event_data = kwargs['customEventData']
+        if flex_match_mode is None and 'flexMatchMode' in kwargs:
+            flex_match_mode = kwargs['flexMatchMode']
+        if game_properties is None and 'gameProperties' in kwargs:
+            game_properties = kwargs['gameProperties']
+        if game_session_data is None and 'gameSessionData' in kwargs:
+            game_session_data = kwargs['gameSessionData']
+        if game_session_queue_arns is None and 'gameSessionQueueArns' in kwargs:
+            game_session_queue_arns = kwargs['gameSessionQueueArns']
+        if notification_target is None and 'notificationTarget' in kwargs:
+            notification_target = kwargs['notificationTarget']
+
         _setter("acceptance_required", acceptance_required)
         _setter("request_timeout_seconds", request_timeout_seconds)
         _setter("rule_set_name", rule_set_name)

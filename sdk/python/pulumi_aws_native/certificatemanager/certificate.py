@@ -41,7 +41,7 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
              certificate_authority_arn: Optional[pulumi.Input[str]] = None,
              certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None,
              domain_validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]] = None,
@@ -49,7 +49,25 @@ class CertificateArgs:
              subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
              validation_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if certificate_authority_arn is None and 'certificateAuthorityArn' in kwargs:
+            certificate_authority_arn = kwargs['certificateAuthorityArn']
+        if certificate_transparency_logging_preference is None and 'certificateTransparencyLoggingPreference' in kwargs:
+            certificate_transparency_logging_preference = kwargs['certificateTransparencyLoggingPreference']
+        if domain_validation_options is None and 'domainValidationOptions' in kwargs:
+            domain_validation_options = kwargs['domainValidationOptions']
+        if key_algorithm is None and 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if subject_alternative_names is None and 'subjectAlternativeNames' in kwargs:
+            subject_alternative_names = kwargs['subjectAlternativeNames']
+        if validation_method is None and 'validationMethod' in kwargs:
+            validation_method = kwargs['validationMethod']
+
         _setter("domain_name", domain_name)
         if certificate_authority_arn is not None:
             _setter("certificate_authority_arn", certificate_authority_arn)

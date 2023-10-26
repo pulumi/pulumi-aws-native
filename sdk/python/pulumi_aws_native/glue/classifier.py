@@ -37,7 +37,17 @@ class ClassifierArgs:
              grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
              json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
              xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if csv_classifier is None and 'csvClassifier' in kwargs:
+            csv_classifier = kwargs['csvClassifier']
+        if grok_classifier is None and 'grokClassifier' in kwargs:
+            grok_classifier = kwargs['grokClassifier']
+        if json_classifier is None and 'jsonClassifier' in kwargs:
+            json_classifier = kwargs['jsonClassifier']
+        if xml_classifier is None and 'xmlClassifier' in kwargs:
+            xml_classifier = kwargs['xmlClassifier']
+
         if csv_classifier is not None:
             _setter("csv_classifier", csv_classifier)
         if grok_classifier is not None:
@@ -147,29 +157,13 @@ class Classifier(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClassifierArgs.__new__(ClassifierArgs)
 
-            if csv_classifier is not None and not isinstance(csv_classifier, ClassifierCsvClassifierArgs):
-                csv_classifier = csv_classifier or {}
-                def _setter(key, value):
-                    csv_classifier[key] = value
-                ClassifierCsvClassifierArgs._configure(_setter, **csv_classifier)
+            csv_classifier = _utilities.configure(csv_classifier, ClassifierCsvClassifierArgs, True)
             __props__.__dict__["csv_classifier"] = csv_classifier
-            if grok_classifier is not None and not isinstance(grok_classifier, ClassifierGrokClassifierArgs):
-                grok_classifier = grok_classifier or {}
-                def _setter(key, value):
-                    grok_classifier[key] = value
-                ClassifierGrokClassifierArgs._configure(_setter, **grok_classifier)
+            grok_classifier = _utilities.configure(grok_classifier, ClassifierGrokClassifierArgs, True)
             __props__.__dict__["grok_classifier"] = grok_classifier
-            if json_classifier is not None and not isinstance(json_classifier, ClassifierJsonClassifierArgs):
-                json_classifier = json_classifier or {}
-                def _setter(key, value):
-                    json_classifier[key] = value
-                ClassifierJsonClassifierArgs._configure(_setter, **json_classifier)
+            json_classifier = _utilities.configure(json_classifier, ClassifierJsonClassifierArgs, True)
             __props__.__dict__["json_classifier"] = json_classifier
-            if xml_classifier is not None and not isinstance(xml_classifier, ClassifierXmlClassifierArgs):
-                xml_classifier = xml_classifier or {}
-                def _setter(key, value):
-                    xml_classifier[key] = value
-                ClassifierXmlClassifierArgs._configure(_setter, **xml_classifier)
+            xml_classifier = _utilities.configure(xml_classifier, ClassifierXmlClassifierArgs, True)
             __props__.__dict__["xml_classifier"] = xml_classifier
         super(Classifier, __self__).__init__(
             'aws-native:glue:Classifier',

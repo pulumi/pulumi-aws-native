@@ -35,12 +35,22 @@ class ReportGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             export_config: pulumi.Input['ReportGroupReportExportConfigArgs'],
-             type: pulumi.Input[str],
+             export_config: Optional[pulumi.Input['ReportGroupReportExportConfigArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
              delete_reports: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if export_config is None and 'exportConfig' in kwargs:
+            export_config = kwargs['exportConfig']
+        if export_config is None:
+            raise TypeError("Missing 'export_config' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if delete_reports is None and 'deleteReports' in kwargs:
+            delete_reports = kwargs['deleteReports']
+
         _setter("export_config", export_config)
         _setter("type", type)
         if delete_reports is not None:
@@ -162,11 +172,7 @@ class ReportGroup(pulumi.CustomResource):
             __props__ = ReportGroupArgs.__new__(ReportGroupArgs)
 
             __props__.__dict__["delete_reports"] = delete_reports
-            if export_config is not None and not isinstance(export_config, ReportGroupReportExportConfigArgs):
-                export_config = export_config or {}
-                def _setter(key, value):
-                    export_config[key] = value
-                ReportGroupReportExportConfigArgs._configure(_setter, **export_config)
+            export_config = _utilities.configure(export_config, ReportGroupReportExportConfigArgs, True)
             if export_config is None and not opts.urn:
                 raise TypeError("Missing required property 'export_config'")
             __props__.__dict__["export_config"] = export_config

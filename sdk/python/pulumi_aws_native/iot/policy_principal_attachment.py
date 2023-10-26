@@ -27,9 +27,17 @@ class PolicyPrincipalAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy_name: pulumi.Input[str],
-             principal: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             policy_name: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy_name is None and 'policyName' in kwargs:
+            policy_name = kwargs['policyName']
+        if policy_name is None:
+            raise TypeError("Missing 'policy_name' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+
         _setter("policy_name", policy_name)
         _setter("principal", principal)
 

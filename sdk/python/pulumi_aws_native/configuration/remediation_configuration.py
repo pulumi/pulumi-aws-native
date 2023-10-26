@@ -45,9 +45,9 @@ class RemediationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             config_rule_name: pulumi.Input[str],
-             target_id: pulumi.Input[str],
-             target_type: pulumi.Input[str],
+             config_rule_name: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
              automatic: Optional[pulumi.Input[bool]] = None,
              execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
              maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
@@ -55,7 +55,31 @@ class RemediationConfigurationArgs:
              resource_type: Optional[pulumi.Input[str]] = None,
              retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
              target_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if config_rule_name is None and 'configRuleName' in kwargs:
+            config_rule_name = kwargs['configRuleName']
+        if config_rule_name is None:
+            raise TypeError("Missing 'config_rule_name' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+        if execution_controls is None and 'executionControls' in kwargs:
+            execution_controls = kwargs['executionControls']
+        if maximum_automatic_attempts is None and 'maximumAutomaticAttempts' in kwargs:
+            maximum_automatic_attempts = kwargs['maximumAutomaticAttempts']
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+        if retry_attempt_seconds is None and 'retryAttemptSeconds' in kwargs:
+            retry_attempt_seconds = kwargs['retryAttemptSeconds']
+        if target_version is None and 'targetVersion' in kwargs:
+            target_version = kwargs['targetVersion']
+
         _setter("config_rule_name", config_rule_name)
         _setter("target_id", target_id)
         _setter("target_type", target_type)
@@ -244,11 +268,7 @@ class RemediationConfiguration(pulumi.CustomResource):
             if config_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'config_rule_name'")
             __props__.__dict__["config_rule_name"] = config_rule_name
-            if execution_controls is not None and not isinstance(execution_controls, RemediationConfigurationExecutionControlsArgs):
-                execution_controls = execution_controls or {}
-                def _setter(key, value):
-                    execution_controls[key] = value
-                RemediationConfigurationExecutionControlsArgs._configure(_setter, **execution_controls)
+            execution_controls = _utilities.configure(execution_controls, RemediationConfigurationExecutionControlsArgs, True)
             __props__.__dict__["execution_controls"] = execution_controls
             __props__.__dict__["maximum_automatic_attempts"] = maximum_automatic_attempts
             __props__.__dict__["parameters"] = parameters

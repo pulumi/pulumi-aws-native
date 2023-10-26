@@ -79,7 +79,9 @@ class AlarmModelAcknowledgeFlowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -135,7 +137,21 @@ class AlarmModelAlarmActionArgs:
              lambda_: Optional[pulumi.Input['AlarmModelLambdaArgs']] = None,
              sns: Optional[pulumi.Input['AlarmModelSnsArgs']] = None,
              sqs: Optional[pulumi.Input['AlarmModelSqsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dynamo_d_bv2 is None and 'dynamoDBv2' in kwargs:
+            dynamo_d_bv2 = kwargs['dynamoDBv2']
+        if dynamo_db is None and 'dynamoDb' in kwargs:
+            dynamo_db = kwargs['dynamoDb']
+        if iot_events is None and 'iotEvents' in kwargs:
+            iot_events = kwargs['iotEvents']
+        if iot_site_wise is None and 'iotSiteWise' in kwargs:
+            iot_site_wise = kwargs['iotSiteWise']
+        if iot_topic_publish is None and 'iotTopicPublish' in kwargs:
+            iot_topic_publish = kwargs['iotTopicPublish']
+        if lambda_ is None and 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+
         if dynamo_d_bv2 is not None:
             _setter("dynamo_d_bv2", dynamo_d_bv2)
         if dynamo_db is not None:
@@ -255,7 +271,13 @@ class AlarmModelAlarmCapabilitiesArgs:
              _setter: Callable[[Any, Any], None],
              acknowledge_flow: Optional[pulumi.Input['AlarmModelAcknowledgeFlowArgs']] = None,
              initialization_configuration: Optional[pulumi.Input['AlarmModelInitializationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if acknowledge_flow is None and 'acknowledgeFlow' in kwargs:
+            acknowledge_flow = kwargs['acknowledgeFlow']
+        if initialization_configuration is None and 'initializationConfiguration' in kwargs:
+            initialization_configuration = kwargs['initializationConfiguration']
+
         if acknowledge_flow is not None:
             _setter("acknowledge_flow", acknowledge_flow)
         if initialization_configuration is not None:
@@ -295,7 +317,11 @@ class AlarmModelAlarmEventActionsArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input['AlarmModelAlarmActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_actions is None and 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+
         if alarm_actions is not None:
             _setter("alarm_actions", alarm_actions)
 
@@ -324,7 +350,11 @@ class AlarmModelAlarmRuleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              simple_rule: Optional[pulumi.Input['AlarmModelSimpleRuleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if simple_rule is None and 'simpleRule' in kwargs:
+            simple_rule = kwargs['simpleRule']
+
         if simple_rule is not None:
             _setter("simple_rule", simple_rule)
 
@@ -356,9 +386,17 @@ class AlarmModelAssetPropertyTimestampArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_in_seconds: pulumi.Input[str],
+             time_in_seconds: Optional[pulumi.Input[str]] = None,
              offset_in_nanos: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_in_seconds is None and 'timeInSeconds' in kwargs:
+            time_in_seconds = kwargs['timeInSeconds']
+        if time_in_seconds is None:
+            raise TypeError("Missing 'time_in_seconds' argument")
+        if offset_in_nanos is None and 'offsetInNanos' in kwargs:
+            offset_in_nanos = kwargs['offsetInNanos']
+
         _setter("time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             _setter("offset_in_nanos", offset_in_nanos)
@@ -407,10 +445,14 @@ class AlarmModelAssetPropertyValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input['AlarmModelAssetPropertyVariantArgs'],
+             value: Optional[pulumi.Input['AlarmModelAssetPropertyVariantArgs']] = None,
              quality: Optional[pulumi.Input[str]] = None,
              timestamp: Optional[pulumi.Input['AlarmModelAssetPropertyTimestampArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
         if quality is not None:
             _setter("quality", quality)
@@ -476,7 +518,17 @@ class AlarmModelAssetPropertyVariantArgs:
              double_value: Optional[pulumi.Input[str]] = None,
              integer_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if boolean_value is None and 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if double_value is None and 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if integer_value is None and 'integerValue' in kwargs:
+            integer_value = kwargs['integerValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -554,9 +606,15 @@ class AlarmModelDynamoDBv2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             table_name: pulumi.Input[str],
+             table_name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("table_name", table_name)
         if payload is not None:
             _setter("payload", payload)
@@ -646,9 +704,9 @@ class AlarmModelDynamoDbArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hash_key_field: pulumi.Input[str],
-             hash_key_value: pulumi.Input[str],
-             table_name: pulumi.Input[str],
+             hash_key_field: Optional[pulumi.Input[str]] = None,
+             hash_key_value: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
              hash_key_type: Optional[pulumi.Input[str]] = None,
              operation: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
@@ -656,7 +714,31 @@ class AlarmModelDynamoDbArgs:
              range_key_field: Optional[pulumi.Input[str]] = None,
              range_key_type: Optional[pulumi.Input[str]] = None,
              range_key_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hash_key_field is None and 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if hash_key_field is None:
+            raise TypeError("Missing 'hash_key_field' argument")
+        if hash_key_value is None and 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if hash_key_value is None:
+            raise TypeError("Missing 'hash_key_value' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if hash_key_type is None and 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if payload_field is None and 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if range_key_field is None and 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if range_key_type is None and 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if range_key_value is None and 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
         _setter("hash_key_field", hash_key_field)
         _setter("hash_key_value", hash_key_value)
         _setter("table_name", table_name)
@@ -835,10 +917,16 @@ class AlarmModelFirehoseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delivery_stream_name: pulumi.Input[str],
+             delivery_stream_name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
              separator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream_name is None and 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if delivery_stream_name is None:
+            raise TypeError("Missing 'delivery_stream_name' argument")
+
         _setter("delivery_stream_name", delivery_stream_name)
         if payload is not None:
             _setter("payload", payload)
@@ -894,8 +982,14 @@ class AlarmModelInitializationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             disabled_on_initialization: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             disabled_on_initialization: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if disabled_on_initialization is None and 'disabledOnInitialization' in kwargs:
+            disabled_on_initialization = kwargs['disabledOnInitialization']
+        if disabled_on_initialization is None:
+            raise TypeError("Missing 'disabled_on_initialization' argument")
+
         _setter("disabled_on_initialization", disabled_on_initialization)
 
     @property
@@ -928,9 +1022,15 @@ class AlarmModelIotEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_name: pulumi.Input[str],
+             input_name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_name is None and 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if input_name is None:
+            raise TypeError("Missing 'input_name' argument")
+
         _setter("input_name", input_name)
         if payload is not None:
             _setter("payload", payload)
@@ -988,7 +1088,19 @@ class AlarmModelIotSiteWiseArgs:
              property_alias: Optional[pulumi.Input[str]] = None,
              property_id: Optional[pulumi.Input[str]] = None,
              property_value: Optional[pulumi.Input['AlarmModelAssetPropertyValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if asset_id is None and 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if entry_id is None and 'entryId' in kwargs:
+            entry_id = kwargs['entryId']
+        if property_alias is None and 'propertyAlias' in kwargs:
+            property_alias = kwargs['propertyAlias']
+        if property_id is None and 'propertyId' in kwargs:
+            property_id = kwargs['propertyId']
+        if property_value is None and 'propertyValue' in kwargs:
+            property_value = kwargs['propertyValue']
+
         if asset_id is not None:
             _setter("asset_id", asset_id)
         if entry_id is not None:
@@ -1075,9 +1187,15 @@ class AlarmModelIotTopicPublishArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mqtt_topic: pulumi.Input[str],
+             mqtt_topic: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mqtt_topic is None and 'mqttTopic' in kwargs:
+            mqtt_topic = kwargs['mqttTopic']
+        if mqtt_topic is None:
+            raise TypeError("Missing 'mqtt_topic' argument")
+
         _setter("mqtt_topic", mqtt_topic)
         if payload is not None:
             _setter("payload", payload)
@@ -1120,9 +1238,15 @@ class AlarmModelLambdaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_arn: pulumi.Input[str],
+             function_arn: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+
         _setter("function_arn", function_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -1169,9 +1293,17 @@ class AlarmModelPayloadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_expression: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             content_expression: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_expression is None and 'contentExpression' in kwargs:
+            content_expression = kwargs['contentExpression']
+        if content_expression is None:
+            raise TypeError("Missing 'content_expression' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("content_expression", content_expression)
         _setter("type", type)
 
@@ -1221,10 +1353,22 @@ class AlarmModelSimpleRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input['AlarmModelSimpleRuleComparisonOperator'],
-             input_property: pulumi.Input[str],
-             threshold: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             comparison_operator: Optional[pulumi.Input['AlarmModelSimpleRuleComparisonOperator']] = None,
+             input_property: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if input_property is None and 'inputProperty' in kwargs:
+            input_property = kwargs['inputProperty']
+        if input_property is None:
+            raise TypeError("Missing 'input_property' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+
         _setter("comparison_operator", comparison_operator)
         _setter("input_property", input_property)
         _setter("threshold", threshold)
@@ -1283,9 +1427,15 @@ class AlarmModelSnsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_arn: pulumi.Input[str],
+             target_arn: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+
         _setter("target_arn", target_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -1331,10 +1481,18 @@ class AlarmModelSqsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             queue_url: pulumi.Input[str],
+             queue_url: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['AlarmModelPayloadArgs']] = None,
              use_base64: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if queue_url is None and 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if queue_url is None:
+            raise TypeError("Missing 'queue_url' argument")
+        if use_base64 is None and 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
         _setter("queue_url", queue_url)
         if payload is not None:
             _setter("payload", payload)
@@ -1393,9 +1551,15 @@ class AlarmModelTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1475,7 +1639,29 @@ class DetectorModelActionArgs:
              set_variable: Optional[pulumi.Input['DetectorModelSetVariableArgs']] = None,
              sns: Optional[pulumi.Input['DetectorModelSnsArgs']] = None,
              sqs: Optional[pulumi.Input['DetectorModelSqsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if clear_timer is None and 'clearTimer' in kwargs:
+            clear_timer = kwargs['clearTimer']
+        if dynamo_d_bv2 is None and 'dynamoDBv2' in kwargs:
+            dynamo_d_bv2 = kwargs['dynamoDBv2']
+        if dynamo_db is None and 'dynamoDb' in kwargs:
+            dynamo_db = kwargs['dynamoDb']
+        if iot_events is None and 'iotEvents' in kwargs:
+            iot_events = kwargs['iotEvents']
+        if iot_site_wise is None and 'iotSiteWise' in kwargs:
+            iot_site_wise = kwargs['iotSiteWise']
+        if iot_topic_publish is None and 'iotTopicPublish' in kwargs:
+            iot_topic_publish = kwargs['iotTopicPublish']
+        if lambda_ is None and 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if reset_timer is None and 'resetTimer' in kwargs:
+            reset_timer = kwargs['resetTimer']
+        if set_timer is None and 'setTimer' in kwargs:
+            set_timer = kwargs['setTimer']
+        if set_variable is None and 'setVariable' in kwargs:
+            set_variable = kwargs['setVariable']
+
         if clear_timer is not None:
             _setter("clear_timer", clear_timer)
         if dynamo_d_bv2 is not None:
@@ -1639,9 +1825,17 @@ class DetectorModelAssetPropertyTimestampArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             time_in_seconds: pulumi.Input[str],
+             time_in_seconds: Optional[pulumi.Input[str]] = None,
              offset_in_nanos: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if time_in_seconds is None and 'timeInSeconds' in kwargs:
+            time_in_seconds = kwargs['timeInSeconds']
+        if time_in_seconds is None:
+            raise TypeError("Missing 'time_in_seconds' argument")
+        if offset_in_nanos is None and 'offsetInNanos' in kwargs:
+            offset_in_nanos = kwargs['offsetInNanos']
+
         _setter("time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
             _setter("offset_in_nanos", offset_in_nanos)
@@ -1690,10 +1884,14 @@ class DetectorModelAssetPropertyValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input['DetectorModelAssetPropertyVariantArgs'],
+             value: Optional[pulumi.Input['DetectorModelAssetPropertyVariantArgs']] = None,
              quality: Optional[pulumi.Input[str]] = None,
              timestamp: Optional[pulumi.Input['DetectorModelAssetPropertyTimestampArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("value", value)
         if quality is not None:
             _setter("quality", quality)
@@ -1759,7 +1957,17 @@ class DetectorModelAssetPropertyVariantArgs:
              double_value: Optional[pulumi.Input[str]] = None,
              integer_value: Optional[pulumi.Input[str]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if boolean_value is None and 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if double_value is None and 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if integer_value is None and 'integerValue' in kwargs:
+            integer_value = kwargs['integerValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -1832,8 +2040,14 @@ class DetectorModelClearTimerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timer_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             timer_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timer_name is None and 'timerName' in kwargs:
+            timer_name = kwargs['timerName']
+        if timer_name is None:
+            raise TypeError("Missing 'timer_name' argument")
+
         _setter("timer_name", timer_name)
 
     @property
@@ -1864,9 +2078,17 @@ class DetectorModelDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             initial_state_name: pulumi.Input[str],
-             states: pulumi.Input[Sequence[pulumi.Input['DetectorModelStateArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             initial_state_name: Optional[pulumi.Input[str]] = None,
+             states: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelStateArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initial_state_name is None and 'initialStateName' in kwargs:
+            initial_state_name = kwargs['initialStateName']
+        if initial_state_name is None:
+            raise TypeError("Missing 'initial_state_name' argument")
+        if states is None:
+            raise TypeError("Missing 'states' argument")
+
         _setter("initial_state_name", initial_state_name)
         _setter("states", states)
 
@@ -1914,9 +2136,15 @@ class DetectorModelDynamoDBv2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             table_name: pulumi.Input[str],
+             table_name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("table_name", table_name)
         if payload is not None:
             _setter("payload", payload)
@@ -2006,9 +2234,9 @@ class DetectorModelDynamoDbArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hash_key_field: pulumi.Input[str],
-             hash_key_value: pulumi.Input[str],
-             table_name: pulumi.Input[str],
+             hash_key_field: Optional[pulumi.Input[str]] = None,
+             hash_key_value: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
              hash_key_type: Optional[pulumi.Input[str]] = None,
              operation: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
@@ -2016,7 +2244,31 @@ class DetectorModelDynamoDbArgs:
              range_key_field: Optional[pulumi.Input[str]] = None,
              range_key_type: Optional[pulumi.Input[str]] = None,
              range_key_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hash_key_field is None and 'hashKeyField' in kwargs:
+            hash_key_field = kwargs['hashKeyField']
+        if hash_key_field is None:
+            raise TypeError("Missing 'hash_key_field' argument")
+        if hash_key_value is None and 'hashKeyValue' in kwargs:
+            hash_key_value = kwargs['hashKeyValue']
+        if hash_key_value is None:
+            raise TypeError("Missing 'hash_key_value' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if hash_key_type is None and 'hashKeyType' in kwargs:
+            hash_key_type = kwargs['hashKeyType']
+        if payload_field is None and 'payloadField' in kwargs:
+            payload_field = kwargs['payloadField']
+        if range_key_field is None and 'rangeKeyField' in kwargs:
+            range_key_field = kwargs['rangeKeyField']
+        if range_key_type is None and 'rangeKeyType' in kwargs:
+            range_key_type = kwargs['rangeKeyType']
+        if range_key_value is None and 'rangeKeyValue' in kwargs:
+            range_key_value = kwargs['rangeKeyValue']
+
         _setter("hash_key_field", hash_key_field)
         _setter("hash_key_value", hash_key_value)
         _setter("table_name", table_name)
@@ -2196,10 +2448,16 @@ class DetectorModelEventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_name: pulumi.Input[str],
+             event_name: Optional[pulumi.Input[str]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]]] = None,
              condition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_name is None and 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if event_name is None:
+            raise TypeError("Missing 'event_name' argument")
+
         _setter("event_name", event_name)
         if actions is not None:
             _setter("actions", actions)
@@ -2263,10 +2521,16 @@ class DetectorModelFirehoseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delivery_stream_name: pulumi.Input[str],
+             delivery_stream_name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
              separator: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_stream_name is None and 'deliveryStreamName' in kwargs:
+            delivery_stream_name = kwargs['deliveryStreamName']
+        if delivery_stream_name is None:
+            raise TypeError("Missing 'delivery_stream_name' argument")
+
         _setter("delivery_stream_name", delivery_stream_name)
         if payload is not None:
             _setter("payload", payload)
@@ -2324,9 +2588,15 @@ class DetectorModelIotEventsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_name: pulumi.Input[str],
+             input_name: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_name is None and 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if input_name is None:
+            raise TypeError("Missing 'input_name' argument")
+
         _setter("input_name", input_name)
         if payload is not None:
             _setter("payload", payload)
@@ -2379,12 +2649,26 @@ class DetectorModelIotSiteWiseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property_value: pulumi.Input['DetectorModelAssetPropertyValueArgs'],
+             property_value: Optional[pulumi.Input['DetectorModelAssetPropertyValueArgs']] = None,
              asset_id: Optional[pulumi.Input[str]] = None,
              entry_id: Optional[pulumi.Input[str]] = None,
              property_alias: Optional[pulumi.Input[str]] = None,
              property_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_value is None and 'propertyValue' in kwargs:
+            property_value = kwargs['propertyValue']
+        if property_value is None:
+            raise TypeError("Missing 'property_value' argument")
+        if asset_id is None and 'assetId' in kwargs:
+            asset_id = kwargs['assetId']
+        if entry_id is None and 'entryId' in kwargs:
+            entry_id = kwargs['entryId']
+        if property_alias is None and 'propertyAlias' in kwargs:
+            property_alias = kwargs['propertyAlias']
+        if property_id is None and 'propertyId' in kwargs:
+            property_id = kwargs['propertyId']
+
         _setter("property_value", property_value)
         if asset_id is not None:
             _setter("asset_id", asset_id)
@@ -2470,9 +2754,15 @@ class DetectorModelIotTopicPublishArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mqtt_topic: pulumi.Input[str],
+             mqtt_topic: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mqtt_topic is None and 'mqttTopic' in kwargs:
+            mqtt_topic = kwargs['mqttTopic']
+        if mqtt_topic is None:
+            raise TypeError("Missing 'mqtt_topic' argument")
+
         _setter("mqtt_topic", mqtt_topic)
         if payload is not None:
             _setter("payload", payload)
@@ -2515,9 +2805,15 @@ class DetectorModelLambdaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_arn: pulumi.Input[str],
+             function_arn: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_arn is None and 'functionArn' in kwargs:
+            function_arn = kwargs['functionArn']
+        if function_arn is None:
+            raise TypeError("Missing 'function_arn' argument")
+
         _setter("function_arn", function_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -2560,7 +2856,9 @@ class DetectorModelOnEnterArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if events is not None:
             _setter("events", events)
 
@@ -2593,7 +2891,9 @@ class DetectorModelOnExitArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if events is not None:
             _setter("events", events)
 
@@ -2630,7 +2930,11 @@ class DetectorModelOnInputArgs:
              _setter: Callable[[Any, Any], None],
              events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelEventArgs']]]] = None,
              transition_events: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelTransitionEventArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transition_events is None and 'transitionEvents' in kwargs:
+            transition_events = kwargs['transitionEvents']
+
         if events is not None:
             _setter("events", events)
         if transition_events is not None:
@@ -2681,9 +2985,17 @@ class DetectorModelPayloadArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content_expression: pulumi.Input[str],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             content_expression: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_expression is None and 'contentExpression' in kwargs:
+            content_expression = kwargs['contentExpression']
+        if content_expression is None:
+            raise TypeError("Missing 'content_expression' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("content_expression", content_expression)
         _setter("type", type)
 
@@ -2727,8 +3039,14 @@ class DetectorModelResetTimerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timer_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             timer_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timer_name is None and 'timerName' in kwargs:
+            timer_name = kwargs['timerName']
+        if timer_name is None:
+            raise TypeError("Missing 'timer_name' argument")
+
         _setter("timer_name", timer_name)
 
     @property
@@ -2765,10 +3083,18 @@ class DetectorModelSetTimerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timer_name: pulumi.Input[str],
+             timer_name: Optional[pulumi.Input[str]] = None,
              duration_expression: Optional[pulumi.Input[str]] = None,
              seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timer_name is None and 'timerName' in kwargs:
+            timer_name = kwargs['timerName']
+        if timer_name is None:
+            raise TypeError("Missing 'timer_name' argument")
+        if duration_expression is None and 'durationExpression' in kwargs:
+            duration_expression = kwargs['durationExpression']
+
         _setter("timer_name", timer_name)
         if duration_expression is not None:
             _setter("duration_expression", duration_expression)
@@ -2830,9 +3156,17 @@ class DetectorModelSetVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             variable_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             value: Optional[pulumi.Input[str]] = None,
+             variable_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if variable_name is None and 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+        if variable_name is None:
+            raise TypeError("Missing 'variable_name' argument")
+
         _setter("value", value)
         _setter("variable_name", variable_name)
 
@@ -2878,9 +3212,15 @@ class DetectorModelSnsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_arn: pulumi.Input[str],
+             target_arn: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_arn is None and 'targetArn' in kwargs:
+            target_arn = kwargs['targetArn']
+        if target_arn is None:
+            raise TypeError("Missing 'target_arn' argument")
+
         _setter("target_arn", target_arn)
         if payload is not None:
             _setter("payload", payload)
@@ -2926,10 +3266,18 @@ class DetectorModelSqsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             queue_url: pulumi.Input[str],
+             queue_url: Optional[pulumi.Input[str]] = None,
              payload: Optional[pulumi.Input['DetectorModelPayloadArgs']] = None,
              use_base64: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if queue_url is None and 'queueUrl' in kwargs:
+            queue_url = kwargs['queueUrl']
+        if queue_url is None:
+            raise TypeError("Missing 'queue_url' argument")
+        if use_base64 is None and 'useBase64' in kwargs:
+            use_base64 = kwargs['useBase64']
+
         _setter("queue_url", queue_url)
         if payload is not None:
             _setter("payload", payload)
@@ -2991,11 +3339,23 @@ class DetectorModelStateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             state_name: pulumi.Input[str],
+             state_name: Optional[pulumi.Input[str]] = None,
              on_enter: Optional[pulumi.Input['DetectorModelOnEnterArgs']] = None,
              on_exit: Optional[pulumi.Input['DetectorModelOnExitArgs']] = None,
              on_input: Optional[pulumi.Input['DetectorModelOnInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state_name is None and 'stateName' in kwargs:
+            state_name = kwargs['stateName']
+        if state_name is None:
+            raise TypeError("Missing 'state_name' argument")
+        if on_enter is None and 'onEnter' in kwargs:
+            on_enter = kwargs['onEnter']
+        if on_exit is None and 'onExit' in kwargs:
+            on_exit = kwargs['onExit']
+        if on_input is None and 'onInput' in kwargs:
+            on_input = kwargs['onInput']
+
         _setter("state_name", state_name)
         if on_enter is not None:
             _setter("on_enter", on_enter)
@@ -3062,9 +3422,15 @@ class DetectorModelTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3117,11 +3483,23 @@ class DetectorModelTransitionEventArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             condition: pulumi.Input[str],
-             event_name: pulumi.Input[str],
-             next_state: pulumi.Input[str],
+             condition: Optional[pulumi.Input[str]] = None,
+             event_name: Optional[pulumi.Input[str]] = None,
+             next_state: Optional[pulumi.Input[str]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if condition is None:
+            raise TypeError("Missing 'condition' argument")
+        if event_name is None and 'eventName' in kwargs:
+            event_name = kwargs['eventName']
+        if event_name is None:
+            raise TypeError("Missing 'event_name' argument")
+        if next_state is None and 'nextState' in kwargs:
+            next_state = kwargs['nextState']
+        if next_state is None:
+            raise TypeError("Missing 'next_state' argument")
+
         _setter("condition", condition)
         _setter("event_name", event_name)
         _setter("next_state", next_state)
@@ -3194,8 +3572,14 @@ class InputAttributeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             json_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             json_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_path is None and 'jsonPath' in kwargs:
+            json_path = kwargs['jsonPath']
+        if json_path is None:
+            raise TypeError("Missing 'json_path' argument")
+
         _setter("json_path", json_path)
 
     @property
@@ -3228,8 +3612,12 @@ class InputDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InputAttributeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+
         _setter("attributes", attributes)
 
     @property
@@ -3263,9 +3651,15 @@ class InputTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

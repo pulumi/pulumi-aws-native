@@ -29,9 +29,19 @@ class EnabledControlArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             control_identifier: pulumi.Input[str],
-             target_identifier: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             control_identifier: Optional[pulumi.Input[str]] = None,
+             target_identifier: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_identifier is None and 'controlIdentifier' in kwargs:
+            control_identifier = kwargs['controlIdentifier']
+        if control_identifier is None:
+            raise TypeError("Missing 'control_identifier' argument")
+        if target_identifier is None and 'targetIdentifier' in kwargs:
+            target_identifier = kwargs['targetIdentifier']
+        if target_identifier is None:
+            raise TypeError("Missing 'target_identifier' argument")
+
         _setter("control_identifier", control_identifier)
         _setter("target_identifier", target_identifier)
 

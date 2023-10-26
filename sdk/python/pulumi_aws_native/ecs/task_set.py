@@ -54,9 +54,9 @@ class TaskSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster: pulumi.Input[str],
-             service: pulumi.Input[str],
-             task_definition: pulumi.Input[str],
+             cluster: Optional[pulumi.Input[str]] = None,
+             service: Optional[pulumi.Input[str]] = None,
+             task_definition: Optional[pulumi.Input[str]] = None,
              external_id: Optional[pulumi.Input[str]] = None,
              launch_type: Optional[pulumi.Input['TaskSetLaunchType']] = None,
              load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
@@ -64,7 +64,29 @@ class TaskSetArgs:
              platform_version: Optional[pulumi.Input[str]] = None,
              scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
              service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetServiceRegistryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster is None:
+            raise TypeError("Missing 'cluster' argument")
+        if service is None:
+            raise TypeError("Missing 'service' argument")
+        if task_definition is None and 'taskDefinition' in kwargs:
+            task_definition = kwargs['taskDefinition']
+        if task_definition is None:
+            raise TypeError("Missing 'task_definition' argument")
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if launch_type is None and 'launchType' in kwargs:
+            launch_type = kwargs['launchType']
+        if load_balancers is None and 'loadBalancers' in kwargs:
+            load_balancers = kwargs['loadBalancers']
+        if network_configuration is None and 'networkConfiguration' in kwargs:
+            network_configuration = kwargs['networkConfiguration']
+        if platform_version is None and 'platformVersion' in kwargs:
+            platform_version = kwargs['platformVersion']
+        if service_registries is None and 'serviceRegistries' in kwargs:
+            service_registries = kwargs['serviceRegistries']
+
         _setter("cluster", cluster)
         _setter("service", service)
         _setter("task_definition", task_definition)
@@ -281,18 +303,10 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["external_id"] = external_id
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
-            if network_configuration is not None and not isinstance(network_configuration, TaskSetNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                TaskSetNetworkConfigurationArgs._configure(_setter, **network_configuration)
+            network_configuration = _utilities.configure(network_configuration, TaskSetNetworkConfigurationArgs, True)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["platform_version"] = platform_version
-            if scale is not None and not isinstance(scale, TaskSetScaleArgs):
-                scale = scale or {}
-                def _setter(key, value):
-                    scale[key] = value
-                TaskSetScaleArgs._configure(_setter, **scale)
+            scale = _utilities.configure(scale, TaskSetScaleArgs, True)
             __props__.__dict__["scale"] = scale
             if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")

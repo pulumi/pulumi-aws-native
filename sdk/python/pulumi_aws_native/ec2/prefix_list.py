@@ -41,12 +41,24 @@ class PrefixListArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_family: pulumi.Input['PrefixListAddressFamily'],
-             max_entries: pulumi.Input[int],
+             address_family: Optional[pulumi.Input['PrefixListAddressFamily']] = None,
+             max_entries: Optional[pulumi.Input[int]] = None,
              entries: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListEntryArgs']]]] = None,
              prefix_list_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PrefixListTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_family is None and 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if address_family is None:
+            raise TypeError("Missing 'address_family' argument")
+        if max_entries is None and 'maxEntries' in kwargs:
+            max_entries = kwargs['maxEntries']
+        if max_entries is None:
+            raise TypeError("Missing 'max_entries' argument")
+        if prefix_list_name is None and 'prefixListName' in kwargs:
+            prefix_list_name = kwargs['prefixListName']
+
         _setter("address_family", address_family)
         _setter("max_entries", max_entries)
         if entries is not None:

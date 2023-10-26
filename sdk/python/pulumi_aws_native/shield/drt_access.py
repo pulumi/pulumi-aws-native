@@ -29,9 +29,17 @@ class DrtAccessArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              log_bucket_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if log_bucket_list is None and 'logBucketList' in kwargs:
+            log_bucket_list = kwargs['logBucketList']
+
         _setter("role_arn", role_arn)
         if log_bucket_list is not None:
             _setter("log_bucket_list", log_bucket_list)

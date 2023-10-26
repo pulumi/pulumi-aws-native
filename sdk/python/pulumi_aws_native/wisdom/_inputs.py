@@ -33,8 +33,14 @@ class AssistantAssociationAssociationDataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             knowledge_base_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             knowledge_base_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if knowledge_base_id is None and 'knowledgeBaseId' in kwargs:
+            knowledge_base_id = kwargs['knowledgeBaseId']
+        if knowledge_base_id is None:
+            raise TypeError("Missing 'knowledge_base_id' argument")
+
         _setter("knowledge_base_id", knowledge_base_id)
 
     @property
@@ -60,9 +66,15 @@ class AssistantAssociationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -97,7 +109,11 @@ class AssistantServerSideEncryptionConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -124,9 +140,15 @@ class AssistantTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -162,9 +184,17 @@ class KnowledgeBaseAppIntegrationsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_integration_arn: pulumi.Input[str],
+             app_integration_arn: Optional[pulumi.Input[str]] = None,
              object_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_integration_arn is None and 'appIntegrationArn' in kwargs:
+            app_integration_arn = kwargs['appIntegrationArn']
+        if app_integration_arn is None:
+            raise TypeError("Missing 'app_integration_arn' argument")
+        if object_fields is None and 'objectFields' in kwargs:
+            object_fields = kwargs['objectFields']
+
         _setter("app_integration_arn", app_integration_arn)
         if object_fields is not None:
             _setter("object_fields", object_fields)
@@ -200,7 +230,11 @@ class KnowledgeBaseRenderingConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              template_uri: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if template_uri is None and 'templateUri' in kwargs:
+            template_uri = kwargs['templateUri']
+
         if template_uri is not None:
             _setter("template_uri", template_uri)
 
@@ -226,7 +260,11 @@ class KnowledgeBaseServerSideEncryptionConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
 
@@ -252,7 +290,11 @@ class KnowledgeBaseSourceConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              app_integrations: Optional[pulumi.Input['KnowledgeBaseAppIntegrationsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_integrations is None and 'appIntegrations' in kwargs:
+            app_integrations = kwargs['appIntegrations']
+
         if app_integrations is not None:
             _setter("app_integrations", app_integrations)
 
@@ -279,9 +321,15 @@ class KnowledgeBaseTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

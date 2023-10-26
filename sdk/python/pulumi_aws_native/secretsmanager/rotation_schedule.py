@@ -35,12 +35,26 @@ class RotationScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_id: pulumi.Input[str],
+             secret_id: Optional[pulumi.Input[str]] = None,
              hosted_rotation_lambda: Optional[pulumi.Input['RotationScheduleHostedRotationLambdaArgs']] = None,
              rotate_immediately_on_update: Optional[pulumi.Input[bool]] = None,
              rotation_lambda_arn: Optional[pulumi.Input[str]] = None,
              rotation_rules: Optional[pulumi.Input['RotationScheduleRotationRulesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_id is None and 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if secret_id is None:
+            raise TypeError("Missing 'secret_id' argument")
+        if hosted_rotation_lambda is None and 'hostedRotationLambda' in kwargs:
+            hosted_rotation_lambda = kwargs['hostedRotationLambda']
+        if rotate_immediately_on_update is None and 'rotateImmediatelyOnUpdate' in kwargs:
+            rotate_immediately_on_update = kwargs['rotateImmediatelyOnUpdate']
+        if rotation_lambda_arn is None and 'rotationLambdaArn' in kwargs:
+            rotation_lambda_arn = kwargs['rotationLambdaArn']
+        if rotation_rules is None and 'rotationRules' in kwargs:
+            rotation_rules = kwargs['rotationRules']
+
         _setter("secret_id", secret_id)
         if hosted_rotation_lambda is not None:
             _setter("hosted_rotation_lambda", hosted_rotation_lambda)
@@ -162,19 +176,11 @@ class RotationSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RotationScheduleArgs.__new__(RotationScheduleArgs)
 
-            if hosted_rotation_lambda is not None and not isinstance(hosted_rotation_lambda, RotationScheduleHostedRotationLambdaArgs):
-                hosted_rotation_lambda = hosted_rotation_lambda or {}
-                def _setter(key, value):
-                    hosted_rotation_lambda[key] = value
-                RotationScheduleHostedRotationLambdaArgs._configure(_setter, **hosted_rotation_lambda)
+            hosted_rotation_lambda = _utilities.configure(hosted_rotation_lambda, RotationScheduleHostedRotationLambdaArgs, True)
             __props__.__dict__["hosted_rotation_lambda"] = hosted_rotation_lambda
             __props__.__dict__["rotate_immediately_on_update"] = rotate_immediately_on_update
             __props__.__dict__["rotation_lambda_arn"] = rotation_lambda_arn
-            if rotation_rules is not None and not isinstance(rotation_rules, RotationScheduleRotationRulesArgs):
-                rotation_rules = rotation_rules or {}
-                def _setter(key, value):
-                    rotation_rules[key] = value
-                RotationScheduleRotationRulesArgs._configure(_setter, **rotation_rules)
+            rotation_rules = _utilities.configure(rotation_rules, RotationScheduleRotationRulesArgs, True)
             __props__.__dict__["rotation_rules"] = rotation_rules
             if secret_id is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_id'")

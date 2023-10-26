@@ -40,12 +40,22 @@ class LocationFSxOpenZfsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             protocol: pulumi.Input['LocationFSxOpenZfsProtocolArgs'],
-             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             protocol: Optional[pulumi.Input['LocationFSxOpenZfsProtocolArgs']] = None,
+             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              fsx_filesystem_arn: Optional[pulumi.Input[str]] = None,
              subdirectory: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationFSxOpenZfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if security_group_arns is None and 'securityGroupArns' in kwargs:
+            security_group_arns = kwargs['securityGroupArns']
+        if security_group_arns is None:
+            raise TypeError("Missing 'security_group_arns' argument")
+        if fsx_filesystem_arn is None and 'fsxFilesystemArn' in kwargs:
+            fsx_filesystem_arn = kwargs['fsxFilesystemArn']
+
         _setter("protocol", protocol)
         _setter("security_group_arns", security_group_arns)
         if fsx_filesystem_arn is not None:
@@ -177,11 +187,7 @@ class LocationFSxOpenZfs(pulumi.CustomResource):
             __props__ = LocationFSxOpenZfsArgs.__new__(LocationFSxOpenZfsArgs)
 
             __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
-            if protocol is not None and not isinstance(protocol, LocationFSxOpenZfsProtocolArgs):
-                protocol = protocol or {}
-                def _setter(key, value):
-                    protocol[key] = value
-                LocationFSxOpenZfsProtocolArgs._configure(_setter, **protocol)
+            protocol = _utilities.configure(protocol, LocationFSxOpenZfsProtocolArgs, True)
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol

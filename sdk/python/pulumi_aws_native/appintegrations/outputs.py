@@ -39,9 +39,13 @@ class DataIntegrationFileConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             folders: Sequence[str],
+             folders: Optional[Sequence[str]] = None,
              filters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if folders is None:
+            raise TypeError("Missing 'folders' argument")
+
         _setter("folders", folders)
         if filters is not None:
             _setter("filters", filters)
@@ -76,8 +80,10 @@ class DataIntegrationObjectConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -119,10 +125,18 @@ class DataIntegrationScheduleConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_expression: str,
+             schedule_expression: Optional[str] = None,
              first_execution_from: Optional[str] = None,
              object: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+        if first_execution_from is None and 'firstExecutionFrom' in kwargs:
+            first_execution_from = kwargs['firstExecutionFrom']
+
         _setter("schedule_expression", schedule_expression)
         if first_execution_from is not None:
             _setter("first_execution_from", first_execution_from)
@@ -175,9 +189,15 @@ class DataIntegrationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -212,8 +232,12 @@ class EventIntegrationEventFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             source: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("source", source)
 
     @property
@@ -242,9 +266,15 @@ class EventIntegrationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

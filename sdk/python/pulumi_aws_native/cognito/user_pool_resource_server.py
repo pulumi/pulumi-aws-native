@@ -33,11 +33,19 @@ class UserPoolResourceServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             identifier: pulumi.Input[str],
-             user_pool_id: pulumi.Input[str],
+             identifier: Optional[pulumi.Input[str]] = None,
+             user_pool_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+
         _setter("identifier", identifier)
         _setter("user_pool_id", user_pool_id)
         if name is not None:

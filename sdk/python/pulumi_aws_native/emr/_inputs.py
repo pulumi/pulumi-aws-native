@@ -89,7 +89,11 @@ class ClusterApplicationArgs:
              args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_info is None and 'additionalInfo' in kwargs:
+            additional_info = kwargs['additionalInfo']
+
         if additional_info is not None:
             _setter("additional_info", additional_info)
         if args is not None:
@@ -149,9 +153,15 @@ class ClusterAutoScalingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             constraints: pulumi.Input['ClusterScalingConstraintsArgs'],
-             rules: pulumi.Input[Sequence[pulumi.Input['ClusterScalingRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             constraints: Optional[pulumi.Input['ClusterScalingConstraintsArgs']] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterScalingRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if constraints is None:
+            raise TypeError("Missing 'constraints' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
         _setter("constraints", constraints)
         _setter("rules", rules)
 
@@ -186,7 +196,11 @@ class ClusterAutoTerminationPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              idle_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+
         if idle_timeout is not None:
             _setter("idle_timeout", idle_timeout)
 
@@ -213,9 +227,17 @@ class ClusterBootstrapActionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             script_bootstrap_action: pulumi.Input['ClusterScriptBootstrapActionConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             script_bootstrap_action: Optional[pulumi.Input['ClusterScriptBootstrapActionConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if script_bootstrap_action is None and 'scriptBootstrapAction' in kwargs:
+            script_bootstrap_action = kwargs['scriptBootstrapAction']
+        if script_bootstrap_action is None:
+            raise TypeError("Missing 'script_bootstrap_action' argument")
+
         _setter("name", name)
         _setter("script_bootstrap_action", script_bootstrap_action)
 
@@ -265,16 +287,32 @@ class ClusterCloudWatchAlarmDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             metric_name: pulumi.Input[str],
-             period: pulumi.Input[int],
-             threshold: pulumi.Input[float],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMetricDimensionArgs']]]] = None,
              evaluation_periods: Optional[pulumi.Input[int]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              statistic: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if evaluation_periods is None and 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+
         _setter("comparison_operator", comparison_operator)
         _setter("metric_name", metric_name)
         _setter("period", period)
@@ -391,12 +429,30 @@ class ClusterComputeLimitsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             maximum_capacity_units: pulumi.Input[int],
-             minimum_capacity_units: pulumi.Input[int],
-             unit_type: pulumi.Input[str],
+             maximum_capacity_units: Optional[pulumi.Input[int]] = None,
+             minimum_capacity_units: Optional[pulumi.Input[int]] = None,
+             unit_type: Optional[pulumi.Input[str]] = None,
              maximum_core_capacity_units: Optional[pulumi.Input[int]] = None,
              maximum_on_demand_capacity_units: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if maximum_capacity_units is None and 'maximumCapacityUnits' in kwargs:
+            maximum_capacity_units = kwargs['maximumCapacityUnits']
+        if maximum_capacity_units is None:
+            raise TypeError("Missing 'maximum_capacity_units' argument")
+        if minimum_capacity_units is None and 'minimumCapacityUnits' in kwargs:
+            minimum_capacity_units = kwargs['minimumCapacityUnits']
+        if minimum_capacity_units is None:
+            raise TypeError("Missing 'minimum_capacity_units' argument")
+        if unit_type is None and 'unitType' in kwargs:
+            unit_type = kwargs['unitType']
+        if unit_type is None:
+            raise TypeError("Missing 'unit_type' argument")
+        if maximum_core_capacity_units is None and 'maximumCoreCapacityUnits' in kwargs:
+            maximum_core_capacity_units = kwargs['maximumCoreCapacityUnits']
+        if maximum_on_demand_capacity_units is None and 'maximumOnDemandCapacityUnits' in kwargs:
+            maximum_on_demand_capacity_units = kwargs['maximumOnDemandCapacityUnits']
+
         _setter("maximum_capacity_units", maximum_capacity_units)
         _setter("minimum_capacity_units", minimum_capacity_units)
         _setter("unit_type", unit_type)
@@ -469,7 +525,11 @@ class ClusterConfigurationArgs:
              classification: Optional[pulumi.Input[str]] = None,
              configuration_properties: Optional[Any] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_properties is None and 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         if classification is not None:
             _setter("classification", classification)
         if configuration_properties is not None:
@@ -518,9 +578,17 @@ class ClusterEbsBlockDeviceConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             volume_specification: pulumi.Input['ClusterVolumeSpecificationArgs'],
+             volume_specification: Optional[pulumi.Input['ClusterVolumeSpecificationArgs']] = None,
              volumes_per_instance: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if volume_specification is None and 'volumeSpecification' in kwargs:
+            volume_specification = kwargs['volumeSpecification']
+        if volume_specification is None:
+            raise TypeError("Missing 'volume_specification' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
         _setter("volume_specification", volume_specification)
         if volumes_per_instance is not None:
             _setter("volumes_per_instance", volumes_per_instance)
@@ -559,7 +627,13 @@ class ClusterEbsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ebs_block_device_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEbsBlockDeviceConfigArgs']]]] = None,
              ebs_optimized: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_block_device_configs is None and 'ebsBlockDeviceConfigs' in kwargs:
+            ebs_block_device_configs = kwargs['ebsBlockDeviceConfigs']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+
         if ebs_block_device_configs is not None:
             _setter("ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
@@ -601,11 +675,19 @@ class ClusterHadoopJarStepConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             jar: pulumi.Input[str],
+             jar: Optional[pulumi.Input[str]] = None,
              args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              main_class: Optional[pulumi.Input[str]] = None,
              step_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterKeyValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if jar is None:
+            raise TypeError("Missing 'jar' argument")
+        if main_class is None and 'mainClass' in kwargs:
+            main_class = kwargs['mainClass']
+        if step_properties is None and 'stepProperties' in kwargs:
+            step_properties = kwargs['stepProperties']
+
         _setter("jar", jar)
         if args is not None:
             _setter("args", args)
@@ -675,7 +757,17 @@ class ClusterInstanceFleetConfigArgs:
              name: Optional[pulumi.Input[str]] = None,
              target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
              target_spot_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type_configs is None and 'instanceTypeConfigs' in kwargs:
+            instance_type_configs = kwargs['instanceTypeConfigs']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if target_on_demand_capacity is None and 'targetOnDemandCapacity' in kwargs:
+            target_on_demand_capacity = kwargs['targetOnDemandCapacity']
+        if target_spot_capacity is None and 'targetSpotCapacity' in kwargs:
+            target_spot_capacity = kwargs['targetSpotCapacity']
+
         if instance_type_configs is not None:
             _setter("instance_type_configs", instance_type_configs)
         if launch_specifications is not None:
@@ -748,7 +840,13 @@ class ClusterInstanceFleetProvisioningSpecificationsArgs:
              _setter: Callable[[Any, Any], None],
              on_demand_specification: Optional[pulumi.Input['ClusterOnDemandProvisioningSpecificationArgs']] = None,
              spot_specification: Optional[pulumi.Input['ClusterSpotProvisioningSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_demand_specification is None and 'onDemandSpecification' in kwargs:
+            on_demand_specification = kwargs['onDemandSpecification']
+        if spot_specification is None and 'spotSpecification' in kwargs:
+            spot_specification = kwargs['spotSpecification']
+
         if on_demand_specification is not None:
             _setter("on_demand_specification", on_demand_specification)
         if spot_specification is not None:
@@ -800,8 +898,8 @@ class ClusterInstanceGroupConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_count: pulumi.Input[int],
-             instance_type: pulumi.Input[str],
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
              auto_scaling_policy: Optional[pulumi.Input['ClusterAutoScalingPolicyArgs']] = None,
              bid_price: Optional[pulumi.Input[str]] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
@@ -809,7 +907,25 @@ class ClusterInstanceGroupConfigArgs:
              ebs_configuration: Optional[pulumi.Input['ClusterEbsConfigurationArgs']] = None,
              market: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if auto_scaling_policy is None and 'autoScalingPolicy' in kwargs:
+            auto_scaling_policy = kwargs['autoScalingPolicy']
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if custom_ami_id is None and 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if ebs_configuration is None and 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+
         _setter("instance_count", instance_count)
         _setter("instance_type", instance_type)
         if auto_scaling_policy is not None:
@@ -932,14 +1048,30 @@ class ClusterInstanceTypeConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
              bid_price: Optional[pulumi.Input[str]] = None,
              bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
              custom_ami_id: Optional[pulumi.Input[str]] = None,
              ebs_configuration: Optional[pulumi.Input['ClusterEbsConfigurationArgs']] = None,
              weighted_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if bid_price_as_percentage_of_on_demand_price is None and 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if custom_ami_id is None and 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if ebs_configuration is None and 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("instance_type", instance_type)
         if bid_price is not None:
             _setter("bid_price", bid_price)
@@ -1081,7 +1213,43 @@ class ClusterJobFlowInstancesConfigArgs:
              task_instance_fleets: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceFleetConfigArgs']]]] = None,
              task_instance_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceGroupConfigArgs']]]] = None,
              termination_protected: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_master_security_groups is None and 'additionalMasterSecurityGroups' in kwargs:
+            additional_master_security_groups = kwargs['additionalMasterSecurityGroups']
+        if additional_slave_security_groups is None and 'additionalSlaveSecurityGroups' in kwargs:
+            additional_slave_security_groups = kwargs['additionalSlaveSecurityGroups']
+        if core_instance_fleet is None and 'coreInstanceFleet' in kwargs:
+            core_instance_fleet = kwargs['coreInstanceFleet']
+        if core_instance_group is None and 'coreInstanceGroup' in kwargs:
+            core_instance_group = kwargs['coreInstanceGroup']
+        if ec2_key_name is None and 'ec2KeyName' in kwargs:
+            ec2_key_name = kwargs['ec2KeyName']
+        if ec2_subnet_id is None and 'ec2SubnetId' in kwargs:
+            ec2_subnet_id = kwargs['ec2SubnetId']
+        if ec2_subnet_ids is None and 'ec2SubnetIds' in kwargs:
+            ec2_subnet_ids = kwargs['ec2SubnetIds']
+        if emr_managed_master_security_group is None and 'emrManagedMasterSecurityGroup' in kwargs:
+            emr_managed_master_security_group = kwargs['emrManagedMasterSecurityGroup']
+        if emr_managed_slave_security_group is None and 'emrManagedSlaveSecurityGroup' in kwargs:
+            emr_managed_slave_security_group = kwargs['emrManagedSlaveSecurityGroup']
+        if hadoop_version is None and 'hadoopVersion' in kwargs:
+            hadoop_version = kwargs['hadoopVersion']
+        if keep_job_flow_alive_when_no_steps is None and 'keepJobFlowAliveWhenNoSteps' in kwargs:
+            keep_job_flow_alive_when_no_steps = kwargs['keepJobFlowAliveWhenNoSteps']
+        if master_instance_fleet is None and 'masterInstanceFleet' in kwargs:
+            master_instance_fleet = kwargs['masterInstanceFleet']
+        if master_instance_group is None and 'masterInstanceGroup' in kwargs:
+            master_instance_group = kwargs['masterInstanceGroup']
+        if service_access_security_group is None and 'serviceAccessSecurityGroup' in kwargs:
+            service_access_security_group = kwargs['serviceAccessSecurityGroup']
+        if task_instance_fleets is None and 'taskInstanceFleets' in kwargs:
+            task_instance_fleets = kwargs['taskInstanceFleets']
+        if task_instance_groups is None and 'taskInstanceGroups' in kwargs:
+            task_instance_groups = kwargs['taskInstanceGroups']
+        if termination_protected is None and 'terminationProtected' in kwargs:
+            termination_protected = kwargs['terminationProtected']
+
         if additional_master_security_groups is not None:
             _setter("additional_master_security_groups", additional_master_security_groups)
         if additional_slave_security_groups is not None:
@@ -1301,12 +1469,26 @@ class ClusterKerberosAttributesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kdc_admin_password: pulumi.Input[str],
-             realm: pulumi.Input[str],
+             kdc_admin_password: Optional[pulumi.Input[str]] = None,
+             realm: Optional[pulumi.Input[str]] = None,
              ad_domain_join_password: Optional[pulumi.Input[str]] = None,
              ad_domain_join_user: Optional[pulumi.Input[str]] = None,
              cross_realm_trust_principal_password: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kdc_admin_password is None and 'kdcAdminPassword' in kwargs:
+            kdc_admin_password = kwargs['kdcAdminPassword']
+        if kdc_admin_password is None:
+            raise TypeError("Missing 'kdc_admin_password' argument")
+        if realm is None:
+            raise TypeError("Missing 'realm' argument")
+        if ad_domain_join_password is None and 'adDomainJoinPassword' in kwargs:
+            ad_domain_join_password = kwargs['adDomainJoinPassword']
+        if ad_domain_join_user is None and 'adDomainJoinUser' in kwargs:
+            ad_domain_join_user = kwargs['adDomainJoinUser']
+        if cross_realm_trust_principal_password is None and 'crossRealmTrustPrincipalPassword' in kwargs:
+            cross_realm_trust_principal_password = kwargs['crossRealmTrustPrincipalPassword']
+
         _setter("kdc_admin_password", kdc_admin_password)
         _setter("realm", realm)
         if ad_domain_join_password is not None:
@@ -1377,7 +1559,9 @@ class ClusterKeyValueArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1414,7 +1598,11 @@ class ClusterManagedScalingPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              compute_limits: Optional[pulumi.Input['ClusterComputeLimitsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_limits is None and 'computeLimits' in kwargs:
+            compute_limits = kwargs['computeLimits']
+
         if compute_limits is not None:
             _setter("compute_limits", compute_limits)
 
@@ -1441,9 +1629,15 @@ class ClusterMetricDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1477,8 +1671,14 @@ class ClusterOnDemandProvisioningSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allocation_strategy: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+
         _setter("allocation_strategy", allocation_strategy)
 
     @property
@@ -1502,8 +1702,14 @@ class ClusterPlacementTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             availability_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone is None:
+            raise TypeError("Missing 'availability_zone' argument")
+
         _setter("availability_zone", availability_zone)
 
     @property
@@ -1529,9 +1735,15 @@ class ClusterScalingActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             simple_scaling_policy_configuration: pulumi.Input['ClusterSimpleScalingPolicyConfigurationArgs'],
+             simple_scaling_policy_configuration: Optional[pulumi.Input['ClusterSimpleScalingPolicyConfigurationArgs']] = None,
              market: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if simple_scaling_policy_configuration is None and 'simpleScalingPolicyConfiguration' in kwargs:
+            simple_scaling_policy_configuration = kwargs['simpleScalingPolicyConfiguration']
+        if simple_scaling_policy_configuration is None:
+            raise TypeError("Missing 'simple_scaling_policy_configuration' argument")
+
         _setter("simple_scaling_policy_configuration", simple_scaling_policy_configuration)
         if market is not None:
             _setter("market", market)
@@ -1568,9 +1780,19 @@ class ClusterScalingConstraintsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_capacity: pulumi.Input[int],
-             min_capacity: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
 
@@ -1610,11 +1832,19 @@ class ClusterScalingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['ClusterScalingActionArgs'],
-             name: pulumi.Input[str],
-             trigger: pulumi.Input['ClusterScalingTriggerArgs'],
+             action: Optional[pulumi.Input['ClusterScalingActionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             trigger: Optional[pulumi.Input['ClusterScalingTriggerArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
+
         _setter("action", action)
         _setter("name", name)
         _setter("trigger", trigger)
@@ -1669,8 +1899,14 @@ class ClusterScalingTriggerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_alarm_definition: pulumi.Input['ClusterCloudWatchAlarmDefinitionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_alarm_definition: Optional[pulumi.Input['ClusterCloudWatchAlarmDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_alarm_definition is None and 'cloudWatchAlarmDefinition' in kwargs:
+            cloud_watch_alarm_definition = kwargs['cloudWatchAlarmDefinition']
+        if cloud_watch_alarm_definition is None:
+            raise TypeError("Missing 'cloud_watch_alarm_definition' argument")
+
         _setter("cloud_watch_alarm_definition", cloud_watch_alarm_definition)
 
     @property
@@ -1696,9 +1932,13 @@ class ClusterScriptBootstrapActionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path: pulumi.Input[str],
+             path: Optional[pulumi.Input[str]] = None,
              args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+
         _setter("path", path)
         if args is not None:
             _setter("args", args)
@@ -1737,10 +1977,20 @@ class ClusterSimpleScalingPolicyConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scaling_adjustment: pulumi.Input[int],
+             scaling_adjustment: Optional[pulumi.Input[int]] = None,
              adjustment_type: Optional[pulumi.Input[str]] = None,
              cool_down: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scaling_adjustment is None and 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if scaling_adjustment is None:
+            raise TypeError("Missing 'scaling_adjustment' argument")
+        if adjustment_type is None and 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if cool_down is None and 'coolDown' in kwargs:
+            cool_down = kwargs['coolDown']
+
         _setter("scaling_adjustment", scaling_adjustment)
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)
@@ -1792,11 +2042,25 @@ class ClusterSpotProvisioningSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timeout_action: pulumi.Input[str],
-             timeout_duration_minutes: pulumi.Input[int],
+             timeout_action: Optional[pulumi.Input[str]] = None,
+             timeout_duration_minutes: Optional[pulumi.Input[int]] = None,
              allocation_strategy: Optional[pulumi.Input[str]] = None,
              block_duration_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if timeout_action is None:
+            raise TypeError("Missing 'timeout_action' argument")
+        if timeout_duration_minutes is None and 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if timeout_duration_minutes is None:
+            raise TypeError("Missing 'timeout_duration_minutes' argument")
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if block_duration_minutes is None and 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
         _setter("timeout_action", timeout_action)
         _setter("timeout_duration_minutes", timeout_duration_minutes)
         if allocation_strategy is not None:
@@ -1856,10 +2120,20 @@ class ClusterStepConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hadoop_jar_step: pulumi.Input['ClusterHadoopJarStepConfigArgs'],
-             name: pulumi.Input[str],
+             hadoop_jar_step: Optional[pulumi.Input['ClusterHadoopJarStepConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
              action_on_failure: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hadoop_jar_step is None and 'hadoopJarStep' in kwargs:
+            hadoop_jar_step = kwargs['hadoopJarStep']
+        if hadoop_jar_step is None:
+            raise TypeError("Missing 'hadoop_jar_step' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if action_on_failure is None and 'actionOnFailure' in kwargs:
+            action_on_failure = kwargs['actionOnFailure']
+
         _setter("hadoop_jar_step", hadoop_jar_step)
         _setter("name", name)
         if action_on_failure is not None:
@@ -1906,9 +2180,15 @@ class ClusterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1948,11 +2228,21 @@ class ClusterVolumeSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_gb: pulumi.Input[int],
-             volume_type: pulumi.Input[str],
+             size_in_gb: Optional[pulumi.Input[int]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
              iops: Optional[pulumi.Input[int]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_gb is None and 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if volume_type is None:
+            raise TypeError("Missing 'volume_type' argument")
+
         _setter("size_in_gb", size_in_gb)
         _setter("volume_type", volume_type)
         if iops is not None:
@@ -2015,7 +2305,11 @@ class InstanceFleetConfigConfigurationArgs:
              classification: Optional[pulumi.Input[str]] = None,
              configuration_properties: Optional[Any] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_properties is None and 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         if classification is not None:
             _setter("classification", classification)
         if configuration_properties is not None:
@@ -2064,9 +2358,17 @@ class InstanceFleetConfigEbsBlockDeviceConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             volume_specification: pulumi.Input['InstanceFleetConfigVolumeSpecificationArgs'],
+             volume_specification: Optional[pulumi.Input['InstanceFleetConfigVolumeSpecificationArgs']] = None,
              volumes_per_instance: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if volume_specification is None and 'volumeSpecification' in kwargs:
+            volume_specification = kwargs['volumeSpecification']
+        if volume_specification is None:
+            raise TypeError("Missing 'volume_specification' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
         _setter("volume_specification", volume_specification)
         if volumes_per_instance is not None:
             _setter("volumes_per_instance", volumes_per_instance)
@@ -2105,7 +2407,13 @@ class InstanceFleetConfigEbsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ebs_block_device_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigEbsBlockDeviceConfigArgs']]]] = None,
              ebs_optimized: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_block_device_configs is None and 'ebsBlockDeviceConfigs' in kwargs:
+            ebs_block_device_configs = kwargs['ebsBlockDeviceConfigs']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+
         if ebs_block_device_configs is not None:
             _setter("ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
@@ -2145,7 +2453,13 @@ class InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs:
              _setter: Callable[[Any, Any], None],
              on_demand_specification: Optional[pulumi.Input['InstanceFleetConfigOnDemandProvisioningSpecificationArgs']] = None,
              spot_specification: Optional[pulumi.Input['InstanceFleetConfigSpotProvisioningSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if on_demand_specification is None and 'onDemandSpecification' in kwargs:
+            on_demand_specification = kwargs['onDemandSpecification']
+        if spot_specification is None and 'spotSpecification' in kwargs:
+            spot_specification = kwargs['spotSpecification']
+
         if on_demand_specification is not None:
             _setter("on_demand_specification", on_demand_specification)
         if spot_specification is not None:
@@ -2193,14 +2507,30 @@ class InstanceFleetConfigInstanceTypeConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_type: pulumi.Input[str],
+             instance_type: Optional[pulumi.Input[str]] = None,
              bid_price: Optional[pulumi.Input[str]] = None,
              bid_price_as_percentage_of_on_demand_price: Optional[pulumi.Input[float]] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigConfigurationArgs']]]] = None,
              custom_ami_id: Optional[pulumi.Input[str]] = None,
              ebs_configuration: Optional[pulumi.Input['InstanceFleetConfigEbsConfigurationArgs']] = None,
              weighted_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if bid_price is None and 'bidPrice' in kwargs:
+            bid_price = kwargs['bidPrice']
+        if bid_price_as_percentage_of_on_demand_price is None and 'bidPriceAsPercentageOfOnDemandPrice' in kwargs:
+            bid_price_as_percentage_of_on_demand_price = kwargs['bidPriceAsPercentageOfOnDemandPrice']
+        if custom_ami_id is None and 'customAmiId' in kwargs:
+            custom_ami_id = kwargs['customAmiId']
+        if ebs_configuration is None and 'ebsConfiguration' in kwargs:
+            ebs_configuration = kwargs['ebsConfiguration']
+        if weighted_capacity is None and 'weightedCapacity' in kwargs:
+            weighted_capacity = kwargs['weightedCapacity']
+
         _setter("instance_type", instance_type)
         if bid_price is not None:
             _setter("bid_price", bid_price)
@@ -2290,8 +2620,14 @@ class InstanceFleetConfigOnDemandProvisioningSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allocation_strategy: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allocation_strategy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if allocation_strategy is None:
+            raise TypeError("Missing 'allocation_strategy' argument")
+
         _setter("allocation_strategy", allocation_strategy)
 
     @property
@@ -2321,11 +2657,25 @@ class InstanceFleetConfigSpotProvisioningSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timeout_action: pulumi.Input[str],
-             timeout_duration_minutes: pulumi.Input[int],
+             timeout_action: Optional[pulumi.Input[str]] = None,
+             timeout_duration_minutes: Optional[pulumi.Input[int]] = None,
              allocation_strategy: Optional[pulumi.Input[str]] = None,
              block_duration_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+        if timeout_action is None:
+            raise TypeError("Missing 'timeout_action' argument")
+        if timeout_duration_minutes is None and 'timeoutDurationMinutes' in kwargs:
+            timeout_duration_minutes = kwargs['timeoutDurationMinutes']
+        if timeout_duration_minutes is None:
+            raise TypeError("Missing 'timeout_duration_minutes' argument")
+        if allocation_strategy is None and 'allocationStrategy' in kwargs:
+            allocation_strategy = kwargs['allocationStrategy']
+        if block_duration_minutes is None and 'blockDurationMinutes' in kwargs:
+            block_duration_minutes = kwargs['blockDurationMinutes']
+
         _setter("timeout_action", timeout_action)
         _setter("timeout_duration_minutes", timeout_duration_minutes)
         if allocation_strategy is not None:
@@ -2387,11 +2737,21 @@ class InstanceFleetConfigVolumeSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_gb: pulumi.Input[int],
-             volume_type: pulumi.Input[str],
+             size_in_gb: Optional[pulumi.Input[int]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
              iops: Optional[pulumi.Input[int]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_gb is None and 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if volume_type is None:
+            raise TypeError("Missing 'volume_type' argument")
+
         _setter("size_in_gb", size_in_gb)
         _setter("volume_type", volume_type)
         if iops is not None:
@@ -2449,9 +2809,15 @@ class InstanceGroupConfigAutoScalingPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             constraints: pulumi.Input['InstanceGroupConfigScalingConstraintsArgs'],
-             rules: pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigScalingRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             constraints: Optional[pulumi.Input['InstanceGroupConfigScalingConstraintsArgs']] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigScalingRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if constraints is None:
+            raise TypeError("Missing 'constraints' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
         _setter("constraints", constraints)
         _setter("rules", rules)
 
@@ -2501,16 +2867,32 @@ class InstanceGroupConfigCloudWatchAlarmDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             metric_name: pulumi.Input[str],
-             period: pulumi.Input[int],
-             threshold: pulumi.Input[float],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             period: Optional[pulumi.Input[int]] = None,
+             threshold: Optional[pulumi.Input[float]] = None,
              dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigMetricDimensionArgs']]]] = None,
              evaluation_periods: Optional[pulumi.Input[int]] = None,
              namespace: Optional[pulumi.Input[str]] = None,
              statistic: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if period is None:
+            raise TypeError("Missing 'period' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if evaluation_periods is None and 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+
         _setter("comparison_operator", comparison_operator)
         _setter("metric_name", metric_name)
         _setter("period", period)
@@ -2626,7 +3008,11 @@ class InstanceGroupConfigConfigurationArgs:
              classification: Optional[pulumi.Input[str]] = None,
              configuration_properties: Optional[Any] = None,
              configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_properties is None and 'configurationProperties' in kwargs:
+            configuration_properties = kwargs['configurationProperties']
+
         if classification is not None:
             _setter("classification", classification)
         if configuration_properties is not None:
@@ -2675,9 +3061,17 @@ class InstanceGroupConfigEbsBlockDeviceConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             volume_specification: pulumi.Input['InstanceGroupConfigVolumeSpecificationArgs'],
+             volume_specification: Optional[pulumi.Input['InstanceGroupConfigVolumeSpecificationArgs']] = None,
              volumes_per_instance: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if volume_specification is None and 'volumeSpecification' in kwargs:
+            volume_specification = kwargs['volumeSpecification']
+        if volume_specification is None:
+            raise TypeError("Missing 'volume_specification' argument")
+        if volumes_per_instance is None and 'volumesPerInstance' in kwargs:
+            volumes_per_instance = kwargs['volumesPerInstance']
+
         _setter("volume_specification", volume_specification)
         if volumes_per_instance is not None:
             _setter("volumes_per_instance", volumes_per_instance)
@@ -2716,7 +3110,13 @@ class InstanceGroupConfigEbsConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              ebs_block_device_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupConfigEbsBlockDeviceConfigArgs']]]] = None,
              ebs_optimized: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_block_device_configs is None and 'ebsBlockDeviceConfigs' in kwargs:
+            ebs_block_device_configs = kwargs['ebsBlockDeviceConfigs']
+        if ebs_optimized is None and 'ebsOptimized' in kwargs:
+            ebs_optimized = kwargs['ebsOptimized']
+
         if ebs_block_device_configs is not None:
             _setter("ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
@@ -2754,9 +3154,15 @@ class InstanceGroupConfigMetricDimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2792,9 +3198,15 @@ class InstanceGroupConfigScalingActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             simple_scaling_policy_configuration: pulumi.Input['InstanceGroupConfigSimpleScalingPolicyConfigurationArgs'],
+             simple_scaling_policy_configuration: Optional[pulumi.Input['InstanceGroupConfigSimpleScalingPolicyConfigurationArgs']] = None,
              market: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if simple_scaling_policy_configuration is None and 'simpleScalingPolicyConfiguration' in kwargs:
+            simple_scaling_policy_configuration = kwargs['simpleScalingPolicyConfiguration']
+        if simple_scaling_policy_configuration is None:
+            raise TypeError("Missing 'simple_scaling_policy_configuration' argument")
+
         _setter("simple_scaling_policy_configuration", simple_scaling_policy_configuration)
         if market is not None:
             _setter("market", market)
@@ -2831,9 +3243,19 @@ class InstanceGroupConfigScalingConstraintsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_capacity: pulumi.Input[int],
-             min_capacity: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
 
@@ -2873,11 +3295,19 @@ class InstanceGroupConfigScalingRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['InstanceGroupConfigScalingActionArgs'],
-             name: pulumi.Input[str],
-             trigger: pulumi.Input['InstanceGroupConfigScalingTriggerArgs'],
+             action: Optional[pulumi.Input['InstanceGroupConfigScalingActionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             trigger: Optional[pulumi.Input['InstanceGroupConfigScalingTriggerArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if trigger is None:
+            raise TypeError("Missing 'trigger' argument")
+
         _setter("action", action)
         _setter("name", name)
         _setter("trigger", trigger)
@@ -2932,8 +3362,14 @@ class InstanceGroupConfigScalingTriggerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cloud_watch_alarm_definition: pulumi.Input['InstanceGroupConfigCloudWatchAlarmDefinitionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             cloud_watch_alarm_definition: Optional[pulumi.Input['InstanceGroupConfigCloudWatchAlarmDefinitionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_alarm_definition is None and 'cloudWatchAlarmDefinition' in kwargs:
+            cloud_watch_alarm_definition = kwargs['cloudWatchAlarmDefinition']
+        if cloud_watch_alarm_definition is None:
+            raise TypeError("Missing 'cloud_watch_alarm_definition' argument")
+
         _setter("cloud_watch_alarm_definition", cloud_watch_alarm_definition)
 
     @property
@@ -2961,10 +3397,20 @@ class InstanceGroupConfigSimpleScalingPolicyConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             scaling_adjustment: pulumi.Input[int],
+             scaling_adjustment: Optional[pulumi.Input[int]] = None,
              adjustment_type: Optional[pulumi.Input[str]] = None,
              cool_down: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scaling_adjustment is None and 'scalingAdjustment' in kwargs:
+            scaling_adjustment = kwargs['scalingAdjustment']
+        if scaling_adjustment is None:
+            raise TypeError("Missing 'scaling_adjustment' argument")
+        if adjustment_type is None and 'adjustmentType' in kwargs:
+            adjustment_type = kwargs['adjustmentType']
+        if cool_down is None and 'coolDown' in kwargs:
+            cool_down = kwargs['coolDown']
+
         _setter("scaling_adjustment", scaling_adjustment)
         if adjustment_type is not None:
             _setter("adjustment_type", adjustment_type)
@@ -3016,11 +3462,21 @@ class InstanceGroupConfigVolumeSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             size_in_gb: pulumi.Input[int],
-             volume_type: pulumi.Input[str],
+             size_in_gb: Optional[pulumi.Input[int]] = None,
+             volume_type: Optional[pulumi.Input[str]] = None,
              iops: Optional[pulumi.Input[int]] = None,
              throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if size_in_gb is None and 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+        if volume_type is None and 'volumeType' in kwargs:
+            volume_type = kwargs['volumeType']
+        if volume_type is None:
+            raise TypeError("Missing 'volume_type' argument")
+
         _setter("size_in_gb", size_in_gb)
         _setter("volume_type", volume_type)
         if iops is not None:
@@ -3082,11 +3538,19 @@ class StepHadoopJarStepConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             jar: pulumi.Input[str],
+             jar: Optional[pulumi.Input[str]] = None,
              args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              main_class: Optional[pulumi.Input[str]] = None,
              step_properties: Optional[pulumi.Input[Sequence[pulumi.Input['StepKeyValueArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if jar is None:
+            raise TypeError("Missing 'jar' argument")
+        if main_class is None and 'mainClass' in kwargs:
+            main_class = kwargs['mainClass']
+        if step_properties is None and 'stepProperties' in kwargs:
+            step_properties = kwargs['stepProperties']
+
         _setter("jar", jar)
         if args is not None:
             _setter("args", args)
@@ -3147,7 +3611,9 @@ class StepKeyValueArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -3190,9 +3656,15 @@ class StudioTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3239,9 +3711,15 @@ class WalWorkspaceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -29,9 +29,19 @@ class SubnetNetworkAclAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_acl_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             network_acl_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_acl_id is None and 'networkAclId' in kwargs:
+            network_acl_id = kwargs['networkAclId']
+        if network_acl_id is None:
+            raise TypeError("Missing 'network_acl_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
         _setter("network_acl_id", network_acl_id)
         _setter("subnet_id", subnet_id)
 

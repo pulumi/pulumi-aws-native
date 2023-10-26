@@ -32,9 +32,17 @@ class AnalyzerArchiveRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]],
-             rule_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             filter: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]]] = None,
+             rule_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+        if rule_name is None:
+            raise TypeError("Missing 'rule_name' argument")
+
         _setter("filter", filter)
         _setter("rule_name", rule_name)
 
@@ -79,12 +87,16 @@ class AnalyzerFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property: pulumi.Input[str],
+             property: Optional[pulumi.Input[str]] = None,
              contains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              exists: Optional[pulumi.Input[bool]] = None,
              neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property is None:
+            raise TypeError("Missing 'property' argument")
+
         _setter("property", property)
         if contains is not None:
             _setter("contains", contains)
@@ -159,9 +171,15 @@ class AnalyzerTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

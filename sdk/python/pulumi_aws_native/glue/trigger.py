@@ -45,8 +45,8 @@ class TriggerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]],
-             type: pulumi.Input[str],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              event_batching_condition: Optional[pulumi.Input['TriggerEventBatchingConditionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,19 @@ class TriggerArgs:
              start_on_creation: Optional[pulumi.Input[bool]] = None,
              tags: Optional[Any] = None,
              workflow_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if event_batching_condition is None and 'eventBatchingCondition' in kwargs:
+            event_batching_condition = kwargs['eventBatchingCondition']
+        if start_on_creation is None and 'startOnCreation' in kwargs:
+            start_on_creation = kwargs['startOnCreation']
+        if workflow_name is None and 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+
         _setter("actions", actions)
         _setter("type", type)
         if description is not None:
@@ -245,18 +257,10 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
             __props__.__dict__["description"] = description
-            if event_batching_condition is not None and not isinstance(event_batching_condition, TriggerEventBatchingConditionArgs):
-                event_batching_condition = event_batching_condition or {}
-                def _setter(key, value):
-                    event_batching_condition[key] = value
-                TriggerEventBatchingConditionArgs._configure(_setter, **event_batching_condition)
+            event_batching_condition = _utilities.configure(event_batching_condition, TriggerEventBatchingConditionArgs, True)
             __props__.__dict__["event_batching_condition"] = event_batching_condition
             __props__.__dict__["name"] = name
-            if predicate is not None and not isinstance(predicate, TriggerPredicateArgs):
-                predicate = predicate or {}
-                def _setter(key, value):
-                    predicate[key] = value
-                TriggerPredicateArgs._configure(_setter, **predicate)
+            predicate = _utilities.configure(predicate, TriggerPredicateArgs, True)
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_on_creation"] = start_on_creation

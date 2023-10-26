@@ -40,12 +40,26 @@ class DashboardArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dashboard_definition: pulumi.Input[str],
-             dashboard_description: pulumi.Input[str],
+             dashboard_definition: Optional[pulumi.Input[str]] = None,
+             dashboard_description: Optional[pulumi.Input[str]] = None,
              dashboard_name: Optional[pulumi.Input[str]] = None,
              project_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_definition is None and 'dashboardDefinition' in kwargs:
+            dashboard_definition = kwargs['dashboardDefinition']
+        if dashboard_definition is None:
+            raise TypeError("Missing 'dashboard_definition' argument")
+        if dashboard_description is None and 'dashboardDescription' in kwargs:
+            dashboard_description = kwargs['dashboardDescription']
+        if dashboard_description is None:
+            raise TypeError("Missing 'dashboard_description' argument")
+        if dashboard_name is None and 'dashboardName' in kwargs:
+            dashboard_name = kwargs['dashboardName']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         _setter("dashboard_definition", dashboard_definition)
         _setter("dashboard_description", dashboard_description)
         if dashboard_name is not None:

@@ -35,12 +35,26 @@ class WarmPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
+             auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
              instance_reuse_policy: Optional[pulumi.Input['WarmPoolInstanceReusePolicyArgs']] = None,
              max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
              min_size: Optional[pulumi.Input[int]] = None,
              pool_state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_name is None and 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if auto_scaling_group_name is None:
+            raise TypeError("Missing 'auto_scaling_group_name' argument")
+        if instance_reuse_policy is None and 'instanceReusePolicy' in kwargs:
+            instance_reuse_policy = kwargs['instanceReusePolicy']
+        if max_group_prepared_capacity is None and 'maxGroupPreparedCapacity' in kwargs:
+            max_group_prepared_capacity = kwargs['maxGroupPreparedCapacity']
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if pool_state is None and 'poolState' in kwargs:
+            pool_state = kwargs['poolState']
+
         _setter("auto_scaling_group_name", auto_scaling_group_name)
         if instance_reuse_policy is not None:
             _setter("instance_reuse_policy", instance_reuse_policy)
@@ -159,11 +173,7 @@ class WarmPool(pulumi.CustomResource):
             if auto_scaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_scaling_group_name'")
             __props__.__dict__["auto_scaling_group_name"] = auto_scaling_group_name
-            if instance_reuse_policy is not None and not isinstance(instance_reuse_policy, WarmPoolInstanceReusePolicyArgs):
-                instance_reuse_policy = instance_reuse_policy or {}
-                def _setter(key, value):
-                    instance_reuse_policy[key] = value
-                WarmPoolInstanceReusePolicyArgs._configure(_setter, **instance_reuse_policy)
+            instance_reuse_policy = _utilities.configure(instance_reuse_policy, WarmPoolInstanceReusePolicyArgs, True)
             __props__.__dict__["instance_reuse_policy"] = instance_reuse_policy
             __props__.__dict__["max_group_prepared_capacity"] = max_group_prepared_capacity
             __props__.__dict__["min_size"] = min_size

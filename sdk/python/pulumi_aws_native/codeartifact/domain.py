@@ -41,7 +41,15 @@ class DomainArgs:
              encryption_key: Optional[pulumi.Input[str]] = None,
              permissions_policy_document: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if permissions_policy_document is None and 'permissionsPolicyDocument' in kwargs:
+            permissions_policy_document = kwargs['permissionsPolicyDocument']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if encryption_key is not None:

@@ -147,7 +147,21 @@ class ClassifierCsvClassifier(dict):
              header: Optional[Sequence[str]] = None,
              name: Optional[str] = None,
              quote_symbol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_single_column is None and 'allowSingleColumn' in kwargs:
+            allow_single_column = kwargs['allowSingleColumn']
+        if contains_custom_datatype is None and 'containsCustomDatatype' in kwargs:
+            contains_custom_datatype = kwargs['containsCustomDatatype']
+        if contains_header is None and 'containsHeader' in kwargs:
+            contains_header = kwargs['containsHeader']
+        if custom_datatype_configured is None and 'customDatatypeConfigured' in kwargs:
+            custom_datatype_configured = kwargs['customDatatypeConfigured']
+        if disable_value_trimming is None and 'disableValueTrimming' in kwargs:
+            disable_value_trimming = kwargs['disableValueTrimming']
+        if quote_symbol is None and 'quoteSymbol' in kwargs:
+            quote_symbol = kwargs['quoteSymbol']
+
         if allow_single_column is not None:
             _setter("allow_single_column", allow_single_column)
         if contains_custom_datatype is not None:
@@ -249,11 +263,21 @@ class ClassifierGrokClassifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             classification: str,
-             grok_pattern: str,
+             classification: Optional[str] = None,
+             grok_pattern: Optional[str] = None,
              custom_patterns: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if classification is None:
+            raise TypeError("Missing 'classification' argument")
+        if grok_pattern is None and 'grokPattern' in kwargs:
+            grok_pattern = kwargs['grokPattern']
+        if grok_pattern is None:
+            raise TypeError("Missing 'grok_pattern' argument")
+        if custom_patterns is None and 'customPatterns' in kwargs:
+            custom_patterns = kwargs['customPatterns']
+
         _setter("classification", classification)
         _setter("grok_pattern", grok_pattern)
         if custom_patterns is not None:
@@ -312,9 +336,15 @@ class ClassifierJsonClassifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             json_path: str,
+             json_path: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_path is None and 'jsonPath' in kwargs:
+            json_path = kwargs['jsonPath']
+        if json_path is None:
+            raise TypeError("Missing 'json_path' argument")
+
         _setter("json_path", json_path)
         if name is not None:
             _setter("name", name)
@@ -362,10 +392,18 @@ class ClassifierXmlClassifier(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             classification: str,
-             row_tag: str,
+             classification: Optional[str] = None,
+             row_tag: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if classification is None:
+            raise TypeError("Missing 'classification' argument")
+        if row_tag is None and 'rowTag' in kwargs:
+            row_tag = kwargs['rowTag']
+        if row_tag is None:
+            raise TypeError("Missing 'row_tag' argument")
+
         _setter("classification", classification)
         _setter("row_tag", row_tag)
         if name is not None:
@@ -431,13 +469,25 @@ class ConnectionInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_type: str,
+             connection_type: Optional[str] = None,
              connection_properties: Optional[Any] = None,
              description: Optional[str] = None,
              match_criteria: Optional[Sequence[str]] = None,
              name: Optional[str] = None,
              physical_connection_requirements: Optional['outputs.ConnectionPhysicalConnectionRequirements'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if connection_type is None:
+            raise TypeError("Missing 'connection_type' argument")
+        if connection_properties is None and 'connectionProperties' in kwargs:
+            connection_properties = kwargs['connectionProperties']
+        if match_criteria is None and 'matchCriteria' in kwargs:
+            match_criteria = kwargs['matchCriteria']
+        if physical_connection_requirements is None and 'physicalConnectionRequirements' in kwargs:
+            physical_connection_requirements = kwargs['physicalConnectionRequirements']
+
         _setter("connection_type", connection_type)
         if connection_properties is not None:
             _setter("connection_properties", connection_properties)
@@ -520,7 +570,15 @@ class ConnectionPhysicalConnectionRequirements(dict):
              availability_zone: Optional[str] = None,
              security_group_id_list: Optional[Sequence[str]] = None,
              subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if security_group_id_list is None and 'securityGroupIdList' in kwargs:
+            security_group_id_list = kwargs['securityGroupIdList']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if availability_zone is not None:
             _setter("availability_zone", availability_zone)
         if security_group_id_list is not None:
@@ -591,7 +649,17 @@ class CrawlerCatalogTarget(dict):
              dlq_event_queue_arn: Optional[str] = None,
              event_queue_arn: Optional[str] = None,
              tables: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if dlq_event_queue_arn is None and 'dlqEventQueueArn' in kwargs:
+            dlq_event_queue_arn = kwargs['dlqEventQueueArn']
+        if event_queue_arn is None and 'eventQueueArn' in kwargs:
+            event_queue_arn = kwargs['eventQueueArn']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if database_name is not None:
@@ -673,7 +741,17 @@ class CrawlerDeltaTarget(dict):
              create_native_delta_table: Optional[bool] = None,
              delta_tables: Optional[Sequence[str]] = None,
              write_manifest: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if create_native_delta_table is None and 'createNativeDeltaTable' in kwargs:
+            create_native_delta_table = kwargs['createNativeDeltaTable']
+        if delta_tables is None and 'deltaTables' in kwargs:
+            delta_tables = kwargs['deltaTables']
+        if write_manifest is None and 'writeManifest' in kwargs:
+            write_manifest = kwargs['writeManifest']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if create_native_delta_table is not None:
@@ -716,7 +794,9 @@ class CrawlerDynamoDbTarget(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if path is not None:
             _setter("path", path)
 
@@ -766,7 +846,13 @@ class CrawlerIcebergTarget(dict):
              exclusions: Optional[Sequence[str]] = None,
              maximum_traversal_depth: Optional[int] = None,
              paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if maximum_traversal_depth is None and 'maximumTraversalDepth' in kwargs:
+            maximum_traversal_depth = kwargs['maximumTraversalDepth']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if exclusions is not None:
@@ -832,7 +918,11 @@ class CrawlerJdbcTarget(dict):
              connection_name: Optional[str] = None,
              exclusions: Optional[Sequence[str]] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if exclusions is not None:
@@ -888,7 +978,11 @@ class CrawlerMongoDbTarget(dict):
              _setter: Callable[[Any, Any], None],
              connection_name: Optional[str] = None,
              path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if path is not None:
@@ -934,7 +1028,11 @@ class CrawlerRecrawlPolicy(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              recrawl_behavior: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recrawl_behavior is None and 'recrawlBehavior' in kwargs:
+            recrawl_behavior = kwargs['recrawlBehavior']
+
         if recrawl_behavior is not None:
             _setter("recrawl_behavior", recrawl_behavior)
 
@@ -994,7 +1092,17 @@ class CrawlerS3Target(dict):
              exclusions: Optional[Sequence[str]] = None,
              path: Optional[str] = None,
              sample_size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+        if dlq_event_queue_arn is None and 'dlqEventQueueArn' in kwargs:
+            dlq_event_queue_arn = kwargs['dlqEventQueueArn']
+        if event_queue_arn is None and 'eventQueueArn' in kwargs:
+            event_queue_arn = kwargs['eventQueueArn']
+        if sample_size is None and 'sampleSize' in kwargs:
+            sample_size = kwargs['sampleSize']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if dlq_event_queue_arn is not None:
@@ -1068,7 +1176,11 @@ class CrawlerSchedule(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              schedule_expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+
         if schedule_expression is not None:
             _setter("schedule_expression", schedule_expression)
 
@@ -1112,7 +1224,13 @@ class CrawlerSchemaChangePolicy(dict):
              _setter: Callable[[Any, Any], None],
              delete_behavior: Optional[str] = None,
              update_behavior: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delete_behavior is None and 'deleteBehavior' in kwargs:
+            delete_behavior = kwargs['deleteBehavior']
+        if update_behavior is None and 'updateBehavior' in kwargs:
+            update_behavior = kwargs['updateBehavior']
+
         if delete_behavior is not None:
             _setter("delete_behavior", delete_behavior)
         if update_behavior is not None:
@@ -1188,7 +1306,23 @@ class CrawlerTargets(dict):
              jdbc_targets: Optional[Sequence['outputs.CrawlerJdbcTarget']] = None,
              mongo_db_targets: Optional[Sequence['outputs.CrawlerMongoDbTarget']] = None,
              s3_targets: Optional[Sequence['outputs.CrawlerS3Target']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_targets is None and 'catalogTargets' in kwargs:
+            catalog_targets = kwargs['catalogTargets']
+        if delta_targets is None and 'deltaTargets' in kwargs:
+            delta_targets = kwargs['deltaTargets']
+        if dynamo_db_targets is None and 'dynamoDbTargets' in kwargs:
+            dynamo_db_targets = kwargs['dynamoDbTargets']
+        if iceberg_targets is None and 'icebergTargets' in kwargs:
+            iceberg_targets = kwargs['icebergTargets']
+        if jdbc_targets is None and 'jdbcTargets' in kwargs:
+            jdbc_targets = kwargs['jdbcTargets']
+        if mongo_db_targets is None and 'mongoDbTargets' in kwargs:
+            mongo_db_targets = kwargs['mongoDbTargets']
+        if s3_targets is None and 's3Targets' in kwargs:
+            s3_targets = kwargs['s3Targets']
+
         if catalog_targets is not None:
             _setter("catalog_targets", catalog_targets)
         if delta_targets is not None:
@@ -1274,7 +1408,13 @@ class DataCatalogEncryptionSettings(dict):
              _setter: Callable[[Any, Any], None],
              connection_password_encryption: Optional['outputs.DataCatalogEncryptionSettingsConnectionPasswordEncryption'] = None,
              encryption_at_rest: Optional['outputs.DataCatalogEncryptionSettingsEncryptionAtRest'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_password_encryption is None and 'connectionPasswordEncryption' in kwargs:
+            connection_password_encryption = kwargs['connectionPasswordEncryption']
+        if encryption_at_rest is None and 'encryptionAtRest' in kwargs:
+            encryption_at_rest = kwargs['encryptionAtRest']
+
         if connection_password_encryption is not None:
             _setter("connection_password_encryption", connection_password_encryption)
         if encryption_at_rest is not None:
@@ -1325,7 +1465,13 @@ class DataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[str] = None,
              return_connection_password_encrypted: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if return_connection_password_encrypted is None and 'returnConnectionPasswordEncrypted' in kwargs:
+            return_connection_password_encrypted = kwargs['returnConnectionPasswordEncrypted']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if return_connection_password_encrypted is not None:
@@ -1376,7 +1522,13 @@ class DataCatalogEncryptionSettingsEncryptionAtRest(dict):
              _setter: Callable[[Any, Any], None],
              catalog_encryption_mode: Optional[str] = None,
              sse_aws_kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_encryption_mode is None and 'catalogEncryptionMode' in kwargs:
+            catalog_encryption_mode = kwargs['catalogEncryptionMode']
+        if sse_aws_kms_key_id is None and 'sseAwsKmsKeyId' in kwargs:
+            sse_aws_kms_key_id = kwargs['sseAwsKmsKeyId']
+
         if catalog_encryption_mode is not None:
             _setter("catalog_encryption_mode", catalog_encryption_mode)
         if sse_aws_kms_key_id is not None:
@@ -1427,7 +1579,13 @@ class DataQualityRulesetDataQualityTargetTable(dict):
              _setter: Callable[[Any, Any], None],
              database_name: Optional[str] = None,
              table_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if database_name is not None:
             _setter("database_name", database_name)
         if table_name is not None:
@@ -1473,7 +1631,11 @@ class DatabaseDataLakePrincipal(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_lake_principal_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_lake_principal_identifier is None and 'dataLakePrincipalIdentifier' in kwargs:
+            data_lake_principal_identifier = kwargs['dataLakePrincipalIdentifier']
+
         if data_lake_principal_identifier is not None:
             _setter("data_lake_principal_identifier", data_lake_principal_identifier)
 
@@ -1515,7 +1677,11 @@ class DatabaseFederatedDatabase(dict):
              _setter: Callable[[Any, Any], None],
              connection_name: Optional[str] = None,
              identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+
         if connection_name is not None:
             _setter("connection_name", connection_name)
         if identifier is not None:
@@ -1569,7 +1735,13 @@ class DatabaseIdentifier(dict):
              catalog_id: Optional[str] = None,
              database_name: Optional[str] = None,
              region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -1646,7 +1818,17 @@ class DatabaseInput(dict):
              name: Optional[str] = None,
              parameters: Optional[Any] = None,
              target_database: Optional['outputs.DatabaseIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if create_table_default_permissions is None and 'createTableDefaultPermissions' in kwargs:
+            create_table_default_permissions = kwargs['createTableDefaultPermissions']
+        if federated_database is None and 'federatedDatabase' in kwargs:
+            federated_database = kwargs['federatedDatabase']
+        if location_uri is None and 'locationUri' in kwargs:
+            location_uri = kwargs['locationUri']
+        if target_database is None and 'targetDatabase' in kwargs:
+            target_database = kwargs['targetDatabase']
+
         if create_table_default_permissions is not None:
             _setter("create_table_default_permissions", create_table_default_permissions)
         if description is not None:
@@ -1713,7 +1895,9 @@ class DatabasePrincipalPrivileges(dict):
              _setter: Callable[[Any, Any], None],
              permissions: Optional[Sequence[str]] = None,
              principal: Optional['outputs.DatabaseDataLakePrincipal'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if permissions is not None:
             _setter("permissions", permissions)
         if principal is not None:
@@ -1770,7 +1954,13 @@ class JobCommand(dict):
              python_version: Optional[str] = None,
              runtime: Optional[str] = None,
              script_location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if python_version is None and 'pythonVersion' in kwargs:
+            python_version = kwargs['pythonVersion']
+        if script_location is None and 'scriptLocation' in kwargs:
+            script_location = kwargs['scriptLocation']
+
         if name is not None:
             _setter("name", name)
         if python_version is not None:
@@ -1813,7 +2003,9 @@ class JobConnectionsList(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              connections: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if connections is not None:
             _setter("connections", connections)
 
@@ -1852,7 +2044,11 @@ class JobExecutionProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              max_concurrent_runs: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_concurrent_runs is None and 'maxConcurrentRuns' in kwargs:
+            max_concurrent_runs = kwargs['maxConcurrentRuns']
+
         if max_concurrent_runs is not None:
             _setter("max_concurrent_runs", max_concurrent_runs)
 
@@ -1891,7 +2087,11 @@ class JobNotificationProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              notify_delay_after: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notify_delay_after is None and 'notifyDelayAfter' in kwargs:
+            notify_delay_after = kwargs['notifyDelayAfter']
+
         if notify_delay_after is not None:
             _setter("notify_delay_after", notify_delay_after)
 
@@ -1941,11 +2141,23 @@ class MlTransformFindMatchesParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             primary_key_column_name: str,
+             primary_key_column_name: Optional[str] = None,
              accuracy_cost_tradeoff: Optional[float] = None,
              enforce_provided_labels: Optional[bool] = None,
              precision_recall_tradeoff: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if primary_key_column_name is None and 'primaryKeyColumnName' in kwargs:
+            primary_key_column_name = kwargs['primaryKeyColumnName']
+        if primary_key_column_name is None:
+            raise TypeError("Missing 'primary_key_column_name' argument")
+        if accuracy_cost_tradeoff is None and 'accuracyCostTradeoff' in kwargs:
+            accuracy_cost_tradeoff = kwargs['accuracyCostTradeoff']
+        if enforce_provided_labels is None and 'enforceProvidedLabels' in kwargs:
+            enforce_provided_labels = kwargs['enforceProvidedLabels']
+        if precision_recall_tradeoff is None and 'precisionRecallTradeoff' in kwargs:
+            precision_recall_tradeoff = kwargs['precisionRecallTradeoff']
+
         _setter("primary_key_column_name", primary_key_column_name)
         if accuracy_cost_tradeoff is not None:
             _setter("accuracy_cost_tradeoff", accuracy_cost_tradeoff)
@@ -2015,11 +2227,25 @@ class MlTransformGlueTables(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: str,
-             table_name: str,
+             database_name: Optional[str] = None,
+             table_name: Optional[str] = None,
              catalog_id: Optional[str] = None,
              connection_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if connection_name is None and 'connectionName' in kwargs:
+            connection_name = kwargs['connectionName']
+
         _setter("database_name", database_name)
         _setter("table_name", table_name)
         if catalog_id is not None:
@@ -2077,7 +2303,11 @@ class MlTransformInputRecordTables(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              glue_tables: Optional[Sequence['outputs.MlTransformGlueTables']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if glue_tables is None and 'glueTables' in kwargs:
+            glue_tables = kwargs['glueTables']
+
         if glue_tables is not None:
             _setter("glue_tables", glue_tables)
 
@@ -2119,9 +2349,17 @@ class MlTransformMlUserDataEncryption(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ml_user_data_encryption_mode: str,
+             ml_user_data_encryption_mode: Optional[str] = None,
              kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ml_user_data_encryption_mode is None and 'mlUserDataEncryptionMode' in kwargs:
+            ml_user_data_encryption_mode = kwargs['mlUserDataEncryptionMode']
+        if ml_user_data_encryption_mode is None:
+            raise TypeError("Missing 'ml_user_data_encryption_mode' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("ml_user_data_encryption_mode", ml_user_data_encryption_mode)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -2171,7 +2409,13 @@ class MlTransformTransformEncryption(dict):
              _setter: Callable[[Any, Any], None],
              ml_user_data_encryption: Optional['outputs.MlTransformMlUserDataEncryption'] = None,
              task_run_security_configuration_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ml_user_data_encryption is None and 'mlUserDataEncryption' in kwargs:
+            ml_user_data_encryption = kwargs['mlUserDataEncryption']
+        if task_run_security_configuration_name is None and 'taskRunSecurityConfigurationName' in kwargs:
+            task_run_security_configuration_name = kwargs['taskRunSecurityConfigurationName']
+
         if ml_user_data_encryption is not None:
             _setter("ml_user_data_encryption", ml_user_data_encryption)
         if task_run_security_configuration_name is not None:
@@ -2220,9 +2464,17 @@ class MlTransformTransformParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             transform_type: str,
+             transform_type: Optional[str] = None,
              find_matches_parameters: Optional['outputs.MlTransformFindMatchesParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transform_type is None and 'transformType' in kwargs:
+            transform_type = kwargs['transformType']
+        if transform_type is None:
+            raise TypeError("Missing 'transform_type' argument")
+        if find_matches_parameters is None and 'findMatchesParameters' in kwargs:
+            find_matches_parameters = kwargs['findMatchesParameters']
+
         _setter("transform_type", transform_type)
         if find_matches_parameters is not None:
             _setter("find_matches_parameters", find_matches_parameters)
@@ -2253,10 +2505,14 @@ class PartitionColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              comment: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if comment is not None:
             _setter("comment", comment)
@@ -2311,10 +2567,16 @@ class PartitionInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             values: Sequence[str],
+             values: Optional[Sequence[str]] = None,
              parameters: Optional[Any] = None,
              storage_descriptor: Optional['outputs.PartitionStorageDescriptor'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+        if storage_descriptor is None and 'storageDescriptor' in kwargs:
+            storage_descriptor = kwargs['storageDescriptor']
+
         _setter("values", values)
         if parameters is not None:
             _setter("parameters", parameters)
@@ -2367,9 +2629,15 @@ class PartitionOrder(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: str,
+             column: Optional[str] = None,
              sort_order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if sort_order is None and 'sortOrder' in kwargs:
+            sort_order = kwargs['sortOrder']
+
         _setter("column", column)
         if sort_order is not None:
             _setter("sort_order", sort_order)
@@ -2424,7 +2692,15 @@ class PartitionSchemaId(dict):
              registry_name: Optional[str] = None,
              schema_arn: Optional[str] = None,
              schema_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if schema_arn is None and 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         if registry_name is not None:
             _setter("registry_name", registry_name)
         if schema_arn is not None:
@@ -2487,7 +2763,15 @@ class PartitionSchemaReference(dict):
              schema_id: Optional['outputs.PartitionSchemaId'] = None,
              schema_version_id: Optional[str] = None,
              schema_version_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema_id is None and 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if schema_version_id is None and 'schemaVersionId' in kwargs:
+            schema_version_id = kwargs['schemaVersionId']
+        if schema_version_number is None and 'schemaVersionNumber' in kwargs:
+            schema_version_number = kwargs['schemaVersionNumber']
+
         if schema_id is not None:
             _setter("schema_id", schema_id)
         if schema_version_id is not None:
@@ -2546,7 +2830,11 @@ class PartitionSerdeInfo(dict):
              name: Optional[str] = None,
              parameters: Optional[Any] = None,
              serialization_library: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if serialization_library is None and 'serializationLibrary' in kwargs:
+            serialization_library = kwargs['serializationLibrary']
+
         if name is not None:
             _setter("name", name)
         if parameters is not None:
@@ -2609,7 +2897,15 @@ class PartitionSkewedInfo(dict):
              skewed_column_names: Optional[Sequence[str]] = None,
              skewed_column_value_location_maps: Optional[Any] = None,
              skewed_column_values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if skewed_column_names is None and 'skewedColumnNames' in kwargs:
+            skewed_column_names = kwargs['skewedColumnNames']
+        if skewed_column_value_location_maps is None and 'skewedColumnValueLocationMaps' in kwargs:
+            skewed_column_value_location_maps = kwargs['skewedColumnValueLocationMaps']
+        if skewed_column_values is None and 'skewedColumnValues' in kwargs:
+            skewed_column_values = kwargs['skewedColumnValues']
+
         if skewed_column_names is not None:
             _setter("skewed_column_names", skewed_column_names)
         if skewed_column_value_location_maps is not None:
@@ -2714,7 +3010,27 @@ class PartitionStorageDescriptor(dict):
              skewed_info: Optional['outputs.PartitionSkewedInfo'] = None,
              sort_columns: Optional[Sequence['outputs.PartitionOrder']] = None,
              stored_as_sub_directories: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_columns is None and 'bucketColumns' in kwargs:
+            bucket_columns = kwargs['bucketColumns']
+        if input_format is None and 'inputFormat' in kwargs:
+            input_format = kwargs['inputFormat']
+        if number_of_buckets is None and 'numberOfBuckets' in kwargs:
+            number_of_buckets = kwargs['numberOfBuckets']
+        if output_format is None and 'outputFormat' in kwargs:
+            output_format = kwargs['outputFormat']
+        if schema_reference is None and 'schemaReference' in kwargs:
+            schema_reference = kwargs['schemaReference']
+        if serde_info is None and 'serdeInfo' in kwargs:
+            serde_info = kwargs['serdeInfo']
+        if skewed_info is None and 'skewedInfo' in kwargs:
+            skewed_info = kwargs['skewedInfo']
+        if sort_columns is None and 'sortColumns' in kwargs:
+            sort_columns = kwargs['sortColumns']
+        if stored_as_sub_directories is None and 'storedAsSubDirectories' in kwargs:
+            stored_as_sub_directories = kwargs['storedAsSubDirectories']
+
         if bucket_columns is not None:
             _setter("bucket_columns", bucket_columns)
         if columns is not None:
@@ -2825,9 +3141,15 @@ class RegistryTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2871,7 +3193,9 @@ class SchemaRegistry(dict):
              _setter: Callable[[Any, Any], None],
              arn: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
         if name is not None:
@@ -2911,9 +3235,15 @@ class SchemaTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2976,7 +3306,13 @@ class SchemaVersion(dict):
              _setter: Callable[[Any, Any], None],
              is_latest: Optional[bool] = None,
              version_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if is_latest is None and 'isLatest' in kwargs:
+            is_latest = kwargs['isLatest']
+        if version_number is None and 'versionNumber' in kwargs:
+            version_number = kwargs['versionNumber']
+
         if is_latest is not None:
             _setter("is_latest", is_latest)
         if version_number is not None:
@@ -3047,7 +3383,15 @@ class SchemaVersionSchema(dict):
              registry_name: Optional[str] = None,
              schema_arn: Optional[str] = None,
              schema_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if schema_arn is None and 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         if registry_name is not None:
             _setter("registry_name", registry_name)
         if schema_arn is not None:
@@ -3114,7 +3458,13 @@ class SecurityConfigurationCloudWatchEncryption(dict):
              _setter: Callable[[Any, Any], None],
              cloud_watch_encryption_mode: Optional[str] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_encryption_mode is None and 'cloudWatchEncryptionMode' in kwargs:
+            cloud_watch_encryption_mode = kwargs['cloudWatchEncryptionMode']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if cloud_watch_encryption_mode is not None:
             _setter("cloud_watch_encryption_mode", cloud_watch_encryption_mode)
         if kms_key_arn is not None:
@@ -3170,7 +3520,15 @@ class SecurityConfigurationEncryptionConfiguration(dict):
              cloud_watch_encryption: Optional['outputs.SecurityConfigurationCloudWatchEncryption'] = None,
              job_bookmarks_encryption: Optional['outputs.SecurityConfigurationJobBookmarksEncryption'] = None,
              s3_encryptions: Optional['outputs.SecurityConfigurationS3Encryptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_encryption is None and 'cloudWatchEncryption' in kwargs:
+            cloud_watch_encryption = kwargs['cloudWatchEncryption']
+        if job_bookmarks_encryption is None and 'jobBookmarksEncryption' in kwargs:
+            job_bookmarks_encryption = kwargs['jobBookmarksEncryption']
+        if s3_encryptions is None and 's3Encryptions' in kwargs:
+            s3_encryptions = kwargs['s3Encryptions']
+
         if cloud_watch_encryption is not None:
             _setter("cloud_watch_encryption", cloud_watch_encryption)
         if job_bookmarks_encryption is not None:
@@ -3228,7 +3586,13 @@ class SecurityConfigurationJobBookmarksEncryption(dict):
              _setter: Callable[[Any, Any], None],
              job_bookmarks_encryption_mode: Optional[str] = None,
              kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if job_bookmarks_encryption_mode is None and 'jobBookmarksEncryptionMode' in kwargs:
+            job_bookmarks_encryption_mode = kwargs['jobBookmarksEncryptionMode']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         if job_bookmarks_encryption_mode is not None:
             _setter("job_bookmarks_encryption_mode", job_bookmarks_encryption_mode)
         if kms_key_arn is not None:
@@ -3252,8 +3616,10 @@ class SecurityConfigurationS3Encryptions(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3271,10 +3637,14 @@ class TableColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              comment: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if comment is not None:
             _setter("comment", comment)
@@ -3329,7 +3699,11 @@ class TableIcebergInput(dict):
              _setter: Callable[[Any, Any], None],
              metadata_operation: Optional['outputs.TableMetadataOperation'] = None,
              version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metadata_operation is None and 'metadataOperation' in kwargs:
+            metadata_operation = kwargs['metadataOperation']
+
         if metadata_operation is not None:
             _setter("metadata_operation", metadata_operation)
         if version is not None:
@@ -3386,7 +3760,13 @@ class TableIdentifier(dict):
              database_name: Optional[str] = None,
              name: Optional[str] = None,
              region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if catalog_id is None and 'catalogId' in kwargs:
+            catalog_id = kwargs['catalogId']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+
         if catalog_id is not None:
             _setter("catalog_id", catalog_id)
         if database_name is not None:
@@ -3486,7 +3866,21 @@ class TableInput(dict):
              target_table: Optional['outputs.TableIdentifier'] = None,
              view_expanded_text: Optional[str] = None,
              view_original_text: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if partition_keys is None and 'partitionKeys' in kwargs:
+            partition_keys = kwargs['partitionKeys']
+        if storage_descriptor is None and 'storageDescriptor' in kwargs:
+            storage_descriptor = kwargs['storageDescriptor']
+        if table_type is None and 'tableType' in kwargs:
+            table_type = kwargs['tableType']
+        if target_table is None and 'targetTable' in kwargs:
+            target_table = kwargs['targetTable']
+        if view_expanded_text is None and 'viewExpandedText' in kwargs:
+            view_expanded_text = kwargs['viewExpandedText']
+        if view_original_text is None and 'viewOriginalText' in kwargs:
+            view_original_text = kwargs['viewOriginalText']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -3573,8 +3967,10 @@ class TableMetadataOperation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -3606,7 +4002,11 @@ class TableOpenTableFormatInput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              iceberg_input: Optional['outputs.TableIcebergInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iceberg_input is None and 'icebergInput' in kwargs:
+            iceberg_input = kwargs['icebergInput']
+
         if iceberg_input is not None:
             _setter("iceberg_input", iceberg_input)
 
@@ -3646,9 +4046,17 @@ class TableOrder(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: str,
-             sort_order: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             column: Optional[str] = None,
+             sort_order: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if sort_order is None and 'sortOrder' in kwargs:
+            sort_order = kwargs['sortOrder']
+        if sort_order is None:
+            raise TypeError("Missing 'sort_order' argument")
+
         _setter("column", column)
         _setter("sort_order", sort_order)
 
@@ -3702,7 +4110,15 @@ class TableSchemaId(dict):
              registry_name: Optional[str] = None,
              schema_arn: Optional[str] = None,
              schema_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registry_name is None and 'registryName' in kwargs:
+            registry_name = kwargs['registryName']
+        if schema_arn is None and 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if schema_name is None and 'schemaName' in kwargs:
+            schema_name = kwargs['schemaName']
+
         if registry_name is not None:
             _setter("registry_name", registry_name)
         if schema_arn is not None:
@@ -3765,7 +4181,15 @@ class TableSchemaReference(dict):
              schema_id: Optional['outputs.TableSchemaId'] = None,
              schema_version_id: Optional[str] = None,
              schema_version_number: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema_id is None and 'schemaId' in kwargs:
+            schema_id = kwargs['schemaId']
+        if schema_version_id is None and 'schemaVersionId' in kwargs:
+            schema_version_id = kwargs['schemaVersionId']
+        if schema_version_number is None and 'schemaVersionNumber' in kwargs:
+            schema_version_number = kwargs['schemaVersionNumber']
+
         if schema_id is not None:
             _setter("schema_id", schema_id)
         if schema_version_id is not None:
@@ -3824,7 +4248,11 @@ class TableSerdeInfo(dict):
              name: Optional[str] = None,
              parameters: Optional[Any] = None,
              serialization_library: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if serialization_library is None and 'serializationLibrary' in kwargs:
+            serialization_library = kwargs['serializationLibrary']
+
         if name is not None:
             _setter("name", name)
         if parameters is not None:
@@ -3887,7 +4315,15 @@ class TableSkewedInfo(dict):
              skewed_column_names: Optional[Sequence[str]] = None,
              skewed_column_value_location_maps: Optional[Any] = None,
              skewed_column_values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if skewed_column_names is None and 'skewedColumnNames' in kwargs:
+            skewed_column_names = kwargs['skewedColumnNames']
+        if skewed_column_value_location_maps is None and 'skewedColumnValueLocationMaps' in kwargs:
+            skewed_column_value_location_maps = kwargs['skewedColumnValueLocationMaps']
+        if skewed_column_values is None and 'skewedColumnValues' in kwargs:
+            skewed_column_values = kwargs['skewedColumnValues']
+
         if skewed_column_names is not None:
             _setter("skewed_column_names", skewed_column_names)
         if skewed_column_value_location_maps is not None:
@@ -3992,7 +4428,27 @@ class TableStorageDescriptor(dict):
              skewed_info: Optional['outputs.TableSkewedInfo'] = None,
              sort_columns: Optional[Sequence['outputs.TableOrder']] = None,
              stored_as_sub_directories: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_columns is None and 'bucketColumns' in kwargs:
+            bucket_columns = kwargs['bucketColumns']
+        if input_format is None and 'inputFormat' in kwargs:
+            input_format = kwargs['inputFormat']
+        if number_of_buckets is None and 'numberOfBuckets' in kwargs:
+            number_of_buckets = kwargs['numberOfBuckets']
+        if output_format is None and 'outputFormat' in kwargs:
+            output_format = kwargs['outputFormat']
+        if schema_reference is None and 'schemaReference' in kwargs:
+            schema_reference = kwargs['schemaReference']
+        if serde_info is None and 'serdeInfo' in kwargs:
+            serde_info = kwargs['serdeInfo']
+        if skewed_info is None and 'skewedInfo' in kwargs:
+            skewed_info = kwargs['skewedInfo']
+        if sort_columns is None and 'sortColumns' in kwargs:
+            sort_columns = kwargs['sortColumns']
+        if stored_as_sub_directories is None and 'storedAsSubDirectories' in kwargs:
+            stored_as_sub_directories = kwargs['storedAsSubDirectories']
+
         if bucket_columns is not None:
             _setter("bucket_columns", bucket_columns)
         if columns is not None:
@@ -4136,7 +4592,17 @@ class TriggerAction(dict):
              notification_property: Optional['outputs.TriggerNotificationProperty'] = None,
              security_configuration: Optional[str] = None,
              timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crawler_name is None and 'crawlerName' in kwargs:
+            crawler_name = kwargs['crawlerName']
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if notification_property is None and 'notificationProperty' in kwargs:
+            notification_property = kwargs['notificationProperty']
+        if security_configuration is None and 'securityConfiguration' in kwargs:
+            security_configuration = kwargs['securityConfiguration']
+
         if arguments is not None:
             _setter("arguments", arguments)
         if crawler_name is not None:
@@ -4228,7 +4694,17 @@ class TriggerCondition(dict):
              job_name: Optional[str] = None,
              logical_operator: Optional[str] = None,
              state: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if crawl_state is None and 'crawlState' in kwargs:
+            crawl_state = kwargs['crawlState']
+        if crawler_name is None and 'crawlerName' in kwargs:
+            crawler_name = kwargs['crawlerName']
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if logical_operator is None and 'logicalOperator' in kwargs:
+            logical_operator = kwargs['logicalOperator']
+
         if crawl_state is not None:
             _setter("crawl_state", crawl_state)
         if crawler_name is not None:
@@ -4298,9 +4774,17 @@ class TriggerEventBatchingCondition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_size: int,
+             batch_size: Optional[int] = None,
              batch_window: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if batch_size is None:
+            raise TypeError("Missing 'batch_size' argument")
+        if batch_window is None and 'batchWindow' in kwargs:
+            batch_window = kwargs['batchWindow']
+
         _setter("batch_size", batch_size)
         if batch_window is not None:
             _setter("batch_window", batch_window)
@@ -4345,7 +4829,11 @@ class TriggerNotificationProperty(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              notify_delay_after: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notify_delay_after is None and 'notifyDelayAfter' in kwargs:
+            notify_delay_after = kwargs['notifyDelayAfter']
+
         if notify_delay_after is not None:
             _setter("notify_delay_after", notify_delay_after)
 
@@ -4370,7 +4858,9 @@ class TriggerPredicate(dict):
              _setter: Callable[[Any, Any], None],
              conditions: Optional[Sequence['outputs.TriggerCondition']] = None,
              logical: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if conditions is not None:
             _setter("conditions", conditions)
         if logical is not None:

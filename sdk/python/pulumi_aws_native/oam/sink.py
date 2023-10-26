@@ -35,7 +35,9 @@ class SinkArgs:
              name: Optional[pulumi.Input[str]] = None,
              policy: Optional[Any] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if policy is not None:

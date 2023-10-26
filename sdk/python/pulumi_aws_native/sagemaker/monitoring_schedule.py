@@ -44,14 +44,30 @@ class MonitoringScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             monitoring_schedule_config: pulumi.Input['MonitoringScheduleConfigArgs'],
+             monitoring_schedule_config: Optional[pulumi.Input['MonitoringScheduleConfigArgs']] = None,
              endpoint_name: Optional[pulumi.Input[str]] = None,
              failure_reason: Optional[pulumi.Input[str]] = None,
              last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
              monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
              monitoring_schedule_status: Optional[pulumi.Input['MonitoringScheduleStatus']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitoring_schedule_config is None and 'monitoringScheduleConfig' in kwargs:
+            monitoring_schedule_config = kwargs['monitoringScheduleConfig']
+        if monitoring_schedule_config is None:
+            raise TypeError("Missing 'monitoring_schedule_config' argument")
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if failure_reason is None and 'failureReason' in kwargs:
+            failure_reason = kwargs['failureReason']
+        if last_monitoring_execution_summary is None and 'lastMonitoringExecutionSummary' in kwargs:
+            last_monitoring_execution_summary = kwargs['lastMonitoringExecutionSummary']
+        if monitoring_schedule_name is None and 'monitoringScheduleName' in kwargs:
+            monitoring_schedule_name = kwargs['monitoringScheduleName']
+        if monitoring_schedule_status is None and 'monitoringScheduleStatus' in kwargs:
+            monitoring_schedule_status = kwargs['monitoringScheduleStatus']
+
         _setter("monitoring_schedule_config", monitoring_schedule_config)
         if endpoint_name is not None:
             _setter("endpoint_name", endpoint_name)
@@ -211,17 +227,9 @@ class MonitoringSchedule(pulumi.CustomResource):
 
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["failure_reason"] = failure_reason
-            if last_monitoring_execution_summary is not None and not isinstance(last_monitoring_execution_summary, MonitoringScheduleMonitoringExecutionSummaryArgs):
-                last_monitoring_execution_summary = last_monitoring_execution_summary or {}
-                def _setter(key, value):
-                    last_monitoring_execution_summary[key] = value
-                MonitoringScheduleMonitoringExecutionSummaryArgs._configure(_setter, **last_monitoring_execution_summary)
+            last_monitoring_execution_summary = _utilities.configure(last_monitoring_execution_summary, MonitoringScheduleMonitoringExecutionSummaryArgs, True)
             __props__.__dict__["last_monitoring_execution_summary"] = last_monitoring_execution_summary
-            if monitoring_schedule_config is not None and not isinstance(monitoring_schedule_config, MonitoringScheduleConfigArgs):
-                monitoring_schedule_config = monitoring_schedule_config or {}
-                def _setter(key, value):
-                    monitoring_schedule_config[key] = value
-                MonitoringScheduleConfigArgs._configure(_setter, **monitoring_schedule_config)
+            monitoring_schedule_config = _utilities.configure(monitoring_schedule_config, MonitoringScheduleConfigArgs, True)
             if monitoring_schedule_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_schedule_config'")
             __props__.__dict__["monitoring_schedule_config"] = monitoring_schedule_config

@@ -27,9 +27,19 @@ class EnvironmentEc2RepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             path_component: pulumi.Input[str],
-             repository_url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             path_component: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if path_component is None and 'pathComponent' in kwargs:
+            path_component = kwargs['pathComponent']
+        if path_component is None:
+            raise TypeError("Missing 'path_component' argument")
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if repository_url is None:
+            raise TypeError("Missing 'repository_url' argument")
+
         _setter("path_component", path_component)
         _setter("repository_url", repository_url)
 
@@ -65,9 +75,15 @@ class EnvironmentEc2TagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

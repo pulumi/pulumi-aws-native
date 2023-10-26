@@ -30,7 +30,11 @@ class ApplicationInstanceManifestOverridesPayloadArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              payload_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if payload_data is None and 'payloadData' in kwargs:
+            payload_data = kwargs['payloadData']
+
         if payload_data is not None:
             _setter("payload_data", payload_data)
 
@@ -56,7 +60,11 @@ class ApplicationInstanceManifestPayloadArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              payload_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if payload_data is None and 'payloadData' in kwargs:
+            payload_data = kwargs['payloadData']
+
         if payload_data is not None:
             _setter("payload_data", payload_data)
 
@@ -87,9 +95,15 @@ class ApplicationInstanceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -142,7 +156,17 @@ class PackageStorageLocationArgs:
              generated_prefix_location: Optional[pulumi.Input[str]] = None,
              manifest_prefix_location: Optional[pulumi.Input[str]] = None,
              repo_prefix_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if binary_prefix_location is None and 'binaryPrefixLocation' in kwargs:
+            binary_prefix_location = kwargs['binaryPrefixLocation']
+        if generated_prefix_location is None and 'generatedPrefixLocation' in kwargs:
+            generated_prefix_location = kwargs['generatedPrefixLocation']
+        if manifest_prefix_location is None and 'manifestPrefixLocation' in kwargs:
+            manifest_prefix_location = kwargs['manifestPrefixLocation']
+        if repo_prefix_location is None and 'repoPrefixLocation' in kwargs:
+            repo_prefix_location = kwargs['repoPrefixLocation']
+
         if binary_prefix_location is not None:
             _setter("binary_prefix_location", binary_prefix_location)
         if bucket is not None:
@@ -213,9 +237,15 @@ class PackageTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -53,8 +53,8 @@ class AuthorizerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rest_api_id: pulumi.Input[str],
-             type: pulumi.Input[str],
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              auth_type: Optional[pulumi.Input[str]] = None,
              authorizer_credentials: Optional[pulumi.Input[str]] = None,
              authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -63,7 +63,29 @@ class AuthorizerArgs:
              identity_validation_expression: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if authorizer_credentials is None and 'authorizerCredentials' in kwargs:
+            authorizer_credentials = kwargs['authorizerCredentials']
+        if authorizer_result_ttl_in_seconds is None and 'authorizerResultTtlInSeconds' in kwargs:
+            authorizer_result_ttl_in_seconds = kwargs['authorizerResultTtlInSeconds']
+        if authorizer_uri is None and 'authorizerUri' in kwargs:
+            authorizer_uri = kwargs['authorizerUri']
+        if identity_source is None and 'identitySource' in kwargs:
+            identity_source = kwargs['identitySource']
+        if identity_validation_expression is None and 'identityValidationExpression' in kwargs:
+            identity_validation_expression = kwargs['identityValidationExpression']
+        if provider_arns is None and 'providerArns' in kwargs:
+            provider_arns = kwargs['providerArns']
+
         _setter("rest_api_id", rest_api_id)
         _setter("type", type)
         if auth_type is not None:

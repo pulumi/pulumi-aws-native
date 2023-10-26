@@ -43,7 +43,9 @@ class PolicyIeMap(dict):
              _setter: Callable[[Any, Any], None],
              account: Optional[Sequence[str]] = None,
              orgunit: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if account is not None:
             _setter("account", account)
         if orgunit is not None:
@@ -94,8 +96,14 @@ class PolicyNetworkFirewallPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_deployment_model: 'PolicyFirewallDeploymentModel',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             firewall_deployment_model: Optional['PolicyFirewallDeploymentModel'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_deployment_model is None and 'firewallDeploymentModel' in kwargs:
+            firewall_deployment_model = kwargs['firewallDeploymentModel']
+        if firewall_deployment_model is None:
+            raise TypeError("Missing 'firewall_deployment_model' argument")
+
         _setter("firewall_deployment_model", firewall_deployment_model)
 
     @property
@@ -144,7 +152,13 @@ class PolicyOption(dict):
              _setter: Callable[[Any, Any], None],
              network_firewall_policy: Optional['outputs.PolicyNetworkFirewallPolicy'] = None,
              third_party_firewall_policy: Optional['outputs.PolicyThirdPartyFirewallPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_firewall_policy is None and 'networkFirewallPolicy' in kwargs:
+            network_firewall_policy = kwargs['networkFirewallPolicy']
+        if third_party_firewall_policy is None and 'thirdPartyFirewallPolicy' in kwargs:
+            third_party_firewall_policy = kwargs['thirdPartyFirewallPolicy']
+
         if network_firewall_policy is not None:
             _setter("network_firewall_policy", network_firewall_policy)
         if third_party_firewall_policy is not None:
@@ -180,9 +194,13 @@ class PolicyResourceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
+             key: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -238,10 +256,18 @@ class PolicySecurityServicePolicyData(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: 'PolicyType',
+             type: Optional['PolicyType'] = None,
              managed_service_data: Optional[str] = None,
              policy_option: Optional['outputs.PolicyOption'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if managed_service_data is None and 'managedServiceData' in kwargs:
+            managed_service_data = kwargs['managedServiceData']
+        if policy_option is None and 'policyOption' in kwargs:
+            policy_option = kwargs['policyOption']
+
         _setter("type", type)
         if managed_service_data is not None:
             _setter("managed_service_data", managed_service_data)
@@ -283,9 +309,15 @@ class PolicyTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -334,8 +366,14 @@ class PolicyThirdPartyFirewallPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_deployment_model: 'PolicyFirewallDeploymentModel',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             firewall_deployment_model: Optional['PolicyFirewallDeploymentModel'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_deployment_model is None and 'firewallDeploymentModel' in kwargs:
+            firewall_deployment_model = kwargs['firewallDeploymentModel']
+        if firewall_deployment_model is None:
+            raise TypeError("Missing 'firewall_deployment_model' argument")
+
         _setter("firewall_deployment_model", firewall_deployment_model)
 
     @property
@@ -363,9 +401,15 @@ class ResourceSetTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

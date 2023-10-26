@@ -26,9 +26,15 @@ class FlowTemplateDefinitionDocumentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             language: pulumi.Input[str],
-             text: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             language: Optional[pulumi.Input[str]] = None,
+             text: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if language is None:
+            raise TypeError("Missing 'language' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+
         _setter("language", language)
         _setter("text", text)
 

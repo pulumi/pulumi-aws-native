@@ -27,9 +27,19 @@ class NotificationChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sns_role_name: pulumi.Input[str],
-             sns_topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sns_role_name: Optional[pulumi.Input[str]] = None,
+             sns_topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sns_role_name is None and 'snsRoleName' in kwargs:
+            sns_role_name = kwargs['snsRoleName']
+        if sns_role_name is None:
+            raise TypeError("Missing 'sns_role_name' argument")
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if sns_topic_arn is None:
+            raise TypeError("Missing 'sns_topic_arn' argument")
+
         _setter("sns_role_name", sns_role_name)
         _setter("sns_topic_arn", sns_topic_arn)
 

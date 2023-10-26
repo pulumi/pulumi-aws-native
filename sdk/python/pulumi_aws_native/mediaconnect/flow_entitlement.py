@@ -47,14 +47,28 @@ class FlowEntitlementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             flow_arn: pulumi.Input[str],
-             subscribers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             flow_arn: Optional[pulumi.Input[str]] = None,
+             subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
              encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
              entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if flow_arn is None and 'flowArn' in kwargs:
+            flow_arn = kwargs['flowArn']
+        if flow_arn is None:
+            raise TypeError("Missing 'flow_arn' argument")
+        if subscribers is None:
+            raise TypeError("Missing 'subscribers' argument")
+        if data_transfer_subscriber_fee_percent is None and 'dataTransferSubscriberFeePercent' in kwargs:
+            data_transfer_subscriber_fee_percent = kwargs['dataTransferSubscriberFeePercent']
+        if entitlement_status is None and 'entitlementStatus' in kwargs:
+            entitlement_status = kwargs['entitlementStatus']
+
         _setter("description", description)
         _setter("flow_arn", flow_arn)
         _setter("subscribers", subscribers)
@@ -226,11 +240,7 @@ class FlowEntitlement(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
-            if encryption is not None and not isinstance(encryption, FlowEntitlementEncryptionArgs):
-                encryption = encryption or {}
-                def _setter(key, value):
-                    encryption[key] = value
-                FlowEntitlementEncryptionArgs._configure(_setter, **encryption)
+            encryption = _utilities.configure(encryption, FlowEntitlementEncryptionArgs, True)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["entitlement_status"] = entitlement_status
             if flow_arn is None and not opts.urn:

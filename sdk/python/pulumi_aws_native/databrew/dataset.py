@@ -43,13 +43,21 @@ class DatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input: pulumi.Input['DatasetInputArgs'],
+             input: Optional[pulumi.Input['DatasetInputArgs']] = None,
              format: Optional[pulumi.Input['DatasetFormat']] = None,
              format_options: Optional[pulumi.Input['DatasetFormatOptionsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input is None:
+            raise TypeError("Missing 'input' argument")
+        if format_options is None and 'formatOptions' in kwargs:
+            format_options = kwargs['formatOptions']
+        if path_options is None and 'pathOptions' in kwargs:
+            path_options = kwargs['pathOptions']
+
         _setter("input", input)
         if format is not None:
             _setter("format", format)
@@ -199,26 +207,14 @@ class Dataset(pulumi.CustomResource):
             __props__ = DatasetArgs.__new__(DatasetArgs)
 
             __props__.__dict__["format"] = format
-            if format_options is not None and not isinstance(format_options, DatasetFormatOptionsArgs):
-                format_options = format_options or {}
-                def _setter(key, value):
-                    format_options[key] = value
-                DatasetFormatOptionsArgs._configure(_setter, **format_options)
+            format_options = _utilities.configure(format_options, DatasetFormatOptionsArgs, True)
             __props__.__dict__["format_options"] = format_options
-            if input is not None and not isinstance(input, DatasetInputArgs):
-                input = input or {}
-                def _setter(key, value):
-                    input[key] = value
-                DatasetInputArgs._configure(_setter, **input)
+            input = _utilities.configure(input, DatasetInputArgs, True)
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
             __props__.__dict__["name"] = name
-            if path_options is not None and not isinstance(path_options, DatasetPathOptionsArgs):
-                path_options = path_options or {}
-                def _setter(key, value):
-                    path_options[key] = value
-                DatasetPathOptionsArgs._configure(_setter, **path_options)
+            path_options = _utilities.configure(path_options, DatasetPathOptionsArgs, True)
             __props__.__dict__["path_options"] = path_options
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])

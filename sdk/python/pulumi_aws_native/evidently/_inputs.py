@@ -60,13 +60,35 @@ class ExperimentMetricGoalObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             desired_change: pulumi.Input['ExperimentMetricGoalObjectDesiredChange'],
-             entity_id_key: pulumi.Input[str],
-             metric_name: pulumi.Input[str],
-             value_key: pulumi.Input[str],
+             desired_change: Optional[pulumi.Input['ExperimentMetricGoalObjectDesiredChange']] = None,
+             entity_id_key: Optional[pulumi.Input[str]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             value_key: Optional[pulumi.Input[str]] = None,
              event_pattern: Optional[pulumi.Input[str]] = None,
              unit_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if desired_change is None and 'desiredChange' in kwargs:
+            desired_change = kwargs['desiredChange']
+        if desired_change is None:
+            raise TypeError("Missing 'desired_change' argument")
+        if entity_id_key is None and 'entityIdKey' in kwargs:
+            entity_id_key = kwargs['entityIdKey']
+        if entity_id_key is None:
+            raise TypeError("Missing 'entity_id_key' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if value_key is None and 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+        if value_key is None:
+            raise TypeError("Missing 'value_key' argument")
+        if event_pattern is None and 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if unit_label is None and 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+
         _setter("desired_change", desired_change)
         _setter("entity_id_key", entity_id_key)
         _setter("metric_name", metric_name)
@@ -155,7 +177,13 @@ class ExperimentOnlineAbConfigObjectArgs:
              _setter: Callable[[Any, Any], None],
              control_treatment_name: Optional[pulumi.Input[str]] = None,
              treatment_weights: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentToWeightArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if control_treatment_name is None and 'controlTreatmentName' in kwargs:
+            control_treatment_name = kwargs['controlTreatmentName']
+        if treatment_weights is None and 'treatmentWeights' in kwargs:
+            treatment_weights = kwargs['treatmentWeights']
+
         if control_treatment_name is not None:
             _setter("control_treatment_name", control_treatment_name)
         if treatment_weights is not None:
@@ -207,7 +235,13 @@ class ExperimentRunningStatusObjectArgs:
              desired_state: Optional[pulumi.Input[str]] = None,
              reason: Optional[pulumi.Input[str]] = None,
              status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if analysis_complete_time is None and 'analysisCompleteTime' in kwargs:
+            analysis_complete_time = kwargs['analysisCompleteTime']
+        if desired_state is None and 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+
         if analysis_complete_time is not None:
             _setter("analysis_complete_time", analysis_complete_time)
         if desired_state is not None:
@@ -284,9 +318,15 @@ class ExperimentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -332,11 +372,21 @@ class ExperimentTreatmentObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             feature: pulumi.Input[str],
-             treatment_name: pulumi.Input[str],
-             variation: pulumi.Input[str],
+             feature: Optional[pulumi.Input[str]] = None,
+             treatment_name: Optional[pulumi.Input[str]] = None,
+             variation: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if feature is None:
+            raise TypeError("Missing 'feature' argument")
+        if treatment_name is None and 'treatmentName' in kwargs:
+            treatment_name = kwargs['treatmentName']
+        if treatment_name is None:
+            raise TypeError("Missing 'treatment_name' argument")
+        if variation is None:
+            raise TypeError("Missing 'variation' argument")
+
         _setter("feature", feature)
         _setter("treatment_name", treatment_name)
         _setter("variation", variation)
@@ -393,9 +443,17 @@ class ExperimentTreatmentToWeightArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             split_weight: pulumi.Input[int],
-             treatment: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             split_weight: Optional[pulumi.Input[int]] = None,
+             treatment: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if split_weight is None and 'splitWeight' in kwargs:
+            split_weight = kwargs['splitWeight']
+        if split_weight is None:
+            raise TypeError("Missing 'split_weight' argument")
+        if treatment is None:
+            raise TypeError("Missing 'treatment' argument")
+
         _setter("split_weight", split_weight)
         _setter("treatment", treatment)
 
@@ -433,7 +491,11 @@ class FeatureEntityOverrideArgs:
              _setter: Callable[[Any, Any], None],
              entity_id: Optional[pulumi.Input[str]] = None,
              variation: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_id is None and 'entityId' in kwargs:
+            entity_id = kwargs['entityId']
+
         if entity_id is not None:
             _setter("entity_id", entity_id)
         if variation is not None:
@@ -476,9 +538,15 @@ class FeatureTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -531,7 +599,19 @@ class FeatureVariationObjectArgs:
              long_value: Optional[pulumi.Input[float]] = None,
              string_value: Optional[pulumi.Input[str]] = None,
              variation_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if boolean_value is None and 'booleanValue' in kwargs:
+            boolean_value = kwargs['booleanValue']
+        if double_value is None and 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if long_value is None and 'longValue' in kwargs:
+            long_value = kwargs['longValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+        if variation_name is None and 'variationName' in kwargs:
+            variation_name = kwargs['variationName']
+
         if boolean_value is not None:
             _setter("boolean_value", boolean_value)
         if double_value is not None:
@@ -609,10 +689,16 @@ class LaunchExecutionStatusObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
+             status: Optional[pulumi.Input[str]] = None,
              desired_state: Optional[pulumi.Input[str]] = None,
              reason: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if desired_state is None and 'desiredState' in kwargs:
+            desired_state = kwargs['desiredState']
+
         _setter("status", status)
         if desired_state is not None:
             _setter("desired_state", desired_state)
@@ -673,11 +759,21 @@ class LaunchGroupObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             feature: pulumi.Input[str],
-             group_name: pulumi.Input[str],
-             variation: pulumi.Input[str],
+             feature: Optional[pulumi.Input[str]] = None,
+             group_name: Optional[pulumi.Input[str]] = None,
+             variation: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if feature is None:
+            raise TypeError("Missing 'feature' argument")
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if variation is None:
+            raise TypeError("Missing 'variation' argument")
+
         _setter("feature", feature)
         _setter("group_name", group_name)
         _setter("variation", variation)
@@ -734,9 +830,19 @@ class LaunchGroupToWeightArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_name: pulumi.Input[str],
-             split_weight: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_name: Optional[pulumi.Input[str]] = None,
+             split_weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if group_name is None:
+            raise TypeError("Missing 'group_name' argument")
+        if split_weight is None and 'splitWeight' in kwargs:
+            split_weight = kwargs['splitWeight']
+        if split_weight is None:
+            raise TypeError("Missing 'split_weight' argument")
+
         _setter("group_name", group_name)
         _setter("split_weight", split_weight)
 
@@ -783,12 +889,30 @@ class LaunchMetricDefinitionObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             entity_id_key: pulumi.Input[str],
-             metric_name: pulumi.Input[str],
-             value_key: pulumi.Input[str],
+             entity_id_key: Optional[pulumi.Input[str]] = None,
+             metric_name: Optional[pulumi.Input[str]] = None,
+             value_key: Optional[pulumi.Input[str]] = None,
              event_pattern: Optional[pulumi.Input[str]] = None,
              unit_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if entity_id_key is None and 'entityIdKey' in kwargs:
+            entity_id_key = kwargs['entityIdKey']
+        if entity_id_key is None:
+            raise TypeError("Missing 'entity_id_key' argument")
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if value_key is None and 'valueKey' in kwargs:
+            value_key = kwargs['valueKey']
+        if value_key is None:
+            raise TypeError("Missing 'value_key' argument")
+        if event_pattern is None and 'eventPattern' in kwargs:
+            event_pattern = kwargs['eventPattern']
+        if unit_label is None and 'unitLabel' in kwargs:
+            unit_label = kwargs['unitLabel']
+
         _setter("entity_id_key", entity_id_key)
         _setter("metric_name", metric_name)
         _setter("value_key", value_key)
@@ -867,10 +991,20 @@ class LaunchSegmentOverrideArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             evaluation_order: pulumi.Input[int],
-             segment: pulumi.Input[str],
-             weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             evaluation_order: Optional[pulumi.Input[int]] = None,
+             segment: Optional[pulumi.Input[str]] = None,
+             weights: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if evaluation_order is None and 'evaluationOrder' in kwargs:
+            evaluation_order = kwargs['evaluationOrder']
+        if evaluation_order is None:
+            raise TypeError("Missing 'evaluation_order' argument")
+        if segment is None:
+            raise TypeError("Missing 'segment' argument")
+        if weights is None:
+            raise TypeError("Missing 'weights' argument")
+
         _setter("evaluation_order", evaluation_order)
         _setter("segment", segment)
         _setter("weights", weights)
@@ -918,10 +1052,22 @@ class LaunchStepConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_weights: pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]],
-             start_time: pulumi.Input[str],
+             group_weights: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchGroupToWeightArgs']]]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
              segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchSegmentOverrideArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_weights is None and 'groupWeights' in kwargs:
+            group_weights = kwargs['groupWeights']
+        if group_weights is None:
+            raise TypeError("Missing 'group_weights' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if segment_overrides is None and 'segmentOverrides' in kwargs:
+            segment_overrides = kwargs['segmentOverrides']
+
         _setter("group_weights", group_weights)
         _setter("start_time", start_time)
         if segment_overrides is not None:
@@ -973,9 +1119,15 @@ class LaunchTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1017,9 +1169,19 @@ class ProjectAppConfigResourceObjectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             environment_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_id: Optional[pulumi.Input[str]] = None,
+             environment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if environment_id is None and 'environmentId' in kwargs:
+            environment_id = kwargs['environmentId']
+        if environment_id is None:
+            raise TypeError("Missing 'environment_id' argument")
+
         _setter("application_id", application_id)
         _setter("environment_id", environment_id)
 
@@ -1060,7 +1222,11 @@ class ProjectDataDeliveryObjectArgs:
              _setter: Callable[[Any, Any], None],
              log_group: Optional[pulumi.Input[str]] = None,
              s3: Optional[pulumi.Input['ProjectS3DestinationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         if log_group is not None:
             _setter("log_group", log_group)
         if s3 is not None:
@@ -1098,9 +1264,15 @@ class ProjectS3DestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+
         _setter("bucket_name", bucket_name)
         if prefix is not None:
             _setter("prefix", prefix)
@@ -1142,9 +1314,15 @@ class ProjectTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1191,9 +1369,15 @@ class SegmentTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -44,7 +44,17 @@ class ServiceArgs:
              dns_entry: Optional[pulumi.Input['ServiceDnsEntryArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if custom_domain_name is None and 'customDomainName' in kwargs:
+            custom_domain_name = kwargs['customDomainName']
+        if dns_entry is None and 'dnsEntry' in kwargs:
+            dns_entry = kwargs['dnsEntry']
+
         if auth_type is not None:
             _setter("auth_type", auth_type)
         if certificate_arn is not None:
@@ -177,11 +187,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["custom_domain_name"] = custom_domain_name
-            if dns_entry is not None and not isinstance(dns_entry, ServiceDnsEntryArgs):
-                dns_entry = dns_entry or {}
-                def _setter(key, value):
-                    dns_entry[key] = value
-                ServiceDnsEntryArgs._configure(_setter, **dns_entry)
+            dns_entry = _utilities.configure(dns_entry, ServiceDnsEntryArgs, True)
             __props__.__dict__["dns_entry"] = dns_entry
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

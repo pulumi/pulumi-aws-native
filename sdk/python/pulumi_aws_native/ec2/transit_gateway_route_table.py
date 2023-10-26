@@ -31,9 +31,15 @@ class TransitGatewayRouteTableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             transit_gateway_id: pulumi.Input[str],
+             transit_gateway_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if transit_gateway_id is None and 'transitGatewayId' in kwargs:
+            transit_gateway_id = kwargs['transitGatewayId']
+        if transit_gateway_id is None:
+            raise TypeError("Missing 'transit_gateway_id' argument")
+
         _setter("transit_gateway_id", transit_gateway_id)
         if tags is not None:
             _setter("tags", tags)

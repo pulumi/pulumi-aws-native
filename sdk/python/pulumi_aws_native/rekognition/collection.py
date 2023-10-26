@@ -30,9 +30,15 @@ class CollectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             collection_id: pulumi.Input[str],
+             collection_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collection_id is None and 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if collection_id is None:
+            raise TypeError("Missing 'collection_id' argument")
+
         _setter("collection_id", collection_id)
         if tags is not None:
             _setter("tags", tags)

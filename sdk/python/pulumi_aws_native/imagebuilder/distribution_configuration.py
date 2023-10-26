@@ -38,11 +38,15 @@ class DistributionConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             distributions: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]],
+             distributions: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if distributions is None:
+            raise TypeError("Missing 'distributions' argument")
+
         _setter("distributions", distributions)
         if description is not None:
             _setter("description", description)

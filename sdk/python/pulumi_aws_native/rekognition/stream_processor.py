@@ -57,8 +57,8 @@ class StreamProcessorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             kinesis_video_stream: pulumi.Input['StreamProcessorKinesisVideoStreamArgs'],
-             role_arn: pulumi.Input[str],
+             kinesis_video_stream: Optional[pulumi.Input['StreamProcessorKinesisVideoStreamArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              bounding_box_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]] = None,
              connected_home_settings: Optional[pulumi.Input['StreamProcessorConnectedHomeSettingsArgs']] = None,
              data_sharing_preference: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']] = None,
@@ -70,7 +70,35 @@ class StreamProcessorArgs:
              polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]] = None,
              s3_destination: Optional[pulumi.Input['StreamProcessorS3DestinationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kinesis_video_stream is None and 'kinesisVideoStream' in kwargs:
+            kinesis_video_stream = kwargs['kinesisVideoStream']
+        if kinesis_video_stream is None:
+            raise TypeError("Missing 'kinesis_video_stream' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if bounding_box_regions_of_interest is None and 'boundingBoxRegionsOfInterest' in kwargs:
+            bounding_box_regions_of_interest = kwargs['boundingBoxRegionsOfInterest']
+        if connected_home_settings is None and 'connectedHomeSettings' in kwargs:
+            connected_home_settings = kwargs['connectedHomeSettings']
+        if data_sharing_preference is None and 'dataSharingPreference' in kwargs:
+            data_sharing_preference = kwargs['dataSharingPreference']
+        if face_search_settings is None and 'faceSearchSettings' in kwargs:
+            face_search_settings = kwargs['faceSearchSettings']
+        if kinesis_data_stream is None and 'kinesisDataStream' in kwargs:
+            kinesis_data_stream = kwargs['kinesisDataStream']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if notification_channel is None and 'notificationChannel' in kwargs:
+            notification_channel = kwargs['notificationChannel']
+        if polygon_regions_of_interest is None and 'polygonRegionsOfInterest' in kwargs:
+            polygon_regions_of_interest = kwargs['polygonRegionsOfInterest']
+        if s3_destination is None and 's3Destination' in kwargs:
+            s3_destination = kwargs['s3Destination']
+
         _setter("kinesis_video_stream", kinesis_video_stream)
         _setter("role_arn", role_arn)
         if bounding_box_regions_of_interest is not None:
@@ -314,55 +342,27 @@ class StreamProcessor(pulumi.CustomResource):
             __props__ = StreamProcessorArgs.__new__(StreamProcessorArgs)
 
             __props__.__dict__["bounding_box_regions_of_interest"] = bounding_box_regions_of_interest
-            if connected_home_settings is not None and not isinstance(connected_home_settings, StreamProcessorConnectedHomeSettingsArgs):
-                connected_home_settings = connected_home_settings or {}
-                def _setter(key, value):
-                    connected_home_settings[key] = value
-                StreamProcessorConnectedHomeSettingsArgs._configure(_setter, **connected_home_settings)
+            connected_home_settings = _utilities.configure(connected_home_settings, StreamProcessorConnectedHomeSettingsArgs, True)
             __props__.__dict__["connected_home_settings"] = connected_home_settings
-            if data_sharing_preference is not None and not isinstance(data_sharing_preference, StreamProcessorDataSharingPreferenceArgs):
-                data_sharing_preference = data_sharing_preference or {}
-                def _setter(key, value):
-                    data_sharing_preference[key] = value
-                StreamProcessorDataSharingPreferenceArgs._configure(_setter, **data_sharing_preference)
+            data_sharing_preference = _utilities.configure(data_sharing_preference, StreamProcessorDataSharingPreferenceArgs, True)
             __props__.__dict__["data_sharing_preference"] = data_sharing_preference
-            if face_search_settings is not None and not isinstance(face_search_settings, StreamProcessorFaceSearchSettingsArgs):
-                face_search_settings = face_search_settings or {}
-                def _setter(key, value):
-                    face_search_settings[key] = value
-                StreamProcessorFaceSearchSettingsArgs._configure(_setter, **face_search_settings)
+            face_search_settings = _utilities.configure(face_search_settings, StreamProcessorFaceSearchSettingsArgs, True)
             __props__.__dict__["face_search_settings"] = face_search_settings
-            if kinesis_data_stream is not None and not isinstance(kinesis_data_stream, StreamProcessorKinesisDataStreamArgs):
-                kinesis_data_stream = kinesis_data_stream or {}
-                def _setter(key, value):
-                    kinesis_data_stream[key] = value
-                StreamProcessorKinesisDataStreamArgs._configure(_setter, **kinesis_data_stream)
+            kinesis_data_stream = _utilities.configure(kinesis_data_stream, StreamProcessorKinesisDataStreamArgs, True)
             __props__.__dict__["kinesis_data_stream"] = kinesis_data_stream
-            if kinesis_video_stream is not None and not isinstance(kinesis_video_stream, StreamProcessorKinesisVideoStreamArgs):
-                kinesis_video_stream = kinesis_video_stream or {}
-                def _setter(key, value):
-                    kinesis_video_stream[key] = value
-                StreamProcessorKinesisVideoStreamArgs._configure(_setter, **kinesis_video_stream)
+            kinesis_video_stream = _utilities.configure(kinesis_video_stream, StreamProcessorKinesisVideoStreamArgs, True)
             if kinesis_video_stream is None and not opts.urn:
                 raise TypeError("Missing required property 'kinesis_video_stream'")
             __props__.__dict__["kinesis_video_stream"] = kinesis_video_stream
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
-            if notification_channel is not None and not isinstance(notification_channel, StreamProcessorNotificationChannelArgs):
-                notification_channel = notification_channel or {}
-                def _setter(key, value):
-                    notification_channel[key] = value
-                StreamProcessorNotificationChannelArgs._configure(_setter, **notification_channel)
+            notification_channel = _utilities.configure(notification_channel, StreamProcessorNotificationChannelArgs, True)
             __props__.__dict__["notification_channel"] = notification_channel
             __props__.__dict__["polygon_regions_of_interest"] = polygon_regions_of_interest
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if s3_destination is not None and not isinstance(s3_destination, StreamProcessorS3DestinationArgs):
-                s3_destination = s3_destination or {}
-                def _setter(key, value):
-                    s3_destination[key] = value
-                StreamProcessorS3DestinationArgs._configure(_setter, **s3_destination)
+            s3_destination = _utilities.configure(s3_destination, StreamProcessorS3DestinationArgs, True)
             __props__.__dict__["s3_destination"] = s3_destination
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

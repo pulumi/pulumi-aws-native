@@ -36,11 +36,23 @@ class LiveSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             http_package_configurations: pulumi.Input[Sequence[pulumi.Input['LiveSourceHttpPackageConfigurationArgs']]],
-             source_location_name: pulumi.Input[str],
+             http_package_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LiveSourceHttpPackageConfigurationArgs']]]] = None,
+             source_location_name: Optional[pulumi.Input[str]] = None,
              live_source_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LiveSourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_package_configurations is None and 'httpPackageConfigurations' in kwargs:
+            http_package_configurations = kwargs['httpPackageConfigurations']
+        if http_package_configurations is None:
+            raise TypeError("Missing 'http_package_configurations' argument")
+        if source_location_name is None and 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+        if source_location_name is None:
+            raise TypeError("Missing 'source_location_name' argument")
+        if live_source_name is None and 'liveSourceName' in kwargs:
+            live_source_name = kwargs['liveSourceName']
+
         _setter("http_package_configurations", http_package_configurations)
         _setter("source_location_name", source_location_name)
         if live_source_name is not None:

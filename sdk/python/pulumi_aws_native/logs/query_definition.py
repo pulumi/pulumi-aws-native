@@ -32,10 +32,18 @@ class QueryDefinitionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             query_string: pulumi.Input[str],
+             query_string: Optional[pulumi.Input[str]] = None,
              log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if log_group_names is None and 'logGroupNames' in kwargs:
+            log_group_names = kwargs['logGroupNames']
+
         _setter("query_string", query_string)
         if log_group_names is not None:
             _setter("log_group_names", log_group_names)

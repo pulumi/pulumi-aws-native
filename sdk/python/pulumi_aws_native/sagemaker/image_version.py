@@ -46,8 +46,8 @@ class ImageVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_image: pulumi.Input[str],
-             image_name: pulumi.Input[str],
+             base_image: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
              alias: Optional[pulumi.Input[str]] = None,
              aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              horovod: Optional[pulumi.Input[bool]] = None,
@@ -57,7 +57,27 @@ class ImageVersionArgs:
              programming_lang: Optional[pulumi.Input[str]] = None,
              release_notes: Optional[pulumi.Input[str]] = None,
              vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_image is None and 'baseImage' in kwargs:
+            base_image = kwargs['baseImage']
+        if base_image is None:
+            raise TypeError("Missing 'base_image' argument")
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if job_type is None and 'jobType' in kwargs:
+            job_type = kwargs['jobType']
+        if ml_framework is None and 'mlFramework' in kwargs:
+            ml_framework = kwargs['mlFramework']
+        if programming_lang is None and 'programmingLang' in kwargs:
+            programming_lang = kwargs['programmingLang']
+        if release_notes is None and 'releaseNotes' in kwargs:
+            release_notes = kwargs['releaseNotes']
+        if vendor_guidance is None and 'vendorGuidance' in kwargs:
+            vendor_guidance = kwargs['vendorGuidance']
+
         _setter("base_image", base_image)
         _setter("image_name", image_name)
         if alias is not None:

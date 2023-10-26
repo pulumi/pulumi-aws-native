@@ -29,9 +29,17 @@ class BackupPlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             backup_plan: pulumi.Input['BackupPlanResourceTypeArgs'],
+             backup_plan: Optional[pulumi.Input['BackupPlanResourceTypeArgs']] = None,
              backup_plan_tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if backup_plan is None and 'backupPlan' in kwargs:
+            backup_plan = kwargs['backupPlan']
+        if backup_plan is None:
+            raise TypeError("Missing 'backup_plan' argument")
+        if backup_plan_tags is None and 'backupPlanTags' in kwargs:
+            backup_plan_tags = kwargs['backupPlanTags']
+
         _setter("backup_plan", backup_plan)
         if backup_plan_tags is not None:
             _setter("backup_plan_tags", backup_plan_tags)
@@ -108,11 +116,7 @@ class BackupPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupPlanArgs.__new__(BackupPlanArgs)
 
-            if backup_plan is not None and not isinstance(backup_plan, BackupPlanResourceTypeArgs):
-                backup_plan = backup_plan or {}
-                def _setter(key, value):
-                    backup_plan[key] = value
-                BackupPlanResourceTypeArgs._configure(_setter, **backup_plan)
+            backup_plan = _utilities.configure(backup_plan, BackupPlanResourceTypeArgs, True)
             if backup_plan is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_plan'")
             __props__.__dict__["backup_plan"] = backup_plan

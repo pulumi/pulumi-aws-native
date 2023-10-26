@@ -34,7 +34,15 @@ class NotebookInstanceLifecycleConfigArgs:
              notebook_instance_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
              on_create: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs']]]] = None,
              on_start: Optional[pulumi.Input[Sequence[pulumi.Input['NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if notebook_instance_lifecycle_config_name is None and 'notebookInstanceLifecycleConfigName' in kwargs:
+            notebook_instance_lifecycle_config_name = kwargs['notebookInstanceLifecycleConfigName']
+        if on_create is None and 'onCreate' in kwargs:
+            on_create = kwargs['onCreate']
+        if on_start is None and 'onStart' in kwargs:
+            on_start = kwargs['onStart']
+
         if notebook_instance_lifecycle_config_name is not None:
             _setter("notebook_instance_lifecycle_config_name", notebook_instance_lifecycle_config_name)
         if on_create is not None:

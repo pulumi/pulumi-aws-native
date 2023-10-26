@@ -85,7 +85,19 @@ class DatasetImportJob(dict):
              dataset_import_job_arn: Optional[str] = None,
              job_name: Optional[str] = None,
              role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if dataset_arn is None and 'datasetArn' in kwargs:
+            dataset_arn = kwargs['datasetArn']
+        if dataset_import_job_arn is None and 'datasetImportJobArn' in kwargs:
+            dataset_import_job_arn = kwargs['datasetImportJobArn']
+        if job_name is None and 'jobName' in kwargs:
+            job_name = kwargs['jobName']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if data_source is not None:
             _setter("data_source", data_source)
         if dataset_arn is not None:
@@ -174,7 +186,11 @@ class DatasetImportJobDataSourceProperties(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              data_location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_location is None and 'dataLocation' in kwargs:
+            data_location = kwargs['dataLocation']
+
         if data_location is not None:
             _setter("data_location", data_location)
 
@@ -210,7 +226,9 @@ class SolutionCategoricalHyperParameterRange(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if values is not None:
@@ -293,7 +311,19 @@ class SolutionConfig(dict):
              event_value_threshold: Optional[str] = None,
              feature_transformation_parameters: Optional[Any] = None,
              hpo_config: Optional['outputs.SolutionConfigHpoConfigProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm_hyper_parameters is None and 'algorithmHyperParameters' in kwargs:
+            algorithm_hyper_parameters = kwargs['algorithmHyperParameters']
+        if auto_ml_config is None and 'autoMlConfig' in kwargs:
+            auto_ml_config = kwargs['autoMlConfig']
+        if event_value_threshold is None and 'eventValueThreshold' in kwargs:
+            event_value_threshold = kwargs['eventValueThreshold']
+        if feature_transformation_parameters is None and 'featureTransformationParameters' in kwargs:
+            feature_transformation_parameters = kwargs['featureTransformationParameters']
+        if hpo_config is None and 'hpoConfig' in kwargs:
+            hpo_config = kwargs['hpoConfig']
+
         if algorithm_hyper_parameters is not None:
             _setter("algorithm_hyper_parameters", algorithm_hyper_parameters)
         if auto_ml_config is not None:
@@ -388,7 +418,13 @@ class SolutionConfigAutoMlConfigProperties(dict):
              _setter: Callable[[Any, Any], None],
              metric_name: Optional[str] = None,
              recipe_list: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if recipe_list is None and 'recipeList' in kwargs:
+            recipe_list = kwargs['recipeList']
+
         if metric_name is not None:
             _setter("metric_name", metric_name)
         if recipe_list is not None:
@@ -459,7 +495,15 @@ class SolutionConfigHpoConfigProperties(dict):
              algorithm_hyper_parameter_ranges: Optional['outputs.SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties'] = None,
              hpo_objective: Optional['outputs.SolutionConfigHpoConfigPropertiesHpoObjectiveProperties'] = None,
              hpo_resource_config: Optional['outputs.SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if algorithm_hyper_parameter_ranges is None and 'algorithmHyperParameterRanges' in kwargs:
+            algorithm_hyper_parameter_ranges = kwargs['algorithmHyperParameterRanges']
+        if hpo_objective is None and 'hpoObjective' in kwargs:
+            hpo_objective = kwargs['hpoObjective']
+        if hpo_resource_config is None and 'hpoResourceConfig' in kwargs:
+            hpo_resource_config = kwargs['hpoResourceConfig']
+
         if algorithm_hyper_parameter_ranges is not None:
             _setter("algorithm_hyper_parameter_ranges", algorithm_hyper_parameter_ranges)
         if hpo_objective is not None:
@@ -540,7 +584,15 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties(d
              categorical_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionCategoricalHyperParameterRange']] = None,
              continuous_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionContinuousHyperParameterRange']] = None,
              integer_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionIntegerHyperParameterRange']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if categorical_hyper_parameter_ranges is None and 'categoricalHyperParameterRanges' in kwargs:
+            categorical_hyper_parameter_ranges = kwargs['categoricalHyperParameterRanges']
+        if continuous_hyper_parameter_ranges is None and 'continuousHyperParameterRanges' in kwargs:
+            continuous_hyper_parameter_ranges = kwargs['continuousHyperParameterRanges']
+        if integer_hyper_parameter_ranges is None and 'integerHyperParameterRanges' in kwargs:
+            integer_hyper_parameter_ranges = kwargs['integerHyperParameterRanges']
+
         if categorical_hyper_parameter_ranges is not None:
             _setter("categorical_hyper_parameter_ranges", categorical_hyper_parameter_ranges)
         if continuous_hyper_parameter_ranges is not None:
@@ -619,7 +671,13 @@ class SolutionConfigHpoConfigPropertiesHpoObjectiveProperties(dict):
              metric_name: Optional[str] = None,
              metric_regex: Optional[str] = None,
              type: Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_regex is None and 'metricRegex' in kwargs:
+            metric_regex = kwargs['metricRegex']
+
         if metric_name is not None:
             _setter("metric_name", metric_name)
         if metric_regex is not None:
@@ -694,7 +752,13 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties(dict):
              _setter: Callable[[Any, Any], None],
              max_number_of_training_jobs: Optional[str] = None,
              max_parallel_training_jobs: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_number_of_training_jobs is None and 'maxNumberOfTrainingJobs' in kwargs:
+            max_number_of_training_jobs = kwargs['maxNumberOfTrainingJobs']
+        if max_parallel_training_jobs is None and 'maxParallelTrainingJobs' in kwargs:
+            max_parallel_training_jobs = kwargs['maxParallelTrainingJobs']
+
         if max_number_of_training_jobs is not None:
             _setter("max_number_of_training_jobs", max_number_of_training_jobs)
         if max_parallel_training_jobs is not None:
@@ -763,7 +827,13 @@ class SolutionContinuousHyperParameterRange(dict):
              max_value: Optional[float] = None,
              min_value: Optional[float] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_value is None and 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if min_value is None and 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+
         if max_value is not None:
             _setter("max_value", max_value)
         if min_value is not None:
@@ -842,7 +912,13 @@ class SolutionIntegerHyperParameterRange(dict):
              max_value: Optional[int] = None,
              min_value: Optional[int] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_value is None and 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if min_value is None and 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+
         if max_value is not None:
             _setter("max_value", max_value)
         if min_value is not None:

@@ -29,9 +29,15 @@ class ConfigurationAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             broker: pulumi.Input[str],
-             configuration: pulumi.Input['ConfigurationAssociationConfigurationIdArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             broker: Optional[pulumi.Input[str]] = None,
+             configuration: Optional[pulumi.Input['ConfigurationAssociationConfigurationIdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if broker is None:
+            raise TypeError("Missing 'broker' argument")
+        if configuration is None:
+            raise TypeError("Missing 'configuration' argument")
+
         _setter("broker", broker)
         _setter("configuration", configuration)
 
@@ -116,11 +122,7 @@ class ConfigurationAssociation(pulumi.CustomResource):
             if broker is None and not opts.urn:
                 raise TypeError("Missing required property 'broker'")
             __props__.__dict__["broker"] = broker
-            if configuration is not None and not isinstance(configuration, ConfigurationAssociationConfigurationIdArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                ConfigurationAssociationConfigurationIdArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, ConfigurationAssociationConfigurationIdArgs, True)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

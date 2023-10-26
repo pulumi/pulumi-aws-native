@@ -71,8 +71,8 @@ class PlaybackConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ad_decision_server_url: pulumi.Input[str],
-             video_content_source_url: pulumi.Input[str],
+             ad_decision_server_url: Optional[pulumi.Input[str]] = None,
+             video_content_source_url: Optional[pulumi.Input[str]] = None,
              avail_suppression: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionArgs']] = None,
              bumper: Optional[pulumi.Input['PlaybackConfigurationBumperArgs']] = None,
              cdn_configuration: Optional[pulumi.Input['PlaybackConfigurationCdnConfigurationArgs']] = None,
@@ -86,7 +86,37 @@ class PlaybackConfigurationArgs:
              slate_ad_url: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackConfigurationTagArgs']]]] = None,
              transcode_profile_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ad_decision_server_url is None and 'adDecisionServerUrl' in kwargs:
+            ad_decision_server_url = kwargs['adDecisionServerUrl']
+        if ad_decision_server_url is None:
+            raise TypeError("Missing 'ad_decision_server_url' argument")
+        if video_content_source_url is None and 'videoContentSourceUrl' in kwargs:
+            video_content_source_url = kwargs['videoContentSourceUrl']
+        if video_content_source_url is None:
+            raise TypeError("Missing 'video_content_source_url' argument")
+        if avail_suppression is None and 'availSuppression' in kwargs:
+            avail_suppression = kwargs['availSuppression']
+        if cdn_configuration is None and 'cdnConfiguration' in kwargs:
+            cdn_configuration = kwargs['cdnConfiguration']
+        if configuration_aliases is None and 'configurationAliases' in kwargs:
+            configuration_aliases = kwargs['configurationAliases']
+        if dash_configuration is None and 'dashConfiguration' in kwargs:
+            dash_configuration = kwargs['dashConfiguration']
+        if hls_configuration is None and 'hlsConfiguration' in kwargs:
+            hls_configuration = kwargs['hlsConfiguration']
+        if live_pre_roll_configuration is None and 'livePreRollConfiguration' in kwargs:
+            live_pre_roll_configuration = kwargs['livePreRollConfiguration']
+        if manifest_processing_rules is None and 'manifestProcessingRules' in kwargs:
+            manifest_processing_rules = kwargs['manifestProcessingRules']
+        if personalization_threshold_seconds is None and 'personalizationThresholdSeconds' in kwargs:
+            personalization_threshold_seconds = kwargs['personalizationThresholdSeconds']
+        if slate_ad_url is None and 'slateAdUrl' in kwargs:
+            slate_ad_url = kwargs['slateAdUrl']
+        if transcode_profile_name is None and 'transcodeProfileName' in kwargs:
+            transcode_profile_name = kwargs['transcodeProfileName']
+
         _setter("ad_decision_server_url", ad_decision_server_url)
         _setter("video_content_source_url", video_content_source_url)
         if avail_suppression is not None:
@@ -394,48 +424,20 @@ class PlaybackConfiguration(pulumi.CustomResource):
             if ad_decision_server_url is None and not opts.urn:
                 raise TypeError("Missing required property 'ad_decision_server_url'")
             __props__.__dict__["ad_decision_server_url"] = ad_decision_server_url
-            if avail_suppression is not None and not isinstance(avail_suppression, PlaybackConfigurationAvailSuppressionArgs):
-                avail_suppression = avail_suppression or {}
-                def _setter(key, value):
-                    avail_suppression[key] = value
-                PlaybackConfigurationAvailSuppressionArgs._configure(_setter, **avail_suppression)
+            avail_suppression = _utilities.configure(avail_suppression, PlaybackConfigurationAvailSuppressionArgs, True)
             __props__.__dict__["avail_suppression"] = avail_suppression
-            if bumper is not None and not isinstance(bumper, PlaybackConfigurationBumperArgs):
-                bumper = bumper or {}
-                def _setter(key, value):
-                    bumper[key] = value
-                PlaybackConfigurationBumperArgs._configure(_setter, **bumper)
+            bumper = _utilities.configure(bumper, PlaybackConfigurationBumperArgs, True)
             __props__.__dict__["bumper"] = bumper
-            if cdn_configuration is not None and not isinstance(cdn_configuration, PlaybackConfigurationCdnConfigurationArgs):
-                cdn_configuration = cdn_configuration or {}
-                def _setter(key, value):
-                    cdn_configuration[key] = value
-                PlaybackConfigurationCdnConfigurationArgs._configure(_setter, **cdn_configuration)
+            cdn_configuration = _utilities.configure(cdn_configuration, PlaybackConfigurationCdnConfigurationArgs, True)
             __props__.__dict__["cdn_configuration"] = cdn_configuration
             __props__.__dict__["configuration_aliases"] = configuration_aliases
-            if dash_configuration is not None and not isinstance(dash_configuration, PlaybackConfigurationDashConfigurationArgs):
-                dash_configuration = dash_configuration or {}
-                def _setter(key, value):
-                    dash_configuration[key] = value
-                PlaybackConfigurationDashConfigurationArgs._configure(_setter, **dash_configuration)
+            dash_configuration = _utilities.configure(dash_configuration, PlaybackConfigurationDashConfigurationArgs, True)
             __props__.__dict__["dash_configuration"] = dash_configuration
-            if hls_configuration is not None and not isinstance(hls_configuration, PlaybackConfigurationHlsConfigurationArgs):
-                hls_configuration = hls_configuration or {}
-                def _setter(key, value):
-                    hls_configuration[key] = value
-                PlaybackConfigurationHlsConfigurationArgs._configure(_setter, **hls_configuration)
+            hls_configuration = _utilities.configure(hls_configuration, PlaybackConfigurationHlsConfigurationArgs, True)
             __props__.__dict__["hls_configuration"] = hls_configuration
-            if live_pre_roll_configuration is not None and not isinstance(live_pre_roll_configuration, PlaybackConfigurationLivePreRollConfigurationArgs):
-                live_pre_roll_configuration = live_pre_roll_configuration or {}
-                def _setter(key, value):
-                    live_pre_roll_configuration[key] = value
-                PlaybackConfigurationLivePreRollConfigurationArgs._configure(_setter, **live_pre_roll_configuration)
+            live_pre_roll_configuration = _utilities.configure(live_pre_roll_configuration, PlaybackConfigurationLivePreRollConfigurationArgs, True)
             __props__.__dict__["live_pre_roll_configuration"] = live_pre_roll_configuration
-            if manifest_processing_rules is not None and not isinstance(manifest_processing_rules, PlaybackConfigurationManifestProcessingRulesArgs):
-                manifest_processing_rules = manifest_processing_rules or {}
-                def _setter(key, value):
-                    manifest_processing_rules[key] = value
-                PlaybackConfigurationManifestProcessingRulesArgs._configure(_setter, **manifest_processing_rules)
+            manifest_processing_rules = _utilities.configure(manifest_processing_rules, PlaybackConfigurationManifestProcessingRulesArgs, True)
             __props__.__dict__["manifest_processing_rules"] = manifest_processing_rules
             __props__.__dict__["name"] = name
             __props__.__dict__["personalization_threshold_seconds"] = personalization_threshold_seconds

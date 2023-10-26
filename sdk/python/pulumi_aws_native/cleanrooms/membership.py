@@ -35,11 +35,23 @@ class MembershipArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             collaboration_identifier: pulumi.Input[str],
-             query_log_status: pulumi.Input['MembershipQueryLogStatus'],
+             collaboration_identifier: Optional[pulumi.Input[str]] = None,
+             query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
              default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collaboration_identifier is None and 'collaborationIdentifier' in kwargs:
+            collaboration_identifier = kwargs['collaborationIdentifier']
+        if collaboration_identifier is None:
+            raise TypeError("Missing 'collaboration_identifier' argument")
+        if query_log_status is None and 'queryLogStatus' in kwargs:
+            query_log_status = kwargs['queryLogStatus']
+        if query_log_status is None:
+            raise TypeError("Missing 'query_log_status' argument")
+        if default_result_configuration is None and 'defaultResultConfiguration' in kwargs:
+            default_result_configuration = kwargs['defaultResultConfiguration']
+
         _setter("collaboration_identifier", collaboration_identifier)
         _setter("query_log_status", query_log_status)
         if default_result_configuration is not None:
@@ -148,11 +160,7 @@ class Membership(pulumi.CustomResource):
             if collaboration_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'collaboration_identifier'")
             __props__.__dict__["collaboration_identifier"] = collaboration_identifier
-            if default_result_configuration is not None and not isinstance(default_result_configuration, MembershipProtectedQueryResultConfigurationArgs):
-                default_result_configuration = default_result_configuration or {}
-                def _setter(key, value):
-                    default_result_configuration[key] = value
-                MembershipProtectedQueryResultConfigurationArgs._configure(_setter, **default_result_configuration)
+            default_result_configuration = _utilities.configure(default_result_configuration, MembershipProtectedQueryResultConfigurationArgs, True)
             __props__.__dict__["default_result_configuration"] = default_result_configuration
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")

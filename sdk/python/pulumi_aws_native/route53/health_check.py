@@ -32,9 +32,17 @@ class HealthCheckArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             health_check_config: pulumi.Input['HealthCheckConfigPropertiesArgs'],
+             health_check_config: Optional[pulumi.Input['HealthCheckConfigPropertiesArgs']] = None,
              health_check_tags: Optional[pulumi.Input[Sequence[pulumi.Input['HealthCheckTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if health_check_config is None and 'healthCheckConfig' in kwargs:
+            health_check_config = kwargs['healthCheckConfig']
+        if health_check_config is None:
+            raise TypeError("Missing 'health_check_config' argument")
+        if health_check_tags is None and 'healthCheckTags' in kwargs:
+            health_check_tags = kwargs['healthCheckTags']
+
         _setter("health_check_config", health_check_config)
         if health_check_tags is not None:
             _setter("health_check_tags", health_check_tags)
@@ -119,11 +127,7 @@ class HealthCheck(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HealthCheckArgs.__new__(HealthCheckArgs)
 
-            if health_check_config is not None and not isinstance(health_check_config, HealthCheckConfigPropertiesArgs):
-                health_check_config = health_check_config or {}
-                def _setter(key, value):
-                    health_check_config[key] = value
-                HealthCheckConfigPropertiesArgs._configure(_setter, **health_check_config)
+            health_check_config = _utilities.configure(health_check_config, HealthCheckConfigPropertiesArgs, True)
             if health_check_config is None and not opts.urn:
                 raise TypeError("Missing required property 'health_check_config'")
             __props__.__dict__["health_check_config"] = health_check_config

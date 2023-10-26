@@ -37,7 +37,13 @@ class AppImageConfigArgs:
              app_image_config_name: Optional[pulumi.Input[str]] = None,
              kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_image_config_name is None and 'appImageConfigName' in kwargs:
+            app_image_config_name = kwargs['appImageConfigName']
+        if kernel_gateway_image_config is None and 'kernelGatewayImageConfig' in kwargs:
+            kernel_gateway_image_config = kwargs['kernelGatewayImageConfig']
+
         if app_image_config_name is not None:
             _setter("app_image_config_name", app_image_config_name)
         if kernel_gateway_image_config is not None:
@@ -141,11 +147,7 @@ class AppImageConfig(pulumi.CustomResource):
             __props__ = AppImageConfigArgs.__new__(AppImageConfigArgs)
 
             __props__.__dict__["app_image_config_name"] = app_image_config_name
-            if kernel_gateway_image_config is not None and not isinstance(kernel_gateway_image_config, AppImageConfigKernelGatewayImageConfigArgs):
-                kernel_gateway_image_config = kernel_gateway_image_config or {}
-                def _setter(key, value):
-                    kernel_gateway_image_config[key] = value
-                AppImageConfigKernelGatewayImageConfigArgs._configure(_setter, **kernel_gateway_image_config)
+            kernel_gateway_image_config = _utilities.configure(kernel_gateway_image_config, AppImageConfigKernelGatewayImageConfigArgs, True)
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_image_config_arn"] = None

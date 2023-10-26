@@ -43,13 +43,29 @@ class ConnectPeerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connect_attachment_id: pulumi.Input[str],
-             peer_address: pulumi.Input[str],
+             connect_attachment_id: Optional[pulumi.Input[str]] = None,
+             peer_address: Optional[pulumi.Input[str]] = None,
              bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
              core_network_address: Optional[pulumi.Input[str]] = None,
              inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connect_attachment_id is None and 'connectAttachmentId' in kwargs:
+            connect_attachment_id = kwargs['connectAttachmentId']
+        if connect_attachment_id is None:
+            raise TypeError("Missing 'connect_attachment_id' argument")
+        if peer_address is None and 'peerAddress' in kwargs:
+            peer_address = kwargs['peerAddress']
+        if peer_address is None:
+            raise TypeError("Missing 'peer_address' argument")
+        if bgp_options is None and 'bgpOptions' in kwargs:
+            bgp_options = kwargs['bgpOptions']
+        if core_network_address is None and 'coreNetworkAddress' in kwargs:
+            core_network_address = kwargs['coreNetworkAddress']
+        if inside_cidr_blocks is None and 'insideCidrBlocks' in kwargs:
+            inside_cidr_blocks = kwargs['insideCidrBlocks']
+
         _setter("connect_attachment_id", connect_attachment_id)
         _setter("peer_address", peer_address)
         if bgp_options is not None:
@@ -201,11 +217,7 @@ class ConnectPeer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectPeerArgs.__new__(ConnectPeerArgs)
 
-            if bgp_options is not None and not isinstance(bgp_options, ConnectPeerBgpOptionsArgs):
-                bgp_options = bgp_options or {}
-                def _setter(key, value):
-                    bgp_options[key] = value
-                ConnectPeerBgpOptionsArgs._configure(_setter, **bgp_options)
+            bgp_options = _utilities.configure(bgp_options, ConnectPeerBgpOptionsArgs, True)
             __props__.__dict__["bgp_options"] = bgp_options
             if connect_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connect_attachment_id'")

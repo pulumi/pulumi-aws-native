@@ -35,7 +35,13 @@ class RefreshScheduleArgs:
              aws_account_id: Optional[pulumi.Input[str]] = None,
              data_set_id: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input['RefreshScheduleMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if data_set_id is not None:
@@ -128,11 +134,7 @@ class RefreshSchedule(pulumi.CustomResource):
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["data_set_id"] = data_set_id
-            if schedule is not None and not isinstance(schedule, RefreshScheduleMapArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                RefreshScheduleMapArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, RefreshScheduleMapArgs, True)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["aws_account_id", "data_set_id", "schedule.schedule_id"])

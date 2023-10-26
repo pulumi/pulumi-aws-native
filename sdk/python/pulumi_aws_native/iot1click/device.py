@@ -27,9 +27,17 @@ class DeviceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             device_id: pulumi.Input[str],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             device_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if device_id is None and 'deviceId' in kwargs:
+            device_id = kwargs['deviceId']
+        if device_id is None:
+            raise TypeError("Missing 'device_id' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("device_id", device_id)
         _setter("enabled", enabled)
 

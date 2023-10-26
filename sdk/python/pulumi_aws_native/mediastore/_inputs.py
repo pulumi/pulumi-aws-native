@@ -40,7 +40,19 @@ class ContainerCorsRuleArgs:
              allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              max_age_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if allowed_methods is None and 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if expose_headers is None and 'exposeHeaders' in kwargs:
+            expose_headers = kwargs['exposeHeaders']
+        if max_age_seconds is None and 'maxAgeSeconds' in kwargs:
+            max_age_seconds = kwargs['maxAgeSeconds']
+
         if allowed_headers is not None:
             _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
@@ -111,9 +123,19 @@ class ContainerMetricPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             object_group: pulumi.Input[str],
-             object_group_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             object_group: Optional[pulumi.Input[str]] = None,
+             object_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if object_group is None and 'objectGroup' in kwargs:
+            object_group = kwargs['objectGroup']
+        if object_group is None:
+            raise TypeError("Missing 'object_group' argument")
+        if object_group_name is None and 'objectGroupName' in kwargs:
+            object_group_name = kwargs['objectGroupName']
+        if object_group_name is None:
+            raise TypeError("Missing 'object_group_name' argument")
+
         _setter("object_group", object_group)
         _setter("object_group_name", object_group_name)
 
@@ -149,9 +171,17 @@ class ContainerMetricPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_level_metrics: pulumi.Input[str],
+             container_level_metrics: Optional[pulumi.Input[str]] = None,
              metric_policy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerMetricPolicyRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_level_metrics is None and 'containerLevelMetrics' in kwargs:
+            container_level_metrics = kwargs['containerLevelMetrics']
+        if container_level_metrics is None:
+            raise TypeError("Missing 'container_level_metrics' argument")
+        if metric_policy_rules is None and 'metricPolicyRules' in kwargs:
+            metric_policy_rules = kwargs['metricPolicyRules']
+
         _setter("container_level_metrics", container_level_metrics)
         if metric_policy_rules is not None:
             _setter("metric_policy_rules", metric_policy_rules)
@@ -188,9 +218,15 @@ class ContainerTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -43,7 +43,17 @@ class ConfigurationSetArgs:
              sending_options: Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationSetTagsArgs']]]] = None,
              tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delivery_options is None and 'deliveryOptions' in kwargs:
+            delivery_options = kwargs['deliveryOptions']
+        if reputation_options is None and 'reputationOptions' in kwargs:
+            reputation_options = kwargs['reputationOptions']
+        if sending_options is None and 'sendingOptions' in kwargs:
+            sending_options = kwargs['sendingOptions']
+        if tracking_options is None and 'trackingOptions' in kwargs:
+            tracking_options = kwargs['trackingOptions']
+
         if delivery_options is not None:
             _setter("delivery_options", delivery_options)
         if name is not None:
@@ -179,31 +189,15 @@ class ConfigurationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationSetArgs.__new__(ConfigurationSetArgs)
 
-            if delivery_options is not None and not isinstance(delivery_options, ConfigurationSetDeliveryOptionsArgs):
-                delivery_options = delivery_options or {}
-                def _setter(key, value):
-                    delivery_options[key] = value
-                ConfigurationSetDeliveryOptionsArgs._configure(_setter, **delivery_options)
+            delivery_options = _utilities.configure(delivery_options, ConfigurationSetDeliveryOptionsArgs, True)
             __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
-            if reputation_options is not None and not isinstance(reputation_options, ConfigurationSetReputationOptionsArgs):
-                reputation_options = reputation_options or {}
-                def _setter(key, value):
-                    reputation_options[key] = value
-                ConfigurationSetReputationOptionsArgs._configure(_setter, **reputation_options)
+            reputation_options = _utilities.configure(reputation_options, ConfigurationSetReputationOptionsArgs, True)
             __props__.__dict__["reputation_options"] = reputation_options
-            if sending_options is not None and not isinstance(sending_options, ConfigurationSetSendingOptionsArgs):
-                sending_options = sending_options or {}
-                def _setter(key, value):
-                    sending_options[key] = value
-                ConfigurationSetSendingOptionsArgs._configure(_setter, **sending_options)
+            sending_options = _utilities.configure(sending_options, ConfigurationSetSendingOptionsArgs, True)
             __props__.__dict__["sending_options"] = sending_options
             __props__.__dict__["tags"] = tags
-            if tracking_options is not None and not isinstance(tracking_options, ConfigurationSetTrackingOptionsArgs):
-                tracking_options = tracking_options or {}
-                def _setter(key, value):
-                    tracking_options[key] = value
-                ConfigurationSetTrackingOptionsArgs._configure(_setter, **tracking_options)
+            tracking_options = _utilities.configure(tracking_options, ConfigurationSetTrackingOptionsArgs, True)
             __props__.__dict__["tracking_options"] = tracking_options
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

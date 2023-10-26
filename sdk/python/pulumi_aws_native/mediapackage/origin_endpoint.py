@@ -60,7 +60,7 @@ class OriginEndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
+             channel_id: Optional[pulumi.Input[str]] = None,
              authorization: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']] = None,
              cmaf_package: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']] = None,
              dash_package: Optional[pulumi.Input['OriginEndpointDashPackageArgs']] = None,
@@ -73,7 +73,27 @@ class OriginEndpointArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
              time_delay_seconds: Optional[pulumi.Input[int]] = None,
              whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if cmaf_package is None and 'cmafPackage' in kwargs:
+            cmaf_package = kwargs['cmafPackage']
+        if dash_package is None and 'dashPackage' in kwargs:
+            dash_package = kwargs['dashPackage']
+        if hls_package is None and 'hlsPackage' in kwargs:
+            hls_package = kwargs['hlsPackage']
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if mss_package is None and 'mssPackage' in kwargs:
+            mss_package = kwargs['mssPackage']
+        if startover_window_seconds is None and 'startoverWindowSeconds' in kwargs:
+            startover_window_seconds = kwargs['startoverWindowSeconds']
+        if time_delay_seconds is None and 'timeDelaySeconds' in kwargs:
+            time_delay_seconds = kwargs['timeDelaySeconds']
+
         _setter("channel_id", channel_id)
         if authorization is not None:
             _setter("authorization", authorization)
@@ -325,40 +345,20 @@ class OriginEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginEndpointArgs.__new__(OriginEndpointArgs)
 
-            if authorization is not None and not isinstance(authorization, OriginEndpointAuthorizationArgs):
-                authorization = authorization or {}
-                def _setter(key, value):
-                    authorization[key] = value
-                OriginEndpointAuthorizationArgs._configure(_setter, **authorization)
+            authorization = _utilities.configure(authorization, OriginEndpointAuthorizationArgs, True)
             __props__.__dict__["authorization"] = authorization
             if channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_id'")
             __props__.__dict__["channel_id"] = channel_id
-            if cmaf_package is not None and not isinstance(cmaf_package, OriginEndpointCmafPackageArgs):
-                cmaf_package = cmaf_package or {}
-                def _setter(key, value):
-                    cmaf_package[key] = value
-                OriginEndpointCmafPackageArgs._configure(_setter, **cmaf_package)
+            cmaf_package = _utilities.configure(cmaf_package, OriginEndpointCmafPackageArgs, True)
             __props__.__dict__["cmaf_package"] = cmaf_package
-            if dash_package is not None and not isinstance(dash_package, OriginEndpointDashPackageArgs):
-                dash_package = dash_package or {}
-                def _setter(key, value):
-                    dash_package[key] = value
-                OriginEndpointDashPackageArgs._configure(_setter, **dash_package)
+            dash_package = _utilities.configure(dash_package, OriginEndpointDashPackageArgs, True)
             __props__.__dict__["dash_package"] = dash_package
             __props__.__dict__["description"] = description
-            if hls_package is not None and not isinstance(hls_package, OriginEndpointHlsPackageArgs):
-                hls_package = hls_package or {}
-                def _setter(key, value):
-                    hls_package[key] = value
-                OriginEndpointHlsPackageArgs._configure(_setter, **hls_package)
+            hls_package = _utilities.configure(hls_package, OriginEndpointHlsPackageArgs, True)
             __props__.__dict__["hls_package"] = hls_package
             __props__.__dict__["manifest_name"] = manifest_name
-            if mss_package is not None and not isinstance(mss_package, OriginEndpointMssPackageArgs):
-                mss_package = mss_package or {}
-                def _setter(key, value):
-                    mss_package[key] = value
-                OriginEndpointMssPackageArgs._configure(_setter, **mss_package)
+            mss_package = _utilities.configure(mss_package, OriginEndpointMssPackageArgs, True)
             __props__.__dict__["mss_package"] = mss_package
             __props__.__dict__["origination"] = origination
             __props__.__dict__["startover_window_seconds"] = startover_window_seconds

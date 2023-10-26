@@ -47,14 +47,32 @@ class DataRepositoryAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_repository_path: pulumi.Input[str],
-             file_system_id: pulumi.Input[str],
-             file_system_path: pulumi.Input[str],
+             data_repository_path: Optional[pulumi.Input[str]] = None,
+             file_system_id: Optional[pulumi.Input[str]] = None,
+             file_system_path: Optional[pulumi.Input[str]] = None,
              batch_import_meta_data_on_create: Optional[pulumi.Input[bool]] = None,
              imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
              s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_repository_path is None and 'dataRepositoryPath' in kwargs:
+            data_repository_path = kwargs['dataRepositoryPath']
+        if data_repository_path is None:
+            raise TypeError("Missing 'data_repository_path' argument")
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if file_system_id is None:
+            raise TypeError("Missing 'file_system_id' argument")
+        if file_system_path is None and 'fileSystemPath' in kwargs:
+            file_system_path = kwargs['fileSystemPath']
+        if file_system_path is None:
+            raise TypeError("Missing 'file_system_path' argument")
+        if batch_import_meta_data_on_create is None and 'batchImportMetaDataOnCreate' in kwargs:
+            batch_import_meta_data_on_create = kwargs['batchImportMetaDataOnCreate']
+        if imported_file_chunk_size is None and 'importedFileChunkSize' in kwargs:
+            imported_file_chunk_size = kwargs['importedFileChunkSize']
+
         _setter("data_repository_path", data_repository_path)
         _setter("file_system_id", file_system_id)
         _setter("file_system_path", file_system_path)
@@ -233,11 +251,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'file_system_path'")
             __props__.__dict__["file_system_path"] = file_system_path
             __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
-            if s3 is not None and not isinstance(s3, DataRepositoryAssociationS3Args):
-                s3 = s3 or {}
-                def _setter(key, value):
-                    s3[key] = value
-                DataRepositoryAssociationS3Args._configure(_setter, **s3)
+            s3 = _utilities.configure(s3, DataRepositoryAssociationS3Args, True)
             __props__.__dict__["s3"] = s3
             __props__.__dict__["tags"] = tags
             __props__.__dict__["association_id"] = None

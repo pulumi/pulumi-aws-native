@@ -82,7 +82,37 @@ class DataSetArgs:
              row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
              row_level_permission_tag_configuration: Optional[pulumi.Input['DataSetRowLevelPermissionTagConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if column_groups is None and 'columnGroups' in kwargs:
+            column_groups = kwargs['columnGroups']
+        if column_level_permission_rules is None and 'columnLevelPermissionRules' in kwargs:
+            column_level_permission_rules = kwargs['columnLevelPermissionRules']
+        if data_set_id is None and 'dataSetId' in kwargs:
+            data_set_id = kwargs['dataSetId']
+        if data_set_refresh_properties is None and 'dataSetRefreshProperties' in kwargs:
+            data_set_refresh_properties = kwargs['dataSetRefreshProperties']
+        if data_set_usage_configuration is None and 'dataSetUsageConfiguration' in kwargs:
+            data_set_usage_configuration = kwargs['dataSetUsageConfiguration']
+        if dataset_parameters is None and 'datasetParameters' in kwargs:
+            dataset_parameters = kwargs['datasetParameters']
+        if field_folders is None and 'fieldFolders' in kwargs:
+            field_folders = kwargs['fieldFolders']
+        if import_mode is None and 'importMode' in kwargs:
+            import_mode = kwargs['importMode']
+        if ingestion_wait_policy is None and 'ingestionWaitPolicy' in kwargs:
+            ingestion_wait_policy = kwargs['ingestionWaitPolicy']
+        if logical_table_map is None and 'logicalTableMap' in kwargs:
+            logical_table_map = kwargs['logicalTableMap']
+        if physical_table_map is None and 'physicalTableMap' in kwargs:
+            physical_table_map = kwargs['physicalTableMap']
+        if row_level_permission_data_set is None and 'rowLevelPermissionDataSet' in kwargs:
+            row_level_permission_data_set = kwargs['rowLevelPermissionDataSet']
+        if row_level_permission_tag_configuration is None and 'rowLevelPermissionTagConfiguration' in kwargs:
+            row_level_permission_tag_configuration = kwargs['rowLevelPermissionTagConfiguration']
+
         if aws_account_id is not None:
             _setter("aws_account_id", aws_account_id)
         if column_groups is not None:
@@ -379,57 +409,25 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["column_groups"] = column_groups
             __props__.__dict__["column_level_permission_rules"] = column_level_permission_rules
             __props__.__dict__["data_set_id"] = data_set_id
-            if data_set_refresh_properties is not None and not isinstance(data_set_refresh_properties, DataSetRefreshPropertiesArgs):
-                data_set_refresh_properties = data_set_refresh_properties or {}
-                def _setter(key, value):
-                    data_set_refresh_properties[key] = value
-                DataSetRefreshPropertiesArgs._configure(_setter, **data_set_refresh_properties)
+            data_set_refresh_properties = _utilities.configure(data_set_refresh_properties, DataSetRefreshPropertiesArgs, True)
             __props__.__dict__["data_set_refresh_properties"] = data_set_refresh_properties
-            if data_set_usage_configuration is not None and not isinstance(data_set_usage_configuration, DataSetUsageConfigurationArgs):
-                data_set_usage_configuration = data_set_usage_configuration or {}
-                def _setter(key, value):
-                    data_set_usage_configuration[key] = value
-                DataSetUsageConfigurationArgs._configure(_setter, **data_set_usage_configuration)
+            data_set_usage_configuration = _utilities.configure(data_set_usage_configuration, DataSetUsageConfigurationArgs, True)
             __props__.__dict__["data_set_usage_configuration"] = data_set_usage_configuration
             __props__.__dict__["dataset_parameters"] = dataset_parameters
-            if field_folders is not None and not isinstance(field_folders, DataSetFieldFolderMapArgs):
-                field_folders = field_folders or {}
-                def _setter(key, value):
-                    field_folders[key] = value
-                DataSetFieldFolderMapArgs._configure(_setter, **field_folders)
+            field_folders = _utilities.configure(field_folders, DataSetFieldFolderMapArgs, True)
             __props__.__dict__["field_folders"] = field_folders
             __props__.__dict__["import_mode"] = import_mode
-            if ingestion_wait_policy is not None and not isinstance(ingestion_wait_policy, DataSetIngestionWaitPolicyArgs):
-                ingestion_wait_policy = ingestion_wait_policy or {}
-                def _setter(key, value):
-                    ingestion_wait_policy[key] = value
-                DataSetIngestionWaitPolicyArgs._configure(_setter, **ingestion_wait_policy)
+            ingestion_wait_policy = _utilities.configure(ingestion_wait_policy, DataSetIngestionWaitPolicyArgs, True)
             __props__.__dict__["ingestion_wait_policy"] = ingestion_wait_policy
-            if logical_table_map is not None and not isinstance(logical_table_map, DataSetLogicalTableMapArgs):
-                logical_table_map = logical_table_map or {}
-                def _setter(key, value):
-                    logical_table_map[key] = value
-                DataSetLogicalTableMapArgs._configure(_setter, **logical_table_map)
+            logical_table_map = _utilities.configure(logical_table_map, DataSetLogicalTableMapArgs, True)
             __props__.__dict__["logical_table_map"] = logical_table_map
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
-            if physical_table_map is not None and not isinstance(physical_table_map, DataSetPhysicalTableMapArgs):
-                physical_table_map = physical_table_map or {}
-                def _setter(key, value):
-                    physical_table_map[key] = value
-                DataSetPhysicalTableMapArgs._configure(_setter, **physical_table_map)
+            physical_table_map = _utilities.configure(physical_table_map, DataSetPhysicalTableMapArgs, True)
             __props__.__dict__["physical_table_map"] = physical_table_map
-            if row_level_permission_data_set is not None and not isinstance(row_level_permission_data_set, DataSetRowLevelPermissionDataSetArgs):
-                row_level_permission_data_set = row_level_permission_data_set or {}
-                def _setter(key, value):
-                    row_level_permission_data_set[key] = value
-                DataSetRowLevelPermissionDataSetArgs._configure(_setter, **row_level_permission_data_set)
+            row_level_permission_data_set = _utilities.configure(row_level_permission_data_set, DataSetRowLevelPermissionDataSetArgs, True)
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
-            if row_level_permission_tag_configuration is not None and not isinstance(row_level_permission_tag_configuration, DataSetRowLevelPermissionTagConfigurationArgs):
-                row_level_permission_tag_configuration = row_level_permission_tag_configuration or {}
-                def _setter(key, value):
-                    row_level_permission_tag_configuration[key] = value
-                DataSetRowLevelPermissionTagConfigurationArgs._configure(_setter, **row_level_permission_tag_configuration)
+            row_level_permission_tag_configuration = _utilities.configure(row_level_permission_tag_configuration, DataSetRowLevelPermissionTagConfigurationArgs, True)
             __props__.__dict__["row_level_permission_tag_configuration"] = row_level_permission_tag_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

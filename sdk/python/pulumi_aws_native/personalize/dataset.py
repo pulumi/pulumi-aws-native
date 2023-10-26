@@ -40,12 +40,28 @@ class DatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset_group_arn: pulumi.Input[str],
-             dataset_type: pulumi.Input['DatasetType'],
-             schema_arn: pulumi.Input[str],
+             dataset_group_arn: Optional[pulumi.Input[str]] = None,
+             dataset_type: Optional[pulumi.Input['DatasetType']] = None,
+             schema_arn: Optional[pulumi.Input[str]] = None,
              dataset_import_job: Optional[pulumi.Input['DatasetImportJobArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataset_group_arn is None and 'datasetGroupArn' in kwargs:
+            dataset_group_arn = kwargs['datasetGroupArn']
+        if dataset_group_arn is None:
+            raise TypeError("Missing 'dataset_group_arn' argument")
+        if dataset_type is None and 'datasetType' in kwargs:
+            dataset_type = kwargs['datasetType']
+        if dataset_type is None:
+            raise TypeError("Missing 'dataset_type' argument")
+        if schema_arn is None and 'schemaArn' in kwargs:
+            schema_arn = kwargs['schemaArn']
+        if schema_arn is None:
+            raise TypeError("Missing 'schema_arn' argument")
+        if dataset_import_job is None and 'datasetImportJob' in kwargs:
+            dataset_import_job = kwargs['datasetImportJob']
+
         _setter("dataset_group_arn", dataset_group_arn)
         _setter("dataset_type", dataset_type)
         _setter("schema_arn", schema_arn)
@@ -178,11 +194,7 @@ class Dataset(pulumi.CustomResource):
             if dataset_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_group_arn'")
             __props__.__dict__["dataset_group_arn"] = dataset_group_arn
-            if dataset_import_job is not None and not isinstance(dataset_import_job, DatasetImportJobArgs):
-                dataset_import_job = dataset_import_job or {}
-                def _setter(key, value):
-                    dataset_import_job[key] = value
-                DatasetImportJobArgs._configure(_setter, **dataset_import_job)
+            dataset_import_job = _utilities.configure(dataset_import_job, DatasetImportJobArgs, True)
             __props__.__dict__["dataset_import_job"] = dataset_import_job
             if dataset_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_type'")

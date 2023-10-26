@@ -41,14 +41,26 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             definition: pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']],
-             engine_type: pulumi.Input['ApplicationEngineType'],
+             definition: Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]] = None,
+             engine_type: Optional[pulumi.Input['ApplicationEngineType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ApplicationTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if engine_type is None and 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if engine_type is None:
+            raise TypeError("Missing 'engine_type' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("definition", definition)
         _setter("engine_type", engine_type)
         if description is not None:
@@ -203,11 +215,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
-            if tags is not None and not isinstance(tags, ApplicationTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ApplicationTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, ApplicationTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
             __props__.__dict__["application_id"] = None

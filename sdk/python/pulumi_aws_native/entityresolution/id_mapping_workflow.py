@@ -42,14 +42,36 @@ class IdMappingWorkflowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id_mapping_techniques: pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs'],
-             input_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]],
-             output_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]],
-             role_arn: pulumi.Input[str],
-             workflow_name: pulumi.Input[str],
+             id_mapping_techniques: Optional[pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs']] = None,
+             input_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]]] = None,
+             output_source_config: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             workflow_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id_mapping_techniques is None and 'idMappingTechniques' in kwargs:
+            id_mapping_techniques = kwargs['idMappingTechniques']
+        if id_mapping_techniques is None:
+            raise TypeError("Missing 'id_mapping_techniques' argument")
+        if input_source_config is None and 'inputSourceConfig' in kwargs:
+            input_source_config = kwargs['inputSourceConfig']
+        if input_source_config is None:
+            raise TypeError("Missing 'input_source_config' argument")
+        if output_source_config is None and 'outputSourceConfig' in kwargs:
+            output_source_config = kwargs['outputSourceConfig']
+        if output_source_config is None:
+            raise TypeError("Missing 'output_source_config' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if workflow_name is None and 'workflowName' in kwargs:
+            workflow_name = kwargs['workflowName']
+        if workflow_name is None:
+            raise TypeError("Missing 'workflow_name' argument")
+
         _setter("id_mapping_techniques", id_mapping_techniques)
         _setter("input_source_config", input_source_config)
         _setter("output_source_config", output_source_config)
@@ -196,11 +218,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
             __props__ = IdMappingWorkflowArgs.__new__(IdMappingWorkflowArgs)
 
             __props__.__dict__["description"] = description
-            if id_mapping_techniques is not None and not isinstance(id_mapping_techniques, IdMappingWorkflowIdMappingTechniquesArgs):
-                id_mapping_techniques = id_mapping_techniques or {}
-                def _setter(key, value):
-                    id_mapping_techniques[key] = value
-                IdMappingWorkflowIdMappingTechniquesArgs._configure(_setter, **id_mapping_techniques)
+            id_mapping_techniques = _utilities.configure(id_mapping_techniques, IdMappingWorkflowIdMappingTechniquesArgs, True)
             if id_mapping_techniques is None and not opts.urn:
                 raise TypeError("Missing required property 'id_mapping_techniques'")
             __props__.__dict__["id_mapping_techniques"] = id_mapping_techniques

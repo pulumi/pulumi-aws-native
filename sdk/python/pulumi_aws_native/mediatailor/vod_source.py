@@ -36,11 +36,23 @@ class VodSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             http_package_configurations: pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]],
-             source_location_name: pulumi.Input[str],
+             http_package_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceHttpPackageConfigurationArgs']]]] = None,
+             source_location_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VodSourceTagArgs']]]] = None,
              vod_source_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_package_configurations is None and 'httpPackageConfigurations' in kwargs:
+            http_package_configurations = kwargs['httpPackageConfigurations']
+        if http_package_configurations is None:
+            raise TypeError("Missing 'http_package_configurations' argument")
+        if source_location_name is None and 'sourceLocationName' in kwargs:
+            source_location_name = kwargs['sourceLocationName']
+        if source_location_name is None:
+            raise TypeError("Missing 'source_location_name' argument")
+        if vod_source_name is None and 'vodSourceName' in kwargs:
+            vod_source_name = kwargs['vodSourceName']
+
         _setter("http_package_configurations", http_package_configurations)
         _setter("source_location_name", source_location_name)
         if tags is not None:

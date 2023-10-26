@@ -40,7 +40,15 @@ class TrafficMirrorTargetArgs:
              network_interface_id: Optional[pulumi.Input[str]] = None,
              network_load_balancer_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorTargetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gateway_load_balancer_endpoint_id is None and 'gatewayLoadBalancerEndpointId' in kwargs:
+            gateway_load_balancer_endpoint_id = kwargs['gatewayLoadBalancerEndpointId']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_load_balancer_arn is None and 'networkLoadBalancerArn' in kwargs:
+            network_load_balancer_arn = kwargs['networkLoadBalancerArn']
+
         if description is not None:
             _setter("description", description)
         if gateway_load_balancer_endpoint_id is not None:

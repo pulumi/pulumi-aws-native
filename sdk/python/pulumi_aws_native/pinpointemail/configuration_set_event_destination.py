@@ -31,10 +31,22 @@ class ConfigurationSetEventDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration_set_name: pulumi.Input[str],
-             event_destination_name: pulumi.Input[str],
+             configuration_set_name: Optional[pulumi.Input[str]] = None,
+             event_destination_name: Optional[pulumi.Input[str]] = None,
              event_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_set_name is None and 'configurationSetName' in kwargs:
+            configuration_set_name = kwargs['configurationSetName']
+        if configuration_set_name is None:
+            raise TypeError("Missing 'configuration_set_name' argument")
+        if event_destination_name is None and 'eventDestinationName' in kwargs:
+            event_destination_name = kwargs['eventDestinationName']
+        if event_destination_name is None:
+            raise TypeError("Missing 'event_destination_name' argument")
+        if event_destination is None and 'eventDestination' in kwargs:
+            event_destination = kwargs['eventDestination']
+
         _setter("configuration_set_name", configuration_set_name)
         _setter("event_destination_name", event_destination_name)
         if event_destination is not None:
@@ -132,11 +144,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             if configuration_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_set_name'")
             __props__.__dict__["configuration_set_name"] = configuration_set_name
-            if event_destination is not None and not isinstance(event_destination, ConfigurationSetEventDestinationEventDestinationArgs):
-                event_destination = event_destination or {}
-                def _setter(key, value):
-                    event_destination[key] = value
-                ConfigurationSetEventDestinationEventDestinationArgs._configure(_setter, **event_destination)
+            event_destination = _utilities.configure(event_destination, ConfigurationSetEventDestinationEventDestinationArgs, True)
             __props__.__dict__["event_destination"] = event_destination
             if event_destination_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_destination_name'")

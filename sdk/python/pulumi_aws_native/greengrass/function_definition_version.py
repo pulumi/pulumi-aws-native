@@ -31,10 +31,20 @@ class FunctionDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_definition_id: pulumi.Input[str],
-             functions: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionVersionFunctionArgs']]],
+             function_definition_id: Optional[pulumi.Input[str]] = None,
+             functions: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionVersionFunctionArgs']]]] = None,
              default_config: Optional[pulumi.Input['FunctionDefinitionVersionDefaultConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_definition_id is None and 'functionDefinitionId' in kwargs:
+            function_definition_id = kwargs['functionDefinitionId']
+        if function_definition_id is None:
+            raise TypeError("Missing 'function_definition_id' argument")
+        if functions is None:
+            raise TypeError("Missing 'functions' argument")
+        if default_config is None and 'defaultConfig' in kwargs:
+            default_config = kwargs['defaultConfig']
+
         _setter("function_definition_id", function_definition_id)
         _setter("functions", functions)
         if default_config is not None:
@@ -129,11 +139,7 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionDefinitionVersionInitArgs.__new__(FunctionDefinitionVersionInitArgs)
 
-            if default_config is not None and not isinstance(default_config, FunctionDefinitionVersionDefaultConfigArgs):
-                default_config = default_config or {}
-                def _setter(key, value):
-                    default_config[key] = value
-                FunctionDefinitionVersionDefaultConfigArgs._configure(_setter, **default_config)
+            default_config = _utilities.configure(default_config, FunctionDefinitionVersionDefaultConfigArgs, True)
             __props__.__dict__["default_config"] = default_config
             if function_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'function_definition_id'")

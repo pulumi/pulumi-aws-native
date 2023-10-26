@@ -34,10 +34,16 @@ class VirtualClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             container_provider: pulumi.Input['VirtualClusterContainerProviderArgs'],
+             container_provider: Optional[pulumi.Input['VirtualClusterContainerProviderArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualClusterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_provider is None and 'containerProvider' in kwargs:
+            container_provider = kwargs['containerProvider']
+        if container_provider is None:
+            raise TypeError("Missing 'container_provider' argument")
+
         _setter("container_provider", container_provider)
         if name is not None:
             _setter("name", name)
@@ -139,11 +145,7 @@ class VirtualCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualClusterArgs.__new__(VirtualClusterArgs)
 
-            if container_provider is not None and not isinstance(container_provider, VirtualClusterContainerProviderArgs):
-                container_provider = container_provider or {}
-                def _setter(key, value):
-                    container_provider[key] = value
-                VirtualClusterContainerProviderArgs._configure(_setter, **container_provider)
+            container_provider = _utilities.configure(container_provider, VirtualClusterContainerProviderArgs, True)
             if container_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'container_provider'")
             __props__.__dict__["container_provider"] = container_provider

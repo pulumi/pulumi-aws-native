@@ -54,7 +54,7 @@ class FleetMetricArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
+             metric_name: Optional[pulumi.Input[str]] = None,
              aggregation_field: Optional[pulumi.Input[str]] = None,
              aggregation_type: Optional[pulumi.Input['FleetMetricAggregationTypeArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,23 @@ class FleetMetricArgs:
              query_version: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetMetricTagArgs']]]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if metric_name is None:
+            raise TypeError("Missing 'metric_name' argument")
+        if aggregation_field is None and 'aggregationField' in kwargs:
+            aggregation_field = kwargs['aggregationField']
+        if aggregation_type is None and 'aggregationType' in kwargs:
+            aggregation_type = kwargs['aggregationType']
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_version is None and 'queryVersion' in kwargs:
+            query_version = kwargs['queryVersion']
+
         _setter("metric_name", metric_name)
         if aggregation_field is not None:
             _setter("aggregation_field", aggregation_field)
@@ -282,11 +298,7 @@ class FleetMetric(pulumi.CustomResource):
             __props__ = FleetMetricArgs.__new__(FleetMetricArgs)
 
             __props__.__dict__["aggregation_field"] = aggregation_field
-            if aggregation_type is not None and not isinstance(aggregation_type, FleetMetricAggregationTypeArgs):
-                aggregation_type = aggregation_type or {}
-                def _setter(key, value):
-                    aggregation_type[key] = value
-                FleetMetricAggregationTypeArgs._configure(_setter, **aggregation_type)
+            aggregation_type = _utilities.configure(aggregation_type, FleetMetricAggregationTypeArgs, True)
             __props__.__dict__["aggregation_type"] = aggregation_type
             __props__.__dict__["description"] = description
             __props__.__dict__["index_name"] = index_name

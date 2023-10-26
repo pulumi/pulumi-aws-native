@@ -29,9 +29,19 @@ class ScalingPlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_source: pulumi.Input['ScalingPlanApplicationSourceArgs'],
-             scaling_instructions: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
+             scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_source is None and 'applicationSource' in kwargs:
+            application_source = kwargs['applicationSource']
+        if application_source is None:
+            raise TypeError("Missing 'application_source' argument")
+        if scaling_instructions is None and 'scalingInstructions' in kwargs:
+            scaling_instructions = kwargs['scalingInstructions']
+        if scaling_instructions is None:
+            raise TypeError("Missing 'scaling_instructions' argument")
+
         _setter("application_source", application_source)
         _setter("scaling_instructions", scaling_instructions)
 
@@ -113,11 +123,7 @@ class ScalingPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ScalingPlanArgs.__new__(ScalingPlanArgs)
 
-            if application_source is not None and not isinstance(application_source, ScalingPlanApplicationSourceArgs):
-                application_source = application_source or {}
-                def _setter(key, value):
-                    application_source[key] = value
-                ScalingPlanApplicationSourceArgs._configure(_setter, **application_source)
+            application_source = _utilities.configure(application_source, ScalingPlanApplicationSourceArgs, True)
             if application_source is None and not opts.urn:
                 raise TypeError("Missing required property 'application_source'")
             __props__.__dict__["application_source"] = application_source

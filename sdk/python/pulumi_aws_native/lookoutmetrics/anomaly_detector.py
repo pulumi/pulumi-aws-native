@@ -41,12 +41,28 @@ class AnomalyDetectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             anomaly_detector_config: pulumi.Input['AnomalyDetectorConfigArgs'],
-             metric_set_list: pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricSetArgs']]],
+             anomaly_detector_config: Optional[pulumi.Input['AnomalyDetectorConfigArgs']] = None,
+             metric_set_list: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricSetArgs']]]] = None,
              anomaly_detector_description: Optional[pulumi.Input[str]] = None,
              anomaly_detector_name: Optional[pulumi.Input[str]] = None,
              kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if anomaly_detector_config is None and 'anomalyDetectorConfig' in kwargs:
+            anomaly_detector_config = kwargs['anomalyDetectorConfig']
+        if anomaly_detector_config is None:
+            raise TypeError("Missing 'anomaly_detector_config' argument")
+        if metric_set_list is None and 'metricSetList' in kwargs:
+            metric_set_list = kwargs['metricSetList']
+        if metric_set_list is None:
+            raise TypeError("Missing 'metric_set_list' argument")
+        if anomaly_detector_description is None and 'anomalyDetectorDescription' in kwargs:
+            anomaly_detector_description = kwargs['anomalyDetectorDescription']
+        if anomaly_detector_name is None and 'anomalyDetectorName' in kwargs:
+            anomaly_detector_name = kwargs['anomalyDetectorName']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+
         _setter("anomaly_detector_config", anomaly_detector_config)
         _setter("metric_set_list", metric_set_list)
         if anomaly_detector_description is not None:
@@ -181,11 +197,7 @@ class AnomalyDetector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnomalyDetectorArgs.__new__(AnomalyDetectorArgs)
 
-            if anomaly_detector_config is not None and not isinstance(anomaly_detector_config, AnomalyDetectorConfigArgs):
-                anomaly_detector_config = anomaly_detector_config or {}
-                def _setter(key, value):
-                    anomaly_detector_config[key] = value
-                AnomalyDetectorConfigArgs._configure(_setter, **anomaly_detector_config)
+            anomaly_detector_config = _utilities.configure(anomaly_detector_config, AnomalyDetectorConfigArgs, True)
             if anomaly_detector_config is None and not opts.urn:
                 raise TypeError("Missing required property 'anomaly_detector_config'")
             __props__.__dict__["anomaly_detector_config"] = anomaly_detector_config

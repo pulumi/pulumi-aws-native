@@ -60,7 +60,9 @@ class AccessPolicyIamRoleArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -93,7 +95,9 @@ class AccessPolicyIamUserArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if arn is not None:
             _setter("arn", arn)
 
@@ -131,7 +135,13 @@ class AccessPolicyIdentityArgs:
              iam_role: Optional[pulumi.Input['AccessPolicyIamRoleArgs']] = None,
              iam_user: Optional[pulumi.Input['AccessPolicyIamUserArgs']] = None,
              user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam_role is None and 'iamRole' in kwargs:
+            iam_role = kwargs['iamRole']
+        if iam_user is None and 'iamUser' in kwargs:
+            iam_user = kwargs['iamUser']
+
         if iam_role is not None:
             _setter("iam_role", iam_role)
         if iam_user is not None:
@@ -183,7 +193,9 @@ class AccessPolicyPortalArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -216,7 +228,9 @@ class AccessPolicyProjectArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -251,7 +265,9 @@ class AccessPolicyResourceArgs:
              _setter: Callable[[Any, Any], None],
              portal: Optional[pulumi.Input['AccessPolicyPortalArgs']] = None,
              project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if portal is not None:
             _setter("portal", portal)
         if project is not None:
@@ -292,7 +308,9 @@ class AccessPolicyUserArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
 
@@ -329,7 +347,13 @@ class AlarmsPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              alarm_role_arn: Optional[pulumi.Input[str]] = None,
              notification_lambda_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alarm_role_arn is None and 'alarmRoleArn' in kwargs:
+            alarm_role_arn = kwargs['alarmRoleArn']
+        if notification_lambda_arn is None and 'notificationLambdaArn' in kwargs:
+            notification_lambda_arn = kwargs['notificationLambdaArn']
+
         if alarm_role_arn is not None:
             _setter("alarm_role_arn", alarm_role_arn)
         if notification_lambda_arn is not None:
@@ -378,9 +402,19 @@ class AssetHierarchyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             child_asset_id: pulumi.Input[str],
-             logical_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             child_asset_id: Optional[pulumi.Input[str]] = None,
+             logical_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if child_asset_id is None and 'childAssetId' in kwargs:
+            child_asset_id = kwargs['childAssetId']
+        if child_asset_id is None:
+            raise TypeError("Missing 'child_asset_id' argument")
+        if logical_id is None and 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+        if logical_id is None:
+            raise TypeError("Missing 'logical_id' argument")
+
         _setter("child_asset_id", child_asset_id)
         _setter("logical_id", logical_id)
 
@@ -421,7 +455,11 @@ class AssetModelAttributeArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              default_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
         if default_value is not None:
             _setter("default_value", default_value)
 
@@ -459,11 +497,19 @@ class AssetModelCompositeModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if composite_model_properties is None and 'compositeModelProperties' in kwargs:
+            composite_model_properties = kwargs['compositeModelProperties']
+
         _setter("name", name)
         _setter("type", type)
         if composite_model_properties is not None:
@@ -537,9 +583,15 @@ class AssetModelExpressionVariableArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input['AssetModelVariableValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input['AssetModelVariableValueArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("name", name)
         _setter("value", value)
 
@@ -589,10 +641,22 @@ class AssetModelHierarchyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             child_asset_model_id: pulumi.Input[str],
-             logical_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             child_asset_model_id: Optional[pulumi.Input[str]] = None,
+             logical_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if child_asset_model_id is None and 'childAssetModelId' in kwargs:
+            child_asset_model_id = kwargs['childAssetModelId']
+        if child_asset_model_id is None:
+            raise TypeError("Missing 'child_asset_model_id' argument")
+        if logical_id is None and 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+        if logical_id is None:
+            raise TypeError("Missing 'logical_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("child_asset_model_id", child_asset_model_id)
         _setter("logical_id", logical_id)
         _setter("name", name)
@@ -649,7 +713,9 @@ class AssetModelMetricWindowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if tumbling is not None:
             _setter("tumbling", tumbling)
 
@@ -683,10 +749,18 @@ class AssetModelMetricArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]],
-             window: pulumi.Input['AssetModelMetricWindowArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             expression: Optional[pulumi.Input[str]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]]] = None,
+             window: Optional[pulumi.Input['AssetModelMetricWindowArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if variables is None:
+            raise TypeError("Missing 'variables' argument")
+        if window is None:
+            raise TypeError("Missing 'window' argument")
+
         _setter("expression", expression)
         _setter("variables", variables)
         _setter("window", window)
@@ -748,11 +822,17 @@ class AssetModelPropertyTypeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type_name: pulumi.Input['AssetModelTypeName'],
+             type_name: Optional[pulumi.Input['AssetModelTypeName']] = None,
              attribute: Optional[pulumi.Input['AssetModelAttributeArgs']] = None,
              metric: Optional[pulumi.Input['AssetModelMetricArgs']] = None,
              transform: Optional[pulumi.Input['AssetModelTransformArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type_name is None and 'typeName' in kwargs:
+            type_name = kwargs['typeName']
+        if type_name is None:
+            raise TypeError("Missing 'type_name' argument")
+
         _setter("type_name", type_name)
         if attribute is not None:
             _setter("attribute", attribute)
@@ -828,13 +908,29 @@ class AssetModelPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['AssetModelDataType'],
-             logical_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             type: pulumi.Input['AssetModelPropertyTypeArgs'],
+             data_type: Optional[pulumi.Input['AssetModelDataType']] = None,
+             logical_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['AssetModelPropertyTypeArgs']] = None,
              data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_type is None and 'dataType' in kwargs:
+            data_type = kwargs['dataType']
+        if data_type is None:
+            raise TypeError("Missing 'data_type' argument")
+        if logical_id is None and 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+        if logical_id is None:
+            raise TypeError("Missing 'logical_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if data_type_spec is None and 'dataTypeSpec' in kwargs:
+            data_type_spec = kwargs['dataTypeSpec']
+
         _setter("data_type", data_type)
         _setter("logical_id", logical_id)
         _setter("name", name)
@@ -930,9 +1026,15 @@ class AssetModelTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -972,9 +1074,15 @@ class AssetModelTransformArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             expression: Optional[pulumi.Input[str]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if variables is None:
+            raise TypeError("Missing 'variables' argument")
+
         _setter("expression", expression)
         _setter("variables", variables)
 
@@ -1019,9 +1127,13 @@ class AssetModelTumblingWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             interval: pulumi.Input[str],
+             interval: Optional[pulumi.Input[str]] = None,
              offset: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+
         _setter("interval", interval)
         if offset is not None:
             _setter("offset", offset)
@@ -1058,9 +1170,17 @@ class AssetModelVariableValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property_logical_id: pulumi.Input[str],
+             property_logical_id: Optional[pulumi.Input[str]] = None,
              hierarchy_logical_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_logical_id is None and 'propertyLogicalId' in kwargs:
+            property_logical_id = kwargs['propertyLogicalId']
+        if property_logical_id is None:
+            raise TypeError("Missing 'property_logical_id' argument")
+        if hierarchy_logical_id is None and 'hierarchyLogicalId' in kwargs:
+            hierarchy_logical_id = kwargs['hierarchyLogicalId']
+
         _setter("property_logical_id", property_logical_id)
         if hierarchy_logical_id is not None:
             _setter("hierarchy_logical_id", hierarchy_logical_id)
@@ -1108,11 +1228,19 @@ class AssetPropertyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             logical_id: pulumi.Input[str],
+             logical_id: Optional[pulumi.Input[str]] = None,
              alias: Optional[pulumi.Input[str]] = None,
              notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logical_id is None and 'logicalId' in kwargs:
+            logical_id = kwargs['logicalId']
+        if logical_id is None:
+            raise TypeError("Missing 'logical_id' argument")
+        if notification_state is None and 'notificationState' in kwargs:
+            notification_state = kwargs['notificationState']
+
         _setter("logical_id", logical_id)
         if alias is not None:
             _setter("alias", alias)
@@ -1183,9 +1311,15 @@ class AssetTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1224,9 +1358,15 @@ class DashboardTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1265,9 +1405,17 @@ class GatewayCapabilitySummaryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capability_namespace: pulumi.Input[str],
+             capability_namespace: Optional[pulumi.Input[str]] = None,
              capability_configuration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capability_namespace is None and 'capabilityNamespace' in kwargs:
+            capability_namespace = kwargs['capabilityNamespace']
+        if capability_namespace is None:
+            raise TypeError("Missing 'capability_namespace' argument")
+        if capability_configuration is None and 'capabilityConfiguration' in kwargs:
+            capability_configuration = kwargs['capabilityConfiguration']
+
         _setter("capability_namespace", capability_namespace)
         if capability_configuration is not None:
             _setter("capability_configuration", capability_configuration)
@@ -1306,8 +1454,14 @@ class GatewayGreengrassV2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             core_device_thing_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             core_device_thing_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if core_device_thing_name is None and 'coreDeviceThingName' in kwargs:
+            core_device_thing_name = kwargs['coreDeviceThingName']
+        if core_device_thing_name is None:
+            raise TypeError("Missing 'core_device_thing_name' argument")
+
         _setter("core_device_thing_name", core_device_thing_name)
 
     @property
@@ -1338,8 +1492,14 @@ class GatewayGreengrassArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_arn is None and 'groupArn' in kwargs:
+            group_arn = kwargs['groupArn']
+        if group_arn is None:
+            raise TypeError("Missing 'group_arn' argument")
+
         _setter("group_arn", group_arn)
 
     @property
@@ -1375,7 +1535,11 @@ class GatewayPlatformArgs:
              _setter: Callable[[Any, Any], None],
              greengrass: Optional[pulumi.Input['GatewayGreengrassArgs']] = None,
              greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if greengrass_v2 is None and 'greengrassV2' in kwargs:
+            greengrass_v2 = kwargs['greengrassV2']
+
         if greengrass is not None:
             _setter("greengrass", greengrass)
         if greengrass_v2 is not None:
@@ -1422,9 +1586,15 @@ class GatewayTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1463,9 +1633,15 @@ class PortalTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1504,9 +1680,15 @@ class ProjectTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

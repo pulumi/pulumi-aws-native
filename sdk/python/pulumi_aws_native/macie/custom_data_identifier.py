@@ -46,14 +46,22 @@ class CustomDataIdentifierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             regex: pulumi.Input[str],
+             regex: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              ignore_words: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              keywords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              maximum_match_distance: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDataIdentifierTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regex is None:
+            raise TypeError("Missing 'regex' argument")
+        if ignore_words is None and 'ignoreWords' in kwargs:
+            ignore_words = kwargs['ignoreWords']
+        if maximum_match_distance is None and 'maximumMatchDistance' in kwargs:
+            maximum_match_distance = kwargs['maximumMatchDistance']
+
         _setter("regex", regex)
         if description is not None:
             _setter("description", description)

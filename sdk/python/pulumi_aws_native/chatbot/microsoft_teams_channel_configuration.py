@@ -50,16 +50,46 @@ class MicrosoftTeamsChannelConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configuration_name: pulumi.Input[str],
-             iam_role_arn: pulumi.Input[str],
-             team_id: pulumi.Input[str],
-             teams_channel_id: pulumi.Input[str],
-             teams_tenant_id: pulumi.Input[str],
+             configuration_name: Optional[pulumi.Input[str]] = None,
+             iam_role_arn: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             teams_channel_id: Optional[pulumi.Input[str]] = None,
+             teams_tenant_id: Optional[pulumi.Input[str]] = None,
              guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              logging_level: Optional[pulumi.Input[str]] = None,
              sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_role_required: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configuration_name is None and 'configurationName' in kwargs:
+            configuration_name = kwargs['configurationName']
+        if configuration_name is None:
+            raise TypeError("Missing 'configuration_name' argument")
+        if iam_role_arn is None and 'iamRoleArn' in kwargs:
+            iam_role_arn = kwargs['iamRoleArn']
+        if iam_role_arn is None:
+            raise TypeError("Missing 'iam_role_arn' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if teams_channel_id is None and 'teamsChannelId' in kwargs:
+            teams_channel_id = kwargs['teamsChannelId']
+        if teams_channel_id is None:
+            raise TypeError("Missing 'teams_channel_id' argument")
+        if teams_tenant_id is None and 'teamsTenantId' in kwargs:
+            teams_tenant_id = kwargs['teamsTenantId']
+        if teams_tenant_id is None:
+            raise TypeError("Missing 'teams_tenant_id' argument")
+        if guardrail_policies is None and 'guardrailPolicies' in kwargs:
+            guardrail_policies = kwargs['guardrailPolicies']
+        if logging_level is None and 'loggingLevel' in kwargs:
+            logging_level = kwargs['loggingLevel']
+        if sns_topic_arns is None and 'snsTopicArns' in kwargs:
+            sns_topic_arns = kwargs['snsTopicArns']
+        if user_role_required is None and 'userRoleRequired' in kwargs:
+            user_role_required = kwargs['userRoleRequired']
+
         _setter("configuration_name", configuration_name)
         _setter("iam_role_arn", iam_role_arn)
         _setter("team_id", team_id)

@@ -38,12 +38,22 @@ class ModelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             schema: Any,
+             api_id: Optional[pulumi.Input[str]] = None,
+             schema: Optional[Any] = None,
              content_type: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+
         _setter("api_id", api_id)
         _setter("schema", schema)
         if content_type is not None:

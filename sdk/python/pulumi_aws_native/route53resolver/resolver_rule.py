@@ -44,13 +44,27 @@ class ResolverRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             rule_type: pulumi.Input['ResolverRuleRuleType'],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             rule_type: Optional[pulumi.Input['ResolverRuleRuleType']] = None,
              name: Optional[pulumi.Input[str]] = None,
              resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTagArgs']]]] = None,
              target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if rule_type is None and 'ruleType' in kwargs:
+            rule_type = kwargs['ruleType']
+        if rule_type is None:
+            raise TypeError("Missing 'rule_type' argument")
+        if resolver_endpoint_id is None and 'resolverEndpointId' in kwargs:
+            resolver_endpoint_id = kwargs['resolverEndpointId']
+        if target_ips is None and 'targetIps' in kwargs:
+            target_ips = kwargs['targetIps']
+
         _setter("domain_name", domain_name)
         _setter("rule_type", rule_type)
         if name is not None:

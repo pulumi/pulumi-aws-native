@@ -34,10 +34,16 @@ class OrganizationalUnitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parent_id: pulumi.Input[str],
+             parent_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationalUnitTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_id is None and 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if parent_id is None:
+            raise TypeError("Missing 'parent_id' argument")
+
         _setter("parent_id", parent_id)
         if name is not None:
             _setter("name", name)

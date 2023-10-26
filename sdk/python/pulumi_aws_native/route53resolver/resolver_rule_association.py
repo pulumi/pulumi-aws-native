@@ -32,10 +32,20 @@ class ResolverRuleAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resolver_rule_id: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
+             resolver_rule_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resolver_rule_id is None and 'resolverRuleId' in kwargs:
+            resolver_rule_id = kwargs['resolverRuleId']
+        if resolver_rule_id is None:
+            raise TypeError("Missing 'resolver_rule_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+
         _setter("resolver_rule_id", resolver_rule_id)
         _setter("vpc_id", vpc_id)
         if name is not None:

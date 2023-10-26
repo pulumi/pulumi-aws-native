@@ -47,8 +47,8 @@ class DataSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             index_id: pulumi.Input[str],
-             type: pulumi.Input['DataSourceType'],
+             index_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input['DataSourceType']] = None,
              custom_document_enrichment_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']] = None,
              data_source_configuration: Optional[pulumi.Input['DataSourceConfigurationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,23 @@ class DataSourceArgs:
              role_arn: Optional[pulumi.Input[str]] = None,
              schedule: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if index_id is None and 'indexId' in kwargs:
+            index_id = kwargs['indexId']
+        if index_id is None:
+            raise TypeError("Missing 'index_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if custom_document_enrichment_configuration is None and 'customDocumentEnrichmentConfiguration' in kwargs:
+            custom_document_enrichment_configuration = kwargs['customDocumentEnrichmentConfiguration']
+        if data_source_configuration is None and 'dataSourceConfiguration' in kwargs:
+            data_source_configuration = kwargs['dataSourceConfiguration']
+        if language_code is None and 'languageCode' in kwargs:
+            language_code = kwargs['languageCode']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("index_id", index_id)
         _setter("type", type)
         if custom_document_enrichment_configuration is not None:
@@ -241,17 +257,9 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
-            if custom_document_enrichment_configuration is not None and not isinstance(custom_document_enrichment_configuration, DataSourceCustomDocumentEnrichmentConfigurationArgs):
-                custom_document_enrichment_configuration = custom_document_enrichment_configuration or {}
-                def _setter(key, value):
-                    custom_document_enrichment_configuration[key] = value
-                DataSourceCustomDocumentEnrichmentConfigurationArgs._configure(_setter, **custom_document_enrichment_configuration)
+            custom_document_enrichment_configuration = _utilities.configure(custom_document_enrichment_configuration, DataSourceCustomDocumentEnrichmentConfigurationArgs, True)
             __props__.__dict__["custom_document_enrichment_configuration"] = custom_document_enrichment_configuration
-            if data_source_configuration is not None and not isinstance(data_source_configuration, DataSourceConfigurationArgs):
-                data_source_configuration = data_source_configuration or {}
-                def _setter(key, value):
-                    data_source_configuration[key] = value
-                DataSourceConfigurationArgs._configure(_setter, **data_source_configuration)
+            data_source_configuration = _utilities.configure(data_source_configuration, DataSourceConfigurationArgs, True)
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if index_id is None and not opts.urn:

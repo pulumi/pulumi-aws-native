@@ -39,14 +39,32 @@ class InstanceFleetConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_id: pulumi.Input[str],
-             instance_fleet_type: pulumi.Input[str],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             instance_fleet_type: Optional[pulumi.Input[str]] = None,
              instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetConfigInstanceTypeConfigArgs']]]] = None,
              launch_specifications: Optional[pulumi.Input['InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
              target_spot_capacity: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if instance_fleet_type is None and 'instanceFleetType' in kwargs:
+            instance_fleet_type = kwargs['instanceFleetType']
+        if instance_fleet_type is None:
+            raise TypeError("Missing 'instance_fleet_type' argument")
+        if instance_type_configs is None and 'instanceTypeConfigs' in kwargs:
+            instance_type_configs = kwargs['instanceTypeConfigs']
+        if launch_specifications is None and 'launchSpecifications' in kwargs:
+            launch_specifications = kwargs['launchSpecifications']
+        if target_on_demand_capacity is None and 'targetOnDemandCapacity' in kwargs:
+            target_on_demand_capacity = kwargs['targetOnDemandCapacity']
+        if target_spot_capacity is None and 'targetSpotCapacity' in kwargs:
+            target_spot_capacity = kwargs['targetSpotCapacity']
+
         _setter("cluster_id", cluster_id)
         _setter("instance_fleet_type", instance_fleet_type)
         if instance_type_configs is not None:
@@ -200,11 +218,7 @@ class InstanceFleetConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_fleet_type'")
             __props__.__dict__["instance_fleet_type"] = instance_fleet_type
             __props__.__dict__["instance_type_configs"] = instance_type_configs
-            if launch_specifications is not None and not isinstance(launch_specifications, InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs):
-                launch_specifications = launch_specifications or {}
-                def _setter(key, value):
-                    launch_specifications[key] = value
-                InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs._configure(_setter, **launch_specifications)
+            launch_specifications = _utilities.configure(launch_specifications, InstanceFleetConfigInstanceFleetProvisioningSpecificationsArgs, True)
             __props__.__dict__["launch_specifications"] = launch_specifications
             __props__.__dict__["name"] = name
             __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity

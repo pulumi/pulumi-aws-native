@@ -41,8 +41,8 @@ class SecurityGroupEgressInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
-             ip_protocol: pulumi.Input[str],
+             group_id: Optional[pulumi.Input[str]] = None,
+             ip_protocol: Optional[pulumi.Input[str]] = None,
              cidr_ip: Optional[pulumi.Input[str]] = None,
              cidr_ipv6: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -50,7 +50,29 @@ class SecurityGroupEgressInitArgs:
              destination_security_group_id: Optional[pulumi.Input[str]] = None,
              from_port: Optional[pulumi.Input[int]] = None,
              to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ip_protocol is None:
+            raise TypeError("Missing 'ip_protocol' argument")
+        if cidr_ip is None and 'cidrIp' in kwargs:
+            cidr_ip = kwargs['cidrIp']
+        if cidr_ipv6 is None and 'cidrIpv6' in kwargs:
+            cidr_ipv6 = kwargs['cidrIpv6']
+        if destination_prefix_list_id is None and 'destinationPrefixListId' in kwargs:
+            destination_prefix_list_id = kwargs['destinationPrefixListId']
+        if destination_security_group_id is None and 'destinationSecurityGroupId' in kwargs:
+            destination_security_group_id = kwargs['destinationSecurityGroupId']
+        if from_port is None and 'fromPort' in kwargs:
+            from_port = kwargs['fromPort']
+        if to_port is None and 'toPort' in kwargs:
+            to_port = kwargs['toPort']
+
         _setter("group_id", group_id)
         _setter("ip_protocol", ip_protocol)
         if cidr_ip is not None:

@@ -42,13 +42,29 @@ class VpcPeeringConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             peer_vpc_id: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
+             peer_vpc_id: Optional[pulumi.Input[str]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              peer_owner_id: Optional[pulumi.Input[str]] = None,
              peer_region: Optional[pulumi.Input[str]] = None,
              peer_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcPeeringConnectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if peer_vpc_id is None and 'peerVpcId' in kwargs:
+            peer_vpc_id = kwargs['peerVpcId']
+        if peer_vpc_id is None:
+            raise TypeError("Missing 'peer_vpc_id' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if peer_owner_id is None and 'peerOwnerId' in kwargs:
+            peer_owner_id = kwargs['peerOwnerId']
+        if peer_region is None and 'peerRegion' in kwargs:
+            peer_region = kwargs['peerRegion']
+        if peer_role_arn is None and 'peerRoleArn' in kwargs:
+            peer_role_arn = kwargs['peerRoleArn']
+
         _setter("peer_vpc_id", peer_vpc_id)
         _setter("vpc_id", vpc_id)
         if peer_owner_id is not None:

@@ -99,7 +99,51 @@ class ModelPackageArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelPackageTagArgs']]]] = None,
              task: Optional[pulumi.Input[str]] = None,
              validation_specification: Optional[pulumi.Input['ModelPackageValidationSpecificationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if additional_inference_specifications is None and 'additionalInferenceSpecifications' in kwargs:
+            additional_inference_specifications = kwargs['additionalInferenceSpecifications']
+        if additional_inference_specifications_to_add is None and 'additionalInferenceSpecificationsToAdd' in kwargs:
+            additional_inference_specifications_to_add = kwargs['additionalInferenceSpecificationsToAdd']
+        if approval_description is None and 'approvalDescription' in kwargs:
+            approval_description = kwargs['approvalDescription']
+        if certify_for_marketplace is None and 'certifyForMarketplace' in kwargs:
+            certify_for_marketplace = kwargs['certifyForMarketplace']
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if customer_metadata_properties is None and 'customerMetadataProperties' in kwargs:
+            customer_metadata_properties = kwargs['customerMetadataProperties']
+        if drift_check_baselines is None and 'driftCheckBaselines' in kwargs:
+            drift_check_baselines = kwargs['driftCheckBaselines']
+        if inference_specification is None and 'inferenceSpecification' in kwargs:
+            inference_specification = kwargs['inferenceSpecification']
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if metadata_properties is None and 'metadataProperties' in kwargs:
+            metadata_properties = kwargs['metadataProperties']
+        if model_approval_status is None and 'modelApprovalStatus' in kwargs:
+            model_approval_status = kwargs['modelApprovalStatus']
+        if model_metrics is None and 'modelMetrics' in kwargs:
+            model_metrics = kwargs['modelMetrics']
+        if model_package_description is None and 'modelPackageDescription' in kwargs:
+            model_package_description = kwargs['modelPackageDescription']
+        if model_package_group_name is None and 'modelPackageGroupName' in kwargs:
+            model_package_group_name = kwargs['modelPackageGroupName']
+        if model_package_name is None and 'modelPackageName' in kwargs:
+            model_package_name = kwargs['modelPackageName']
+        if model_package_status_details is None and 'modelPackageStatusDetails' in kwargs:
+            model_package_status_details = kwargs['modelPackageStatusDetails']
+        if model_package_version is None and 'modelPackageVersion' in kwargs:
+            model_package_version = kwargs['modelPackageVersion']
+        if sample_payload_url is None and 'samplePayloadUrl' in kwargs:
+            sample_payload_url = kwargs['samplePayloadUrl']
+        if skip_model_validation is None and 'skipModelValidation' in kwargs:
+            skip_model_validation = kwargs['skipModelValidation']
+        if source_algorithm_specification is None and 'sourceAlgorithmSpecification' in kwargs:
+            source_algorithm_specification = kwargs['sourceAlgorithmSpecification']
+        if validation_specification is None and 'validationSpecification' in kwargs:
+            validation_specification = kwargs['validationSpecification']
+
         if additional_inference_specifications is not None:
             _setter("additional_inference_specifications", additional_inference_specifications)
         if additional_inference_specifications_to_add is not None:
@@ -472,64 +516,32 @@ class ModelPackage(pulumi.CustomResource):
             __props__.__dict__["approval_description"] = approval_description
             __props__.__dict__["certify_for_marketplace"] = certify_for_marketplace
             __props__.__dict__["client_token"] = client_token
-            if customer_metadata_properties is not None and not isinstance(customer_metadata_properties, ModelPackageCustomerMetadataPropertiesArgs):
-                customer_metadata_properties = customer_metadata_properties or {}
-                def _setter(key, value):
-                    customer_metadata_properties[key] = value
-                ModelPackageCustomerMetadataPropertiesArgs._configure(_setter, **customer_metadata_properties)
+            customer_metadata_properties = _utilities.configure(customer_metadata_properties, ModelPackageCustomerMetadataPropertiesArgs, True)
             __props__.__dict__["customer_metadata_properties"] = customer_metadata_properties
             __props__.__dict__["domain"] = domain
-            if drift_check_baselines is not None and not isinstance(drift_check_baselines, ModelPackageDriftCheckBaselinesArgs):
-                drift_check_baselines = drift_check_baselines or {}
-                def _setter(key, value):
-                    drift_check_baselines[key] = value
-                ModelPackageDriftCheckBaselinesArgs._configure(_setter, **drift_check_baselines)
+            drift_check_baselines = _utilities.configure(drift_check_baselines, ModelPackageDriftCheckBaselinesArgs, True)
             __props__.__dict__["drift_check_baselines"] = drift_check_baselines
-            if inference_specification is not None and not isinstance(inference_specification, ModelPackageInferenceSpecificationArgs):
-                inference_specification = inference_specification or {}
-                def _setter(key, value):
-                    inference_specification[key] = value
-                ModelPackageInferenceSpecificationArgs._configure(_setter, **inference_specification)
+            inference_specification = _utilities.configure(inference_specification, ModelPackageInferenceSpecificationArgs, True)
             __props__.__dict__["inference_specification"] = inference_specification
             __props__.__dict__["last_modified_time"] = last_modified_time
-            if metadata_properties is not None and not isinstance(metadata_properties, ModelPackageMetadataPropertiesArgs):
-                metadata_properties = metadata_properties or {}
-                def _setter(key, value):
-                    metadata_properties[key] = value
-                ModelPackageMetadataPropertiesArgs._configure(_setter, **metadata_properties)
+            metadata_properties = _utilities.configure(metadata_properties, ModelPackageMetadataPropertiesArgs, True)
             __props__.__dict__["metadata_properties"] = metadata_properties
             __props__.__dict__["model_approval_status"] = model_approval_status
-            if model_metrics is not None and not isinstance(model_metrics, ModelPackageModelMetricsArgs):
-                model_metrics = model_metrics or {}
-                def _setter(key, value):
-                    model_metrics[key] = value
-                ModelPackageModelMetricsArgs._configure(_setter, **model_metrics)
+            model_metrics = _utilities.configure(model_metrics, ModelPackageModelMetricsArgs, True)
             __props__.__dict__["model_metrics"] = model_metrics
             __props__.__dict__["model_package_description"] = model_package_description
             __props__.__dict__["model_package_group_name"] = model_package_group_name
             __props__.__dict__["model_package_name"] = model_package_name
-            if model_package_status_details is not None and not isinstance(model_package_status_details, ModelPackageStatusDetailsArgs):
-                model_package_status_details = model_package_status_details or {}
-                def _setter(key, value):
-                    model_package_status_details[key] = value
-                ModelPackageStatusDetailsArgs._configure(_setter, **model_package_status_details)
+            model_package_status_details = _utilities.configure(model_package_status_details, ModelPackageStatusDetailsArgs, True)
             __props__.__dict__["model_package_status_details"] = model_package_status_details
             __props__.__dict__["model_package_version"] = model_package_version
             __props__.__dict__["sample_payload_url"] = sample_payload_url
             __props__.__dict__["skip_model_validation"] = skip_model_validation
-            if source_algorithm_specification is not None and not isinstance(source_algorithm_specification, ModelPackageSourceAlgorithmSpecificationArgs):
-                source_algorithm_specification = source_algorithm_specification or {}
-                def _setter(key, value):
-                    source_algorithm_specification[key] = value
-                ModelPackageSourceAlgorithmSpecificationArgs._configure(_setter, **source_algorithm_specification)
+            source_algorithm_specification = _utilities.configure(source_algorithm_specification, ModelPackageSourceAlgorithmSpecificationArgs, True)
             __props__.__dict__["source_algorithm_specification"] = source_algorithm_specification
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task"] = task
-            if validation_specification is not None and not isinstance(validation_specification, ModelPackageValidationSpecificationArgs):
-                validation_specification = validation_specification or {}
-                def _setter(key, value):
-                    validation_specification[key] = value
-                ModelPackageValidationSpecificationArgs._configure(_setter, **validation_specification)
+            validation_specification = _utilities.configure(validation_specification, ModelPackageValidationSpecificationArgs, True)
             __props__.__dict__["validation_specification"] = validation_specification
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["model_package_arn"] = None

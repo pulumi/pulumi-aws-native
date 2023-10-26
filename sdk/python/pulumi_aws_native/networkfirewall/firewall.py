@@ -43,16 +43,38 @@ class FirewallArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firewall_policy_arn: pulumi.Input[str],
-             subnet_mappings: pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]],
-             vpc_id: pulumi.Input[str],
+             firewall_policy_arn: Optional[pulumi.Input[str]] = None,
+             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]]] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              delete_protection: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
              firewall_name: Optional[pulumi.Input[str]] = None,
              firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
              subnet_change_protection: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firewall_policy_arn is None and 'firewallPolicyArn' in kwargs:
+            firewall_policy_arn = kwargs['firewallPolicyArn']
+        if firewall_policy_arn is None:
+            raise TypeError("Missing 'firewall_policy_arn' argument")
+        if subnet_mappings is None and 'subnetMappings' in kwargs:
+            subnet_mappings = kwargs['subnetMappings']
+        if subnet_mappings is None:
+            raise TypeError("Missing 'subnet_mappings' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if delete_protection is None and 'deleteProtection' in kwargs:
+            delete_protection = kwargs['deleteProtection']
+        if firewall_name is None and 'firewallName' in kwargs:
+            firewall_name = kwargs['firewallName']
+        if firewall_policy_change_protection is None and 'firewallPolicyChangeProtection' in kwargs:
+            firewall_policy_change_protection = kwargs['firewallPolicyChangeProtection']
+        if subnet_change_protection is None and 'subnetChangeProtection' in kwargs:
+            subnet_change_protection = kwargs['subnetChangeProtection']
+
         _setter("firewall_policy_arn", firewall_policy_arn)
         _setter("subnet_mappings", subnet_mappings)
         _setter("vpc_id", vpc_id)

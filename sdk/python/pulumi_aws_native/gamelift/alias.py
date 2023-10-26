@@ -35,10 +35,16 @@ class AliasArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             routing_strategy: pulumi.Input['AliasRoutingStrategyArgs'],
+             routing_strategy: Optional[pulumi.Input['AliasRoutingStrategyArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if routing_strategy is None and 'routingStrategy' in kwargs:
+            routing_strategy = kwargs['routingStrategy']
+        if routing_strategy is None:
+            raise TypeError("Missing 'routing_strategy' argument")
+
         _setter("routing_strategy", routing_strategy)
         if description is not None:
             _setter("description", description)
@@ -142,11 +148,7 @@ class Alias(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if routing_strategy is not None and not isinstance(routing_strategy, AliasRoutingStrategyArgs):
-                routing_strategy = routing_strategy or {}
-                def _setter(key, value):
-                    routing_strategy[key] = value
-                AliasRoutingStrategyArgs._configure(_setter, **routing_strategy)
+            routing_strategy = _utilities.configure(routing_strategy, AliasRoutingStrategyArgs, True)
             if routing_strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_strategy'")
             __props__.__dict__["routing_strategy"] = routing_strategy

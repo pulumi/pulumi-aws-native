@@ -65,7 +65,13 @@ class DetectorCfnDataSourceConfigurations(dict):
              kubernetes: Optional['outputs.DetectorCfnKubernetesConfiguration'] = None,
              malware_protection: Optional['outputs.DetectorCfnMalwareProtectionConfiguration'] = None,
              s3_logs: Optional['outputs.DetectorCfns3LogsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if malware_protection is None and 'malwareProtection' in kwargs:
+            malware_protection = kwargs['malwareProtection']
+        if s3_logs is None and 's3Logs' in kwargs:
+            s3_logs = kwargs['s3Logs']
+
         if kubernetes is not None:
             _setter("kubernetes", kubernetes)
         if malware_protection is not None:
@@ -104,7 +110,9 @@ class DetectorCfnFeatureAdditionalConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if status is not None:
@@ -153,10 +161,18 @@ class DetectorCfnFeatureConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: 'DetectorCfnFeatureConfigurationName',
-             status: 'DetectorCfnFeatureConfigurationStatus',
+             name: Optional['DetectorCfnFeatureConfigurationName'] = None,
+             status: Optional['DetectorCfnFeatureConfigurationStatus'] = None,
              additional_configuration: Optional[Sequence['outputs.DetectorCfnFeatureAdditionalConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if additional_configuration is None and 'additionalConfiguration' in kwargs:
+            additional_configuration = kwargs['additionalConfiguration']
+
         _setter("name", name)
         _setter("status", status)
         if additional_configuration is not None:
@@ -189,8 +205,12 @@ class DetectorCfnKubernetesAuditLogsConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+
         _setter("enable", enable)
 
     @property
@@ -227,8 +247,14 @@ class DetectorCfnKubernetesConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             audit_logs: 'outputs.DetectorCfnKubernetesAuditLogsConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             audit_logs: Optional['outputs.DetectorCfnKubernetesAuditLogsConfiguration'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if audit_logs is None and 'auditLogs' in kwargs:
+            audit_logs = kwargs['auditLogs']
+        if audit_logs is None:
+            raise TypeError("Missing 'audit_logs' argument")
+
         _setter("audit_logs", audit_logs)
 
     @property
@@ -266,7 +292,11 @@ class DetectorCfnMalwareProtectionConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              scan_ec2_instance_with_findings: Optional['outputs.DetectorCfnScanEc2InstanceWithFindingsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_ec2_instance_with_findings is None and 'scanEc2InstanceWithFindings' in kwargs:
+            scan_ec2_instance_with_findings = kwargs['scanEc2InstanceWithFindings']
+
         if scan_ec2_instance_with_findings is not None:
             _setter("scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
 
@@ -305,7 +335,11 @@ class DetectorCfnScanEc2InstanceWithFindingsConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ebs_volumes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_volumes is None and 'ebsVolumes' in kwargs:
+            ebs_volumes = kwargs['ebsVolumes']
+
         if ebs_volumes is not None:
             _setter("ebs_volumes", ebs_volumes)
 
@@ -326,8 +360,12 @@ class DetectorCfns3LogsConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+
         _setter("enable", enable)
 
     @property
@@ -349,9 +387,15 @@ class DetectorTagItem(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -436,7 +480,19 @@ class FilterCondition(dict):
              lte: Optional[int] = None,
              neq: Optional[Sequence[str]] = None,
              not_equals: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if greater_than is None and 'greaterThan' in kwargs:
+            greater_than = kwargs['greaterThan']
+        if greater_than_or_equal is None and 'greaterThanOrEqual' in kwargs:
+            greater_than_or_equal = kwargs['greaterThanOrEqual']
+        if less_than is None and 'lessThan' in kwargs:
+            less_than = kwargs['lessThan']
+        if less_than_or_equal is None and 'lessThanOrEqual' in kwargs:
+            less_than_or_equal = kwargs['lessThanOrEqual']
+        if not_equals is None and 'notEquals' in kwargs:
+            not_equals = kwargs['notEquals']
+
         if eq is not None:
             _setter("eq", eq)
         if equals is not None:
@@ -555,7 +611,11 @@ class FilterFindingCriteria(dict):
              _setter: Callable[[Any, Any], None],
              criterion: Optional[Any] = None,
              item_type: Optional['outputs.FilterCondition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if item_type is None and 'itemType' in kwargs:
+            item_type = kwargs['itemType']
+
         if criterion is not None:
             _setter("criterion", criterion)
         if item_type is not None:
@@ -585,9 +645,15 @@ class FilterTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -615,9 +681,15 @@ class IpSetTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -645,9 +717,15 @@ class ThreatIntelSetTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -61,8 +61,8 @@ class IntegrationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             integration_type: pulumi.Input[str],
+             api_id: Optional[pulumi.Input[str]] = None,
+             integration_type: Optional[pulumi.Input[str]] = None,
              connection_id: Optional[pulumi.Input[str]] = None,
              connection_type: Optional[pulumi.Input[str]] = None,
              content_handling_strategy: Optional[pulumi.Input[str]] = None,
@@ -79,7 +79,47 @@ class IntegrationArgs:
              template_selection_expression: Optional[pulumi.Input[str]] = None,
              timeout_in_millis: Optional[pulumi.Input[int]] = None,
              tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if integration_type is None and 'integrationType' in kwargs:
+            integration_type = kwargs['integrationType']
+        if integration_type is None:
+            raise TypeError("Missing 'integration_type' argument")
+        if connection_id is None and 'connectionId' in kwargs:
+            connection_id = kwargs['connectionId']
+        if connection_type is None and 'connectionType' in kwargs:
+            connection_type = kwargs['connectionType']
+        if content_handling_strategy is None and 'contentHandlingStrategy' in kwargs:
+            content_handling_strategy = kwargs['contentHandlingStrategy']
+        if credentials_arn is None and 'credentialsArn' in kwargs:
+            credentials_arn = kwargs['credentialsArn']
+        if integration_method is None and 'integrationMethod' in kwargs:
+            integration_method = kwargs['integrationMethod']
+        if integration_subtype is None and 'integrationSubtype' in kwargs:
+            integration_subtype = kwargs['integrationSubtype']
+        if integration_uri is None and 'integrationUri' in kwargs:
+            integration_uri = kwargs['integrationUri']
+        if passthrough_behavior is None and 'passthroughBehavior' in kwargs:
+            passthrough_behavior = kwargs['passthroughBehavior']
+        if payload_format_version is None and 'payloadFormatVersion' in kwargs:
+            payload_format_version = kwargs['payloadFormatVersion']
+        if request_parameters is None and 'requestParameters' in kwargs:
+            request_parameters = kwargs['requestParameters']
+        if request_templates is None and 'requestTemplates' in kwargs:
+            request_templates = kwargs['requestTemplates']
+        if response_parameters is None and 'responseParameters' in kwargs:
+            response_parameters = kwargs['responseParameters']
+        if template_selection_expression is None and 'templateSelectionExpression' in kwargs:
+            template_selection_expression = kwargs['templateSelectionExpression']
+        if timeout_in_millis is None and 'timeoutInMillis' in kwargs:
+            timeout_in_millis = kwargs['timeoutInMillis']
+        if tls_config is None and 'tlsConfig' in kwargs:
+            tls_config = kwargs['tlsConfig']
+
         _setter("api_id", api_id)
         _setter("integration_type", integration_type)
         if connection_id is not None:
@@ -390,11 +430,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["response_parameters"] = response_parameters
             __props__.__dict__["template_selection_expression"] = template_selection_expression
             __props__.__dict__["timeout_in_millis"] = timeout_in_millis
-            if tls_config is not None and not isinstance(tls_config, IntegrationTlsConfigArgs):
-                tls_config = tls_config or {}
-                def _setter(key, value):
-                    tls_config[key] = value
-                IntegrationTlsConfigArgs._configure(_setter, **tls_config)
+            tls_config = _utilities.configure(tls_config, IntegrationTlsConfigArgs, True)
             __props__.__dict__["tls_config"] = tls_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

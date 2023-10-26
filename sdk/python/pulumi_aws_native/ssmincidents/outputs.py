@@ -63,8 +63,14 @@ class ReplicationSetRegionConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sse_kms_key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sse_kms_key_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sse_kms_key_id is None and 'sseKmsKeyId' in kwargs:
+            sse_kms_key_id = kwargs['sseKmsKeyId']
+        if sse_kms_key_id is None:
+            raise TypeError("Missing 'sse_kms_key_id' argument")
+
         _setter("sse_kms_key_id", sse_kms_key_id)
 
     @property
@@ -113,7 +119,13 @@ class ReplicationSetReplicationRegion(dict):
              _setter: Callable[[Any, Any], None],
              region_configuration: Optional['outputs.ReplicationSetRegionConfiguration'] = None,
              region_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region_configuration is None and 'regionConfiguration' in kwargs:
+            region_configuration = kwargs['regionConfiguration']
+        if region_name is None and 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+
         if region_configuration is not None:
             _setter("region_configuration", region_configuration)
         if region_name is not None:
@@ -149,9 +161,15 @@ class ReplicationSetTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -201,7 +219,11 @@ class ResponsePlanAction(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              ssm_automation: Optional['outputs.ResponsePlanSsmAutomation'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ssm_automation is None and 'ssmAutomation' in kwargs:
+            ssm_automation = kwargs['ssmAutomation']
+
         if ssm_automation is not None:
             _setter("ssm_automation", ssm_automation)
 
@@ -246,7 +268,11 @@ class ResponsePlanChatChannel(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              chatbot_sns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if chatbot_sns is None and 'chatbotSns' in kwargs:
+            chatbot_sns = kwargs['chatbotSns']
+
         if chatbot_sns is not None:
             _setter("chatbot_sns", chatbot_sns)
 
@@ -275,9 +301,15 @@ class ResponsePlanDynamicSsmParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: 'outputs.ResponsePlanDynamicSsmParameterValue',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional['outputs.ResponsePlanDynamicSsmParameterValue'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -310,7 +342,9 @@ class ResponsePlanDynamicSsmParameterValue(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              variable: Optional['ResponsePlanVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if variable is not None:
             _setter("variable", variable)
 
@@ -374,13 +408,25 @@ class ResponsePlanIncidentTemplate(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             impact: int,
-             title: str,
+             impact: Optional[int] = None,
+             title: Optional[str] = None,
              dedupe_string: Optional[str] = None,
              incident_tags: Optional[Sequence['outputs.ResponsePlanTag']] = None,
              notification_targets: Optional[Sequence['outputs.ResponsePlanNotificationTargetItem']] = None,
              summary: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if impact is None:
+            raise TypeError("Missing 'impact' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if dedupe_string is None and 'dedupeString' in kwargs:
+            dedupe_string = kwargs['dedupeString']
+        if incident_tags is None and 'incidentTags' in kwargs:
+            incident_tags = kwargs['incidentTags']
+        if notification_targets is None and 'notificationTargets' in kwargs:
+            notification_targets = kwargs['notificationTargets']
+
         _setter("impact", impact)
         _setter("title", title)
         if dedupe_string is not None:
@@ -470,7 +516,11 @@ class ResponsePlanIntegration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              pager_duty_configuration: Optional['outputs.ResponsePlanPagerDutyConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pager_duty_configuration is None and 'pagerDutyConfiguration' in kwargs:
+            pager_duty_configuration = kwargs['pagerDutyConfiguration']
+
         if pager_duty_configuration is not None:
             _setter("pager_duty_configuration", pager_duty_configuration)
 
@@ -515,7 +565,11 @@ class ResponsePlanNotificationTargetItem(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              sns_topic_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+
         if sns_topic_arn is not None:
             _setter("sns_topic_arn", sns_topic_arn)
 
@@ -567,10 +621,22 @@ class ResponsePlanPagerDutyConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             pager_duty_incident_configuration: 'outputs.ResponsePlanPagerDutyIncidentConfiguration',
-             secret_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             pager_duty_incident_configuration: Optional['outputs.ResponsePlanPagerDutyIncidentConfiguration'] = None,
+             secret_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if pager_duty_incident_configuration is None and 'pagerDutyIncidentConfiguration' in kwargs:
+            pager_duty_incident_configuration = kwargs['pagerDutyIncidentConfiguration']
+        if pager_duty_incident_configuration is None:
+            raise TypeError("Missing 'pager_duty_incident_configuration' argument")
+        if secret_id is None and 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if secret_id is None:
+            raise TypeError("Missing 'secret_id' argument")
+
         _setter("name", name)
         _setter("pager_duty_incident_configuration", pager_duty_incident_configuration)
         _setter("secret_id", secret_id)
@@ -632,8 +698,14 @@ class ResponsePlanPagerDutyIncidentConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             service_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             service_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if service_id is None and 'serviceId' in kwargs:
+            service_id = kwargs['serviceId']
+        if service_id is None:
+            raise TypeError("Missing 'service_id' argument")
+
         _setter("service_id", service_id)
 
     @property
@@ -703,13 +775,29 @@ class ResponsePlanSsmAutomation(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             document_name: str,
-             role_arn: str,
+             document_name: Optional[str] = None,
+             role_arn: Optional[str] = None,
              document_version: Optional[str] = None,
              dynamic_parameters: Optional[Sequence['outputs.ResponsePlanDynamicSsmParameter']] = None,
              parameters: Optional[Sequence['outputs.ResponsePlanSsmParameter']] = None,
              target_account: Optional['ResponsePlanSsmAutomationTargetAccount'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if document_name is None and 'documentName' in kwargs:
+            document_name = kwargs['documentName']
+        if document_name is None:
+            raise TypeError("Missing 'document_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if document_version is None and 'documentVersion' in kwargs:
+            document_version = kwargs['documentVersion']
+        if dynamic_parameters is None and 'dynamicParameters' in kwargs:
+            dynamic_parameters = kwargs['dynamicParameters']
+        if target_account is None and 'targetAccount' in kwargs:
+            target_account = kwargs['targetAccount']
+
         _setter("document_name", document_name)
         _setter("role_arn", role_arn)
         if document_version is not None:
@@ -789,9 +877,15 @@ class ResponsePlanSsmParameter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
         _setter("key", key)
         _setter("values", values)
 
@@ -825,9 +919,15 @@ class ResponsePlanTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

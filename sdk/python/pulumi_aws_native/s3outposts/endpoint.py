@@ -44,13 +44,33 @@ class EndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             outpost_id: pulumi.Input[str],
-             security_group_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
+             outpost_id: Optional[pulumi.Input[str]] = None,
+             security_group_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
              access_type: Optional[pulumi.Input['EndpointAccessType']] = None,
              customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
              failed_reason: Optional[pulumi.Input['EndpointFailedReasonArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if outpost_id is None and 'outpostId' in kwargs:
+            outpost_id = kwargs['outpostId']
+        if outpost_id is None:
+            raise TypeError("Missing 'outpost_id' argument")
+        if security_group_id is None and 'securityGroupId' in kwargs:
+            security_group_id = kwargs['securityGroupId']
+        if security_group_id is None:
+            raise TypeError("Missing 'security_group_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if access_type is None and 'accessType' in kwargs:
+            access_type = kwargs['accessType']
+        if customer_owned_ipv4_pool is None and 'customerOwnedIpv4Pool' in kwargs:
+            customer_owned_ipv4_pool = kwargs['customerOwnedIpv4Pool']
+        if failed_reason is None and 'failedReason' in kwargs:
+            failed_reason = kwargs['failedReason']
+
         _setter("outpost_id", outpost_id)
         _setter("security_group_id", security_group_id)
         _setter("subnet_id", subnet_id)
@@ -203,11 +223,7 @@ class Endpoint(pulumi.CustomResource):
 
             __props__.__dict__["access_type"] = access_type
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
-            if failed_reason is not None and not isinstance(failed_reason, EndpointFailedReasonArgs):
-                failed_reason = failed_reason or {}
-                def _setter(key, value):
-                    failed_reason[key] = value
-                EndpointFailedReasonArgs._configure(_setter, **failed_reason)
+            failed_reason = _utilities.configure(failed_reason, EndpointFailedReasonArgs, True)
             __props__.__dict__["failed_reason"] = failed_reason
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")

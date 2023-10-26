@@ -35,12 +35,26 @@ class FunctionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             function_code: pulumi.Input[str],
-             function_config: pulumi.Input['FunctionConfigArgs'],
+             function_code: Optional[pulumi.Input[str]] = None,
+             function_config: Optional[pulumi.Input['FunctionConfigArgs']] = None,
              auto_publish: Optional[pulumi.Input[bool]] = None,
              function_metadata: Optional[pulumi.Input['FunctionMetadataArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if function_code is None and 'functionCode' in kwargs:
+            function_code = kwargs['functionCode']
+        if function_code is None:
+            raise TypeError("Missing 'function_code' argument")
+        if function_config is None and 'functionConfig' in kwargs:
+            function_config = kwargs['functionConfig']
+        if function_config is None:
+            raise TypeError("Missing 'function_config' argument")
+        if auto_publish is None and 'autoPublish' in kwargs:
+            auto_publish = kwargs['autoPublish']
+        if function_metadata is None and 'functionMetadata' in kwargs:
+            function_metadata = kwargs['functionMetadata']
+
         _setter("function_code", function_code)
         _setter("function_config", function_config)
         if auto_publish is not None:
@@ -159,19 +173,11 @@ class Function(pulumi.CustomResource):
             if function_code is None and not opts.urn:
                 raise TypeError("Missing required property 'function_code'")
             __props__.__dict__["function_code"] = function_code
-            if function_config is not None and not isinstance(function_config, FunctionConfigArgs):
-                function_config = function_config or {}
-                def _setter(key, value):
-                    function_config[key] = value
-                FunctionConfigArgs._configure(_setter, **function_config)
+            function_config = _utilities.configure(function_config, FunctionConfigArgs, True)
             if function_config is None and not opts.urn:
                 raise TypeError("Missing required property 'function_config'")
             __props__.__dict__["function_config"] = function_config
-            if function_metadata is not None and not isinstance(function_metadata, FunctionMetadataArgs):
-                function_metadata = function_metadata or {}
-                def _setter(key, value):
-                    function_metadata[key] = value
-                FunctionMetadataArgs._configure(_setter, **function_metadata)
+            function_metadata = _utilities.configure(function_metadata, FunctionMetadataArgs, True)
             __props__.__dict__["function_metadata"] = function_metadata
             __props__.__dict__["name"] = name
             __props__.__dict__["function_arn"] = None

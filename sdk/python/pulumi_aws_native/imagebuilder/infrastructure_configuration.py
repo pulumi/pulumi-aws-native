@@ -65,7 +65,7 @@ class InfrastructureConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_profile_name: pulumi.Input[str],
+             instance_profile_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
              instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -78,7 +78,29 @@ class InfrastructureConfigurationArgs:
              subnet_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
              terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_profile_name is None and 'instanceProfileName' in kwargs:
+            instance_profile_name = kwargs['instanceProfileName']
+        if instance_profile_name is None:
+            raise TypeError("Missing 'instance_profile_name' argument")
+        if instance_metadata_options is None and 'instanceMetadataOptions' in kwargs:
+            instance_metadata_options = kwargs['instanceMetadataOptions']
+        if instance_types is None and 'instanceTypes' in kwargs:
+            instance_types = kwargs['instanceTypes']
+        if key_pair is None and 'keyPair' in kwargs:
+            key_pair = kwargs['keyPair']
+        if resource_tags is None and 'resourceTags' in kwargs:
+            resource_tags = kwargs['resourceTags']
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if sns_topic_arn is None and 'snsTopicArn' in kwargs:
+            sns_topic_arn = kwargs['snsTopicArn']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if terminate_instance_on_failure is None and 'terminateInstanceOnFailure' in kwargs:
+            terminate_instance_on_failure = kwargs['terminateInstanceOnFailure']
+
         _setter("instance_profile_name", instance_profile_name)
         if description is not None:
             _setter("description", description)
@@ -351,22 +373,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__ = InfrastructureConfigurationArgs.__new__(InfrastructureConfigurationArgs)
 
             __props__.__dict__["description"] = description
-            if instance_metadata_options is not None and not isinstance(instance_metadata_options, InfrastructureConfigurationInstanceMetadataOptionsArgs):
-                instance_metadata_options = instance_metadata_options or {}
-                def _setter(key, value):
-                    instance_metadata_options[key] = value
-                InfrastructureConfigurationInstanceMetadataOptionsArgs._configure(_setter, **instance_metadata_options)
+            instance_metadata_options = _utilities.configure(instance_metadata_options, InfrastructureConfigurationInstanceMetadataOptionsArgs, True)
             __props__.__dict__["instance_metadata_options"] = instance_metadata_options
             if instance_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_profile_name'")
             __props__.__dict__["instance_profile_name"] = instance_profile_name
             __props__.__dict__["instance_types"] = instance_types
             __props__.__dict__["key_pair"] = key_pair
-            if logging is not None and not isinstance(logging, InfrastructureConfigurationLoggingArgs):
-                logging = logging or {}
-                def _setter(key, value):
-                    logging[key] = value
-                InfrastructureConfigurationLoggingArgs._configure(_setter, **logging)
+            logging = _utilities.configure(logging, InfrastructureConfigurationLoggingArgs, True)
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_tags"] = resource_tags

@@ -50,7 +50,7 @@ class AddonArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
+             cluster_name: Optional[pulumi.Input[str]] = None,
              addon_name: Optional[pulumi.Input[str]] = None,
              addon_version: Optional[pulumi.Input[str]] = None,
              configuration_values: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,25 @@ class AddonArgs:
              resolve_conflicts: Optional[pulumi.Input['AddonResolveConflicts']] = None,
              service_account_role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if addon_name is None and 'addonName' in kwargs:
+            addon_name = kwargs['addonName']
+        if addon_version is None and 'addonVersion' in kwargs:
+            addon_version = kwargs['addonVersion']
+        if configuration_values is None and 'configurationValues' in kwargs:
+            configuration_values = kwargs['configurationValues']
+        if preserve_on_delete is None and 'preserveOnDelete' in kwargs:
+            preserve_on_delete = kwargs['preserveOnDelete']
+        if resolve_conflicts is None and 'resolveConflicts' in kwargs:
+            resolve_conflicts = kwargs['resolveConflicts']
+        if service_account_role_arn is None and 'serviceAccountRoleArn' in kwargs:
+            service_account_role_arn = kwargs['serviceAccountRoleArn']
+
         _setter("cluster_name", cluster_name)
         if addon_name is not None:
             _setter("addon_name", addon_name)

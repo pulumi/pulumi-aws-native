@@ -32,10 +32,24 @@ class ResourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             parent_id: pulumi.Input[str],
-             path_part: pulumi.Input[str],
-             rest_api_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             parent_id: Optional[pulumi.Input[str]] = None,
+             path_part: Optional[pulumi.Input[str]] = None,
+             rest_api_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_id is None and 'parentId' in kwargs:
+            parent_id = kwargs['parentId']
+        if parent_id is None:
+            raise TypeError("Missing 'parent_id' argument")
+        if path_part is None and 'pathPart' in kwargs:
+            path_part = kwargs['pathPart']
+        if path_part is None:
+            raise TypeError("Missing 'path_part' argument")
+        if rest_api_id is None and 'restApiId' in kwargs:
+            rest_api_id = kwargs['restApiId']
+        if rest_api_id is None:
+            raise TypeError("Missing 'rest_api_id' argument")
+
         _setter("parent_id", parent_id)
         _setter("path_part", path_part)
         _setter("rest_api_id", rest_api_id)

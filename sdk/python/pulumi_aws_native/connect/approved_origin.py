@@ -27,9 +27,17 @@ class ApprovedOriginArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_id: pulumi.Input[str],
-             origin: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             instance_id: Optional[pulumi.Input[str]] = None,
+             origin: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if instance_id is None:
+            raise TypeError("Missing 'instance_id' argument")
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+
         _setter("instance_id", instance_id)
         _setter("origin", origin)
 

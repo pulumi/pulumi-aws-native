@@ -37,11 +37,25 @@ class ListenerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             accelerator_arn: pulumi.Input[str],
-             port_ranges: pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]],
-             protocol: pulumi.Input['ListenerProtocol'],
+             accelerator_arn: Optional[pulumi.Input[str]] = None,
+             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]] = None,
+             protocol: Optional[pulumi.Input['ListenerProtocol']] = None,
              client_affinity: Optional[pulumi.Input['ListenerClientAffinity']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accelerator_arn is None and 'acceleratorArn' in kwargs:
+            accelerator_arn = kwargs['acceleratorArn']
+        if accelerator_arn is None:
+            raise TypeError("Missing 'accelerator_arn' argument")
+        if port_ranges is None and 'portRanges' in kwargs:
+            port_ranges = kwargs['portRanges']
+        if port_ranges is None:
+            raise TypeError("Missing 'port_ranges' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if client_affinity is None and 'clientAffinity' in kwargs:
+            client_affinity = kwargs['clientAffinity']
+
         _setter("accelerator_arn", accelerator_arn)
         _setter("port_ranges", port_ranges)
         _setter("protocol", protocol)

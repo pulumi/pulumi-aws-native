@@ -39,13 +39,29 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             environment_identifier: pulumi.Input[str],
-             proxy_type: pulumi.Input['ApplicationProxyType'],
-             vpc_id: pulumi.Input[str],
+             environment_identifier: Optional[pulumi.Input[str]] = None,
+             proxy_type: Optional[pulumi.Input['ApplicationProxyType']] = None,
+             vpc_id: Optional[pulumi.Input[str]] = None,
              api_gateway_proxy: Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_identifier is None and 'environmentIdentifier' in kwargs:
+            environment_identifier = kwargs['environmentIdentifier']
+        if environment_identifier is None:
+            raise TypeError("Missing 'environment_identifier' argument")
+        if proxy_type is None and 'proxyType' in kwargs:
+            proxy_type = kwargs['proxyType']
+        if proxy_type is None:
+            raise TypeError("Missing 'proxy_type' argument")
+        if vpc_id is None and 'vpcId' in kwargs:
+            vpc_id = kwargs['vpcId']
+        if vpc_id is None:
+            raise TypeError("Missing 'vpc_id' argument")
+        if api_gateway_proxy is None and 'apiGatewayProxy' in kwargs:
+            api_gateway_proxy = kwargs['apiGatewayProxy']
+
         _setter("environment_identifier", environment_identifier)
         _setter("proxy_type", proxy_type)
         _setter("vpc_id", vpc_id)
@@ -176,11 +192,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            if api_gateway_proxy is not None and not isinstance(api_gateway_proxy, ApplicationApiGatewayProxyInputArgs):
-                api_gateway_proxy = api_gateway_proxy or {}
-                def _setter(key, value):
-                    api_gateway_proxy[key] = value
-                ApplicationApiGatewayProxyInputArgs._configure(_setter, **api_gateway_proxy)
+            api_gateway_proxy = _utilities.configure(api_gateway_proxy, ApplicationApiGatewayProxyInputArgs, True)
             __props__.__dict__["api_gateway_proxy"] = api_gateway_proxy
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")

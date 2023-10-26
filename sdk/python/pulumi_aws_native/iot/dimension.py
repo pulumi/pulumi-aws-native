@@ -38,11 +38,19 @@ class DimensionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             string_values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             type: pulumi.Input['DimensionType'],
+             string_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input['DimensionType']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if string_values is None and 'stringValues' in kwargs:
+            string_values = kwargs['stringValues']
+        if string_values is None:
+            raise TypeError("Missing 'string_values' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("string_values", string_values)
         _setter("type", type)
         if name is not None:

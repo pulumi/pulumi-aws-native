@@ -43,13 +43,23 @@ class MulticastGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             lo_ra_wan: pulumi.Input['MulticastGroupLoRaWanArgs'],
+             lo_ra_wan: Optional[pulumi.Input['MulticastGroupLoRaWanArgs']] = None,
              associate_wireless_device: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['MulticastGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lo_ra_wan is None and 'loRaWan' in kwargs:
+            lo_ra_wan = kwargs['loRaWan']
+        if lo_ra_wan is None:
+            raise TypeError("Missing 'lo_ra_wan' argument")
+        if associate_wireless_device is None and 'associateWirelessDevice' in kwargs:
+            associate_wireless_device = kwargs['associateWirelessDevice']
+        if disassociate_wireless_device is None and 'disassociateWirelessDevice' in kwargs:
+            disassociate_wireless_device = kwargs['disassociateWirelessDevice']
+
         _setter("lo_ra_wan", lo_ra_wan)
         if associate_wireless_device is not None:
             _setter("associate_wireless_device", associate_wireless_device)
@@ -205,11 +215,7 @@ class MulticastGroup(pulumi.CustomResource):
             __props__.__dict__["associate_wireless_device"] = associate_wireless_device
             __props__.__dict__["description"] = description
             __props__.__dict__["disassociate_wireless_device"] = disassociate_wireless_device
-            if lo_ra_wan is not None and not isinstance(lo_ra_wan, MulticastGroupLoRaWanArgs):
-                lo_ra_wan = lo_ra_wan or {}
-                def _setter(key, value):
-                    lo_ra_wan[key] = value
-                MulticastGroupLoRaWanArgs._configure(_setter, **lo_ra_wan)
+            lo_ra_wan = _utilities.configure(lo_ra_wan, MulticastGroupLoRaWanArgs, True)
             if lo_ra_wan is None and not opts.urn:
                 raise TypeError("Missing required property 'lo_ra_wan'")
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan

@@ -31,11 +31,21 @@ class OriginEndpointPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             policy: Any,
+             policy: Optional[Any] = None,
              channel_group_name: Optional[pulumi.Input[str]] = None,
              channel_name: Optional[pulumi.Input[str]] = None,
              origin_endpoint_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if channel_group_name is None and 'channelGroupName' in kwargs:
+            channel_group_name = kwargs['channelGroupName']
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if origin_endpoint_name is None and 'originEndpointName' in kwargs:
+            origin_endpoint_name = kwargs['originEndpointName']
+
         _setter("policy", policy)
         if channel_group_name is not None:
             _setter("channel_group_name", channel_group_name)

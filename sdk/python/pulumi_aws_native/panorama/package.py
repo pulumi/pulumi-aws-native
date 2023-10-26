@@ -34,7 +34,13 @@ class PackageArgs:
              package_name: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['PackageStorageLocationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if package_name is None and 'packageName' in kwargs:
+            package_name = kwargs['packageName']
+        if storage_location is None and 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+
         if package_name is not None:
             _setter("package_name", package_name)
         if storage_location is not None:
@@ -126,11 +132,7 @@ class Package(pulumi.CustomResource):
             __props__ = PackageArgs.__new__(PackageArgs)
 
             __props__.__dict__["package_name"] = package_name
-            if storage_location is not None and not isinstance(storage_location, PackageStorageLocationArgs):
-                storage_location = storage_location or {}
-                def _setter(key, value):
-                    storage_location[key] = value
-                PackageStorageLocationArgs._configure(_setter, **storage_location)
+            storage_location = _utilities.configure(storage_location, PackageStorageLocationArgs, True)
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

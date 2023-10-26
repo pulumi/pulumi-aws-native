@@ -29,9 +29,15 @@ class XssMatchSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             xss_match_tuples: pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]],
+             xss_match_tuples: Optional[pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if xss_match_tuples is None and 'xssMatchTuples' in kwargs:
+            xss_match_tuples = kwargs['xssMatchTuples']
+        if xss_match_tuples is None:
+            raise TypeError("Missing 'xss_match_tuples' argument")
+
         _setter("xss_match_tuples", xss_match_tuples)
         if name is not None:
             _setter("name", name)

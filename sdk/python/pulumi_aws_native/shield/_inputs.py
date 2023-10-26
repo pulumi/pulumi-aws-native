@@ -40,10 +40,20 @@ class ProactiveEngagementEmergencyContactArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: pulumi.Input[str],
+             email_address: Optional[pulumi.Input[str]] = None,
              contact_notes: Optional[pulumi.Input[str]] = None,
              phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if contact_notes is None and 'contactNotes' in kwargs:
+            contact_notes = kwargs['contactNotes']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email_address", email_address)
         if contact_notes is not None:
             _setter("contact_notes", contact_notes)
@@ -104,7 +114,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesA
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -139,7 +151,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesA
     def _configure(
              _setter: Callable[[Any, Any], None],
              block: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if block is not None:
             _setter("block", block)
 
@@ -175,9 +189,15 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']],
-             status: pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action: Optional[pulumi.Input[Union['ProtectionApplicationLayerAutomaticResponseConfigurationAction0PropertiesArgs', 'ProtectionApplicationLayerAutomaticResponseConfigurationAction1PropertiesArgs']]] = None,
+             status: Optional[pulumi.Input['ProtectionApplicationLayerAutomaticResponseConfigurationStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("action", action)
         _setter("status", status)
 
@@ -224,9 +244,15 @@ class ProtectionGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -273,9 +299,15 @@ class ProtectionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

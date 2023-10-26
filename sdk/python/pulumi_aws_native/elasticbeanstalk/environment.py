@@ -61,7 +61,7 @@ class EnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
+             application_name: Optional[pulumi.Input[str]] = None,
              cname_prefix: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              environment_name: Optional[pulumi.Input[str]] = None,
@@ -73,7 +73,29 @@ class EnvironmentArgs:
              template_name: Optional[pulumi.Input[str]] = None,
              tier: Optional[pulumi.Input['EnvironmentTierArgs']] = None,
              version_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if cname_prefix is None and 'cnamePrefix' in kwargs:
+            cname_prefix = kwargs['cnamePrefix']
+        if environment_name is None and 'environmentName' in kwargs:
+            environment_name = kwargs['environmentName']
+        if operations_role is None and 'operationsRole' in kwargs:
+            operations_role = kwargs['operationsRole']
+        if option_settings is None and 'optionSettings' in kwargs:
+            option_settings = kwargs['optionSettings']
+        if platform_arn is None and 'platformArn' in kwargs:
+            platform_arn = kwargs['platformArn']
+        if solution_stack_name is None and 'solutionStackName' in kwargs:
+            solution_stack_name = kwargs['solutionStackName']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if version_label is None and 'versionLabel' in kwargs:
+            version_label = kwargs['versionLabel']
+
         _setter("application_name", application_name)
         if cname_prefix is not None:
             _setter("cname_prefix", cname_prefix)
@@ -340,11 +362,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["solution_stack_name"] = solution_stack_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_name"] = template_name
-            if tier is not None and not isinstance(tier, EnvironmentTierArgs):
-                tier = tier or {}
-                def _setter(key, value):
-                    tier[key] = value
-                EnvironmentTierArgs._configure(_setter, **tier)
+            tier = _utilities.configure(tier, EnvironmentTierArgs, True)
             __props__.__dict__["tier"] = tier
             __props__.__dict__["version_label"] = version_label
             __props__.__dict__["endpoint_url"] = None

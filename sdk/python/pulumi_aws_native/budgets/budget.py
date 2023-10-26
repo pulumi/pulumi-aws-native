@@ -29,9 +29,15 @@ class BudgetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             budget: pulumi.Input['BudgetDataArgs'],
+             budget: Optional[pulumi.Input['BudgetDataArgs']] = None,
              notifications_with_subscribers: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetNotificationWithSubscribersArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if budget is None:
+            raise TypeError("Missing 'budget' argument")
+        if notifications_with_subscribers is None and 'notificationsWithSubscribers' in kwargs:
+            notifications_with_subscribers = kwargs['notificationsWithSubscribers']
+
         _setter("budget", budget)
         if notifications_with_subscribers is not None:
             _setter("notifications_with_subscribers", notifications_with_subscribers)
@@ -114,11 +120,7 @@ class Budget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BudgetArgs.__new__(BudgetArgs)
 
-            if budget is not None and not isinstance(budget, BudgetDataArgs):
-                budget = budget or {}
-                def _setter(key, value):
-                    budget[key] = value
-                BudgetDataArgs._configure(_setter, **budget)
+            budget = _utilities.configure(budget, BudgetDataArgs, True)
             if budget is None and not opts.urn:
                 raise TypeError("Missing required property 'budget'")
             __props__.__dict__["budget"] = budget

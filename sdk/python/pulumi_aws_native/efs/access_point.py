@@ -39,12 +39,26 @@ class AccessPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_system_id: pulumi.Input[str],
+             file_system_id: Optional[pulumi.Input[str]] = None,
              access_point_tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointTagArgs']]]] = None,
              client_token: Optional[pulumi.Input[str]] = None,
              posix_user: Optional[pulumi.Input['AccessPointPosixUserArgs']] = None,
              root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_system_id is None and 'fileSystemId' in kwargs:
+            file_system_id = kwargs['fileSystemId']
+        if file_system_id is None:
+            raise TypeError("Missing 'file_system_id' argument")
+        if access_point_tags is None and 'accessPointTags' in kwargs:
+            access_point_tags = kwargs['accessPointTags']
+        if client_token is None and 'clientToken' in kwargs:
+            client_token = kwargs['clientToken']
+        if posix_user is None and 'posixUser' in kwargs:
+            posix_user = kwargs['posixUser']
+        if root_directory is None and 'rootDirectory' in kwargs:
+            root_directory = kwargs['rootDirectory']
+
         _setter("file_system_id", file_system_id)
         if access_point_tags is not None:
             _setter("access_point_tags", access_point_tags)
@@ -181,17 +195,9 @@ class AccessPoint(pulumi.CustomResource):
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
-            if posix_user is not None and not isinstance(posix_user, AccessPointPosixUserArgs):
-                posix_user = posix_user or {}
-                def _setter(key, value):
-                    posix_user[key] = value
-                AccessPointPosixUserArgs._configure(_setter, **posix_user)
+            posix_user = _utilities.configure(posix_user, AccessPointPosixUserArgs, True)
             __props__.__dict__["posix_user"] = posix_user
-            if root_directory is not None and not isinstance(root_directory, AccessPointRootDirectoryArgs):
-                root_directory = root_directory or {}
-                def _setter(key, value):
-                    root_directory[key] = value
-                AccessPointRootDirectoryArgs._configure(_setter, **root_directory)
+            root_directory = _utilities.configure(root_directory, AccessPointRootDirectoryArgs, True)
             __props__.__dict__["root_directory"] = root_directory
             __props__.__dict__["access_point_id"] = None
             __props__.__dict__["arn"] = None

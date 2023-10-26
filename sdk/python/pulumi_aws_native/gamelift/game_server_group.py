@@ -62,8 +62,8 @@ class GameServerGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_definitions: pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]],
-             role_arn: pulumi.Input[str],
+             instance_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              auto_scaling_policy: Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']] = None,
              balancing_strategy: Optional[pulumi.Input['GameServerGroupBalancingStrategy']] = None,
              delete_option: Optional[pulumi.Input['GameServerGroupDeleteOption']] = None,
@@ -74,7 +74,35 @@ class GameServerGroupArgs:
              min_size: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]] = None,
              vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_definitions is None and 'instanceDefinitions' in kwargs:
+            instance_definitions = kwargs['instanceDefinitions']
+        if instance_definitions is None:
+            raise TypeError("Missing 'instance_definitions' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if auto_scaling_policy is None and 'autoScalingPolicy' in kwargs:
+            auto_scaling_policy = kwargs['autoScalingPolicy']
+        if balancing_strategy is None and 'balancingStrategy' in kwargs:
+            balancing_strategy = kwargs['balancingStrategy']
+        if delete_option is None and 'deleteOption' in kwargs:
+            delete_option = kwargs['deleteOption']
+        if game_server_group_name is None and 'gameServerGroupName' in kwargs:
+            game_server_group_name = kwargs['gameServerGroupName']
+        if game_server_protection_policy is None and 'gameServerProtectionPolicy' in kwargs:
+            game_server_protection_policy = kwargs['gameServerProtectionPolicy']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if vpc_subnets is None and 'vpcSubnets' in kwargs:
+            vpc_subnets = kwargs['vpcSubnets']
+
         _setter("instance_definitions", instance_definitions)
         _setter("role_arn", role_arn)
         if auto_scaling_policy is not None:
@@ -328,11 +356,7 @@ class GameServerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GameServerGroupArgs.__new__(GameServerGroupArgs)
 
-            if auto_scaling_policy is not None and not isinstance(auto_scaling_policy, GameServerGroupAutoScalingPolicyArgs):
-                auto_scaling_policy = auto_scaling_policy or {}
-                def _setter(key, value):
-                    auto_scaling_policy[key] = value
-                GameServerGroupAutoScalingPolicyArgs._configure(_setter, **auto_scaling_policy)
+            auto_scaling_policy = _utilities.configure(auto_scaling_policy, GameServerGroupAutoScalingPolicyArgs, True)
             __props__.__dict__["auto_scaling_policy"] = auto_scaling_policy
             __props__.__dict__["balancing_strategy"] = balancing_strategy
             __props__.__dict__["delete_option"] = delete_option
@@ -341,11 +365,7 @@ class GameServerGroup(pulumi.CustomResource):
             if instance_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_definitions'")
             __props__.__dict__["instance_definitions"] = instance_definitions
-            if launch_template is not None and not isinstance(launch_template, GameServerGroupLaunchTemplateArgs):
-                launch_template = launch_template or {}
-                def _setter(key, value):
-                    launch_template[key] = value
-                GameServerGroupLaunchTemplateArgs._configure(_setter, **launch_template)
+            launch_template = _utilities.configure(launch_template, GameServerGroupLaunchTemplateArgs, True)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["max_size"] = max_size
             __props__.__dict__["min_size"] = min_size

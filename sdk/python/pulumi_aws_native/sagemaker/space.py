@@ -38,11 +38,21 @@ class SpaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_id: pulumi.Input[str],
+             domain_id: Optional[pulumi.Input[str]] = None,
              space_name: Optional[pulumi.Input[str]] = None,
              space_settings: Optional[pulumi.Input['SpaceSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_id is None and 'domainId' in kwargs:
+            domain_id = kwargs['domainId']
+        if domain_id is None:
+            raise TypeError("Missing 'domain_id' argument")
+        if space_name is None and 'spaceName' in kwargs:
+            space_name = kwargs['spaceName']
+        if space_settings is None and 'spaceSettings' in kwargs:
+            space_settings = kwargs['spaceSettings']
+
         _setter("domain_id", domain_id)
         if space_name is not None:
             _setter("space_name", space_name)
@@ -165,11 +175,7 @@ class Space(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
             __props__.__dict__["space_name"] = space_name
-            if space_settings is not None and not isinstance(space_settings, SpaceSettingsArgs):
-                space_settings = space_settings or {}
-                def _setter(key, value):
-                    space_settings[key] = value
-                SpaceSettingsArgs._configure(_setter, **space_settings)
+            space_settings = _utilities.configure(space_settings, SpaceSettingsArgs, True)
             __props__.__dict__["space_settings"] = space_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["space_arn"] = None

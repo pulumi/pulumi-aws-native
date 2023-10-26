@@ -70,9 +70,19 @@ class ApplicationCsvMappingParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_column_delimiter: str,
-             record_row_delimiter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             record_column_delimiter: Optional[str] = None,
+             record_row_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_column_delimiter is None and 'recordColumnDelimiter' in kwargs:
+            record_column_delimiter = kwargs['recordColumnDelimiter']
+        if record_column_delimiter is None:
+            raise TypeError("Missing 'record_column_delimiter' argument")
+        if record_row_delimiter is None and 'recordRowDelimiter' in kwargs:
+            record_row_delimiter = kwargs['recordRowDelimiter']
+        if record_row_delimiter is None:
+            raise TypeError("Missing 'record_row_delimiter' argument")
+
         _setter("record_column_delimiter", record_column_delimiter)
         _setter("record_row_delimiter", record_row_delimiter)
 
@@ -135,13 +145,31 @@ class ApplicationInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_schema: 'outputs.ApplicationInputSchema',
-             name_prefix: str,
+             input_schema: Optional['outputs.ApplicationInputSchema'] = None,
+             name_prefix: Optional[str] = None,
              input_parallelism: Optional['outputs.ApplicationInputParallelism'] = None,
              input_processing_configuration: Optional['outputs.ApplicationInputProcessingConfiguration'] = None,
              kinesis_firehose_input: Optional['outputs.ApplicationKinesisFirehoseInput'] = None,
              kinesis_streams_input: Optional['outputs.ApplicationKinesisStreamsInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_schema is None and 'inputSchema' in kwargs:
+            input_schema = kwargs['inputSchema']
+        if input_schema is None:
+            raise TypeError("Missing 'input_schema' argument")
+        if name_prefix is None and 'namePrefix' in kwargs:
+            name_prefix = kwargs['namePrefix']
+        if name_prefix is None:
+            raise TypeError("Missing 'name_prefix' argument")
+        if input_parallelism is None and 'inputParallelism' in kwargs:
+            input_parallelism = kwargs['inputParallelism']
+        if input_processing_configuration is None and 'inputProcessingConfiguration' in kwargs:
+            input_processing_configuration = kwargs['inputProcessingConfiguration']
+        if kinesis_firehose_input is None and 'kinesisFirehoseInput' in kwargs:
+            kinesis_firehose_input = kwargs['kinesisFirehoseInput']
+        if kinesis_streams_input is None and 'kinesisStreamsInput' in kwargs:
+            kinesis_streams_input = kwargs['kinesisStreamsInput']
+
         _setter("input_schema", input_schema)
         _setter("name_prefix", name_prefix)
         if input_parallelism is not None:
@@ -216,9 +244,19 @@ class ApplicationInputLambdaProcessor(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -245,7 +283,9 @@ class ApplicationInputParallelism(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -284,7 +324,11 @@ class ApplicationInputProcessingConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              input_lambda_processor: Optional['outputs.ApplicationInputLambdaProcessor'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_lambda_processor is None and 'inputLambdaProcessor' in kwargs:
+            input_lambda_processor = kwargs['inputLambdaProcessor']
+
         if input_lambda_processor is not None:
             _setter("input_lambda_processor", input_lambda_processor)
 
@@ -330,10 +374,22 @@ class ApplicationInputSchema(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_columns: Sequence['outputs.ApplicationRecordColumn'],
-             record_format: 'outputs.ApplicationRecordFormat',
+             record_columns: Optional[Sequence['outputs.ApplicationRecordColumn']] = None,
+             record_format: Optional['outputs.ApplicationRecordFormat'] = None,
              record_encoding: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_columns is None and 'recordColumns' in kwargs:
+            record_columns = kwargs['recordColumns']
+        if record_columns is None:
+            raise TypeError("Missing 'record_columns' argument")
+        if record_format is None and 'recordFormat' in kwargs:
+            record_format = kwargs['recordFormat']
+        if record_format is None:
+            raise TypeError("Missing 'record_format' argument")
+        if record_encoding is None and 'recordEncoding' in kwargs:
+            record_encoding = kwargs['recordEncoding']
+
         _setter("record_columns", record_columns)
         _setter("record_format", record_format)
         if record_encoding is not None:
@@ -383,8 +439,14 @@ class ApplicationJsonMappingParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_row_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             record_row_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_row_path is None and 'recordRowPath' in kwargs:
+            record_row_path = kwargs['recordRowPath']
+        if record_row_path is None:
+            raise TypeError("Missing 'record_row_path' argument")
+
         _setter("record_row_path", record_row_path)
 
     @property
@@ -425,9 +487,19 @@ class ApplicationKinesisFirehoseInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -474,9 +546,19 @@ class ApplicationKinesisStreamsInput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -525,7 +607,13 @@ class ApplicationMappingParameters(dict):
              _setter: Callable[[Any, Any], None],
              csv_mapping_parameters: Optional['outputs.ApplicationCsvMappingParameters'] = None,
              json_mapping_parameters: Optional['outputs.ApplicationJsonMappingParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if csv_mapping_parameters is None and 'csvMappingParameters' in kwargs:
+            csv_mapping_parameters = kwargs['csvMappingParameters']
+        if json_mapping_parameters is None and 'jsonMappingParameters' in kwargs:
+            json_mapping_parameters = kwargs['jsonMappingParameters']
+
         if csv_mapping_parameters is not None:
             _setter("csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -571,7 +659,11 @@ class ApplicationOutputResourceDestinationSchema(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              record_format_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_format_type is None and 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+
         if record_format_type is not None:
             _setter("record_format_type", record_format_type)
 
@@ -613,9 +705,19 @@ class ApplicationOutputResourceKinesisFirehoseOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -662,9 +764,19 @@ class ApplicationOutputResourceKinesisStreamsOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -711,9 +823,19 @@ class ApplicationOutputResourceLambdaOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_arn: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_arn is None and 'resourceArn' in kwargs:
+            resource_arn = kwargs['resourceArn']
+        if resource_arn is None:
+            raise TypeError("Missing 'resource_arn' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("resource_arn", resource_arn)
         _setter("role_arn", role_arn)
 
@@ -770,12 +892,24 @@ class ApplicationOutputResourceOutput(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_schema: 'outputs.ApplicationOutputResourceDestinationSchema',
+             destination_schema: Optional['outputs.ApplicationOutputResourceDestinationSchema'] = None,
              kinesis_firehose_output: Optional['outputs.ApplicationOutputResourceKinesisFirehoseOutput'] = None,
              kinesis_streams_output: Optional['outputs.ApplicationOutputResourceKinesisStreamsOutput'] = None,
              lambda_output: Optional['outputs.ApplicationOutputResourceLambdaOutput'] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_schema is None and 'destinationSchema' in kwargs:
+            destination_schema = kwargs['destinationSchema']
+        if destination_schema is None:
+            raise TypeError("Missing 'destination_schema' argument")
+        if kinesis_firehose_output is None and 'kinesisFirehoseOutput' in kwargs:
+            kinesis_firehose_output = kwargs['kinesisFirehoseOutput']
+        if kinesis_streams_output is None and 'kinesisStreamsOutput' in kwargs:
+            kinesis_streams_output = kwargs['kinesisStreamsOutput']
+        if lambda_output is None and 'lambdaOutput' in kwargs:
+            lambda_output = kwargs['lambdaOutput']
+
         _setter("destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
             _setter("kinesis_firehose_output", kinesis_firehose_output)
@@ -844,10 +978,18 @@ class ApplicationRecordColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             sql_type: str,
+             name: Optional[str] = None,
+             sql_type: Optional[str] = None,
              mapping: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sql_type is None and 'sqlType' in kwargs:
+            sql_type = kwargs['sqlType']
+        if sql_type is None:
+            raise TypeError("Missing 'sql_type' argument")
+
         _setter("name", name)
         _setter("sql_type", sql_type)
         if mapping is not None:
@@ -901,9 +1043,17 @@ class ApplicationRecordFormat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_format_type: str,
+             record_format_type: Optional[str] = None,
              mapping_parameters: Optional['outputs.ApplicationMappingParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_format_type is None and 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+        if record_format_type is None:
+            raise TypeError("Missing 'record_format_type' argument")
+        if mapping_parameters is None and 'mappingParameters' in kwargs:
+            mapping_parameters = kwargs['mappingParameters']
+
         _setter("record_format_type", record_format_type)
         if mapping_parameters is not None:
             _setter("mapping_parameters", mapping_parameters)
@@ -951,9 +1101,19 @@ class ApplicationReferenceDataSourceCsvMappingParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_column_delimiter: str,
-             record_row_delimiter: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             record_column_delimiter: Optional[str] = None,
+             record_row_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_column_delimiter is None and 'recordColumnDelimiter' in kwargs:
+            record_column_delimiter = kwargs['recordColumnDelimiter']
+        if record_column_delimiter is None:
+            raise TypeError("Missing 'record_column_delimiter' argument")
+        if record_row_delimiter is None and 'recordRowDelimiter' in kwargs:
+            record_row_delimiter = kwargs['recordRowDelimiter']
+        if record_row_delimiter is None:
+            raise TypeError("Missing 'record_row_delimiter' argument")
+
         _setter("record_column_delimiter", record_column_delimiter)
         _setter("record_row_delimiter", record_row_delimiter)
 
@@ -996,8 +1156,14 @@ class ApplicationReferenceDataSourceJsonMappingParameters(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_row_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             record_row_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_row_path is None and 'recordRowPath' in kwargs:
+            record_row_path = kwargs['recordRowPath']
+        if record_row_path is None:
+            raise TypeError("Missing 'record_row_path' argument")
+
         _setter("record_row_path", record_row_path)
 
     @property
@@ -1040,7 +1206,13 @@ class ApplicationReferenceDataSourceMappingParameters(dict):
              _setter: Callable[[Any, Any], None],
              csv_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceCsvMappingParameters'] = None,
              json_mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceJsonMappingParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if csv_mapping_parameters is None and 'csvMappingParameters' in kwargs:
+            csv_mapping_parameters = kwargs['csvMappingParameters']
+        if json_mapping_parameters is None and 'jsonMappingParameters' in kwargs:
+            json_mapping_parameters = kwargs['jsonMappingParameters']
+
         if csv_mapping_parameters is not None:
             _setter("csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
@@ -1089,10 +1261,18 @@ class ApplicationReferenceDataSourceRecordColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             sql_type: str,
+             name: Optional[str] = None,
+             sql_type: Optional[str] = None,
              mapping: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if sql_type is None and 'sqlType' in kwargs:
+            sql_type = kwargs['sqlType']
+        if sql_type is None:
+            raise TypeError("Missing 'sql_type' argument")
+
         _setter("name", name)
         _setter("sql_type", sql_type)
         if mapping is not None:
@@ -1146,9 +1326,17 @@ class ApplicationReferenceDataSourceRecordFormat(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_format_type: str,
+             record_format_type: Optional[str] = None,
              mapping_parameters: Optional['outputs.ApplicationReferenceDataSourceMappingParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_format_type is None and 'recordFormatType' in kwargs:
+            record_format_type = kwargs['recordFormatType']
+        if record_format_type is None:
+            raise TypeError("Missing 'record_format_type' argument")
+        if mapping_parameters is None and 'mappingParameters' in kwargs:
+            mapping_parameters = kwargs['mappingParameters']
+
         _setter("record_format_type", record_format_type)
         if mapping_parameters is not None:
             _setter("mapping_parameters", mapping_parameters)
@@ -1200,10 +1388,20 @@ class ApplicationReferenceDataSourceReferenceDataSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             reference_schema: 'outputs.ApplicationReferenceDataSourceReferenceSchema',
+             reference_schema: Optional['outputs.ApplicationReferenceDataSourceReferenceSchema'] = None,
              s3_reference_data_source: Optional['outputs.ApplicationReferenceDataSourceS3ReferenceDataSource'] = None,
              table_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if reference_schema is None and 'referenceSchema' in kwargs:
+            reference_schema = kwargs['referenceSchema']
+        if reference_schema is None:
+            raise TypeError("Missing 'reference_schema' argument")
+        if s3_reference_data_source is None and 's3ReferenceDataSource' in kwargs:
+            s3_reference_data_source = kwargs['s3ReferenceDataSource']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         _setter("reference_schema", reference_schema)
         if s3_reference_data_source is not None:
             _setter("s3_reference_data_source", s3_reference_data_source)
@@ -1262,10 +1460,22 @@ class ApplicationReferenceDataSourceReferenceSchema(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             record_columns: Sequence['outputs.ApplicationReferenceDataSourceRecordColumn'],
-             record_format: 'outputs.ApplicationReferenceDataSourceRecordFormat',
+             record_columns: Optional[Sequence['outputs.ApplicationReferenceDataSourceRecordColumn']] = None,
+             record_format: Optional['outputs.ApplicationReferenceDataSourceRecordFormat'] = None,
              record_encoding: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if record_columns is None and 'recordColumns' in kwargs:
+            record_columns = kwargs['recordColumns']
+        if record_columns is None:
+            raise TypeError("Missing 'record_columns' argument")
+        if record_format is None and 'recordFormat' in kwargs:
+            record_format = kwargs['recordFormat']
+        if record_format is None:
+            raise TypeError("Missing 'record_format' argument")
+        if record_encoding is None and 'recordEncoding' in kwargs:
+            record_encoding = kwargs['recordEncoding']
+
         _setter("record_columns", record_columns)
         _setter("record_format", record_format)
         if record_encoding is not None:
@@ -1323,10 +1533,24 @@ class ApplicationReferenceDataSourceS3ReferenceDataSource(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_arn: str,
-             file_key: str,
-             reference_role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket_arn: Optional[str] = None,
+             file_key: Optional[str] = None,
+             reference_role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_arn is None and 'bucketArn' in kwargs:
+            bucket_arn = kwargs['bucketArn']
+        if bucket_arn is None:
+            raise TypeError("Missing 'bucket_arn' argument")
+        if file_key is None and 'fileKey' in kwargs:
+            file_key = kwargs['fileKey']
+        if file_key is None:
+            raise TypeError("Missing 'file_key' argument")
+        if reference_role_arn is None and 'referenceRoleArn' in kwargs:
+            reference_role_arn = kwargs['referenceRoleArn']
+        if reference_role_arn is None:
+            raise TypeError("Missing 'reference_role_arn' argument")
+
         _setter("bucket_arn", bucket_arn)
         _setter("file_key", file_key)
         _setter("reference_role_arn", reference_role_arn)

@@ -57,9 +57,13 @@ class CustomDbEngineVersionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -107,9 +111,17 @@ class DbClusterDbClusterRoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              feature_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if feature_name is None and 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+
         _setter("role_arn", role_arn)
         if feature_name is not None:
             _setter("feature_name", feature_name)
@@ -158,7 +170,13 @@ class DbClusterMasterUserSecretArgs:
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
              secret_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
@@ -207,9 +225,13 @@ class DbClusterParameterGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -254,7 +276,9 @@ class DbClusterReadEndpointArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if address is not None:
             _setter("address", address)
 
@@ -318,7 +342,21 @@ class DbClusterScalingConfigurationArgs:
              seconds_before_timeout: Optional[pulumi.Input[int]] = None,
              seconds_until_auto_pause: Optional[pulumi.Input[int]] = None,
              timeout_action: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_pause is None and 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if seconds_before_timeout is None and 'secondsBeforeTimeout' in kwargs:
+            seconds_before_timeout = kwargs['secondsBeforeTimeout']
+        if seconds_until_auto_pause is None and 'secondsUntilAutoPause' in kwargs:
+            seconds_until_auto_pause = kwargs['secondsUntilAutoPause']
+        if timeout_action is None and 'timeoutAction' in kwargs:
+            timeout_action = kwargs['timeoutAction']
+
         if auto_pause is not None:
             _setter("auto_pause", auto_pause)
         if max_capacity is not None:
@@ -436,7 +474,13 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
              _setter: Callable[[Any, Any], None],
              max_capacity: Optional[pulumi.Input[float]] = None,
              min_capacity: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+
         if max_capacity is not None:
             _setter("max_capacity", max_capacity)
         if min_capacity is not None:
@@ -485,9 +529,13 @@ class DbClusterTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -536,7 +584,13 @@ class DbInstanceCertificateDetailsArgs:
              _setter: Callable[[Any, Any], None],
              ca_identifier: Optional[pulumi.Input[str]] = None,
              valid_till: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ca_identifier is None and 'caIdentifier' in kwargs:
+            ca_identifier = kwargs['caIdentifier']
+        if valid_till is None and 'validTill' in kwargs:
+            valid_till = kwargs['validTill']
+
         if ca_identifier is not None:
             _setter("ca_identifier", ca_identifier)
         if valid_till is not None:
@@ -584,9 +638,19 @@ class DbInstanceDbInstanceRoleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             feature_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             feature_name: Optional[pulumi.Input[str]] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if feature_name is None and 'featureName' in kwargs:
+            feature_name = kwargs['featureName']
+        if feature_name is None:
+            raise TypeError("Missing 'feature_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("feature_name", feature_name)
         _setter("role_arn", role_arn)
 
@@ -638,7 +702,11 @@ class DbInstanceEndpointArgs:
              address: Optional[pulumi.Input[str]] = None,
              hosted_zone_id: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosted_zone_id is None and 'hostedZoneId' in kwargs:
+            hosted_zone_id = kwargs['hostedZoneId']
+
         if address is not None:
             _setter("address", address)
         if hosted_zone_id is not None:
@@ -702,7 +770,13 @@ class DbInstanceMasterUserSecretArgs:
              _setter: Callable[[Any, Any], None],
              kms_key_id: Optional[pulumi.Input[str]] = None,
              secret_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
         if secret_arn is not None:
@@ -752,7 +826,9 @@ class DbInstanceProcessorFeatureArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input['DbInstanceProcessorFeatureName']] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -801,9 +877,13 @@ class DbInstanceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -851,9 +931,13 @@ class DbParameterGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -914,7 +998,17 @@ class DbProxyAuthFormatArgs:
              description: Optional[pulumi.Input[str]] = None,
              iam_auth: Optional[pulumi.Input['DbProxyAuthFormatIamAuth']] = None,
              secret_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_scheme is None and 'authScheme' in kwargs:
+            auth_scheme = kwargs['authScheme']
+        if client_password_auth_type is None and 'clientPasswordAuthType' in kwargs:
+            client_password_auth_type = kwargs['clientPasswordAuthType']
+        if iam_auth is None and 'iamAuth' in kwargs:
+            iam_auth = kwargs['iamAuth']
+        if secret_arn is None and 'secretArn' in kwargs:
+            secret_arn = kwargs['secretArn']
+
         if auth_scheme is not None:
             _setter("auth_scheme", auth_scheme)
         if client_password_auth_type is not None:
@@ -1002,7 +1096,9 @@ class DbProxyEndpointTagFormatArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1042,7 +1138,9 @@ class DbProxyTagFormatArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -1098,7 +1196,19 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
              max_connections_percent: Optional[pulumi.Input[int]] = None,
              max_idle_connections_percent: Optional[pulumi.Input[int]] = None,
              session_pinning_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_borrow_timeout is None and 'connectionBorrowTimeout' in kwargs:
+            connection_borrow_timeout = kwargs['connectionBorrowTimeout']
+        if init_query is None and 'initQuery' in kwargs:
+            init_query = kwargs['initQuery']
+        if max_connections_percent is None and 'maxConnectionsPercent' in kwargs:
+            max_connections_percent = kwargs['maxConnectionsPercent']
+        if max_idle_connections_percent is None and 'maxIdleConnectionsPercent' in kwargs:
+            max_idle_connections_percent = kwargs['maxIdleConnectionsPercent']
+        if session_pinning_filters is None and 'sessionPinningFilters' in kwargs:
+            session_pinning_filters = kwargs['sessionPinningFilters']
+
         if connection_borrow_timeout is not None:
             _setter("connection_borrow_timeout", connection_borrow_timeout)
         if init_query is not None:
@@ -1192,7 +1302,15 @@ class DbSecurityGroupIngressArgs:
              ec2_security_group_id: Optional[pulumi.Input[str]] = None,
              ec2_security_group_name: Optional[pulumi.Input[str]] = None,
              ec2_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ec2_security_group_id is None and 'ec2SecurityGroupId' in kwargs:
+            ec2_security_group_id = kwargs['ec2SecurityGroupId']
+        if ec2_security_group_name is None and 'ec2SecurityGroupName' in kwargs:
+            ec2_security_group_name = kwargs['ec2SecurityGroupName']
+        if ec2_security_group_owner_id is None and 'ec2SecurityGroupOwnerId' in kwargs:
+            ec2_security_group_owner_id = kwargs['ec2SecurityGroupOwnerId']
+
         if cidrip is not None:
             _setter("cidrip", cidrip)
         if ec2_security_group_id is not None:
@@ -1252,9 +1370,15 @@ class DbSecurityGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1295,9 +1419,13 @@ class DbSubnetGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1345,9 +1473,13 @@ class EventSubscriptionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)
@@ -1407,13 +1539,27 @@ class OptionGroupOptionConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             option_name: pulumi.Input[str],
+             option_name: Optional[pulumi.Input[str]] = None,
              db_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionSettingArgs']]]] = None,
              option_version: Optional[pulumi.Input[str]] = None,
              port: Optional[pulumi.Input[int]] = None,
              vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if option_name is None and 'optionName' in kwargs:
+            option_name = kwargs['optionName']
+        if option_name is None:
+            raise TypeError("Missing 'option_name' argument")
+        if db_security_group_memberships is None and 'dbSecurityGroupMemberships' in kwargs:
+            db_security_group_memberships = kwargs['dbSecurityGroupMemberships']
+        if option_settings is None and 'optionSettings' in kwargs:
+            option_settings = kwargs['optionSettings']
+        if option_version is None and 'optionVersion' in kwargs:
+            option_version = kwargs['optionVersion']
+        if vpc_security_group_memberships is None and 'vpcSecurityGroupMemberships' in kwargs:
+            vpc_security_group_memberships = kwargs['vpcSecurityGroupMemberships']
+
         _setter("option_name", option_name)
         if db_security_group_memberships is not None:
             _setter("db_security_group_memberships", db_security_group_memberships)
@@ -1519,7 +1665,9 @@ class OptionGroupOptionSettingArgs:
              _setter: Callable[[Any, Any], None],
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
         if value is not None:
@@ -1568,9 +1716,13 @@ class OptionGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
+             key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+
         _setter("key", key)
         if value is not None:
             _setter("value", value)

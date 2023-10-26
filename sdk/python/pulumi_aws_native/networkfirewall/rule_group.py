@@ -38,13 +38,23 @@ class RuleGroupInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             type: pulumi.Input['RuleGroupTypeEnum'],
+             capacity: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input['RuleGroupTypeEnum']] = None,
              description: Optional[pulumi.Input[str]] = None,
              rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
              rule_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if rule_group is None and 'ruleGroup' in kwargs:
+            rule_group = kwargs['ruleGroup']
+        if rule_group_name is None and 'ruleGroupName' in kwargs:
+            rule_group_name = kwargs['ruleGroupName']
+
         _setter("capacity", capacity)
         _setter("type", type)
         if description is not None:
@@ -176,11 +186,7 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["description"] = description
-            if rule_group is not None and not isinstance(rule_group, RuleGroupArgs):
-                rule_group = rule_group or {}
-                def _setter(key, value):
-                    rule_group[key] = value
-                RuleGroupArgs._configure(_setter, **rule_group)
+            rule_group = _utilities.configure(rule_group, RuleGroupArgs, True)
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rule_group_name"] = rule_group_name
             __props__.__dict__["tags"] = tags

@@ -36,12 +36,26 @@ class PlaceIndexArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_source: pulumi.Input[str],
-             index_name: pulumi.Input[str],
+             data_source: Optional[pulumi.Input[str]] = None,
+             index_name: Optional[pulumi.Input[str]] = None,
              data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_source is None and 'dataSource' in kwargs:
+            data_source = kwargs['dataSource']
+        if data_source is None:
+            raise TypeError("Missing 'data_source' argument")
+        if index_name is None and 'indexName' in kwargs:
+            index_name = kwargs['indexName']
+        if index_name is None:
+            raise TypeError("Missing 'index_name' argument")
+        if data_source_configuration is None and 'dataSourceConfiguration' in kwargs:
+            data_source_configuration = kwargs['dataSourceConfiguration']
+        if pricing_plan is None and 'pricingPlan' in kwargs:
+            pricing_plan = kwargs['pricingPlan']
+
         _setter("data_source", data_source)
         _setter("index_name", index_name)
         if data_source_configuration is not None:
@@ -159,11 +173,7 @@ class PlaceIndex(pulumi.CustomResource):
             if data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source'")
             __props__.__dict__["data_source"] = data_source
-            if data_source_configuration is not None and not isinstance(data_source_configuration, PlaceIndexDataSourceConfigurationArgs):
-                data_source_configuration = data_source_configuration or {}
-                def _setter(key, value):
-                    data_source_configuration[key] = value
-                PlaceIndexDataSourceConfigurationArgs._configure(_setter, **data_source_configuration)
+            data_source_configuration = _utilities.configure(data_source_configuration, PlaceIndexDataSourceConfigurationArgs, True)
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if index_name is None and not opts.urn:

@@ -34,9 +34,15 @@ class BrokerConfigurationIdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+
         _setter("id", id)
         _setter("revision", revision)
 
@@ -72,9 +78,17 @@ class BrokerEncryptionOptionsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             use_aws_owned_key: pulumi.Input[bool],
+             use_aws_owned_key: Optional[pulumi.Input[bool]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if use_aws_owned_key is None and 'useAwsOwnedKey' in kwargs:
+            use_aws_owned_key = kwargs['useAwsOwnedKey']
+        if use_aws_owned_key is None:
+            raise TypeError("Missing 'use_aws_owned_key' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+
         _setter("use_aws_owned_key", use_aws_owned_key)
         if kms_key_id is not None:
             _setter("kms_key_id", kms_key_id)
@@ -129,18 +143,54 @@ class BrokerLdapServerMetadataArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hosts: pulumi.Input[Sequence[pulumi.Input[str]]],
-             role_base: pulumi.Input[str],
-             role_search_matching: pulumi.Input[str],
-             service_account_password: pulumi.Input[str],
-             service_account_username: pulumi.Input[str],
-             user_base: pulumi.Input[str],
-             user_search_matching: pulumi.Input[str],
+             hosts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             role_base: Optional[pulumi.Input[str]] = None,
+             role_search_matching: Optional[pulumi.Input[str]] = None,
+             service_account_password: Optional[pulumi.Input[str]] = None,
+             service_account_username: Optional[pulumi.Input[str]] = None,
+             user_base: Optional[pulumi.Input[str]] = None,
+             user_search_matching: Optional[pulumi.Input[str]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              role_search_subtree: Optional[pulumi.Input[bool]] = None,
              user_role_name: Optional[pulumi.Input[str]] = None,
              user_search_subtree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hosts is None:
+            raise TypeError("Missing 'hosts' argument")
+        if role_base is None and 'roleBase' in kwargs:
+            role_base = kwargs['roleBase']
+        if role_base is None:
+            raise TypeError("Missing 'role_base' argument")
+        if role_search_matching is None and 'roleSearchMatching' in kwargs:
+            role_search_matching = kwargs['roleSearchMatching']
+        if role_search_matching is None:
+            raise TypeError("Missing 'role_search_matching' argument")
+        if service_account_password is None and 'serviceAccountPassword' in kwargs:
+            service_account_password = kwargs['serviceAccountPassword']
+        if service_account_password is None:
+            raise TypeError("Missing 'service_account_password' argument")
+        if service_account_username is None and 'serviceAccountUsername' in kwargs:
+            service_account_username = kwargs['serviceAccountUsername']
+        if service_account_username is None:
+            raise TypeError("Missing 'service_account_username' argument")
+        if user_base is None and 'userBase' in kwargs:
+            user_base = kwargs['userBase']
+        if user_base is None:
+            raise TypeError("Missing 'user_base' argument")
+        if user_search_matching is None and 'userSearchMatching' in kwargs:
+            user_search_matching = kwargs['userSearchMatching']
+        if user_search_matching is None:
+            raise TypeError("Missing 'user_search_matching' argument")
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+        if role_search_subtree is None and 'roleSearchSubtree' in kwargs:
+            role_search_subtree = kwargs['roleSearchSubtree']
+        if user_role_name is None and 'userRoleName' in kwargs:
+            user_role_name = kwargs['userRoleName']
+        if user_search_subtree is None and 'userSearchSubtree' in kwargs:
+            user_search_subtree = kwargs['userSearchSubtree']
+
         _setter("hosts", hosts)
         _setter("role_base", role_base)
         _setter("role_search_matching", role_search_matching)
@@ -272,7 +322,9 @@ class BrokerLogListArgs:
              _setter: Callable[[Any, Any], None],
              audit: Optional[pulumi.Input[bool]] = None,
              general: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if audit is not None:
             _setter("audit", audit)
         if general is not None:
@@ -312,10 +364,24 @@ class BrokerMaintenanceWindowArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input[str],
-             time_of_day: pulumi.Input[str],
-             time_zone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             day_of_week: Optional[pulumi.Input[str]] = None,
+             time_of_day: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if time_of_day is None and 'timeOfDay' in kwargs:
+            time_of_day = kwargs['timeOfDay']
+        if time_of_day is None:
+            raise TypeError("Missing 'time_of_day' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+
         _setter("day_of_week", day_of_week)
         _setter("time_of_day", time_of_day)
         _setter("time_zone", time_zone)
@@ -361,9 +427,15 @@ class BrokerTagsEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -403,11 +475,19 @@ class BrokerUserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
              console_access: Optional[pulumi.Input[bool]] = None,
              groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if console_access is None and 'consoleAccess' in kwargs:
+            console_access = kwargs['consoleAccess']
+
         _setter("password", password)
         _setter("username", username)
         if console_access is not None:
@@ -465,9 +545,15 @@ class ConfigurationAssociationConfigurationIdArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+
         _setter("id", id)
         _setter("revision", revision)
 
@@ -503,9 +589,15 @@ class ConfigurationTagsEntryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

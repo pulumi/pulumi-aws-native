@@ -36,11 +36,21 @@ class ConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auth_parameters: pulumi.Input['ConnectionAuthParametersArgs'],
-             authorization_type: pulumi.Input['ConnectionAuthorizationType'],
+             auth_parameters: Optional[pulumi.Input['ConnectionAuthParametersArgs']] = None,
+             authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_parameters is None and 'authParameters' in kwargs:
+            auth_parameters = kwargs['authParameters']
+        if auth_parameters is None:
+            raise TypeError("Missing 'auth_parameters' argument")
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if authorization_type is None:
+            raise TypeError("Missing 'authorization_type' argument")
+
         _setter("auth_parameters", auth_parameters)
         _setter("authorization_type", authorization_type)
         if description is not None:
@@ -150,11 +160,7 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
-            if auth_parameters is not None and not isinstance(auth_parameters, ConnectionAuthParametersArgs):
-                auth_parameters = auth_parameters or {}
-                def _setter(key, value):
-                    auth_parameters[key] = value
-                ConnectionAuthParametersArgs._configure(_setter, **auth_parameters)
+            auth_parameters = _utilities.configure(auth_parameters, ConnectionAuthParametersArgs, True)
             if auth_parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_parameters'")
             __props__.__dict__["auth_parameters"] = auth_parameters

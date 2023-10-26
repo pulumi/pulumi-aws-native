@@ -41,15 +41,37 @@ class TrafficMirrorSessionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             network_interface_id: pulumi.Input[str],
-             session_number: pulumi.Input[int],
-             traffic_mirror_filter_id: pulumi.Input[str],
-             traffic_mirror_target_id: pulumi.Input[str],
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             session_number: Optional[pulumi.Input[int]] = None,
+             traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
+             traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              packet_length: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficMirrorSessionTagArgs']]]] = None,
              virtual_network_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+        if session_number is None and 'sessionNumber' in kwargs:
+            session_number = kwargs['sessionNumber']
+        if session_number is None:
+            raise TypeError("Missing 'session_number' argument")
+        if traffic_mirror_filter_id is None and 'trafficMirrorFilterId' in kwargs:
+            traffic_mirror_filter_id = kwargs['trafficMirrorFilterId']
+        if traffic_mirror_filter_id is None:
+            raise TypeError("Missing 'traffic_mirror_filter_id' argument")
+        if traffic_mirror_target_id is None and 'trafficMirrorTargetId' in kwargs:
+            traffic_mirror_target_id = kwargs['trafficMirrorTargetId']
+        if traffic_mirror_target_id is None:
+            raise TypeError("Missing 'traffic_mirror_target_id' argument")
+        if packet_length is None and 'packetLength' in kwargs:
+            packet_length = kwargs['packetLength']
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         _setter("network_interface_id", network_interface_id)
         _setter("session_number", session_number)
         _setter("traffic_mirror_filter_id", traffic_mirror_filter_id)

@@ -49,7 +49,19 @@ class DhcpOptionsArgs:
              netbios_node_type: Optional[pulumi.Input[int]] = None,
              ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name_servers is None and 'domainNameServers' in kwargs:
+            domain_name_servers = kwargs['domainNameServers']
+        if netbios_name_servers is None and 'netbiosNameServers' in kwargs:
+            netbios_name_servers = kwargs['netbiosNameServers']
+        if netbios_node_type is None and 'netbiosNodeType' in kwargs:
+            netbios_node_type = kwargs['netbiosNodeType']
+        if ntp_servers is None and 'ntpServers' in kwargs:
+            ntp_servers = kwargs['ntpServers']
+
         if domain_name is not None:
             _setter("domain_name", domain_name)
         if domain_name_servers is not None:

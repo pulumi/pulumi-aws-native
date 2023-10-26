@@ -37,13 +37,31 @@ class DomainArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             sub_domain_settings: pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]],
+             app_id: Optional[pulumi.Input[str]] = None,
+             sub_domain_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]]] = None,
              auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
              domain_name: Optional[pulumi.Input[str]] = None,
              enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if sub_domain_settings is None and 'subDomainSettings' in kwargs:
+            sub_domain_settings = kwargs['subDomainSettings']
+        if sub_domain_settings is None:
+            raise TypeError("Missing 'sub_domain_settings' argument")
+        if auto_sub_domain_creation_patterns is None and 'autoSubDomainCreationPatterns' in kwargs:
+            auto_sub_domain_creation_patterns = kwargs['autoSubDomainCreationPatterns']
+        if auto_sub_domain_iam_role is None and 'autoSubDomainIamRole' in kwargs:
+            auto_sub_domain_iam_role = kwargs['autoSubDomainIamRole']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if enable_auto_sub_domain is None and 'enableAutoSubDomain' in kwargs:
+            enable_auto_sub_domain = kwargs['enableAutoSubDomain']
+
         _setter("app_id", app_id)
         _setter("sub_domain_settings", sub_domain_settings)
         if auto_sub_domain_creation_patterns is not None:

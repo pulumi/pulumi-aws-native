@@ -37,11 +37,19 @@ class AccessPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             vpc_configuration: pulumi.Input['AccessPointVpcConfigurationArgs'],
+             bucket: Optional[pulumi.Input[str]] = None,
+             vpc_configuration: Optional[pulumi.Input['AccessPointVpcConfigurationArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              policy: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if vpc_configuration is None and 'vpcConfiguration' in kwargs:
+            vpc_configuration = kwargs['vpcConfiguration']
+        if vpc_configuration is None:
+            raise TypeError("Missing 'vpc_configuration' argument")
+
         _setter("bucket", bucket)
         _setter("vpc_configuration", vpc_configuration)
         if name is not None:
@@ -164,11 +172,7 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
-            if vpc_configuration is not None and not isinstance(vpc_configuration, AccessPointVpcConfigurationArgs):
-                vpc_configuration = vpc_configuration or {}
-                def _setter(key, value):
-                    vpc_configuration[key] = value
-                AccessPointVpcConfigurationArgs._configure(_setter, **vpc_configuration)
+            vpc_configuration = _utilities.configure(vpc_configuration, AccessPointVpcConfigurationArgs, True)
             if vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_configuration'")
             __props__.__dict__["vpc_configuration"] = vpc_configuration

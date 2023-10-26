@@ -41,9 +41,15 @@ class CollectionTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -92,11 +98,21 @@ class StreamProcessorBoundingBoxArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             height: pulumi.Input[float],
-             left: pulumi.Input[float],
-             top: pulumi.Input[float],
-             width: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             height: Optional[pulumi.Input[float]] = None,
+             left: Optional[pulumi.Input[float]] = None,
+             top: Optional[pulumi.Input[float]] = None,
+             width: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if height is None:
+            raise TypeError("Missing 'height' argument")
+        if left is None:
+            raise TypeError("Missing 'left' argument")
+        if top is None:
+            raise TypeError("Missing 'top' argument")
+        if width is None:
+            raise TypeError("Missing 'width' argument")
+
         _setter("height", height)
         _setter("left", left)
         _setter("top", top)
@@ -156,9 +172,15 @@ class StreamProcessorConnectedHomeSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             labels: pulumi.Input[Sequence[pulumi.Input[str]]],
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              min_confidence: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if labels is None:
+            raise TypeError("Missing 'labels' argument")
+        if min_confidence is None and 'minConfidence' in kwargs:
+            min_confidence = kwargs['minConfidence']
+
         _setter("labels", labels)
         if min_confidence is not None:
             _setter("min_confidence", min_confidence)
@@ -200,8 +222,14 @@ class StreamProcessorDataSharingPreferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opt_in: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opt_in: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if opt_in is None and 'optIn' in kwargs:
+            opt_in = kwargs['optIn']
+        if opt_in is None:
+            raise TypeError("Missing 'opt_in' argument")
+
         _setter("opt_in", opt_in)
 
     @property
@@ -235,9 +263,17 @@ class StreamProcessorFaceSearchSettingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             collection_id: pulumi.Input[str],
+             collection_id: Optional[pulumi.Input[str]] = None,
              face_match_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if collection_id is None and 'collectionId' in kwargs:
+            collection_id = kwargs['collectionId']
+        if collection_id is None:
+            raise TypeError("Missing 'collection_id' argument")
+        if face_match_threshold is None and 'faceMatchThreshold' in kwargs:
+            face_match_threshold = kwargs['faceMatchThreshold']
+
         _setter("collection_id", collection_id)
         if face_match_threshold is not None:
             _setter("face_match_threshold", face_match_threshold)
@@ -282,8 +318,12 @@ class StreamProcessorKinesisDataStreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+
         _setter("arn", arn)
 
     @property
@@ -314,8 +354,12 @@ class StreamProcessorKinesisVideoStreamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+
         _setter("arn", arn)
 
     @property
@@ -346,8 +390,12 @@ class StreamProcessorNotificationChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+
         _setter("arn", arn)
 
     @property
@@ -381,9 +429,15 @@ class StreamProcessorPointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             x: pulumi.Input[float],
-             y: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             x: Optional[pulumi.Input[float]] = None,
+             y: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if x is None:
+            raise TypeError("Missing 'x' argument")
+        if y is None:
+            raise TypeError("Missing 'y' argument")
+
         _setter("x", x)
         _setter("y", y)
 
@@ -430,9 +484,17 @@ class StreamProcessorS3DestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
              object_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if object_key_prefix is None and 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+
         _setter("bucket_name", bucket_name)
         if object_key_prefix is not None:
             _setter("object_key_prefix", object_key_prefix)
@@ -480,9 +542,15 @@ class StreamProcessorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

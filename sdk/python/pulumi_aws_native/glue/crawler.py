@@ -51,8 +51,8 @@ class CrawlerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role: pulumi.Input[str],
-             targets: pulumi.Input['CrawlerTargetsArgs'],
+             role: Optional[pulumi.Input[str]] = None,
+             targets: Optional[pulumi.Input['CrawlerTargetsArgs']] = None,
              classifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              configuration: Optional[pulumi.Input[str]] = None,
              crawler_security_configuration: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,23 @@ class CrawlerArgs:
              schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
              table_prefix: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if targets is None:
+            raise TypeError("Missing 'targets' argument")
+        if crawler_security_configuration is None and 'crawlerSecurityConfiguration' in kwargs:
+            crawler_security_configuration = kwargs['crawlerSecurityConfiguration']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if recrawl_policy is None and 'recrawlPolicy' in kwargs:
+            recrawl_policy = kwargs['recrawlPolicy']
+        if schema_change_policy is None and 'schemaChangePolicy' in kwargs:
+            schema_change_policy = kwargs['schemaChangePolicy']
+        if table_prefix is None and 'tablePrefix' in kwargs:
+            table_prefix = kwargs['tablePrefix']
+
         _setter("role", role)
         _setter("targets", targets)
         if classifiers is not None:
@@ -295,34 +311,18 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if recrawl_policy is not None and not isinstance(recrawl_policy, CrawlerRecrawlPolicyArgs):
-                recrawl_policy = recrawl_policy or {}
-                def _setter(key, value):
-                    recrawl_policy[key] = value
-                CrawlerRecrawlPolicyArgs._configure(_setter, **recrawl_policy)
+            recrawl_policy = _utilities.configure(recrawl_policy, CrawlerRecrawlPolicyArgs, True)
             __props__.__dict__["recrawl_policy"] = recrawl_policy
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
-            if schedule is not None and not isinstance(schedule, CrawlerScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                CrawlerScheduleArgs._configure(_setter, **schedule)
+            schedule = _utilities.configure(schedule, CrawlerScheduleArgs, True)
             __props__.__dict__["schedule"] = schedule
-            if schema_change_policy is not None and not isinstance(schema_change_policy, CrawlerSchemaChangePolicyArgs):
-                schema_change_policy = schema_change_policy or {}
-                def _setter(key, value):
-                    schema_change_policy[key] = value
-                CrawlerSchemaChangePolicyArgs._configure(_setter, **schema_change_policy)
+            schema_change_policy = _utilities.configure(schema_change_policy, CrawlerSchemaChangePolicyArgs, True)
             __props__.__dict__["schema_change_policy"] = schema_change_policy
             __props__.__dict__["table_prefix"] = table_prefix
             __props__.__dict__["tags"] = tags
-            if targets is not None and not isinstance(targets, CrawlerTargetsArgs):
-                targets = targets or {}
-                def _setter(key, value):
-                    targets[key] = value
-                CrawlerTargetsArgs._configure(_setter, **targets)
+            targets = _utilities.configure(targets, CrawlerTargetsArgs, True)
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets

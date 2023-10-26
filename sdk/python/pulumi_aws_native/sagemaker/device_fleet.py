@@ -40,12 +40,24 @@ class DeviceFleetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             output_config: pulumi.Input['DeviceFleetEdgeOutputConfigArgs'],
-             role_arn: pulumi.Input[str],
+             output_config: Optional[pulumi.Input['DeviceFleetEdgeOutputConfigArgs']] = None,
+             role_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              device_fleet_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceFleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if output_config is None and 'outputConfig' in kwargs:
+            output_config = kwargs['outputConfig']
+        if output_config is None:
+            raise TypeError("Missing 'output_config' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if device_fleet_name is None and 'deviceFleetName' in kwargs:
+            device_fleet_name = kwargs['deviceFleetName']
+
         _setter("output_config", output_config)
         _setter("role_arn", role_arn)
         if description is not None:
@@ -182,11 +194,7 @@ class DeviceFleet(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["device_fleet_name"] = device_fleet_name
-            if output_config is not None and not isinstance(output_config, DeviceFleetEdgeOutputConfigArgs):
-                output_config = output_config or {}
-                def _setter(key, value):
-                    output_config[key] = value
-                DeviceFleetEdgeOutputConfigArgs._configure(_setter, **output_config)
+            output_config = _utilities.configure(output_config, DeviceFleetEdgeOutputConfigArgs, True)
             if output_config is None and not opts.urn:
                 raise TypeError("Missing required property 'output_config'")
             __props__.__dict__["output_config"] = output_config

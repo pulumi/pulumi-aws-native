@@ -28,8 +28,14 @@ class ReplicationConfigurationInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             replication_configuration: pulumi.Input['ReplicationConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             replication_configuration: Optional[pulumi.Input['ReplicationConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if replication_configuration is None and 'replicationConfiguration' in kwargs:
+            replication_configuration = kwargs['replicationConfiguration']
+        if replication_configuration is None:
+            raise TypeError("Missing 'replication_configuration' argument")
+
         _setter("replication_configuration", replication_configuration)
 
     @property
@@ -93,11 +99,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationConfigurationInitArgs.__new__(ReplicationConfigurationInitArgs)
 
-            if replication_configuration is not None and not isinstance(replication_configuration, ReplicationConfigurationArgs):
-                replication_configuration = replication_configuration or {}
-                def _setter(key, value):
-                    replication_configuration[key] = value
-                ReplicationConfigurationArgs._configure(_setter, **replication_configuration)
+            replication_configuration = _utilities.configure(replication_configuration, ReplicationConfigurationArgs, True)
             if replication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_configuration'")
             __props__.__dict__["replication_configuration"] = replication_configuration

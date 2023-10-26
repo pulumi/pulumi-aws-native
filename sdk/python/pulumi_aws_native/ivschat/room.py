@@ -49,7 +49,17 @@ class RoomArgs:
              message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if logging_configuration_identifiers is None and 'loggingConfigurationIdentifiers' in kwargs:
+            logging_configuration_identifiers = kwargs['loggingConfigurationIdentifiers']
+        if maximum_message_length is None and 'maximumMessageLength' in kwargs:
+            maximum_message_length = kwargs['maximumMessageLength']
+        if maximum_message_rate_per_second is None and 'maximumMessageRatePerSecond' in kwargs:
+            maximum_message_rate_per_second = kwargs['maximumMessageRatePerSecond']
+        if message_review_handler is None and 'messageReviewHandler' in kwargs:
+            message_review_handler = kwargs['messageReviewHandler']
+
         if logging_configuration_identifiers is not None:
             _setter("logging_configuration_identifiers", logging_configuration_identifiers)
         if maximum_message_length is not None:
@@ -202,11 +212,7 @@ class Room(pulumi.CustomResource):
             __props__.__dict__["logging_configuration_identifiers"] = logging_configuration_identifiers
             __props__.__dict__["maximum_message_length"] = maximum_message_length
             __props__.__dict__["maximum_message_rate_per_second"] = maximum_message_rate_per_second
-            if message_review_handler is not None and not isinstance(message_review_handler, RoomMessageReviewHandlerArgs):
-                message_review_handler = message_review_handler or {}
-                def _setter(key, value):
-                    message_review_handler[key] = value
-                RoomMessageReviewHandlerArgs._configure(_setter, **message_review_handler)
+            message_review_handler = _utilities.configure(message_review_handler, RoomMessageReviewHandlerArgs, True)
             __props__.__dict__["message_review_handler"] = message_review_handler
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

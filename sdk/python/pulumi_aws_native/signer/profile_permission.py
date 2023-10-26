@@ -33,12 +33,28 @@ class ProfilePermissionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             principal: pulumi.Input[str],
-             profile_name: pulumi.Input[str],
-             statement_id: pulumi.Input[str],
+             action: Optional[pulumi.Input[str]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             profile_name: Optional[pulumi.Input[str]] = None,
+             statement_id: Optional[pulumi.Input[str]] = None,
              profile_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if profile_name is None and 'profileName' in kwargs:
+            profile_name = kwargs['profileName']
+        if profile_name is None:
+            raise TypeError("Missing 'profile_name' argument")
+        if statement_id is None and 'statementId' in kwargs:
+            statement_id = kwargs['statementId']
+        if statement_id is None:
+            raise TypeError("Missing 'statement_id' argument")
+        if profile_version is None and 'profileVersion' in kwargs:
+            profile_version = kwargs['profileVersion']
+
         _setter("action", action)
         _setter("principal", principal)
         _setter("profile_name", profile_name)

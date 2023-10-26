@@ -29,10 +29,20 @@ class DomainNameArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate_arn: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
+             certificate_arn: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if certificate_arn is None:
+            raise TypeError("Missing 'certificate_arn' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+
         _setter("certificate_arn", certificate_arn)
         _setter("domain_name", domain_name)
         if description is not None:

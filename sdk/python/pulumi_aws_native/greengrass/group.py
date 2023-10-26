@@ -37,7 +37,13 @@ class GroupArgs:
              name: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if initial_version is None and 'initialVersion' in kwargs:
+            initial_version = kwargs['initialVersion']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         if initial_version is not None:
             _setter("initial_version", initial_version)
         if name is not None:
@@ -147,11 +153,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupArgs.__new__(GroupArgs)
 
-            if initial_version is not None and not isinstance(initial_version, GroupVersionArgs):
-                initial_version = initial_version or {}
-                def _setter(key, value):
-                    initial_version[key] = value
-                GroupVersionArgs._configure(_setter, **initial_version)
+            initial_version = _utilities.configure(initial_version, GroupVersionArgs, True)
             __props__.__dict__["initial_version"] = initial_version
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn

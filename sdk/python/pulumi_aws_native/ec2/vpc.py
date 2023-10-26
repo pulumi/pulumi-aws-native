@@ -59,7 +59,21 @@ class VpcArgs:
              ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
              ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cidr_block is None and 'cidrBlock' in kwargs:
+            cidr_block = kwargs['cidrBlock']
+        if enable_dns_hostnames is None and 'enableDnsHostnames' in kwargs:
+            enable_dns_hostnames = kwargs['enableDnsHostnames']
+        if enable_dns_support is None and 'enableDnsSupport' in kwargs:
+            enable_dns_support = kwargs['enableDnsSupport']
+        if instance_tenancy is None and 'instanceTenancy' in kwargs:
+            instance_tenancy = kwargs['instanceTenancy']
+        if ipv4_ipam_pool_id is None and 'ipv4IpamPoolId' in kwargs:
+            ipv4_ipam_pool_id = kwargs['ipv4IpamPoolId']
+        if ipv4_netmask_length is None and 'ipv4NetmaskLength' in kwargs:
+            ipv4_netmask_length = kwargs['ipv4NetmaskLength']
+
         if cidr_block is not None:
             _setter("cidr_block", cidr_block)
         if enable_dns_hostnames is not None:

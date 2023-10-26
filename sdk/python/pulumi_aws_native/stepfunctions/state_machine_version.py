@@ -29,10 +29,18 @@ class StateMachineVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             state_machine_arn: pulumi.Input[str],
+             state_machine_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              state_machine_revision_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if state_machine_arn is None and 'stateMachineArn' in kwargs:
+            state_machine_arn = kwargs['stateMachineArn']
+        if state_machine_arn is None:
+            raise TypeError("Missing 'state_machine_arn' argument")
+        if state_machine_revision_id is None and 'stateMachineRevisionId' in kwargs:
+            state_machine_revision_id = kwargs['stateMachineRevisionId']
+
         _setter("state_machine_arn", state_machine_arn)
         if description is not None:
             _setter("description", description)

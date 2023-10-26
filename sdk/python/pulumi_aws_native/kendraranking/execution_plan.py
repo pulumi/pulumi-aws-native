@@ -40,7 +40,11 @@ class ExecutionPlanArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExecutionPlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if capacity_units is None and 'capacityUnits' in kwargs:
+            capacity_units = kwargs['capacityUnits']
+
         if capacity_units is not None:
             _setter("capacity_units", capacity_units)
         if description is not None:
@@ -156,11 +160,7 @@ class ExecutionPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExecutionPlanArgs.__new__(ExecutionPlanArgs)
 
-            if capacity_units is not None and not isinstance(capacity_units, ExecutionPlanCapacityUnitsConfigurationArgs):
-                capacity_units = capacity_units or {}
-                def _setter(key, value):
-                    capacity_units[key] = value
-                ExecutionPlanCapacityUnitsConfigurationArgs._configure(_setter, **capacity_units)
+            capacity_units = _utilities.configure(capacity_units, ExecutionPlanCapacityUnitsConfigurationArgs, True)
             __props__.__dict__["capacity_units"] = capacity_units
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

@@ -44,13 +44,19 @@ class FindingsFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             finding_criteria: pulumi.Input['FindingsFilterFindingCriteriaArgs'],
+             finding_criteria: Optional[pulumi.Input['FindingsFilterFindingCriteriaArgs']] = None,
              action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              position: Optional[pulumi.Input[int]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if finding_criteria is None and 'findingCriteria' in kwargs:
+            finding_criteria = kwargs['findingCriteria']
+        if finding_criteria is None:
+            raise TypeError("Missing 'finding_criteria' argument")
+
         _setter("finding_criteria", finding_criteria)
         if action is not None:
             _setter("action", action)
@@ -205,11 +211,7 @@ class FindingsFilter(pulumi.CustomResource):
 
             __props__.__dict__["action"] = action
             __props__.__dict__["description"] = description
-            if finding_criteria is not None and not isinstance(finding_criteria, FindingsFilterFindingCriteriaArgs):
-                finding_criteria = finding_criteria or {}
-                def _setter(key, value):
-                    finding_criteria[key] = value
-                FindingsFilterFindingCriteriaArgs._configure(_setter, **finding_criteria)
+            finding_criteria = _utilities.configure(finding_criteria, FindingsFilterFindingCriteriaArgs, True)
             if finding_criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'finding_criteria'")
             __props__.__dict__["finding_criteria"] = finding_criteria

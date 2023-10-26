@@ -31,7 +31,13 @@ class VdmAttributesArgs:
              _setter: Callable[[Any, Any], None],
              dashboard_attributes: Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']] = None,
              guardian_attributes: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dashboard_attributes is None and 'dashboardAttributes' in kwargs:
+            dashboard_attributes = kwargs['dashboardAttributes']
+        if guardian_attributes is None and 'guardianAttributes' in kwargs:
+            guardian_attributes = kwargs['guardianAttributes']
+
         if dashboard_attributes is not None:
             _setter("dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:
@@ -109,17 +115,9 @@ class VdmAttributes(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VdmAttributesArgs.__new__(VdmAttributesArgs)
 
-            if dashboard_attributes is not None and not isinstance(dashboard_attributes, VdmAttributesDashboardAttributesArgs):
-                dashboard_attributes = dashboard_attributes or {}
-                def _setter(key, value):
-                    dashboard_attributes[key] = value
-                VdmAttributesDashboardAttributesArgs._configure(_setter, **dashboard_attributes)
+            dashboard_attributes = _utilities.configure(dashboard_attributes, VdmAttributesDashboardAttributesArgs, True)
             __props__.__dict__["dashboard_attributes"] = dashboard_attributes
-            if guardian_attributes is not None and not isinstance(guardian_attributes, VdmAttributesGuardianAttributesArgs):
-                guardian_attributes = guardian_attributes or {}
-                def _setter(key, value):
-                    guardian_attributes[key] = value
-                VdmAttributesGuardianAttributesArgs._configure(_setter, **guardian_attributes)
+            guardian_attributes = _utilities.configure(guardian_attributes, VdmAttributesGuardianAttributesArgs, True)
             __props__.__dict__["guardian_attributes"] = guardian_attributes
             __props__.__dict__["vdm_attributes_resource_id"] = None
         super(VdmAttributes, __self__).__init__(

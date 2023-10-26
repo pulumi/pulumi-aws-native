@@ -40,7 +40,15 @@ class IdentityArgs:
              mail_from_attributes: Optional[pulumi.Input['IdentityMailFromAttributesArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dkim_signing_enabled is None and 'dkimSigningEnabled' in kwargs:
+            dkim_signing_enabled = kwargs['dkimSigningEnabled']
+        if feedback_forwarding_enabled is None and 'feedbackForwardingEnabled' in kwargs:
+            feedback_forwarding_enabled = kwargs['feedbackForwardingEnabled']
+        if mail_from_attributes is None and 'mailFromAttributes' in kwargs:
+            mail_from_attributes = kwargs['mailFromAttributes']
+
         if dkim_signing_enabled is not None:
             _setter("dkim_signing_enabled", dkim_signing_enabled)
         if feedback_forwarding_enabled is not None:
@@ -165,11 +173,7 @@ class Identity(pulumi.CustomResource):
 
             __props__.__dict__["dkim_signing_enabled"] = dkim_signing_enabled
             __props__.__dict__["feedback_forwarding_enabled"] = feedback_forwarding_enabled
-            if mail_from_attributes is not None and not isinstance(mail_from_attributes, IdentityMailFromAttributesArgs):
-                mail_from_attributes = mail_from_attributes or {}
-                def _setter(key, value):
-                    mail_from_attributes[key] = value
-                IdentityMailFromAttributesArgs._configure(_setter, **mail_from_attributes)
+            mail_from_attributes = _utilities.configure(mail_from_attributes, IdentityMailFromAttributesArgs, True)
             __props__.__dict__["mail_from_attributes"] = mail_from_attributes
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

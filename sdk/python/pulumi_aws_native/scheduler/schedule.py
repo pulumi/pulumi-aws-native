@@ -55,9 +55,9 @@ class ScheduleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             flexible_time_window: pulumi.Input['ScheduleFlexibleTimeWindowArgs'],
-             schedule_expression: pulumi.Input[str],
-             target: pulumi.Input['ScheduleTargetArgs'],
+             flexible_time_window: Optional[pulumi.Input['ScheduleFlexibleTimeWindowArgs']] = None,
+             schedule_expression: Optional[pulumi.Input[str]] = None,
+             target: Optional[pulumi.Input['ScheduleTargetArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
              end_date: Optional[pulumi.Input[str]] = None,
              group_name: Optional[pulumi.Input[str]] = None,
@@ -66,7 +66,29 @@ class ScheduleArgs:
              schedule_expression_timezone: Optional[pulumi.Input[str]] = None,
              start_date: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input['ScheduleState']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if flexible_time_window is None and 'flexibleTimeWindow' in kwargs:
+            flexible_time_window = kwargs['flexibleTimeWindow']
+        if flexible_time_window is None:
+            raise TypeError("Missing 'flexible_time_window' argument")
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if group_name is None and 'groupName' in kwargs:
+            group_name = kwargs['groupName']
+        if kms_key_arn is None and 'kmsKeyArn' in kwargs:
+            kms_key_arn = kwargs['kmsKeyArn']
+        if schedule_expression_timezone is None and 'scheduleExpressionTimezone' in kwargs:
+            schedule_expression_timezone = kwargs['scheduleExpressionTimezone']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+
         _setter("flexible_time_window", flexible_time_window)
         _setter("schedule_expression", schedule_expression)
         _setter("target", target)
@@ -288,11 +310,7 @@ class Schedule(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["end_date"] = end_date
-            if flexible_time_window is not None and not isinstance(flexible_time_window, ScheduleFlexibleTimeWindowArgs):
-                flexible_time_window = flexible_time_window or {}
-                def _setter(key, value):
-                    flexible_time_window[key] = value
-                ScheduleFlexibleTimeWindowArgs._configure(_setter, **flexible_time_window)
+            flexible_time_window = _utilities.configure(flexible_time_window, ScheduleFlexibleTimeWindowArgs, True)
             if flexible_time_window is None and not opts.urn:
                 raise TypeError("Missing required property 'flexible_time_window'")
             __props__.__dict__["flexible_time_window"] = flexible_time_window
@@ -305,11 +323,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["schedule_expression_timezone"] = schedule_expression_timezone
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["state"] = state
-            if target is not None and not isinstance(target, ScheduleTargetArgs):
-                target = target or {}
-                def _setter(key, value):
-                    target[key] = value
-                ScheduleTargetArgs._configure(_setter, **target)
+            target = _utilities.configure(target, ScheduleTargetArgs, True)
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target

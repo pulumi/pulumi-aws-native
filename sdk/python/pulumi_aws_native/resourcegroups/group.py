@@ -46,7 +46,11 @@ class GroupArgs:
              resource_query: Optional[pulumi.Input['GroupResourceQueryArgs']] = None,
              resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_query is None and 'resourceQuery' in kwargs:
+            resource_query = kwargs['resourceQuery']
+
         if configuration is not None:
             _setter("configuration", configuration)
         if description is not None:
@@ -187,11 +191,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if resource_query is not None and not isinstance(resource_query, GroupResourceQueryArgs):
-                resource_query = resource_query or {}
-                def _setter(key, value):
-                    resource_query[key] = value
-                GroupResourceQueryArgs._configure(_setter, **resource_query)
+            resource_query = _utilities.configure(resource_query, GroupResourceQueryArgs, True)
             __props__.__dict__["resource_query"] = resource_query
             __props__.__dict__["resources"] = resources
             __props__.__dict__["tags"] = tags

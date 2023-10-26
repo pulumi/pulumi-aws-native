@@ -29,10 +29,24 @@ class SecretTargetAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             secret_id: pulumi.Input[str],
-             target_id: pulumi.Input[str],
-             target_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             secret_id: Optional[pulumi.Input[str]] = None,
+             target_id: Optional[pulumi.Input[str]] = None,
+             target_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if secret_id is None and 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if secret_id is None:
+            raise TypeError("Missing 'secret_id' argument")
+        if target_id is None and 'targetId' in kwargs:
+            target_id = kwargs['targetId']
+        if target_id is None:
+            raise TypeError("Missing 'target_id' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+
         _setter("secret_id", secret_id)
         _setter("target_id", target_id)
         _setter("target_type", target_type)

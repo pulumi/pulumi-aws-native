@@ -41,15 +41,33 @@ class DeploymentStrategyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             deployment_duration_in_minutes: pulumi.Input[float],
-             growth_factor: pulumi.Input[float],
-             replicate_to: pulumi.Input[str],
+             deployment_duration_in_minutes: Optional[pulumi.Input[float]] = None,
+             growth_factor: Optional[pulumi.Input[float]] = None,
+             replicate_to: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              final_bake_time_in_minutes: Optional[pulumi.Input[float]] = None,
              growth_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentStrategyTagsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if deployment_duration_in_minutes is None and 'deploymentDurationInMinutes' in kwargs:
+            deployment_duration_in_minutes = kwargs['deploymentDurationInMinutes']
+        if deployment_duration_in_minutes is None:
+            raise TypeError("Missing 'deployment_duration_in_minutes' argument")
+        if growth_factor is None and 'growthFactor' in kwargs:
+            growth_factor = kwargs['growthFactor']
+        if growth_factor is None:
+            raise TypeError("Missing 'growth_factor' argument")
+        if replicate_to is None and 'replicateTo' in kwargs:
+            replicate_to = kwargs['replicateTo']
+        if replicate_to is None:
+            raise TypeError("Missing 'replicate_to' argument")
+        if final_bake_time_in_minutes is None and 'finalBakeTimeInMinutes' in kwargs:
+            final_bake_time_in_minutes = kwargs['finalBakeTimeInMinutes']
+        if growth_type is None and 'growthType' in kwargs:
+            growth_type = kwargs['growthType']
+
         _setter("deployment_duration_in_minutes", deployment_duration_in_minutes)
         _setter("growth_factor", growth_factor)
         _setter("replicate_to", replicate_to)

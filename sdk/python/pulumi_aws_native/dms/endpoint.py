@@ -87,8 +87,8 @@ class EndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_type: pulumi.Input[str],
-             engine_name: pulumi.Input[str],
+             endpoint_type: Optional[pulumi.Input[str]] = None,
+             engine_name: Optional[pulumi.Input[str]] = None,
              certificate_arn: Optional[pulumi.Input[str]] = None,
              database_name: Optional[pulumi.Input[str]] = None,
              doc_db_settings: Optional[pulumi.Input['EndpointDocDbSettingsArgs']] = None,
@@ -118,7 +118,67 @@ class EndpointArgs:
              sybase_settings: Optional[pulumi.Input['EndpointSybaseSettingsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]] = None,
              username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_type is None and 'endpointType' in kwargs:
+            endpoint_type = kwargs['endpointType']
+        if endpoint_type is None:
+            raise TypeError("Missing 'endpoint_type' argument")
+        if engine_name is None and 'engineName' in kwargs:
+            engine_name = kwargs['engineName']
+        if engine_name is None:
+            raise TypeError("Missing 'engine_name' argument")
+        if certificate_arn is None and 'certificateArn' in kwargs:
+            certificate_arn = kwargs['certificateArn']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if doc_db_settings is None and 'docDbSettings' in kwargs:
+            doc_db_settings = kwargs['docDbSettings']
+        if dynamo_db_settings is None and 'dynamoDbSettings' in kwargs:
+            dynamo_db_settings = kwargs['dynamoDbSettings']
+        if elasticsearch_settings is None and 'elasticsearchSettings' in kwargs:
+            elasticsearch_settings = kwargs['elasticsearchSettings']
+        if endpoint_identifier is None and 'endpointIdentifier' in kwargs:
+            endpoint_identifier = kwargs['endpointIdentifier']
+        if extra_connection_attributes is None and 'extraConnectionAttributes' in kwargs:
+            extra_connection_attributes = kwargs['extraConnectionAttributes']
+        if gcp_my_sql_settings is None and 'gcpMySqlSettings' in kwargs:
+            gcp_my_sql_settings = kwargs['gcpMySqlSettings']
+        if ibm_db2_settings is None and 'ibmDb2Settings' in kwargs:
+            ibm_db2_settings = kwargs['ibmDb2Settings']
+        if kafka_settings is None and 'kafkaSettings' in kwargs:
+            kafka_settings = kwargs['kafkaSettings']
+        if kinesis_settings is None and 'kinesisSettings' in kwargs:
+            kinesis_settings = kwargs['kinesisSettings']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if microsoft_sql_server_settings is None and 'microsoftSqlServerSettings' in kwargs:
+            microsoft_sql_server_settings = kwargs['microsoftSqlServerSettings']
+        if mongo_db_settings is None and 'mongoDbSettings' in kwargs:
+            mongo_db_settings = kwargs['mongoDbSettings']
+        if my_sql_settings is None and 'mySqlSettings' in kwargs:
+            my_sql_settings = kwargs['mySqlSettings']
+        if neptune_settings is None and 'neptuneSettings' in kwargs:
+            neptune_settings = kwargs['neptuneSettings']
+        if oracle_settings is None and 'oracleSettings' in kwargs:
+            oracle_settings = kwargs['oracleSettings']
+        if postgre_sql_settings is None and 'postgreSqlSettings' in kwargs:
+            postgre_sql_settings = kwargs['postgreSqlSettings']
+        if redis_settings is None and 'redisSettings' in kwargs:
+            redis_settings = kwargs['redisSettings']
+        if redshift_settings is None and 'redshiftSettings' in kwargs:
+            redshift_settings = kwargs['redshiftSettings']
+        if resource_identifier is None and 'resourceIdentifier' in kwargs:
+            resource_identifier = kwargs['resourceIdentifier']
+        if s3_settings is None and 's3Settings' in kwargs:
+            s3_settings = kwargs['s3Settings']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if ssl_mode is None and 'sslMode' in kwargs:
+            ssl_mode = kwargs['sslMode']
+        if sybase_settings is None and 'sybaseSettings' in kwargs:
+            sybase_settings = kwargs['sybaseSettings']
+
         _setter("endpoint_type", endpoint_type)
         _setter("engine_name", engine_name)
         if certificate_arn is not None:
@@ -579,23 +639,11 @@ class Endpoint(pulumi.CustomResource):
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["database_name"] = database_name
-            if doc_db_settings is not None and not isinstance(doc_db_settings, EndpointDocDbSettingsArgs):
-                doc_db_settings = doc_db_settings or {}
-                def _setter(key, value):
-                    doc_db_settings[key] = value
-                EndpointDocDbSettingsArgs._configure(_setter, **doc_db_settings)
+            doc_db_settings = _utilities.configure(doc_db_settings, EndpointDocDbSettingsArgs, True)
             __props__.__dict__["doc_db_settings"] = doc_db_settings
-            if dynamo_db_settings is not None and not isinstance(dynamo_db_settings, EndpointDynamoDbSettingsArgs):
-                dynamo_db_settings = dynamo_db_settings or {}
-                def _setter(key, value):
-                    dynamo_db_settings[key] = value
-                EndpointDynamoDbSettingsArgs._configure(_setter, **dynamo_db_settings)
+            dynamo_db_settings = _utilities.configure(dynamo_db_settings, EndpointDynamoDbSettingsArgs, True)
             __props__.__dict__["dynamo_db_settings"] = dynamo_db_settings
-            if elasticsearch_settings is not None and not isinstance(elasticsearch_settings, EndpointElasticsearchSettingsArgs):
-                elasticsearch_settings = elasticsearch_settings or {}
-                def _setter(key, value):
-                    elasticsearch_settings[key] = value
-                EndpointElasticsearchSettingsArgs._configure(_setter, **elasticsearch_settings)
+            elasticsearch_settings = _utilities.configure(elasticsearch_settings, EndpointElasticsearchSettingsArgs, True)
             __props__.__dict__["elasticsearch_settings"] = elasticsearch_settings
             __props__.__dict__["endpoint_identifier"] = endpoint_identifier
             if endpoint_type is None and not opts.urn:
@@ -605,95 +653,39 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'engine_name'")
             __props__.__dict__["engine_name"] = engine_name
             __props__.__dict__["extra_connection_attributes"] = extra_connection_attributes
-            if gcp_my_sql_settings is not None and not isinstance(gcp_my_sql_settings, EndpointGcpMySqlSettingsArgs):
-                gcp_my_sql_settings = gcp_my_sql_settings or {}
-                def _setter(key, value):
-                    gcp_my_sql_settings[key] = value
-                EndpointGcpMySqlSettingsArgs._configure(_setter, **gcp_my_sql_settings)
+            gcp_my_sql_settings = _utilities.configure(gcp_my_sql_settings, EndpointGcpMySqlSettingsArgs, True)
             __props__.__dict__["gcp_my_sql_settings"] = gcp_my_sql_settings
-            if ibm_db2_settings is not None and not isinstance(ibm_db2_settings, EndpointIbmDb2SettingsArgs):
-                ibm_db2_settings = ibm_db2_settings or {}
-                def _setter(key, value):
-                    ibm_db2_settings[key] = value
-                EndpointIbmDb2SettingsArgs._configure(_setter, **ibm_db2_settings)
+            ibm_db2_settings = _utilities.configure(ibm_db2_settings, EndpointIbmDb2SettingsArgs, True)
             __props__.__dict__["ibm_db2_settings"] = ibm_db2_settings
-            if kafka_settings is not None and not isinstance(kafka_settings, EndpointKafkaSettingsArgs):
-                kafka_settings = kafka_settings or {}
-                def _setter(key, value):
-                    kafka_settings[key] = value
-                EndpointKafkaSettingsArgs._configure(_setter, **kafka_settings)
+            kafka_settings = _utilities.configure(kafka_settings, EndpointKafkaSettingsArgs, True)
             __props__.__dict__["kafka_settings"] = kafka_settings
-            if kinesis_settings is not None and not isinstance(kinesis_settings, EndpointKinesisSettingsArgs):
-                kinesis_settings = kinesis_settings or {}
-                def _setter(key, value):
-                    kinesis_settings[key] = value
-                EndpointKinesisSettingsArgs._configure(_setter, **kinesis_settings)
+            kinesis_settings = _utilities.configure(kinesis_settings, EndpointKinesisSettingsArgs, True)
             __props__.__dict__["kinesis_settings"] = kinesis_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if microsoft_sql_server_settings is not None and not isinstance(microsoft_sql_server_settings, EndpointMicrosoftSqlServerSettingsArgs):
-                microsoft_sql_server_settings = microsoft_sql_server_settings or {}
-                def _setter(key, value):
-                    microsoft_sql_server_settings[key] = value
-                EndpointMicrosoftSqlServerSettingsArgs._configure(_setter, **microsoft_sql_server_settings)
+            microsoft_sql_server_settings = _utilities.configure(microsoft_sql_server_settings, EndpointMicrosoftSqlServerSettingsArgs, True)
             __props__.__dict__["microsoft_sql_server_settings"] = microsoft_sql_server_settings
-            if mongo_db_settings is not None and not isinstance(mongo_db_settings, EndpointMongoDbSettingsArgs):
-                mongo_db_settings = mongo_db_settings or {}
-                def _setter(key, value):
-                    mongo_db_settings[key] = value
-                EndpointMongoDbSettingsArgs._configure(_setter, **mongo_db_settings)
+            mongo_db_settings = _utilities.configure(mongo_db_settings, EndpointMongoDbSettingsArgs, True)
             __props__.__dict__["mongo_db_settings"] = mongo_db_settings
-            if my_sql_settings is not None and not isinstance(my_sql_settings, EndpointMySqlSettingsArgs):
-                my_sql_settings = my_sql_settings or {}
-                def _setter(key, value):
-                    my_sql_settings[key] = value
-                EndpointMySqlSettingsArgs._configure(_setter, **my_sql_settings)
+            my_sql_settings = _utilities.configure(my_sql_settings, EndpointMySqlSettingsArgs, True)
             __props__.__dict__["my_sql_settings"] = my_sql_settings
-            if neptune_settings is not None and not isinstance(neptune_settings, EndpointNeptuneSettingsArgs):
-                neptune_settings = neptune_settings or {}
-                def _setter(key, value):
-                    neptune_settings[key] = value
-                EndpointNeptuneSettingsArgs._configure(_setter, **neptune_settings)
+            neptune_settings = _utilities.configure(neptune_settings, EndpointNeptuneSettingsArgs, True)
             __props__.__dict__["neptune_settings"] = neptune_settings
-            if oracle_settings is not None and not isinstance(oracle_settings, EndpointOracleSettingsArgs):
-                oracle_settings = oracle_settings or {}
-                def _setter(key, value):
-                    oracle_settings[key] = value
-                EndpointOracleSettingsArgs._configure(_setter, **oracle_settings)
+            oracle_settings = _utilities.configure(oracle_settings, EndpointOracleSettingsArgs, True)
             __props__.__dict__["oracle_settings"] = oracle_settings
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
-            if postgre_sql_settings is not None and not isinstance(postgre_sql_settings, EndpointPostgreSqlSettingsArgs):
-                postgre_sql_settings = postgre_sql_settings or {}
-                def _setter(key, value):
-                    postgre_sql_settings[key] = value
-                EndpointPostgreSqlSettingsArgs._configure(_setter, **postgre_sql_settings)
+            postgre_sql_settings = _utilities.configure(postgre_sql_settings, EndpointPostgreSqlSettingsArgs, True)
             __props__.__dict__["postgre_sql_settings"] = postgre_sql_settings
-            if redis_settings is not None and not isinstance(redis_settings, EndpointRedisSettingsArgs):
-                redis_settings = redis_settings or {}
-                def _setter(key, value):
-                    redis_settings[key] = value
-                EndpointRedisSettingsArgs._configure(_setter, **redis_settings)
+            redis_settings = _utilities.configure(redis_settings, EndpointRedisSettingsArgs, True)
             __props__.__dict__["redis_settings"] = redis_settings
-            if redshift_settings is not None and not isinstance(redshift_settings, EndpointRedshiftSettingsArgs):
-                redshift_settings = redshift_settings or {}
-                def _setter(key, value):
-                    redshift_settings[key] = value
-                EndpointRedshiftSettingsArgs._configure(_setter, **redshift_settings)
+            redshift_settings = _utilities.configure(redshift_settings, EndpointRedshiftSettingsArgs, True)
             __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["resource_identifier"] = resource_identifier
-            if s3_settings is not None and not isinstance(s3_settings, EndpointS3SettingsArgs):
-                s3_settings = s3_settings or {}
-                def _setter(key, value):
-                    s3_settings[key] = value
-                EndpointS3SettingsArgs._configure(_setter, **s3_settings)
+            s3_settings = _utilities.configure(s3_settings, EndpointS3SettingsArgs, True)
             __props__.__dict__["s3_settings"] = s3_settings
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["ssl_mode"] = ssl_mode
-            if sybase_settings is not None and not isinstance(sybase_settings, EndpointSybaseSettingsArgs):
-                sybase_settings = sybase_settings or {}
-                def _setter(key, value):
-                    sybase_settings[key] = value
-                EndpointSybaseSettingsArgs._configure(_setter, **sybase_settings)
+            sybase_settings = _utilities.configure(sybase_settings, EndpointSybaseSettingsArgs, True)
             __props__.__dict__["sybase_settings"] = sybase_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["username"] = username

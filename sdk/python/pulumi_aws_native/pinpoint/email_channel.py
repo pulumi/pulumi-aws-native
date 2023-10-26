@@ -35,13 +35,29 @@ class EmailChannelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             from_address: pulumi.Input[str],
-             identity: pulumi.Input[str],
+             application_id: Optional[pulumi.Input[str]] = None,
+             from_address: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input[str]] = None,
              configuration_set: Optional[pulumi.Input[str]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_id is None and 'applicationId' in kwargs:
+            application_id = kwargs['applicationId']
+        if application_id is None:
+            raise TypeError("Missing 'application_id' argument")
+        if from_address is None and 'fromAddress' in kwargs:
+            from_address = kwargs['fromAddress']
+        if from_address is None:
+            raise TypeError("Missing 'from_address' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if configuration_set is None and 'configurationSet' in kwargs:
+            configuration_set = kwargs['configurationSet']
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+
         _setter("application_id", application_id)
         _setter("from_address", from_address)
         _setter("identity", identity)

@@ -37,11 +37,17 @@ class RuleGroupsNamespaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data: pulumi.Input[str],
-             workspace: pulumi.Input[str],
+             data: Optional[pulumi.Input[str]] = None,
+             workspace: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupsNamespaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data is None:
+            raise TypeError("Missing 'data' argument")
+        if workspace is None:
+            raise TypeError("Missing 'workspace' argument")
+
         _setter("data", data)
         _setter("workspace", workspace)
         if name is not None:

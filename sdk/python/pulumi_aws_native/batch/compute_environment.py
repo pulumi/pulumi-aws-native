@@ -46,7 +46,7 @@ class ComputeEnvironmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
+             type: Optional[pulumi.Input[str]] = None,
              compute_environment_name: Optional[pulumi.Input[str]] = None,
              compute_resources: Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']] = None,
              eks_configuration: Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']] = None,
@@ -56,7 +56,25 @@ class ComputeEnvironmentArgs:
              tags: Optional[Any] = None,
              unmanagedv_cpus: Optional[pulumi.Input[int]] = None,
              update_policy: Optional[pulumi.Input['ComputeEnvironmentUpdatePolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if compute_environment_name is None and 'computeEnvironmentName' in kwargs:
+            compute_environment_name = kwargs['computeEnvironmentName']
+        if compute_resources is None and 'computeResources' in kwargs:
+            compute_resources = kwargs['computeResources']
+        if eks_configuration is None and 'eksConfiguration' in kwargs:
+            eks_configuration = kwargs['eksConfiguration']
+        if replace_compute_environment is None and 'replaceComputeEnvironment' in kwargs:
+            replace_compute_environment = kwargs['replaceComputeEnvironment']
+        if service_role is None and 'serviceRole' in kwargs:
+            service_role = kwargs['serviceRole']
+        if unmanagedv_cpus is None and 'unmanagedvCpus' in kwargs:
+            unmanagedv_cpus = kwargs['unmanagedvCpus']
+        if update_policy is None and 'updatePolicy' in kwargs:
+            update_policy = kwargs['updatePolicy']
+
         _setter("type", type)
         if compute_environment_name is not None:
             _setter("compute_environment_name", compute_environment_name)
@@ -242,17 +260,9 @@ class ComputeEnvironment(pulumi.CustomResource):
             __props__ = ComputeEnvironmentArgs.__new__(ComputeEnvironmentArgs)
 
             __props__.__dict__["compute_environment_name"] = compute_environment_name
-            if compute_resources is not None and not isinstance(compute_resources, ComputeEnvironmentComputeResourcesArgs):
-                compute_resources = compute_resources or {}
-                def _setter(key, value):
-                    compute_resources[key] = value
-                ComputeEnvironmentComputeResourcesArgs._configure(_setter, **compute_resources)
+            compute_resources = _utilities.configure(compute_resources, ComputeEnvironmentComputeResourcesArgs, True)
             __props__.__dict__["compute_resources"] = compute_resources
-            if eks_configuration is not None and not isinstance(eks_configuration, ComputeEnvironmentEksConfigurationArgs):
-                eks_configuration = eks_configuration or {}
-                def _setter(key, value):
-                    eks_configuration[key] = value
-                ComputeEnvironmentEksConfigurationArgs._configure(_setter, **eks_configuration)
+            eks_configuration = _utilities.configure(eks_configuration, ComputeEnvironmentEksConfigurationArgs, True)
             __props__.__dict__["eks_configuration"] = eks_configuration
             __props__.__dict__["replace_compute_environment"] = replace_compute_environment
             __props__.__dict__["service_role"] = service_role
@@ -262,11 +272,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["unmanagedv_cpus"] = unmanagedv_cpus
-            if update_policy is not None and not isinstance(update_policy, ComputeEnvironmentUpdatePolicyArgs):
-                update_policy = update_policy or {}
-                def _setter(key, value):
-                    update_policy[key] = value
-                ComputeEnvironmentUpdatePolicyArgs._configure(_setter, **update_policy)
+            update_policy = _utilities.configure(update_policy, ComputeEnvironmentUpdatePolicyArgs, True)
             __props__.__dict__["update_policy"] = update_policy
             __props__.__dict__["compute_environment_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_environment_name", "compute_resources.spot_iam_fleet_role", "eks_configuration", "tags", "type"])

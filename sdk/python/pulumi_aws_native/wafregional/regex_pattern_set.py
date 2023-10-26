@@ -27,9 +27,15 @@ class RegexPatternSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             regex_pattern_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
+             regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regex_pattern_strings is None and 'regexPatternStrings' in kwargs:
+            regex_pattern_strings = kwargs['regexPatternStrings']
+        if regex_pattern_strings is None:
+            raise TypeError("Missing 'regex_pattern_strings' argument")
+
         _setter("regex_pattern_strings", regex_pattern_strings)
         if name is not None:
             _setter("name", name)

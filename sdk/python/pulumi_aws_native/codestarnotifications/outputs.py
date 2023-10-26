@@ -46,9 +46,19 @@ class NotificationRuleTarget(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             target_address: str,
-             target_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             target_address: Optional[str] = None,
+             target_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if target_address is None and 'targetAddress' in kwargs:
+            target_address = kwargs['targetAddress']
+        if target_address is None:
+            raise TypeError("Missing 'target_address' argument")
+        if target_type is None and 'targetType' in kwargs:
+            target_type = kwargs['targetType']
+        if target_type is None:
+            raise TypeError("Missing 'target_type' argument")
+
         _setter("target_address", target_address)
         _setter("target_type", target_type)
 

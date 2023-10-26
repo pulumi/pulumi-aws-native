@@ -40,11 +40,25 @@ class CloudFormationProductCodeStarParametersArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             artifact_path: pulumi.Input[str],
-             branch: pulumi.Input[str],
-             connection_arn: pulumi.Input[str],
-             repository: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             artifact_path: Optional[pulumi.Input[str]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             connection_arn: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if artifact_path is None and 'artifactPath' in kwargs:
+            artifact_path = kwargs['artifactPath']
+        if artifact_path is None:
+            raise TypeError("Missing 'artifact_path' argument")
+        if branch is None:
+            raise TypeError("Missing 'branch' argument")
+        if connection_arn is None and 'connectionArn' in kwargs:
+            connection_arn = kwargs['connectionArn']
+        if connection_arn is None:
+            raise TypeError("Missing 'connection_arn' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+
         _setter("artifact_path", artifact_path)
         _setter("branch", branch)
         _setter("connection_arn", connection_arn)
@@ -99,7 +113,11 @@ class CloudFormationProductConnectionParametersArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              code_star: Optional[pulumi.Input['CloudFormationProductCodeStarParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if code_star is None and 'codeStar' in kwargs:
+            code_star = kwargs['codeStar']
+
         if code_star is not None:
             _setter("code_star", code_star)
 
@@ -132,12 +150,18 @@ class CloudFormationProductProvisioningArtifactPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             info: Any,
+             info: Optional[Any] = None,
              description: Optional[pulumi.Input[str]] = None,
              disable_template_validation: Optional[pulumi.Input[bool]] = None,
              name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if info is None:
+            raise TypeError("Missing 'info' argument")
+        if disable_template_validation is None and 'disableTemplateValidation' in kwargs:
+            disable_template_validation = kwargs['disableTemplateValidation']
+
         _setter("info", info)
         if description is not None:
             _setter("description", description)
@@ -207,9 +231,17 @@ class CloudFormationProductSourceConnectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connection_parameters: pulumi.Input['CloudFormationProductConnectionParametersArgs'],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             connection_parameters: Optional[pulumi.Input['CloudFormationProductConnectionParametersArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_parameters is None and 'connectionParameters' in kwargs:
+            connection_parameters = kwargs['connectionParameters']
+        if connection_parameters is None:
+            raise TypeError("Missing 'connection_parameters' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("connection_parameters", connection_parameters)
         _setter("type", type)
 
@@ -245,9 +277,15 @@ class CloudFormationProductTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -283,9 +321,15 @@ class CloudFormationProvisionedProductProvisioningParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -338,7 +382,23 @@ class CloudFormationProvisionedProductProvisioningPreferencesArgs:
              stack_set_max_concurrency_percentage: Optional[pulumi.Input[int]] = None,
              stack_set_operation_type: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType']] = None,
              stack_set_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stack_set_accounts is None and 'stackSetAccounts' in kwargs:
+            stack_set_accounts = kwargs['stackSetAccounts']
+        if stack_set_failure_tolerance_count is None and 'stackSetFailureToleranceCount' in kwargs:
+            stack_set_failure_tolerance_count = kwargs['stackSetFailureToleranceCount']
+        if stack_set_failure_tolerance_percentage is None and 'stackSetFailureTolerancePercentage' in kwargs:
+            stack_set_failure_tolerance_percentage = kwargs['stackSetFailureTolerancePercentage']
+        if stack_set_max_concurrency_count is None and 'stackSetMaxConcurrencyCount' in kwargs:
+            stack_set_max_concurrency_count = kwargs['stackSetMaxConcurrencyCount']
+        if stack_set_max_concurrency_percentage is None and 'stackSetMaxConcurrencyPercentage' in kwargs:
+            stack_set_max_concurrency_percentage = kwargs['stackSetMaxConcurrencyPercentage']
+        if stack_set_operation_type is None and 'stackSetOperationType' in kwargs:
+            stack_set_operation_type = kwargs['stackSetOperationType']
+        if stack_set_regions is None and 'stackSetRegions' in kwargs:
+            stack_set_regions = kwargs['stackSetRegions']
+
         if stack_set_accounts is not None:
             _setter("stack_set_accounts", stack_set_accounts)
         if stack_set_failure_tolerance_count is not None:
@@ -431,9 +491,15 @@ class CloudFormationProvisionedProductTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -469,9 +535,15 @@ class PortfolioTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -507,9 +579,15 @@ class ServiceActionDefinitionParameterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

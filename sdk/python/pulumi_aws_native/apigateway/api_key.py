@@ -57,7 +57,15 @@ class ApiKeyArgs:
              stage_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyStageKeyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_id is None and 'customerId' in kwargs:
+            customer_id = kwargs['customerId']
+        if generate_distinct_id is None and 'generateDistinctId' in kwargs:
+            generate_distinct_id = kwargs['generateDistinctId']
+        if stage_keys is None and 'stageKeys' in kwargs:
+            stage_keys = kwargs['stageKeys']
+
         if customer_id is not None:
             _setter("customer_id", customer_id)
         if description is not None:

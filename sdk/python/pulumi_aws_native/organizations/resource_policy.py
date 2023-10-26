@@ -31,9 +31,13 @@ class ResourcePolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: Any,
+             content: Optional[Any] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourcePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+
         _setter("content", content)
         if tags is not None:
             _setter("tags", tags)

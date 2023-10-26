@@ -31,10 +31,16 @@ class FleetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             signal_catalog_arn: pulumi.Input[str],
+             signal_catalog_arn: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if signal_catalog_arn is None and 'signalCatalogArn' in kwargs:
+            signal_catalog_arn = kwargs['signalCatalogArn']
+        if signal_catalog_arn is None:
+            raise TypeError("Missing 'signal_catalog_arn' argument")
+
         _setter("signal_catalog_arn", signal_catalog_arn)
         if description is not None:
             _setter("description", description)

@@ -38,11 +38,27 @@ class MetricFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter_pattern: pulumi.Input[str],
-             log_group_name: pulumi.Input[str],
-             metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
+             filter_pattern: Optional[pulumi.Input[str]] = None,
+             log_group_name: Optional[pulumi.Input[str]] = None,
+             metric_transformations: Optional[pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]]] = None,
              filter_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter_pattern is None and 'filterPattern' in kwargs:
+            filter_pattern = kwargs['filterPattern']
+        if filter_pattern is None:
+            raise TypeError("Missing 'filter_pattern' argument")
+        if log_group_name is None and 'logGroupName' in kwargs:
+            log_group_name = kwargs['logGroupName']
+        if log_group_name is None:
+            raise TypeError("Missing 'log_group_name' argument")
+        if metric_transformations is None and 'metricTransformations' in kwargs:
+            metric_transformations = kwargs['metricTransformations']
+        if metric_transformations is None:
+            raise TypeError("Missing 'metric_transformations' argument")
+        if filter_name is None and 'filterName' in kwargs:
+            filter_name = kwargs['filterName']
+
         _setter("filter_pattern", filter_pattern)
         _setter("log_group_name", log_group_name)
         _setter("metric_transformations", metric_transformations)

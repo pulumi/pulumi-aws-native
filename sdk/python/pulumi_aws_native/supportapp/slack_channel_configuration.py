@@ -48,15 +48,41 @@ class SlackChannelConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             channel_role_arn: pulumi.Input[str],
-             notify_on_case_severity: pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity'],
-             team_id: pulumi.Input[str],
+             channel_id: Optional[pulumi.Input[str]] = None,
+             channel_role_arn: Optional[pulumi.Input[str]] = None,
+             notify_on_case_severity: Optional[pulumi.Input['SlackChannelConfigurationNotifyOnCaseSeverity']] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
              channel_name: Optional[pulumi.Input[str]] = None,
              notify_on_add_correspondence_to_case: Optional[pulumi.Input[bool]] = None,
              notify_on_create_or_reopen_case: Optional[pulumi.Input[bool]] = None,
              notify_on_resolve_case: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_id is None and 'channelId' in kwargs:
+            channel_id = kwargs['channelId']
+        if channel_id is None:
+            raise TypeError("Missing 'channel_id' argument")
+        if channel_role_arn is None and 'channelRoleArn' in kwargs:
+            channel_role_arn = kwargs['channelRoleArn']
+        if channel_role_arn is None:
+            raise TypeError("Missing 'channel_role_arn' argument")
+        if notify_on_case_severity is None and 'notifyOnCaseSeverity' in kwargs:
+            notify_on_case_severity = kwargs['notifyOnCaseSeverity']
+        if notify_on_case_severity is None:
+            raise TypeError("Missing 'notify_on_case_severity' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if notify_on_add_correspondence_to_case is None and 'notifyOnAddCorrespondenceToCase' in kwargs:
+            notify_on_add_correspondence_to_case = kwargs['notifyOnAddCorrespondenceToCase']
+        if notify_on_create_or_reopen_case is None and 'notifyOnCreateOrReopenCase' in kwargs:
+            notify_on_create_or_reopen_case = kwargs['notifyOnCreateOrReopenCase']
+        if notify_on_resolve_case is None and 'notifyOnResolveCase' in kwargs:
+            notify_on_resolve_case = kwargs['notifyOnResolveCase']
+
         _setter("channel_id", channel_id)
         _setter("channel_role_arn", channel_role_arn)
         _setter("notify_on_case_severity", notify_on_case_severity)

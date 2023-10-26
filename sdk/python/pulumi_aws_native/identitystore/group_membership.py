@@ -34,10 +34,24 @@ class GroupMembershipArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
-             identity_store_id: pulumi.Input[str],
-             member_id: pulumi.Input['GroupMembershipMemberIdArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             group_id: Optional[pulumi.Input[str]] = None,
+             identity_store_id: Optional[pulumi.Input[str]] = None,
+             member_id: Optional[pulumi.Input['GroupMembershipMemberIdArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if group_id is None and 'groupId' in kwargs:
+            group_id = kwargs['groupId']
+        if group_id is None:
+            raise TypeError("Missing 'group_id' argument")
+        if identity_store_id is None and 'identityStoreId' in kwargs:
+            identity_store_id = kwargs['identityStoreId']
+        if identity_store_id is None:
+            raise TypeError("Missing 'identity_store_id' argument")
+        if member_id is None and 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if member_id is None:
+            raise TypeError("Missing 'member_id' argument")
+
         _setter("group_id", group_id)
         _setter("identity_store_id", identity_store_id)
         _setter("member_id", member_id)
@@ -143,11 +157,7 @@ class GroupMembership(pulumi.CustomResource):
             if identity_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_store_id'")
             __props__.__dict__["identity_store_id"] = identity_store_id
-            if member_id is not None and not isinstance(member_id, GroupMembershipMemberIdArgs):
-                member_id = member_id or {}
-                def _setter(key, value):
-                    member_id[key] = value
-                GroupMembershipMemberIdArgs._configure(_setter, **member_id)
+            member_id = _utilities.configure(member_id, GroupMembershipMemberIdArgs, True)
             if member_id is None and not opts.urn:
                 raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id

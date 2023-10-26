@@ -33,7 +33,9 @@ class ComponentTypeStatus(dict):
              _setter: Callable[[Any, Any], None],
              error: Optional[Any] = None,
              state: Optional['ComponentTypeStatusState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if error is not None:
             _setter("error", error)
         if state is not None:
@@ -71,7 +73,9 @@ class ComponentTypeStatusErrorProperties(dict):
              _setter: Callable[[Any, Any], None],
              code: Optional['ComponentTypeStatusErrorPropertiesCode'] = None,
              message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
             _setter("code", code)
         if message is not None:
@@ -103,7 +107,9 @@ class EntityStatus(dict):
              _setter: Callable[[Any, Any], None],
              error: Optional[Any] = None,
              state: Optional['EntityStatusState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if error is not None:
             _setter("error", error)
         if state is not None:
@@ -141,7 +147,9 @@ class EntityStatusErrorProperties(dict):
              _setter: Callable[[Any, Any], None],
              code: Optional['EntityStatusErrorPropertiesCode'] = None,
              message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if code is not None:
             _setter("code", code)
         if message is not None:

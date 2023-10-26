@@ -50,7 +50,17 @@ class StreamArgs:
              stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
              stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if shard_count is None and 'shardCount' in kwargs:
+            shard_count = kwargs['shardCount']
+        if stream_encryption is None and 'streamEncryption' in kwargs:
+            stream_encryption = kwargs['streamEncryption']
+        if stream_mode_details is None and 'streamModeDetails' in kwargs:
+            stream_mode_details = kwargs['streamModeDetails']
+
         if name is not None:
             _setter("name", name)
         if retention_period_hours is not None:
@@ -207,17 +217,9 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["retention_period_hours"] = retention_period_hours
             __props__.__dict__["shard_count"] = shard_count
-            if stream_encryption is not None and not isinstance(stream_encryption, StreamEncryptionArgs):
-                stream_encryption = stream_encryption or {}
-                def _setter(key, value):
-                    stream_encryption[key] = value
-                StreamEncryptionArgs._configure(_setter, **stream_encryption)
+            stream_encryption = _utilities.configure(stream_encryption, StreamEncryptionArgs, True)
             __props__.__dict__["stream_encryption"] = stream_encryption
-            if stream_mode_details is not None and not isinstance(stream_mode_details, StreamModeDetailsArgs):
-                stream_mode_details = stream_mode_details or {}
-                def _setter(key, value):
-                    stream_mode_details[key] = value
-                StreamModeDetailsArgs._configure(_setter, **stream_mode_details)
+            stream_mode_details = _utilities.configure(stream_mode_details, StreamModeDetailsArgs, True)
             __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

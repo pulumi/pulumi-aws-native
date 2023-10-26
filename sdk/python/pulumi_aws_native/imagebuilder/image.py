@@ -57,7 +57,23 @@ class ImageArgs:
              image_tests_configuration: Optional[pulumi.Input['ImageTestsConfigurationArgs']] = None,
              infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_recipe_arn is None and 'containerRecipeArn' in kwargs:
+            container_recipe_arn = kwargs['containerRecipeArn']
+        if distribution_configuration_arn is None and 'distributionConfigurationArn' in kwargs:
+            distribution_configuration_arn = kwargs['distributionConfigurationArn']
+        if enhanced_image_metadata_enabled is None and 'enhancedImageMetadataEnabled' in kwargs:
+            enhanced_image_metadata_enabled = kwargs['enhancedImageMetadataEnabled']
+        if image_recipe_arn is None and 'imageRecipeArn' in kwargs:
+            image_recipe_arn = kwargs['imageRecipeArn']
+        if image_scanning_configuration is None and 'imageScanningConfiguration' in kwargs:
+            image_scanning_configuration = kwargs['imageScanningConfiguration']
+        if image_tests_configuration is None and 'imageTestsConfiguration' in kwargs:
+            image_tests_configuration = kwargs['imageTestsConfiguration']
+        if infrastructure_configuration_arn is None and 'infrastructureConfigurationArn' in kwargs:
+            infrastructure_configuration_arn = kwargs['infrastructureConfigurationArn']
+
         if container_recipe_arn is not None:
             _setter("container_recipe_arn", container_recipe_arn)
         if distribution_configuration_arn is not None:
@@ -249,17 +265,9 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
             __props__.__dict__["enhanced_image_metadata_enabled"] = enhanced_image_metadata_enabled
             __props__.__dict__["image_recipe_arn"] = image_recipe_arn
-            if image_scanning_configuration is not None and not isinstance(image_scanning_configuration, ImageScanningConfigurationArgs):
-                image_scanning_configuration = image_scanning_configuration or {}
-                def _setter(key, value):
-                    image_scanning_configuration[key] = value
-                ImageScanningConfigurationArgs._configure(_setter, **image_scanning_configuration)
+            image_scanning_configuration = _utilities.configure(image_scanning_configuration, ImageScanningConfigurationArgs, True)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
-            if image_tests_configuration is not None and not isinstance(image_tests_configuration, ImageTestsConfigurationArgs):
-                image_tests_configuration = image_tests_configuration or {}
-                def _setter(key, value):
-                    image_tests_configuration[key] = value
-                ImageTestsConfigurationArgs._configure(_setter, **image_tests_configuration)
+            image_tests_configuration = _utilities.configure(image_tests_configuration, ImageTestsConfigurationArgs, True)
             __props__.__dict__["image_tests_configuration"] = image_tests_configuration
             __props__.__dict__["infrastructure_configuration_arn"] = infrastructure_configuration_arn
             __props__.__dict__["tags"] = tags

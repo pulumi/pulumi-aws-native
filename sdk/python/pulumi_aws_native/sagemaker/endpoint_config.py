@@ -41,7 +41,7 @@ class EndpointConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             production_variants: pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]],
+             production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]] = None,
              async_inference_config: Optional[pulumi.Input['EndpointConfigAsyncInferenceConfigArgs']] = None,
              data_capture_config: Optional[pulumi.Input['EndpointConfigDataCaptureConfigArgs']] = None,
              endpoint_config_name: Optional[pulumi.Input[str]] = None,
@@ -49,7 +49,25 @@ class EndpointConfigArgs:
              kms_key_id: Optional[pulumi.Input[str]] = None,
              shadow_production_variants: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigProductionVariantArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if production_variants is None and 'productionVariants' in kwargs:
+            production_variants = kwargs['productionVariants']
+        if production_variants is None:
+            raise TypeError("Missing 'production_variants' argument")
+        if async_inference_config is None and 'asyncInferenceConfig' in kwargs:
+            async_inference_config = kwargs['asyncInferenceConfig']
+        if data_capture_config is None and 'dataCaptureConfig' in kwargs:
+            data_capture_config = kwargs['dataCaptureConfig']
+        if endpoint_config_name is None and 'endpointConfigName' in kwargs:
+            endpoint_config_name = kwargs['endpointConfigName']
+        if explainer_config is None and 'explainerConfig' in kwargs:
+            explainer_config = kwargs['explainerConfig']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if shadow_production_variants is None and 'shadowProductionVariants' in kwargs:
+            shadow_production_variants = kwargs['shadowProductionVariants']
+
         _setter("production_variants", production_variants)
         if async_inference_config is not None:
             _setter("async_inference_config", async_inference_config)
@@ -210,24 +228,12 @@ class EndpointConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointConfigArgs.__new__(EndpointConfigArgs)
 
-            if async_inference_config is not None and not isinstance(async_inference_config, EndpointConfigAsyncInferenceConfigArgs):
-                async_inference_config = async_inference_config or {}
-                def _setter(key, value):
-                    async_inference_config[key] = value
-                EndpointConfigAsyncInferenceConfigArgs._configure(_setter, **async_inference_config)
+            async_inference_config = _utilities.configure(async_inference_config, EndpointConfigAsyncInferenceConfigArgs, True)
             __props__.__dict__["async_inference_config"] = async_inference_config
-            if data_capture_config is not None and not isinstance(data_capture_config, EndpointConfigDataCaptureConfigArgs):
-                data_capture_config = data_capture_config or {}
-                def _setter(key, value):
-                    data_capture_config[key] = value
-                EndpointConfigDataCaptureConfigArgs._configure(_setter, **data_capture_config)
+            data_capture_config = _utilities.configure(data_capture_config, EndpointConfigDataCaptureConfigArgs, True)
             __props__.__dict__["data_capture_config"] = data_capture_config
             __props__.__dict__["endpoint_config_name"] = endpoint_config_name
-            if explainer_config is not None and not isinstance(explainer_config, EndpointConfigExplainerConfigArgs):
-                explainer_config = explainer_config or {}
-                def _setter(key, value):
-                    explainer_config[key] = value
-                EndpointConfigExplainerConfigArgs._configure(_setter, **explainer_config)
+            explainer_config = _utilities.configure(explainer_config, EndpointConfigExplainerConfigArgs, True)
             __props__.__dict__["explainer_config"] = explainer_config
             __props__.__dict__["kms_key_id"] = kms_key_id
             if production_variants is None and not opts.urn:

@@ -34,11 +34,23 @@ class DbSubnetGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             db_subnet_group_description: pulumi.Input[str],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             db_subnet_group_description: Optional[pulumi.Input[str]] = None,
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              db_subnet_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbSubnetGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if db_subnet_group_description is None and 'dbSubnetGroupDescription' in kwargs:
+            db_subnet_group_description = kwargs['dbSubnetGroupDescription']
+        if db_subnet_group_description is None:
+            raise TypeError("Missing 'db_subnet_group_description' argument")
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+
         _setter("db_subnet_group_description", db_subnet_group_description)
         _setter("subnet_ids", subnet_ids)
         if db_subnet_group_name is not None:

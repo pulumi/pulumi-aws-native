@@ -35,9 +35,15 @@ class ChannelTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -65,9 +71,15 @@ class PlaybackKeyPairTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -100,7 +112,9 @@ class RecordingConfigurationDestinationConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3: Optional['outputs.RecordingConfigurationS3DestinationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if s3 is not None:
             _setter("s3", s3)
 
@@ -150,7 +164,11 @@ class RecordingConfigurationRenditionConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              rendition_selection: Optional['RecordingConfigurationRenditionConfigurationRenditionSelection'] = None,
              renditions: Optional[Sequence['RecordingConfigurationRenditionConfigurationRenditionsItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rendition_selection is None and 'renditionSelection' in kwargs:
+            rendition_selection = kwargs['renditionSelection']
+
         if rendition_selection is not None:
             _setter("rendition_selection", rendition_selection)
         if renditions is not None:
@@ -207,8 +225,14 @@ class RecordingConfigurationS3DestinationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             bucket_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+
         _setter("bucket_name", bucket_name)
 
     @property
@@ -230,9 +254,15 @@ class RecordingConfigurationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -297,7 +327,13 @@ class RecordingConfigurationThumbnailConfiguration(dict):
              resolution: Optional['RecordingConfigurationThumbnailConfigurationResolution'] = None,
              storage: Optional[Sequence['RecordingConfigurationThumbnailConfigurationStorageItem']] = None,
              target_interval_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recording_mode is None and 'recordingMode' in kwargs:
+            recording_mode = kwargs['recordingMode']
+        if target_interval_seconds is None and 'targetIntervalSeconds' in kwargs:
+            target_interval_seconds = kwargs['targetIntervalSeconds']
+
         if recording_mode is not None:
             _setter("recording_mode", recording_mode)
         if resolution is not None:
@@ -353,9 +389,15 @@ class StreamKeyTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

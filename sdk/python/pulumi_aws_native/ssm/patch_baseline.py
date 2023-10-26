@@ -64,7 +64,27 @@ class PatchBaselineArgs:
              rejected_patches_action: Optional[pulumi.Input[str]] = None,
              sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselinePatchSourceArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if approval_rules is None and 'approvalRules' in kwargs:
+            approval_rules = kwargs['approvalRules']
+        if approved_patches is None and 'approvedPatches' in kwargs:
+            approved_patches = kwargs['approvedPatches']
+        if approved_patches_compliance_level is None and 'approvedPatchesComplianceLevel' in kwargs:
+            approved_patches_compliance_level = kwargs['approvedPatchesComplianceLevel']
+        if approved_patches_enable_non_security is None and 'approvedPatchesEnableNonSecurity' in kwargs:
+            approved_patches_enable_non_security = kwargs['approvedPatchesEnableNonSecurity']
+        if global_filters is None and 'globalFilters' in kwargs:
+            global_filters = kwargs['globalFilters']
+        if operating_system is None and 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if patch_groups is None and 'patchGroups' in kwargs:
+            patch_groups = kwargs['patchGroups']
+        if rejected_patches is None and 'rejectedPatches' in kwargs:
+            rejected_patches = kwargs['rejectedPatches']
+        if rejected_patches_action is None and 'rejectedPatchesAction' in kwargs:
+            rejected_patches_action = kwargs['rejectedPatchesAction']
+
         if approval_rules is not None:
             _setter("approval_rules", approval_rules)
         if approved_patches is not None:
@@ -291,21 +311,13 @@ class PatchBaseline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PatchBaselineArgs.__new__(PatchBaselineArgs)
 
-            if approval_rules is not None and not isinstance(approval_rules, PatchBaselineRuleGroupArgs):
-                approval_rules = approval_rules or {}
-                def _setter(key, value):
-                    approval_rules[key] = value
-                PatchBaselineRuleGroupArgs._configure(_setter, **approval_rules)
+            approval_rules = _utilities.configure(approval_rules, PatchBaselineRuleGroupArgs, True)
             __props__.__dict__["approval_rules"] = approval_rules
             __props__.__dict__["approved_patches"] = approved_patches
             __props__.__dict__["approved_patches_compliance_level"] = approved_patches_compliance_level
             __props__.__dict__["approved_patches_enable_non_security"] = approved_patches_enable_non_security
             __props__.__dict__["description"] = description
-            if global_filters is not None and not isinstance(global_filters, PatchBaselinePatchFilterGroupArgs):
-                global_filters = global_filters or {}
-                def _setter(key, value):
-                    global_filters[key] = value
-                PatchBaselinePatchFilterGroupArgs._configure(_setter, **global_filters)
+            global_filters = _utilities.configure(global_filters, PatchBaselinePatchFilterGroupArgs, True)
             __props__.__dict__["global_filters"] = global_filters
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system

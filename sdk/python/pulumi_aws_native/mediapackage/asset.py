@@ -43,13 +43,31 @@ class AssetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             packaging_group_id: pulumi.Input[str],
-             source_arn: pulumi.Input[str],
-             source_role_arn: pulumi.Input[str],
+             packaging_group_id: Optional[pulumi.Input[str]] = None,
+             source_arn: Optional[pulumi.Input[str]] = None,
+             source_role_arn: Optional[pulumi.Input[str]] = None,
              egress_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['AssetEgressEndpointArgs']]]] = None,
              resource_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if packaging_group_id is None and 'packagingGroupId' in kwargs:
+            packaging_group_id = kwargs['packagingGroupId']
+        if packaging_group_id is None:
+            raise TypeError("Missing 'packaging_group_id' argument")
+        if source_arn is None and 'sourceArn' in kwargs:
+            source_arn = kwargs['sourceArn']
+        if source_arn is None:
+            raise TypeError("Missing 'source_arn' argument")
+        if source_role_arn is None and 'sourceRoleArn' in kwargs:
+            source_role_arn = kwargs['sourceRoleArn']
+        if source_role_arn is None:
+            raise TypeError("Missing 'source_role_arn' argument")
+        if egress_endpoints is None and 'egressEndpoints' in kwargs:
+            egress_endpoints = kwargs['egressEndpoints']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         _setter("packaging_group_id", packaging_group_id)
         _setter("source_arn", source_arn)
         _setter("source_role_arn", source_role_arn)

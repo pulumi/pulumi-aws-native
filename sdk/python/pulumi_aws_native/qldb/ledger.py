@@ -35,12 +35,22 @@ class LedgerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             permissions_mode: pulumi.Input[str],
+             permissions_mode: Optional[pulumi.Input[str]] = None,
              deletion_protection: Optional[pulumi.Input[bool]] = None,
              kms_key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permissions_mode is None and 'permissionsMode' in kwargs:
+            permissions_mode = kwargs['permissionsMode']
+        if permissions_mode is None:
+            raise TypeError("Missing 'permissions_mode' argument")
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("permissions_mode", permissions_mode)
         if deletion_protection is not None:
             _setter("deletion_protection", deletion_protection)

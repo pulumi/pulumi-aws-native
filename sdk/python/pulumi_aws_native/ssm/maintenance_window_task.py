@@ -53,10 +53,10 @@ class MaintenanceWindowTaskArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             priority: pulumi.Input[int],
-             task_arn: pulumi.Input[str],
-             task_type: pulumi.Input[str],
-             window_id: pulumi.Input[str],
+             priority: Optional[pulumi.Input[int]] = None,
+             task_arn: Optional[pulumi.Input[str]] = None,
+             task_type: Optional[pulumi.Input[str]] = None,
+             window_id: Optional[pulumi.Input[str]] = None,
              cutoff_behavior: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              logging_info: Optional[pulumi.Input['MaintenanceWindowTaskLoggingInfoArgs']] = None,
@@ -67,7 +67,37 @@ class MaintenanceWindowTaskArgs:
              targets: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]]] = None,
              task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
              task_parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if task_arn is None and 'taskArn' in kwargs:
+            task_arn = kwargs['taskArn']
+        if task_arn is None:
+            raise TypeError("Missing 'task_arn' argument")
+        if task_type is None and 'taskType' in kwargs:
+            task_type = kwargs['taskType']
+        if task_type is None:
+            raise TypeError("Missing 'task_type' argument")
+        if window_id is None and 'windowId' in kwargs:
+            window_id = kwargs['windowId']
+        if window_id is None:
+            raise TypeError("Missing 'window_id' argument")
+        if cutoff_behavior is None and 'cutoffBehavior' in kwargs:
+            cutoff_behavior = kwargs['cutoffBehavior']
+        if logging_info is None and 'loggingInfo' in kwargs:
+            logging_info = kwargs['loggingInfo']
+        if max_concurrency is None and 'maxConcurrency' in kwargs:
+            max_concurrency = kwargs['maxConcurrency']
+        if max_errors is None and 'maxErrors' in kwargs:
+            max_errors = kwargs['maxErrors']
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if task_invocation_parameters is None and 'taskInvocationParameters' in kwargs:
+            task_invocation_parameters = kwargs['taskInvocationParameters']
+        if task_parameters is None and 'taskParameters' in kwargs:
+            task_parameters = kwargs['taskParameters']
+
         _setter("priority", priority)
         _setter("task_arn", task_arn)
         _setter("task_type", task_type)
@@ -305,11 +335,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
             __props__.__dict__["cutoff_behavior"] = cutoff_behavior
             __props__.__dict__["description"] = description
-            if logging_info is not None and not isinstance(logging_info, MaintenanceWindowTaskLoggingInfoArgs):
-                logging_info = logging_info or {}
-                def _setter(key, value):
-                    logging_info[key] = value
-                MaintenanceWindowTaskLoggingInfoArgs._configure(_setter, **logging_info)
+            logging_info = _utilities.configure(logging_info, MaintenanceWindowTaskLoggingInfoArgs, True)
             __props__.__dict__["logging_info"] = logging_info
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
@@ -322,11 +348,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             if task_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'task_arn'")
             __props__.__dict__["task_arn"] = task_arn
-            if task_invocation_parameters is not None and not isinstance(task_invocation_parameters, MaintenanceWindowTaskTaskInvocationParametersArgs):
-                task_invocation_parameters = task_invocation_parameters or {}
-                def _setter(key, value):
-                    task_invocation_parameters[key] = value
-                MaintenanceWindowTaskTaskInvocationParametersArgs._configure(_setter, **task_invocation_parameters)
+            task_invocation_parameters = _utilities.configure(task_invocation_parameters, MaintenanceWindowTaskTaskInvocationParametersArgs, True)
             __props__.__dict__["task_invocation_parameters"] = task_invocation_parameters
             __props__.__dict__["task_parameters"] = task_parameters
             if task_type is None and not opts.urn:

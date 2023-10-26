@@ -31,10 +31,18 @@ class ConfigurationRecorderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
+             role_arn: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              recording_group: Optional[pulumi.Input['ConfigurationRecorderRecordingGroupArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if recording_group is None and 'recordingGroup' in kwargs:
+            recording_group = kwargs['recordingGroup']
+
         _setter("role_arn", role_arn)
         if name is not None:
             _setter("name", name)
@@ -131,11 +139,7 @@ class ConfigurationRecorder(pulumi.CustomResource):
             __props__ = ConfigurationRecorderArgs.__new__(ConfigurationRecorderArgs)
 
             __props__.__dict__["name"] = name
-            if recording_group is not None and not isinstance(recording_group, ConfigurationRecorderRecordingGroupArgs):
-                recording_group = recording_group or {}
-                def _setter(key, value):
-                    recording_group[key] = value
-                ConfigurationRecorderRecordingGroupArgs._configure(_setter, **recording_group)
+            recording_group = _utilities.configure(recording_group, ConfigurationRecorderRecordingGroupArgs, True)
             __props__.__dict__["recording_group"] = recording_group
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

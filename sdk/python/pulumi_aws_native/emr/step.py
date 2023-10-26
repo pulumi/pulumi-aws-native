@@ -37,11 +37,25 @@ class StepArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_on_failure: pulumi.Input[str],
-             hadoop_jar_step: pulumi.Input['StepHadoopJarStepConfigArgs'],
-             job_flow_id: pulumi.Input[str],
+             action_on_failure: Optional[pulumi.Input[str]] = None,
+             hadoop_jar_step: Optional[pulumi.Input['StepHadoopJarStepConfigArgs']] = None,
+             job_flow_id: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_on_failure is None and 'actionOnFailure' in kwargs:
+            action_on_failure = kwargs['actionOnFailure']
+        if action_on_failure is None:
+            raise TypeError("Missing 'action_on_failure' argument")
+        if hadoop_jar_step is None and 'hadoopJarStep' in kwargs:
+            hadoop_jar_step = kwargs['hadoopJarStep']
+        if hadoop_jar_step is None:
+            raise TypeError("Missing 'hadoop_jar_step' argument")
+        if job_flow_id is None and 'jobFlowId' in kwargs:
+            job_flow_id = kwargs['jobFlowId']
+        if job_flow_id is None:
+            raise TypeError("Missing 'job_flow_id' argument")
+
         _setter("action_on_failure", action_on_failure)
         _setter("hadoop_jar_step", hadoop_jar_step)
         _setter("job_flow_id", job_flow_id)
@@ -167,11 +181,7 @@ class Step(pulumi.CustomResource):
             if action_on_failure is None and not opts.urn:
                 raise TypeError("Missing required property 'action_on_failure'")
             __props__.__dict__["action_on_failure"] = action_on_failure
-            if hadoop_jar_step is not None and not isinstance(hadoop_jar_step, StepHadoopJarStepConfigArgs):
-                hadoop_jar_step = hadoop_jar_step or {}
-                def _setter(key, value):
-                    hadoop_jar_step[key] = value
-                StepHadoopJarStepConfigArgs._configure(_setter, **hadoop_jar_step)
+            hadoop_jar_step = _utilities.configure(hadoop_jar_step, StepHadoopJarStepConfigArgs, True)
             if hadoop_jar_step is None and not opts.urn:
                 raise TypeError("Missing required property 'hadoop_jar_step'")
             __props__.__dict__["hadoop_jar_step"] = hadoop_jar_step

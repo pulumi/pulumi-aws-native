@@ -46,7 +46,9 @@ class ComponentVersionComponentPlatformArgs:
              _setter: Callable[[Any, Any], None],
              attributes: Optional[Any] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if attributes is not None:
             _setter("attributes", attributes)
         if name is not None:
@@ -92,7 +94,13 @@ class ComponentVersionLambdaContainerParamsArgs:
              memory_size_in_kb: Optional[pulumi.Input[int]] = None,
              mount_ro_sysfs: Optional[pulumi.Input[bool]] = None,
              volumes: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionLambdaVolumeMountArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if memory_size_in_kb is None and 'memorySizeInKb' in kwargs:
+            memory_size_in_kb = kwargs['memorySizeInKb']
+        if mount_ro_sysfs is None and 'mountRoSysfs' in kwargs:
+            mount_ro_sysfs = kwargs['mountRoSysfs']
+
         if devices is not None:
             _setter("devices", devices)
         if memory_size_in_kb is not None:
@@ -157,7 +165,11 @@ class ComponentVersionLambdaDeviceMountArgs:
              add_group_owner: Optional[pulumi.Input[bool]] = None,
              path: Optional[pulumi.Input[str]] = None,
              permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if add_group_owner is None and 'addGroupOwner' in kwargs:
+            add_group_owner = kwargs['addGroupOwner']
+
         if add_group_owner is not None:
             _setter("add_group_owner", add_group_owner)
         if path is not None:
@@ -208,7 +220,9 @@ class ComponentVersionLambdaEventSourceArgs:
              _setter: Callable[[Any, Any], None],
              topic: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input['ComponentVersionLambdaEventSourceType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if topic is not None:
             _setter("topic", topic)
         if type is not None:
@@ -275,7 +289,29 @@ class ComponentVersionLambdaExecutionParametersArgs:
              pinned: Optional[pulumi.Input[bool]] = None,
              status_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if event_sources is None and 'eventSources' in kwargs:
+            event_sources = kwargs['eventSources']
+        if exec_args is None and 'execArgs' in kwargs:
+            exec_args = kwargs['execArgs']
+        if input_payload_encoding_type is None and 'inputPayloadEncodingType' in kwargs:
+            input_payload_encoding_type = kwargs['inputPayloadEncodingType']
+        if linux_process_params is None and 'linuxProcessParams' in kwargs:
+            linux_process_params = kwargs['linuxProcessParams']
+        if max_idle_time_in_seconds is None and 'maxIdleTimeInSeconds' in kwargs:
+            max_idle_time_in_seconds = kwargs['maxIdleTimeInSeconds']
+        if max_instances_count is None and 'maxInstancesCount' in kwargs:
+            max_instances_count = kwargs['maxInstancesCount']
+        if max_queue_size is None and 'maxQueueSize' in kwargs:
+            max_queue_size = kwargs['maxQueueSize']
+        if status_timeout_in_seconds is None and 'statusTimeoutInSeconds' in kwargs:
+            status_timeout_in_seconds = kwargs['statusTimeoutInSeconds']
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if environment_variables is not None:
             _setter("environment_variables", environment_variables)
         if event_sources is not None:
@@ -426,7 +462,21 @@ class ComponentVersionLambdaFunctionRecipeSourceArgs:
              component_platforms: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVersionComponentPlatformArgs']]]] = None,
              component_version: Optional[pulumi.Input[str]] = None,
              lambda_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_dependencies is None and 'componentDependencies' in kwargs:
+            component_dependencies = kwargs['componentDependencies']
+        if component_lambda_parameters is None and 'componentLambdaParameters' in kwargs:
+            component_lambda_parameters = kwargs['componentLambdaParameters']
+        if component_name is None and 'componentName' in kwargs:
+            component_name = kwargs['componentName']
+        if component_platforms is None and 'componentPlatforms' in kwargs:
+            component_platforms = kwargs['componentPlatforms']
+        if component_version is None and 'componentVersion' in kwargs:
+            component_version = kwargs['componentVersion']
+        if lambda_arn is None and 'lambdaArn' in kwargs:
+            lambda_arn = kwargs['lambdaArn']
+
         if component_dependencies is not None:
             _setter("component_dependencies", component_dependencies)
         if component_lambda_parameters is not None:
@@ -510,7 +560,13 @@ class ComponentVersionLambdaLinuxProcessParamsArgs:
              _setter: Callable[[Any, Any], None],
              container_params: Optional[pulumi.Input['ComponentVersionLambdaContainerParamsArgs']] = None,
              isolation_mode: Optional[pulumi.Input['ComponentVersionLambdaLinuxProcessParamsIsolationMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_params is None and 'containerParams' in kwargs:
+            container_params = kwargs['containerParams']
+        if isolation_mode is None and 'isolationMode' in kwargs:
+            isolation_mode = kwargs['isolationMode']
+
         if container_params is not None:
             _setter("container_params", container_params)
         if isolation_mode is not None:
@@ -556,7 +612,15 @@ class ComponentVersionLambdaVolumeMountArgs:
              destination_path: Optional[pulumi.Input[str]] = None,
              permission: Optional[pulumi.Input['ComponentVersionLambdaFilesystemPermission']] = None,
              source_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if add_group_owner is None and 'addGroupOwner' in kwargs:
+            add_group_owner = kwargs['addGroupOwner']
+        if destination_path is None and 'destinationPath' in kwargs:
+            destination_path = kwargs['destinationPath']
+        if source_path is None and 'sourcePath' in kwargs:
+            source_path = kwargs['sourcePath']
+
         if add_group_owner is not None:
             _setter("add_group_owner", add_group_owner)
         if destination_path is not None:
@@ -618,7 +682,11 @@ class DeploymentComponentUpdatePolicyArgs:
              _setter: Callable[[Any, Any], None],
              action: Optional[pulumi.Input['DeploymentComponentUpdatePolicyAction']] = None,
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if action is not None:
             _setter("action", action)
         if timeout_in_seconds is not None:
@@ -655,7 +723,11 @@ class DeploymentConfigurationValidationPolicyArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              timeout_in_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeout_in_seconds is None and 'timeoutInSeconds' in kwargs:
+            timeout_in_seconds = kwargs['timeoutInSeconds']
+
         if timeout_in_seconds is not None:
             _setter("timeout_in_seconds", timeout_in_seconds)
 
@@ -680,8 +752,14 @@ class DeploymentIoTJobAbortConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             criteria_list: pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             criteria_list: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentIoTJobAbortCriteriaArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if criteria_list is None and 'criteriaList' in kwargs:
+            criteria_list = kwargs['criteriaList']
+        if criteria_list is None:
+            raise TypeError("Missing 'criteria_list' argument")
+
         _setter("criteria_list", criteria_list)
 
     @property
@@ -711,11 +789,27 @@ class DeploymentIoTJobAbortCriteriaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['DeploymentIoTJobAbortCriteriaAction'],
-             failure_type: pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType'],
-             min_number_of_executed_things: pulumi.Input[int],
-             threshold_percentage: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action: Optional[pulumi.Input['DeploymentIoTJobAbortCriteriaAction']] = None,
+             failure_type: Optional[pulumi.Input['DeploymentIoTJobAbortCriteriaFailureType']] = None,
+             min_number_of_executed_things: Optional[pulumi.Input[int]] = None,
+             threshold_percentage: Optional[pulumi.Input[float]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if failure_type is None and 'failureType' in kwargs:
+            failure_type = kwargs['failureType']
+        if failure_type is None:
+            raise TypeError("Missing 'failure_type' argument")
+        if min_number_of_executed_things is None and 'minNumberOfExecutedThings' in kwargs:
+            min_number_of_executed_things = kwargs['minNumberOfExecutedThings']
+        if min_number_of_executed_things is None:
+            raise TypeError("Missing 'min_number_of_executed_things' argument")
+        if threshold_percentage is None and 'thresholdPercentage' in kwargs:
+            threshold_percentage = kwargs['thresholdPercentage']
+        if threshold_percentage is None:
+            raise TypeError("Missing 'threshold_percentage' argument")
+
         _setter("action", action)
         _setter("failure_type", failure_type)
         _setter("min_number_of_executed_things", min_number_of_executed_things)
@@ -776,7 +870,15 @@ class DeploymentIoTJobConfigurationArgs:
              abort_config: Optional[pulumi.Input['DeploymentIoTJobAbortConfigArgs']] = None,
              job_executions_rollout_config: Optional[pulumi.Input['DeploymentIoTJobExecutionsRolloutConfigArgs']] = None,
              timeout_config: Optional[pulumi.Input['DeploymentIoTJobTimeoutConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if abort_config is None and 'abortConfig' in kwargs:
+            abort_config = kwargs['abortConfig']
+        if job_executions_rollout_config is None and 'jobExecutionsRolloutConfig' in kwargs:
+            job_executions_rollout_config = kwargs['jobExecutionsRolloutConfig']
+        if timeout_config is None and 'timeoutConfig' in kwargs:
+            timeout_config = kwargs['timeoutConfig']
+
         if abort_config is not None:
             _setter("abort_config", abort_config)
         if job_executions_rollout_config is not None:
@@ -827,7 +929,13 @@ class DeploymentIoTJobExecutionsRolloutConfigArgs:
              _setter: Callable[[Any, Any], None],
              exponential_rate: Optional[pulumi.Input['DeploymentIoTJobExponentialRolloutRateArgs']] = None,
              maximum_per_minute: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if exponential_rate is None and 'exponentialRate' in kwargs:
+            exponential_rate = kwargs['exponentialRate']
+        if maximum_per_minute is None and 'maximumPerMinute' in kwargs:
+            maximum_per_minute = kwargs['maximumPerMinute']
+
         if exponential_rate is not None:
             _setter("exponential_rate", exponential_rate)
         if maximum_per_minute is not None:
@@ -867,10 +975,24 @@ class DeploymentIoTJobExponentialRolloutRateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             base_rate_per_minute: pulumi.Input[int],
-             increment_factor: pulumi.Input[float],
-             rate_increase_criteria: pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             base_rate_per_minute: Optional[pulumi.Input[int]] = None,
+             increment_factor: Optional[pulumi.Input[float]] = None,
+             rate_increase_criteria: Optional[pulumi.Input['DeploymentIoTJobRateIncreaseCriteriaArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if base_rate_per_minute is None and 'baseRatePerMinute' in kwargs:
+            base_rate_per_minute = kwargs['baseRatePerMinute']
+        if base_rate_per_minute is None:
+            raise TypeError("Missing 'base_rate_per_minute' argument")
+        if increment_factor is None and 'incrementFactor' in kwargs:
+            increment_factor = kwargs['incrementFactor']
+        if increment_factor is None:
+            raise TypeError("Missing 'increment_factor' argument")
+        if rate_increase_criteria is None and 'rateIncreaseCriteria' in kwargs:
+            rate_increase_criteria = kwargs['rateIncreaseCriteria']
+        if rate_increase_criteria is None:
+            raise TypeError("Missing 'rate_increase_criteria' argument")
+
         _setter("base_rate_per_minute", base_rate_per_minute)
         _setter("increment_factor", increment_factor)
         _setter("rate_increase_criteria", rate_increase_criteria)
@@ -910,8 +1032,10 @@ class DeploymentIoTJobRateIncreaseCriteriaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -926,7 +1050,11 @@ class DeploymentIoTJobTimeoutConfigArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              in_progress_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if in_progress_timeout_in_minutes is None and 'inProgressTimeoutInMinutes' in kwargs:
+            in_progress_timeout_in_minutes = kwargs['inProgressTimeoutInMinutes']
+
         if in_progress_timeout_in_minutes is not None:
             _setter("in_progress_timeout_in_minutes", in_progress_timeout_in_minutes)
 
@@ -958,7 +1086,15 @@ class DeploymentPoliciesArgs:
              component_update_policy: Optional[pulumi.Input['DeploymentComponentUpdatePolicyArgs']] = None,
              configuration_validation_policy: Optional[pulumi.Input['DeploymentConfigurationValidationPolicyArgs']] = None,
              failure_handling_policy: Optional[pulumi.Input['DeploymentPoliciesFailureHandlingPolicy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if component_update_policy is None and 'componentUpdatePolicy' in kwargs:
+            component_update_policy = kwargs['componentUpdatePolicy']
+        if configuration_validation_policy is None and 'configurationValidationPolicy' in kwargs:
+            configuration_validation_policy = kwargs['configurationValidationPolicy']
+        if failure_handling_policy is None and 'failureHandlingPolicy' in kwargs:
+            failure_handling_policy = kwargs['failureHandlingPolicy']
+
         if component_update_policy is not None:
             _setter("component_update_policy", component_update_policy)
         if configuration_validation_policy is not None:

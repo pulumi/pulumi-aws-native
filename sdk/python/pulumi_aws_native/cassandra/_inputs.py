@@ -36,7 +36,13 @@ class KeyspaceReplicationSpecificationArgs:
              _setter: Callable[[Any, Any], None],
              region_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]] = None,
              replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region_list is None and 'regionList' in kwargs:
+            region_list = kwargs['regionList']
+        if replication_strategy is None and 'replicationStrategy' in kwargs:
+            replication_strategy = kwargs['replicationStrategy']
+
         if region_list is not None:
             _setter("region_list", region_list)
         if replication_strategy is not None:
@@ -74,9 +80,15 @@ class KeyspaceTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -112,9 +124,15 @@ class TableBillingModeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input['TableMode'],
+             mode: Optional[pulumi.Input['TableMode']] = None,
              provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if provisioned_throughput is None and 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+
         _setter("mode", mode)
         if provisioned_throughput is not None:
             _setter("provisioned_throughput", provisioned_throughput)
@@ -151,9 +169,15 @@ class TableClusteringKeyColumnArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column: pulumi.Input['TableColumnArgs'],
+             column: Optional[pulumi.Input['TableColumnArgs']] = None,
              order_by: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column is None:
+            raise TypeError("Missing 'column' argument")
+        if order_by is None and 'orderBy' in kwargs:
+            order_by = kwargs['orderBy']
+
         _setter("column", column)
         if order_by is not None:
             _setter("order_by", order_by)
@@ -190,9 +214,19 @@ class TableColumnArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             column_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             column_name: Optional[pulumi.Input[str]] = None,
+             column_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_name is None and 'columnName' in kwargs:
+            column_name = kwargs['columnName']
+        if column_name is None:
+            raise TypeError("Missing 'column_name' argument")
+        if column_type is None and 'columnType' in kwargs:
+            column_type = kwargs['columnType']
+        if column_type is None:
+            raise TypeError("Missing 'column_type' argument")
+
         _setter("column_name", column_name)
         _setter("column_type", column_type)
 
@@ -231,9 +265,17 @@ class TableEncryptionSpecificationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_type: pulumi.Input['TableEncryptionType'],
+             encryption_type: Optional[pulumi.Input['TableEncryptionType']] = None,
              kms_key_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+        if kms_key_identifier is None and 'kmsKeyIdentifier' in kwargs:
+            kms_key_identifier = kwargs['kmsKeyIdentifier']
+
         _setter("encryption_type", encryption_type)
         if kms_key_identifier is not None:
             _setter("kms_key_identifier", kms_key_identifier)
@@ -273,9 +315,19 @@ class TableProvisionedThroughputArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             read_capacity_units: pulumi.Input[int],
-             write_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             read_capacity_units: Optional[pulumi.Input[int]] = None,
+             write_capacity_units: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if read_capacity_units is None and 'readCapacityUnits' in kwargs:
+            read_capacity_units = kwargs['readCapacityUnits']
+        if read_capacity_units is None:
+            raise TypeError("Missing 'read_capacity_units' argument")
+        if write_capacity_units is None and 'writeCapacityUnits' in kwargs:
+            write_capacity_units = kwargs['writeCapacityUnits']
+        if write_capacity_units is None:
+            raise TypeError("Missing 'write_capacity_units' argument")
+
         _setter("read_capacity_units", read_capacity_units)
         _setter("write_capacity_units", write_capacity_units)
 
@@ -314,9 +366,15 @@ class TableTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

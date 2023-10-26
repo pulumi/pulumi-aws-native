@@ -49,15 +49,43 @@ class ScalableTargetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_capacity: pulumi.Input[int],
-             min_capacity: pulumi.Input[int],
-             resource_id: pulumi.Input[str],
-             scalable_dimension: pulumi.Input[str],
-             service_namespace: pulumi.Input[str],
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             min_capacity: Optional[pulumi.Input[int]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             scalable_dimension: Optional[pulumi.Input[str]] = None,
+             service_namespace: Optional[pulumi.Input[str]] = None,
              role_arn: Optional[pulumi.Input[str]] = None,
              scheduled_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
              suspended_state: Optional[pulumi.Input['ScalableTargetSuspendedStateArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if scalable_dimension is None and 'scalableDimension' in kwargs:
+            scalable_dimension = kwargs['scalableDimension']
+        if scalable_dimension is None:
+            raise TypeError("Missing 'scalable_dimension' argument")
+        if service_namespace is None and 'serviceNamespace' in kwargs:
+            service_namespace = kwargs['serviceNamespace']
+        if service_namespace is None:
+            raise TypeError("Missing 'service_namespace' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if scheduled_actions is None and 'scheduledActions' in kwargs:
+            scheduled_actions = kwargs['scheduledActions']
+        if suspended_state is None and 'suspendedState' in kwargs:
+            suspended_state = kwargs['suspendedState']
+
         _setter("max_capacity", max_capacity)
         _setter("min_capacity", min_capacity)
         _setter("resource_id", resource_id)
@@ -257,11 +285,7 @@ class ScalableTarget(pulumi.CustomResource):
             if service_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'service_namespace'")
             __props__.__dict__["service_namespace"] = service_namespace
-            if suspended_state is not None and not isinstance(suspended_state, ScalableTargetSuspendedStateArgs):
-                suspended_state = suspended_state or {}
-                def _setter(key, value):
-                    suspended_state[key] = value
-                ScalableTargetSuspendedStateArgs._configure(_setter, **suspended_state)
+            suspended_state = _utilities.configure(suspended_state, ScalableTargetSuspendedStateArgs, True)
             __props__.__dict__["suspended_state"] = suspended_state
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resource_id", "scalable_dimension", "service_namespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

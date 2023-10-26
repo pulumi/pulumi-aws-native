@@ -49,15 +49,31 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             engine: pulumi.Input['UserEngine'],
-             user_id: pulumi.Input[str],
+             engine: Optional[pulumi.Input['UserEngine']] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
              access_string: Optional[pulumi.Input[str]] = None,
              authentication_mode: Optional[pulumi.Input['AuthenticationModePropertiesArgs']] = None,
              no_password_required: Optional[pulumi.Input[bool]] = None,
              passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if engine is None:
+            raise TypeError("Missing 'engine' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+        if access_string is None and 'accessString' in kwargs:
+            access_string = kwargs['accessString']
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if no_password_required is None and 'noPasswordRequired' in kwargs:
+            no_password_required = kwargs['noPasswordRequired']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("engine", engine)
         _setter("user_id", user_id)
         if access_string is not None:
@@ -240,11 +256,7 @@ class User(pulumi.CustomResource):
             __props__ = UserArgs.__new__(UserArgs)
 
             __props__.__dict__["access_string"] = access_string
-            if authentication_mode is not None and not isinstance(authentication_mode, AuthenticationModePropertiesArgs):
-                authentication_mode = authentication_mode or {}
-                def _setter(key, value):
-                    authentication_mode[key] = value
-                AuthenticationModePropertiesArgs._configure(_setter, **authentication_mode)
+            authentication_mode = _utilities.configure(authentication_mode, AuthenticationModePropertiesArgs, True)
             __props__.__dict__["authentication_mode"] = authentication_mode
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")

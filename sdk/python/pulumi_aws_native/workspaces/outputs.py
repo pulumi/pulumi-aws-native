@@ -61,7 +61,17 @@ class ConnectionAliasAssociation(dict):
              association_status: Optional['ConnectionAliasAssociationAssociationStatus'] = None,
              connection_identifier: Optional[str] = None,
              resource_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associated_account_id is None and 'associatedAccountId' in kwargs:
+            associated_account_id = kwargs['associatedAccountId']
+        if association_status is None and 'associationStatus' in kwargs:
+            association_status = kwargs['associationStatus']
+        if connection_identifier is None and 'connectionIdentifier' in kwargs:
+            connection_identifier = kwargs['connectionIdentifier']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if associated_account_id is not None:
             _setter("associated_account_id", associated_account_id)
         if association_status is not None:
@@ -105,9 +115,15 @@ class ConnectionAliasTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -171,7 +187,19 @@ class WorkspaceProperties(dict):
              running_mode: Optional[str] = None,
              running_mode_auto_stop_timeout_in_minutes: Optional[int] = None,
              user_volume_size_gib: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_type_name is None and 'computeTypeName' in kwargs:
+            compute_type_name = kwargs['computeTypeName']
+        if root_volume_size_gib is None and 'rootVolumeSizeGib' in kwargs:
+            root_volume_size_gib = kwargs['rootVolumeSizeGib']
+        if running_mode is None and 'runningMode' in kwargs:
+            running_mode = kwargs['runningMode']
+        if running_mode_auto_stop_timeout_in_minutes is None and 'runningModeAutoStopTimeoutInMinutes' in kwargs:
+            running_mode_auto_stop_timeout_in_minutes = kwargs['runningModeAutoStopTimeoutInMinutes']
+        if user_volume_size_gib is None and 'userVolumeSizeGib' in kwargs:
+            user_volume_size_gib = kwargs['userVolumeSizeGib']
+
         if compute_type_name is not None:
             _setter("compute_type_name", compute_type_name)
         if root_volume_size_gib is not None:
@@ -222,9 +250,15 @@ class WorkspaceTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

@@ -31,11 +31,25 @@ class PortfolioShareArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             portfolio_id: pulumi.Input[str],
+             account_id: Optional[pulumi.Input[str]] = None,
+             portfolio_id: Optional[pulumi.Input[str]] = None,
              accept_language: Optional[pulumi.Input[str]] = None,
              share_tag_options: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if account_id is None:
+            raise TypeError("Missing 'account_id' argument")
+        if portfolio_id is None and 'portfolioId' in kwargs:
+            portfolio_id = kwargs['portfolioId']
+        if portfolio_id is None:
+            raise TypeError("Missing 'portfolio_id' argument")
+        if accept_language is None and 'acceptLanguage' in kwargs:
+            accept_language = kwargs['acceptLanguage']
+        if share_tag_options is None and 'shareTagOptions' in kwargs:
+            share_tag_options = kwargs['shareTagOptions']
+
         _setter("account_id", account_id)
         _setter("portfolio_id", portfolio_id)
         if accept_language is not None:

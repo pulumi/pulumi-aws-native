@@ -28,8 +28,14 @@ class ContinuousDeploymentPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             continuous_deployment_policy_config: pulumi.Input['ContinuousDeploymentPolicyConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             continuous_deployment_policy_config: Optional[pulumi.Input['ContinuousDeploymentPolicyConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if continuous_deployment_policy_config is None and 'continuousDeploymentPolicyConfig' in kwargs:
+            continuous_deployment_policy_config = kwargs['continuousDeploymentPolicyConfig']
+        if continuous_deployment_policy_config is None:
+            raise TypeError("Missing 'continuous_deployment_policy_config' argument")
+
         _setter("continuous_deployment_policy_config", continuous_deployment_policy_config)
 
     @property
@@ -93,11 +99,7 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContinuousDeploymentPolicyArgs.__new__(ContinuousDeploymentPolicyArgs)
 
-            if continuous_deployment_policy_config is not None and not isinstance(continuous_deployment_policy_config, ContinuousDeploymentPolicyConfigArgs):
-                continuous_deployment_policy_config = continuous_deployment_policy_config or {}
-                def _setter(key, value):
-                    continuous_deployment_policy_config[key] = value
-                ContinuousDeploymentPolicyConfigArgs._configure(_setter, **continuous_deployment_policy_config)
+            continuous_deployment_policy_config = _utilities.configure(continuous_deployment_policy_config, ContinuousDeploymentPolicyConfigArgs, True)
             if continuous_deployment_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'continuous_deployment_policy_config'")
             __props__.__dict__["continuous_deployment_policy_config"] = continuous_deployment_policy_config

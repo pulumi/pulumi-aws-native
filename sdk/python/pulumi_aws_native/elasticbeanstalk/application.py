@@ -37,7 +37,13 @@ class ApplicationArgs:
              application_name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              resource_lifecycle_config: Optional[pulumi.Input['ApplicationResourceLifecycleConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if resource_lifecycle_config is None and 'resourceLifecycleConfig' in kwargs:
+            resource_lifecycle_config = kwargs['resourceLifecycleConfig']
+
         if application_name is not None:
             _setter("application_name", application_name)
         if description is not None:
@@ -142,11 +148,7 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["description"] = description
-            if resource_lifecycle_config is not None and not isinstance(resource_lifecycle_config, ApplicationResourceLifecycleConfigArgs):
-                resource_lifecycle_config = resource_lifecycle_config or {}
-                def _setter(key, value):
-                    resource_lifecycle_config[key] = value
-                ApplicationResourceLifecycleConfigArgs._configure(_setter, **resource_lifecycle_config)
+            resource_lifecycle_config = _utilities.configure(resource_lifecycle_config, ApplicationResourceLifecycleConfigArgs, True)
             __props__.__dict__["resource_lifecycle_config"] = resource_lifecycle_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

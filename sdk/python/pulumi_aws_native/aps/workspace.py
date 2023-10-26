@@ -40,7 +40,13 @@ class WorkspaceArgs:
              alias: Optional[pulumi.Input[str]] = None,
              logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alert_manager_definition is None and 'alertManagerDefinition' in kwargs:
+            alert_manager_definition = kwargs['alertManagerDefinition']
+        if logging_configuration is None and 'loggingConfiguration' in kwargs:
+            logging_configuration = kwargs['loggingConfiguration']
+
         if alert_manager_definition is not None:
             _setter("alert_manager_definition", alert_manager_definition)
         if alias is not None:
@@ -158,11 +164,7 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["alert_manager_definition"] = alert_manager_definition
             __props__.__dict__["alias"] = alias
-            if logging_configuration is not None and not isinstance(logging_configuration, WorkspaceLoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                WorkspaceLoggingConfigurationArgs._configure(_setter, **logging_configuration)
+            logging_configuration = _utilities.configure(logging_configuration, WorkspaceLoggingConfigurationArgs, True)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

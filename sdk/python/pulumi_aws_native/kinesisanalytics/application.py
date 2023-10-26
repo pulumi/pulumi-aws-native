@@ -33,11 +33,21 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inputs: pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]],
+             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]]] = None,
              application_code: Optional[pulumi.Input[str]] = None,
              application_description: Optional[pulumi.Input[str]] = None,
              application_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inputs is None:
+            raise TypeError("Missing 'inputs' argument")
+        if application_code is None and 'applicationCode' in kwargs:
+            application_code = kwargs['applicationCode']
+        if application_description is None and 'applicationDescription' in kwargs:
+            application_description = kwargs['applicationDescription']
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+
         _setter("inputs", inputs)
         if application_code is not None:
             _setter("application_code", application_code)

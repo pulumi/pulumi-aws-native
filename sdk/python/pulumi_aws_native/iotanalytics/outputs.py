@@ -104,10 +104,20 @@ class ChannelCustomerManagedS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
-             role_arn: str,
+             bucket: Optional[str] = None,
+             role_arn: Optional[str] = None,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         _setter("role_arn", role_arn)
         if key_prefix is not None:
@@ -161,7 +171,11 @@ class ChannelRetentionPeriod(dict):
              _setter: Callable[[Any, Any], None],
              number_of_days: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if number_of_days is None and 'numberOfDays' in kwargs:
+            number_of_days = kwargs['numberOfDays']
+
         if number_of_days is not None:
             _setter("number_of_days", number_of_days)
         if unlimited is not None:
@@ -185,8 +199,10 @@ class ChannelServiceManagedS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -223,7 +239,13 @@ class ChannelStorage(dict):
              _setter: Callable[[Any, Any], None],
              customer_managed_s3: Optional['outputs.ChannelCustomerManagedS3'] = None,
              service_managed_s3: Optional['outputs.ChannelServiceManagedS3'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_s3 is None and 'customerManagedS3' in kwargs:
+            customer_managed_s3 = kwargs['customerManagedS3']
+        if service_managed_s3 is None and 'serviceManagedS3' in kwargs:
+            service_managed_s3 = kwargs['serviceManagedS3']
+
         if customer_managed_s3 is not None:
             _setter("customer_managed_s3", customer_managed_s3)
         if service_managed_s3 is not None:
@@ -253,9 +275,15 @@ class ChannelTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -306,10 +334,20 @@ class DatasetAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action_name: str,
+             action_name: Optional[str] = None,
              container_action: Optional['outputs.DatasetContainerAction'] = None,
              query_action: Optional['outputs.DatasetQueryAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action_name is None and 'actionName' in kwargs:
+            action_name = kwargs['actionName']
+        if action_name is None:
+            raise TypeError("Missing 'action_name' argument")
+        if container_action is None and 'containerAction' in kwargs:
+            container_action = kwargs['containerAction']
+        if query_action is None and 'queryAction' in kwargs:
+            query_action = kwargs['queryAction']
+
         _setter("action_name", action_name)
         if container_action is not None:
             _setter("container_action", container_action)
@@ -368,11 +406,23 @@ class DatasetContainerAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             execution_role_arn: str,
-             image: str,
-             resource_configuration: 'outputs.DatasetResourceConfiguration',
+             execution_role_arn: Optional[str] = None,
+             image: Optional[str] = None,
+             resource_configuration: Optional['outputs.DatasetResourceConfiguration'] = None,
              variables: Optional[Sequence['outputs.DatasetVariable']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execution_role_arn is None and 'executionRoleArn' in kwargs:
+            execution_role_arn = kwargs['executionRoleArn']
+        if execution_role_arn is None:
+            raise TypeError("Missing 'execution_role_arn' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if resource_configuration is None and 'resourceConfiguration' in kwargs:
+            resource_configuration = kwargs['resourceConfiguration']
+        if resource_configuration is None:
+            raise TypeError("Missing 'resource_configuration' argument")
+
         _setter("execution_role_arn", execution_role_arn)
         _setter("image", image)
         _setter("resource_configuration", resource_configuration)
@@ -430,9 +480,15 @@ class DatasetContentDeliveryRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination: 'outputs.DatasetContentDeliveryRuleDestination',
+             destination: Optional['outputs.DatasetContentDeliveryRuleDestination'] = None,
              entry_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination is None:
+            raise TypeError("Missing 'destination' argument")
+        if entry_name is None and 'entryName' in kwargs:
+            entry_name = kwargs['entryName']
+
         _setter("destination", destination)
         if entry_name is not None:
             _setter("entry_name", entry_name)
@@ -482,7 +538,13 @@ class DatasetContentDeliveryRuleDestination(dict):
              _setter: Callable[[Any, Any], None],
              iot_events_destination_configuration: Optional['outputs.DatasetIotEventsDestinationConfiguration'] = None,
              s3_destination_configuration: Optional['outputs.DatasetS3DestinationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iot_events_destination_configuration is None and 'iotEventsDestinationConfiguration' in kwargs:
+            iot_events_destination_configuration = kwargs['iotEventsDestinationConfiguration']
+        if s3_destination_configuration is None and 's3DestinationConfiguration' in kwargs:
+            s3_destination_configuration = kwargs['s3DestinationConfiguration']
+
         if iot_events_destination_configuration is not None:
             _setter("iot_events_destination_configuration", iot_events_destination_configuration)
         if s3_destination_configuration is not None:
@@ -527,8 +589,14 @@ class DatasetContentVersionValue(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dataset_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataset_name is None and 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if dataset_name is None:
+            raise TypeError("Missing 'dataset_name' argument")
+
         _setter("dataset_name", dataset_name)
 
     @property
@@ -569,9 +637,19 @@ class DatasetDeltaTime(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             offset_seconds: int,
-             time_expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             offset_seconds: Optional[int] = None,
+             time_expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if offset_seconds is None and 'offsetSeconds' in kwargs:
+            offset_seconds = kwargs['offsetSeconds']
+        if offset_seconds is None:
+            raise TypeError("Missing 'offset_seconds' argument")
+        if time_expression is None and 'timeExpression' in kwargs:
+            time_expression = kwargs['timeExpression']
+        if time_expression is None:
+            raise TypeError("Missing 'time_expression' argument")
+
         _setter("offset_seconds", offset_seconds)
         _setter("time_expression", time_expression)
 
@@ -614,8 +692,14 @@ class DatasetDeltaTimeSessionWindowConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timeout_in_minutes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             timeout_in_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timeout_in_minutes is None and 'timeoutInMinutes' in kwargs:
+            timeout_in_minutes = kwargs['timeoutInMinutes']
+        if timeout_in_minutes is None:
+            raise TypeError("Missing 'timeout_in_minutes' argument")
+
         _setter("timeout_in_minutes", timeout_in_minutes)
 
     @property
@@ -653,7 +737,11 @@ class DatasetFilter(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delta_time: Optional['outputs.DatasetDeltaTime'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delta_time is None and 'deltaTime' in kwargs:
+            delta_time = kwargs['deltaTime']
+
         if delta_time is not None:
             _setter("delta_time", delta_time)
 
@@ -695,9 +783,19 @@ class DatasetGlueConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: str,
-             table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             database_name: Optional[str] = None,
+             table_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+
         _setter("database_name", database_name)
         _setter("table_name", table_name)
 
@@ -744,9 +842,19 @@ class DatasetIotEventsDestinationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             input_name: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             input_name: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if input_name is None and 'inputName' in kwargs:
+            input_name = kwargs['inputName']
+        if input_name is None:
+            raise TypeError("Missing 'input_name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+
         _setter("input_name", input_name)
         _setter("role_arn", role_arn)
 
@@ -793,9 +901,17 @@ class DatasetLateDataRule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_configuration: 'outputs.DatasetLateDataRuleConfiguration',
+             rule_configuration: Optional['outputs.DatasetLateDataRuleConfiguration'] = None,
              rule_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_configuration is None and 'ruleConfiguration' in kwargs:
+            rule_configuration = kwargs['ruleConfiguration']
+        if rule_configuration is None:
+            raise TypeError("Missing 'rule_configuration' argument")
+        if rule_name is None and 'ruleName' in kwargs:
+            rule_name = kwargs['ruleName']
+
         _setter("rule_configuration", rule_configuration)
         if rule_name is not None:
             _setter("rule_name", rule_name)
@@ -840,7 +956,11 @@ class DatasetLateDataRuleConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              delta_time_session_window_configuration: Optional['outputs.DatasetDeltaTimeSessionWindowConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delta_time_session_window_configuration is None and 'deltaTimeSessionWindowConfiguration' in kwargs:
+            delta_time_session_window_configuration = kwargs['deltaTimeSessionWindowConfiguration']
+
         if delta_time_session_window_configuration is not None:
             _setter("delta_time_session_window_configuration", delta_time_session_window_configuration)
 
@@ -878,8 +998,14 @@ class DatasetOutputFileUriValue(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             file_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             file_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if file_name is None and 'fileName' in kwargs:
+            file_name = kwargs['fileName']
+        if file_name is None:
+            raise TypeError("Missing 'file_name' argument")
+
         _setter("file_name", file_name)
 
     @property
@@ -918,9 +1044,15 @@ class DatasetQueryAction(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sql_query: str,
+             sql_query: Optional[str] = None,
              filters: Optional[Sequence['outputs.DatasetFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sql_query is None and 'sqlQuery' in kwargs:
+            sql_query = kwargs['sqlQuery']
+        if sql_query is None:
+            raise TypeError("Missing 'sql_query' argument")
+
         _setter("sql_query", sql_query)
         if filters is not None:
             _setter("filters", filters)
@@ -968,9 +1100,19 @@ class DatasetResourceConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             compute_type: 'DatasetResourceConfigurationComputeType',
-             volume_size_in_gb: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             compute_type: Optional['DatasetResourceConfigurationComputeType'] = None,
+             volume_size_in_gb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if compute_type is None:
+            raise TypeError("Missing 'compute_type' argument")
+        if volume_size_in_gb is None and 'volumeSizeInGb' in kwargs:
+            volume_size_in_gb = kwargs['volumeSizeInGb']
+        if volume_size_in_gb is None:
+            raise TypeError("Missing 'volume_size_in_gb' argument")
+
         _setter("compute_type", compute_type)
         _setter("volume_size_in_gb", volume_size_in_gb)
 
@@ -1017,7 +1159,11 @@ class DatasetRetentionPeriod(dict):
              _setter: Callable[[Any, Any], None],
              number_of_days: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if number_of_days is None and 'numberOfDays' in kwargs:
+            number_of_days = kwargs['numberOfDays']
+
         if number_of_days is not None:
             _setter("number_of_days", number_of_days)
         if unlimited is not None:
@@ -1070,11 +1216,23 @@ class DatasetS3DestinationConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
-             key: str,
-             role_arn: str,
+             bucket: Optional[str] = None,
+             key: Optional[str] = None,
+             role_arn: Optional[str] = None,
              glue_configuration: Optional['outputs.DatasetGlueConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if glue_configuration is None and 'glueConfiguration' in kwargs:
+            glue_configuration = kwargs['glueConfiguration']
+
         _setter("bucket", bucket)
         _setter("key", key)
         _setter("role_arn", role_arn)
@@ -1130,8 +1288,14 @@ class DatasetSchedule(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             schedule_expression: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+
         _setter("schedule_expression", schedule_expression)
 
     @property
@@ -1153,9 +1317,15 @@ class DatasetTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1202,7 +1372,11 @@ class DatasetTrigger(dict):
              _setter: Callable[[Any, Any], None],
              schedule: Optional['outputs.DatasetSchedule'] = None,
              triggering_dataset: Optional['outputs.DatasetTriggeringDataset'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if triggering_dataset is None and 'triggeringDataset' in kwargs:
+            triggering_dataset = kwargs['triggeringDataset']
+
         if schedule is not None:
             _setter("schedule", schedule)
         if triggering_dataset is not None:
@@ -1247,8 +1421,14 @@ class DatasetTriggeringDataset(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dataset_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataset_name is None and 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if dataset_name is None:
+            raise TypeError("Missing 'dataset_name' argument")
+
         _setter("dataset_name", dataset_name)
 
     @property
@@ -1301,12 +1481,26 @@ class DatasetVariable(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             variable_name: str,
+             variable_name: Optional[str] = None,
              dataset_content_version_value: Optional['outputs.DatasetContentVersionValue'] = None,
              double_value: Optional[float] = None,
              output_file_uri_value: Optional['outputs.DatasetOutputFileUriValue'] = None,
              string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if variable_name is None and 'variableName' in kwargs:
+            variable_name = kwargs['variableName']
+        if variable_name is None:
+            raise TypeError("Missing 'variable_name' argument")
+        if dataset_content_version_value is None and 'datasetContentVersionValue' in kwargs:
+            dataset_content_version_value = kwargs['datasetContentVersionValue']
+        if double_value is None and 'doubleValue' in kwargs:
+            double_value = kwargs['doubleValue']
+        if output_file_uri_value is None and 'outputFileUriValue' in kwargs:
+            output_file_uri_value = kwargs['outputFileUriValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("variable_name", variable_name)
         if dataset_content_version_value is not None:
             _setter("dataset_content_version_value", dataset_content_version_value)
@@ -1375,7 +1569,11 @@ class DatasetVersioningConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              max_versions: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_versions is None and 'maxVersions' in kwargs:
+            max_versions = kwargs['maxVersions']
+
         if max_versions is not None:
             _setter("max_versions", max_versions)
         if unlimited is not None:
@@ -1405,9 +1603,15 @@ class DatastoreColumn(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("name", name)
         _setter("type", type)
 
@@ -1456,10 +1660,20 @@ class DatastoreCustomerManagedS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
-             role_arn: str,
+             bucket: Optional[str] = None,
+             role_arn: Optional[str] = None,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         _setter("role_arn", role_arn)
         if key_prefix is not None:
@@ -1511,9 +1725,15 @@ class DatastoreCustomerManagedS3Storage(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket: str,
+             bucket: Optional[str] = None,
              key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket is None:
+            raise TypeError("Missing 'bucket' argument")
+        if key_prefix is None and 'keyPrefix' in kwargs:
+            key_prefix = kwargs['keyPrefix']
+
         _setter("bucket", bucket)
         if key_prefix is not None:
             _setter("key_prefix", key_prefix)
@@ -1563,7 +1783,13 @@ class DatastoreFileFormatConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              json_configuration: Optional['outputs.DatastoreJsonConfiguration'] = None,
              parquet_configuration: Optional['outputs.DatastoreParquetConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if json_configuration is None and 'jsonConfiguration' in kwargs:
+            json_configuration = kwargs['jsonConfiguration']
+        if parquet_configuration is None and 'parquetConfiguration' in kwargs:
+            parquet_configuration = kwargs['parquetConfiguration']
+
         if json_configuration is not None:
             _setter("json_configuration", json_configuration)
         if parquet_configuration is not None:
@@ -1609,7 +1835,11 @@ class DatastoreIotSiteWiseMultiLayerStorage(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              customer_managed_s3_storage: Optional['outputs.DatastoreCustomerManagedS3Storage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_s3_storage is None and 'customerManagedS3Storage' in kwargs:
+            customer_managed_s3_storage = kwargs['customerManagedS3Storage']
+
         if customer_managed_s3_storage is not None:
             _setter("customer_managed_s3_storage", customer_managed_s3_storage)
 
@@ -1626,8 +1856,10 @@ class DatastoreJsonConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1659,7 +1891,11 @@ class DatastoreParquetConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              schema_definition: Optional['outputs.DatastoreSchemaDefinition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema_definition is None and 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+
         if schema_definition is not None:
             _setter("schema_definition", schema_definition)
 
@@ -1701,7 +1937,11 @@ class DatastorePartition(dict):
              _setter: Callable[[Any, Any], None],
              partition: Optional['outputs.Partition'] = None,
              timestamp_partition: Optional['outputs.DatastoreTimestampPartition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timestamp_partition is None and 'timestampPartition' in kwargs:
+            timestamp_partition = kwargs['timestampPartition']
+
         if partition is not None:
             _setter("partition", partition)
         if timestamp_partition is not None:
@@ -1730,7 +1970,9 @@ class DatastorePartitions(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              partitions: Optional[Sequence['outputs.DatastorePartition']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if partitions is not None:
             _setter("partitions", partitions)
 
@@ -1772,7 +2014,11 @@ class DatastoreRetentionPeriod(dict):
              _setter: Callable[[Any, Any], None],
              number_of_days: Optional[int] = None,
              unlimited: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if number_of_days is None and 'numberOfDays' in kwargs:
+            number_of_days = kwargs['numberOfDays']
+
         if number_of_days is not None:
             _setter("number_of_days", number_of_days)
         if unlimited is not None:
@@ -1801,7 +2047,9 @@ class DatastoreSchemaDefinition(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              columns: Optional[Sequence['outputs.DatastoreColumn']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if columns is not None:
             _setter("columns", columns)
 
@@ -1818,8 +2066,10 @@ class DatastoreServiceManagedS3(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.output_type
@@ -1861,7 +2111,15 @@ class DatastoreStorage(dict):
              customer_managed_s3: Optional['outputs.DatastoreCustomerManagedS3'] = None,
              iot_site_wise_multi_layer_storage: Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage'] = None,
              service_managed_s3: Optional['outputs.DatastoreServiceManagedS3'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if customer_managed_s3 is None and 'customerManagedS3' in kwargs:
+            customer_managed_s3 = kwargs['customerManagedS3']
+        if iot_site_wise_multi_layer_storage is None and 'iotSiteWiseMultiLayerStorage' in kwargs:
+            iot_site_wise_multi_layer_storage = kwargs['iotSiteWiseMultiLayerStorage']
+        if service_managed_s3 is None and 'serviceManagedS3' in kwargs:
+            service_managed_s3 = kwargs['serviceManagedS3']
+
         if customer_managed_s3 is not None:
             _setter("customer_managed_s3", customer_managed_s3)
         if iot_site_wise_multi_layer_storage is not None:
@@ -1898,9 +2156,15 @@ class DatastoreTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1947,9 +2211,17 @@ class DatastoreTimestampPartition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_name: str,
+             attribute_name: Optional[str] = None,
              timestamp_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_name is None and 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if attribute_name is None:
+            raise TypeError("Missing 'attribute_name' argument")
+        if timestamp_format is None and 'timestampFormat' in kwargs:
+            timestamp_format = kwargs['timestampFormat']
+
         _setter("attribute_name", attribute_name)
         if timestamp_format is not None:
             _setter("timestamp_format", timestamp_format)
@@ -1993,8 +2265,14 @@ class Partition(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attribute_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute_name is None and 'attributeName' in kwargs:
+            attribute_name = kwargs['attributeName']
+        if attribute_name is None:
+            raise TypeError("Missing 'attribute_name' argument")
+
         _setter("attribute_name", attribute_name)
 
     @property
@@ -2069,7 +2347,21 @@ class PipelineActivity(dict):
              math: Optional['outputs.PipelineMath'] = None,
              remove_attributes: Optional['outputs.PipelineRemoveAttributes'] = None,
              select_attributes: Optional['outputs.PipelineSelectAttributes'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if add_attributes is None and 'addAttributes' in kwargs:
+            add_attributes = kwargs['addAttributes']
+        if device_registry_enrich is None and 'deviceRegistryEnrich' in kwargs:
+            device_registry_enrich = kwargs['deviceRegistryEnrich']
+        if device_shadow_enrich is None and 'deviceShadowEnrich' in kwargs:
+            device_shadow_enrich = kwargs['deviceShadowEnrich']
+        if lambda_ is None and 'lambda' in kwargs:
+            lambda_ = kwargs['lambda']
+        if remove_attributes is None and 'removeAttributes' in kwargs:
+            remove_attributes = kwargs['removeAttributes']
+        if select_attributes is None and 'selectAttributes' in kwargs:
+            select_attributes = kwargs['selectAttributes']
+
         if add_attributes is not None:
             _setter("add_attributes", add_attributes)
         if channel is not None:
@@ -2157,10 +2449,16 @@ class PipelineAddAttributes(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Any,
-             name: str,
+             attributes: Optional[Any] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("attributes", attributes)
         _setter("name", name)
         if next is not None:
@@ -2214,10 +2512,18 @@ class PipelineChannel(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel_name: str,
-             name: str,
+             channel_name: Optional[str] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel_name is None and 'channelName' in kwargs:
+            channel_name = kwargs['channelName']
+        if channel_name is None:
+            raise TypeError("Missing 'channel_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("channel_name", channel_name)
         _setter("name", name)
         if next is not None:
@@ -2269,9 +2575,17 @@ class PipelineDatastore(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             datastore_name: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             datastore_name: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if datastore_name is None and 'datastoreName' in kwargs:
+            datastore_name = kwargs['datastoreName']
+        if datastore_name is None:
+            raise TypeError("Missing 'datastore_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("datastore_name", datastore_name)
         _setter("name", name)
 
@@ -2324,12 +2638,26 @@ class PipelineDeviceRegistryEnrich(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: str,
-             name: str,
-             role_arn: str,
-             thing_name: str,
+             attribute: Optional[str] = None,
+             name: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             thing_name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if thing_name is None and 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+        if thing_name is None:
+            raise TypeError("Missing 'thing_name' argument")
+
         _setter("attribute", attribute)
         _setter("name", name)
         _setter("role_arn", role_arn)
@@ -2401,12 +2729,26 @@ class PipelineDeviceShadowEnrich(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: str,
-             name: str,
-             role_arn: str,
-             thing_name: str,
+             attribute: Optional[str] = None,
+             name: Optional[str] = None,
+             role_arn: Optional[str] = None,
+             thing_name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if role_arn is None and 'roleArn' in kwargs:
+            role_arn = kwargs['roleArn']
+        if role_arn is None:
+            raise TypeError("Missing 'role_arn' argument")
+        if thing_name is None and 'thingName' in kwargs:
+            thing_name = kwargs['thingName']
+        if thing_name is None:
+            raise TypeError("Missing 'thing_name' argument")
+
         _setter("attribute", attribute)
         _setter("name", name)
         _setter("role_arn", role_arn)
@@ -2455,10 +2797,16 @@ class PipelineFilter(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: str,
-             name: str,
+             filter: Optional[str] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("filter", filter)
         _setter("name", name)
         if next is not None:
@@ -2516,11 +2864,23 @@ class PipelineLambda(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             batch_size: int,
-             lambda_name: str,
-             name: str,
+             batch_size: Optional[int] = None,
+             lambda_name: Optional[str] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if batch_size is None:
+            raise TypeError("Missing 'batch_size' argument")
+        if lambda_name is None and 'lambdaName' in kwargs:
+            lambda_name = kwargs['lambdaName']
+        if lambda_name is None:
+            raise TypeError("Missing 'lambda_name' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("batch_size", batch_size)
         _setter("lambda_name", lambda_name)
         _setter("name", name)
@@ -2565,11 +2925,19 @@ class PipelineMath(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attribute: str,
-             math: str,
-             name: str,
+             attribute: Optional[str] = None,
+             math: Optional[str] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attribute is None:
+            raise TypeError("Missing 'attribute' argument")
+        if math is None:
+            raise TypeError("Missing 'math' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("attribute", attribute)
         _setter("math", math)
         _setter("name", name)
@@ -2612,10 +2980,16 @@ class PipelineRemoveAttributes(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence[str],
-             name: str,
+             attributes: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("attributes", attributes)
         _setter("name", name)
         if next is not None:
@@ -2652,10 +3026,16 @@ class PipelineSelectAttributes(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence[str],
-             name: str,
+             attributes: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
              next: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("attributes", attributes)
         _setter("name", name)
         if next is not None:
@@ -2690,9 +3070,15 @@ class PipelineTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

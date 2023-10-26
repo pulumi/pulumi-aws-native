@@ -51,7 +51,7 @@ class PermissionSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
+             instance_arn: Optional[pulumi.Input[str]] = None,
              customer_managed_policy_references: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              inline_policy: Optional[Any] = None,
@@ -61,7 +61,25 @@ class PermissionSetArgs:
              relay_state_type: Optional[pulumi.Input[str]] = None,
              session_duration: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if instance_arn is None and 'instanceArn' in kwargs:
+            instance_arn = kwargs['instanceArn']
+        if instance_arn is None:
+            raise TypeError("Missing 'instance_arn' argument")
+        if customer_managed_policy_references is None and 'customerManagedPolicyReferences' in kwargs:
+            customer_managed_policy_references = kwargs['customerManagedPolicyReferences']
+        if inline_policy is None and 'inlinePolicy' in kwargs:
+            inline_policy = kwargs['inlinePolicy']
+        if managed_policies is None and 'managedPolicies' in kwargs:
+            managed_policies = kwargs['managedPolicies']
+        if permissions_boundary is None and 'permissionsBoundary' in kwargs:
+            permissions_boundary = kwargs['permissionsBoundary']
+        if relay_state_type is None and 'relayStateType' in kwargs:
+            relay_state_type = kwargs['relayStateType']
+        if session_duration is None and 'sessionDuration' in kwargs:
+            session_duration = kwargs['sessionDuration']
+
         _setter("instance_arn", instance_arn)
         if customer_managed_policy_references is not None:
             _setter("customer_managed_policy_references", customer_managed_policy_references)
@@ -274,11 +292,7 @@ class PermissionSet(pulumi.CustomResource):
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["managed_policies"] = managed_policies
             __props__.__dict__["name"] = name
-            if permissions_boundary is not None and not isinstance(permissions_boundary, PermissionSetPermissionsBoundaryArgs):
-                permissions_boundary = permissions_boundary or {}
-                def _setter(key, value):
-                    permissions_boundary[key] = value
-                PermissionSetPermissionsBoundaryArgs._configure(_setter, **permissions_boundary)
+            permissions_boundary = _utilities.configure(permissions_boundary, PermissionSetPermissionsBoundaryArgs, True)
             __props__.__dict__["permissions_boundary"] = permissions_boundary
             __props__.__dict__["relay_state_type"] = relay_state_type
             __props__.__dict__["session_duration"] = session_duration

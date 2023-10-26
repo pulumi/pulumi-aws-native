@@ -29,9 +29,17 @@ class LogDeliveryConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             user_pool_id: pulumi.Input[str],
+             user_pool_id: Optional[pulumi.Input[str]] = None,
              log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_pool_id is None and 'userPoolId' in kwargs:
+            user_pool_id = kwargs['userPoolId']
+        if user_pool_id is None:
+            raise TypeError("Missing 'user_pool_id' argument")
+        if log_configurations is None and 'logConfigurations' in kwargs:
+            log_configurations = kwargs['logConfigurations']
+
         _setter("user_pool_id", user_pool_id)
         if log_configurations is not None:
             _setter("log_configurations", log_configurations)

@@ -45,8 +45,8 @@ class UserArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             role: pulumi.Input[str],
-             server_id: pulumi.Input[str],
+             role: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
              home_directory: Optional[pulumi.Input[str]] = None,
              home_directory_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['UserHomeDirectoryMapEntryArgs']]]] = None,
              home_directory_type: Optional[pulumi.Input[str]] = None,
@@ -55,7 +55,27 @@ class UserArgs:
              ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UserSshPublicKeyArgs']]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
              user_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if home_directory is None and 'homeDirectory' in kwargs:
+            home_directory = kwargs['homeDirectory']
+        if home_directory_mappings is None and 'homeDirectoryMappings' in kwargs:
+            home_directory_mappings = kwargs['homeDirectoryMappings']
+        if home_directory_type is None and 'homeDirectoryType' in kwargs:
+            home_directory_type = kwargs['homeDirectoryType']
+        if posix_profile is None and 'posixProfile' in kwargs:
+            posix_profile = kwargs['posixProfile']
+        if ssh_public_keys is None and 'sshPublicKeys' in kwargs:
+            ssh_public_keys = kwargs['sshPublicKeys']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         _setter("role", role)
         _setter("server_id", server_id)
         if home_directory is not None:
@@ -245,11 +265,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["home_directory_mappings"] = home_directory_mappings
             __props__.__dict__["home_directory_type"] = home_directory_type
             __props__.__dict__["policy"] = policy
-            if posix_profile is not None and not isinstance(posix_profile, UserPosixProfileArgs):
-                posix_profile = posix_profile or {}
-                def _setter(key, value):
-                    posix_profile[key] = value
-                UserPosixProfileArgs._configure(_setter, **posix_profile)
+            posix_profile = _utilities.configure(posix_profile, UserPosixProfileArgs, True)
             __props__.__dict__["posix_profile"] = posix_profile
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")

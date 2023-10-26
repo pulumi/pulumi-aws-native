@@ -47,13 +47,25 @@ class ProtectionGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             aggregation: pulumi.Input['ProtectionGroupAggregation'],
-             pattern: pulumi.Input['ProtectionGroupPattern'],
-             protection_group_id: pulumi.Input[str],
+             aggregation: Optional[pulumi.Input['ProtectionGroupAggregation']] = None,
+             pattern: Optional[pulumi.Input['ProtectionGroupPattern']] = None,
+             protection_group_id: Optional[pulumi.Input[str]] = None,
              members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              resource_type: Optional[pulumi.Input['ProtectionGroupResourceType']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if aggregation is None:
+            raise TypeError("Missing 'aggregation' argument")
+        if pattern is None:
+            raise TypeError("Missing 'pattern' argument")
+        if protection_group_id is None and 'protectionGroupId' in kwargs:
+            protection_group_id = kwargs['protectionGroupId']
+        if protection_group_id is None:
+            raise TypeError("Missing 'protection_group_id' argument")
+        if resource_type is None and 'resourceType' in kwargs:
+            resource_type = kwargs['resourceType']
+
         _setter("aggregation", aggregation)
         _setter("pattern", pattern)
         _setter("protection_group_id", protection_group_id)

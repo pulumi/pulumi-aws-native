@@ -51,16 +51,38 @@ class CertificateAuthorityArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key_algorithm: pulumi.Input[str],
-             signing_algorithm: pulumi.Input[str],
-             subject: pulumi.Input['CertificateAuthoritySubjectArgs'],
-             type: pulumi.Input[str],
+             key_algorithm: Optional[pulumi.Input[str]] = None,
+             signing_algorithm: Optional[pulumi.Input[str]] = None,
+             subject: Optional[pulumi.Input['CertificateAuthoritySubjectArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
              csr_extensions: Optional[pulumi.Input['CertificateAuthorityCsrExtensionsArgs']] = None,
              key_storage_security_standard: Optional[pulumi.Input[str]] = None,
              revocation_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityTagArgs']]]] = None,
              usage_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key_algorithm is None and 'keyAlgorithm' in kwargs:
+            key_algorithm = kwargs['keyAlgorithm']
+        if key_algorithm is None:
+            raise TypeError("Missing 'key_algorithm' argument")
+        if signing_algorithm is None and 'signingAlgorithm' in kwargs:
+            signing_algorithm = kwargs['signingAlgorithm']
+        if signing_algorithm is None:
+            raise TypeError("Missing 'signing_algorithm' argument")
+        if subject is None:
+            raise TypeError("Missing 'subject' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if csr_extensions is None and 'csrExtensions' in kwargs:
+            csr_extensions = kwargs['csrExtensions']
+        if key_storage_security_standard is None and 'keyStorageSecurityStandard' in kwargs:
+            key_storage_security_standard = kwargs['keyStorageSecurityStandard']
+        if revocation_configuration is None and 'revocationConfiguration' in kwargs:
+            revocation_configuration = kwargs['revocationConfiguration']
+        if usage_mode is None and 'usageMode' in kwargs:
+            usage_mode = kwargs['usageMode']
+
         _setter("key_algorithm", key_algorithm)
         _setter("signing_algorithm", signing_algorithm)
         _setter("subject", subject)
@@ -257,30 +279,18 @@ class CertificateAuthority(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateAuthorityArgs.__new__(CertificateAuthorityArgs)
 
-            if csr_extensions is not None and not isinstance(csr_extensions, CertificateAuthorityCsrExtensionsArgs):
-                csr_extensions = csr_extensions or {}
-                def _setter(key, value):
-                    csr_extensions[key] = value
-                CertificateAuthorityCsrExtensionsArgs._configure(_setter, **csr_extensions)
+            csr_extensions = _utilities.configure(csr_extensions, CertificateAuthorityCsrExtensionsArgs, True)
             __props__.__dict__["csr_extensions"] = csr_extensions
             if key_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'key_algorithm'")
             __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["key_storage_security_standard"] = key_storage_security_standard
-            if revocation_configuration is not None and not isinstance(revocation_configuration, CertificateAuthorityRevocationConfigurationArgs):
-                revocation_configuration = revocation_configuration or {}
-                def _setter(key, value):
-                    revocation_configuration[key] = value
-                CertificateAuthorityRevocationConfigurationArgs._configure(_setter, **revocation_configuration)
+            revocation_configuration = _utilities.configure(revocation_configuration, CertificateAuthorityRevocationConfigurationArgs, True)
             __props__.__dict__["revocation_configuration"] = revocation_configuration
             if signing_algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'signing_algorithm'")
             __props__.__dict__["signing_algorithm"] = signing_algorithm
-            if subject is not None and not isinstance(subject, CertificateAuthoritySubjectArgs):
-                subject = subject or {}
-                def _setter(key, value):
-                    subject[key] = value
-                CertificateAuthoritySubjectArgs._configure(_setter, **subject)
+            subject = _utilities.configure(subject, CertificateAuthoritySubjectArgs, True)
             if subject is None and not opts.urn:
                 raise TypeError("Missing required property 'subject'")
             __props__.__dict__["subject"] = subject

@@ -65,10 +65,20 @@ class ProactiveEngagementEmergencyContact(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email_address: str,
+             email_address: Optional[str] = None,
              contact_notes: Optional[str] = None,
              phone_number: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email_address is None and 'emailAddress' in kwargs:
+            email_address = kwargs['emailAddress']
+        if email_address is None:
+            raise TypeError("Missing 'email_address' argument")
+        if contact_notes is None and 'contactNotes' in kwargs:
+            contact_notes = kwargs['contactNotes']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+
         _setter("email_address", email_address)
         if contact_notes is not None:
             _setter("contact_notes", contact_notes)
@@ -121,9 +131,15 @@ class ProtectionApplicationLayerAutomaticResponseConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             action: Any,
-             status: 'ProtectionApplicationLayerAutomaticResponseConfigurationStatus',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             action: Optional[Any] = None,
+             status: Optional['ProtectionApplicationLayerAutomaticResponseConfigurationStatus'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("action", action)
         _setter("status", status)
 
@@ -164,7 +180,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction0Properties(
     def _configure(
              _setter: Callable[[Any, Any], None],
              count: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if count is not None:
             _setter("count", count)
 
@@ -198,7 +216,9 @@ class ProtectionApplicationLayerAutomaticResponseConfigurationAction1Properties(
     def _configure(
              _setter: Callable[[Any, Any], None],
              block: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if block is not None:
             _setter("block", block)
 
@@ -233,9 +253,15 @@ class ProtectionGroupTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -277,9 +303,15 @@ class ProtectionTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

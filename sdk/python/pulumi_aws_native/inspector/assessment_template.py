@@ -35,12 +35,30 @@ class AssessmentTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assessment_target_arn: pulumi.Input[str],
-             duration_in_seconds: pulumi.Input[int],
-             rules_package_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+             assessment_target_arn: Optional[pulumi.Input[str]] = None,
+             duration_in_seconds: Optional[pulumi.Input[int]] = None,
+             rules_package_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              assessment_template_name: Optional[pulumi.Input[str]] = None,
              user_attributes_for_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assessment_target_arn is None and 'assessmentTargetArn' in kwargs:
+            assessment_target_arn = kwargs['assessmentTargetArn']
+        if assessment_target_arn is None:
+            raise TypeError("Missing 'assessment_target_arn' argument")
+        if duration_in_seconds is None and 'durationInSeconds' in kwargs:
+            duration_in_seconds = kwargs['durationInSeconds']
+        if duration_in_seconds is None:
+            raise TypeError("Missing 'duration_in_seconds' argument")
+        if rules_package_arns is None and 'rulesPackageArns' in kwargs:
+            rules_package_arns = kwargs['rulesPackageArns']
+        if rules_package_arns is None:
+            raise TypeError("Missing 'rules_package_arns' argument")
+        if assessment_template_name is None and 'assessmentTemplateName' in kwargs:
+            assessment_template_name = kwargs['assessmentTemplateName']
+        if user_attributes_for_findings is None and 'userAttributesForFindings' in kwargs:
+            user_attributes_for_findings = kwargs['userAttributesForFindings']
+
         _setter("assessment_target_arn", assessment_target_arn)
         _setter("duration_in_seconds", duration_in_seconds)
         _setter("rules_package_arns", rules_package_arns)

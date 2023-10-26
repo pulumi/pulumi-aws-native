@@ -43,7 +43,9 @@ class ApplicationAutoStartConfiguration(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if enabled is not None:
             _setter("enabled", enabled)
 
@@ -96,7 +98,11 @@ class ApplicationAutoStopConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              enabled: Optional[bool] = None,
              idle_timeout_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if idle_timeout_minutes is None and 'idleTimeoutMinutes' in kwargs:
+            idle_timeout_minutes = kwargs['idleTimeoutMinutes']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if idle_timeout_minutes is not None:
@@ -155,7 +161,11 @@ class ApplicationImageConfigurationInput(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              image_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if image_uri is None and 'imageUri' in kwargs:
+            image_uri = kwargs['imageUri']
+
         if image_uri is not None:
             _setter("image_uri", image_uri)
 
@@ -203,9 +213,19 @@ class ApplicationInitialCapacityConfig(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             worker_configuration: 'outputs.ApplicationWorkerConfiguration',
-             worker_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             worker_configuration: Optional['outputs.ApplicationWorkerConfiguration'] = None,
+             worker_count: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if worker_configuration is None and 'workerConfiguration' in kwargs:
+            worker_configuration = kwargs['workerConfiguration']
+        if worker_configuration is None:
+            raise TypeError("Missing 'worker_configuration' argument")
+        if worker_count is None and 'workerCount' in kwargs:
+            worker_count = kwargs['workerCount']
+        if worker_count is None:
+            raise TypeError("Missing 'worker_count' argument")
+
         _setter("worker_configuration", worker_configuration)
         _setter("worker_count", worker_count)
 
@@ -239,9 +259,15 @@ class ApplicationInitialCapacityConfigKeyValuePair(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: 'outputs.ApplicationInitialCapacityConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional['outputs.ApplicationInitialCapacityConfig'] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -279,10 +305,16 @@ class ApplicationMaximumAllowedResources(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cpu: str,
-             memory: str,
+             cpu: Optional[str] = None,
+             memory: Optional[str] = None,
              disk: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu is None:
+            raise TypeError("Missing 'cpu' argument")
+        if memory is None:
+            raise TypeError("Missing 'memory' argument")
+
         _setter("cpu", cpu)
         _setter("memory", memory)
         if disk is not None:
@@ -351,7 +383,13 @@ class ApplicationNetworkConfiguration(dict):
              _setter: Callable[[Any, Any], None],
              security_group_ids: Optional[Sequence[str]] = None,
              subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -395,9 +433,15 @@ class ApplicationTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -438,10 +482,16 @@ class ApplicationWorkerConfiguration(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cpu: str,
-             memory: str,
+             cpu: Optional[str] = None,
+             memory: Optional[str] = None,
              disk: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu is None:
+            raise TypeError("Missing 'cpu' argument")
+        if memory is None:
+            raise TypeError("Missing 'memory' argument")
+
         _setter("cpu", cpu)
         _setter("memory", memory)
         if disk is not None:
@@ -479,7 +529,9 @@ class ApplicationWorkerTypeSpecificationInputMap(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

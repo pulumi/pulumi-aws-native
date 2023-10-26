@@ -75,7 +75,11 @@ class ClusterBrokerLogsArgs:
              cloud_watch_logs: Optional[pulumi.Input['ClusterCloudWatchLogsArgs']] = None,
              firehose: Optional[pulumi.Input['ClusterFirehoseArgs']] = None,
              s3: Optional[pulumi.Input['ClusterS3Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cloud_watch_logs is None and 'cloudWatchLogs' in kwargs:
+            cloud_watch_logs = kwargs['cloudWatchLogs']
+
         if cloud_watch_logs is not None:
             _setter("cloud_watch_logs", cloud_watch_logs)
         if firehose is not None:
@@ -132,13 +136,31 @@ class ClusterBrokerNodeGroupInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             instance_type: pulumi.Input[str],
+             client_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             instance_type: Optional[pulumi.Input[str]] = None,
              broker_az_distribution: Optional[pulumi.Input[str]] = None,
              connectivity_info: Optional[pulumi.Input['ClusterConnectivityInfoArgs']] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              storage_info: Optional[pulumi.Input['ClusterStorageInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_subnets is None and 'clientSubnets' in kwargs:
+            client_subnets = kwargs['clientSubnets']
+        if client_subnets is None:
+            raise TypeError("Missing 'client_subnets' argument")
+        if instance_type is None and 'instanceType' in kwargs:
+            instance_type = kwargs['instanceType']
+        if instance_type is None:
+            raise TypeError("Missing 'instance_type' argument")
+        if broker_az_distribution is None and 'brokerAzDistribution' in kwargs:
+            broker_az_distribution = kwargs['brokerAzDistribution']
+        if connectivity_info is None and 'connectivityInfo' in kwargs:
+            connectivity_info = kwargs['connectivityInfo']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if storage_info is None and 'storageInfo' in kwargs:
+            storage_info = kwargs['storageInfo']
+
         _setter("client_subnets", client_subnets)
         _setter("instance_type", instance_type)
         if broker_az_distribution is not None:
@@ -223,7 +245,9 @@ class ClusterClientAuthenticationArgs:
              sasl: Optional[pulumi.Input['ClusterSaslArgs']] = None,
              tls: Optional[pulumi.Input['ClusterTlsArgs']] = None,
              unauthenticated: Optional[pulumi.Input['ClusterUnauthenticatedArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if sasl is not None:
             _setter("sasl", sasl)
         if tls is not None:
@@ -272,9 +296,15 @@ class ClusterCloudWatchLogsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if log_group is None and 'logGroup' in kwargs:
+            log_group = kwargs['logGroup']
+
         _setter("enabled", enabled)
         if log_group is not None:
             _setter("log_group", log_group)
@@ -311,9 +341,15 @@ class ClusterConfigurationInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             arn: Optional[pulumi.Input[str]] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if arn is None:
+            raise TypeError("Missing 'arn' argument")
+        if revision is None:
+            raise TypeError("Missing 'revision' argument")
+
         _setter("arn", arn)
         _setter("revision", revision)
 
@@ -351,7 +387,13 @@ class ClusterConnectivityInfoArgs:
              _setter: Callable[[Any, Any], None],
              public_access: Optional[pulumi.Input['ClusterPublicAccessArgs']] = None,
              vpc_connectivity: Optional[pulumi.Input['ClusterVpcConnectivityArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if public_access is None and 'publicAccess' in kwargs:
+            public_access = kwargs['publicAccess']
+        if vpc_connectivity is None and 'vpcConnectivity' in kwargs:
+            vpc_connectivity = kwargs['vpcConnectivity']
+
         if public_access is not None:
             _setter("public_access", public_access)
         if vpc_connectivity is not None:
@@ -391,7 +433,13 @@ class ClusterEbsStorageInfoArgs:
              _setter: Callable[[Any, Any], None],
              provisioned_throughput: Optional[pulumi.Input['ClusterProvisionedThroughputArgs']] = None,
              volume_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if provisioned_throughput is None and 'provisionedThroughput' in kwargs:
+            provisioned_throughput = kwargs['provisionedThroughput']
+        if volume_size is None and 'volumeSize' in kwargs:
+            volume_size = kwargs['volumeSize']
+
         if provisioned_throughput is not None:
             _setter("provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
@@ -427,8 +475,14 @@ class ClusterEncryptionAtRestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             data_volume_kms_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             data_volume_kms_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if data_volume_kms_key_id is None and 'dataVolumeKmsKeyId' in kwargs:
+            data_volume_kms_key_id = kwargs['dataVolumeKmsKeyId']
+        if data_volume_kms_key_id is None:
+            raise TypeError("Missing 'data_volume_kms_key_id' argument")
+
         _setter("data_volume_kms_key_id", data_volume_kms_key_id)
 
     @property
@@ -456,7 +510,13 @@ class ClusterEncryptionInTransitArgs:
              _setter: Callable[[Any, Any], None],
              client_broker: Optional[pulumi.Input['ClusterEncryptionInTransitClientBroker']] = None,
              in_cluster: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_broker is None and 'clientBroker' in kwargs:
+            client_broker = kwargs['clientBroker']
+        if in_cluster is None and 'inCluster' in kwargs:
+            in_cluster = kwargs['inCluster']
+
         if client_broker is not None:
             _setter("client_broker", client_broker)
         if in_cluster is not None:
@@ -496,7 +556,13 @@ class ClusterEncryptionInfoArgs:
              _setter: Callable[[Any, Any], None],
              encryption_at_rest: Optional[pulumi.Input['ClusterEncryptionAtRestArgs']] = None,
              encryption_in_transit: Optional[pulumi.Input['ClusterEncryptionInTransitArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_at_rest is None and 'encryptionAtRest' in kwargs:
+            encryption_at_rest = kwargs['encryptionAtRest']
+        if encryption_in_transit is None and 'encryptionInTransit' in kwargs:
+            encryption_in_transit = kwargs['encryptionInTransit']
+
         if encryption_at_rest is not None:
             _setter("encryption_at_rest", encryption_at_rest)
         if encryption_in_transit is not None:
@@ -534,9 +600,15 @@ class ClusterFirehoseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              delivery_stream: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if delivery_stream is None and 'deliveryStream' in kwargs:
+            delivery_stream = kwargs['deliveryStream']
+
         _setter("enabled", enabled)
         if delivery_stream is not None:
             _setter("delivery_stream", delivery_stream)
@@ -571,8 +643,12 @@ class ClusterIamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -596,8 +672,14 @@ class ClusterJmxExporterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled_in_broker: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled_in_broker: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled_in_broker is None and 'enabledInBroker' in kwargs:
+            enabled_in_broker = kwargs['enabledInBroker']
+        if enabled_in_broker is None:
+            raise TypeError("Missing 'enabled_in_broker' argument")
+
         _setter("enabled_in_broker", enabled_in_broker)
 
     @property
@@ -621,8 +703,14 @@ class ClusterLoggingInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             broker_logs: pulumi.Input['ClusterBrokerLogsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             broker_logs: Optional[pulumi.Input['ClusterBrokerLogsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if broker_logs is None and 'brokerLogs' in kwargs:
+            broker_logs = kwargs['brokerLogs']
+        if broker_logs is None:
+            raise TypeError("Missing 'broker_logs' argument")
+
         _setter("broker_logs", broker_logs)
 
     @property
@@ -646,8 +734,14 @@ class ClusterNodeExporterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled_in_broker: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled_in_broker: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled_in_broker is None and 'enabledInBroker' in kwargs:
+            enabled_in_broker = kwargs['enabledInBroker']
+        if enabled_in_broker is None:
+            raise TypeError("Missing 'enabled_in_broker' argument")
+
         _setter("enabled_in_broker", enabled_in_broker)
 
     @property
@@ -671,8 +765,12 @@ class ClusterOpenMonitoringArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             prometheus: pulumi.Input['ClusterPrometheusArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             prometheus: Optional[pulumi.Input['ClusterPrometheusArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prometheus is None:
+            raise TypeError("Missing 'prometheus' argument")
+
         _setter("prometheus", prometheus)
 
     @property
@@ -700,7 +798,13 @@ class ClusterPrometheusArgs:
              _setter: Callable[[Any, Any], None],
              jmx_exporter: Optional[pulumi.Input['ClusterJmxExporterArgs']] = None,
              node_exporter: Optional[pulumi.Input['ClusterNodeExporterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if jmx_exporter is None and 'jmxExporter' in kwargs:
+            jmx_exporter = kwargs['jmxExporter']
+        if node_exporter is None and 'nodeExporter' in kwargs:
+            node_exporter = kwargs['nodeExporter']
+
         if jmx_exporter is not None:
             _setter("jmx_exporter", jmx_exporter)
         if node_exporter is not None:
@@ -740,7 +844,11 @@ class ClusterProvisionedThroughputArgs:
              _setter: Callable[[Any, Any], None],
              enabled: Optional[pulumi.Input[bool]] = None,
              volume_throughput: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if volume_throughput is None and 'volumeThroughput' in kwargs:
+            volume_throughput = kwargs['volumeThroughput']
+
         if enabled is not None:
             _setter("enabled", enabled)
         if volume_throughput is not None:
@@ -777,7 +885,9 @@ class ClusterPublicAccessArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if type is not None:
             _setter("type", type)
 
@@ -806,10 +916,14 @@ class ClusterS3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
+             enabled: Optional[pulumi.Input[bool]] = None,
              bucket: Optional[pulumi.Input[str]] = None,
              prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
         if bucket is not None:
             _setter("bucket", bucket)
@@ -859,7 +973,9 @@ class ClusterSaslArgs:
              _setter: Callable[[Any, Any], None],
              iam: Optional[pulumi.Input['ClusterIamArgs']] = None,
              scram: Optional[pulumi.Input['ClusterScramArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if iam is not None:
             _setter("iam", iam)
         if scram is not None:
@@ -895,8 +1011,12 @@ class ClusterScramArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -921,7 +1041,11 @@ class ClusterStorageInfoArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              ebs_storage_info: Optional[pulumi.Input['ClusterEbsStorageInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ebs_storage_info is None and 'ebsStorageInfo' in kwargs:
+            ebs_storage_info = kwargs['ebsStorageInfo']
+
         if ebs_storage_info is not None:
             _setter("ebs_storage_info", ebs_storage_info)
 
@@ -950,7 +1074,11 @@ class ClusterTlsArgs:
              _setter: Callable[[Any, Any], None],
              certificate_authority_arn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate_authority_arn_list is None and 'certificateAuthorityArnList' in kwargs:
+            certificate_authority_arn_list = kwargs['certificateAuthorityArnList']
+
         if certificate_authority_arn_list is not None:
             _setter("certificate_authority_arn_list", certificate_authority_arn_list)
         if enabled is not None:
@@ -986,8 +1114,12 @@ class ClusterUnauthenticatedArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -1015,7 +1147,9 @@ class ClusterVpcConnectivityClientAuthenticationArgs:
              _setter: Callable[[Any, Any], None],
              sasl: Optional[pulumi.Input['ClusterVpcConnectivitySaslArgs']] = None,
              tls: Optional[pulumi.Input['ClusterVpcConnectivityTlsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if sasl is not None:
             _setter("sasl", sasl)
         if tls is not None:
@@ -1051,8 +1185,12 @@ class ClusterVpcConnectivityIamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -1080,7 +1218,9 @@ class ClusterVpcConnectivitySaslArgs:
              _setter: Callable[[Any, Any], None],
              iam: Optional[pulumi.Input['ClusterVpcConnectivityIamArgs']] = None,
              scram: Optional[pulumi.Input['ClusterVpcConnectivityScramArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if iam is not None:
             _setter("iam", iam)
         if scram is not None:
@@ -1116,8 +1256,12 @@ class ClusterVpcConnectivityScramArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -1141,8 +1285,12 @@ class ClusterVpcConnectivityTlsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -1167,7 +1315,11 @@ class ClusterVpcConnectivityArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              client_authentication: Optional[pulumi.Input['ClusterVpcConnectivityClientAuthenticationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_authentication is None and 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+
         if client_authentication is not None:
             _setter("client_authentication", client_authentication)
 
@@ -1199,7 +1351,11 @@ class ConfigurationLatestRevisionArgs:
              creation_time: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              revision: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+
         if creation_time is not None:
             _setter("creation_time", creation_time)
         if description is not None:
@@ -1250,8 +1406,14 @@ class ReplicatorAmazonMskClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             msk_cluster_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             msk_cluster_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if msk_cluster_arn is None and 'mskClusterArn' in kwargs:
+            msk_cluster_arn = kwargs['mskClusterArn']
+        if msk_cluster_arn is None:
+            raise TypeError("Missing 'msk_cluster_arn' argument")
+
         _setter("msk_cluster_arn", msk_cluster_arn)
 
     @property
@@ -1291,11 +1453,23 @@ class ReplicatorConsumerGroupReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_groups_to_replicate: pulumi.Input[Sequence[pulumi.Input[str]]],
+             consumer_groups_to_replicate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              consumer_groups_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              detect_and_copy_new_consumer_groups: Optional[pulumi.Input[bool]] = None,
              synchronise_consumer_group_offsets: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_groups_to_replicate is None and 'consumerGroupsToReplicate' in kwargs:
+            consumer_groups_to_replicate = kwargs['consumerGroupsToReplicate']
+        if consumer_groups_to_replicate is None:
+            raise TypeError("Missing 'consumer_groups_to_replicate' argument")
+        if consumer_groups_to_exclude is None and 'consumerGroupsToExclude' in kwargs:
+            consumer_groups_to_exclude = kwargs['consumerGroupsToExclude']
+        if detect_and_copy_new_consumer_groups is None and 'detectAndCopyNewConsumerGroups' in kwargs:
+            detect_and_copy_new_consumer_groups = kwargs['detectAndCopyNewConsumerGroups']
+        if synchronise_consumer_group_offsets is None and 'synchroniseConsumerGroupOffsets' in kwargs:
+            synchronise_consumer_group_offsets = kwargs['synchroniseConsumerGroupOffsets']
+
         _setter("consumer_groups_to_replicate", consumer_groups_to_replicate)
         if consumer_groups_to_exclude is not None:
             _setter("consumer_groups_to_exclude", consumer_groups_to_exclude)
@@ -1371,9 +1545,17 @@ class ReplicatorKafkaClusterClientVpcConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if security_group_ids is None and 'securityGroupIds' in kwargs:
+            security_group_ids = kwargs['securityGroupIds']
+
         _setter("subnet_ids", subnet_ids)
         if security_group_ids is not None:
             _setter("security_group_ids", security_group_ids)
@@ -1421,9 +1603,19 @@ class ReplicatorKafkaClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             amazon_msk_cluster: pulumi.Input['ReplicatorAmazonMskClusterArgs'],
-             vpc_config: pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             amazon_msk_cluster: Optional[pulumi.Input['ReplicatorAmazonMskClusterArgs']] = None,
+             vpc_config: Optional[pulumi.Input['ReplicatorKafkaClusterClientVpcConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if amazon_msk_cluster is None and 'amazonMskCluster' in kwargs:
+            amazon_msk_cluster = kwargs['amazonMskCluster']
+        if amazon_msk_cluster is None:
+            raise TypeError("Missing 'amazon_msk_cluster' argument")
+        if vpc_config is None and 'vpcConfig' in kwargs:
+            vpc_config = kwargs['vpcConfig']
+        if vpc_config is None:
+            raise TypeError("Missing 'vpc_config' argument")
+
         _setter("amazon_msk_cluster", amazon_msk_cluster)
         _setter("vpc_config", vpc_config)
 
@@ -1479,12 +1671,34 @@ class ReplicatorReplicationInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             consumer_group_replication: pulumi.Input['ReplicatorConsumerGroupReplicationArgs'],
-             source_kafka_cluster_arn: pulumi.Input[str],
-             target_compression_type: pulumi.Input['ReplicatorReplicationInfoTargetCompressionType'],
-             target_kafka_cluster_arn: pulumi.Input[str],
-             topic_replication: pulumi.Input['ReplicatorTopicReplicationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             consumer_group_replication: Optional[pulumi.Input['ReplicatorConsumerGroupReplicationArgs']] = None,
+             source_kafka_cluster_arn: Optional[pulumi.Input[str]] = None,
+             target_compression_type: Optional[pulumi.Input['ReplicatorReplicationInfoTargetCompressionType']] = None,
+             target_kafka_cluster_arn: Optional[pulumi.Input[str]] = None,
+             topic_replication: Optional[pulumi.Input['ReplicatorTopicReplicationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if consumer_group_replication is None and 'consumerGroupReplication' in kwargs:
+            consumer_group_replication = kwargs['consumerGroupReplication']
+        if consumer_group_replication is None:
+            raise TypeError("Missing 'consumer_group_replication' argument")
+        if source_kafka_cluster_arn is None and 'sourceKafkaClusterArn' in kwargs:
+            source_kafka_cluster_arn = kwargs['sourceKafkaClusterArn']
+        if source_kafka_cluster_arn is None:
+            raise TypeError("Missing 'source_kafka_cluster_arn' argument")
+        if target_compression_type is None and 'targetCompressionType' in kwargs:
+            target_compression_type = kwargs['targetCompressionType']
+        if target_compression_type is None:
+            raise TypeError("Missing 'target_compression_type' argument")
+        if target_kafka_cluster_arn is None and 'targetKafkaClusterArn' in kwargs:
+            target_kafka_cluster_arn = kwargs['targetKafkaClusterArn']
+        if target_kafka_cluster_arn is None:
+            raise TypeError("Missing 'target_kafka_cluster_arn' argument")
+        if topic_replication is None and 'topicReplication' in kwargs:
+            topic_replication = kwargs['topicReplication']
+        if topic_replication is None:
+            raise TypeError("Missing 'topic_replication' argument")
+
         _setter("consumer_group_replication", consumer_group_replication)
         _setter("source_kafka_cluster_arn", source_kafka_cluster_arn)
         _setter("target_compression_type", target_compression_type)
@@ -1565,9 +1779,15 @@ class ReplicatorTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1616,12 +1836,26 @@ class ReplicatorTopicReplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topics_to_replicate: pulumi.Input[Sequence[pulumi.Input[str]]],
+             topics_to_replicate: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              copy_access_control_lists_for_topics: Optional[pulumi.Input[bool]] = None,
              copy_topic_configurations: Optional[pulumi.Input[bool]] = None,
              detect_and_copy_new_topics: Optional[pulumi.Input[bool]] = None,
              topics_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topics_to_replicate is None and 'topicsToReplicate' in kwargs:
+            topics_to_replicate = kwargs['topicsToReplicate']
+        if topics_to_replicate is None:
+            raise TypeError("Missing 'topics_to_replicate' argument")
+        if copy_access_control_lists_for_topics is None and 'copyAccessControlListsForTopics' in kwargs:
+            copy_access_control_lists_for_topics = kwargs['copyAccessControlListsForTopics']
+        if copy_topic_configurations is None and 'copyTopicConfigurations' in kwargs:
+            copy_topic_configurations = kwargs['copyTopicConfigurations']
+        if detect_and_copy_new_topics is None and 'detectAndCopyNewTopics' in kwargs:
+            detect_and_copy_new_topics = kwargs['detectAndCopyNewTopics']
+        if topics_to_exclude is None and 'topicsToExclude' in kwargs:
+            topics_to_exclude = kwargs['topicsToExclude']
+
         _setter("topics_to_replicate", topics_to_replicate)
         if copy_access_control_lists_for_topics is not None:
             _setter("copy_access_control_lists_for_topics", copy_access_control_lists_for_topics)
@@ -1704,8 +1938,12 @@ class ServerlessClusterClientAuthenticationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sasl: pulumi.Input['ServerlessClusterSaslArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sasl: Optional[pulumi.Input['ServerlessClusterSaslArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sasl is None:
+            raise TypeError("Missing 'sasl' argument")
+
         _setter("sasl", sasl)
 
     @property
@@ -1729,8 +1967,12 @@ class ServerlessClusterIamArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+
         _setter("enabled", enabled)
 
     @property
@@ -1754,8 +1996,12 @@ class ServerlessClusterSaslArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             iam: pulumi.Input['ServerlessClusterIamArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             iam: Optional[pulumi.Input['ServerlessClusterIamArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if iam is None:
+            raise TypeError("Missing 'iam' argument")
+
         _setter("iam", iam)
 
     @property
@@ -1781,9 +2027,17 @@ class ServerlessClusterVpcConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if subnet_ids is None:
+            raise TypeError("Missing 'subnet_ids' argument")
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+
         _setter("subnet_ids", subnet_ids)
         if security_groups is not None:
             _setter("security_groups", security_groups)
@@ -1817,7 +2071,9 @@ class VpcConnectionTagsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 

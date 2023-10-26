@@ -37,11 +37,21 @@ class DomainNameArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
+             domain_name: Optional[pulumi.Input[str]] = None,
              domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
              mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if domain_name_configurations is None and 'domainNameConfigurations' in kwargs:
+            domain_name_configurations = kwargs['domainNameConfigurations']
+        if mutual_tls_authentication is None and 'mutualTlsAuthentication' in kwargs:
+            mutual_tls_authentication = kwargs['mutualTlsAuthentication']
+
         _setter("domain_name", domain_name)
         if domain_name_configurations is not None:
             _setter("domain_name_configurations", domain_name_configurations)
@@ -166,11 +176,7 @@ class DomainName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_configurations"] = domain_name_configurations
-            if mutual_tls_authentication is not None and not isinstance(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs):
-                mutual_tls_authentication = mutual_tls_authentication or {}
-                def _setter(key, value):
-                    mutual_tls_authentication[key] = value
-                DomainNameMutualTlsAuthenticationArgs._configure(_setter, **mutual_tls_authentication)
+            mutual_tls_authentication = _utilities.configure(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs, True)
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["tags"] = tags
             __props__.__dict__["regional_domain_name"] = None

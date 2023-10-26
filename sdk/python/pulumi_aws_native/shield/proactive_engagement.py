@@ -34,9 +34,19 @@ class ProactiveEngagementArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             emergency_contact_list: pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]],
-             proactive_engagement_status: pulumi.Input['ProactiveEngagementStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             emergency_contact_list: Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]] = None,
+             proactive_engagement_status: Optional[pulumi.Input['ProactiveEngagementStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if emergency_contact_list is None and 'emergencyContactList' in kwargs:
+            emergency_contact_list = kwargs['emergencyContactList']
+        if emergency_contact_list is None:
+            raise TypeError("Missing 'emergency_contact_list' argument")
+        if proactive_engagement_status is None and 'proactiveEngagementStatus' in kwargs:
+            proactive_engagement_status = kwargs['proactiveEngagementStatus']
+        if proactive_engagement_status is None:
+            raise TypeError("Missing 'proactive_engagement_status' argument")
+
         _setter("emergency_contact_list", emergency_contact_list)
         _setter("proactive_engagement_status", proactive_engagement_status)
 

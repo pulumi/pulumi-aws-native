@@ -53,7 +53,15 @@ class WorkflowArgs:
              parameter_template: Optional[pulumi.Input['WorkflowParameterTemplateArgs']] = None,
              storage_capacity: Optional[pulumi.Input[float]] = None,
              tags: Optional[pulumi.Input['WorkflowTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition_uri is None and 'definitionUri' in kwargs:
+            definition_uri = kwargs['definitionUri']
+        if parameter_template is None and 'parameterTemplate' in kwargs:
+            parameter_template = kwargs['parameterTemplate']
+        if storage_capacity is None and 'storageCapacity' in kwargs:
+            storage_capacity = kwargs['storageCapacity']
+
         if accelerators is not None:
             _setter("accelerators", accelerators)
         if definition_uri is not None:
@@ -228,18 +236,10 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["main"] = main
             __props__.__dict__["name"] = name
-            if parameter_template is not None and not isinstance(parameter_template, WorkflowParameterTemplateArgs):
-                parameter_template = parameter_template or {}
-                def _setter(key, value):
-                    parameter_template[key] = value
-                WorkflowParameterTemplateArgs._configure(_setter, **parameter_template)
+            parameter_template = _utilities.configure(parameter_template, WorkflowParameterTemplateArgs, True)
             __props__.__dict__["parameter_template"] = parameter_template
             __props__.__dict__["storage_capacity"] = storage_capacity
-            if tags is not None and not isinstance(tags, WorkflowTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                WorkflowTagMapArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, WorkflowTagMapArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

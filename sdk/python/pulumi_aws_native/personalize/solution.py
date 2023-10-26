@@ -46,14 +46,30 @@ class SolutionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset_group_arn: pulumi.Input[str],
+             dataset_group_arn: Optional[pulumi.Input[str]] = None,
              event_type: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              perform_auto_ml: Optional[pulumi.Input[bool]] = None,
              perform_hpo: Optional[pulumi.Input[bool]] = None,
              recipe_arn: Optional[pulumi.Input[str]] = None,
              solution_config: Optional[pulumi.Input['SolutionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataset_group_arn is None and 'datasetGroupArn' in kwargs:
+            dataset_group_arn = kwargs['datasetGroupArn']
+        if dataset_group_arn is None:
+            raise TypeError("Missing 'dataset_group_arn' argument")
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if perform_auto_ml is None and 'performAutoMl' in kwargs:
+            perform_auto_ml = kwargs['performAutoMl']
+        if perform_hpo is None and 'performHpo' in kwargs:
+            perform_hpo = kwargs['performHpo']
+        if recipe_arn is None and 'recipeArn' in kwargs:
+            recipe_arn = kwargs['recipeArn']
+        if solution_config is None and 'solutionConfig' in kwargs:
+            solution_config = kwargs['solutionConfig']
+
         _setter("dataset_group_arn", dataset_group_arn)
         if event_type is not None:
             _setter("event_type", event_type)
@@ -227,11 +243,7 @@ class Solution(pulumi.CustomResource):
             __props__.__dict__["perform_auto_ml"] = perform_auto_ml
             __props__.__dict__["perform_hpo"] = perform_hpo
             __props__.__dict__["recipe_arn"] = recipe_arn
-            if solution_config is not None and not isinstance(solution_config, SolutionConfigArgs):
-                solution_config = solution_config or {}
-                def _setter(key, value):
-                    solution_config[key] = value
-                SolutionConfigArgs._configure(_setter, **solution_config)
+            solution_config = _utilities.configure(solution_config, SolutionConfigArgs, True)
             __props__.__dict__["solution_config"] = solution_config
             __props__.__dict__["solution_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_group_arn", "event_type", "name", "perform_auto_ml", "perform_hpo", "recipe_arn", "solution_config"])

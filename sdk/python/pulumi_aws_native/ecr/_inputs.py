@@ -41,9 +41,15 @@ class PublicRepositoryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -88,9 +94,17 @@ class ReplicationConfigurationReplicationDestinationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             region: pulumi.Input[str],
-             registry_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             region: Optional[pulumi.Input[str]] = None,
+             registry_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if region is None:
+            raise TypeError("Missing 'region' argument")
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+        if registry_id is None:
+            raise TypeError("Missing 'registry_id' argument")
+
         _setter("region", region)
         _setter("registry_id", registry_id)
 
@@ -131,9 +145,15 @@ class ReplicationConfigurationReplicationRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]],
+             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]] = None,
              repository_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationRepositoryFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destinations is None:
+            raise TypeError("Missing 'destinations' argument")
+        if repository_filters is None and 'repositoryFilters' in kwargs:
+            repository_filters = kwargs['repositoryFilters']
+
         _setter("destinations", destinations)
         if repository_filters is not None:
             _setter("repository_filters", repository_filters)
@@ -179,9 +199,17 @@ class ReplicationConfigurationRepositoryFilterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             filter: pulumi.Input[str],
-             filter_type: pulumi.Input['ReplicationConfigurationFilterType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             filter: Optional[pulumi.Input[str]] = None,
+             filter_type: Optional[pulumi.Input['ReplicationConfigurationFilterType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filter is None:
+            raise TypeError("Missing 'filter' argument")
+        if filter_type is None and 'filterType' in kwargs:
+            filter_type = kwargs['filterType']
+        if filter_type is None:
+            raise TypeError("Missing 'filter_type' argument")
+
         _setter("filter", filter)
         _setter("filter_type", filter_type)
 
@@ -219,8 +247,12 @@ class ReplicationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
         _setter("rules", rules)
 
     @property
@@ -263,7 +295,17 @@ class RepositoryCatalogDataPropertiesArgs:
              operating_systems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              repository_description: Optional[pulumi.Input[str]] = None,
              usage_text: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if about_text is None and 'aboutText' in kwargs:
+            about_text = kwargs['aboutText']
+        if operating_systems is None and 'operatingSystems' in kwargs:
+            operating_systems = kwargs['operatingSystems']
+        if repository_description is None and 'repositoryDescription' in kwargs:
+            repository_description = kwargs['repositoryDescription']
+        if usage_text is None and 'usageText' in kwargs:
+            usage_text = kwargs['usageText']
+
         if about_text is not None:
             _setter("about_text", about_text)
         if architectures is not None:
@@ -341,9 +383,17 @@ class RepositoryEncryptionConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_type: pulumi.Input['RepositoryEncryptionType'],
+             encryption_type: Optional[pulumi.Input['RepositoryEncryptionType']] = None,
              kms_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+        if kms_key is None and 'kmsKey' in kwargs:
+            kms_key = kwargs['kmsKey']
+
         _setter("encryption_type", encryption_type)
         if kms_key is not None:
             _setter("kms_key", kms_key)
@@ -382,7 +432,11 @@ class RepositoryImageScanningConfigurationArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              scan_on_push: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scan_on_push is None and 'scanOnPush' in kwargs:
+            scan_on_push = kwargs['scanOnPush']
+
         if scan_on_push is not None:
             _setter("scan_on_push", scan_on_push)
 
@@ -414,7 +468,13 @@ class RepositoryLifecyclePolicyArgs:
              _setter: Callable[[Any, Any], None],
              lifecycle_policy_text: Optional[pulumi.Input[str]] = None,
              registry_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if lifecycle_policy_text is None and 'lifecyclePolicyText' in kwargs:
+            lifecycle_policy_text = kwargs['lifecyclePolicyText']
+        if registry_id is None and 'registryId' in kwargs:
+            registry_id = kwargs['registryId']
+
         if lifecycle_policy_text is not None:
             _setter("lifecycle_policy_text", lifecycle_policy_text)
         if registry_id is not None:
@@ -457,9 +517,15 @@ class RepositoryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

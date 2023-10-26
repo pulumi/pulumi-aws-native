@@ -38,11 +38,23 @@ class InstanceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: pulumi.Input['InstanceAttributesArgs'],
-             identity_management_type: pulumi.Input['InstanceIdentityManagementType'],
+             attributes: Optional[pulumi.Input['InstanceAttributesArgs']] = None,
+             identity_management_type: Optional[pulumi.Input['InstanceIdentityManagementType']] = None,
              directory_id: Optional[pulumi.Input[str]] = None,
              instance_alias: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if identity_management_type is None and 'identityManagementType' in kwargs:
+            identity_management_type = kwargs['identityManagementType']
+        if identity_management_type is None:
+            raise TypeError("Missing 'identity_management_type' argument")
+        if directory_id is None and 'directoryId' in kwargs:
+            directory_id = kwargs['directoryId']
+        if instance_alias is None and 'instanceAlias' in kwargs:
+            instance_alias = kwargs['instanceAlias']
+
         _setter("attributes", attributes)
         _setter("identity_management_type", identity_management_type)
         if directory_id is not None:
@@ -160,11 +172,7 @@ class Instance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
-            if attributes is not None and not isinstance(attributes, InstanceAttributesArgs):
-                attributes = attributes or {}
-                def _setter(key, value):
-                    attributes[key] = value
-                InstanceAttributesArgs._configure(_setter, **attributes)
+            attributes = _utilities.configure(attributes, InstanceAttributesArgs, True)
             if attributes is None and not opts.urn:
                 raise TypeError("Missing required property 'attributes'")
             __props__.__dict__["attributes"] = attributes

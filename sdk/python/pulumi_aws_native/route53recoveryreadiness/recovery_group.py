@@ -37,7 +37,11 @@ class RecoveryGroupArgs:
              cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              recovery_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if recovery_group_name is None and 'recoveryGroupName' in kwargs:
+            recovery_group_name = kwargs['recoveryGroupName']
+
         if cells is not None:
             _setter("cells", cells)
         if recovery_group_name is not None:

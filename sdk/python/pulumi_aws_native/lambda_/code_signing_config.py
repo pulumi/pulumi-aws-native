@@ -35,10 +35,18 @@ class CodeSigningConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
+             allowed_publishers: Optional[pulumi.Input['CodeSigningConfigAllowedPublishersArgs']] = None,
              code_signing_policies: Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_publishers is None and 'allowedPublishers' in kwargs:
+            allowed_publishers = kwargs['allowedPublishers']
+        if allowed_publishers is None:
+            raise TypeError("Missing 'allowed_publishers' argument")
+        if code_signing_policies is None and 'codeSigningPolicies' in kwargs:
+            code_signing_policies = kwargs['codeSigningPolicies']
+
         _setter("allowed_publishers", allowed_publishers)
         if code_signing_policies is not None:
             _setter("code_signing_policies", code_signing_policies)
@@ -140,19 +148,11 @@ class CodeSigningConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeSigningConfigArgs.__new__(CodeSigningConfigArgs)
 
-            if allowed_publishers is not None and not isinstance(allowed_publishers, CodeSigningConfigAllowedPublishersArgs):
-                allowed_publishers = allowed_publishers or {}
-                def _setter(key, value):
-                    allowed_publishers[key] = value
-                CodeSigningConfigAllowedPublishersArgs._configure(_setter, **allowed_publishers)
+            allowed_publishers = _utilities.configure(allowed_publishers, CodeSigningConfigAllowedPublishersArgs, True)
             if allowed_publishers is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_publishers'")
             __props__.__dict__["allowed_publishers"] = allowed_publishers
-            if code_signing_policies is not None and not isinstance(code_signing_policies, CodeSigningConfigCodeSigningPoliciesArgs):
-                code_signing_policies = code_signing_policies or {}
-                def _setter(key, value):
-                    code_signing_policies[key] = value
-                CodeSigningConfigCodeSigningPoliciesArgs._configure(_setter, **code_signing_policies)
+            code_signing_policies = _utilities.configure(code_signing_policies, CodeSigningConfigCodeSigningPoliciesArgs, True)
             __props__.__dict__["code_signing_policies"] = code_signing_policies
             __props__.__dict__["description"] = description
             __props__.__dict__["code_signing_config_arn"] = None

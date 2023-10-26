@@ -48,15 +48,33 @@ class DetectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             detector_id: pulumi.Input[str],
-             event_type: pulumi.Input['DetectorEventTypeArgs'],
-             rules: pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]],
+             detector_id: Optional[pulumi.Input[str]] = None,
+             event_type: Optional[pulumi.Input['DetectorEventTypeArgs']] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]]] = None,
              associated_models: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              detector_version_status: Optional[pulumi.Input['DetectorVersionStatus']] = None,
              rule_execution_mode: Optional[pulumi.Input['DetectorRuleExecutionMode']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if detector_id is None and 'detectorId' in kwargs:
+            detector_id = kwargs['detectorId']
+        if detector_id is None:
+            raise TypeError("Missing 'detector_id' argument")
+        if event_type is None and 'eventType' in kwargs:
+            event_type = kwargs['eventType']
+        if event_type is None:
+            raise TypeError("Missing 'event_type' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+        if associated_models is None and 'associatedModels' in kwargs:
+            associated_models = kwargs['associatedModels']
+        if detector_version_status is None and 'detectorVersionStatus' in kwargs:
+            detector_version_status = kwargs['detectorVersionStatus']
+        if rule_execution_mode is None and 'ruleExecutionMode' in kwargs:
+            rule_execution_mode = kwargs['ruleExecutionMode']
+
         _setter("detector_id", detector_id)
         _setter("event_type", event_type)
         _setter("rules", rules)
@@ -239,11 +257,7 @@ class Detector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             __props__.__dict__["detector_version_status"] = detector_version_status
-            if event_type is not None and not isinstance(event_type, DetectorEventTypeArgs):
-                event_type = event_type or {}
-                def _setter(key, value):
-                    event_type[key] = value
-                DetectorEventTypeArgs._configure(_setter, **event_type)
+            event_type = _utilities.configure(event_type, DetectorEventTypeArgs, True)
             if event_type is None and not opts.urn:
                 raise TypeError("Missing required property 'event_type'")
             __props__.__dict__["event_type"] = event_type

@@ -36,13 +36,33 @@ class PackageVersionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             package_id: pulumi.Input[str],
-             package_version: pulumi.Input[str],
-             patch_version: pulumi.Input[str],
+             package_id: Optional[pulumi.Input[str]] = None,
+             package_version: Optional[pulumi.Input[str]] = None,
+             patch_version: Optional[pulumi.Input[str]] = None,
              mark_latest: Optional[pulumi.Input[bool]] = None,
              owner_account: Optional[pulumi.Input[str]] = None,
              updated_latest_patch_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if package_id is None and 'packageId' in kwargs:
+            package_id = kwargs['packageId']
+        if package_id is None:
+            raise TypeError("Missing 'package_id' argument")
+        if package_version is None and 'packageVersion' in kwargs:
+            package_version = kwargs['packageVersion']
+        if package_version is None:
+            raise TypeError("Missing 'package_version' argument")
+        if patch_version is None and 'patchVersion' in kwargs:
+            patch_version = kwargs['patchVersion']
+        if patch_version is None:
+            raise TypeError("Missing 'patch_version' argument")
+        if mark_latest is None and 'markLatest' in kwargs:
+            mark_latest = kwargs['markLatest']
+        if owner_account is None and 'ownerAccount' in kwargs:
+            owner_account = kwargs['ownerAccount']
+        if updated_latest_patch_version is None and 'updatedLatestPatchVersion' in kwargs:
+            updated_latest_patch_version = kwargs['updatedLatestPatchVersion']
+
         _setter("package_id", package_id)
         _setter("package_version", package_version)
         _setter("patch_version", patch_version)

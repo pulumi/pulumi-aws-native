@@ -83,8 +83,8 @@ class AutoScalingGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_size: pulumi.Input[str],
-             min_size: pulumi.Input[str],
+             max_size: Optional[pulumi.Input[str]] = None,
+             min_size: Optional[pulumi.Input[str]] = None,
              auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
              availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              capacity_rebalance: Optional[pulumi.Input[bool]] = None,
@@ -112,7 +112,65 @@ class AutoScalingGroupArgs:
              target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if max_size is None:
+            raise TypeError("Missing 'max_size' argument")
+        if min_size is None and 'minSize' in kwargs:
+            min_size = kwargs['minSize']
+        if min_size is None:
+            raise TypeError("Missing 'min_size' argument")
+        if auto_scaling_group_name is None and 'autoScalingGroupName' in kwargs:
+            auto_scaling_group_name = kwargs['autoScalingGroupName']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if capacity_rebalance is None and 'capacityRebalance' in kwargs:
+            capacity_rebalance = kwargs['capacityRebalance']
+        if default_instance_warmup is None and 'defaultInstanceWarmup' in kwargs:
+            default_instance_warmup = kwargs['defaultInstanceWarmup']
+        if desired_capacity is None and 'desiredCapacity' in kwargs:
+            desired_capacity = kwargs['desiredCapacity']
+        if desired_capacity_type is None and 'desiredCapacityType' in kwargs:
+            desired_capacity_type = kwargs['desiredCapacityType']
+        if health_check_grace_period is None and 'healthCheckGracePeriod' in kwargs:
+            health_check_grace_period = kwargs['healthCheckGracePeriod']
+        if health_check_type is None and 'healthCheckType' in kwargs:
+            health_check_type = kwargs['healthCheckType']
+        if instance_id is None and 'instanceId' in kwargs:
+            instance_id = kwargs['instanceId']
+        if launch_configuration_name is None and 'launchConfigurationName' in kwargs:
+            launch_configuration_name = kwargs['launchConfigurationName']
+        if launch_template is None and 'launchTemplate' in kwargs:
+            launch_template = kwargs['launchTemplate']
+        if lifecycle_hook_specification_list is None and 'lifecycleHookSpecificationList' in kwargs:
+            lifecycle_hook_specification_list = kwargs['lifecycleHookSpecificationList']
+        if load_balancer_names is None and 'loadBalancerNames' in kwargs:
+            load_balancer_names = kwargs['loadBalancerNames']
+        if max_instance_lifetime is None and 'maxInstanceLifetime' in kwargs:
+            max_instance_lifetime = kwargs['maxInstanceLifetime']
+        if metrics_collection is None and 'metricsCollection' in kwargs:
+            metrics_collection = kwargs['metricsCollection']
+        if mixed_instances_policy is None and 'mixedInstancesPolicy' in kwargs:
+            mixed_instances_policy = kwargs['mixedInstancesPolicy']
+        if new_instances_protected_from_scale_in is None and 'newInstancesProtectedFromScaleIn' in kwargs:
+            new_instances_protected_from_scale_in = kwargs['newInstancesProtectedFromScaleIn']
+        if notification_configuration is None and 'notificationConfiguration' in kwargs:
+            notification_configuration = kwargs['notificationConfiguration']
+        if notification_configurations is None and 'notificationConfigurations' in kwargs:
+            notification_configurations = kwargs['notificationConfigurations']
+        if placement_group is None and 'placementGroup' in kwargs:
+            placement_group = kwargs['placementGroup']
+        if service_linked_role_arn is None and 'serviceLinkedRoleArn' in kwargs:
+            service_linked_role_arn = kwargs['serviceLinkedRoleArn']
+        if target_group_arns is None and 'targetGroupArns' in kwargs:
+            target_group_arns = kwargs['targetGroupArns']
+        if termination_policies is None and 'terminationPolicies' in kwargs:
+            termination_policies = kwargs['terminationPolicies']
+        if vpc_zone_identifier is None and 'vpcZoneIdentifier' in kwargs:
+            vpc_zone_identifier = kwargs['vpcZoneIdentifier']
+
         _setter("max_size", max_size)
         _setter("min_size", min_size)
         if auto_scaling_group_name is not None:
@@ -551,11 +609,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["health_check_type"] = health_check_type
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["launch_configuration_name"] = launch_configuration_name
-            if launch_template is not None and not isinstance(launch_template, AutoScalingGroupLaunchTemplateSpecificationArgs):
-                launch_template = launch_template or {}
-                def _setter(key, value):
-                    launch_template[key] = value
-                AutoScalingGroupLaunchTemplateSpecificationArgs._configure(_setter, **launch_template)
+            launch_template = _utilities.configure(launch_template, AutoScalingGroupLaunchTemplateSpecificationArgs, True)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["lifecycle_hook_specification_list"] = lifecycle_hook_specification_list
             __props__.__dict__["load_balancer_names"] = load_balancer_names
@@ -567,18 +621,10 @@ class AutoScalingGroup(pulumi.CustomResource):
             if min_size is None and not opts.urn:
                 raise TypeError("Missing required property 'min_size'")
             __props__.__dict__["min_size"] = min_size
-            if mixed_instances_policy is not None and not isinstance(mixed_instances_policy, AutoScalingGroupMixedInstancesPolicyArgs):
-                mixed_instances_policy = mixed_instances_policy or {}
-                def _setter(key, value):
-                    mixed_instances_policy[key] = value
-                AutoScalingGroupMixedInstancesPolicyArgs._configure(_setter, **mixed_instances_policy)
+            mixed_instances_policy = _utilities.configure(mixed_instances_policy, AutoScalingGroupMixedInstancesPolicyArgs, True)
             __props__.__dict__["mixed_instances_policy"] = mixed_instances_policy
             __props__.__dict__["new_instances_protected_from_scale_in"] = new_instances_protected_from_scale_in
-            if notification_configuration is not None and not isinstance(notification_configuration, AutoScalingGroupNotificationConfigurationArgs):
-                notification_configuration = notification_configuration or {}
-                def _setter(key, value):
-                    notification_configuration[key] = value
-                AutoScalingGroupNotificationConfigurationArgs._configure(_setter, **notification_configuration)
+            notification_configuration = _utilities.configure(notification_configuration, AutoScalingGroupNotificationConfigurationArgs, True)
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["notification_configurations"] = notification_configurations
             __props__.__dict__["placement_group"] = placement_group

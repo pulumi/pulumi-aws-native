@@ -153,7 +153,57 @@ class DbClusterArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
              use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if associated_roles is None and 'associatedRoles' in kwargs:
+            associated_roles = kwargs['associatedRoles']
+        if availability_zones is None and 'availabilityZones' in kwargs:
+            availability_zones = kwargs['availabilityZones']
+        if backup_retention_period is None and 'backupRetentionPeriod' in kwargs:
+            backup_retention_period = kwargs['backupRetentionPeriod']
+        if copy_tags_to_snapshot is None and 'copyTagsToSnapshot' in kwargs:
+            copy_tags_to_snapshot = kwargs['copyTagsToSnapshot']
+        if db_cluster_identifier is None and 'dbClusterIdentifier' in kwargs:
+            db_cluster_identifier = kwargs['dbClusterIdentifier']
+        if db_cluster_parameter_group_name is None and 'dbClusterParameterGroupName' in kwargs:
+            db_cluster_parameter_group_name = kwargs['dbClusterParameterGroupName']
+        if db_instance_parameter_group_name is None and 'dbInstanceParameterGroupName' in kwargs:
+            db_instance_parameter_group_name = kwargs['dbInstanceParameterGroupName']
+        if db_port is None and 'dbPort' in kwargs:
+            db_port = kwargs['dbPort']
+        if db_subnet_group_name is None and 'dbSubnetGroupName' in kwargs:
+            db_subnet_group_name = kwargs['dbSubnetGroupName']
+        if deletion_protection is None and 'deletionProtection' in kwargs:
+            deletion_protection = kwargs['deletionProtection']
+        if enable_cloudwatch_logs_exports is None and 'enableCloudwatchLogsExports' in kwargs:
+            enable_cloudwatch_logs_exports = kwargs['enableCloudwatchLogsExports']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if iam_auth_enabled is None and 'iamAuthEnabled' in kwargs:
+            iam_auth_enabled = kwargs['iamAuthEnabled']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if preferred_backup_window is None and 'preferredBackupWindow' in kwargs:
+            preferred_backup_window = kwargs['preferredBackupWindow']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if restore_to_time is None and 'restoreToTime' in kwargs:
+            restore_to_time = kwargs['restoreToTime']
+        if restore_type is None and 'restoreType' in kwargs:
+            restore_type = kwargs['restoreType']
+        if serverless_scaling_configuration is None and 'serverlessScalingConfiguration' in kwargs:
+            serverless_scaling_configuration = kwargs['serverlessScalingConfiguration']
+        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if source_db_cluster_identifier is None and 'sourceDbClusterIdentifier' in kwargs:
+            source_db_cluster_identifier = kwargs['sourceDbClusterIdentifier']
+        if storage_encrypted is None and 'storageEncrypted' in kwargs:
+            storage_encrypted = kwargs['storageEncrypted']
+        if use_latest_restorable_time is None and 'useLatestRestorableTime' in kwargs:
+            use_latest_restorable_time = kwargs['useLatestRestorableTime']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         if associated_roles is not None:
             _setter("associated_roles", associated_roles)
         if availability_zones is not None:
@@ -704,11 +754,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["restore_to_time"] = restore_to_time
             __props__.__dict__["restore_type"] = restore_type
-            if serverless_scaling_configuration is not None and not isinstance(serverless_scaling_configuration, DbClusterServerlessScalingConfigurationArgs):
-                serverless_scaling_configuration = serverless_scaling_configuration or {}
-                def _setter(key, value):
-                    serverless_scaling_configuration[key] = value
-                DbClusterServerlessScalingConfigurationArgs._configure(_setter, **serverless_scaling_configuration)
+            serverless_scaling_configuration = _utilities.configure(serverless_scaling_configuration, DbClusterServerlessScalingConfigurationArgs, True)
             __props__.__dict__["serverless_scaling_configuration"] = serverless_scaling_configuration
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier

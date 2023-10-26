@@ -33,11 +33,23 @@ class RealtimeLogConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             end_points: pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]],
-             fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-             sampling_rate: pulumi.Input[float],
+             end_points: Optional[pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]]] = None,
+             fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             sampling_rate: Optional[pulumi.Input[float]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if end_points is None and 'endPoints' in kwargs:
+            end_points = kwargs['endPoints']
+        if end_points is None:
+            raise TypeError("Missing 'end_points' argument")
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if sampling_rate is None and 'samplingRate' in kwargs:
+            sampling_rate = kwargs['samplingRate']
+        if sampling_rate is None:
+            raise TypeError("Missing 'sampling_rate' argument")
+
         _setter("end_points", end_points)
         _setter("fields", fields)
         _setter("sampling_rate", sampling_rate)

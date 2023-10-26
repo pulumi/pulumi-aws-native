@@ -44,14 +44,30 @@ class DatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dataset_type: pulumi.Input['DatasetType'],
-             domain: pulumi.Input['DatasetDomain'],
-             schema: pulumi.Input['SchemaPropertiesArgs'],
+             dataset_type: Optional[pulumi.Input['DatasetType']] = None,
+             domain: Optional[pulumi.Input['DatasetDomain']] = None,
+             schema: Optional[pulumi.Input['SchemaPropertiesArgs']] = None,
              data_frequency: Optional[pulumi.Input[str]] = None,
              dataset_name: Optional[pulumi.Input[str]] = None,
              encryption_config: Optional[pulumi.Input['EncryptionConfigPropertiesArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dataset_type is None and 'datasetType' in kwargs:
+            dataset_type = kwargs['datasetType']
+        if dataset_type is None:
+            raise TypeError("Missing 'dataset_type' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if data_frequency is None and 'dataFrequency' in kwargs:
+            data_frequency = kwargs['dataFrequency']
+        if dataset_name is None and 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if encryption_config is None and 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+
         _setter("dataset_type", dataset_type)
         _setter("domain", domain)
         _setter("schema", schema)
@@ -215,17 +231,9 @@ class Dataset(pulumi.CustomResource):
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
-            if encryption_config is not None and not isinstance(encryption_config, EncryptionConfigPropertiesArgs):
-                encryption_config = encryption_config or {}
-                def _setter(key, value):
-                    encryption_config[key] = value
-                EncryptionConfigPropertiesArgs._configure(_setter, **encryption_config)
+            encryption_config = _utilities.configure(encryption_config, EncryptionConfigPropertiesArgs, True)
             __props__.__dict__["encryption_config"] = encryption_config
-            if schema is not None and not isinstance(schema, SchemaPropertiesArgs):
-                schema = schema or {}
-                def _setter(key, value):
-                    schema[key] = value
-                SchemaPropertiesArgs._configure(_setter, **schema)
+            schema = _utilities.configure(schema, SchemaPropertiesArgs, True)
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema

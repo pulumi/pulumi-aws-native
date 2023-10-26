@@ -30,9 +30,17 @@ class SchemaVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schema: pulumi.Input['SchemaVersionSchemaArgs'],
-             schema_definition: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             schema: Optional[pulumi.Input['SchemaVersionSchemaArgs']] = None,
+             schema_definition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if schema_definition is None and 'schemaDefinition' in kwargs:
+            schema_definition = kwargs['schemaDefinition']
+        if schema_definition is None:
+            raise TypeError("Missing 'schema_definition' argument")
+
         _setter("schema", schema)
         _setter("schema_definition", schema_definition)
 
@@ -112,11 +120,7 @@ class SchemaVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaVersionInitArgs.__new__(SchemaVersionInitArgs)
 
-            if schema is not None and not isinstance(schema, SchemaVersionSchemaArgs):
-                schema = schema or {}
-                def _setter(key, value):
-                    schema[key] = value
-                SchemaVersionSchemaArgs._configure(_setter, **schema)
+            schema = _utilities.configure(schema, SchemaVersionSchemaArgs, True)
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema

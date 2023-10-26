@@ -32,10 +32,16 @@ class CapacityProviderArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_scaling_group_provider: pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'],
+             auto_scaling_group_provider: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_scaling_group_provider is None and 'autoScalingGroupProvider' in kwargs:
+            auto_scaling_group_provider = kwargs['autoScalingGroupProvider']
+        if auto_scaling_group_provider is None:
+            raise TypeError("Missing 'auto_scaling_group_provider' argument")
+
         _setter("auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
             _setter("name", name)
@@ -125,11 +131,7 @@ class CapacityProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityProviderArgs.__new__(CapacityProviderArgs)
 
-            if auto_scaling_group_provider is not None and not isinstance(auto_scaling_group_provider, CapacityProviderAutoScalingGroupProviderArgs):
-                auto_scaling_group_provider = auto_scaling_group_provider or {}
-                def _setter(key, value):
-                    auto_scaling_group_provider[key] = value
-                CapacityProviderAutoScalingGroupProviderArgs._configure(_setter, **auto_scaling_group_provider)
+            auto_scaling_group_provider = _utilities.configure(auto_scaling_group_provider, CapacityProviderAutoScalingGroupProviderArgs, True)
             if auto_scaling_group_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_scaling_group_provider'")
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider

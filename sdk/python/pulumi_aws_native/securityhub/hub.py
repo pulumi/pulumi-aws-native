@@ -35,7 +35,15 @@ class HubArgs:
              control_finding_generator: Optional[pulumi.Input[str]] = None,
              enable_default_standards: Optional[pulumi.Input[bool]] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_enable_controls is None and 'autoEnableControls' in kwargs:
+            auto_enable_controls = kwargs['autoEnableControls']
+        if control_finding_generator is None and 'controlFindingGenerator' in kwargs:
+            control_finding_generator = kwargs['controlFindingGenerator']
+        if enable_default_standards is None and 'enableDefaultStandards' in kwargs:
+            enable_default_standards = kwargs['enableDefaultStandards']
+
         if auto_enable_controls is not None:
             _setter("auto_enable_controls", auto_enable_controls)
         if control_finding_generator is not None:

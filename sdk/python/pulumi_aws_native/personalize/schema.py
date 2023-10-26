@@ -33,10 +33,14 @@ class SchemaArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schema: pulumi.Input[str],
+             schema: Optional[pulumi.Input[str]] = None,
              domain: Optional[pulumi.Input['SchemaDomain']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+
         _setter("schema", schema)
         if domain is not None:
             _setter("domain", domain)

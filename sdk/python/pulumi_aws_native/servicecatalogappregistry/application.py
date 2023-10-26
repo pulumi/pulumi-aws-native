@@ -36,7 +36,9 @@ class ApplicationArgs:
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input['ApplicationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -137,11 +139,7 @@ class Application(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if tags is not None and not isinstance(tags, ApplicationTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ApplicationTagsArgs._configure(_setter, **tags)
+            tags = _utilities.configure(tags, ApplicationTagsArgs, True)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         super(Application, __self__).__init__(

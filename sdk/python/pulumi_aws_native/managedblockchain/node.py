@@ -31,10 +31,24 @@ class NodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             member_id: pulumi.Input[str],
-             network_id: pulumi.Input[str],
-             node_configuration: pulumi.Input['NodeConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             member_id: Optional[pulumi.Input[str]] = None,
+             network_id: Optional[pulumi.Input[str]] = None,
+             node_configuration: Optional[pulumi.Input['NodeConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if member_id is None and 'memberId' in kwargs:
+            member_id = kwargs['memberId']
+        if member_id is None:
+            raise TypeError("Missing 'member_id' argument")
+        if network_id is None and 'networkId' in kwargs:
+            network_id = kwargs['networkId']
+        if network_id is None:
+            raise TypeError("Missing 'network_id' argument")
+        if node_configuration is None and 'nodeConfiguration' in kwargs:
+            node_configuration = kwargs['nodeConfiguration']
+        if node_configuration is None:
+            raise TypeError("Missing 'node_configuration' argument")
+
         _setter("member_id", member_id)
         _setter("network_id", network_id)
         _setter("node_configuration", node_configuration)
@@ -134,11 +148,7 @@ class Node(pulumi.CustomResource):
             if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
             __props__.__dict__["network_id"] = network_id
-            if node_configuration is not None and not isinstance(node_configuration, NodeConfigurationArgs):
-                node_configuration = node_configuration or {}
-                def _setter(key, value):
-                    node_configuration[key] = value
-                NodeConfigurationArgs._configure(_setter, **node_configuration)
+            node_configuration = _utilities.configure(node_configuration, NodeConfigurationArgs, True)
             if node_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'node_configuration'")
             __props__.__dict__["node_configuration"] = node_configuration

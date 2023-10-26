@@ -33,10 +33,16 @@ class ReplicationSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             regions: pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]],
+             regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]]] = None,
              deletion_protected: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regions is None:
+            raise TypeError("Missing 'regions' argument")
+        if deletion_protected is None and 'deletionProtected' in kwargs:
+            deletion_protected = kwargs['deletionProtected']
+
         _setter("regions", regions)
         if deletion_protected is not None:
             _setter("deletion_protected", deletion_protected)

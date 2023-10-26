@@ -31,7 +31,11 @@ class InputSecurityGroupArgs:
              _setter: Callable[[Any, Any], None],
              tags: Optional[Any] = None,
              whitelist_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InputSecurityGroupInputWhitelistRuleCidrArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if whitelist_rules is None and 'whitelistRules' in kwargs:
+            whitelist_rules = kwargs['whitelistRules']
+
         if tags is not None:
             _setter("tags", tags)
         if whitelist_rules is not None:

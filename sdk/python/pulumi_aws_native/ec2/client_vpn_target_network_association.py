@@ -27,9 +27,19 @@ class ClientVpnTargetNetworkAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             client_vpn_endpoint_id: pulumi.Input[str],
-             subnet_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_vpn_endpoint_id is None and 'clientVpnEndpointId' in kwargs:
+            client_vpn_endpoint_id = kwargs['clientVpnEndpointId']
+        if client_vpn_endpoint_id is None:
+            raise TypeError("Missing 'client_vpn_endpoint_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
         _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
         _setter("subnet_id", subnet_id)
 

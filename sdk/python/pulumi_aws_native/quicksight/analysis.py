@@ -48,8 +48,8 @@ class AnalysisArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             analysis_id: pulumi.Input[str],
-             aws_account_id: pulumi.Input[str],
+             analysis_id: Optional[pulumi.Input[str]] = None,
+             aws_account_id: Optional[pulumi.Input[str]] = None,
              definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
              name: Optional[pulumi.Input[str]] = None,
              parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
@@ -59,7 +59,23 @@ class AnalysisArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
              theme_arn: Optional[pulumi.Input[str]] = None,
              validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if analysis_id is None and 'analysisId' in kwargs:
+            analysis_id = kwargs['analysisId']
+        if analysis_id is None:
+            raise TypeError("Missing 'analysis_id' argument")
+        if aws_account_id is None and 'awsAccountId' in kwargs:
+            aws_account_id = kwargs['awsAccountId']
+        if aws_account_id is None:
+            raise TypeError("Missing 'aws_account_id' argument")
+        if source_entity is None and 'sourceEntity' in kwargs:
+            source_entity = kwargs['sourceEntity']
+        if theme_arn is None and 'themeArn' in kwargs:
+            theme_arn = kwargs['themeArn']
+        if validation_strategy is None and 'validationStrategy' in kwargs:
+            validation_strategy = kwargs['validationStrategy']
+
         _setter("analysis_id", analysis_id)
         _setter("aws_account_id", aws_account_id)
         if definition is not None:
@@ -258,34 +274,18 @@ class Analysis(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
-            if definition is not None and not isinstance(definition, AnalysisDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                AnalysisDefinitionArgs._configure(_setter, **definition)
+            definition = _utilities.configure(definition, AnalysisDefinitionArgs, True)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
-            if parameters is not None and not isinstance(parameters, AnalysisParametersArgs):
-                parameters = parameters or {}
-                def _setter(key, value):
-                    parameters[key] = value
-                AnalysisParametersArgs._configure(_setter, **parameters)
+            parameters = _utilities.configure(parameters, AnalysisParametersArgs, True)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
-            if source_entity is not None and not isinstance(source_entity, AnalysisSourceEntityArgs):
-                source_entity = source_entity or {}
-                def _setter(key, value):
-                    source_entity[key] = value
-                AnalysisSourceEntityArgs._configure(_setter, **source_entity)
+            source_entity = _utilities.configure(source_entity, AnalysisSourceEntityArgs, True)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
-            if validation_strategy is not None and not isinstance(validation_strategy, AnalysisValidationStrategyArgs):
-                validation_strategy = validation_strategy or {}
-                def _setter(key, value):
-                    validation_strategy[key] = value
-                AnalysisValidationStrategyArgs._configure(_setter, **validation_strategy)
+            validation_strategy = _utilities.configure(validation_strategy, AnalysisValidationStrategyArgs, True)
             __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None

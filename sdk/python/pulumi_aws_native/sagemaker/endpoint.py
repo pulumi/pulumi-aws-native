@@ -39,14 +39,30 @@ class EndpointArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             endpoint_config_name: pulumi.Input[str],
+             endpoint_config_name: Optional[pulumi.Input[str]] = None,
              deployment_config: Optional[pulumi.Input['EndpointDeploymentConfigArgs']] = None,
              endpoint_name: Optional[pulumi.Input[str]] = None,
              exclude_retained_variant_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointVariantPropertyArgs']]]] = None,
              retain_all_variant_properties: Optional[pulumi.Input[bool]] = None,
              retain_deployment_config: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_config_name is None and 'endpointConfigName' in kwargs:
+            endpoint_config_name = kwargs['endpointConfigName']
+        if endpoint_config_name is None:
+            raise TypeError("Missing 'endpoint_config_name' argument")
+        if deployment_config is None and 'deploymentConfig' in kwargs:
+            deployment_config = kwargs['deploymentConfig']
+        if endpoint_name is None and 'endpointName' in kwargs:
+            endpoint_name = kwargs['endpointName']
+        if exclude_retained_variant_properties is None and 'excludeRetainedVariantProperties' in kwargs:
+            exclude_retained_variant_properties = kwargs['excludeRetainedVariantProperties']
+        if retain_all_variant_properties is None and 'retainAllVariantProperties' in kwargs:
+            retain_all_variant_properties = kwargs['retainAllVariantProperties']
+        if retain_deployment_config is None and 'retainDeploymentConfig' in kwargs:
+            retain_deployment_config = kwargs['retainDeploymentConfig']
+
         _setter("endpoint_config_name", endpoint_config_name)
         if deployment_config is not None:
             _setter("deployment_config", deployment_config)
@@ -194,11 +210,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
-            if deployment_config is not None and not isinstance(deployment_config, EndpointDeploymentConfigArgs):
-                deployment_config = deployment_config or {}
-                def _setter(key, value):
-                    deployment_config[key] = value
-                EndpointDeploymentConfigArgs._configure(_setter, **deployment_config)
+            deployment_config = _utilities.configure(deployment_config, EndpointDeploymentConfigArgs, True)
             __props__.__dict__["deployment_config"] = deployment_config
             if endpoint_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_config_name'")

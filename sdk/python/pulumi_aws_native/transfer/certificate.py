@@ -50,15 +50,29 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             certificate: pulumi.Input[str],
-             usage: pulumi.Input['CertificateUsage'],
+             certificate: Optional[pulumi.Input[str]] = None,
+             usage: Optional[pulumi.Input['CertificateUsage']] = None,
              active_date: Optional[pulumi.Input[str]] = None,
              certificate_chain: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              inactive_date: Optional[pulumi.Input[str]] = None,
              private_key: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if certificate is None:
+            raise TypeError("Missing 'certificate' argument")
+        if usage is None:
+            raise TypeError("Missing 'usage' argument")
+        if active_date is None and 'activeDate' in kwargs:
+            active_date = kwargs['activeDate']
+        if certificate_chain is None and 'certificateChain' in kwargs:
+            certificate_chain = kwargs['certificateChain']
+        if inactive_date is None and 'inactiveDate' in kwargs:
+            inactive_date = kwargs['inactiveDate']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+
         _setter("certificate", certificate)
         _setter("usage", usage)
         if active_date is not None:

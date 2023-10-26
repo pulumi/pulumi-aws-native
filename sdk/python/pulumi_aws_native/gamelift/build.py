@@ -46,7 +46,15 @@ class BuildArgs:
              server_sdk_version: Optional[pulumi.Input[str]] = None,
              storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if operating_system is None and 'operatingSystem' in kwargs:
+            operating_system = kwargs['operatingSystem']
+        if server_sdk_version is None and 'serverSdkVersion' in kwargs:
+            server_sdk_version = kwargs['serverSdkVersion']
+        if storage_location is None and 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+
         if name is not None:
             _setter("name", name)
         if operating_system is not None:
@@ -186,11 +194,7 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["server_sdk_version"] = server_sdk_version
-            if storage_location is not None and not isinstance(storage_location, BuildStorageLocationArgs):
-                storage_location = storage_location or {}
-                def _setter(key, value):
-                    storage_location[key] = value
-                BuildStorageLocationArgs._configure(_setter, **storage_location)
+            storage_location = _utilities.configure(storage_location, BuildStorageLocationArgs, True)
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["version"] = version
             __props__.__dict__["build_id"] = None

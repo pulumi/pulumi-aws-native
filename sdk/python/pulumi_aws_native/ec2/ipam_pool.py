@@ -70,8 +70,8 @@ class IpamPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address_family: pulumi.Input[str],
-             ipam_scope_id: pulumi.Input[str],
+             address_family: Optional[pulumi.Input[str]] = None,
+             ipam_scope_id: Optional[pulumi.Input[str]] = None,
              allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
              allocation_max_netmask_length: Optional[pulumi.Input[int]] = None,
              allocation_min_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -85,7 +85,37 @@ class IpamPoolArgs:
              publicly_advertisable: Optional[pulumi.Input[bool]] = None,
              source_ipam_pool_id: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_family is None and 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+        if address_family is None:
+            raise TypeError("Missing 'address_family' argument")
+        if ipam_scope_id is None and 'ipamScopeId' in kwargs:
+            ipam_scope_id = kwargs['ipamScopeId']
+        if ipam_scope_id is None:
+            raise TypeError("Missing 'ipam_scope_id' argument")
+        if allocation_default_netmask_length is None and 'allocationDefaultNetmaskLength' in kwargs:
+            allocation_default_netmask_length = kwargs['allocationDefaultNetmaskLength']
+        if allocation_max_netmask_length is None and 'allocationMaxNetmaskLength' in kwargs:
+            allocation_max_netmask_length = kwargs['allocationMaxNetmaskLength']
+        if allocation_min_netmask_length is None and 'allocationMinNetmaskLength' in kwargs:
+            allocation_min_netmask_length = kwargs['allocationMinNetmaskLength']
+        if allocation_resource_tags is None and 'allocationResourceTags' in kwargs:
+            allocation_resource_tags = kwargs['allocationResourceTags']
+        if auto_import is None and 'autoImport' in kwargs:
+            auto_import = kwargs['autoImport']
+        if aws_service is None and 'awsService' in kwargs:
+            aws_service = kwargs['awsService']
+        if provisioned_cidrs is None and 'provisionedCidrs' in kwargs:
+            provisioned_cidrs = kwargs['provisionedCidrs']
+        if public_ip_source is None and 'publicIpSource' in kwargs:
+            public_ip_source = kwargs['publicIpSource']
+        if publicly_advertisable is None and 'publiclyAdvertisable' in kwargs:
+            publicly_advertisable = kwargs['publiclyAdvertisable']
+        if source_ipam_pool_id is None and 'sourceIpamPoolId' in kwargs:
+            source_ipam_pool_id = kwargs['sourceIpamPoolId']
+
         _setter("address_family", address_family)
         _setter("ipam_scope_id", ipam_scope_id)
         if allocation_default_netmask_length is not None:

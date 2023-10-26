@@ -63,8 +63,8 @@ class DeploymentGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
-             service_role_arn: pulumi.Input[str],
+             application_name: Optional[pulumi.Input[str]] = None,
+             service_role_arn: Optional[pulumi.Input[str]] = None,
              alarm_configuration: Optional[pulumi.Input['DeploymentGroupAlarmConfigurationArgs']] = None,
              auto_rollback_configuration: Optional[pulumi.Input['DeploymentGroupAutoRollbackConfigurationArgs']] = None,
              auto_scaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -82,7 +82,47 @@ class DeploymentGroupArgs:
              outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagArgs']]]] = None,
              trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_name is None and 'applicationName' in kwargs:
+            application_name = kwargs['applicationName']
+        if application_name is None:
+            raise TypeError("Missing 'application_name' argument")
+        if service_role_arn is None and 'serviceRoleArn' in kwargs:
+            service_role_arn = kwargs['serviceRoleArn']
+        if service_role_arn is None:
+            raise TypeError("Missing 'service_role_arn' argument")
+        if alarm_configuration is None and 'alarmConfiguration' in kwargs:
+            alarm_configuration = kwargs['alarmConfiguration']
+        if auto_rollback_configuration is None and 'autoRollbackConfiguration' in kwargs:
+            auto_rollback_configuration = kwargs['autoRollbackConfiguration']
+        if auto_scaling_groups is None and 'autoScalingGroups' in kwargs:
+            auto_scaling_groups = kwargs['autoScalingGroups']
+        if blue_green_deployment_configuration is None and 'blueGreenDeploymentConfiguration' in kwargs:
+            blue_green_deployment_configuration = kwargs['blueGreenDeploymentConfiguration']
+        if deployment_config_name is None and 'deploymentConfigName' in kwargs:
+            deployment_config_name = kwargs['deploymentConfigName']
+        if deployment_group_name is None and 'deploymentGroupName' in kwargs:
+            deployment_group_name = kwargs['deploymentGroupName']
+        if deployment_style is None and 'deploymentStyle' in kwargs:
+            deployment_style = kwargs['deploymentStyle']
+        if ec2_tag_filters is None and 'ec2TagFilters' in kwargs:
+            ec2_tag_filters = kwargs['ec2TagFilters']
+        if ec2_tag_set is None and 'ec2TagSet' in kwargs:
+            ec2_tag_set = kwargs['ec2TagSet']
+        if ecs_services is None and 'ecsServices' in kwargs:
+            ecs_services = kwargs['ecsServices']
+        if load_balancer_info is None and 'loadBalancerInfo' in kwargs:
+            load_balancer_info = kwargs['loadBalancerInfo']
+        if on_premises_instance_tag_filters is None and 'onPremisesInstanceTagFilters' in kwargs:
+            on_premises_instance_tag_filters = kwargs['onPremisesInstanceTagFilters']
+        if on_premises_tag_set is None and 'onPremisesTagSet' in kwargs:
+            on_premises_tag_set = kwargs['onPremisesTagSet']
+        if outdated_instances_strategy is None and 'outdatedInstancesStrategy' in kwargs:
+            outdated_instances_strategy = kwargs['outdatedInstancesStrategy']
+        if trigger_configurations is None and 'triggerConfigurations' in kwargs:
+            trigger_configurations = kwargs['triggerConfigurations']
+
         _setter("application_name", application_name)
         _setter("service_role_arn", service_role_arn)
         if alarm_configuration is not None:
@@ -385,62 +425,30 @@ class DeploymentGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentGroupArgs.__new__(DeploymentGroupArgs)
 
-            if alarm_configuration is not None and not isinstance(alarm_configuration, DeploymentGroupAlarmConfigurationArgs):
-                alarm_configuration = alarm_configuration or {}
-                def _setter(key, value):
-                    alarm_configuration[key] = value
-                DeploymentGroupAlarmConfigurationArgs._configure(_setter, **alarm_configuration)
+            alarm_configuration = _utilities.configure(alarm_configuration, DeploymentGroupAlarmConfigurationArgs, True)
             __props__.__dict__["alarm_configuration"] = alarm_configuration
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
-            if auto_rollback_configuration is not None and not isinstance(auto_rollback_configuration, DeploymentGroupAutoRollbackConfigurationArgs):
-                auto_rollback_configuration = auto_rollback_configuration or {}
-                def _setter(key, value):
-                    auto_rollback_configuration[key] = value
-                DeploymentGroupAutoRollbackConfigurationArgs._configure(_setter, **auto_rollback_configuration)
+            auto_rollback_configuration = _utilities.configure(auto_rollback_configuration, DeploymentGroupAutoRollbackConfigurationArgs, True)
             __props__.__dict__["auto_rollback_configuration"] = auto_rollback_configuration
             __props__.__dict__["auto_scaling_groups"] = auto_scaling_groups
-            if blue_green_deployment_configuration is not None and not isinstance(blue_green_deployment_configuration, DeploymentGroupBlueGreenDeploymentConfigurationArgs):
-                blue_green_deployment_configuration = blue_green_deployment_configuration or {}
-                def _setter(key, value):
-                    blue_green_deployment_configuration[key] = value
-                DeploymentGroupBlueGreenDeploymentConfigurationArgs._configure(_setter, **blue_green_deployment_configuration)
+            blue_green_deployment_configuration = _utilities.configure(blue_green_deployment_configuration, DeploymentGroupBlueGreenDeploymentConfigurationArgs, True)
             __props__.__dict__["blue_green_deployment_configuration"] = blue_green_deployment_configuration
-            if deployment is not None and not isinstance(deployment, DeploymentGroupDeploymentArgs):
-                deployment = deployment or {}
-                def _setter(key, value):
-                    deployment[key] = value
-                DeploymentGroupDeploymentArgs._configure(_setter, **deployment)
+            deployment = _utilities.configure(deployment, DeploymentGroupDeploymentArgs, True)
             __props__.__dict__["deployment"] = deployment
             __props__.__dict__["deployment_config_name"] = deployment_config_name
             __props__.__dict__["deployment_group_name"] = deployment_group_name
-            if deployment_style is not None and not isinstance(deployment_style, DeploymentGroupDeploymentStyleArgs):
-                deployment_style = deployment_style or {}
-                def _setter(key, value):
-                    deployment_style[key] = value
-                DeploymentGroupDeploymentStyleArgs._configure(_setter, **deployment_style)
+            deployment_style = _utilities.configure(deployment_style, DeploymentGroupDeploymentStyleArgs, True)
             __props__.__dict__["deployment_style"] = deployment_style
             __props__.__dict__["ec2_tag_filters"] = ec2_tag_filters
-            if ec2_tag_set is not None and not isinstance(ec2_tag_set, DeploymentGroupEc2TagSetArgs):
-                ec2_tag_set = ec2_tag_set or {}
-                def _setter(key, value):
-                    ec2_tag_set[key] = value
-                DeploymentGroupEc2TagSetArgs._configure(_setter, **ec2_tag_set)
+            ec2_tag_set = _utilities.configure(ec2_tag_set, DeploymentGroupEc2TagSetArgs, True)
             __props__.__dict__["ec2_tag_set"] = ec2_tag_set
             __props__.__dict__["ecs_services"] = ecs_services
-            if load_balancer_info is not None and not isinstance(load_balancer_info, DeploymentGroupLoadBalancerInfoArgs):
-                load_balancer_info = load_balancer_info or {}
-                def _setter(key, value):
-                    load_balancer_info[key] = value
-                DeploymentGroupLoadBalancerInfoArgs._configure(_setter, **load_balancer_info)
+            load_balancer_info = _utilities.configure(load_balancer_info, DeploymentGroupLoadBalancerInfoArgs, True)
             __props__.__dict__["load_balancer_info"] = load_balancer_info
             __props__.__dict__["on_premises_instance_tag_filters"] = on_premises_instance_tag_filters
-            if on_premises_tag_set is not None and not isinstance(on_premises_tag_set, DeploymentGroupOnPremisesTagSetArgs):
-                on_premises_tag_set = on_premises_tag_set or {}
-                def _setter(key, value):
-                    on_premises_tag_set[key] = value
-                DeploymentGroupOnPremisesTagSetArgs._configure(_setter, **on_premises_tag_set)
+            on_premises_tag_set = _utilities.configure(on_premises_tag_set, DeploymentGroupOnPremisesTagSetArgs, True)
             __props__.__dict__["on_premises_tag_set"] = on_premises_tag_set
             __props__.__dict__["outdated_instances_strategy"] = outdated_instances_strategy
             if service_role_arn is None and not opts.urn:

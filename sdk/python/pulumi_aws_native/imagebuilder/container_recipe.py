@@ -86,7 +86,29 @@ class ContainerRecipeArgs:
              target_repository: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']] = None,
              version: Optional[pulumi.Input[str]] = None,
              working_directory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if container_type is None and 'containerType' in kwargs:
+            container_type = kwargs['containerType']
+        if dockerfile_template_data is None and 'dockerfileTemplateData' in kwargs:
+            dockerfile_template_data = kwargs['dockerfileTemplateData']
+        if dockerfile_template_uri is None and 'dockerfileTemplateUri' in kwargs:
+            dockerfile_template_uri = kwargs['dockerfileTemplateUri']
+        if image_os_version_override is None and 'imageOsVersionOverride' in kwargs:
+            image_os_version_override = kwargs['imageOsVersionOverride']
+        if instance_configuration is None and 'instanceConfiguration' in kwargs:
+            instance_configuration = kwargs['instanceConfiguration']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if parent_image is None and 'parentImage' in kwargs:
+            parent_image = kwargs['parentImage']
+        if platform_override is None and 'platformOverride' in kwargs:
+            platform_override = kwargs['platformOverride']
+        if target_repository is None and 'targetRepository' in kwargs:
+            target_repository = kwargs['targetRepository']
+        if working_directory is None and 'workingDirectory' in kwargs:
+            working_directory = kwargs['workingDirectory']
+
         if components is not None:
             _setter("components", components)
         if container_type is not None:
@@ -399,22 +421,14 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["dockerfile_template_data"] = dockerfile_template_data
             __props__.__dict__["dockerfile_template_uri"] = dockerfile_template_uri
             __props__.__dict__["image_os_version_override"] = image_os_version_override
-            if instance_configuration is not None and not isinstance(instance_configuration, ContainerRecipeInstanceConfigurationArgs):
-                instance_configuration = instance_configuration or {}
-                def _setter(key, value):
-                    instance_configuration[key] = value
-                ContainerRecipeInstanceConfigurationArgs._configure(_setter, **instance_configuration)
+            instance_configuration = _utilities.configure(instance_configuration, ContainerRecipeInstanceConfigurationArgs, True)
             __props__.__dict__["instance_configuration"] = instance_configuration
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["platform_override"] = platform_override
             __props__.__dict__["tags"] = tags
-            if target_repository is not None and not isinstance(target_repository, ContainerRecipeTargetContainerRepositoryArgs):
-                target_repository = target_repository or {}
-                def _setter(key, value):
-                    target_repository[key] = value
-                ContainerRecipeTargetContainerRepositoryArgs._configure(_setter, **target_repository)
+            target_repository = _utilities.configure(target_repository, ContainerRecipeTargetContainerRepositoryArgs, True)
             __props__.__dict__["target_repository"] = target_repository
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory

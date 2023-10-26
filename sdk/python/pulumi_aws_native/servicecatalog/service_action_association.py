@@ -29,10 +29,24 @@ class ServiceActionAssociationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             product_id: pulumi.Input[str],
-             provisioning_artifact_id: pulumi.Input[str],
-             service_action_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             product_id: Optional[pulumi.Input[str]] = None,
+             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
+             service_action_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if product_id is None and 'productId' in kwargs:
+            product_id = kwargs['productId']
+        if product_id is None:
+            raise TypeError("Missing 'product_id' argument")
+        if provisioning_artifact_id is None and 'provisioningArtifactId' in kwargs:
+            provisioning_artifact_id = kwargs['provisioningArtifactId']
+        if provisioning_artifact_id is None:
+            raise TypeError("Missing 'provisioning_artifact_id' argument")
+        if service_action_id is None and 'serviceActionId' in kwargs:
+            service_action_id = kwargs['serviceActionId']
+        if service_action_id is None:
+            raise TypeError("Missing 'service_action_id' argument")
+
         _setter("product_id", product_id)
         _setter("provisioning_artifact_id", provisioning_artifact_id)
         _setter("service_action_id", service_action_id)

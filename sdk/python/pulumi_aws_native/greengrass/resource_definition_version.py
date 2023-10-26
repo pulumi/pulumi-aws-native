@@ -29,9 +29,17 @@ class ResourceDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_definition_id: pulumi.Input[str],
-             resources: pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionVersionResourceInstanceArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             resource_definition_id: Optional[pulumi.Input[str]] = None,
+             resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDefinitionVersionResourceInstanceArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_definition_id is None and 'resourceDefinitionId' in kwargs:
+            resource_definition_id = kwargs['resourceDefinitionId']
+        if resource_definition_id is None:
+            raise TypeError("Missing 'resource_definition_id' argument")
+        if resources is None:
+            raise TypeError("Missing 'resources' argument")
+
         _setter("resource_definition_id", resource_definition_id)
         _setter("resources", resources)
 

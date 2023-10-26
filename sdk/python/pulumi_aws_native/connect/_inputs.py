@@ -98,7 +98,15 @@ class ConstraintsPropertiesArgs:
              invisible_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]]] = None,
              read_only_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]]] = None,
              required_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if invisible_fields is None and 'invisibleFields' in kwargs:
+            invisible_fields = kwargs['invisibleFields']
+        if read_only_fields is None and 'readOnlyFields' in kwargs:
+            read_only_fields = kwargs['readOnlyFields']
+        if required_fields is None and 'requiredFields' in kwargs:
+            required_fields = kwargs['requiredFields']
+
         if invisible_fields is not None:
             _setter("invisible_fields", invisible_fields)
         if read_only_fields is not None:
@@ -152,9 +160,15 @@ class ContactFlowModuleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -201,9 +215,15 @@ class ContactFlowTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -247,8 +267,12 @@ class EvaluationFormBaseItemArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             section: pulumi.Input['EvaluationFormSectionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             section: Optional[pulumi.Input['EvaluationFormSectionArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if section is None:
+            raise TypeError("Missing 'section' argument")
+
         _setter("section", section)
 
     @property
@@ -284,7 +308,9 @@ class EvaluationFormItemArgs:
              _setter: Callable[[Any, Any], None],
              question: Optional[pulumi.Input['EvaluationFormQuestionArgs']] = None,
              section: Optional[pulumi.Input['EvaluationFormSectionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if question is not None:
             _setter("question", question)
         if section is not None:
@@ -330,8 +356,14 @@ class EvaluationFormNumericQuestionAutomationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             property_value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             property_value: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if property_value is None and 'propertyValue' in kwargs:
+            property_value = kwargs['propertyValue']
+        if property_value is None:
+            raise TypeError("Missing 'property_value' argument")
+
         _setter("property_value", property_value)
 
     @property
@@ -371,11 +403,23 @@ class EvaluationFormNumericQuestionOptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_value: pulumi.Input[int],
-             min_value: pulumi.Input[int],
+             max_value: Optional[pulumi.Input[int]] = None,
+             min_value: Optional[pulumi.Input[int]] = None,
              automatic_fail: Optional[pulumi.Input[bool]] = None,
              score: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_value is None and 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if max_value is None:
+            raise TypeError("Missing 'max_value' argument")
+        if min_value is None and 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+        if min_value is None:
+            raise TypeError("Missing 'min_value' argument")
+        if automatic_fail is None and 'automaticFail' in kwargs:
+            automatic_fail = kwargs['automaticFail']
+
         _setter("max_value", max_value)
         _setter("min_value", min_value)
         if automatic_fail is not None:
@@ -456,11 +500,21 @@ class EvaluationFormNumericQuestionPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             max_value: pulumi.Input[int],
-             min_value: pulumi.Input[int],
+             max_value: Optional[pulumi.Input[int]] = None,
+             min_value: Optional[pulumi.Input[int]] = None,
              automation: Optional[pulumi.Input['EvaluationFormNumericQuestionAutomationArgs']] = None,
              options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormNumericQuestionOptionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if max_value is None and 'maxValue' in kwargs:
+            max_value = kwargs['maxValue']
+        if max_value is None:
+            raise TypeError("Missing 'max_value' argument")
+        if min_value is None and 'minValue' in kwargs:
+            min_value = kwargs['minValue']
+        if min_value is None:
+            raise TypeError("Missing 'min_value' argument")
+
         _setter("max_value", max_value)
         _setter("min_value", min_value)
         if automation is not None:
@@ -532,8 +586,12 @@ class EvaluationFormNumericQuestionPropertyValueAutomationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             label: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             label: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+
         _setter("label", label)
 
     @property
@@ -569,7 +627,11 @@ class EvaluationFormQuestionTypePropertiesArgs:
              _setter: Callable[[Any, Any], None],
              numeric: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertiesArgs']] = None,
              single_select: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if single_select is None and 'singleSelect' in kwargs:
+            single_select = kwargs['singleSelect']
+
         if numeric is not None:
             _setter("numeric", numeric)
         if single_select is not None:
@@ -633,14 +695,30 @@ class EvaluationFormQuestionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             question_type: pulumi.Input['EvaluationFormQuestionQuestionType'],
-             ref_id: pulumi.Input[str],
-             title: pulumi.Input[str],
+             question_type: Optional[pulumi.Input['EvaluationFormQuestionQuestionType']] = None,
+             ref_id: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              instructions: Optional[pulumi.Input[str]] = None,
              not_applicable_enabled: Optional[pulumi.Input[bool]] = None,
              question_type_properties: Optional[pulumi.Input['EvaluationFormQuestionTypePropertiesArgs']] = None,
              weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if question_type is None and 'questionType' in kwargs:
+            question_type = kwargs['questionType']
+        if question_type is None:
+            raise TypeError("Missing 'question_type' argument")
+        if ref_id is None and 'refId' in kwargs:
+            ref_id = kwargs['refId']
+        if ref_id is None:
+            raise TypeError("Missing 'ref_id' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+        if not_applicable_enabled is None and 'notApplicableEnabled' in kwargs:
+            not_applicable_enabled = kwargs['notApplicableEnabled']
+        if question_type_properties is None and 'questionTypeProperties' in kwargs:
+            question_type_properties = kwargs['questionTypeProperties']
+
         _setter("question_type", question_type)
         _setter("ref_id", ref_id)
         _setter("title", title)
@@ -756,9 +834,15 @@ class EvaluationFormScoringStrategyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input['EvaluationFormScoringStrategyMode'],
-             status: pulumi.Input['EvaluationFormScoringStrategyStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             mode: Optional[pulumi.Input['EvaluationFormScoringStrategyMode']] = None,
+             status: Optional[pulumi.Input['EvaluationFormScoringStrategyStatus']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+
         _setter("mode", mode)
         _setter("status", status)
 
@@ -814,12 +898,20 @@ class EvaluationFormSectionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ref_id: pulumi.Input[str],
-             title: pulumi.Input[str],
+             ref_id: Optional[pulumi.Input[str]] = None,
+             title: Optional[pulumi.Input[str]] = None,
              instructions: Optional[pulumi.Input[str]] = None,
              items: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]]] = None,
              weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ref_id is None and 'refId' in kwargs:
+            ref_id = kwargs['refId']
+        if ref_id is None:
+            raise TypeError("Missing 'ref_id' argument")
+        if title is None:
+            raise TypeError("Missing 'title' argument")
+
         _setter("ref_id", ref_id)
         _setter("title", title)
         if instructions is not None:
@@ -905,8 +997,14 @@ class EvaluationFormSingleSelectQuestionAutomationOptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             rule_category: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             rule_category: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if rule_category is None and 'ruleCategory' in kwargs:
+            rule_category = kwargs['ruleCategory']
+        if rule_category is None:
+            raise TypeError("Missing 'rule_category' argument")
+
         _setter("rule_category", rule_category)
 
     @property
@@ -940,9 +1038,15 @@ class EvaluationFormSingleSelectQuestionAutomationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]],
+             options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]]] = None,
              default_option_ref_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if options is None:
+            raise TypeError("Missing 'options' argument")
+        if default_option_ref_id is None and 'defaultOptionRefId' in kwargs:
+            default_option_ref_id = kwargs['defaultOptionRefId']
+
         _setter("options", options)
         if default_option_ref_id is not None:
             _setter("default_option_ref_id", default_option_ref_id)
@@ -996,11 +1100,21 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ref_id: pulumi.Input[str],
-             text: pulumi.Input[str],
+             ref_id: Optional[pulumi.Input[str]] = None,
+             text: Optional[pulumi.Input[str]] = None,
              automatic_fail: Optional[pulumi.Input[bool]] = None,
              score: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ref_id is None and 'refId' in kwargs:
+            ref_id = kwargs['refId']
+        if ref_id is None:
+            raise TypeError("Missing 'ref_id' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if automatic_fail is None and 'automaticFail' in kwargs:
+            automatic_fail = kwargs['automaticFail']
+
         _setter("ref_id", ref_id)
         _setter("text", text)
         if automatic_fail is not None:
@@ -1078,10 +1192,16 @@ class EvaluationFormSingleSelectQuestionPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionOptionArgs']]],
+             options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionOptionArgs']]]] = None,
              automation: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationArgs']] = None,
              display_as: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesDisplayAs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if options is None:
+            raise TypeError("Missing 'options' argument")
+        if display_as is None and 'displayAs' in kwargs:
+            display_as = kwargs['displayAs']
+
         _setter("options", options)
         if automation is not None:
             _setter("automation", automation)
@@ -1146,10 +1266,20 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             condition: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition'],
-             option_ref_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             category: Optional[pulumi.Input[str]] = None,
+             condition: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition']] = None,
+             option_ref_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if condition is None:
+            raise TypeError("Missing 'condition' argument")
+        if option_ref_id is None and 'optionRefId' in kwargs:
+            option_ref_id = kwargs['optionRefId']
+        if option_ref_id is None:
+            raise TypeError("Missing 'option_ref_id' argument")
+
         _setter("category", category)
         _setter("condition", condition)
         _setter("option_ref_id", option_ref_id)
@@ -1209,9 +1339,15 @@ class EvaluationFormTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1261,10 +1397,22 @@ class HoursOfOperationConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             day: pulumi.Input['HoursOfOperationConfigDay'],
-             end_time: pulumi.Input['HoursOfOperationTimeSliceArgs'],
-             start_time: pulumi.Input['HoursOfOperationTimeSliceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             day: Optional[pulumi.Input['HoursOfOperationConfigDay']] = None,
+             end_time: Optional[pulumi.Input['HoursOfOperationTimeSliceArgs']] = None,
+             start_time: Optional[pulumi.Input['HoursOfOperationTimeSliceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+
         _setter("day", day)
         _setter("end_time", end_time)
         _setter("start_time", start_time)
@@ -1324,9 +1472,15 @@ class HoursOfOperationTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1373,9 +1527,15 @@ class HoursOfOperationTimeSliceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             hours: pulumi.Input[int],
-             minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             hours: Optional[pulumi.Input[int]] = None,
+             minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if hours is None:
+            raise TypeError("Missing 'hours' argument")
+        if minutes is None:
+            raise TypeError("Missing 'minutes' argument")
+
         _setter("hours", hours)
         _setter("minutes", minutes)
 
@@ -1427,14 +1587,34 @@ class InstanceAttributesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             inbound_calls: pulumi.Input[bool],
-             outbound_calls: pulumi.Input[bool],
+             inbound_calls: Optional[pulumi.Input[bool]] = None,
+             outbound_calls: Optional[pulumi.Input[bool]] = None,
              auto_resolve_best_voices: Optional[pulumi.Input[bool]] = None,
              contact_lens: Optional[pulumi.Input[bool]] = None,
              contactflow_logs: Optional[pulumi.Input[bool]] = None,
              early_media: Optional[pulumi.Input[bool]] = None,
              use_custom_tts_voices: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if inbound_calls is None and 'inboundCalls' in kwargs:
+            inbound_calls = kwargs['inboundCalls']
+        if inbound_calls is None:
+            raise TypeError("Missing 'inbound_calls' argument")
+        if outbound_calls is None and 'outboundCalls' in kwargs:
+            outbound_calls = kwargs['outboundCalls']
+        if outbound_calls is None:
+            raise TypeError("Missing 'outbound_calls' argument")
+        if auto_resolve_best_voices is None and 'autoResolveBestVoices' in kwargs:
+            auto_resolve_best_voices = kwargs['autoResolveBestVoices']
+        if contact_lens is None and 'contactLens' in kwargs:
+            contact_lens = kwargs['contactLens']
+        if contactflow_logs is None and 'contactflowLogs' in kwargs:
+            contactflow_logs = kwargs['contactflowLogs']
+        if early_media is None and 'earlyMedia' in kwargs:
+            early_media = kwargs['earlyMedia']
+        if use_custom_tts_voices is None and 'useCustomTtsVoices' in kwargs:
+            use_custom_tts_voices = kwargs['useCustomTtsVoices']
+
         _setter("inbound_calls", inbound_calls)
         _setter("outbound_calls", outbound_calls)
         if auto_resolve_best_voices is not None:
@@ -1525,9 +1705,19 @@ class InstanceStorageConfigEncryptionConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             encryption_type: pulumi.Input['InstanceStorageConfigEncryptionType'],
-             key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             encryption_type: Optional[pulumi.Input['InstanceStorageConfigEncryptionType']] = None,
+             key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if encryption_type is None and 'encryptionType' in kwargs:
+            encryption_type = kwargs['encryptionType']
+        if encryption_type is None:
+            raise TypeError("Missing 'encryption_type' argument")
+        if key_id is None and 'keyId' in kwargs:
+            key_id = kwargs['keyId']
+        if key_id is None:
+            raise TypeError("Missing 'key_id' argument")
+
         _setter("encryption_type", encryption_type)
         _setter("key_id", key_id)
 
@@ -1561,8 +1751,14 @@ class InstanceStorageConfigKinesisFirehoseConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             firehose_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             firehose_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if firehose_arn is None and 'firehoseArn' in kwargs:
+            firehose_arn = kwargs['firehoseArn']
+        if firehose_arn is None:
+            raise TypeError("Missing 'firehose_arn' argument")
+
         _setter("firehose_arn", firehose_arn)
 
     @property
@@ -1586,8 +1782,14 @@ class InstanceStorageConfigKinesisStreamConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             stream_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if stream_arn is None and 'streamArn' in kwargs:
+            stream_arn = kwargs['streamArn']
+        if stream_arn is None:
+            raise TypeError("Missing 'stream_arn' argument")
+
         _setter("stream_arn", stream_arn)
 
     @property
@@ -1615,10 +1817,20 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             prefix: pulumi.Input[str],
-             retention_period_hours: pulumi.Input[float],
+             prefix: Optional[pulumi.Input[str]] = None,
+             retention_period_hours: Optional[pulumi.Input[float]] = None,
              encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if prefix is None:
+            raise TypeError("Missing 'prefix' argument")
+        if retention_period_hours is None and 'retentionPeriodHours' in kwargs:
+            retention_period_hours = kwargs['retentionPeriodHours']
+        if retention_period_hours is None:
+            raise TypeError("Missing 'retention_period_hours' argument")
+        if encryption_config is None and 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+
         _setter("prefix", prefix)
         _setter("retention_period_hours", retention_period_hours)
         if encryption_config is not None:
@@ -1667,10 +1879,22 @@ class InstanceStorageConfigS3ConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
-             bucket_prefix: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             bucket_prefix: Optional[pulumi.Input[str]] = None,
              encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if bucket_prefix is None and 'bucketPrefix' in kwargs:
+            bucket_prefix = kwargs['bucketPrefix']
+        if bucket_prefix is None:
+            raise TypeError("Missing 'bucket_prefix' argument")
+        if encryption_config is None and 'encryptionConfig' in kwargs:
+            encryption_config = kwargs['encryptionConfig']
+
         _setter("bucket_name", bucket_name)
         _setter("bucket_prefix", bucket_prefix)
         if encryption_config is not None:
@@ -1722,9 +1946,15 @@ class PhoneNumberTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1771,9 +2001,15 @@ class PromptTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1823,7 +2059,15 @@ class QueueOutboundCallerConfigArgs:
              outbound_caller_id_name: Optional[pulumi.Input[str]] = None,
              outbound_caller_id_number_arn: Optional[pulumi.Input[str]] = None,
              outbound_flow_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if outbound_caller_id_name is None and 'outboundCallerIdName' in kwargs:
+            outbound_caller_id_name = kwargs['outboundCallerIdName']
+        if outbound_caller_id_number_arn is None and 'outboundCallerIdNumberArn' in kwargs:
+            outbound_caller_id_number_arn = kwargs['outboundCallerIdNumberArn']
+        if outbound_flow_arn is None and 'outboundFlowArn' in kwargs:
+            outbound_flow_arn = kwargs['outboundFlowArn']
+
         if outbound_caller_id_name is not None:
             _setter("outbound_caller_id_name", outbound_caller_id_name)
         if outbound_caller_id_number_arn is not None:
@@ -1875,9 +2119,15 @@ class QueueTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -1920,11 +2170,23 @@ class QuickConnectConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             quick_connect_type: pulumi.Input['QuickConnectType'],
+             quick_connect_type: Optional[pulumi.Input['QuickConnectType']] = None,
              phone_config: Optional[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs']] = None,
              queue_config: Optional[pulumi.Input['QuickConnectQueueQuickConnectConfigArgs']] = None,
              user_config: Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if quick_connect_type is None and 'quickConnectType' in kwargs:
+            quick_connect_type = kwargs['quickConnectType']
+        if quick_connect_type is None:
+            raise TypeError("Missing 'quick_connect_type' argument")
+        if phone_config is None and 'phoneConfig' in kwargs:
+            phone_config = kwargs['phoneConfig']
+        if queue_config is None and 'queueConfig' in kwargs:
+            queue_config = kwargs['queueConfig']
+        if user_config is None and 'userConfig' in kwargs:
+            user_config = kwargs['userConfig']
+
         _setter("quick_connect_type", quick_connect_type)
         if phone_config is not None:
             _setter("phone_config", phone_config)
@@ -1984,8 +2246,14 @@ class QuickConnectPhoneNumberQuickConnectConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             phone_number: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             phone_number: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+
         _setter("phone_number", phone_number)
 
     @property
@@ -2014,9 +2282,19 @@ class QuickConnectQueueQuickConnectConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_flow_arn: pulumi.Input[str],
-             queue_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             contact_flow_arn: Optional[pulumi.Input[str]] = None,
+             queue_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_flow_arn is None and 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+        if contact_flow_arn is None:
+            raise TypeError("Missing 'contact_flow_arn' argument")
+        if queue_arn is None and 'queueArn' in kwargs:
+            queue_arn = kwargs['queueArn']
+        if queue_arn is None:
+            raise TypeError("Missing 'queue_arn' argument")
+
         _setter("contact_flow_arn", contact_flow_arn)
         _setter("queue_arn", queue_arn)
 
@@ -2057,9 +2335,15 @@ class QuickConnectTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2104,9 +2388,19 @@ class QuickConnectUserQuickConnectConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_flow_arn: pulumi.Input[str],
-             user_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             contact_flow_arn: Optional[pulumi.Input[str]] = None,
+             user_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_flow_arn is None and 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+        if contact_flow_arn is None:
+            raise TypeError("Missing 'contact_flow_arn' argument")
+        if user_arn is None and 'userArn' in kwargs:
+            user_arn = kwargs['userArn']
+        if user_arn is None:
+            raise TypeError("Missing 'user_arn' argument")
+
         _setter("contact_flow_arn", contact_flow_arn)
         _setter("user_arn", user_arn)
 
@@ -2143,8 +2437,14 @@ class RoutingProfileCrossChannelBehaviorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             behavior_type: pulumi.Input['RoutingProfileBehaviorType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             behavior_type: Optional[pulumi.Input['RoutingProfileBehaviorType']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if behavior_type is None and 'behaviorType' in kwargs:
+            behavior_type = kwargs['behaviorType']
+        if behavior_type is None:
+            raise TypeError("Missing 'behavior_type' argument")
+
         _setter("behavior_type", behavior_type)
 
     @property
@@ -2175,10 +2475,18 @@ class RoutingProfileMediaConcurrencyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel: pulumi.Input['RoutingProfileChannel'],
-             concurrency: pulumi.Input[int],
+             channel: Optional[pulumi.Input['RoutingProfileChannel']] = None,
+             concurrency: Optional[pulumi.Input[int]] = None,
              cross_channel_behavior: Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel is None:
+            raise TypeError("Missing 'channel' argument")
+        if concurrency is None:
+            raise TypeError("Missing 'concurrency' argument")
+        if cross_channel_behavior is None and 'crossChannelBehavior' in kwargs:
+            cross_channel_behavior = kwargs['crossChannelBehavior']
+
         _setter("channel", channel)
         _setter("concurrency", concurrency)
         if cross_channel_behavior is not None:
@@ -2230,10 +2538,20 @@ class RoutingProfileQueueConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             delay: pulumi.Input[int],
-             priority: pulumi.Input[int],
-             queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             delay: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             queue_reference: Optional[pulumi.Input['RoutingProfileQueueReferenceArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if delay is None:
+            raise TypeError("Missing 'delay' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if queue_reference is None and 'queueReference' in kwargs:
+            queue_reference = kwargs['queueReference']
+        if queue_reference is None:
+            raise TypeError("Missing 'queue_reference' argument")
+
         _setter("delay", delay)
         _setter("priority", priority)
         _setter("queue_reference", queue_reference)
@@ -2282,9 +2600,17 @@ class RoutingProfileQueueReferenceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             channel: pulumi.Input['RoutingProfileChannel'],
-             queue_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             channel: Optional[pulumi.Input['RoutingProfileChannel']] = None,
+             queue_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if channel is None:
+            raise TypeError("Missing 'channel' argument")
+        if queue_arn is None and 'queueArn' in kwargs:
+            queue_arn = kwargs['queueArn']
+        if queue_arn is None:
+            raise TypeError("Missing 'queue_arn' argument")
+
         _setter("channel", channel)
         _setter("queue_arn", queue_arn)
 
@@ -2325,9 +2651,15 @@ class RoutingProfileTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2380,7 +2712,17 @@ class RuleActionsArgs:
              event_bridge_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]] = None,
              send_notification_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]]] = None,
              task_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTaskActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assign_contact_category_actions is None and 'assignContactCategoryActions' in kwargs:
+            assign_contact_category_actions = kwargs['assignContactCategoryActions']
+        if event_bridge_actions is None and 'eventBridgeActions' in kwargs:
+            event_bridge_actions = kwargs['eventBridgeActions']
+        if send_notification_actions is None and 'sendNotificationActions' in kwargs:
+            send_notification_actions = kwargs['sendNotificationActions']
+        if task_actions is None and 'taskActions' in kwargs:
+            task_actions = kwargs['taskActions']
+
         if assign_contact_category_actions is not None:
             _setter("assign_contact_category_actions", assign_contact_category_actions)
         if event_bridge_actions is not None:
@@ -2437,8 +2779,10 @@ class RuleAssignContactCategoryActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
         pass
+
 
 
 @pulumi.input_type
@@ -2456,8 +2800,12 @@ class RuleEventBridgeActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -2493,7 +2841,13 @@ class RuleNotificationRecipientTypeArgs:
              _setter: Callable[[Any, Any], None],
              user_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              user_tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if user_arns is None and 'userArns' in kwargs:
+            user_arns = kwargs['userArns']
+        if user_tags is None and 'userTags' in kwargs:
+            user_tags = kwargs['userTags']
+
         if user_arns is not None:
             _setter("user_arns", user_arns)
         if user_tags is not None:
@@ -2550,12 +2904,26 @@ class RuleSendNotificationActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             content_type: pulumi.Input['RuleSendNotificationActionContentType'],
-             delivery_method: pulumi.Input['RuleSendNotificationActionDeliveryMethod'],
-             recipient: pulumi.Input['RuleNotificationRecipientTypeArgs'],
+             content: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input['RuleSendNotificationActionContentType']] = None,
+             delivery_method: Optional[pulumi.Input['RuleSendNotificationActionDeliveryMethod']] = None,
+             recipient: Optional[pulumi.Input['RuleNotificationRecipientTypeArgs']] = None,
              subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if delivery_method is None and 'deliveryMethod' in kwargs:
+            delivery_method = kwargs['deliveryMethod']
+        if delivery_method is None:
+            raise TypeError("Missing 'delivery_method' argument")
+        if recipient is None:
+            raise TypeError("Missing 'recipient' argument")
+
         _setter("content", content)
         _setter("content_type", content_type)
         _setter("delivery_method", delivery_method)
@@ -2639,9 +3007,15 @@ class RuleTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2694,11 +3068,19 @@ class RuleTaskActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             contact_flow_arn: pulumi.Input[str],
-             name: pulumi.Input[str],
+             contact_flow_arn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              references: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if contact_flow_arn is None and 'contactFlowArn' in kwargs:
+            contact_flow_arn = kwargs['contactFlowArn']
+        if contact_flow_arn is None:
+            raise TypeError("Missing 'contact_flow_arn' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("contact_flow_arn", contact_flow_arn)
         _setter("name", name)
         if description is not None:
@@ -2773,9 +3155,17 @@ class RuleTriggerEventSourceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             event_source_name: pulumi.Input['RuleTriggerEventSourceEventSourceName'],
+             event_source_name: Optional[pulumi.Input['RuleTriggerEventSourceEventSourceName']] = None,
              integration_association_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if event_source_name is None and 'eventSourceName' in kwargs:
+            event_source_name = kwargs['eventSourceName']
+        if event_source_name is None:
+            raise TypeError("Missing 'event_source_name' argument")
+        if integration_association_arn is None and 'integrationAssociationArn' in kwargs:
+            integration_association_arn = kwargs['integrationAssociationArn']
+
         _setter("event_source_name", event_source_name)
         if integration_association_arn is not None:
             _setter("integration_association_arn", integration_association_arn)
@@ -2823,9 +3213,15 @@ class SecurityProfileTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -2870,9 +3266,17 @@ class TaskTemplateDefaultFieldValueArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             default_value: pulumi.Input[str],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             default_value: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input['TaskTemplateFieldIdentifierArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+        if default_value is None:
+            raise TypeError("Missing 'default_value' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("default_value", default_value)
         _setter("id", id)
 
@@ -2910,8 +3314,12 @@ class TaskTemplateFieldIdentifierArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
 
     @property
@@ -2949,11 +3357,19 @@ class TaskTemplateFieldArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             type: pulumi.Input['TaskTemplateFieldType'],
+             id: Optional[pulumi.Input['TaskTemplateFieldIdentifierArgs']] = None,
+             type: Optional[pulumi.Input['TaskTemplateFieldType']] = None,
              description: Optional[pulumi.Input[str]] = None,
              single_select_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if single_select_options is None and 'singleSelectOptions' in kwargs:
+            single_select_options = kwargs['singleSelectOptions']
+
         _setter("id", id)
         _setter("type", type)
         if description is not None:
@@ -3018,8 +3434,12 @@ class TaskTemplateInvisibleFieldInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input['TaskTemplateFieldIdentifierArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("id", id)
 
     @property
@@ -3046,8 +3466,12 @@ class TaskTemplateReadOnlyFieldInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input['TaskTemplateFieldIdentifierArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("id", id)
 
     @property
@@ -3074,8 +3498,12 @@ class TaskTemplateRequiredFieldInfoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[pulumi.Input['TaskTemplateFieldIdentifierArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("id", id)
 
     @property
@@ -3106,9 +3534,15 @@ class TaskTemplateTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3155,9 +3589,15 @@ class TrafficDistributionGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3204,9 +3644,15 @@ class UserHierarchyGroupTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3262,7 +3708,15 @@ class UserIdentityInfoArgs:
              last_name: Optional[pulumi.Input[str]] = None,
              mobile: Optional[pulumi.Input[str]] = None,
              secondary_email: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if secondary_email is None and 'secondaryEmail' in kwargs:
+            secondary_email = kwargs['secondaryEmail']
+
         if email is not None:
             _setter("email", email)
         if first_name is not None:
@@ -3340,11 +3794,23 @@ class UserPhoneConfigArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             phone_type: pulumi.Input['UserPhoneType'],
+             phone_type: Optional[pulumi.Input['UserPhoneType']] = None,
              after_contact_work_time_limit: Optional[pulumi.Input[int]] = None,
              auto_accept: Optional[pulumi.Input[bool]] = None,
              desk_phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if phone_type is None and 'phoneType' in kwargs:
+            phone_type = kwargs['phoneType']
+        if phone_type is None:
+            raise TypeError("Missing 'phone_type' argument")
+        if after_contact_work_time_limit is None and 'afterContactWorkTimeLimit' in kwargs:
+            after_contact_work_time_limit = kwargs['afterContactWorkTimeLimit']
+        if auto_accept is None and 'autoAccept' in kwargs:
+            auto_accept = kwargs['autoAccept']
+        if desk_phone_number is None and 'deskPhoneNumber' in kwargs:
+            desk_phone_number = kwargs['deskPhoneNumber']
+
         _setter("phone_type", phone_type)
         if after_contact_work_time_limit is not None:
             _setter("after_contact_work_time_limit", after_contact_work_time_limit)
@@ -3408,9 +3874,15 @@ class UserTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -3457,9 +3929,15 @@ class ViewTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

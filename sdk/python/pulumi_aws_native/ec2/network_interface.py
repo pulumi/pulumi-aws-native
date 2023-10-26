@@ -70,7 +70,7 @@ class NetworkInterfaceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
+             subnet_id: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              group_set: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              interface_type: Optional[pulumi.Input[str]] = None,
@@ -85,7 +85,37 @@ class NetworkInterfaceArgs:
              secondary_private_ip_address_count: Optional[pulumi.Input[int]] = None,
              source_dest_check: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if group_set is None and 'groupSet' in kwargs:
+            group_set = kwargs['groupSet']
+        if interface_type is None and 'interfaceType' in kwargs:
+            interface_type = kwargs['interfaceType']
+        if ipv4_prefix_count is None and 'ipv4PrefixCount' in kwargs:
+            ipv4_prefix_count = kwargs['ipv4PrefixCount']
+        if ipv4_prefixes is None and 'ipv4Prefixes' in kwargs:
+            ipv4_prefixes = kwargs['ipv4Prefixes']
+        if ipv6_address_count is None and 'ipv6AddressCount' in kwargs:
+            ipv6_address_count = kwargs['ipv6AddressCount']
+        if ipv6_addresses is None and 'ipv6Addresses' in kwargs:
+            ipv6_addresses = kwargs['ipv6Addresses']
+        if ipv6_prefix_count is None and 'ipv6PrefixCount' in kwargs:
+            ipv6_prefix_count = kwargs['ipv6PrefixCount']
+        if ipv6_prefixes is None and 'ipv6Prefixes' in kwargs:
+            ipv6_prefixes = kwargs['ipv6Prefixes']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if secondary_private_ip_address_count is None and 'secondaryPrivateIpAddressCount' in kwargs:
+            secondary_private_ip_address_count = kwargs['secondaryPrivateIpAddressCount']
+        if source_dest_check is None and 'sourceDestCheck' in kwargs:
+            source_dest_check = kwargs['sourceDestCheck']
+
         _setter("subnet_id", subnet_id)
         if description is not None:
             _setter("description", description)

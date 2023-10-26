@@ -40,7 +40,11 @@ class SecurityConfigArgs:
              name: Optional[pulumi.Input[str]] = None,
              saml_options: Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']] = None,
              type: Optional[pulumi.Input['SecurityConfigType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if saml_options is None and 'samlOptions' in kwargs:
+            saml_options = kwargs['samlOptions']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -154,11 +158,7 @@ class SecurityConfig(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if saml_options is not None and not isinstance(saml_options, SecurityConfigSamlConfigOptionsArgs):
-                saml_options = saml_options or {}
-                def _setter(key, value):
-                    saml_options[key] = value
-                SecurityConfigSamlConfigOptionsArgs._configure(_setter, **saml_options)
+            saml_options = _utilities.configure(saml_options, SecurityConfigSamlConfigOptionsArgs, True)
             __props__.__dict__["saml_options"] = saml_options
             __props__.__dict__["type"] = type
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])

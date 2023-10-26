@@ -42,7 +42,7 @@ class DatasetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]],
+             actions: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetActionArgs']]]] = None,
              content_delivery_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetContentDeliveryRuleArgs']]]] = None,
              dataset_name: Optional[pulumi.Input[str]] = None,
              late_data_rules: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetLateDataRuleArgs']]]] = None,
@@ -50,7 +50,21 @@ class DatasetArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
              triggers: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTriggerArgs']]]] = None,
              versioning_configuration: Optional[pulumi.Input['DatasetVersioningConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if actions is None:
+            raise TypeError("Missing 'actions' argument")
+        if content_delivery_rules is None and 'contentDeliveryRules' in kwargs:
+            content_delivery_rules = kwargs['contentDeliveryRules']
+        if dataset_name is None and 'datasetName' in kwargs:
+            dataset_name = kwargs['datasetName']
+        if late_data_rules is None and 'lateDataRules' in kwargs:
+            late_data_rules = kwargs['lateDataRules']
+        if retention_period is None and 'retentionPeriod' in kwargs:
+            retention_period = kwargs['retentionPeriod']
+        if versioning_configuration is None and 'versioningConfiguration' in kwargs:
+            versioning_configuration = kwargs['versioningConfiguration']
+
         _setter("actions", actions)
         if content_delivery_rules is not None:
             _setter("content_delivery_rules", content_delivery_rules)
@@ -211,19 +225,11 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["content_delivery_rules"] = content_delivery_rules
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["late_data_rules"] = late_data_rules
-            if retention_period is not None and not isinstance(retention_period, DatasetRetentionPeriodArgs):
-                retention_period = retention_period or {}
-                def _setter(key, value):
-                    retention_period[key] = value
-                DatasetRetentionPeriodArgs._configure(_setter, **retention_period)
+            retention_period = _utilities.configure(retention_period, DatasetRetentionPeriodArgs, True)
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["triggers"] = triggers
-            if versioning_configuration is not None and not isinstance(versioning_configuration, DatasetVersioningConfigurationArgs):
-                versioning_configuration = versioning_configuration or {}
-                def _setter(key, value):
-                    versioning_configuration[key] = value
-                DatasetVersioningConfigurationArgs._configure(_setter, **versioning_configuration)
+            versioning_configuration = _utilities.configure(versioning_configuration, DatasetVersioningConfigurationArgs, True)
             __props__.__dict__["versioning_configuration"] = versioning_configuration
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dataset_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

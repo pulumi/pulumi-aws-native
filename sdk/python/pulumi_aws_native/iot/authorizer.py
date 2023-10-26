@@ -42,7 +42,7 @@ class AuthorizerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             authorizer_function_arn: pulumi.Input[str],
+             authorizer_function_arn: Optional[pulumi.Input[str]] = None,
              authorizer_name: Optional[pulumi.Input[str]] = None,
              enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
              signing_disabled: Optional[pulumi.Input[bool]] = None,
@@ -50,7 +50,23 @@ class AuthorizerArgs:
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
              token_key_name: Optional[pulumi.Input[str]] = None,
              token_signing_public_keys: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorizer_function_arn is None and 'authorizerFunctionArn' in kwargs:
+            authorizer_function_arn = kwargs['authorizerFunctionArn']
+        if authorizer_function_arn is None:
+            raise TypeError("Missing 'authorizer_function_arn' argument")
+        if authorizer_name is None and 'authorizerName' in kwargs:
+            authorizer_name = kwargs['authorizerName']
+        if enable_caching_for_http is None and 'enableCachingForHttp' in kwargs:
+            enable_caching_for_http = kwargs['enableCachingForHttp']
+        if signing_disabled is None and 'signingDisabled' in kwargs:
+            signing_disabled = kwargs['signingDisabled']
+        if token_key_name is None and 'tokenKeyName' in kwargs:
+            token_key_name = kwargs['tokenKeyName']
+        if token_signing_public_keys is None and 'tokenSigningPublicKeys' in kwargs:
+            token_signing_public_keys = kwargs['tokenSigningPublicKeys']
+
         _setter("authorizer_function_arn", authorizer_function_arn)
         if authorizer_name is not None:
             _setter("authorizer_name", authorizer_name)

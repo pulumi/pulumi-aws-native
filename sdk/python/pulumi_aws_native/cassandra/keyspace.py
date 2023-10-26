@@ -36,7 +36,13 @@ class KeyspaceArgs:
              keyspace_name: Optional[pulumi.Input[str]] = None,
              replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if keyspace_name is None and 'keyspaceName' in kwargs:
+            keyspace_name = kwargs['keyspaceName']
+        if replication_specification is None and 'replicationSpecification' in kwargs:
+            replication_specification = kwargs['replicationSpecification']
+
         if keyspace_name is not None:
             _setter("keyspace_name", keyspace_name)
         if replication_specification is not None:
@@ -132,11 +138,7 @@ class Keyspace(pulumi.CustomResource):
             __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
             __props__.__dict__["keyspace_name"] = keyspace_name
-            if replication_specification is not None and not isinstance(replication_specification, KeyspaceReplicationSpecificationArgs):
-                replication_specification = replication_specification or {}
-                def _setter(key, value):
-                    replication_specification[key] = value
-                KeyspaceReplicationSpecificationArgs._configure(_setter, **replication_specification)
+            replication_specification = _utilities.configure(replication_specification, KeyspaceReplicationSpecificationArgs, True)
             __props__.__dict__["replication_specification"] = replication_specification
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keyspace_name", "replication_specification"])

@@ -29,9 +29,17 @@ class SubscriptionDefinitionVersionInitArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             subscription_definition_id: pulumi.Input[str],
-             subscriptions: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionVersionSubscriptionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             subscription_definition_id: Optional[pulumi.Input[str]] = None,
+             subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionVersionSubscriptionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if subscription_definition_id is None and 'subscriptionDefinitionId' in kwargs:
+            subscription_definition_id = kwargs['subscriptionDefinitionId']
+        if subscription_definition_id is None:
+            raise TypeError("Missing 'subscription_definition_id' argument")
+        if subscriptions is None:
+            raise TypeError("Missing 'subscriptions' argument")
+
         _setter("subscription_definition_id", subscription_definition_id)
         _setter("subscriptions", subscriptions)
 

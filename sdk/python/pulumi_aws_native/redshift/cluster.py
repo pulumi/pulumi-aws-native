@@ -180,11 +180,11 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cluster_type: pulumi.Input[str],
-             db_name: pulumi.Input[str],
-             master_user_password: pulumi.Input[str],
-             master_username: pulumi.Input[str],
-             node_type: pulumi.Input[str],
+             cluster_type: Optional[pulumi.Input[str]] = None,
+             db_name: Optional[pulumi.Input[str]] = None,
+             master_user_password: Optional[pulumi.Input[str]] = None,
+             master_username: Optional[pulumi.Input[str]] = None,
+             node_type: Optional[pulumi.Input[str]] = None,
              allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
              aqua_configuration_status: Optional[pulumi.Input[str]] = None,
              automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
@@ -228,7 +228,105 @@ class ClusterArgs:
              snapshot_identifier: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_type is None and 'clusterType' in kwargs:
+            cluster_type = kwargs['clusterType']
+        if cluster_type is None:
+            raise TypeError("Missing 'cluster_type' argument")
+        if db_name is None and 'dbName' in kwargs:
+            db_name = kwargs['dbName']
+        if db_name is None:
+            raise TypeError("Missing 'db_name' argument")
+        if master_user_password is None and 'masterUserPassword' in kwargs:
+            master_user_password = kwargs['masterUserPassword']
+        if master_user_password is None:
+            raise TypeError("Missing 'master_user_password' argument")
+        if master_username is None and 'masterUsername' in kwargs:
+            master_username = kwargs['masterUsername']
+        if master_username is None:
+            raise TypeError("Missing 'master_username' argument")
+        if node_type is None and 'nodeType' in kwargs:
+            node_type = kwargs['nodeType']
+        if node_type is None:
+            raise TypeError("Missing 'node_type' argument")
+        if allow_version_upgrade is None and 'allowVersionUpgrade' in kwargs:
+            allow_version_upgrade = kwargs['allowVersionUpgrade']
+        if aqua_configuration_status is None and 'aquaConfigurationStatus' in kwargs:
+            aqua_configuration_status = kwargs['aquaConfigurationStatus']
+        if automated_snapshot_retention_period is None and 'automatedSnapshotRetentionPeriod' in kwargs:
+            automated_snapshot_retention_period = kwargs['automatedSnapshotRetentionPeriod']
+        if availability_zone is None and 'availabilityZone' in kwargs:
+            availability_zone = kwargs['availabilityZone']
+        if availability_zone_relocation is None and 'availabilityZoneRelocation' in kwargs:
+            availability_zone_relocation = kwargs['availabilityZoneRelocation']
+        if availability_zone_relocation_status is None and 'availabilityZoneRelocationStatus' in kwargs:
+            availability_zone_relocation_status = kwargs['availabilityZoneRelocationStatus']
+        if cluster_identifier is None and 'clusterIdentifier' in kwargs:
+            cluster_identifier = kwargs['clusterIdentifier']
+        if cluster_parameter_group_name is None and 'clusterParameterGroupName' in kwargs:
+            cluster_parameter_group_name = kwargs['clusterParameterGroupName']
+        if cluster_security_groups is None and 'clusterSecurityGroups' in kwargs:
+            cluster_security_groups = kwargs['clusterSecurityGroups']
+        if cluster_subnet_group_name is None and 'clusterSubnetGroupName' in kwargs:
+            cluster_subnet_group_name = kwargs['clusterSubnetGroupName']
+        if cluster_version is None and 'clusterVersion' in kwargs:
+            cluster_version = kwargs['clusterVersion']
+        if defer_maintenance is None and 'deferMaintenance' in kwargs:
+            defer_maintenance = kwargs['deferMaintenance']
+        if defer_maintenance_duration is None and 'deferMaintenanceDuration' in kwargs:
+            defer_maintenance_duration = kwargs['deferMaintenanceDuration']
+        if defer_maintenance_end_time is None and 'deferMaintenanceEndTime' in kwargs:
+            defer_maintenance_end_time = kwargs['deferMaintenanceEndTime']
+        if defer_maintenance_start_time is None and 'deferMaintenanceStartTime' in kwargs:
+            defer_maintenance_start_time = kwargs['deferMaintenanceStartTime']
+        if destination_region is None and 'destinationRegion' in kwargs:
+            destination_region = kwargs['destinationRegion']
+        if elastic_ip is None and 'elasticIp' in kwargs:
+            elastic_ip = kwargs['elasticIp']
+        if enhanced_vpc_routing is None and 'enhancedVpcRouting' in kwargs:
+            enhanced_vpc_routing = kwargs['enhancedVpcRouting']
+        if hsm_client_certificate_identifier is None and 'hsmClientCertificateIdentifier' in kwargs:
+            hsm_client_certificate_identifier = kwargs['hsmClientCertificateIdentifier']
+        if hsm_configuration_identifier is None and 'hsmConfigurationIdentifier' in kwargs:
+            hsm_configuration_identifier = kwargs['hsmConfigurationIdentifier']
+        if iam_roles is None and 'iamRoles' in kwargs:
+            iam_roles = kwargs['iamRoles']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if logging_properties is None and 'loggingProperties' in kwargs:
+            logging_properties = kwargs['loggingProperties']
+        if maintenance_track_name is None and 'maintenanceTrackName' in kwargs:
+            maintenance_track_name = kwargs['maintenanceTrackName']
+        if manual_snapshot_retention_period is None and 'manualSnapshotRetentionPeriod' in kwargs:
+            manual_snapshot_retention_period = kwargs['manualSnapshotRetentionPeriod']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if owner_account is None and 'ownerAccount' in kwargs:
+            owner_account = kwargs['ownerAccount']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if resource_action is None and 'resourceAction' in kwargs:
+            resource_action = kwargs['resourceAction']
+        if revision_target is None and 'revisionTarget' in kwargs:
+            revision_target = kwargs['revisionTarget']
+        if rotate_encryption_key is None and 'rotateEncryptionKey' in kwargs:
+            rotate_encryption_key = kwargs['rotateEncryptionKey']
+        if snapshot_cluster_identifier is None and 'snapshotClusterIdentifier' in kwargs:
+            snapshot_cluster_identifier = kwargs['snapshotClusterIdentifier']
+        if snapshot_copy_grant_name is None and 'snapshotCopyGrantName' in kwargs:
+            snapshot_copy_grant_name = kwargs['snapshotCopyGrantName']
+        if snapshot_copy_manual is None and 'snapshotCopyManual' in kwargs:
+            snapshot_copy_manual = kwargs['snapshotCopyManual']
+        if snapshot_copy_retention_period is None and 'snapshotCopyRetentionPeriod' in kwargs:
+            snapshot_copy_retention_period = kwargs['snapshotCopyRetentionPeriod']
+        if snapshot_identifier is None and 'snapshotIdentifier' in kwargs:
+            snapshot_identifier = kwargs['snapshotIdentifier']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("cluster_type", cluster_type)
         _setter("db_name", db_name)
         _setter("master_user_password", master_user_password)
@@ -1132,22 +1230,14 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["destination_region"] = destination_region
             __props__.__dict__["elastic_ip"] = elastic_ip
             __props__.__dict__["encrypted"] = encrypted
-            if endpoint is not None and not isinstance(endpoint, ClusterEndpointArgs):
-                endpoint = endpoint or {}
-                def _setter(key, value):
-                    endpoint[key] = value
-                ClusterEndpointArgs._configure(_setter, **endpoint)
+            endpoint = _utilities.configure(endpoint, ClusterEndpointArgs, True)
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
             __props__.__dict__["hsm_client_certificate_identifier"] = hsm_client_certificate_identifier
             __props__.__dict__["hsm_configuration_identifier"] = hsm_configuration_identifier
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if logging_properties is not None and not isinstance(logging_properties, ClusterLoggingPropertiesArgs):
-                logging_properties = logging_properties or {}
-                def _setter(key, value):
-                    logging_properties[key] = value
-                ClusterLoggingPropertiesArgs._configure(_setter, **logging_properties)
+            logging_properties = _utilities.configure(logging_properties, ClusterLoggingPropertiesArgs, True)
             __props__.__dict__["logging_properties"] = logging_properties
             __props__.__dict__["maintenance_track_name"] = maintenance_track_name
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period

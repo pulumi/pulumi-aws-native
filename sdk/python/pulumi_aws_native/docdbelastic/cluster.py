@@ -47,10 +47,10 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             admin_user_name: pulumi.Input[str],
-             auth_type: pulumi.Input[str],
-             shard_capacity: pulumi.Input[int],
-             shard_count: pulumi.Input[int],
+             admin_user_name: Optional[pulumi.Input[str]] = None,
+             auth_type: Optional[pulumi.Input[str]] = None,
+             shard_capacity: Optional[pulumi.Input[int]] = None,
+             shard_count: Optional[pulumi.Input[int]] = None,
              admin_user_password: Optional[pulumi.Input[str]] = None,
              cluster_name: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,37 @@ class ClusterArgs:
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
              vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if admin_user_name is None and 'adminUserName' in kwargs:
+            admin_user_name = kwargs['adminUserName']
+        if admin_user_name is None:
+            raise TypeError("Missing 'admin_user_name' argument")
+        if auth_type is None and 'authType' in kwargs:
+            auth_type = kwargs['authType']
+        if auth_type is None:
+            raise TypeError("Missing 'auth_type' argument")
+        if shard_capacity is None and 'shardCapacity' in kwargs:
+            shard_capacity = kwargs['shardCapacity']
+        if shard_capacity is None:
+            raise TypeError("Missing 'shard_capacity' argument")
+        if shard_count is None and 'shardCount' in kwargs:
+            shard_count = kwargs['shardCount']
+        if shard_count is None:
+            raise TypeError("Missing 'shard_count' argument")
+        if admin_user_password is None and 'adminUserPassword' in kwargs:
+            admin_user_password = kwargs['adminUserPassword']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if preferred_maintenance_window is None and 'preferredMaintenanceWindow' in kwargs:
+            preferred_maintenance_window = kwargs['preferredMaintenanceWindow']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+        if vpc_security_group_ids is None and 'vpcSecurityGroupIds' in kwargs:
+            vpc_security_group_ids = kwargs['vpcSecurityGroupIds']
+
         _setter("admin_user_name", admin_user_name)
         _setter("auth_type", auth_type)
         _setter("shard_capacity", shard_capacity)

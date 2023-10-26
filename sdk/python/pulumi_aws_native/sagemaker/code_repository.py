@@ -31,10 +31,18 @@ class CodeRepositoryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
+             git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None,
              code_repository_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['CodeRepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if git_config is None and 'gitConfig' in kwargs:
+            git_config = kwargs['gitConfig']
+        if git_config is None:
+            raise TypeError("Missing 'git_config' argument")
+        if code_repository_name is None and 'codeRepositoryName' in kwargs:
+            code_repository_name = kwargs['codeRepositoryName']
+
         _setter("git_config", git_config)
         if code_repository_name is not None:
             _setter("code_repository_name", code_repository_name)
@@ -131,11 +139,7 @@ class CodeRepository(pulumi.CustomResource):
             __props__ = CodeRepositoryArgs.__new__(CodeRepositoryArgs)
 
             __props__.__dict__["code_repository_name"] = code_repository_name
-            if git_config is not None and not isinstance(git_config, CodeRepositoryGitConfigArgs):
-                git_config = git_config or {}
-                def _setter(key, value):
-                    git_config[key] = value
-                CodeRepositoryGitConfigArgs._configure(_setter, **git_config)
+            git_config = _utilities.configure(git_config, CodeRepositoryGitConfigArgs, True)
             if git_config is None and not opts.urn:
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config

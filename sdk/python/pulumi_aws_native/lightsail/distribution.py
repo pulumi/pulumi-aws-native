@@ -55,9 +55,9 @@ class DistributionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bundle_id: pulumi.Input[str],
-             default_cache_behavior: pulumi.Input['DistributionCacheBehaviorArgs'],
-             origin: pulumi.Input['DistributionInputOriginArgs'],
+             bundle_id: Optional[pulumi.Input[str]] = None,
+             default_cache_behavior: Optional[pulumi.Input['DistributionCacheBehaviorArgs']] = None,
+             origin: Optional[pulumi.Input['DistributionInputOriginArgs']] = None,
              cache_behavior_settings: Optional[pulumi.Input['DistributionCacheSettingsArgs']] = None,
              cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorPerPathArgs']]]] = None,
              certificate_name: Optional[pulumi.Input[str]] = None,
@@ -65,7 +65,31 @@ class DistributionArgs:
              ip_address_type: Optional[pulumi.Input[str]] = None,
              is_enabled: Optional[pulumi.Input[bool]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bundle_id is None and 'bundleId' in kwargs:
+            bundle_id = kwargs['bundleId']
+        if bundle_id is None:
+            raise TypeError("Missing 'bundle_id' argument")
+        if default_cache_behavior is None and 'defaultCacheBehavior' in kwargs:
+            default_cache_behavior = kwargs['defaultCacheBehavior']
+        if default_cache_behavior is None:
+            raise TypeError("Missing 'default_cache_behavior' argument")
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+        if cache_behavior_settings is None and 'cacheBehaviorSettings' in kwargs:
+            cache_behavior_settings = kwargs['cacheBehaviorSettings']
+        if cache_behaviors is None and 'cacheBehaviors' in kwargs:
+            cache_behaviors = kwargs['cacheBehaviors']
+        if certificate_name is None and 'certificateName' in kwargs:
+            certificate_name = kwargs['certificateName']
+        if distribution_name is None and 'distributionName' in kwargs:
+            distribution_name = kwargs['distributionName']
+        if ip_address_type is None and 'ipAddressType' in kwargs:
+            ip_address_type = kwargs['ipAddressType']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+
         _setter("bundle_id", bundle_id)
         _setter("default_cache_behavior", default_cache_behavior)
         _setter("origin", origin)
@@ -293,30 +317,18 @@ class Distribution(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
-            if cache_behavior_settings is not None and not isinstance(cache_behavior_settings, DistributionCacheSettingsArgs):
-                cache_behavior_settings = cache_behavior_settings or {}
-                def _setter(key, value):
-                    cache_behavior_settings[key] = value
-                DistributionCacheSettingsArgs._configure(_setter, **cache_behavior_settings)
+            cache_behavior_settings = _utilities.configure(cache_behavior_settings, DistributionCacheSettingsArgs, True)
             __props__.__dict__["cache_behavior_settings"] = cache_behavior_settings
             __props__.__dict__["cache_behaviors"] = cache_behaviors
             __props__.__dict__["certificate_name"] = certificate_name
-            if default_cache_behavior is not None and not isinstance(default_cache_behavior, DistributionCacheBehaviorArgs):
-                default_cache_behavior = default_cache_behavior or {}
-                def _setter(key, value):
-                    default_cache_behavior[key] = value
-                DistributionCacheBehaviorArgs._configure(_setter, **default_cache_behavior)
+            default_cache_behavior = _utilities.configure(default_cache_behavior, DistributionCacheBehaviorArgs, True)
             if default_cache_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'default_cache_behavior'")
             __props__.__dict__["default_cache_behavior"] = default_cache_behavior
             __props__.__dict__["distribution_name"] = distribution_name
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["is_enabled"] = is_enabled
-            if origin is not None and not isinstance(origin, DistributionInputOriginArgs):
-                origin = origin or {}
-                def _setter(key, value):
-                    origin[key] = value
-                DistributionInputOriginArgs._configure(_setter, **origin)
+            origin = _utilities.configure(origin, DistributionInputOriginArgs, True)
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__.__dict__["origin"] = origin

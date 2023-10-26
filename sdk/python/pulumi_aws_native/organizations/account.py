@@ -41,12 +41,22 @@ class AccountArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             email: pulumi.Input[str],
+             email: Optional[pulumi.Input[str]] = None,
              account_name: Optional[pulumi.Input[str]] = None,
              parent_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              role_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccountTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if parent_ids is None and 'parentIds' in kwargs:
+            parent_ids = kwargs['parentIds']
+        if role_name is None and 'roleName' in kwargs:
+            role_name = kwargs['roleName']
+
         _setter("email", email)
         if account_name is not None:
             _setter("account_name", account_name)

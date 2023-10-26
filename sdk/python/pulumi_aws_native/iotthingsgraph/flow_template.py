@@ -29,9 +29,15 @@ class FlowTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             definition: pulumi.Input['FlowTemplateDefinitionDocumentArgs'],
+             definition: Optional[pulumi.Input['FlowTemplateDefinitionDocumentArgs']] = None,
              compatible_namespace_version: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition is None:
+            raise TypeError("Missing 'definition' argument")
+        if compatible_namespace_version is None and 'compatibleNamespaceVersion' in kwargs:
+            compatible_namespace_version = kwargs['compatibleNamespaceVersion']
+
         _setter("definition", definition)
         if compatible_namespace_version is not None:
             _setter("compatible_namespace_version", compatible_namespace_version)
@@ -115,11 +121,7 @@ class FlowTemplate(pulumi.CustomResource):
             __props__ = FlowTemplateArgs.__new__(FlowTemplateArgs)
 
             __props__.__dict__["compatible_namespace_version"] = compatible_namespace_version
-            if definition is not None and not isinstance(definition, FlowTemplateDefinitionDocumentArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                FlowTemplateDefinitionDocumentArgs._configure(_setter, **definition)
+            definition = _utilities.configure(definition, FlowTemplateDefinitionDocumentArgs, True)
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition

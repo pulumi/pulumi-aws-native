@@ -88,8 +88,8 @@ class AlarmArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             evaluation_periods: pulumi.Input[int],
+             comparison_operator: Optional[pulumi.Input[str]] = None,
+             evaluation_periods: Optional[pulumi.Input[int]] = None,
              actions_enabled: Optional[pulumi.Input[bool]] = None,
              alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              alarm_description: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,41 @@ class AlarmArgs:
              threshold_metric_id: Optional[pulumi.Input[str]] = None,
              treat_missing_data: Optional[pulumi.Input[str]] = None,
              unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comparison_operator is None and 'comparisonOperator' in kwargs:
+            comparison_operator = kwargs['comparisonOperator']
+        if comparison_operator is None:
+            raise TypeError("Missing 'comparison_operator' argument")
+        if evaluation_periods is None and 'evaluationPeriods' in kwargs:
+            evaluation_periods = kwargs['evaluationPeriods']
+        if evaluation_periods is None:
+            raise TypeError("Missing 'evaluation_periods' argument")
+        if actions_enabled is None and 'actionsEnabled' in kwargs:
+            actions_enabled = kwargs['actionsEnabled']
+        if alarm_actions is None and 'alarmActions' in kwargs:
+            alarm_actions = kwargs['alarmActions']
+        if alarm_description is None and 'alarmDescription' in kwargs:
+            alarm_description = kwargs['alarmDescription']
+        if alarm_name is None and 'alarmName' in kwargs:
+            alarm_name = kwargs['alarmName']
+        if datapoints_to_alarm is None and 'datapointsToAlarm' in kwargs:
+            datapoints_to_alarm = kwargs['datapointsToAlarm']
+        if evaluate_low_sample_count_percentile is None and 'evaluateLowSampleCountPercentile' in kwargs:
+            evaluate_low_sample_count_percentile = kwargs['evaluateLowSampleCountPercentile']
+        if extended_statistic is None and 'extendedStatistic' in kwargs:
+            extended_statistic = kwargs['extendedStatistic']
+        if insufficient_data_actions is None and 'insufficientDataActions' in kwargs:
+            insufficient_data_actions = kwargs['insufficientDataActions']
+        if metric_name is None and 'metricName' in kwargs:
+            metric_name = kwargs['metricName']
+        if ok_actions is None and 'okActions' in kwargs:
+            ok_actions = kwargs['okActions']
+        if threshold_metric_id is None and 'thresholdMetricId' in kwargs:
+            threshold_metric_id = kwargs['thresholdMetricId']
+        if treat_missing_data is None and 'treatMissingData' in kwargs:
+            treat_missing_data = kwargs['treatMissingData']
+
         _setter("comparison_operator", comparison_operator)
         _setter("evaluation_periods", evaluation_periods)
         if actions_enabled is not None:

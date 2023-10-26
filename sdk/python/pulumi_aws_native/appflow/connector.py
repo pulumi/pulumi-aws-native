@@ -37,11 +37,23 @@ class ConnectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             connector_provisioning_config: pulumi.Input['ConnectorProvisioningConfigArgs'],
-             connector_provisioning_type: pulumi.Input[str],
+             connector_provisioning_config: Optional[pulumi.Input['ConnectorProvisioningConfigArgs']] = None,
+             connector_provisioning_type: Optional[pulumi.Input[str]] = None,
              connector_label: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connector_provisioning_config is None and 'connectorProvisioningConfig' in kwargs:
+            connector_provisioning_config = kwargs['connectorProvisioningConfig']
+        if connector_provisioning_config is None:
+            raise TypeError("Missing 'connector_provisioning_config' argument")
+        if connector_provisioning_type is None and 'connectorProvisioningType' in kwargs:
+            connector_provisioning_type = kwargs['connectorProvisioningType']
+        if connector_provisioning_type is None:
+            raise TypeError("Missing 'connector_provisioning_type' argument")
+        if connector_label is None and 'connectorLabel' in kwargs:
+            connector_label = kwargs['connectorLabel']
+
         _setter("connector_provisioning_config", connector_provisioning_config)
         _setter("connector_provisioning_type", connector_provisioning_type)
         if connector_label is not None:
@@ -160,11 +172,7 @@ class Connector(pulumi.CustomResource):
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
             __props__.__dict__["connector_label"] = connector_label
-            if connector_provisioning_config is not None and not isinstance(connector_provisioning_config, ConnectorProvisioningConfigArgs):
-                connector_provisioning_config = connector_provisioning_config or {}
-                def _setter(key, value):
-                    connector_provisioning_config[key] = value
-                ConnectorProvisioningConfigArgs._configure(_setter, **connector_provisioning_config)
+            connector_provisioning_config = _utilities.configure(connector_provisioning_config, ConnectorProvisioningConfigArgs, True)
             if connector_provisioning_config is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_provisioning_config'")
             __props__.__dict__["connector_provisioning_config"] = connector_provisioning_config

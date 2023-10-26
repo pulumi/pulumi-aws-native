@@ -35,10 +35,18 @@ class GatewayArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             egress_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[str]]],
-             networks: pulumi.Input[Sequence[pulumi.Input['GatewayNetworkArgs']]],
+             egress_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             networks: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayNetworkArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if egress_cidr_blocks is None and 'egressCidrBlocks' in kwargs:
+            egress_cidr_blocks = kwargs['egressCidrBlocks']
+        if egress_cidr_blocks is None:
+            raise TypeError("Missing 'egress_cidr_blocks' argument")
+        if networks is None:
+            raise TypeError("Missing 'networks' argument")
+
         _setter("egress_cidr_blocks", egress_cidr_blocks)
         _setter("networks", networks)
         if name is not None:

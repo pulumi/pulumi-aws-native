@@ -77,7 +77,41 @@ class DomainArgs:
              software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
              vpc_options: Optional[pulumi.Input['DomainVpcOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_policies is None and 'accessPolicies' in kwargs:
+            access_policies = kwargs['accessPolicies']
+        if advanced_options is None and 'advancedOptions' in kwargs:
+            advanced_options = kwargs['advancedOptions']
+        if advanced_security_options is None and 'advancedSecurityOptions' in kwargs:
+            advanced_security_options = kwargs['advancedSecurityOptions']
+        if cluster_config is None and 'clusterConfig' in kwargs:
+            cluster_config = kwargs['clusterConfig']
+        if cognito_options is None and 'cognitoOptions' in kwargs:
+            cognito_options = kwargs['cognitoOptions']
+        if domain_endpoint_options is None and 'domainEndpointOptions' in kwargs:
+            domain_endpoint_options = kwargs['domainEndpointOptions']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if ebs_options is None and 'ebsOptions' in kwargs:
+            ebs_options = kwargs['ebsOptions']
+        if encryption_at_rest_options is None and 'encryptionAtRestOptions' in kwargs:
+            encryption_at_rest_options = kwargs['encryptionAtRestOptions']
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if log_publishing_options is None and 'logPublishingOptions' in kwargs:
+            log_publishing_options = kwargs['logPublishingOptions']
+        if node_to_node_encryption_options is None and 'nodeToNodeEncryptionOptions' in kwargs:
+            node_to_node_encryption_options = kwargs['nodeToNodeEncryptionOptions']
+        if off_peak_window_options is None and 'offPeakWindowOptions' in kwargs:
+            off_peak_window_options = kwargs['offPeakWindowOptions']
+        if snapshot_options is None and 'snapshotOptions' in kwargs:
+            snapshot_options = kwargs['snapshotOptions']
+        if software_update_options is None and 'softwareUpdateOptions' in kwargs:
+            software_update_options = kwargs['softwareUpdateOptions']
+        if vpc_options is None and 'vpcOptions' in kwargs:
+            vpc_options = kwargs['vpcOptions']
+
         if access_policies is not None:
             _setter("access_policies", access_policies)
         if advanced_options is not None:
@@ -356,75 +390,31 @@ class Domain(pulumi.CustomResource):
 
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
-            if advanced_security_options is not None and not isinstance(advanced_security_options, DomainAdvancedSecurityOptionsInputArgs):
-                advanced_security_options = advanced_security_options or {}
-                def _setter(key, value):
-                    advanced_security_options[key] = value
-                DomainAdvancedSecurityOptionsInputArgs._configure(_setter, **advanced_security_options)
+            advanced_security_options = _utilities.configure(advanced_security_options, DomainAdvancedSecurityOptionsInputArgs, True)
             __props__.__dict__["advanced_security_options"] = advanced_security_options
-            if cluster_config is not None and not isinstance(cluster_config, DomainClusterConfigArgs):
-                cluster_config = cluster_config or {}
-                def _setter(key, value):
-                    cluster_config[key] = value
-                DomainClusterConfigArgs._configure(_setter, **cluster_config)
+            cluster_config = _utilities.configure(cluster_config, DomainClusterConfigArgs, True)
             __props__.__dict__["cluster_config"] = cluster_config
-            if cognito_options is not None and not isinstance(cognito_options, DomainCognitoOptionsArgs):
-                cognito_options = cognito_options or {}
-                def _setter(key, value):
-                    cognito_options[key] = value
-                DomainCognitoOptionsArgs._configure(_setter, **cognito_options)
+            cognito_options = _utilities.configure(cognito_options, DomainCognitoOptionsArgs, True)
             __props__.__dict__["cognito_options"] = cognito_options
-            if domain_endpoint_options is not None and not isinstance(domain_endpoint_options, DomainEndpointOptionsArgs):
-                domain_endpoint_options = domain_endpoint_options or {}
-                def _setter(key, value):
-                    domain_endpoint_options[key] = value
-                DomainEndpointOptionsArgs._configure(_setter, **domain_endpoint_options)
+            domain_endpoint_options = _utilities.configure(domain_endpoint_options, DomainEndpointOptionsArgs, True)
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
             __props__.__dict__["domain_name"] = domain_name
-            if ebs_options is not None and not isinstance(ebs_options, DomainEbsOptionsArgs):
-                ebs_options = ebs_options or {}
-                def _setter(key, value):
-                    ebs_options[key] = value
-                DomainEbsOptionsArgs._configure(_setter, **ebs_options)
+            ebs_options = _utilities.configure(ebs_options, DomainEbsOptionsArgs, True)
             __props__.__dict__["ebs_options"] = ebs_options
-            if encryption_at_rest_options is not None and not isinstance(encryption_at_rest_options, DomainEncryptionAtRestOptionsArgs):
-                encryption_at_rest_options = encryption_at_rest_options or {}
-                def _setter(key, value):
-                    encryption_at_rest_options[key] = value
-                DomainEncryptionAtRestOptionsArgs._configure(_setter, **encryption_at_rest_options)
+            encryption_at_rest_options = _utilities.configure(encryption_at_rest_options, DomainEncryptionAtRestOptionsArgs, True)
             __props__.__dict__["encryption_at_rest_options"] = encryption_at_rest_options
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["log_publishing_options"] = log_publishing_options
-            if node_to_node_encryption_options is not None and not isinstance(node_to_node_encryption_options, DomainNodeToNodeEncryptionOptionsArgs):
-                node_to_node_encryption_options = node_to_node_encryption_options or {}
-                def _setter(key, value):
-                    node_to_node_encryption_options[key] = value
-                DomainNodeToNodeEncryptionOptionsArgs._configure(_setter, **node_to_node_encryption_options)
+            node_to_node_encryption_options = _utilities.configure(node_to_node_encryption_options, DomainNodeToNodeEncryptionOptionsArgs, True)
             __props__.__dict__["node_to_node_encryption_options"] = node_to_node_encryption_options
-            if off_peak_window_options is not None and not isinstance(off_peak_window_options, DomainOffPeakWindowOptionsArgs):
-                off_peak_window_options = off_peak_window_options or {}
-                def _setter(key, value):
-                    off_peak_window_options[key] = value
-                DomainOffPeakWindowOptionsArgs._configure(_setter, **off_peak_window_options)
+            off_peak_window_options = _utilities.configure(off_peak_window_options, DomainOffPeakWindowOptionsArgs, True)
             __props__.__dict__["off_peak_window_options"] = off_peak_window_options
-            if snapshot_options is not None and not isinstance(snapshot_options, DomainSnapshotOptionsArgs):
-                snapshot_options = snapshot_options or {}
-                def _setter(key, value):
-                    snapshot_options[key] = value
-                DomainSnapshotOptionsArgs._configure(_setter, **snapshot_options)
+            snapshot_options = _utilities.configure(snapshot_options, DomainSnapshotOptionsArgs, True)
             __props__.__dict__["snapshot_options"] = snapshot_options
-            if software_update_options is not None and not isinstance(software_update_options, DomainSoftwareUpdateOptionsArgs):
-                software_update_options = software_update_options or {}
-                def _setter(key, value):
-                    software_update_options[key] = value
-                DomainSoftwareUpdateOptionsArgs._configure(_setter, **software_update_options)
+            software_update_options = _utilities.configure(software_update_options, DomainSoftwareUpdateOptionsArgs, True)
             __props__.__dict__["software_update_options"] = software_update_options
             __props__.__dict__["tags"] = tags
-            if vpc_options is not None and not isinstance(vpc_options, DomainVpcOptionsArgs):
-                vpc_options = vpc_options or {}
-                def _setter(key, value):
-                    vpc_options[key] = value
-                DomainVpcOptionsArgs._configure(_setter, **vpc_options)
+            vpc_options = _utilities.configure(vpc_options, DomainVpcOptionsArgs, True)
             __props__.__dict__["vpc_options"] = vpc_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_arn"] = None

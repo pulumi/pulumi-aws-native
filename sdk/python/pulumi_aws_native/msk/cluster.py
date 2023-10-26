@@ -54,9 +54,9 @@ class ClusterArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             broker_node_group_info: pulumi.Input['ClusterBrokerNodeGroupInfoArgs'],
-             kafka_version: pulumi.Input[str],
-             number_of_broker_nodes: pulumi.Input[int],
+             broker_node_group_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoArgs']] = None,
+             kafka_version: Optional[pulumi.Input[str]] = None,
+             number_of_broker_nodes: Optional[pulumi.Input[int]] = None,
              client_authentication: Optional[pulumi.Input['ClusterClientAuthenticationArgs']] = None,
              cluster_name: Optional[pulumi.Input[str]] = None,
              configuration_info: Optional[pulumi.Input['ClusterConfigurationInfoArgs']] = None,
@@ -67,7 +67,39 @@ class ClusterArgs:
              open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
              storage_mode: Optional[pulumi.Input['ClusterStorageMode']] = None,
              tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if broker_node_group_info is None and 'brokerNodeGroupInfo' in kwargs:
+            broker_node_group_info = kwargs['brokerNodeGroupInfo']
+        if broker_node_group_info is None:
+            raise TypeError("Missing 'broker_node_group_info' argument")
+        if kafka_version is None and 'kafkaVersion' in kwargs:
+            kafka_version = kwargs['kafkaVersion']
+        if kafka_version is None:
+            raise TypeError("Missing 'kafka_version' argument")
+        if number_of_broker_nodes is None and 'numberOfBrokerNodes' in kwargs:
+            number_of_broker_nodes = kwargs['numberOfBrokerNodes']
+        if number_of_broker_nodes is None:
+            raise TypeError("Missing 'number_of_broker_nodes' argument")
+        if client_authentication is None and 'clientAuthentication' in kwargs:
+            client_authentication = kwargs['clientAuthentication']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if configuration_info is None and 'configurationInfo' in kwargs:
+            configuration_info = kwargs['configurationInfo']
+        if current_version is None and 'currentVersion' in kwargs:
+            current_version = kwargs['currentVersion']
+        if encryption_info is None and 'encryptionInfo' in kwargs:
+            encryption_info = kwargs['encryptionInfo']
+        if enhanced_monitoring is None and 'enhancedMonitoring' in kwargs:
+            enhanced_monitoring = kwargs['enhancedMonitoring']
+        if logging_info is None and 'loggingInfo' in kwargs:
+            logging_info = kwargs['loggingInfo']
+        if open_monitoring is None and 'openMonitoring' in kwargs:
+            open_monitoring = kwargs['openMonitoring']
+        if storage_mode is None and 'storageMode' in kwargs:
+            storage_mode = kwargs['storageMode']
+
         _setter("broker_node_group_info", broker_node_group_info)
         _setter("kafka_version", kafka_version)
         _setter("number_of_broker_nodes", number_of_broker_nodes)
@@ -293,52 +325,28 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            if broker_node_group_info is not None and not isinstance(broker_node_group_info, ClusterBrokerNodeGroupInfoArgs):
-                broker_node_group_info = broker_node_group_info or {}
-                def _setter(key, value):
-                    broker_node_group_info[key] = value
-                ClusterBrokerNodeGroupInfoArgs._configure(_setter, **broker_node_group_info)
+            broker_node_group_info = _utilities.configure(broker_node_group_info, ClusterBrokerNodeGroupInfoArgs, True)
             if broker_node_group_info is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_node_group_info'")
             __props__.__dict__["broker_node_group_info"] = broker_node_group_info
-            if client_authentication is not None and not isinstance(client_authentication, ClusterClientAuthenticationArgs):
-                client_authentication = client_authentication or {}
-                def _setter(key, value):
-                    client_authentication[key] = value
-                ClusterClientAuthenticationArgs._configure(_setter, **client_authentication)
+            client_authentication = _utilities.configure(client_authentication, ClusterClientAuthenticationArgs, True)
             __props__.__dict__["client_authentication"] = client_authentication
             __props__.__dict__["cluster_name"] = cluster_name
-            if configuration_info is not None and not isinstance(configuration_info, ClusterConfigurationInfoArgs):
-                configuration_info = configuration_info or {}
-                def _setter(key, value):
-                    configuration_info[key] = value
-                ClusterConfigurationInfoArgs._configure(_setter, **configuration_info)
+            configuration_info = _utilities.configure(configuration_info, ClusterConfigurationInfoArgs, True)
             __props__.__dict__["configuration_info"] = configuration_info
             __props__.__dict__["current_version"] = current_version
-            if encryption_info is not None and not isinstance(encryption_info, ClusterEncryptionInfoArgs):
-                encryption_info = encryption_info or {}
-                def _setter(key, value):
-                    encryption_info[key] = value
-                ClusterEncryptionInfoArgs._configure(_setter, **encryption_info)
+            encryption_info = _utilities.configure(encryption_info, ClusterEncryptionInfoArgs, True)
             __props__.__dict__["encryption_info"] = encryption_info
             __props__.__dict__["enhanced_monitoring"] = enhanced_monitoring
             if kafka_version is None and not opts.urn:
                 raise TypeError("Missing required property 'kafka_version'")
             __props__.__dict__["kafka_version"] = kafka_version
-            if logging_info is not None and not isinstance(logging_info, ClusterLoggingInfoArgs):
-                logging_info = logging_info or {}
-                def _setter(key, value):
-                    logging_info[key] = value
-                ClusterLoggingInfoArgs._configure(_setter, **logging_info)
+            logging_info = _utilities.configure(logging_info, ClusterLoggingInfoArgs, True)
             __props__.__dict__["logging_info"] = logging_info
             if number_of_broker_nodes is None and not opts.urn:
                 raise TypeError("Missing required property 'number_of_broker_nodes'")
             __props__.__dict__["number_of_broker_nodes"] = number_of_broker_nodes
-            if open_monitoring is not None and not isinstance(open_monitoring, ClusterOpenMonitoringArgs):
-                open_monitoring = open_monitoring or {}
-                def _setter(key, value):
-                    open_monitoring[key] = value
-                ClusterOpenMonitoringArgs._configure(_setter, **open_monitoring)
+            open_monitoring = _utilities.configure(open_monitoring, ClusterOpenMonitoringArgs, True)
             __props__.__dict__["open_monitoring"] = open_monitoring
             __props__.__dict__["storage_mode"] = storage_mode
             __props__.__dict__["tags"] = tags

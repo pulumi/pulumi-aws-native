@@ -46,7 +46,17 @@ class ProfilingGroupArgs:
              compute_platform: Optional[pulumi.Input['ProfilingGroupComputePlatform']] = None,
              profiling_group_name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfilingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if agent_permissions is None and 'agentPermissions' in kwargs:
+            agent_permissions = kwargs['agentPermissions']
+        if anomaly_detection_notification_configuration is None and 'anomalyDetectionNotificationConfiguration' in kwargs:
+            anomaly_detection_notification_configuration = kwargs['anomalyDetectionNotificationConfiguration']
+        if compute_platform is None and 'computePlatform' in kwargs:
+            compute_platform = kwargs['computePlatform']
+        if profiling_group_name is None and 'profilingGroupName' in kwargs:
+            profiling_group_name = kwargs['profilingGroupName']
+
         if agent_permissions is not None:
             _setter("agent_permissions", agent_permissions)
         if anomaly_detection_notification_configuration is not None:
@@ -183,11 +193,7 @@ class ProfilingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfilingGroupArgs.__new__(ProfilingGroupArgs)
 
-            if agent_permissions is not None and not isinstance(agent_permissions, AgentPermissionsPropertiesArgs):
-                agent_permissions = agent_permissions or {}
-                def _setter(key, value):
-                    agent_permissions[key] = value
-                AgentPermissionsPropertiesArgs._configure(_setter, **agent_permissions)
+            agent_permissions = _utilities.configure(agent_permissions, AgentPermissionsPropertiesArgs, True)
             __props__.__dict__["agent_permissions"] = agent_permissions
             __props__.__dict__["anomaly_detection_notification_configuration"] = anomaly_detection_notification_configuration
             __props__.__dict__["compute_platform"] = compute_platform

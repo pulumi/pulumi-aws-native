@@ -39,12 +39,20 @@ class RegexPatternSetArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             regular_expression_list: pulumi.Input[Sequence[pulumi.Input[str]]],
-             scope: pulumi.Input['RegexPatternSetScope'],
+             regular_expression_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             scope: Optional[pulumi.Input['RegexPatternSetScope']] = None,
              description: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if regular_expression_list is None and 'regularExpressionList' in kwargs:
+            regular_expression_list = kwargs['regularExpressionList']
+        if regular_expression_list is None:
+            raise TypeError("Missing 'regular_expression_list' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+
         _setter("regular_expression_list", regular_expression_list)
         _setter("scope", scope)
         if description is not None:

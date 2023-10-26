@@ -56,7 +56,7 @@ class ApplicationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
              auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
              component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]] = None,
              custom_components: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]] = None,
@@ -66,7 +66,29 @@ class ApplicationArgs:
              ops_center_enabled: Optional[pulumi.Input[bool]] = None,
              ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_configuration_enabled is None and 'autoConfigurationEnabled' in kwargs:
+            auto_configuration_enabled = kwargs['autoConfigurationEnabled']
+        if component_monitoring_settings is None and 'componentMonitoringSettings' in kwargs:
+            component_monitoring_settings = kwargs['componentMonitoringSettings']
+        if custom_components is None and 'customComponents' in kwargs:
+            custom_components = kwargs['customComponents']
+        if cwe_monitor_enabled is None and 'cweMonitorEnabled' in kwargs:
+            cwe_monitor_enabled = kwargs['cweMonitorEnabled']
+        if grouping_type is None and 'groupingType' in kwargs:
+            grouping_type = kwargs['groupingType']
+        if log_pattern_sets is None and 'logPatternSets' in kwargs:
+            log_pattern_sets = kwargs['logPatternSets']
+        if ops_center_enabled is None and 'opsCenterEnabled' in kwargs:
+            ops_center_enabled = kwargs['opsCenterEnabled']
+        if ops_item_sns_topic_arn is None and 'opsItemSnsTopicArn' in kwargs:
+            ops_item_sns_topic_arn = kwargs['opsItemSnsTopicArn']
+
         _setter("resource_group_name", resource_group_name)
         if auto_configuration_enabled is not None:
             _setter("auto_configuration_enabled", auto_configuration_enabled)

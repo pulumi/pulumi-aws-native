@@ -65,13 +65,13 @@ class BrokerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             auto_minor_version_upgrade: pulumi.Input[bool],
-             deployment_mode: pulumi.Input[str],
-             engine_type: pulumi.Input[str],
-             engine_version: pulumi.Input[str],
-             host_instance_type: pulumi.Input[str],
-             publicly_accessible: pulumi.Input[bool],
-             users: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]],
+             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+             deployment_mode: Optional[pulumi.Input[str]] = None,
+             engine_type: Optional[pulumi.Input[str]] = None,
+             engine_version: Optional[pulumi.Input[str]] = None,
+             host_instance_type: Optional[pulumi.Input[str]] = None,
+             publicly_accessible: Optional[pulumi.Input[bool]] = None,
+             users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None,
              authentication_strategy: Optional[pulumi.Input[str]] = None,
              broker_name: Optional[pulumi.Input[str]] = None,
              configuration: Optional[pulumi.Input['BrokerConfigurationIdArgs']] = None,
@@ -85,7 +85,55 @@ class BrokerArgs:
              storage_type: Optional[pulumi.Input[str]] = None,
              subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              tags: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_minor_version_upgrade is None and 'autoMinorVersionUpgrade' in kwargs:
+            auto_minor_version_upgrade = kwargs['autoMinorVersionUpgrade']
+        if auto_minor_version_upgrade is None:
+            raise TypeError("Missing 'auto_minor_version_upgrade' argument")
+        if deployment_mode is None and 'deploymentMode' in kwargs:
+            deployment_mode = kwargs['deploymentMode']
+        if deployment_mode is None:
+            raise TypeError("Missing 'deployment_mode' argument")
+        if engine_type is None and 'engineType' in kwargs:
+            engine_type = kwargs['engineType']
+        if engine_type is None:
+            raise TypeError("Missing 'engine_type' argument")
+        if engine_version is None and 'engineVersion' in kwargs:
+            engine_version = kwargs['engineVersion']
+        if engine_version is None:
+            raise TypeError("Missing 'engine_version' argument")
+        if host_instance_type is None and 'hostInstanceType' in kwargs:
+            host_instance_type = kwargs['hostInstanceType']
+        if host_instance_type is None:
+            raise TypeError("Missing 'host_instance_type' argument")
+        if publicly_accessible is None and 'publiclyAccessible' in kwargs:
+            publicly_accessible = kwargs['publiclyAccessible']
+        if publicly_accessible is None:
+            raise TypeError("Missing 'publicly_accessible' argument")
+        if users is None:
+            raise TypeError("Missing 'users' argument")
+        if authentication_strategy is None and 'authenticationStrategy' in kwargs:
+            authentication_strategy = kwargs['authenticationStrategy']
+        if broker_name is None and 'brokerName' in kwargs:
+            broker_name = kwargs['brokerName']
+        if data_replication_mode is None and 'dataReplicationMode' in kwargs:
+            data_replication_mode = kwargs['dataReplicationMode']
+        if data_replication_primary_broker_arn is None and 'dataReplicationPrimaryBrokerArn' in kwargs:
+            data_replication_primary_broker_arn = kwargs['dataReplicationPrimaryBrokerArn']
+        if encryption_options is None and 'encryptionOptions' in kwargs:
+            encryption_options = kwargs['encryptionOptions']
+        if ldap_server_metadata is None and 'ldapServerMetadata' in kwargs:
+            ldap_server_metadata = kwargs['ldapServerMetadata']
+        if maintenance_window_start_time is None and 'maintenanceWindowStartTime' in kwargs:
+            maintenance_window_start_time = kwargs['maintenanceWindowStartTime']
+        if security_groups is None and 'securityGroups' in kwargs:
+            security_groups = kwargs['securityGroups']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if subnet_ids is None and 'subnetIds' in kwargs:
+            subnet_ids = kwargs['subnetIds']
+
         _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
         _setter("deployment_mode", deployment_mode)
         _setter("engine_type", engine_type)
@@ -401,22 +449,14 @@ class Broker(pulumi.CustomResource):
                 raise TypeError("Missing required property 'auto_minor_version_upgrade'")
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["broker_name"] = broker_name
-            if configuration is not None and not isinstance(configuration, BrokerConfigurationIdArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                BrokerConfigurationIdArgs._configure(_setter, **configuration)
+            configuration = _utilities.configure(configuration, BrokerConfigurationIdArgs, True)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["data_replication_mode"] = data_replication_mode
             __props__.__dict__["data_replication_primary_broker_arn"] = data_replication_primary_broker_arn
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__.__dict__["deployment_mode"] = deployment_mode
-            if encryption_options is not None and not isinstance(encryption_options, BrokerEncryptionOptionsArgs):
-                encryption_options = encryption_options or {}
-                def _setter(key, value):
-                    encryption_options[key] = value
-                BrokerEncryptionOptionsArgs._configure(_setter, **encryption_options)
+            encryption_options = _utilities.configure(encryption_options, BrokerEncryptionOptionsArgs, True)
             __props__.__dict__["encryption_options"] = encryption_options
             if engine_type is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_type'")
@@ -427,23 +467,11 @@ class Broker(pulumi.CustomResource):
             if host_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_instance_type'")
             __props__.__dict__["host_instance_type"] = host_instance_type
-            if ldap_server_metadata is not None and not isinstance(ldap_server_metadata, BrokerLdapServerMetadataArgs):
-                ldap_server_metadata = ldap_server_metadata or {}
-                def _setter(key, value):
-                    ldap_server_metadata[key] = value
-                BrokerLdapServerMetadataArgs._configure(_setter, **ldap_server_metadata)
+            ldap_server_metadata = _utilities.configure(ldap_server_metadata, BrokerLdapServerMetadataArgs, True)
             __props__.__dict__["ldap_server_metadata"] = ldap_server_metadata
-            if logs is not None and not isinstance(logs, BrokerLogListArgs):
-                logs = logs or {}
-                def _setter(key, value):
-                    logs[key] = value
-                BrokerLogListArgs._configure(_setter, **logs)
+            logs = _utilities.configure(logs, BrokerLogListArgs, True)
             __props__.__dict__["logs"] = logs
-            if maintenance_window_start_time is not None and not isinstance(maintenance_window_start_time, BrokerMaintenanceWindowArgs):
-                maintenance_window_start_time = maintenance_window_start_time or {}
-                def _setter(key, value):
-                    maintenance_window_start_time[key] = value
-                BrokerMaintenanceWindowArgs._configure(_setter, **maintenance_window_start_time)
+            maintenance_window_start_time = _utilities.configure(maintenance_window_start_time, BrokerMaintenanceWindowArgs, True)
             __props__.__dict__["maintenance_window_start_time"] = maintenance_window_start_time
             if publicly_accessible is None and not opts.urn:
                 raise TypeError("Missing required property 'publicly_accessible'")

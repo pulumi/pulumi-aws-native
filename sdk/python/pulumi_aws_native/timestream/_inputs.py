@@ -51,7 +51,9 @@ class DatabaseTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:
@@ -100,11 +102,25 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
-             encryption_option: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
+             encryption_option: Optional[pulumi.Input[str]] = None,
              kms_key_id: Optional[pulumi.Input[str]] = None,
              object_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if encryption_option is None and 'encryptionOption' in kwargs:
+            encryption_option = kwargs['encryptionOption']
+        if encryption_option is None:
+            raise TypeError("Missing 'encryption_option' argument")
+        if kms_key_id is None and 'kmsKeyId' in kwargs:
+            kms_key_id = kwargs['kmsKeyId']
+        if object_key_prefix is None and 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+
         _setter("bucket_name", bucket_name)
         _setter("encryption_option", encryption_option)
         if kms_key_id is not None:
@@ -177,7 +193,11 @@ class MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPro
     def _configure(
              _setter: Callable[[Any, Any], None],
              s3_configuration: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+
         if s3_configuration is not None:
             _setter("s3_configuration", s3_configuration)
 
@@ -212,9 +232,17 @@ class MagneticStoreWritePropertiesPropertiesArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable_magnetic_store_writes: pulumi.Input[bool],
+             enable_magnetic_store_writes: Optional[pulumi.Input[bool]] = None,
              magnetic_store_rejected_data_location: Optional[pulumi.Input['MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_magnetic_store_writes is None and 'enableMagneticStoreWrites' in kwargs:
+            enable_magnetic_store_writes = kwargs['enableMagneticStoreWrites']
+        if enable_magnetic_store_writes is None:
+            raise TypeError("Missing 'enable_magnetic_store_writes' argument")
+        if magnetic_store_rejected_data_location is None and 'magneticStoreRejectedDataLocation' in kwargs:
+            magnetic_store_rejected_data_location = kwargs['magneticStoreRejectedDataLocation']
+
         _setter("enable_magnetic_store_writes", enable_magnetic_store_writes)
         if magnetic_store_rejected_data_location is not None:
             _setter("magnetic_store_rejected_data_location", magnetic_store_rejected_data_location)
@@ -264,7 +292,13 @@ class RetentionPropertiesPropertiesArgs:
              _setter: Callable[[Any, Any], None],
              magnetic_store_retention_period_in_days: Optional[pulumi.Input[str]] = None,
              memory_store_retention_period_in_hours: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if magnetic_store_retention_period_in_days is None and 'magneticStoreRetentionPeriodInDays' in kwargs:
+            magnetic_store_retention_period_in_days = kwargs['magneticStoreRetentionPeriodInDays']
+        if memory_store_retention_period_in_hours is None and 'memoryStoreRetentionPeriodInHours' in kwargs:
+            memory_store_retention_period_in_hours = kwargs['memoryStoreRetentionPeriodInHours']
+
         if magnetic_store_retention_period_in_days is not None:
             _setter("magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
         if memory_store_retention_period_in_hours is not None:
@@ -311,9 +345,17 @@ class ScheduledQueryDimensionMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             dimension_value_type: pulumi.Input['ScheduledQueryDimensionValueType'],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             dimension_value_type: Optional[pulumi.Input['ScheduledQueryDimensionValueType']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dimension_value_type is None and 'dimensionValueType' in kwargs:
+            dimension_value_type = kwargs['dimensionValueType']
+        if dimension_value_type is None:
+            raise TypeError("Missing 'dimension_value_type' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("dimension_value_type", dimension_value_type)
         _setter("name", name)
 
@@ -350,8 +392,14 @@ class ScheduledQueryErrorReportConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             s3_configuration: pulumi.Input['ScheduledQueryS3ConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             s3_configuration: Optional[pulumi.Input['ScheduledQueryS3ConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if s3_configuration is None and 's3Configuration' in kwargs:
+            s3_configuration = kwargs['s3Configuration']
+        if s3_configuration is None:
+            raise TypeError("Missing 's3_configuration' argument")
+
         _setter("s3_configuration", s3_configuration)
 
     @property
@@ -386,12 +434,26 @@ class ScheduledQueryMixedMeasureMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             measure_value_type: pulumi.Input['ScheduledQueryMixedMeasureMappingMeasureValueType'],
+             measure_value_type: Optional[pulumi.Input['ScheduledQueryMixedMeasureMappingMeasureValueType']] = None,
              measure_name: Optional[pulumi.Input[str]] = None,
              multi_measure_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]] = None,
              source_column: Optional[pulumi.Input[str]] = None,
              target_measure_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if measure_value_type is None and 'measureValueType' in kwargs:
+            measure_value_type = kwargs['measureValueType']
+        if measure_value_type is None:
+            raise TypeError("Missing 'measure_value_type' argument")
+        if measure_name is None and 'measureName' in kwargs:
+            measure_name = kwargs['measureName']
+        if multi_measure_attribute_mappings is None and 'multiMeasureAttributeMappings' in kwargs:
+            multi_measure_attribute_mappings = kwargs['multiMeasureAttributeMappings']
+        if source_column is None and 'sourceColumn' in kwargs:
+            source_column = kwargs['sourceColumn']
+        if target_measure_name is None and 'targetMeasureName' in kwargs:
+            target_measure_name = kwargs['targetMeasureName']
+
         _setter("measure_value_type", measure_value_type)
         if measure_name is not None:
             _setter("measure_name", measure_name)
@@ -466,10 +528,22 @@ class ScheduledQueryMultiMeasureAttributeMappingArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             measure_value_type: pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingMeasureValueType'],
-             source_column: pulumi.Input[str],
+             measure_value_type: Optional[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingMeasureValueType']] = None,
+             source_column: Optional[pulumi.Input[str]] = None,
              target_multi_measure_attribute_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if measure_value_type is None and 'measureValueType' in kwargs:
+            measure_value_type = kwargs['measureValueType']
+        if measure_value_type is None:
+            raise TypeError("Missing 'measure_value_type' argument")
+        if source_column is None and 'sourceColumn' in kwargs:
+            source_column = kwargs['sourceColumn']
+        if source_column is None:
+            raise TypeError("Missing 'source_column' argument")
+        if target_multi_measure_attribute_name is None and 'targetMultiMeasureAttributeName' in kwargs:
+            target_multi_measure_attribute_name = kwargs['targetMultiMeasureAttributeName']
+
         _setter("measure_value_type", measure_value_type)
         _setter("source_column", source_column)
         if target_multi_measure_attribute_name is not None:
@@ -519,9 +593,17 @@ class ScheduledQueryMultiMeasureMappingsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             multi_measure_attribute_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]],
+             multi_measure_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMultiMeasureAttributeMappingArgs']]]] = None,
              target_multi_measure_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if multi_measure_attribute_mappings is None and 'multiMeasureAttributeMappings' in kwargs:
+            multi_measure_attribute_mappings = kwargs['multiMeasureAttributeMappings']
+        if multi_measure_attribute_mappings is None:
+            raise TypeError("Missing 'multi_measure_attribute_mappings' argument")
+        if target_multi_measure_name is None and 'targetMultiMeasureName' in kwargs:
+            target_multi_measure_name = kwargs['targetMultiMeasureName']
+
         _setter("multi_measure_attribute_mappings", multi_measure_attribute_mappings)
         if target_multi_measure_name is not None:
             _setter("target_multi_measure_name", target_multi_measure_name)
@@ -559,8 +641,14 @@ class ScheduledQueryNotificationConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             sns_configuration: pulumi.Input['ScheduledQuerySnsConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             sns_configuration: Optional[pulumi.Input['ScheduledQuerySnsConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sns_configuration is None and 'snsConfiguration' in kwargs:
+            sns_configuration = kwargs['snsConfiguration']
+        if sns_configuration is None:
+            raise TypeError("Missing 'sns_configuration' argument")
+
         _setter("sns_configuration", sns_configuration)
 
     @property
@@ -591,10 +679,20 @@ class ScheduledQueryS3ConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
+             bucket_name: Optional[pulumi.Input[str]] = None,
              encryption_option: Optional[pulumi.Input['ScheduledQueryEncryptionOption']] = None,
              object_key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bucket_name is None and 'bucketName' in kwargs:
+            bucket_name = kwargs['bucketName']
+        if bucket_name is None:
+            raise TypeError("Missing 'bucket_name' argument")
+        if encryption_option is None and 'encryptionOption' in kwargs:
+            encryption_option = kwargs['encryptionOption']
+        if object_key_prefix is None and 'objectKeyPrefix' in kwargs:
+            object_key_prefix = kwargs['objectKeyPrefix']
+
         _setter("bucket_name", bucket_name)
         if encryption_option is not None:
             _setter("encryption_option", encryption_option)
@@ -643,8 +741,14 @@ class ScheduledQueryScheduleConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             schedule_expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             schedule_expression: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if schedule_expression is None and 'scheduleExpression' in kwargs:
+            schedule_expression = kwargs['scheduleExpression']
+        if schedule_expression is None:
+            raise TypeError("Missing 'schedule_expression' argument")
+
         _setter("schedule_expression", schedule_expression)
 
     @property
@@ -671,8 +775,14 @@ class ScheduledQuerySnsConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             topic_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             topic_arn: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if topic_arn is None and 'topicArn' in kwargs:
+            topic_arn = kwargs['topicArn']
+        if topic_arn is None:
+            raise TypeError("Missing 'topic_arn' argument")
+
         _setter("topic_arn", topic_arn)
 
     @property
@@ -701,9 +811,15 @@ class ScheduledQueryTagArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 
@@ -740,8 +856,14 @@ class ScheduledQueryTargetConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             timestream_configuration: pulumi.Input['ScheduledQueryTimestreamConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             timestream_configuration: Optional[pulumi.Input['ScheduledQueryTimestreamConfigurationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if timestream_configuration is None and 'timestreamConfiguration' in kwargs:
+            timestream_configuration = kwargs['timestreamConfiguration']
+        if timestream_configuration is None:
+            raise TypeError("Missing 'timestream_configuration' argument")
+
         _setter("timestream_configuration", timestream_configuration)
 
     @property
@@ -780,14 +902,38 @@ class ScheduledQueryTimestreamConfigurationArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             dimension_mappings: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryDimensionMappingArgs']]],
-             table_name: pulumi.Input[str],
-             time_column: pulumi.Input[str],
+             database_name: Optional[pulumi.Input[str]] = None,
+             dimension_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryDimensionMappingArgs']]]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             time_column: Optional[pulumi.Input[str]] = None,
              measure_name_column: Optional[pulumi.Input[str]] = None,
              mixed_measure_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]]] = None,
              multi_measure_mappings: Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if dimension_mappings is None and 'dimensionMappings' in kwargs:
+            dimension_mappings = kwargs['dimensionMappings']
+        if dimension_mappings is None:
+            raise TypeError("Missing 'dimension_mappings' argument")
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+        if table_name is None:
+            raise TypeError("Missing 'table_name' argument")
+        if time_column is None and 'timeColumn' in kwargs:
+            time_column = kwargs['timeColumn']
+        if time_column is None:
+            raise TypeError("Missing 'time_column' argument")
+        if measure_name_column is None and 'measureNameColumn' in kwargs:
+            measure_name_column = kwargs['measureNameColumn']
+        if mixed_measure_mappings is None and 'mixedMeasureMappings' in kwargs:
+            mixed_measure_mappings = kwargs['mixedMeasureMappings']
+        if multi_measure_mappings is None and 'multiMeasureMappings' in kwargs:
+            multi_measure_mappings = kwargs['multiMeasureMappings']
+
         _setter("database_name", database_name)
         _setter("dimension_mappings", dimension_mappings)
         _setter("table_name", table_name)
@@ -878,7 +1024,11 @@ class SchemaPropertiesArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              composite_partition_key: Optional[pulumi.Input[Sequence[pulumi.Input['TablePartitionKeyArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if composite_partition_key is None and 'compositePartitionKey' in kwargs:
+            composite_partition_key = kwargs['compositePartitionKey']
+
         if composite_partition_key is not None:
             _setter("composite_partition_key", composite_partition_key)
 
@@ -910,10 +1060,16 @@ class TablePartitionKeyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['TablePartitionKeyType'],
+             type: Optional[pulumi.Input['TablePartitionKeyType']] = None,
              enforcement_in_record: Optional[pulumi.Input['TablePartitionKeyEnforcementLevel']] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if enforcement_in_record is None and 'enforcementInRecord' in kwargs:
+            enforcement_in_record = kwargs['enforcementInRecord']
+
         _setter("type", type)
         if enforcement_in_record is not None:
             _setter("enforcement_in_record", enforcement_in_record)
@@ -966,7 +1122,9 @@ class TableTagArgs:
              _setter: Callable[[Any, Any], None],
              key: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if key is not None:
             _setter("key", key)
         if value is not None:

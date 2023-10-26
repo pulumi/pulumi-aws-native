@@ -58,10 +58,18 @@ class PipelineField(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
+             key: Optional[str] = None,
              ref_value: Optional[str] = None,
              string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if ref_value is None and 'refValue' in kwargs:
+            ref_value = kwargs['refValue']
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+
         _setter("key", key)
         if ref_value is not None:
             _setter("ref_value", ref_value)
@@ -113,10 +121,18 @@ class PipelineObject(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             fields: Sequence['outputs.PipelineField'],
-             id: str,
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             fields: Optional[Sequence['outputs.PipelineField']] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if fields is None:
+            raise TypeError("Missing 'fields' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("fields", fields)
         _setter("id", id)
         _setter("name", name)
@@ -180,9 +196,17 @@ class PipelineParameterAttribute(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             string_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             string_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+        if string_value is None:
+            raise TypeError("Missing 'string_value' argument")
+
         _setter("key", key)
         _setter("string_value", string_value)
 
@@ -220,9 +244,15 @@ class PipelineParameterObject(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             attributes: Sequence['outputs.PipelineParameterAttribute'],
-             id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             attributes: Optional[Sequence['outputs.PipelineParameterAttribute']] = None,
+             id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if attributes is None:
+            raise TypeError("Missing 'attributes' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
         _setter("attributes", attributes)
         _setter("id", id)
 
@@ -277,9 +307,17 @@ class PipelineParameterValue(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             id: str,
-             string_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             id: Optional[str] = None,
+             string_value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if string_value is None and 'stringValue' in kwargs:
+            string_value = kwargs['stringValue']
+        if string_value is None:
+            raise TypeError("Missing 'string_value' argument")
+
         _setter("id", id)
         _setter("string_value", string_value)
 
@@ -317,9 +355,15 @@ class PipelineTag(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             key: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
         _setter("key", key)
         _setter("value", value)
 

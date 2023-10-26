@@ -35,13 +35,31 @@ class ApiCacheArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             api_caching_behavior: pulumi.Input[str],
-             api_id: pulumi.Input[str],
-             ttl: pulumi.Input[float],
-             type: pulumi.Input[str],
+             api_caching_behavior: Optional[pulumi.Input[str]] = None,
+             api_id: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[float]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
              transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if api_caching_behavior is None and 'apiCachingBehavior' in kwargs:
+            api_caching_behavior = kwargs['apiCachingBehavior']
+        if api_caching_behavior is None:
+            raise TypeError("Missing 'api_caching_behavior' argument")
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if at_rest_encryption_enabled is None and 'atRestEncryptionEnabled' in kwargs:
+            at_rest_encryption_enabled = kwargs['atRestEncryptionEnabled']
+        if transit_encryption_enabled is None and 'transitEncryptionEnabled' in kwargs:
+            transit_encryption_enabled = kwargs['transitEncryptionEnabled']
+
         _setter("api_caching_behavior", api_caching_behavior)
         _setter("api_id", api_id)
         _setter("ttl", ttl)
