@@ -1,6 +1,6 @@
 {
   "packages": [
-    "go@1.20",
+    "go@1.21",
     "nodejs@latest",
     "python3@latest",
     "dotnet-sdk@latest",

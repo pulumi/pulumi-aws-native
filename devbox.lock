@@ -6,10 +6,11 @@
       "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#dotnet-sdk",
       "version": "6.0.411"
     },
-    "go@1.20": {
-      "last_modified": "2023-06-29T16:20:38Z",
-      "resolved": "github:NixOS/nixpkgs/3c614fbc76fc152f3e1bc4b2263da6d90adf80fb#go",
-      "version": "1.20.5"
+    "go@1.21": {
+      "last_modified": "2023-09-17T10:54:49Z",
+      "resolved": "github:NixOS/nixpkgs/5148520bfab61f99fd25fb9ff7bfbb50dad3c9db#go_1_21",
+      "source": "devbox-search",
+      "version": "1.21.1"
     },
     "gradle_7@latest": {
       "last_modified": "2023-06-29T16:20:38Z",
