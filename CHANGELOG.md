@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+## 0.82.1 (2023-10-30)
+
 Update pulumi version to 3.91.1
 
 ## 0.82.0 (2023-10-25)
