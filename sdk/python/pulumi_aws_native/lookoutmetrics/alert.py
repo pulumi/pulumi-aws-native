@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,30 +29,13 @@ class AlertArgs:
         :param pulumi.Input[str] alert_description: A description for the alert.
         :param pulumi.Input[str] alert_name: The name of the alert. If not provided, a name is generated automatically.
         """
-        AlertArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            alert_sensitivity_threshold=alert_sensitivity_threshold,
-            anomaly_detector_arn=anomaly_detector_arn,
-            alert_description=alert_description,
-            alert_name=alert_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['AlertActionArgs'],
-             alert_sensitivity_threshold: pulumi.Input[int],
-             anomaly_detector_arn: pulumi.Input[str],
-             alert_description: Optional[pulumi.Input[str]] = None,
-             alert_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("alert_sensitivity_threshold", alert_sensitivity_threshold)
-        _setter("anomaly_detector_arn", anomaly_detector_arn)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "alert_sensitivity_threshold", alert_sensitivity_threshold)
+        pulumi.set(__self__, "anomaly_detector_arn", anomaly_detector_arn)
         if alert_description is not None:
-            _setter("alert_description", alert_description)
+            pulumi.set(__self__, "alert_description", alert_description)
         if alert_name is not None:
-            _setter("alert_name", alert_name)
+            pulumi.set(__self__, "alert_name", alert_name)
 
     @property
     @pulumi.getter
@@ -156,10 +139,6 @@ class Alert(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlertArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -179,11 +158,6 @@ class Alert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlertArgs.__new__(AlertArgs)
 
-            if action is not None and not isinstance(action, AlertActionArgs):
-                action = action or {}
-                def _setter(key, value):
-                    action[key] = value
-                AlertActionArgs._configure(_setter, **action)
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action

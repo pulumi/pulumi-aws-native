@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -109,29 +109,14 @@ class AccessPointPublicAccessBlockConfigurationArgs:
         :param pulumi.Input[bool] restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
                Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
-        AccessPointPublicAccessBlockConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_public_acls=block_public_acls,
-            block_public_policy=block_public_policy,
-            ignore_public_acls=ignore_public_acls,
-            restrict_public_buckets=restrict_public_buckets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_public_acls: Optional[pulumi.Input[bool]] = None,
-             block_public_policy: Optional[pulumi.Input[bool]] = None,
-             ignore_public_acls: Optional[pulumi.Input[bool]] = None,
-             restrict_public_buckets: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if block_public_acls is not None:
-            _setter("block_public_acls", block_public_acls)
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            _setter("block_public_policy", block_public_policy)
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
-            _setter("ignore_public_acls", ignore_public_acls)
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            _setter("restrict_public_buckets", restrict_public_buckets)
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
@@ -195,17 +180,8 @@ class AccessPointVpcConfigurationArgs:
         The Virtual Private Cloud (VPC) configuration for a bucket access point.
         :param pulumi.Input[str] vpc_id: If this field is specified, this access point will only allow connections from the specified VPC ID.
         """
-        AccessPointVpcConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -224,16 +200,7 @@ class AccessPointVpcConfigurationArgs:
 class BucketAbortIncompleteMultipartUploadArgs:
     def __init__(__self__, *,
                  days_after_initiation: pulumi.Input[int]):
-        BucketAbortIncompleteMultipartUploadArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days_after_initiation=days_after_initiation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days_after_initiation: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("days_after_initiation", days_after_initiation)
+        pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
@@ -249,16 +216,7 @@ class BucketAbortIncompleteMultipartUploadArgs:
 class BucketAccelerateConfigurationArgs:
     def __init__(__self__, *,
                  acceleration_status: pulumi.Input[str]):
-        BucketAccelerateConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acceleration_status=acceleration_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acceleration_status: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("acceleration_status", acceleration_status)
+        pulumi.set(__self__, "acceleration_status", acceleration_status)
 
     @property
     @pulumi.getter(name="accelerationStatus")
@@ -274,16 +232,7 @@ class BucketAccelerateConfigurationArgs:
 class BucketAccessControlTranslationArgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str]):
-        BucketAccessControlTranslationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner=owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("owner", owner)
+        pulumi.set(__self__, "owner", owner)
 
     @property
     @pulumi.getter
@@ -302,27 +251,12 @@ class BucketAnalyticsConfigurationArgs:
                  storage_class_analysis: pulumi.Input['BucketStorageClassAnalysisArgs'],
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None):
-        BucketAnalyticsConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            storage_class_analysis=storage_class_analysis,
-            prefix=prefix,
-            tag_filters=tag_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             storage_class_analysis: pulumi.Input['BucketStorageClassAnalysisArgs'],
-             prefix: Optional[pulumi.Input[str]] = None,
-             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("storage_class_analysis", storage_class_analysis)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_class_analysis", storage_class_analysis)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
-            _setter("tag_filters", tag_filters)
+            pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
     @pulumi.getter
@@ -365,16 +299,7 @@ class BucketAnalyticsConfigurationArgs:
 class BucketCorsConfigurationArgs:
     def __init__(__self__, *,
                  cors_rules: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]]):
-        BucketCorsConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cors_rules=cors_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cors_rules: pulumi.Input[Sequence[pulumi.Input['BucketCorsRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cors_rules", cors_rules)
+        pulumi.set(__self__, "cors_rules", cors_rules)
 
     @property
     @pulumi.getter(name="corsRules")
@@ -395,35 +320,16 @@ class BucketCorsRuleArgs:
                  exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  max_age: Optional[pulumi.Input[int]] = None):
-        BucketCorsRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            allowed_headers=allowed_headers,
-            exposed_headers=exposed_headers,
-            id=id,
-            max_age=max_age,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             exposed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             max_age: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allowed_methods", allowed_methods)
-        _setter("allowed_origins", allowed_origins)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
         if allowed_headers is not None:
-            _setter("allowed_headers", allowed_headers)
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
         if exposed_headers is not None:
-            _setter("exposed_headers", exposed_headers)
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if max_age is not None:
-            _setter("max_age", max_age)
+            pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowedMethods")
@@ -485,19 +391,8 @@ class BucketDataExportArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input['BucketDestinationArgs'],
                  output_schema_version: pulumi.Input[str]):
-        BucketDataExportArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            output_schema_version=output_schema_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BucketDestinationArgs'],
-             output_schema_version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("output_schema_version", output_schema_version)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "output_schema_version", output_schema_version)
 
     @property
     @pulumi.getter
@@ -524,25 +419,12 @@ class BucketDefaultRetentionArgs:
                  days: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  years: Optional[pulumi.Input[int]] = None):
-        BucketDefaultRetentionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days=days,
-            mode=mode,
-            years=years,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days: Optional[pulumi.Input[int]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             years: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if days is not None:
-            _setter("days", days)
+            pulumi.set(__self__, "days", days)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if years is not None:
-            _setter("years", years)
+            pulumi.set(__self__, "years", years)
 
     @property
     @pulumi.getter
@@ -576,17 +458,8 @@ class BucketDefaultRetentionArgs:
 class BucketDeleteMarkerReplicationArgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
-        BucketDeleteMarkerReplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -605,27 +478,12 @@ class BucketDestinationArgs:
                  format: pulumi.Input[str],
                  bucket_account_id: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        BucketDestinationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            format=format,
-            bucket_account_id=bucket_account_id,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             format: pulumi.Input[str],
-             bucket_account_id: Optional[pulumi.Input[str]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
-        _setter("format", format)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "format", format)
         if bucket_account_id is not None:
-            _setter("bucket_account_id", bucket_account_id)
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -668,16 +526,7 @@ class BucketDestinationArgs:
 class BucketEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  replica_kms_key_id: pulumi.Input[str]):
-        BucketEncryptionConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replica_kms_key_id=replica_kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replica_kms_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("replica_kms_key_id", replica_kms_key_id)
+        pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
 
     @property
     @pulumi.getter(name="replicaKmsKeyId")
@@ -693,16 +542,7 @@ class BucketEncryptionConfigurationArgs:
 class BucketEncryptionArgs:
     def __init__(__self__, *,
                  server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionRuleArgs']]]):
-        BucketEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_side_encryption_configuration=server_side_encryption_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_side_encryption_configuration: pulumi.Input[Sequence[pulumi.Input['BucketServerSideEncryptionRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("server_side_encryption_configuration", server_side_encryption_configuration)
+        pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
@@ -718,17 +558,8 @@ class BucketEncryptionArgs:
 class BucketEventBridgeConfigurationArgs:
     def __init__(__self__, *,
                  event_bridge_enabled: Optional[pulumi.Input[bool]] = None):
-        BucketEventBridgeConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_bridge_enabled=event_bridge_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_bridge_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if event_bridge_enabled is not None:
-            _setter("event_bridge_enabled", event_bridge_enabled)
+            pulumi.set(__self__, "event_bridge_enabled", event_bridge_enabled)
 
     @property
     @pulumi.getter(name="eventBridgeEnabled")
@@ -745,19 +576,8 @@ class BucketFilterRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        BucketFilterRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -786,30 +606,13 @@ class BucketIntelligentTieringConfigurationArgs:
                  tierings: pulumi.Input[Sequence[pulumi.Input['BucketTieringArgs']]],
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None):
-        BucketIntelligentTieringConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            status=status,
-            tierings=tierings,
-            prefix=prefix,
-            tag_filters=tag_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             status: pulumi.Input[str],
-             tierings: pulumi.Input[Sequence[pulumi.Input['BucketTieringArgs']]],
-             prefix: Optional[pulumi.Input[str]] = None,
-             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("status", status)
-        _setter("tierings", tierings)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tierings", tierings)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
-            _setter("tag_filters", tag_filters)
+            pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
     @pulumi.getter
@@ -867,36 +670,15 @@ class BucketInventoryConfigurationArgs:
                  schedule_frequency: pulumi.Input[str],
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
-        BucketInventoryConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            enabled=enabled,
-            id=id,
-            included_object_versions=included_object_versions,
-            schedule_frequency=schedule_frequency,
-            optional_fields=optional_fields,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BucketDestinationArgs'],
-             enabled: pulumi.Input[bool],
-             id: pulumi.Input[str],
-             included_object_versions: pulumi.Input[str],
-             schedule_frequency: pulumi.Input[str],
-             optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("enabled", enabled)
-        _setter("id", id)
-        _setter("included_object_versions", included_object_versions)
-        _setter("schedule_frequency", schedule_frequency)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "included_object_versions", included_object_versions)
+        pulumi.set(__self__, "schedule_frequency", schedule_frequency)
         if optional_fields is not None:
-            _setter("optional_fields", optional_fields)
+            pulumi.set(__self__, "optional_fields", optional_fields)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -968,23 +750,10 @@ class BucketLambdaConfigurationArgs:
                  event: pulumi.Input[str],
                  function: pulumi.Input[str],
                  filter: Optional[pulumi.Input['BucketNotificationFilterArgs']] = None):
-        BucketLambdaConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event=event,
-            function=function,
-            filter=filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event: pulumi.Input[str],
-             function: pulumi.Input[str],
-             filter: Optional[pulumi.Input['BucketNotificationFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event", event)
-        _setter("function", function)
+        pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "function", function)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
@@ -1018,16 +787,7 @@ class BucketLambdaConfigurationArgs:
 class BucketLifecycleConfigurationArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgs']]]):
-        BucketLifecycleConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['BucketRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -1044,21 +804,10 @@ class BucketLoggingConfigurationArgs:
     def __init__(__self__, *,
                  destination_bucket_name: Optional[pulumi.Input[str]] = None,
                  log_file_prefix: Optional[pulumi.Input[str]] = None):
-        BucketLoggingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_bucket_name=destination_bucket_name,
-            log_file_prefix=log_file_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_bucket_name: Optional[pulumi.Input[str]] = None,
-             log_file_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_bucket_name is not None:
-            _setter("destination_bucket_name", destination_bucket_name)
+            pulumi.set(__self__, "destination_bucket_name", destination_bucket_name)
         if log_file_prefix is not None:
-            _setter("log_file_prefix", log_file_prefix)
+            pulumi.set(__self__, "log_file_prefix", log_file_prefix)
 
     @property
     @pulumi.getter(name="destinationBucketName")
@@ -1086,28 +835,13 @@ class BucketMetricsConfigurationArgs:
                  access_point_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None):
-        BucketMetricsConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            access_point_arn=access_point_arn,
-            prefix=prefix,
-            tag_filters=tag_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             access_point_arn: Optional[pulumi.Input[str]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if access_point_arn is not None:
-            _setter("access_point_arn", access_point_arn)
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
-            _setter("tag_filters", tag_filters)
+            pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
     @pulumi.getter
@@ -1151,20 +885,9 @@ class BucketMetricsArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str],
                  event_threshold: Optional[pulumi.Input['BucketReplicationTimeValueArgs']] = None):
-        BucketMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            event_threshold=event_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             event_threshold: Optional[pulumi.Input['BucketReplicationTimeValueArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if event_threshold is not None:
-            _setter("event_threshold", event_threshold)
+            pulumi.set(__self__, "event_threshold", event_threshold)
 
     @property
     @pulumi.getter
@@ -1190,20 +913,9 @@ class BucketNoncurrentVersionExpirationArgs:
     def __init__(__self__, *,
                  noncurrent_days: pulumi.Input[int],
                  newer_noncurrent_versions: Optional[pulumi.Input[int]] = None):
-        BucketNoncurrentVersionExpirationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            noncurrent_days=noncurrent_days,
-            newer_noncurrent_versions=newer_noncurrent_versions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             noncurrent_days: pulumi.Input[int],
-             newer_noncurrent_versions: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("noncurrent_days", noncurrent_days)
+        pulumi.set(__self__, "noncurrent_days", noncurrent_days)
         if newer_noncurrent_versions is not None:
-            _setter("newer_noncurrent_versions", newer_noncurrent_versions)
+            pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
 
     @property
     @pulumi.getter(name="noncurrentDays")
@@ -1230,23 +942,10 @@ class BucketNoncurrentVersionTransitionArgs:
                  storage_class: pulumi.Input[str],
                  transition_in_days: pulumi.Input[int],
                  newer_noncurrent_versions: Optional[pulumi.Input[int]] = None):
-        BucketNoncurrentVersionTransitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            transition_in_days=transition_in_days,
-            newer_noncurrent_versions=newer_noncurrent_versions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: pulumi.Input[str],
-             transition_in_days: pulumi.Input[int],
-             newer_noncurrent_versions: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("storage_class", storage_class)
-        _setter("transition_in_days", transition_in_days)
+        pulumi.set(__self__, "storage_class", storage_class)
+        pulumi.set(__self__, "transition_in_days", transition_in_days)
         if newer_noncurrent_versions is not None:
-            _setter("newer_noncurrent_versions", newer_noncurrent_versions)
+            pulumi.set(__self__, "newer_noncurrent_versions", newer_noncurrent_versions)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -1283,29 +982,14 @@ class BucketNotificationConfigurationArgs:
                  lambda_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLambdaConfigurationArgs']]]] = None,
                  queue_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketQueueConfigurationArgs']]]] = None,
                  topic_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTopicConfigurationArgs']]]] = None):
-        BucketNotificationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_bridge_configuration=event_bridge_configuration,
-            lambda_configurations=lambda_configurations,
-            queue_configurations=queue_configurations,
-            topic_configurations=topic_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_bridge_configuration: Optional[pulumi.Input['BucketEventBridgeConfigurationArgs']] = None,
-             lambda_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLambdaConfigurationArgs']]]] = None,
-             queue_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketQueueConfigurationArgs']]]] = None,
-             topic_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTopicConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if event_bridge_configuration is not None:
-            _setter("event_bridge_configuration", event_bridge_configuration)
+            pulumi.set(__self__, "event_bridge_configuration", event_bridge_configuration)
         if lambda_configurations is not None:
-            _setter("lambda_configurations", lambda_configurations)
+            pulumi.set(__self__, "lambda_configurations", lambda_configurations)
         if queue_configurations is not None:
-            _setter("queue_configurations", queue_configurations)
+            pulumi.set(__self__, "queue_configurations", queue_configurations)
         if topic_configurations is not None:
-            _setter("topic_configurations", topic_configurations)
+            pulumi.set(__self__, "topic_configurations", topic_configurations)
 
     @property
     @pulumi.getter(name="eventBridgeConfiguration")
@@ -1348,16 +1032,7 @@ class BucketNotificationConfigurationArgs:
 class BucketNotificationFilterArgs:
     def __init__(__self__, *,
                  s3_key: pulumi.Input['BucketS3KeyFilterArgs']):
-        BucketNotificationFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_key=s3_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_key: pulumi.Input['BucketS3KeyFilterArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter(name="s3Key")
@@ -1374,21 +1049,10 @@ class BucketObjectLockConfigurationArgs:
     def __init__(__self__, *,
                  object_lock_enabled: Optional[pulumi.Input[str]] = None,
                  rule: Optional[pulumi.Input['BucketObjectLockRuleArgs']] = None):
-        BucketObjectLockConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_lock_enabled=object_lock_enabled,
-            rule=rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_lock_enabled: Optional[pulumi.Input[str]] = None,
-             rule: Optional[pulumi.Input['BucketObjectLockRuleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if object_lock_enabled is not None:
-            _setter("object_lock_enabled", object_lock_enabled)
+            pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rule is not None:
-            _setter("rule", rule)
+            pulumi.set(__self__, "rule", rule)
 
     @property
     @pulumi.getter(name="objectLockEnabled")
@@ -1413,17 +1077,8 @@ class BucketObjectLockConfigurationArgs:
 class BucketObjectLockRuleArgs:
     def __init__(__self__, *,
                  default_retention: Optional[pulumi.Input['BucketDefaultRetentionArgs']] = None):
-        BucketObjectLockRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_retention=default_retention,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_retention: Optional[pulumi.Input['BucketDefaultRetentionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if default_retention is not None:
-            _setter("default_retention", default_retention)
+            pulumi.set(__self__, "default_retention", default_retention)
 
     @property
     @pulumi.getter(name="defaultRetention")
@@ -1439,17 +1094,8 @@ class BucketObjectLockRuleArgs:
 class BucketOwnershipControlsRuleArgs:
     def __init__(__self__, *,
                  object_ownership: Optional[pulumi.Input[str]] = None):
-        BucketOwnershipControlsRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_ownership=object_ownership,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_ownership: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if object_ownership is not None:
-            _setter("object_ownership", object_ownership)
+            pulumi.set(__self__, "object_ownership", object_ownership)
 
     @property
     @pulumi.getter(name="objectOwnership")
@@ -1465,16 +1111,7 @@ class BucketOwnershipControlsRuleArgs:
 class BucketOwnershipControlsArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketOwnershipControlsRuleArgs']]]):
-        BucketOwnershipControlsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['BucketOwnershipControlsRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -1493,29 +1130,14 @@ class BucketPublicAccessBlockConfigurationArgs:
                  block_public_policy: Optional[pulumi.Input[bool]] = None,
                  ignore_public_acls: Optional[pulumi.Input[bool]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[bool]] = None):
-        BucketPublicAccessBlockConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_public_acls=block_public_acls,
-            block_public_policy=block_public_policy,
-            ignore_public_acls=ignore_public_acls,
-            restrict_public_buckets=restrict_public_buckets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_public_acls: Optional[pulumi.Input[bool]] = None,
-             block_public_policy: Optional[pulumi.Input[bool]] = None,
-             ignore_public_acls: Optional[pulumi.Input[bool]] = None,
-             restrict_public_buckets: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if block_public_acls is not None:
-            _setter("block_public_acls", block_public_acls)
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            _setter("block_public_policy", block_public_policy)
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
-            _setter("ignore_public_acls", ignore_public_acls)
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            _setter("restrict_public_buckets", restrict_public_buckets)
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
@@ -1560,23 +1182,10 @@ class BucketQueueConfigurationArgs:
                  event: pulumi.Input[str],
                  queue: pulumi.Input[str],
                  filter: Optional[pulumi.Input['BucketNotificationFilterArgs']] = None):
-        BucketQueueConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event=event,
-            queue=queue,
-            filter=filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event: pulumi.Input[str],
-             queue: pulumi.Input[str],
-             filter: Optional[pulumi.Input['BucketNotificationFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event", event)
-        _setter("queue", queue)
+        pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "queue", queue)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
@@ -1611,20 +1220,9 @@ class BucketRedirectAllRequestsToArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  protocol: Optional[pulumi.Input[str]] = None):
-        BucketRedirectAllRequestsToArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: pulumi.Input[str],
-             protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("host_name", host_name)
+        pulumi.set(__self__, "host_name", host_name)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="hostName")
@@ -1653,33 +1251,16 @@ class BucketRedirectRuleArgs:
                  protocol: Optional[pulumi.Input[str]] = None,
                  replace_key_prefix_with: Optional[pulumi.Input[str]] = None,
                  replace_key_with: Optional[pulumi.Input[str]] = None):
-        BucketRedirectRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_name=host_name,
-            http_redirect_code=http_redirect_code,
-            protocol=protocol,
-            replace_key_prefix_with=replace_key_prefix_with,
-            replace_key_with=replace_key_with,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_name: Optional[pulumi.Input[str]] = None,
-             http_redirect_code: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             replace_key_prefix_with: Optional[pulumi.Input[str]] = None,
-             replace_key_with: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if host_name is not None:
-            _setter("host_name", host_name)
+            pulumi.set(__self__, "host_name", host_name)
         if http_redirect_code is not None:
-            _setter("http_redirect_code", http_redirect_code)
+            pulumi.set(__self__, "http_redirect_code", http_redirect_code)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if replace_key_prefix_with is not None:
-            _setter("replace_key_prefix_with", replace_key_prefix_with)
+            pulumi.set(__self__, "replace_key_prefix_with", replace_key_prefix_with)
         if replace_key_with is not None:
-            _setter("replace_key_with", replace_key_with)
+            pulumi.set(__self__, "replace_key_with", replace_key_with)
 
     @property
     @pulumi.getter(name="hostName")
@@ -1731,16 +1312,7 @@ class BucketRedirectRuleArgs:
 class BucketReplicaModificationsArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
-        BucketReplicaModificationsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -1757,19 +1329,8 @@ class BucketReplicationConfigurationArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[str],
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationRuleArgs']]]):
-        BucketReplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role=role,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role: pulumi.Input[str],
-             rules: pulumi.Input[Sequence[pulumi.Input['BucketReplicationRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role", role)
-        _setter("rules", rules)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -1800,40 +1361,19 @@ class BucketReplicationDestinationArgs:
                  metrics: Optional[pulumi.Input['BucketMetricsArgs']] = None,
                  replication_time: Optional[pulumi.Input['BucketReplicationTimeArgs']] = None,
                  storage_class: Optional[pulumi.Input[str]] = None):
-        BucketReplicationDestinationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            access_control_translation=access_control_translation,
-            account=account,
-            encryption_configuration=encryption_configuration,
-            metrics=metrics,
-            replication_time=replication_time,
-            storage_class=storage_class,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             access_control_translation: Optional[pulumi.Input['BucketAccessControlTranslationArgs']] = None,
-             account: Optional[pulumi.Input[str]] = None,
-             encryption_configuration: Optional[pulumi.Input['BucketEncryptionConfigurationArgs']] = None,
-             metrics: Optional[pulumi.Input['BucketMetricsArgs']] = None,
-             replication_time: Optional[pulumi.Input['BucketReplicationTimeArgs']] = None,
-             storage_class: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
-            _setter("access_control_translation", access_control_translation)
+            pulumi.set(__self__, "access_control_translation", access_control_translation)
         if account is not None:
-            _setter("account", account)
+            pulumi.set(__self__, "account", account)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if metrics is not None:
-            _setter("metrics", metrics)
+            pulumi.set(__self__, "metrics", metrics)
         if replication_time is not None:
-            _setter("replication_time", replication_time)
+            pulumi.set(__self__, "replication_time", replication_time)
         if storage_class is not None:
-            _setter("storage_class", storage_class)
+            pulumi.set(__self__, "storage_class", storage_class)
 
     @property
     @pulumi.getter
@@ -1904,21 +1444,10 @@ class BucketReplicationRuleAndOperatorArgs:
     def __init__(__self__, *,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None):
-        BucketReplicationRuleAndOperatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            tag_filters=tag_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: Optional[pulumi.Input[str]] = None,
-             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
-            _setter("tag_filters", tag_filters)
+            pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
     @pulumi.getter
@@ -1945,25 +1474,12 @@ class BucketReplicationRuleFilterArgs:
                  and_: Optional[pulumi.Input['BucketReplicationRuleAndOperatorArgs']] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  tag_filter: Optional[pulumi.Input['BucketTagFilterArgs']] = None):
-        BucketReplicationRuleFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            and_=and_,
-            prefix=prefix,
-            tag_filter=tag_filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             and_: Optional[pulumi.Input['BucketReplicationRuleAndOperatorArgs']] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             tag_filter: Optional[pulumi.Input['BucketTagFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if and_ is not None:
-            _setter("and_", and_)
+            pulumi.set(__self__, "and_", and_)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag_filter is not None:
-            _setter("tag_filter", tag_filter)
+            pulumi.set(__self__, "tag_filter", tag_filter)
 
     @property
     @pulumi.getter(name="and")
@@ -2004,43 +1520,20 @@ class BucketReplicationRuleArgs:
                  prefix: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  source_selection_criteria: Optional[pulumi.Input['BucketSourceSelectionCriteriaArgs']] = None):
-        BucketReplicationRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            status=status,
-            delete_marker_replication=delete_marker_replication,
-            filter=filter,
-            id=id,
-            prefix=prefix,
-            priority=priority,
-            source_selection_criteria=source_selection_criteria,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['BucketReplicationDestinationArgs'],
-             status: pulumi.Input[str],
-             delete_marker_replication: Optional[pulumi.Input['BucketDeleteMarkerReplicationArgs']] = None,
-             filter: Optional[pulumi.Input['BucketReplicationRuleFilterArgs']] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             source_selection_criteria: Optional[pulumi.Input['BucketSourceSelectionCriteriaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("status", status)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "status", status)
         if delete_marker_replication is not None:
-            _setter("delete_marker_replication", delete_marker_replication)
+            pulumi.set(__self__, "delete_marker_replication", delete_marker_replication)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if source_selection_criteria is not None:
-            _setter("source_selection_criteria", source_selection_criteria)
+            pulumi.set(__self__, "source_selection_criteria", source_selection_criteria)
 
     @property
     @pulumi.getter
@@ -2119,16 +1612,7 @@ class BucketReplicationRuleArgs:
 class BucketReplicationTimeValueArgs:
     def __init__(__self__, *,
                  minutes: pulumi.Input[int]):
-        BucketReplicationTimeValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -2145,19 +1629,8 @@ class BucketReplicationTimeArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str],
                  time: pulumi.Input['BucketReplicationTimeValueArgs']):
-        BucketReplicationTimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            time=time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             time: pulumi.Input['BucketReplicationTimeValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
-        _setter("time", time)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter
@@ -2183,21 +1656,10 @@ class BucketRoutingRuleConditionArgs:
     def __init__(__self__, *,
                  http_error_code_returned_equals: Optional[pulumi.Input[str]] = None,
                  key_prefix_equals: Optional[pulumi.Input[str]] = None):
-        BucketRoutingRuleConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_error_code_returned_equals=http_error_code_returned_equals,
-            key_prefix_equals=key_prefix_equals,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_error_code_returned_equals: Optional[pulumi.Input[str]] = None,
-             key_prefix_equals: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if http_error_code_returned_equals is not None:
-            _setter("http_error_code_returned_equals", http_error_code_returned_equals)
+            pulumi.set(__self__, "http_error_code_returned_equals", http_error_code_returned_equals)
         if key_prefix_equals is not None:
-            _setter("key_prefix_equals", key_prefix_equals)
+            pulumi.set(__self__, "key_prefix_equals", key_prefix_equals)
 
     @property
     @pulumi.getter(name="httpErrorCodeReturnedEquals")
@@ -2223,20 +1685,9 @@ class BucketRoutingRuleArgs:
     def __init__(__self__, *,
                  redirect_rule: pulumi.Input['BucketRedirectRuleArgs'],
                  routing_rule_condition: Optional[pulumi.Input['BucketRoutingRuleConditionArgs']] = None):
-        BucketRoutingRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            redirect_rule=redirect_rule,
-            routing_rule_condition=routing_rule_condition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             redirect_rule: pulumi.Input['BucketRedirectRuleArgs'],
-             routing_rule_condition: Optional[pulumi.Input['BucketRoutingRuleConditionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("redirect_rule", redirect_rule)
+        pulumi.set(__self__, "redirect_rule", redirect_rule)
         if routing_rule_condition is not None:
-            _setter("routing_rule_condition", routing_rule_condition)
+            pulumi.set(__self__, "routing_rule_condition", routing_rule_condition)
 
     @property
     @pulumi.getter(name="redirectRule")
@@ -2276,76 +1727,37 @@ class BucketRuleArgs:
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None,
                  transition: Optional[pulumi.Input['BucketTransitionArgs']] = None,
                  transitions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTransitionArgs']]]] = None):
-        BucketRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            abort_incomplete_multipart_upload=abort_incomplete_multipart_upload,
-            expiration_date=expiration_date,
-            expiration_in_days=expiration_in_days,
-            expired_object_delete_marker=expired_object_delete_marker,
-            id=id,
-            noncurrent_version_expiration=noncurrent_version_expiration,
-            noncurrent_version_expiration_in_days=noncurrent_version_expiration_in_days,
-            noncurrent_version_transition=noncurrent_version_transition,
-            noncurrent_version_transitions=noncurrent_version_transitions,
-            object_size_greater_than=object_size_greater_than,
-            object_size_less_than=object_size_less_than,
-            prefix=prefix,
-            tag_filters=tag_filters,
-            transition=transition,
-            transitions=transitions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             abort_incomplete_multipart_upload: Optional[pulumi.Input['BucketAbortIncompleteMultipartUploadArgs']] = None,
-             expiration_date: Optional[pulumi.Input[str]] = None,
-             expiration_in_days: Optional[pulumi.Input[int]] = None,
-             expired_object_delete_marker: Optional[pulumi.Input[bool]] = None,
-             id: Optional[pulumi.Input[str]] = None,
-             noncurrent_version_expiration: Optional[pulumi.Input['BucketNoncurrentVersionExpirationArgs']] = None,
-             noncurrent_version_expiration_in_days: Optional[pulumi.Input[int]] = None,
-             noncurrent_version_transition: Optional[pulumi.Input['BucketNoncurrentVersionTransitionArgs']] = None,
-             noncurrent_version_transitions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketNoncurrentVersionTransitionArgs']]]] = None,
-             object_size_greater_than: Optional[pulumi.Input[int]] = None,
-             object_size_less_than: Optional[pulumi.Input[int]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagFilterArgs']]]] = None,
-             transition: Optional[pulumi.Input['BucketTransitionArgs']] = None,
-             transitions: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTransitionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if abort_incomplete_multipart_upload is not None:
-            _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
+            pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
         if expiration_date is not None:
-            _setter("expiration_date", expiration_date)
+            pulumi.set(__self__, "expiration_date", expiration_date)
         if expiration_in_days is not None:
-            _setter("expiration_in_days", expiration_in_days)
+            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if expired_object_delete_marker is not None:
-            _setter("expired_object_delete_marker", expired_object_delete_marker)
+            pulumi.set(__self__, "expired_object_delete_marker", expired_object_delete_marker)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if noncurrent_version_expiration is not None:
-            _setter("noncurrent_version_expiration", noncurrent_version_expiration)
+            pulumi.set(__self__, "noncurrent_version_expiration", noncurrent_version_expiration)
         if noncurrent_version_expiration_in_days is not None:
-            _setter("noncurrent_version_expiration_in_days", noncurrent_version_expiration_in_days)
+            pulumi.set(__self__, "noncurrent_version_expiration_in_days", noncurrent_version_expiration_in_days)
         if noncurrent_version_transition is not None:
-            _setter("noncurrent_version_transition", noncurrent_version_transition)
+            pulumi.set(__self__, "noncurrent_version_transition", noncurrent_version_transition)
         if noncurrent_version_transitions is not None:
-            _setter("noncurrent_version_transitions", noncurrent_version_transitions)
+            pulumi.set(__self__, "noncurrent_version_transitions", noncurrent_version_transitions)
         if object_size_greater_than is not None:
-            _setter("object_size_greater_than", object_size_greater_than)
+            pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
         if object_size_less_than is not None:
-            _setter("object_size_less_than", object_size_less_than)
+            pulumi.set(__self__, "object_size_less_than", object_size_less_than)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag_filters is not None:
-            _setter("tag_filters", tag_filters)
+            pulumi.set(__self__, "tag_filters", tag_filters)
         if transition is not None:
-            _setter("transition", transition)
+            pulumi.set(__self__, "transition", transition)
         if transitions is not None:
-            _setter("transitions", transitions)
+            pulumi.set(__self__, "transitions", transitions)
 
     @property
     @pulumi.getter
@@ -2496,16 +1908,7 @@ class BucketRuleArgs:
 class BucketS3KeyFilterArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['BucketFilterRuleArgs']]]):
-        BucketS3KeyFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: pulumi.Input[Sequence[pulumi.Input['BucketFilterRuleArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -2522,20 +1925,9 @@ class BucketServerSideEncryptionByDefaultArgs:
     def __init__(__self__, *,
                  sse_algorithm: pulumi.Input[str],
                  kms_master_key_id: Optional[pulumi.Input[str]] = None):
-        BucketServerSideEncryptionByDefaultArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_algorithm=sse_algorithm,
-            kms_master_key_id=kms_master_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_algorithm: pulumi.Input[str],
-             kms_master_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sse_algorithm", sse_algorithm)
+        pulumi.set(__self__, "sse_algorithm", sse_algorithm)
         if kms_master_key_id is not None:
-            _setter("kms_master_key_id", kms_master_key_id)
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
 
     @property
     @pulumi.getter(name="sseAlgorithm")
@@ -2561,21 +1953,10 @@ class BucketServerSideEncryptionRuleArgs:
     def __init__(__self__, *,
                  bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
                  server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionByDefaultArgs']] = None):
-        BucketServerSideEncryptionRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_key_enabled=bucket_key_enabled,
-            server_side_encryption_by_default=server_side_encryption_by_default,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_key_enabled: Optional[pulumi.Input[bool]] = None,
-             server_side_encryption_by_default: Optional[pulumi.Input['BucketServerSideEncryptionByDefaultArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_key_enabled is not None:
-            _setter("bucket_key_enabled", bucket_key_enabled)
+            pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
         if server_side_encryption_by_default is not None:
-            _setter("server_side_encryption_by_default", server_side_encryption_by_default)
+            pulumi.set(__self__, "server_side_encryption_by_default", server_side_encryption_by_default)
 
     @property
     @pulumi.getter(name="bucketKeyEnabled")
@@ -2601,21 +1982,10 @@ class BucketSourceSelectionCriteriaArgs:
     def __init__(__self__, *,
                  replica_modifications: Optional[pulumi.Input['BucketReplicaModificationsArgs']] = None,
                  sse_kms_encrypted_objects: Optional[pulumi.Input['BucketSseKmsEncryptedObjectsArgs']] = None):
-        BucketSourceSelectionCriteriaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replica_modifications=replica_modifications,
-            sse_kms_encrypted_objects=sse_kms_encrypted_objects,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replica_modifications: Optional[pulumi.Input['BucketReplicaModificationsArgs']] = None,
-             sse_kms_encrypted_objects: Optional[pulumi.Input['BucketSseKmsEncryptedObjectsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if replica_modifications is not None:
-            _setter("replica_modifications", replica_modifications)
+            pulumi.set(__self__, "replica_modifications", replica_modifications)
         if sse_kms_encrypted_objects is not None:
-            _setter("sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
 
     @property
     @pulumi.getter(name="replicaModifications")
@@ -2640,16 +2010,7 @@ class BucketSourceSelectionCriteriaArgs:
 class BucketSseKmsEncryptedObjectsArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
-        BucketSseKmsEncryptedObjectsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -2665,17 +2026,8 @@ class BucketSseKmsEncryptedObjectsArgs:
 class BucketStorageClassAnalysisArgs:
     def __init__(__self__, *,
                  data_export: Optional[pulumi.Input['BucketDataExportArgs']] = None):
-        BucketStorageClassAnalysisArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_export=data_export,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_export: Optional[pulumi.Input['BucketDataExportArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_export is not None:
-            _setter("data_export", data_export)
+            pulumi.set(__self__, "data_export", data_export)
 
     @property
     @pulumi.getter(name="dataExport")
@@ -2692,19 +2044,8 @@ class BucketTagFilterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        BucketTagFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2730,19 +2071,8 @@ class BucketTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        BucketTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2768,19 +2098,8 @@ class BucketTieringArgs:
     def __init__(__self__, *,
                  access_tier: pulumi.Input[str],
                  days: pulumi.Input[int]):
-        BucketTieringArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_tier=access_tier,
-            days=days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_tier: pulumi.Input[str],
-             days: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("access_tier", access_tier)
-        _setter("days", days)
+        pulumi.set(__self__, "access_tier", access_tier)
+        pulumi.set(__self__, "days", days)
 
     @property
     @pulumi.getter(name="accessTier")
@@ -2807,23 +2126,10 @@ class BucketTopicConfigurationArgs:
                  event: pulumi.Input[str],
                  topic: pulumi.Input[str],
                  filter: Optional[pulumi.Input['BucketNotificationFilterArgs']] = None):
-        BucketTopicConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event=event,
-            topic=topic,
-            filter=filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event: pulumi.Input[str],
-             topic: pulumi.Input[str],
-             filter: Optional[pulumi.Input['BucketNotificationFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event", event)
-        _setter("topic", topic)
+        pulumi.set(__self__, "event", event)
+        pulumi.set(__self__, "topic", topic)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
@@ -2859,24 +2165,11 @@ class BucketTransitionArgs:
                  storage_class: pulumi.Input[str],
                  transition_date: Optional[pulumi.Input[str]] = None,
                  transition_in_days: Optional[pulumi.Input[int]] = None):
-        BucketTransitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_class=storage_class,
-            transition_date=transition_date,
-            transition_in_days=transition_in_days,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_class: pulumi.Input[str],
-             transition_date: Optional[pulumi.Input[str]] = None,
-             transition_in_days: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("storage_class", storage_class)
+        pulumi.set(__self__, "storage_class", storage_class)
         if transition_date is not None:
-            _setter("transition_date", transition_date)
+            pulumi.set(__self__, "transition_date", transition_date)
         if transition_in_days is not None:
-            _setter("transition_in_days", transition_in_days)
+            pulumi.set(__self__, "transition_in_days", transition_in_days)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -2910,16 +2203,7 @@ class BucketTransitionArgs:
 class BucketVersioningConfigurationArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
-        BucketVersioningConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -2938,29 +2222,14 @@ class BucketWebsiteConfigurationArgs:
                  index_document: Optional[pulumi.Input[str]] = None,
                  redirect_all_requests_to: Optional[pulumi.Input['BucketRedirectAllRequestsToArgs']] = None,
                  routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketRoutingRuleArgs']]]] = None):
-        BucketWebsiteConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            error_document=error_document,
-            index_document=index_document,
-            redirect_all_requests_to=redirect_all_requests_to,
-            routing_rules=routing_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             error_document: Optional[pulumi.Input[str]] = None,
-             index_document: Optional[pulumi.Input[str]] = None,
-             redirect_all_requests_to: Optional[pulumi.Input['BucketRedirectAllRequestsToArgs']] = None,
-             routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketRoutingRuleArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if error_document is not None:
-            _setter("error_document", error_document)
+            pulumi.set(__self__, "error_document", error_document)
         if index_document is not None:
-            _setter("index_document", index_document)
+            pulumi.set(__self__, "index_document", index_document)
         if redirect_all_requests_to is not None:
-            _setter("redirect_all_requests_to", redirect_all_requests_to)
+            pulumi.set(__self__, "redirect_all_requests_to", redirect_all_requests_to)
         if routing_rules is not None:
-            _setter("routing_rules", routing_rules)
+            pulumi.set(__self__, "routing_rules", routing_rules)
 
     @property
     @pulumi.getter(name="errorDocument")
@@ -3017,29 +2286,14 @@ class MultiRegionAccessPointPublicAccessBlockConfigurationArgs:
         :param pulumi.Input[bool] restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
                Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
         """
-        MultiRegionAccessPointPublicAccessBlockConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_public_acls=block_public_acls,
-            block_public_policy=block_public_policy,
-            ignore_public_acls=ignore_public_acls,
-            restrict_public_buckets=restrict_public_buckets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_public_acls: Optional[pulumi.Input[bool]] = None,
-             block_public_policy: Optional[pulumi.Input[bool]] = None,
-             ignore_public_acls: Optional[pulumi.Input[bool]] = None,
-             restrict_public_buckets: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if block_public_acls is not None:
-            _setter("block_public_acls", block_public_acls)
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
         if block_public_policy is not None:
-            _setter("block_public_policy", block_public_policy)
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
-            _setter("ignore_public_acls", ignore_public_acls)
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
         if restrict_public_buckets is not None:
-            _setter("restrict_public_buckets", restrict_public_buckets)
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
 
     @property
     @pulumi.getter(name="blockPublicAcls")
@@ -3100,20 +2354,9 @@ class MultiRegionAccessPointRegionArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  bucket_account_id: Optional[pulumi.Input[str]] = None):
-        MultiRegionAccessPointRegionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            bucket_account_id=bucket_account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             bucket_account_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if bucket_account_id is not None:
-            _setter("bucket_account_id", bucket_account_id)
+            pulumi.set(__self__, "bucket_account_id", bucket_account_id)
 
     @property
     @pulumi.getter
@@ -3145,32 +2388,15 @@ class StorageLensAccountLevelArgs:
         """
         Account-level metrics configurations.
         """
-        StorageLensAccountLevelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_level=bucket_level,
-            activity_metrics=activity_metrics,
-            advanced_cost_optimization_metrics=advanced_cost_optimization_metrics,
-            advanced_data_protection_metrics=advanced_data_protection_metrics,
-            detailed_status_codes_metrics=detailed_status_codes_metrics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_level: pulumi.Input['StorageLensBucketLevelArgs'],
-             activity_metrics: Optional[pulumi.Input['StorageLensActivityMetricsArgs']] = None,
-             advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']] = None,
-             advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']] = None,
-             detailed_status_codes_metrics: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_level", bucket_level)
+        pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
-            _setter("activity_metrics", activity_metrics)
+            pulumi.set(__self__, "activity_metrics", activity_metrics)
         if advanced_cost_optimization_metrics is not None:
-            _setter("advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
+            pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
         if advanced_data_protection_metrics is not None:
-            _setter("advanced_data_protection_metrics", advanced_data_protection_metrics)
+            pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
         if detailed_status_codes_metrics is not None:
-            _setter("detailed_status_codes_metrics", detailed_status_codes_metrics)
+            pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
 
     @property
     @pulumi.getter(name="bucketLevel")
@@ -3226,17 +2452,8 @@ class StorageLensActivityMetricsArgs:
         Enables activity metrics.
         :param pulumi.Input[bool] is_enabled: Specifies whether activity metrics are enabled or disabled.
         """
-        StorageLensActivityMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3259,17 +2476,8 @@ class StorageLensAdvancedCostOptimizationMetricsArgs:
         Enables advanced cost optimization metrics.
         :param pulumi.Input[bool] is_enabled: Specifies whether advanced cost optimization metrics are enabled or disabled.
         """
-        StorageLensAdvancedCostOptimizationMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3292,17 +2500,8 @@ class StorageLensAdvancedDataProtectionMetricsArgs:
         Enables advanced data protection metrics.
         :param pulumi.Input[bool] is_enabled: Specifies whether advanced data protection metrics are enabled or disabled.
         """
-        StorageLensAdvancedDataProtectionMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3324,16 +2523,7 @@ class StorageLensAwsOrgArgs:
         """
         The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
         """
-        StorageLensAwsOrgArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -3356,33 +2546,16 @@ class StorageLensBucketLevelArgs:
         """
         Bucket-level metrics configurations.
         """
-        StorageLensBucketLevelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activity_metrics=activity_metrics,
-            advanced_cost_optimization_metrics=advanced_cost_optimization_metrics,
-            advanced_data_protection_metrics=advanced_data_protection_metrics,
-            detailed_status_codes_metrics=detailed_status_codes_metrics,
-            prefix_level=prefix_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activity_metrics: Optional[pulumi.Input['StorageLensActivityMetricsArgs']] = None,
-             advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']] = None,
-             advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']] = None,
-             detailed_status_codes_metrics: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']] = None,
-             prefix_level: Optional[pulumi.Input['StorageLensPrefixLevelArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if activity_metrics is not None:
-            _setter("activity_metrics", activity_metrics)
+            pulumi.set(__self__, "activity_metrics", activity_metrics)
         if advanced_cost_optimization_metrics is not None:
-            _setter("advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
+            pulumi.set(__self__, "advanced_cost_optimization_metrics", advanced_cost_optimization_metrics)
         if advanced_data_protection_metrics is not None:
-            _setter("advanced_data_protection_metrics", advanced_data_protection_metrics)
+            pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
         if detailed_status_codes_metrics is not None:
-            _setter("detailed_status_codes_metrics", detailed_status_codes_metrics)
+            pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
         if prefix_level is not None:
-            _setter("prefix_level", prefix_level)
+            pulumi.set(__self__, "prefix_level", prefix_level)
 
     @property
     @pulumi.getter(name="activityMetrics")
@@ -3438,21 +2611,10 @@ class StorageLensBucketsAndRegionsArgs:
         """
         S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
         """
-        StorageLensBucketsAndRegionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            buckets=buckets,
-            regions=regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             buckets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if buckets is not None:
-            _setter("buckets", buckets)
+            pulumi.set(__self__, "buckets", buckets)
         if regions is not None:
-            _setter("regions", regions)
+            pulumi.set(__self__, "regions", regions)
 
     @property
     @pulumi.getter
@@ -3481,16 +2643,7 @@ class StorageLensCloudWatchMetricsArgs:
         CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
         :param pulumi.Input[bool] is_enabled: Specifies whether CloudWatch metrics are enabled or disabled.
         """
-        StorageLensCloudWatchMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("is_enabled", is_enabled)
+        pulumi.set(__self__, "is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3521,42 +2674,19 @@ class StorageLensConfigurationArgs:
         :param pulumi.Input[bool] is_enabled: Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
         :param pulumi.Input[str] storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
         """
-        StorageLensConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_level=account_level,
-            id=id,
-            is_enabled=is_enabled,
-            aws_org=aws_org,
-            data_export=data_export,
-            exclude=exclude,
-            include=include,
-            storage_lens_arn=storage_lens_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_level: pulumi.Input['StorageLensAccountLevelArgs'],
-             id: pulumi.Input[str],
-             is_enabled: pulumi.Input[bool],
-             aws_org: Optional[pulumi.Input['StorageLensAwsOrgArgs']] = None,
-             data_export: Optional[pulumi.Input['StorageLensDataExportArgs']] = None,
-             exclude: Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']] = None,
-             include: Optional[pulumi.Input['StorageLensBucketsAndRegionsArgs']] = None,
-             storage_lens_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("account_level", account_level)
-        _setter("id", id)
-        _setter("is_enabled", is_enabled)
+        pulumi.set(__self__, "account_level", account_level)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "is_enabled", is_enabled)
         if aws_org is not None:
-            _setter("aws_org", aws_org)
+            pulumi.set(__self__, "aws_org", aws_org)
         if data_export is not None:
-            _setter("data_export", data_export)
+            pulumi.set(__self__, "data_export", data_export)
         if exclude is not None:
-            _setter("exclude", exclude)
+            pulumi.set(__self__, "exclude", exclude)
         if include is not None:
-            _setter("include", include)
+            pulumi.set(__self__, "include", include)
         if storage_lens_arn is not None:
-            _setter("storage_lens_arn", storage_lens_arn)
+            pulumi.set(__self__, "storage_lens_arn", storage_lens_arn)
 
     @property
     @pulumi.getter(name="accountLevel")
@@ -3645,21 +2775,10 @@ class StorageLensDataExportArgs:
         """
         Specifies how Amazon S3 Storage Lens metrics should be exported.
         """
-        StorageLensDataExportArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_metrics=cloud_watch_metrics,
-            s3_bucket_destination=s3_bucket_destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_metrics: Optional[pulumi.Input['StorageLensCloudWatchMetricsArgs']] = None,
-             s3_bucket_destination: Optional[pulumi.Input['StorageLensS3BucketDestinationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_metrics is not None:
-            _setter("cloud_watch_metrics", cloud_watch_metrics)
+            pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
         if s3_bucket_destination is not None:
-            _setter("s3_bucket_destination", s3_bucket_destination)
+            pulumi.set(__self__, "s3_bucket_destination", s3_bucket_destination)
 
     @property
     @pulumi.getter(name="cloudWatchMetrics")
@@ -3688,17 +2807,8 @@ class StorageLensDetailedStatusCodesMetricsArgs:
         Enables detailed status codes metrics.
         :param pulumi.Input[bool] is_enabled: Specifies whether detailed status codes metrics are enabled or disabled.
         """
-        StorageLensDetailedStatusCodesMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3720,11 +2830,6 @@ class StorageLensEncryptionArgs:
         Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.input_type
@@ -3735,21 +2840,10 @@ class StorageLensPrefixLevelStorageMetricsArgs:
         """
         :param pulumi.Input[bool] is_enabled: Specifies whether prefix-level storage metrics are enabled or disabled.
         """
-        StorageLensPrefixLevelStorageMetricsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_enabled=is_enabled,
-            selection_criteria=selection_criteria,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_enabled: Optional[pulumi.Input[bool]] = None,
-             selection_criteria: Optional[pulumi.Input['StorageLensSelectionCriteriaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if is_enabled is not None:
-            _setter("is_enabled", is_enabled)
+            pulumi.set(__self__, "is_enabled", is_enabled)
         if selection_criteria is not None:
-            _setter("selection_criteria", selection_criteria)
+            pulumi.set(__self__, "selection_criteria", selection_criteria)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -3780,16 +2874,7 @@ class StorageLensPrefixLevelArgs:
         """
         Prefix-level metrics configurations.
         """
-        StorageLensPrefixLevelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            storage_metrics=storage_metrics,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             storage_metrics: pulumi.Input['StorageLensPrefixLevelStorageMetricsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("storage_metrics", storage_metrics)
+        pulumi.set(__self__, "storage_metrics", storage_metrics)
 
     @property
     @pulumi.getter(name="storageMetrics")
@@ -3818,33 +2903,14 @@ class StorageLensS3BucketDestinationArgs:
         :param pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion'] output_schema_version: The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         :param pulumi.Input[str] prefix: The prefix to use for Amazon S3 Storage Lens export.
         """
-        StorageLensS3BucketDestinationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            arn=arn,
-            format=format,
-            output_schema_version=output_schema_version,
-            encryption=encryption,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             arn: pulumi.Input[str],
-             format: pulumi.Input['StorageLensS3BucketDestinationFormat'],
-             output_schema_version: pulumi.Input['StorageLensS3BucketDestinationOutputSchemaVersion'],
-             encryption: Optional[pulumi.Input['StorageLensEncryptionArgs']] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("account_id", account_id)
-        _setter("arn", arn)
-        _setter("format", format)
-        _setter("output_schema_version", output_schema_version)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "output_schema_version", output_schema_version)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="accountId")
@@ -3928,25 +2994,12 @@ class StorageLensSelectionCriteriaArgs:
         :param pulumi.Input[int] max_depth: Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
         :param pulumi.Input[float] min_storage_bytes_percentage: The minimum storage bytes threshold for the prefixes to be included in the analysis.
         """
-        StorageLensSelectionCriteriaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delimiter=delimiter,
-            max_depth=max_depth,
-            min_storage_bytes_percentage=min_storage_bytes_percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delimiter: Optional[pulumi.Input[str]] = None,
-             max_depth: Optional[pulumi.Input[int]] = None,
-             min_storage_bytes_percentage: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if delimiter is not None:
-            _setter("delimiter", delimiter)
+            pulumi.set(__self__, "delimiter", delimiter)
         if max_depth is not None:
-            _setter("max_depth", max_depth)
+            pulumi.set(__self__, "max_depth", max_depth)
         if min_storage_bytes_percentage is not None:
-            _setter("min_storage_bytes_percentage", min_storage_bytes_percentage)
+            pulumi.set(__self__, "min_storage_bytes_percentage", min_storage_bytes_percentage)
 
     @property
     @pulumi.getter
@@ -3990,19 +3043,8 @@ class StorageLensTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        StorageLensTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

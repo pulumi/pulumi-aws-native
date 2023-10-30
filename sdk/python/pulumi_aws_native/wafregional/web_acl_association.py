@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebAclAssociationArgs', 'WebAclAssociation']
@@ -19,19 +19,8 @@ class WebAclAssociationArgs:
         """
         The set of arguments for constructing a WebAclAssociation resource.
         """
-        WebAclAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            web_acl_id=web_acl_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             web_acl_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("web_acl_id", web_acl_id)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "web_acl_id", web_acl_id)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -90,10 +79,6 @@ class WebAclAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebAclAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -34,42 +34,19 @@ class PermissionArgs:
         :param pulumi.Input[str] source_account: For Amazon S3, the ID of the account that owns the resource. Use this together with SourceArn to ensure that the resource is owned by the specified account. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
         :param pulumi.Input[str] source_arn: For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
         """
-        PermissionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            function_name=function_name,
-            principal=principal,
-            event_source_token=event_source_token,
-            function_url_auth_type=function_url_auth_type,
-            principal_org_id=principal_org_id,
-            source_account=source_account,
-            source_arn=source_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             function_name: pulumi.Input[str],
-             principal: pulumi.Input[str],
-             event_source_token: Optional[pulumi.Input[str]] = None,
-             function_url_auth_type: Optional[pulumi.Input['PermissionFunctionUrlAuthType']] = None,
-             principal_org_id: Optional[pulumi.Input[str]] = None,
-             source_account: Optional[pulumi.Input[str]] = None,
-             source_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("function_name", function_name)
-        _setter("principal", principal)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "function_name", function_name)
+        pulumi.set(__self__, "principal", principal)
         if event_source_token is not None:
-            _setter("event_source_token", event_source_token)
+            pulumi.set(__self__, "event_source_token", event_source_token)
         if function_url_auth_type is not None:
-            _setter("function_url_auth_type", function_url_auth_type)
+            pulumi.set(__self__, "function_url_auth_type", function_url_auth_type)
         if principal_org_id is not None:
-            _setter("principal_org_id", principal_org_id)
+            pulumi.set(__self__, "principal_org_id", principal_org_id)
         if source_account is not None:
-            _setter("source_account", source_account)
+            pulumi.set(__self__, "source_account", source_account)
         if source_arn is not None:
-            _setter("source_arn", source_arn)
+            pulumi.set(__self__, "source_arn", source_arn)
 
     @property
     @pulumi.getter
@@ -215,10 +192,6 @@ class Permission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

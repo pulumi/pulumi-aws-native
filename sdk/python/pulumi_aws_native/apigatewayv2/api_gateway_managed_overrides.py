@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,28 +23,13 @@ class ApiGatewayManagedOverridesArgs:
         """
         The set of arguments for constructing a ApiGatewayManagedOverrides resource.
         """
-        ApiGatewayManagedOverridesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            integration=integration,
-            route=route,
-            stage=stage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             integration: Optional[pulumi.Input['ApiGatewayManagedOverridesIntegrationOverridesArgs']] = None,
-             route: Optional[pulumi.Input['ApiGatewayManagedOverridesRouteOverridesArgs']] = None,
-             stage: Optional[pulumi.Input['ApiGatewayManagedOverridesStageOverridesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_id", api_id)
+        pulumi.set(__self__, "api_id", api_id)
         if integration is not None:
-            _setter("integration", integration)
+            pulumi.set(__self__, "integration", integration)
         if route is not None:
-            _setter("route", route)
+            pulumi.set(__self__, "route", route)
         if stage is not None:
-            _setter("stage", stage)
+            pulumi.set(__self__, "stage", stage)
 
     @property
     @pulumi.getter(name="apiId")
@@ -123,10 +108,6 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiGatewayManagedOverridesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -149,23 +130,8 @@ class ApiGatewayManagedOverrides(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
-            if integration is not None and not isinstance(integration, ApiGatewayManagedOverridesIntegrationOverridesArgs):
-                integration = integration or {}
-                def _setter(key, value):
-                    integration[key] = value
-                ApiGatewayManagedOverridesIntegrationOverridesArgs._configure(_setter, **integration)
             __props__.__dict__["integration"] = integration
-            if route is not None and not isinstance(route, ApiGatewayManagedOverridesRouteOverridesArgs):
-                route = route or {}
-                def _setter(key, value):
-                    route[key] = value
-                ApiGatewayManagedOverridesRouteOverridesArgs._configure(_setter, **route)
             __props__.__dict__["route"] = route
-            if stage is not None and not isinstance(stage, ApiGatewayManagedOverridesStageOverridesArgs):
-                stage = stage or {}
-                def _setter(key, value):
-                    stage[key] = value
-                ApiGatewayManagedOverridesStageOverridesArgs._configure(_setter, **stage)
             __props__.__dict__["stage"] = stage
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

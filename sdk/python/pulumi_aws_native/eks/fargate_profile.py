@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,34 +29,15 @@ class FargateProfileArgs:
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        FargateProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            pod_execution_role_arn=pod_execution_role_arn,
-            selectors=selectors,
-            fargate_profile_name=fargate_profile_name,
-            subnets=subnets,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: pulumi.Input[str],
-             pod_execution_role_arn: pulumi.Input[str],
-             selectors: pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]],
-             fargate_profile_name: Optional[pulumi.Input[str]] = None,
-             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cluster_name", cluster_name)
-        _setter("pod_execution_role_arn", pod_execution_role_arn)
-        _setter("selectors", selectors)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "pod_execution_role_arn", pod_execution_role_arn)
+        pulumi.set(__self__, "selectors", selectors)
         if fargate_profile_name is not None:
-            _setter("fargate_profile_name", fargate_profile_name)
+            pulumi.set(__self__, "fargate_profile_name", fargate_profile_name)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -166,10 +147,6 @@ class FargateProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FargateProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class LoggerDefinitionVersionInitArgs:
         """
         The set of arguments for constructing a LoggerDefinitionVersion resource.
         """
-        LoggerDefinitionVersionInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            logger_definition_id=logger_definition_id,
-            loggers=loggers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             logger_definition_id: pulumi.Input[str],
-             loggers: pulumi.Input[Sequence[pulumi.Input['LoggerDefinitionVersionLoggerArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("logger_definition_id", logger_definition_id)
-        _setter("loggers", loggers)
+        pulumi.set(__self__, "logger_definition_id", logger_definition_id)
+        pulumi.set(__self__, "loggers", loggers)
 
     @property
     @pulumi.getter(name="loggerDefinitionId")
@@ -92,10 +81,6 @@ class LoggerDefinitionVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoggerDefinitionVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

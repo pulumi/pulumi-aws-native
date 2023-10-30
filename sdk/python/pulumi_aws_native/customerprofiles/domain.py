@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,41 +32,20 @@ class DomainArgs:
         :param pulumi.Input[str] domain_name: The unique name of the domain.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: The tags (keys and values) associated with the domain
         """
-        DomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dead_letter_queue_url=dead_letter_queue_url,
-            default_encryption_key=default_encryption_key,
-            default_expiration_days=default_expiration_days,
-            domain_name=domain_name,
-            matching=matching,
-            rule_based_matching=rule_based_matching,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dead_letter_queue_url: Optional[pulumi.Input[str]] = None,
-             default_encryption_key: Optional[pulumi.Input[str]] = None,
-             default_expiration_days: Optional[pulumi.Input[int]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             matching: Optional[pulumi.Input['DomainMatchingArgs']] = None,
-             rule_based_matching: Optional[pulumi.Input['DomainRuleBasedMatchingArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dead_letter_queue_url is not None:
-            _setter("dead_letter_queue_url", dead_letter_queue_url)
+            pulumi.set(__self__, "dead_letter_queue_url", dead_letter_queue_url)
         if default_encryption_key is not None:
-            _setter("default_encryption_key", default_encryption_key)
+            pulumi.set(__self__, "default_encryption_key", default_encryption_key)
         if default_expiration_days is not None:
-            _setter("default_expiration_days", default_expiration_days)
+            pulumi.set(__self__, "default_expiration_days", default_expiration_days)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if matching is not None:
-            _setter("matching", matching)
+            pulumi.set(__self__, "matching", matching)
         if rule_based_matching is not None:
-            _setter("rule_based_matching", rule_based_matching)
+            pulumi.set(__self__, "rule_based_matching", rule_based_matching)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="deadLetterQueueUrl")
@@ -190,10 +169,6 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -219,17 +194,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["default_encryption_key"] = default_encryption_key
             __props__.__dict__["default_expiration_days"] = default_expiration_days
             __props__.__dict__["domain_name"] = domain_name
-            if matching is not None and not isinstance(matching, DomainMatchingArgs):
-                matching = matching or {}
-                def _setter(key, value):
-                    matching[key] = value
-                DomainMatchingArgs._configure(_setter, **matching)
             __props__.__dict__["matching"] = matching
-            if rule_based_matching is not None and not isinstance(rule_based_matching, DomainRuleBasedMatchingArgs):
-                rule_based_matching = rule_based_matching or {}
-                def _setter(key, value):
-                    rule_based_matching[key] = value
-                DomainRuleBasedMatchingArgs._configure(_setter, **rule_based_matching)
             __props__.__dict__["rule_based_matching"] = rule_based_matching
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None

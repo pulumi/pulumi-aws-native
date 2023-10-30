@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClientVpnAuthorizationRuleArgs', 'ClientVpnAuthorizationRule']
@@ -22,31 +22,14 @@ class ClientVpnAuthorizationRuleArgs:
         """
         The set of arguments for constructing a ClientVpnAuthorizationRule resource.
         """
-        ClientVpnAuthorizationRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_vpn_endpoint_id=client_vpn_endpoint_id,
-            target_network_cidr=target_network_cidr,
-            access_group_id=access_group_id,
-            authorize_all_groups=authorize_all_groups,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_vpn_endpoint_id: pulumi.Input[str],
-             target_network_cidr: pulumi.Input[str],
-             access_group_id: Optional[pulumi.Input[str]] = None,
-             authorize_all_groups: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("client_vpn_endpoint_id", client_vpn_endpoint_id)
-        _setter("target_network_cidr", target_network_cidr)
+        pulumi.set(__self__, "client_vpn_endpoint_id", client_vpn_endpoint_id)
+        pulumi.set(__self__, "target_network_cidr", target_network_cidr)
         if access_group_id is not None:
-            _setter("access_group_id", access_group_id)
+            pulumi.set(__self__, "access_group_id", access_group_id)
         if authorize_all_groups is not None:
-            _setter("authorize_all_groups", authorize_all_groups)
+            pulumi.set(__self__, "authorize_all_groups", authorize_all_groups)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="clientVpnEndpointId")
@@ -135,10 +118,6 @@ class ClientVpnAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ClientVpnAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -60,20 +60,9 @@ class ApplicationAlarm(dict):
         :param str alarm_name: The name of the CloudWatch alarm to be monitored for the component.
         :param 'ApplicationAlarmSeverity' severity: Indicates the degree of outage when the alarm goes off.
         """
-        ApplicationAlarm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_name=alarm_name,
-            severity=severity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_name: str,
-             severity: Optional['ApplicationAlarmSeverity'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("alarm_name", alarm_name)
+        pulumi.set(__self__, "alarm_name", alarm_name)
         if severity is not None:
-            _setter("severity", severity)
+            pulumi.set(__self__, "severity", severity)
 
     @property
     @pulumi.getter(name="alarmName")
@@ -120,16 +109,7 @@ class ApplicationAlarmMetric(dict):
         A metric to be monitored for the component.
         :param str alarm_metric_name: The name of the metric to be monitored for the component.
         """
-        ApplicationAlarmMetric._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_metric_name=alarm_metric_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_metric_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("alarm_metric_name", alarm_metric_name)
+        pulumi.set(__self__, "alarm_metric_name", alarm_metric_name)
 
     @property
     @pulumi.getter(name="alarmMetricName")
@@ -172,21 +152,10 @@ class ApplicationComponentConfiguration(dict):
         :param 'ApplicationConfigurationDetails' configuration_details: The configuration settings
         :param Sequence['ApplicationSubComponentTypeConfiguration'] sub_component_type_configurations: Sub component configurations of the component.
         """
-        ApplicationComponentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_details=configuration_details,
-            sub_component_type_configurations=sub_component_type_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_details: Optional['outputs.ApplicationConfigurationDetails'] = None,
-             sub_component_type_configurations: Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration_details is not None:
-            _setter("configuration_details", configuration_details)
+            pulumi.set(__self__, "configuration_details", configuration_details)
         if sub_component_type_configurations is not None:
-            _setter("sub_component_type_configurations", sub_component_type_configurations)
+            pulumi.set(__self__, "sub_component_type_configurations", sub_component_type_configurations)
 
     @property
     @pulumi.getter(name="configurationDetails")
@@ -251,35 +220,16 @@ class ApplicationComponentMonitoringSetting(dict):
         :param 'ApplicationComponentConfiguration' custom_component_configuration: The monitoring configuration of the component.
         :param 'ApplicationComponentConfiguration' default_overwrite_component_configuration: The overwritten settings on default component monitoring configuration.
         """
-        ApplicationComponentMonitoringSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            component_configuration_mode=component_configuration_mode,
-            tier=tier,
-            component_arn=component_arn,
-            component_name=component_name,
-            custom_component_configuration=custom_component_configuration,
-            default_overwrite_component_configuration=default_overwrite_component_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             component_configuration_mode: 'ApplicationComponentMonitoringSettingComponentConfigurationMode',
-             tier: str,
-             component_arn: Optional[str] = None,
-             component_name: Optional[str] = None,
-             custom_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
-             default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("component_configuration_mode", component_configuration_mode)
-        _setter("tier", tier)
+        pulumi.set(__self__, "component_configuration_mode", component_configuration_mode)
+        pulumi.set(__self__, "tier", tier)
         if component_arn is not None:
-            _setter("component_arn", component_arn)
+            pulumi.set(__self__, "component_arn", component_arn)
         if component_name is not None:
-            _setter("component_name", component_name)
+            pulumi.set(__self__, "component_name", component_name)
         if custom_component_configuration is not None:
-            _setter("custom_component_configuration", custom_component_configuration)
+            pulumi.set(__self__, "custom_component_configuration", custom_component_configuration)
         if default_overwrite_component_configuration is not None:
-            _setter("default_overwrite_component_configuration", default_overwrite_component_configuration)
+            pulumi.set(__self__, "default_overwrite_component_configuration", default_overwrite_component_configuration)
 
     @property
     @pulumi.getter(name="componentConfigurationMode")
@@ -378,41 +328,20 @@ class ApplicationConfigurationDetails(dict):
         :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
         :param Sequence['ApplicationWindowsEvent'] windows_events: A list of Windows Events to log.
         """
-        ApplicationConfigurationDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_metrics=alarm_metrics,
-            alarms=alarms,
-            ha_cluster_prometheus_exporter=ha_cluster_prometheus_exporter,
-            hana_prometheus_exporter=hana_prometheus_exporter,
-            jmx_prometheus_exporter=jmx_prometheus_exporter,
-            logs=logs,
-            windows_events=windows_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
-             alarms: Optional[Sequence['outputs.ApplicationAlarm']] = None,
-             ha_cluster_prometheus_exporter: Optional['outputs.ApplicationHaClusterPrometheusExporter'] = None,
-             hana_prometheus_exporter: Optional['outputs.ApplicationHanaPrometheusExporter'] = None,
-             jmx_prometheus_exporter: Optional['outputs.ApplicationJmxPrometheusExporter'] = None,
-             logs: Optional[Sequence['outputs.ApplicationLog']] = None,
-             windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alarm_metrics is not None:
-            _setter("alarm_metrics", alarm_metrics)
+            pulumi.set(__self__, "alarm_metrics", alarm_metrics)
         if alarms is not None:
-            _setter("alarms", alarms)
+            pulumi.set(__self__, "alarms", alarms)
         if ha_cluster_prometheus_exporter is not None:
-            _setter("ha_cluster_prometheus_exporter", ha_cluster_prometheus_exporter)
+            pulumi.set(__self__, "ha_cluster_prometheus_exporter", ha_cluster_prometheus_exporter)
         if hana_prometheus_exporter is not None:
-            _setter("hana_prometheus_exporter", hana_prometheus_exporter)
+            pulumi.set(__self__, "hana_prometheus_exporter", hana_prometheus_exporter)
         if jmx_prometheus_exporter is not None:
-            _setter("jmx_prometheus_exporter", jmx_prometheus_exporter)
+            pulumi.set(__self__, "jmx_prometheus_exporter", jmx_prometheus_exporter)
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if windows_events is not None:
-            _setter("windows_events", windows_events)
+            pulumi.set(__self__, "windows_events", windows_events)
 
     @property
     @pulumi.getter(name="alarmMetrics")
@@ -503,19 +432,8 @@ class ApplicationCustomComponent(dict):
         :param str component_name: The name of the component.
         :param Sequence[str] resource_list: The list of resource ARNs that belong to the component.
         """
-        ApplicationCustomComponent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            component_name=component_name,
-            resource_list=resource_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             component_name: str,
-             resource_list: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("component_name", component_name)
-        _setter("resource_list", resource_list)
+        pulumi.set(__self__, "component_name", component_name)
+        pulumi.set(__self__, "resource_list", resource_list)
 
     @property
     @pulumi.getter(name="componentName")
@@ -562,17 +480,8 @@ class ApplicationHaClusterPrometheusExporter(dict):
         The HA cluster Prometheus Exporter settings.
         :param str prometheus_port: Prometheus exporter port.
         """
-        ApplicationHaClusterPrometheusExporter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prometheus_port=prometheus_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if prometheus_port is not None:
-            _setter("prometheus_port", prometheus_port)
+            pulumi.set(__self__, "prometheus_port", prometheus_port)
 
     @property
     @pulumi.getter(name="prometheusPort")
@@ -628,29 +537,12 @@ class ApplicationHanaPrometheusExporter(dict):
         :param str hanasid: HANA DB SID.
         :param str prometheus_port: Prometheus exporter port.
         """
-        ApplicationHanaPrometheusExporter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            agree_to_install_hanadb_client=agree_to_install_hanadb_client,
-            hana_port=hana_port,
-            hana_secret_name=hana_secret_name,
-            hanasid=hanasid,
-            prometheus_port=prometheus_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             agree_to_install_hanadb_client: bool,
-             hana_port: str,
-             hana_secret_name: str,
-             hanasid: str,
-             prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("agree_to_install_hanadb_client", agree_to_install_hanadb_client)
-        _setter("hana_port", hana_port)
-        _setter("hana_secret_name", hana_secret_name)
-        _setter("hanasid", hanasid)
+        pulumi.set(__self__, "agree_to_install_hanadb_client", agree_to_install_hanadb_client)
+        pulumi.set(__self__, "hana_port", hana_port)
+        pulumi.set(__self__, "hana_secret_name", hana_secret_name)
+        pulumi.set(__self__, "hanasid", hanasid)
         if prometheus_port is not None:
-            _setter("prometheus_port", prometheus_port)
+            pulumi.set(__self__, "prometheus_port", prometheus_port)
 
     @property
     @pulumi.getter(name="agreeToInstallHanadbClient")
@@ -730,25 +622,12 @@ class ApplicationJmxPrometheusExporter(dict):
         :param str jmxurl: JMX service URL.
         :param str prometheus_port: Prometheus exporter port.
         """
-        ApplicationJmxPrometheusExporter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_port=host_port,
-            jmxurl=jmxurl,
-            prometheus_port=prometheus_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_port: Optional[str] = None,
-             jmxurl: Optional[str] = None,
-             prometheus_port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if host_port is not None:
-            _setter("host_port", host_port)
+            pulumi.set(__self__, "host_port", host_port)
         if jmxurl is not None:
-            _setter("jmxurl", jmxurl)
+            pulumi.set(__self__, "jmxurl", jmxurl)
         if prometheus_port is not None:
-            _setter("prometheus_port", prometheus_port)
+            pulumi.set(__self__, "prometheus_port", prometheus_port)
 
     @property
     @pulumi.getter(name="hostPort")
@@ -817,32 +696,15 @@ class ApplicationLog(dict):
         :param str log_path: The path of the logs to be monitored.
         :param str pattern_set: The name of the log pattern set.
         """
-        ApplicationLog._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_type=log_type,
-            encoding=encoding,
-            log_group_name=log_group_name,
-            log_path=log_path,
-            pattern_set=pattern_set,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_type: str,
-             encoding: Optional['ApplicationLogEncoding'] = None,
-             log_group_name: Optional[str] = None,
-             log_path: Optional[str] = None,
-             pattern_set: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "log_type", log_type)
         if encoding is not None:
-            _setter("encoding", encoding)
+            pulumi.set(__self__, "encoding", encoding)
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if log_path is not None:
-            _setter("log_path", log_path)
+            pulumi.set(__self__, "log_path", log_path)
         if pattern_set is not None:
-            _setter("pattern_set", pattern_set)
+            pulumi.set(__self__, "pattern_set", pattern_set)
 
     @property
     @pulumi.getter(name="logType")
@@ -917,22 +779,9 @@ class ApplicationLogPattern(dict):
         :param str pattern_name: The name of the log pattern.
         :param int rank: Rank of the log pattern.
         """
-        ApplicationLogPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pattern=pattern,
-            pattern_name=pattern_name,
-            rank=rank,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pattern: str,
-             pattern_name: str,
-             rank: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("pattern", pattern)
-        _setter("pattern_name", pattern_name)
-        _setter("rank", rank)
+        pulumi.set(__self__, "pattern", pattern)
+        pulumi.set(__self__, "pattern_name", pattern_name)
+        pulumi.set(__self__, "rank", rank)
 
     @property
     @pulumi.getter
@@ -991,19 +840,8 @@ class ApplicationLogPatternSet(dict):
         :param Sequence['ApplicationLogPattern'] log_patterns: The log patterns of a set.
         :param str pattern_set_name: The name of the log pattern set.
         """
-        ApplicationLogPatternSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_patterns=log_patterns,
-            pattern_set_name=pattern_set_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_patterns: Sequence['outputs.ApplicationLogPattern'],
-             pattern_set_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_patterns", log_patterns)
-        _setter("pattern_set_name", pattern_set_name)
+        pulumi.set(__self__, "log_patterns", log_patterns)
+        pulumi.set(__self__, "pattern_set_name", pattern_set_name)
 
     @property
     @pulumi.getter(name="logPatterns")
@@ -1056,25 +894,12 @@ class ApplicationSubComponentConfigurationDetails(dict):
         :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
         :param Sequence['ApplicationWindowsEvent'] windows_events: A list of Windows Events to log.
         """
-        ApplicationSubComponentConfigurationDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_metrics=alarm_metrics,
-            logs=logs,
-            windows_events=windows_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_metrics: Optional[Sequence['outputs.ApplicationAlarmMetric']] = None,
-             logs: Optional[Sequence['outputs.ApplicationLog']] = None,
-             windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alarm_metrics is not None:
-            _setter("alarm_metrics", alarm_metrics)
+            pulumi.set(__self__, "alarm_metrics", alarm_metrics)
         if logs is not None:
-            _setter("logs", logs)
+            pulumi.set(__self__, "logs", logs)
         if windows_events is not None:
-            _setter("windows_events", windows_events)
+            pulumi.set(__self__, "windows_events", windows_events)
 
     @property
     @pulumi.getter(name="alarmMetrics")
@@ -1133,19 +958,8 @@ class ApplicationSubComponentTypeConfiguration(dict):
         :param 'ApplicationSubComponentConfigurationDetails' sub_component_configuration_details: The configuration settings of sub components.
         :param 'ApplicationSubComponentTypeConfigurationSubComponentType' sub_component_type: The sub component type.
         """
-        ApplicationSubComponentTypeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sub_component_configuration_details=sub_component_configuration_details,
-            sub_component_type=sub_component_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sub_component_configuration_details: 'outputs.ApplicationSubComponentConfigurationDetails',
-             sub_component_type: 'ApplicationSubComponentTypeConfigurationSubComponentType',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sub_component_configuration_details", sub_component_configuration_details)
-        _setter("sub_component_type", sub_component_type)
+        pulumi.set(__self__, "sub_component_configuration_details", sub_component_configuration_details)
+        pulumi.set(__self__, "sub_component_type", sub_component_type)
 
     @property
     @pulumi.getter(name="subComponentConfigurationDetails")
@@ -1177,19 +991,8 @@ class ApplicationTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        ApplicationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1248,26 +1051,11 @@ class ApplicationWindowsEvent(dict):
         :param str log_group_name: The CloudWatch log group name to be associated to the monitored log.
         :param str pattern_set: The name of the log pattern set.
         """
-        ApplicationWindowsEvent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_levels=event_levels,
-            event_name=event_name,
-            log_group_name=log_group_name,
-            pattern_set=pattern_set,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_levels: Sequence['ApplicationEventLevel'],
-             event_name: str,
-             log_group_name: str,
-             pattern_set: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event_levels", event_levels)
-        _setter("event_name", event_name)
-        _setter("log_group_name", log_group_name)
+        pulumi.set(__self__, "event_levels", event_levels)
+        pulumi.set(__self__, "event_name", event_name)
+        pulumi.set(__self__, "log_group_name", log_group_name)
         if pattern_set is not None:
-            _setter("pattern_set", pattern_set)
+            pulumi.set(__self__, "pattern_set", pattern_set)
 
     @property
     @pulumi.getter(name="eventLevels")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -159,21 +159,10 @@ class IpSetTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        IpSetTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -214,21 +203,10 @@ class LoggingConfigurationCondition(dict):
         :param 'LoggingConfigurationConditionActionConditionProperties' action_condition: A single action condition.
         :param 'LoggingConfigurationConditionLabelNameConditionProperties' label_name_condition: A single label name condition.
         """
-        LoggingConfigurationCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_condition=action_condition,
-            label_name_condition=label_name_condition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_condition: Optional['outputs.LoggingConfigurationConditionActionConditionProperties'] = None,
-             label_name_condition: Optional['outputs.LoggingConfigurationConditionLabelNameConditionProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if action_condition is not None:
-            _setter("action_condition", action_condition)
+            pulumi.set(__self__, "action_condition", action_condition)
         if label_name_condition is not None:
-            _setter("label_name_condition", label_name_condition)
+            pulumi.set(__self__, "label_name_condition", label_name_condition)
 
     @property
     @pulumi.getter(name="actionCondition")
@@ -258,16 +236,7 @@ class LoggingConfigurationConditionActionConditionProperties(dict):
         A single action condition.
         :param 'LoggingConfigurationConditionActionConditionPropertiesAction' action: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
-        LoggingConfigurationConditionActionConditionProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: 'LoggingConfigurationConditionActionConditionPropertiesAction',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
@@ -306,16 +275,7 @@ class LoggingConfigurationConditionLabelNameConditionProperties(dict):
         A single label name condition.
         :param str label_name: The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. 
         """
-        LoggingConfigurationConditionLabelNameConditionProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            label_name=label_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             label_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("label_name", label_name)
+        pulumi.set(__self__, "label_name", label_name)
 
     @property
     @pulumi.getter(name="labelName")
@@ -368,33 +328,16 @@ class LoggingConfigurationFieldToMatch(dict):
         :param 'LoggingConfigurationFieldToMatchSingleHeaderProperties' single_header: Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         :param Any uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         """
-        LoggingConfigurationFieldToMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            json_body=json_body,
-            method=method,
-            query_string=query_string,
-            single_header=single_header,
-            uri_path=uri_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             json_body: Optional['outputs.LoggingConfigurationFieldToMatchJsonBodyProperties'] = None,
-             method: Optional[Any] = None,
-             query_string: Optional[Any] = None,
-             single_header: Optional['outputs.LoggingConfigurationFieldToMatchSingleHeaderProperties'] = None,
-             uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if json_body is not None:
-            _setter("json_body", json_body)
+            pulumi.set(__self__, "json_body", json_body)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if single_header is not None:
-            _setter("single_header", single_header)
+            pulumi.set(__self__, "single_header", single_header)
         if uri_path is not None:
-            _setter("uri_path", uri_path)
+            pulumi.set(__self__, "uri_path", uri_path)
 
     @property
     @pulumi.getter(name="jsonBody")
@@ -473,23 +416,10 @@ class LoggingConfigurationFieldToMatchJsonBodyProperties(dict):
         :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope' match_scope: The parts of the JSON to match against using the MatchPattern. If you specify All, AWS WAF matches against keys and values. 
         :param 'LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior' invalid_fallback_behavior: What AWS WAF should do if it fails to completely parse the JSON body.
         """
-        LoggingConfigurationFieldToMatchJsonBodyProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            invalid_fallback_behavior=invalid_fallback_behavior,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties',
-             match_scope: 'LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchScope',
-             invalid_fallback_behavior: Optional['LoggingConfigurationFieldToMatchJsonBodyPropertiesInvalidFallbackBehavior'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
+            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -546,21 +476,10 @@ class LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties(d
         :param Any all: Match all of the elements. See also MatchScope in JsonBody. You must specify either this setting or the IncludedPaths setting, but not both.
         :param Sequence[str] included_paths: Match only the specified include paths. See also MatchScope in JsonBody.
         """
-        LoggingConfigurationFieldToMatchJsonBodyPropertiesMatchPatternProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            included_paths=included_paths,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if included_paths is not None:
-            _setter("included_paths", included_paths)
+            pulumi.set(__self__, "included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -590,16 +509,7 @@ class LoggingConfigurationFieldToMatchSingleHeaderProperties(dict):
         Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         :param str name: The name of the query header to inspect.
         """
-        LoggingConfigurationFieldToMatchSingleHeaderProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -621,22 +531,9 @@ class LoggingConfigurationFilter(dict):
         :param Sequence['LoggingConfigurationCondition'] conditions: Match conditions for the filter.
         :param 'LoggingConfigurationFilterRequirement' requirement: Logic to apply to the filtering conditions. You can specify that, in order to satisfy the filter, a log must match all conditions or must match at least one condition.
         """
-        LoggingConfigurationFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            behavior=behavior,
-            conditions=conditions,
-            requirement=requirement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             behavior: 'LoggingConfigurationFilterBehavior',
-             conditions: Sequence['outputs.LoggingConfigurationCondition'],
-             requirement: 'LoggingConfigurationFilterRequirement',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("behavior", behavior)
-        _setter("conditions", conditions)
-        _setter("requirement", requirement)
+        pulumi.set(__self__, "behavior", behavior)
+        pulumi.set(__self__, "conditions", conditions)
+        pulumi.set(__self__, "requirement", requirement)
 
     @property
     @pulumi.getter
@@ -693,19 +590,8 @@ class LoggingFilterProperties(dict):
         :param 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior' default_behavior: Default handling for logs that don't match any of the specified filtering conditions.
         :param Sequence['LoggingConfigurationFilter'] filters: The filters that you want to apply to the logs.
         """
-        LoggingFilterProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_behavior=default_behavior,
-            filters=filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_behavior: 'LoggingConfigurationLoggingFilterPropertiesDefaultBehavior',
-             filters: Sequence['outputs.LoggingConfigurationFilter'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_behavior", default_behavior)
-        _setter("filters", filters)
+        pulumi.set(__self__, "default_behavior", default_behavior)
+        pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter(name="defaultBehavior")
@@ -729,21 +615,10 @@ class RegexPatternSetTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        RegexPatternSetTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -783,17 +658,8 @@ class RuleGroupAllowAction(dict):
         """
         Allow traffic towards application.
         """
-        RuleGroupAllowAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -805,16 +671,7 @@ class RuleGroupAllowAction(dict):
 class RuleGroupAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupStatement']):
-        RuleGroupAndStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statements=statements,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.RuleGroupStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
@@ -849,17 +706,8 @@ class RuleGroupBlockAction(dict):
         """
         Block traffic towards application.
         """
-        RuleGroupBlockAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_response=custom_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_response: Optional['outputs.RuleGroupCustomResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            _setter("custom_response", custom_response)
+            pulumi.set(__self__, "custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -894,17 +742,8 @@ class RuleGroupBody(dict):
         """
         The body of a web request. This immediately follows the request headers.
         """
-        RuleGroupBody._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            _setter("oversize_handling", oversize_handling)
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -951,30 +790,13 @@ class RuleGroupByteMatchStatement(dict):
         """
         Byte Match statement.
         """
-        RuleGroupByteMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            positional_constraint=positional_constraint,
-            text_transformations=text_transformations,
-            search_string=search_string,
-            search_string_base64=search_string_base64,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             positional_constraint: 'RuleGroupPositionalConstraint',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             search_string: Optional[str] = None,
-             search_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("positional_constraint", positional_constraint)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "positional_constraint", positional_constraint)
+        pulumi.set(__self__, "text_transformations", text_transformations)
         if search_string is not None:
-            _setter("search_string", search_string)
+            pulumi.set(__self__, "search_string", search_string)
         if search_string_base64 is not None:
-            _setter("search_string_base64", search_string_base64)
+            pulumi.set(__self__, "search_string_base64", search_string_base64)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -1029,17 +851,8 @@ class RuleGroupCaptchaAction(dict):
         """
         Checks valid token exists with request.
         """
-        RuleGroupCaptchaAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1068,17 +881,8 @@ class RuleGroupCaptchaConfig(dict):
 
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None):
-        RuleGroupCaptchaConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            immunity_time_property=immunity_time_property,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            _setter("immunity_time_property", immunity_time_property)
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -1113,17 +917,8 @@ class RuleGroupChallengeAction(dict):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
         """
-        RuleGroupChallengeAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1152,17 +947,8 @@ class RuleGroupChallengeConfig(dict):
 
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None):
-        RuleGroupChallengeConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            immunity_time_property=immunity_time_property,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             immunity_time_property: Optional['outputs.RuleGroupImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            _setter("immunity_time_property", immunity_time_property)
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -1202,25 +988,12 @@ class RuleGroupCookieMatchPattern(dict):
         The pattern to look for in the request cookies.
         :param Any all: Inspect all parts of the web request cookies.
         """
-        RuleGroupCookieMatchPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            excluded_cookies=excluded_cookies,
-            included_cookies=included_cookies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             excluded_cookies: Optional[Sequence[str]] = None,
-             included_cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
-            _setter("excluded_cookies", excluded_cookies)
+            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            _setter("included_cookies", included_cookies)
+            pulumi.set(__self__, "included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -1274,22 +1047,9 @@ class RuleGroupCookies(dict):
         """
         Includes headers of a web request.
         """
-        RuleGroupCookies._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.RuleGroupCookieMatchPattern',
-             match_scope: 'RuleGroupMapMatchScope',
-             oversize_handling: 'RuleGroupOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
-        _setter("oversize_handling", oversize_handling)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -1334,17 +1094,8 @@ class RuleGroupCountAction(dict):
         """
         Count traffic towards application.
         """
-        RuleGroupCountAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.RuleGroupCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -1363,19 +1114,8 @@ class RuleGroupCustomHttpHeader(dict):
         """
         HTTP header.
         """
-        RuleGroupCustomHttpHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1416,16 +1156,7 @@ class RuleGroupCustomRequestHandling(dict):
         Custom request handling.
         :param Sequence['RuleGroupCustomHttpHeader'] insert_headers: Collection of HTTP headers.
         """
-        RuleGroupCustomRequestHandling._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            insert_headers=insert_headers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             insert_headers: Sequence['outputs.RuleGroupCustomHttpHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("insert_headers", insert_headers)
+        pulumi.set(__self__, "insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -1471,24 +1202,11 @@ class RuleGroupCustomResponse(dict):
         :param str custom_response_body_key: Custom response body key.
         :param Sequence['RuleGroupCustomHttpHeader'] response_headers: Collection of HTTP headers.
         """
-        RuleGroupCustomResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            response_code=response_code,
-            custom_response_body_key=custom_response_body_key,
-            response_headers=response_headers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             response_code: int,
-             custom_response_body_key: Optional[str] = None,
-             response_headers: Optional[Sequence['outputs.RuleGroupCustomHttpHeader']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("response_code", response_code)
+        pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
-            _setter("custom_response_body_key", custom_response_body_key)
+            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            _setter("response_headers", response_headers)
+            pulumi.set(__self__, "response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -1521,11 +1239,6 @@ class RuleGroupCustomResponseBodies(dict):
         """
         Custom response key and body map.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -1580,53 +1293,26 @@ class RuleGroupFieldToMatch(dict):
         :param 'RuleGroupFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
-        RuleGroupFieldToMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all_query_arguments=all_query_arguments,
-            body=body,
-            cookies=cookies,
-            headers=headers,
-            json_body=json_body,
-            method=method,
-            query_string=query_string,
-            single_header=single_header,
-            single_query_argument=single_query_argument,
-            uri_path=uri_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all_query_arguments: Optional[Any] = None,
-             body: Optional['outputs.RuleGroupBody'] = None,
-             cookies: Optional['outputs.RuleGroupCookies'] = None,
-             headers: Optional['outputs.RuleGroupHeaders'] = None,
-             json_body: Optional['outputs.RuleGroupJsonBody'] = None,
-             method: Optional[Any] = None,
-             query_string: Optional[Any] = None,
-             single_header: Optional['outputs.RuleGroupFieldToMatchSingleHeaderProperties'] = None,
-             single_query_argument: Optional['outputs.RuleGroupFieldToMatchSingleQueryArgumentProperties'] = None,
-             uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            _setter("all_query_arguments", all_query_arguments)
+            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if cookies is not None:
-            _setter("cookies", cookies)
+            pulumi.set(__self__, "cookies", cookies)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if json_body is not None:
-            _setter("json_body", json_body)
+            pulumi.set(__self__, "json_body", json_body)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if single_header is not None:
-            _setter("single_header", single_header)
+            pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
-            _setter("single_query_argument", single_query_argument)
+            pulumi.set(__self__, "single_query_argument", single_query_argument)
         if uri_path is not None:
-            _setter("uri_path", uri_path)
+            pulumi.set(__self__, "uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -1698,16 +1384,7 @@ class RuleGroupFieldToMatch(dict):
 class RuleGroupFieldToMatchSingleHeaderProperties(dict):
     def __init__(__self__, *,
                  name: str):
-        RuleGroupFieldToMatchSingleHeaderProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1725,16 +1402,7 @@ class RuleGroupFieldToMatchSingleQueryArgumentProperties(dict):
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
-        RuleGroupFieldToMatchSingleQueryArgumentProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1766,19 +1434,8 @@ class RuleGroupForwardedIpConfiguration(dict):
     def __init__(__self__, *,
                  fallback_behavior: 'RuleGroupForwardedIpConfigurationFallbackBehavior',
                  header_name: str):
-        RuleGroupForwardedIpConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fallback_behavior=fallback_behavior,
-            header_name=header_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'RuleGroupForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fallback_behavior", fallback_behavior)
-        _setter("header_name", header_name)
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -1815,21 +1472,10 @@ class RuleGroupGeoMatchStatement(dict):
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None):
-        RuleGroupGeoMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            country_codes=country_codes,
-            forwarded_ip_config=forwarded_ip_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             country_codes: Optional[Sequence[str]] = None,
-             forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if country_codes is not None:
-            _setter("country_codes", country_codes)
+            pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
-            _setter("forwarded_ip_config", forwarded_ip_config)
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -1874,25 +1520,12 @@ class RuleGroupHeaderMatchPattern(dict):
         The pattern to look for in the request headers.
         :param Any all: Inspect all parts of the web request headers.
         """
-        RuleGroupHeaderMatchPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            excluded_headers=excluded_headers,
-            included_headers=included_headers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             excluded_headers: Optional[Sequence[str]] = None,
-             included_headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if excluded_headers is not None:
-            _setter("excluded_headers", excluded_headers)
+            pulumi.set(__self__, "excluded_headers", excluded_headers)
         if included_headers is not None:
-            _setter("included_headers", included_headers)
+            pulumi.set(__self__, "included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -1946,22 +1579,9 @@ class RuleGroupHeaders(dict):
         """
         Includes headers of a web request.
         """
-        RuleGroupHeaders._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.RuleGroupHeaderMatchPattern',
-             match_scope: 'RuleGroupMapMatchScope',
-             oversize_handling: 'RuleGroupOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
-        _setter("oversize_handling", oversize_handling)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -2000,16 +1620,7 @@ class RuleGroupImmunityTimeProperty(dict):
 
     def __init__(__self__, *,
                  immunity_time: int):
-        RuleGroupImmunityTimeProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            immunity_time=immunity_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             immunity_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("immunity_time", immunity_time)
+        pulumi.set(__self__, "immunity_time", immunity_time)
 
     @property
     @pulumi.getter(name="immunityTime")
@@ -2042,22 +1653,9 @@ class RuleGroupIpSetForwardedIpConfiguration(dict):
                  fallback_behavior: 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
                  header_name: str,
                  position: 'RuleGroupIpSetForwardedIpConfigurationPosition'):
-        RuleGroupIpSetForwardedIpConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fallback_behavior=fallback_behavior,
-            header_name=header_name,
-            position=position,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'RuleGroupIpSetForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             position: 'RuleGroupIpSetForwardedIpConfigurationPosition',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fallback_behavior", fallback_behavior)
-        _setter("header_name", header_name)
-        _setter("position", position)
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -2097,20 +1695,9 @@ class RuleGroupIpSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: str,
                  ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIpSetForwardedIpConfiguration'] = None):
-        RuleGroupIpSetReferenceStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             ip_set_forwarded_ip_config: Optional['outputs.RuleGroupIpSetForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -2159,27 +1746,12 @@ class RuleGroupJsonBody(dict):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
-        RuleGroupJsonBody._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            invalid_fallback_behavior=invalid_fallback_behavior,
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.RuleGroupJsonMatchPattern',
-             match_scope: 'RuleGroupJsonMatchScope',
-             invalid_fallback_behavior: Optional['RuleGroupBodyParsingFallbackBehavior'] = None,
-             oversize_handling: Optional['RuleGroupOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
+            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            _setter("oversize_handling", oversize_handling)
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -2231,21 +1803,10 @@ class RuleGroupJsonMatchPattern(dict):
         The pattern to look for in the JSON body.
         :param Any all: Inspect all parts of the web request's JSON body.
         """
-        RuleGroupJsonMatchPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            included_paths=included_paths,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if included_paths is not None:
-            _setter("included_paths", included_paths)
+            pulumi.set(__self__, "included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -2265,16 +1826,7 @@ class RuleGroupJsonMatchPattern(dict):
 class RuleGroupLabel(dict):
     def __init__(__self__, *,
                  name: str):
-        RuleGroupLabel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2287,19 +1839,8 @@ class RuleGroupLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: 'RuleGroupLabelMatchScope'):
-        RuleGroupLabelMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             scope: 'RuleGroupLabelMatchScope',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("scope", scope)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter
@@ -2316,17 +1857,8 @@ class RuleGroupLabelMatchStatement(dict):
 class RuleGroupLabelSummary(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
-        RuleGroupLabelSummary._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2338,16 +1870,7 @@ class RuleGroupLabelSummary(dict):
 class RuleGroupNotStatement(dict):
     def __init__(__self__, *,
                  statement: 'outputs.RuleGroupStatement'):
-        RuleGroupNotStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statement=statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statement: 'outputs.RuleGroupStatement',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statement", statement)
+        pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter
@@ -2359,16 +1882,7 @@ class RuleGroupNotStatement(dict):
 class RuleGroupOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupStatement']):
-        RuleGroupOrStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statements=statements,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.RuleGroupStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
@@ -2410,31 +1924,14 @@ class RuleGroupRateBasedStatement(dict):
         """
         :param Sequence['RuleGroupRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
         """
-        RuleGroupRateBasedStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aggregate_key_type=aggregate_key_type,
-            limit=limit,
-            custom_keys=custom_keys,
-            forwarded_ip_config=forwarded_ip_config,
-            scope_down_statement=scope_down_statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aggregate_key_type: 'RuleGroupRateBasedStatementAggregateKeyType',
-             limit: int,
-             custom_keys: Optional[Sequence['outputs.RuleGroupRateBasedStatementCustomKey']] = None,
-             forwarded_ip_config: Optional['outputs.RuleGroupForwardedIpConfiguration'] = None,
-             scope_down_statement: Optional['outputs.RuleGroupStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aggregate_key_type", aggregate_key_type)
-        _setter("limit", limit)
+        pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
+        pulumi.set(__self__, "limit", limit)
         if custom_keys is not None:
-            _setter("custom_keys", custom_keys)
+            pulumi.set(__self__, "custom_keys", custom_keys)
         if forwarded_ip_config is not None:
-            _setter("forwarded_ip_config", forwarded_ip_config)
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
-            _setter("scope_down_statement", scope_down_statement)
+            pulumi.set(__self__, "scope_down_statement", scope_down_statement)
 
     @property
     @pulumi.getter(name="aggregateKeyType")
@@ -2510,49 +2007,24 @@ class RuleGroupRateBasedStatementCustomKey(dict):
         """
         Specifies a single custom aggregate key for a rate-base rule.
         """
-        RuleGroupRateBasedStatementCustomKey._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cookie=cookie,
-            forwarded_ip=forwarded_ip,
-            header=header,
-            http_method=http_method,
-            ip=ip,
-            label_namespace=label_namespace,
-            query_argument=query_argument,
-            query_string=query_string,
-            uri_path=uri_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cookie: Optional['outputs.RuleGroupRateLimitCookie'] = None,
-             forwarded_ip: Optional['outputs.RuleGroupRateLimitForwardedIp'] = None,
-             header: Optional['outputs.RuleGroupRateLimitHeader'] = None,
-             http_method: Optional['outputs.RuleGroupRateLimitHttpMethod'] = None,
-             ip: Optional['outputs.RuleGroupRateLimitIp'] = None,
-             label_namespace: Optional['outputs.RuleGroupRateLimitLabelNamespace'] = None,
-             query_argument: Optional['outputs.RuleGroupRateLimitQueryArgument'] = None,
-             query_string: Optional['outputs.RuleGroupRateLimitQueryString'] = None,
-             uri_path: Optional['outputs.RuleGroupRateLimitUriPath'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cookie is not None:
-            _setter("cookie", cookie)
+            pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
-            _setter("forwarded_ip", forwarded_ip)
+            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
         if header is not None:
-            _setter("header", header)
+            pulumi.set(__self__, "header", header)
         if http_method is not None:
-            _setter("http_method", http_method)
+            pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if label_namespace is not None:
-            _setter("label_namespace", label_namespace)
+            pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
-            _setter("query_argument", query_argument)
+            pulumi.set(__self__, "query_argument", query_argument)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
-            _setter("uri_path", uri_path)
+            pulumi.set(__self__, "uri_path", uri_path)
 
     @property
     @pulumi.getter
@@ -2629,19 +2101,8 @@ class RuleGroupRateLimitCookie(dict):
         Specifies a cookie as an aggregate key for a rate-based rule.
         :param str name: The name of the cookie to use.
         """
-        RuleGroupRateLimitCookie._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -2666,11 +2127,6 @@ class RuleGroupRateLimitForwardedIp(dict):
         """
         Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2703,19 +2159,8 @@ class RuleGroupRateLimitHeader(dict):
         Specifies a header as an aggregate key for a rate-based rule.
         :param str name: The name of the header to use.
         """
-        RuleGroupRateLimitHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -2741,11 +2186,6 @@ class RuleGroupRateLimitHttpMethod(dict):
         Specifies the request's HTTP method as an aggregate key for a rate-based rule.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -2757,11 +2197,6 @@ class RuleGroupRateLimitIp(dict):
         """
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2776,16 +2211,7 @@ class RuleGroupRateLimitLabelNamespace(dict):
         Specifies a label namespace to use as an aggregate key for a rate-based rule.
         :param str namespace: The namespace to use for aggregation.
         """
-        RuleGroupRateLimitLabelNamespace._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace=namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("namespace", namespace)
+        pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
@@ -2825,19 +2251,8 @@ class RuleGroupRateLimitQueryArgument(dict):
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
         :param str name: The name of the query argument to use.
         """
-        RuleGroupRateLimitQueryArgument._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -2880,16 +2295,7 @@ class RuleGroupRateLimitQueryString(dict):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
         """
-        RuleGroupRateLimitQueryString._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -2924,16 +2330,7 @@ class RuleGroupRateLimitUriPath(dict):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
         """
-        RuleGroupRateLimitUriPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -2968,22 +2365,9 @@ class RuleGroupRegexMatchStatement(dict):
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  regex_string: str,
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
-        RuleGroupRegexMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            regex_string=regex_string,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             regex_string: str,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("regex_string", regex_string)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "regex_string", regex_string)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -3026,22 +2410,9 @@ class RuleGroupRegexPatternSetReferenceStatement(dict):
                  arn: str,
                  field_to_match: 'outputs.RuleGroupFieldToMatch',
                  text_transformations: Sequence['outputs.RuleGroupTextTransformation']):
-        RuleGroupRegexPatternSetReferenceStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            field_to_match=field_to_match,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
-        _setter("field_to_match", field_to_match)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -3100,41 +2471,18 @@ class RuleGroupRule(dict):
         Rule of RuleGroup that contains condition and action.
         :param Sequence['RuleGroupLabel'] rule_labels: Collection of Rule Labels.
         """
-        RuleGroupRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            priority=priority,
-            statement=statement,
-            visibility_config=visibility_config,
-            action=action,
-            captcha_config=captcha_config,
-            challenge_config=challenge_config,
-            rule_labels=rule_labels,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             priority: int,
-             statement: 'outputs.RuleGroupStatement',
-             visibility_config: 'outputs.RuleGroupVisibilityConfig',
-             action: Optional['outputs.RuleGroupRuleAction'] = None,
-             captcha_config: Optional['outputs.RuleGroupCaptchaConfig'] = None,
-             challenge_config: Optional['outputs.RuleGroupChallengeConfig'] = None,
-             rule_labels: Optional[Sequence['outputs.RuleGroupLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("priority", priority)
-        _setter("statement", statement)
-        _setter("visibility_config", visibility_config)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "visibility_config", visibility_config)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if captcha_config is not None:
-            _setter("captcha_config", captcha_config)
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if challenge_config is not None:
-            _setter("challenge_config", challenge_config)
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if rule_labels is not None:
-            _setter("rule_labels", rule_labels)
+            pulumi.set(__self__, "rule_labels", rule_labels)
 
     @property
     @pulumi.getter
@@ -3194,33 +2542,16 @@ class RuleGroupRuleAction(dict):
         """
         Action taken when Rule matches its condition.
         """
-        RuleGroupRuleAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow=allow,
-            block=block,
-            captcha=captcha,
-            challenge=challenge,
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow: Optional['outputs.RuleGroupAllowAction'] = None,
-             block: Optional['outputs.RuleGroupBlockAction'] = None,
-             captcha: Optional['outputs.RuleGroupCaptchaAction'] = None,
-             challenge: Optional['outputs.RuleGroupChallengeAction'] = None,
-             count: Optional['outputs.RuleGroupCountAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            _setter("allow", allow)
+            pulumi.set(__self__, "allow", allow)
         if block is not None:
-            _setter("block", block)
+            pulumi.set(__self__, "block", block)
         if captcha is not None:
-            _setter("captcha", captcha)
+            pulumi.set(__self__, "captcha", captcha)
         if challenge is not None:
-            _setter("challenge", challenge)
+            pulumi.set(__self__, "challenge", challenge)
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -3282,25 +2613,10 @@ class RuleGroupSizeConstraintStatement(dict):
         """
         Size Constraint statement.
         """
-        RuleGroupSizeConstraintStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            field_to_match=field_to_match,
-            size=size,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: 'RuleGroupSizeConstraintStatementComparisonOperator',
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             size: float,
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("field_to_match", field_to_match)
-        _setter("size", size)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -3356,23 +2672,10 @@ class RuleGroupSqliMatchStatement(dict):
         """
         Sqli Match Statement.
         """
-        RuleGroupSqliMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            text_transformations=text_transformations,
-            sensitivity_level=sensitivity_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             sensitivity_level: Optional['RuleGroupSensitivityLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "text_transformations", text_transformations)
         if sensitivity_level is not None:
-            _setter("sensitivity_level", sensitivity_level)
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -3453,65 +2756,32 @@ class RuleGroupStatement(dict):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         """
-        RuleGroupStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            and_statement=and_statement,
-            byte_match_statement=byte_match_statement,
-            geo_match_statement=geo_match_statement,
-            ip_set_reference_statement=ip_set_reference_statement,
-            label_match_statement=label_match_statement,
-            not_statement=not_statement,
-            or_statement=or_statement,
-            rate_based_statement=rate_based_statement,
-            regex_match_statement=regex_match_statement,
-            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
-            size_constraint_statement=size_constraint_statement,
-            sqli_match_statement=sqli_match_statement,
-            xss_match_statement=xss_match_statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             and_statement: Optional['outputs.RuleGroupAndStatement'] = None,
-             byte_match_statement: Optional['outputs.RuleGroupByteMatchStatement'] = None,
-             geo_match_statement: Optional['outputs.RuleGroupGeoMatchStatement'] = None,
-             ip_set_reference_statement: Optional['outputs.RuleGroupIpSetReferenceStatement'] = None,
-             label_match_statement: Optional['outputs.RuleGroupLabelMatchStatement'] = None,
-             not_statement: Optional['outputs.RuleGroupNotStatement'] = None,
-             or_statement: Optional['outputs.RuleGroupOrStatement'] = None,
-             rate_based_statement: Optional['outputs.RuleGroupRateBasedStatement'] = None,
-             regex_match_statement: Optional['outputs.RuleGroupRegexMatchStatement'] = None,
-             regex_pattern_set_reference_statement: Optional['outputs.RuleGroupRegexPatternSetReferenceStatement'] = None,
-             size_constraint_statement: Optional['outputs.RuleGroupSizeConstraintStatement'] = None,
-             sqli_match_statement: Optional['outputs.RuleGroupSqliMatchStatement'] = None,
-             xss_match_statement: Optional['outputs.RuleGroupXssMatchStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            _setter("and_statement", and_statement)
+            pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
-            _setter("byte_match_statement", byte_match_statement)
+            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            _setter("geo_match_statement", geo_match_statement)
+            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            _setter("ip_set_reference_statement", ip_set_reference_statement)
+            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            _setter("label_match_statement", label_match_statement)
+            pulumi.set(__self__, "label_match_statement", label_match_statement)
         if not_statement is not None:
-            _setter("not_statement", not_statement)
+            pulumi.set(__self__, "not_statement", not_statement)
         if or_statement is not None:
-            _setter("or_statement", or_statement)
+            pulumi.set(__self__, "or_statement", or_statement)
         if rate_based_statement is not None:
-            _setter("rate_based_statement", rate_based_statement)
+            pulumi.set(__self__, "rate_based_statement", rate_based_statement)
         if regex_match_statement is not None:
-            _setter("regex_match_statement", regex_match_statement)
+            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if size_constraint_statement is not None:
-            _setter("size_constraint_statement", size_constraint_statement)
+            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            _setter("sqli_match_statement", sqli_match_statement)
+            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            _setter("xss_match_statement", xss_match_statement)
+            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -3584,21 +2854,10 @@ class RuleGroupTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        RuleGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3622,19 +2881,8 @@ class RuleGroupTextTransformation(dict):
         """
         Text Transformation on the Search String before match.
         """
-        RuleGroupTextTransformation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            priority=priority,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             priority: int,
-             type: 'RuleGroupTextTransformationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("priority", priority)
-        _setter("type", type)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -3680,22 +2928,9 @@ class RuleGroupVisibilityConfig(dict):
         """
         Visibility Metric of the RuleGroup.
         """
-        RuleGroupVisibilityConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_metrics_enabled=cloud_watch_metrics_enabled,
-            metric_name=metric_name,
-            sampled_requests_enabled=sampled_requests_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_metrics_enabled: bool,
-             metric_name: str,
-             sampled_requests_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
-        _setter("metric_name", metric_name)
-        _setter("sampled_requests_enabled", sampled_requests_enabled)
+        pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "sampled_requests_enabled", sampled_requests_enabled)
 
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
@@ -3743,19 +2978,8 @@ class RuleGroupXssMatchStatement(dict):
         """
         Xss Match Statement.
         """
-        RuleGroupXssMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.RuleGroupFieldToMatch',
-             text_transformations: Sequence['outputs.RuleGroupTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -3795,17 +3019,8 @@ class WebAclAllowAction(dict):
         """
         Allow traffic towards application.
         """
-        WebAclAllowAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -3817,16 +3032,7 @@ class WebAclAllowAction(dict):
 class WebAclAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclStatement']):
-        WebAclAndStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statements=statements,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.WebAclStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
@@ -3861,17 +3067,8 @@ class WebAclAssociationConfig(dict):
         """
         AssociationConfig for body inspection
         """
-        WebAclAssociationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            request_body=request_body,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             request_body: Optional['outputs.WebAclRequestBody'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if request_body is not None:
-            _setter("request_body", request_body)
+            pulumi.set(__self__, "request_body", request_body)
 
     @property
     @pulumi.getter(name="requestBody")
@@ -3918,30 +3115,13 @@ class WebAclAwsManagedRulesAcfpRuleSet(dict):
         """
         Configures how to use the Account creation fraud prevention managed rule group in the web ACL
         """
-        WebAclAwsManagedRulesAcfpRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            creation_path=creation_path,
-            registration_page_path=registration_page_path,
-            request_inspection=request_inspection,
-            enable_regex_in_path=enable_regex_in_path,
-            response_inspection=response_inspection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             creation_path: str,
-             registration_page_path: str,
-             request_inspection: 'outputs.WebAclRequestInspectionAcfp',
-             enable_regex_in_path: Optional[bool] = None,
-             response_inspection: Optional['outputs.WebAclResponseInspection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("creation_path", creation_path)
-        _setter("registration_page_path", registration_page_path)
-        _setter("request_inspection", request_inspection)
+        pulumi.set(__self__, "creation_path", creation_path)
+        pulumi.set(__self__, "registration_page_path", registration_page_path)
+        pulumi.set(__self__, "request_inspection", request_inspection)
         if enable_regex_in_path is not None:
-            _setter("enable_regex_in_path", enable_regex_in_path)
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
         if response_inspection is not None:
-            _setter("response_inspection", response_inspection)
+            pulumi.set(__self__, "response_inspection", response_inspection)
 
     @property
     @pulumi.getter(name="creationPath")
@@ -4005,28 +3185,13 @@ class WebAclAwsManagedRulesAtpRuleSet(dict):
         """
         Configures how to use the Account Takeover Prevention managed rule group in the web ACL
         """
-        WebAclAwsManagedRulesAtpRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            login_path=login_path,
-            enable_regex_in_path=enable_regex_in_path,
-            request_inspection=request_inspection,
-            response_inspection=response_inspection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             login_path: str,
-             enable_regex_in_path: Optional[bool] = None,
-             request_inspection: Optional['outputs.WebAclRequestInspection'] = None,
-             response_inspection: Optional['outputs.WebAclResponseInspection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("login_path", login_path)
+        pulumi.set(__self__, "login_path", login_path)
         if enable_regex_in_path is not None:
-            _setter("enable_regex_in_path", enable_regex_in_path)
+            pulumi.set(__self__, "enable_regex_in_path", enable_regex_in_path)
         if request_inspection is not None:
-            _setter("request_inspection", request_inspection)
+            pulumi.set(__self__, "request_inspection", request_inspection)
         if response_inspection is not None:
-            _setter("response_inspection", response_inspection)
+            pulumi.set(__self__, "response_inspection", response_inspection)
 
     @property
     @pulumi.getter(name="loginPath")
@@ -4079,20 +3244,9 @@ class WebAclAwsManagedRulesBotControlRuleSet(dict):
         """
         Configures how to use the Bot Control managed rule group in the web ACL
         """
-        WebAclAwsManagedRulesBotControlRuleSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inspection_level=inspection_level,
-            enable_machine_learning=enable_machine_learning,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inspection_level: 'WebAclAwsManagedRulesBotControlRuleSetInspectionLevel',
-             enable_machine_learning: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("inspection_level", inspection_level)
+        pulumi.set(__self__, "inspection_level", inspection_level)
         if enable_machine_learning is not None:
-            _setter("enable_machine_learning", enable_machine_learning)
+            pulumi.set(__self__, "enable_machine_learning", enable_machine_learning)
 
     @property
     @pulumi.getter(name="inspectionLevel")
@@ -4132,17 +3286,8 @@ class WebAclBlockAction(dict):
         """
         Block traffic towards application.
         """
-        WebAclBlockAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_response=custom_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_response: Optional['outputs.WebAclCustomResponse'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_response is not None:
-            _setter("custom_response", custom_response)
+            pulumi.set(__self__, "custom_response", custom_response)
 
     @property
     @pulumi.getter(name="customResponse")
@@ -4177,17 +3322,8 @@ class WebAclBody(dict):
         """
         The body of a web request. This immediately follows the request headers.
         """
-        WebAclBody._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             oversize_handling: Optional['WebAclOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if oversize_handling is not None:
-            _setter("oversize_handling", oversize_handling)
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="oversizeHandling")
@@ -4234,30 +3370,13 @@ class WebAclByteMatchStatement(dict):
         """
         Byte Match statement.
         """
-        WebAclByteMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            positional_constraint=positional_constraint,
-            text_transformations=text_transformations,
-            search_string=search_string,
-            search_string_base64=search_string_base64,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             positional_constraint: 'WebAclPositionalConstraint',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             search_string: Optional[str] = None,
-             search_string_base64: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("positional_constraint", positional_constraint)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "positional_constraint", positional_constraint)
+        pulumi.set(__self__, "text_transformations", text_transformations)
         if search_string is not None:
-            _setter("search_string", search_string)
+            pulumi.set(__self__, "search_string", search_string)
         if search_string_base64 is not None:
-            _setter("search_string_base64", search_string_base64)
+            pulumi.set(__self__, "search_string_base64", search_string_base64)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -4312,17 +3431,8 @@ class WebAclCaptchaAction(dict):
         """
         Checks valid token exists with request.
         """
-        WebAclCaptchaAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -4351,17 +3461,8 @@ class WebAclCaptchaConfig(dict):
 
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None):
-        WebAclCaptchaConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            immunity_time_property=immunity_time_property,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            _setter("immunity_time_property", immunity_time_property)
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -4396,17 +3497,8 @@ class WebAclChallengeAction(dict):
         """
         Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
         """
-        WebAclChallengeAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -4435,17 +3527,8 @@ class WebAclChallengeConfig(dict):
 
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None):
-        WebAclChallengeConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            immunity_time_property=immunity_time_property,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             immunity_time_property: Optional['outputs.WebAclImmunityTimeProperty'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if immunity_time_property is not None:
-            _setter("immunity_time_property", immunity_time_property)
+            pulumi.set(__self__, "immunity_time_property", immunity_time_property)
 
     @property
     @pulumi.getter(name="immunityTimeProperty")
@@ -4485,25 +3568,12 @@ class WebAclCookieMatchPattern(dict):
         The pattern to look for in the request cookies.
         :param Any all: Inspect all parts of the web request cookies.
         """
-        WebAclCookieMatchPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            excluded_cookies=excluded_cookies,
-            included_cookies=included_cookies,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             excluded_cookies: Optional[Sequence[str]] = None,
-             included_cookies: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if excluded_cookies is not None:
-            _setter("excluded_cookies", excluded_cookies)
+            pulumi.set(__self__, "excluded_cookies", excluded_cookies)
         if included_cookies is not None:
-            _setter("included_cookies", included_cookies)
+            pulumi.set(__self__, "included_cookies", included_cookies)
 
     @property
     @pulumi.getter
@@ -4557,22 +3627,9 @@ class WebAclCookies(dict):
         """
         Includes headers of a web request.
         """
-        WebAclCookies._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.WebAclCookieMatchPattern',
-             match_scope: 'WebAclMapMatchScope',
-             oversize_handling: 'WebAclOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
-        _setter("oversize_handling", oversize_handling)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -4617,17 +3674,8 @@ class WebAclCountAction(dict):
         """
         Allow traffic towards application.
         """
-        WebAclCountAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_request_handling=custom_request_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_request_handling: Optional['outputs.WebAclCustomRequestHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_request_handling is not None:
-            _setter("custom_request_handling", custom_request_handling)
+            pulumi.set(__self__, "custom_request_handling", custom_request_handling)
 
     @property
     @pulumi.getter(name="customRequestHandling")
@@ -4646,19 +3694,8 @@ class WebAclCustomHttpHeader(dict):
         """
         HTTP header.
         """
-        WebAclCustomHttpHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4699,16 +3736,7 @@ class WebAclCustomRequestHandling(dict):
         Custom request handling.
         :param Sequence['WebAclCustomHttpHeader'] insert_headers: Collection of HTTP headers.
         """
-        WebAclCustomRequestHandling._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            insert_headers=insert_headers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             insert_headers: Sequence['outputs.WebAclCustomHttpHeader'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("insert_headers", insert_headers)
+        pulumi.set(__self__, "insert_headers", insert_headers)
 
     @property
     @pulumi.getter(name="insertHeaders")
@@ -4754,24 +3782,11 @@ class WebAclCustomResponse(dict):
         :param str custom_response_body_key: Custom response body key.
         :param Sequence['WebAclCustomHttpHeader'] response_headers: Collection of HTTP headers.
         """
-        WebAclCustomResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            response_code=response_code,
-            custom_response_body_key=custom_response_body_key,
-            response_headers=response_headers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             response_code: int,
-             custom_response_body_key: Optional[str] = None,
-             response_headers: Optional[Sequence['outputs.WebAclCustomHttpHeader']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("response_code", response_code)
+        pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
-            _setter("custom_response_body_key", custom_response_body_key)
+            pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
         if response_headers is not None:
-            _setter("response_headers", response_headers)
+            pulumi.set(__self__, "response_headers", response_headers)
 
     @property
     @pulumi.getter(name="responseCode")
@@ -4805,11 +3820,6 @@ class WebAclCustomResponseBodies(dict):
         Custom response key and body map.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -4823,21 +3833,10 @@ class WebAclDefaultAction(dict):
         """
         Default Action WebACL will take against ingress traffic when there is no matching Rule.
         """
-        WebAclDefaultAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow=allow,
-            block=block,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow: Optional['outputs.WebAclAllowAction'] = None,
-             block: Optional['outputs.WebAclBlockAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            _setter("allow", allow)
+            pulumi.set(__self__, "allow", allow)
         if block is not None:
-            _setter("block", block)
+            pulumi.set(__self__, "block", block)
 
     @property
     @pulumi.getter
@@ -4860,16 +3859,7 @@ class WebAclExcludedRule(dict):
         """
         Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
         """
-        WebAclExcludedRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -4881,16 +3871,7 @@ class WebAclExcludedRule(dict):
 class WebAclFieldIdentifier(dict):
     def __init__(__self__, *,
                  identifier: str):
-        WebAclFieldIdentifier._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identifier=identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identifier: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("identifier", identifier)
+        pulumi.set(__self__, "identifier", identifier)
 
     @property
     @pulumi.getter
@@ -4949,53 +3930,26 @@ class WebAclFieldToMatch(dict):
         :param 'WebAclFieldToMatchSingleQueryArgumentProperties' single_query_argument: One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         :param Any uri_path: The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         """
-        WebAclFieldToMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all_query_arguments=all_query_arguments,
-            body=body,
-            cookies=cookies,
-            headers=headers,
-            json_body=json_body,
-            method=method,
-            query_string=query_string,
-            single_header=single_header,
-            single_query_argument=single_query_argument,
-            uri_path=uri_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all_query_arguments: Optional[Any] = None,
-             body: Optional['outputs.WebAclBody'] = None,
-             cookies: Optional['outputs.WebAclCookies'] = None,
-             headers: Optional['outputs.WebAclHeaders'] = None,
-             json_body: Optional['outputs.WebAclJsonBody'] = None,
-             method: Optional[Any] = None,
-             query_string: Optional[Any] = None,
-             single_header: Optional['outputs.WebAclFieldToMatchSingleHeaderProperties'] = None,
-             single_query_argument: Optional['outputs.WebAclFieldToMatchSingleQueryArgumentProperties'] = None,
-             uri_path: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all_query_arguments is not None:
-            _setter("all_query_arguments", all_query_arguments)
+            pulumi.set(__self__, "all_query_arguments", all_query_arguments)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if cookies is not None:
-            _setter("cookies", cookies)
+            pulumi.set(__self__, "cookies", cookies)
         if headers is not None:
-            _setter("headers", headers)
+            pulumi.set(__self__, "headers", headers)
         if json_body is not None:
-            _setter("json_body", json_body)
+            pulumi.set(__self__, "json_body", json_body)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if single_header is not None:
-            _setter("single_header", single_header)
+            pulumi.set(__self__, "single_header", single_header)
         if single_query_argument is not None:
-            _setter("single_query_argument", single_query_argument)
+            pulumi.set(__self__, "single_query_argument", single_query_argument)
         if uri_path is not None:
-            _setter("uri_path", uri_path)
+            pulumi.set(__self__, "uri_path", uri_path)
 
     @property
     @pulumi.getter(name="allQueryArguments")
@@ -5067,16 +4021,7 @@ class WebAclFieldToMatch(dict):
 class WebAclFieldToMatchSingleHeaderProperties(dict):
     def __init__(__self__, *,
                  name: str):
-        WebAclFieldToMatchSingleHeaderProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -5094,16 +4039,7 @@ class WebAclFieldToMatchSingleQueryArgumentProperties(dict):
         """
         One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         """
-        WebAclFieldToMatchSingleQueryArgumentProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -5135,19 +4071,8 @@ class WebAclForwardedIpConfiguration(dict):
     def __init__(__self__, *,
                  fallback_behavior: 'WebAclForwardedIpConfigurationFallbackBehavior',
                  header_name: str):
-        WebAclForwardedIpConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fallback_behavior=fallback_behavior,
-            header_name=header_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'WebAclForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fallback_behavior", fallback_behavior)
-        _setter("header_name", header_name)
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -5184,21 +4109,10 @@ class WebAclGeoMatchStatement(dict):
     def __init__(__self__, *,
                  country_codes: Optional[Sequence[str]] = None,
                  forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None):
-        WebAclGeoMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            country_codes=country_codes,
-            forwarded_ip_config=forwarded_ip_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             country_codes: Optional[Sequence[str]] = None,
-             forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if country_codes is not None:
-            _setter("country_codes", country_codes)
+            pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
-            _setter("forwarded_ip_config", forwarded_ip_config)
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
 
     @property
     @pulumi.getter(name="countryCodes")
@@ -5243,25 +4157,12 @@ class WebAclHeaderMatchPattern(dict):
         The pattern to look for in the request headers.
         :param Any all: Inspect all parts of the web request headers.
         """
-        WebAclHeaderMatchPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            excluded_headers=excluded_headers,
-            included_headers=included_headers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             excluded_headers: Optional[Sequence[str]] = None,
-             included_headers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if excluded_headers is not None:
-            _setter("excluded_headers", excluded_headers)
+            pulumi.set(__self__, "excluded_headers", excluded_headers)
         if included_headers is not None:
-            _setter("included_headers", included_headers)
+            pulumi.set(__self__, "included_headers", included_headers)
 
     @property
     @pulumi.getter
@@ -5315,22 +4216,9 @@ class WebAclHeaders(dict):
         """
         Includes headers of a web request.
         """
-        WebAclHeaders._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.WebAclHeaderMatchPattern',
-             match_scope: 'WebAclMapMatchScope',
-             oversize_handling: 'WebAclOversizeHandling',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
-        _setter("oversize_handling", oversize_handling)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
+        pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -5369,16 +4257,7 @@ class WebAclImmunityTimeProperty(dict):
 
     def __init__(__self__, *,
                  immunity_time: int):
-        WebAclImmunityTimeProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            immunity_time=immunity_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             immunity_time: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("immunity_time", immunity_time)
+        pulumi.set(__self__, "immunity_time", immunity_time)
 
     @property
     @pulumi.getter(name="immunityTime")
@@ -5411,22 +4290,9 @@ class WebAclIpSetForwardedIpConfiguration(dict):
                  fallback_behavior: 'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
                  header_name: str,
                  position: 'WebAclIpSetForwardedIpConfigurationPosition'):
-        WebAclIpSetForwardedIpConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fallback_behavior=fallback_behavior,
-            header_name=header_name,
-            position=position,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fallback_behavior: 'WebAclIpSetForwardedIpConfigurationFallbackBehavior',
-             header_name: str,
-             position: 'WebAclIpSetForwardedIpConfigurationPosition',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fallback_behavior", fallback_behavior)
-        _setter("header_name", header_name)
-        _setter("position", position)
+        pulumi.set(__self__, "fallback_behavior", fallback_behavior)
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "position", position)
 
     @property
     @pulumi.getter(name="fallbackBehavior")
@@ -5466,20 +4332,9 @@ class WebAclIpSetReferenceStatement(dict):
     def __init__(__self__, *,
                  arn: str,
                  ip_set_forwarded_ip_config: Optional['outputs.WebAclIpSetForwardedIpConfiguration'] = None):
-        WebAclIpSetReferenceStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            ip_set_forwarded_ip_config=ip_set_forwarded_ip_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             ip_set_forwarded_ip_config: Optional['outputs.WebAclIpSetForwardedIpConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
-            _setter("ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
+            pulumi.set(__self__, "ip_set_forwarded_ip_config", ip_set_forwarded_ip_config)
 
     @property
     @pulumi.getter
@@ -5528,27 +4383,12 @@ class WebAclJsonBody(dict):
         """
         Inspect the request body as JSON. The request body immediately follows the request headers.
         """
-        WebAclJsonBody._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match_pattern=match_pattern,
-            match_scope=match_scope,
-            invalid_fallback_behavior=invalid_fallback_behavior,
-            oversize_handling=oversize_handling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match_pattern: 'outputs.WebAclJsonMatchPattern',
-             match_scope: 'WebAclJsonMatchScope',
-             invalid_fallback_behavior: Optional['WebAclBodyParsingFallbackBehavior'] = None,
-             oversize_handling: Optional['WebAclOversizeHandling'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match_pattern", match_pattern)
-        _setter("match_scope", match_scope)
+        pulumi.set(__self__, "match_pattern", match_pattern)
+        pulumi.set(__self__, "match_scope", match_scope)
         if invalid_fallback_behavior is not None:
-            _setter("invalid_fallback_behavior", invalid_fallback_behavior)
+            pulumi.set(__self__, "invalid_fallback_behavior", invalid_fallback_behavior)
         if oversize_handling is not None:
-            _setter("oversize_handling", oversize_handling)
+            pulumi.set(__self__, "oversize_handling", oversize_handling)
 
     @property
     @pulumi.getter(name="matchPattern")
@@ -5600,21 +4440,10 @@ class WebAclJsonMatchPattern(dict):
         The pattern to look for in the JSON body.
         :param Any all: Inspect all parts of the web request's JSON body.
         """
-        WebAclJsonMatchPattern._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            all=all,
-            included_paths=included_paths,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             all: Optional[Any] = None,
-             included_paths: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if included_paths is not None:
-            _setter("included_paths", included_paths)
+            pulumi.set(__self__, "included_paths", included_paths)
 
     @property
     @pulumi.getter
@@ -5634,16 +4463,7 @@ class WebAclJsonMatchPattern(dict):
 class WebAclLabel(dict):
     def __init__(__self__, *,
                  name: str):
-        WebAclLabel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -5656,19 +4476,8 @@ class WebAclLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: 'WebAclLabelMatchScope'):
-        WebAclLabelMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             scope: 'WebAclLabelMatchScope',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("scope", scope)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter
@@ -5726,41 +4535,20 @@ class WebAclManagedRuleGroupConfig(dict):
         """
         ManagedRuleGroupConfig.
         """
-        WebAclManagedRuleGroupConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_managed_rules_acfp_rule_set=aws_managed_rules_acfp_rule_set,
-            aws_managed_rules_atp_rule_set=aws_managed_rules_atp_rule_set,
-            aws_managed_rules_bot_control_rule_set=aws_managed_rules_bot_control_rule_set,
-            login_path=login_path,
-            password_field=password_field,
-            payload_type=payload_type,
-            username_field=username_field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_managed_rules_acfp_rule_set: Optional['outputs.WebAclAwsManagedRulesAcfpRuleSet'] = None,
-             aws_managed_rules_atp_rule_set: Optional['outputs.WebAclAwsManagedRulesAtpRuleSet'] = None,
-             aws_managed_rules_bot_control_rule_set: Optional['outputs.WebAclAwsManagedRulesBotControlRuleSet'] = None,
-             login_path: Optional[str] = None,
-             password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             payload_type: Optional['WebAclManagedRuleGroupConfigPayloadType'] = None,
-             username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_managed_rules_acfp_rule_set is not None:
-            _setter("aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
+            pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
-            _setter("aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
+            pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
         if aws_managed_rules_bot_control_rule_set is not None:
-            _setter("aws_managed_rules_bot_control_rule_set", aws_managed_rules_bot_control_rule_set)
+            pulumi.set(__self__, "aws_managed_rules_bot_control_rule_set", aws_managed_rules_bot_control_rule_set)
         if login_path is not None:
-            _setter("login_path", login_path)
+            pulumi.set(__self__, "login_path", login_path)
         if password_field is not None:
-            _setter("password_field", password_field)
+            pulumi.set(__self__, "password_field", password_field)
         if payload_type is not None:
-            _setter("payload_type", payload_type)
+            pulumi.set(__self__, "payload_type", payload_type)
         if username_field is not None:
-            _setter("username_field", username_field)
+            pulumi.set(__self__, "username_field", username_field)
 
     @property
     @pulumi.getter(name="awsManagedRulesAcfpRuleSet")
@@ -5837,39 +4625,18 @@ class WebAclManagedRuleGroupStatement(dict):
         :param Sequence['WebAclManagedRuleGroupConfig'] managed_rule_group_configs: Collection of ManagedRuleGroupConfig.
         :param Sequence['WebAclRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
         """
-        WebAclManagedRuleGroupStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            vendor_name=vendor_name,
-            excluded_rules=excluded_rules,
-            managed_rule_group_configs=managed_rule_group_configs,
-            rule_action_overrides=rule_action_overrides,
-            scope_down_statement=scope_down_statement,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             vendor_name: str,
-             excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
-             managed_rule_group_configs: Optional[Sequence['outputs.WebAclManagedRuleGroupConfig']] = None,
-             rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
-             scope_down_statement: Optional['outputs.WebAclStatement'] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("vendor_name", vendor_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vendor_name", vendor_name)
         if excluded_rules is not None:
-            _setter("excluded_rules", excluded_rules)
+            pulumi.set(__self__, "excluded_rules", excluded_rules)
         if managed_rule_group_configs is not None:
-            _setter("managed_rule_group_configs", managed_rule_group_configs)
+            pulumi.set(__self__, "managed_rule_group_configs", managed_rule_group_configs)
         if rule_action_overrides is not None:
-            _setter("rule_action_overrides", rule_action_overrides)
+            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
         if scope_down_statement is not None:
-            _setter("scope_down_statement", scope_down_statement)
+            pulumi.set(__self__, "scope_down_statement", scope_down_statement)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -5917,16 +4684,7 @@ class WebAclManagedRuleGroupStatement(dict):
 class WebAclNotStatement(dict):
     def __init__(__self__, *,
                  statement: 'outputs.WebAclStatement'):
-        WebAclNotStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statement=statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statement: 'outputs.WebAclStatement',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statement", statement)
+        pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter
@@ -5938,16 +4696,7 @@ class WebAclNotStatement(dict):
 class WebAclOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclStatement']):
-        WebAclOrStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statements=statements,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statements: Sequence['outputs.WebAclStatement'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statements", statements)
+        pulumi.set(__self__, "statements", statements)
 
     @property
     @pulumi.getter
@@ -5968,21 +4717,10 @@ class WebAclOverrideAction(dict):
         :param Any count: Count traffic towards application.
         :param Any none: Keep the RuleGroup or ManagedRuleGroup behavior as is.
         """
-        WebAclOverrideAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            none=none,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[Any] = None,
-             none: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if none is not None:
-            _setter("none", none)
+            pulumi.set(__self__, "none", none)
 
     @property
     @pulumi.getter
@@ -6035,31 +4773,14 @@ class WebAclRateBasedStatement(dict):
         """
         :param Sequence['WebAclRateBasedStatementCustomKey'] custom_keys: Specifies the aggregate keys to use in a rate-base rule.
         """
-        WebAclRateBasedStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aggregate_key_type=aggregate_key_type,
-            limit=limit,
-            custom_keys=custom_keys,
-            forwarded_ip_config=forwarded_ip_config,
-            scope_down_statement=scope_down_statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aggregate_key_type: 'WebAclRateBasedStatementAggregateKeyType',
-             limit: int,
-             custom_keys: Optional[Sequence['outputs.WebAclRateBasedStatementCustomKey']] = None,
-             forwarded_ip_config: Optional['outputs.WebAclForwardedIpConfiguration'] = None,
-             scope_down_statement: Optional['outputs.WebAclStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aggregate_key_type", aggregate_key_type)
-        _setter("limit", limit)
+        pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
+        pulumi.set(__self__, "limit", limit)
         if custom_keys is not None:
-            _setter("custom_keys", custom_keys)
+            pulumi.set(__self__, "custom_keys", custom_keys)
         if forwarded_ip_config is not None:
-            _setter("forwarded_ip_config", forwarded_ip_config)
+            pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
-            _setter("scope_down_statement", scope_down_statement)
+            pulumi.set(__self__, "scope_down_statement", scope_down_statement)
 
     @property
     @pulumi.getter(name="aggregateKeyType")
@@ -6135,49 +4856,24 @@ class WebAclRateBasedStatementCustomKey(dict):
         """
         Specifies a single custom aggregate key for a rate-base rule.
         """
-        WebAclRateBasedStatementCustomKey._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cookie=cookie,
-            forwarded_ip=forwarded_ip,
-            header=header,
-            http_method=http_method,
-            ip=ip,
-            label_namespace=label_namespace,
-            query_argument=query_argument,
-            query_string=query_string,
-            uri_path=uri_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cookie: Optional['outputs.WebAclRateLimitCookie'] = None,
-             forwarded_ip: Optional['outputs.WebAclRateLimitForwardedIp'] = None,
-             header: Optional['outputs.WebAclRateLimitHeader'] = None,
-             http_method: Optional['outputs.WebAclRateLimitHttpMethod'] = None,
-             ip: Optional['outputs.WebAclRateLimitIp'] = None,
-             label_namespace: Optional['outputs.WebAclRateLimitLabelNamespace'] = None,
-             query_argument: Optional['outputs.WebAclRateLimitQueryArgument'] = None,
-             query_string: Optional['outputs.WebAclRateLimitQueryString'] = None,
-             uri_path: Optional['outputs.WebAclRateLimitUriPath'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cookie is not None:
-            _setter("cookie", cookie)
+            pulumi.set(__self__, "cookie", cookie)
         if forwarded_ip is not None:
-            _setter("forwarded_ip", forwarded_ip)
+            pulumi.set(__self__, "forwarded_ip", forwarded_ip)
         if header is not None:
-            _setter("header", header)
+            pulumi.set(__self__, "header", header)
         if http_method is not None:
-            _setter("http_method", http_method)
+            pulumi.set(__self__, "http_method", http_method)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if label_namespace is not None:
-            _setter("label_namespace", label_namespace)
+            pulumi.set(__self__, "label_namespace", label_namespace)
         if query_argument is not None:
-            _setter("query_argument", query_argument)
+            pulumi.set(__self__, "query_argument", query_argument)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if uri_path is not None:
-            _setter("uri_path", uri_path)
+            pulumi.set(__self__, "uri_path", uri_path)
 
     @property
     @pulumi.getter
@@ -6254,19 +4950,8 @@ class WebAclRateLimitCookie(dict):
         Specifies a cookie as an aggregate key for a rate-based rule.
         :param str name: The name of the cookie to use.
         """
-        WebAclRateLimitCookie._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -6291,11 +4976,6 @@ class WebAclRateLimitForwardedIp(dict):
         """
         Specifies the first IP address in an HTTP header as an aggregate key for a rate-based rule.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6328,19 +5008,8 @@ class WebAclRateLimitHeader(dict):
         Specifies a header as an aggregate key for a rate-based rule.
         :param str name: The name of the header to use.
         """
-        WebAclRateLimitHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -6366,11 +5035,6 @@ class WebAclRateLimitHttpMethod(dict):
         Specifies the request's HTTP method as an aggregate key for a rate-based rule.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -6382,11 +5046,6 @@ class WebAclRateLimitIp(dict):
         """
         Specifies the IP address in the web request as an aggregate key for a rate-based rule.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6401,16 +5060,7 @@ class WebAclRateLimitLabelNamespace(dict):
         Specifies a label namespace to use as an aggregate key for a rate-based rule.
         :param str namespace: The namespace to use for aggregation.
         """
-        WebAclRateLimitLabelNamespace._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace=namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("namespace", namespace)
+        pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
@@ -6450,19 +5100,8 @@ class WebAclRateLimitQueryArgument(dict):
         Specifies a query argument in the request as an aggregate key for a rate-based rule.
         :param str name: The name of the query argument to use.
         """
-        WebAclRateLimitQueryArgument._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -6505,16 +5144,7 @@ class WebAclRateLimitQueryString(dict):
         """
         Specifies the request's query string as an aggregate key for a rate-based rule.
         """
-        WebAclRateLimitQueryString._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -6549,16 +5179,7 @@ class WebAclRateLimitUriPath(dict):
         """
         Specifies the request's URI Path as an aggregate key for a rate-based rule.
         """
-        WebAclRateLimitUriPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="textTransformations")
@@ -6593,22 +5214,9 @@ class WebAclRegexMatchStatement(dict):
                  field_to_match: 'outputs.WebAclFieldToMatch',
                  regex_string: str,
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
-        WebAclRegexMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            regex_string=regex_string,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             regex_string: str,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("regex_string", regex_string)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "regex_string", regex_string)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -6651,22 +5259,9 @@ class WebAclRegexPatternSetReferenceStatement(dict):
                  arn: str,
                  field_to_match: 'outputs.WebAclFieldToMatch',
                  text_transformations: Sequence['outputs.WebAclTextTransformation']):
-        WebAclRegexPatternSetReferenceStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            field_to_match=field_to_match,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
-        _setter("field_to_match", field_to_match)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter
@@ -6693,11 +5288,6 @@ class WebAclRequestBody(dict):
         """
         Map of AssociatedResourceType and RequestBodyAssociatedResourceTypeConfig
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -6734,22 +5324,9 @@ class WebAclRequestInspection(dict):
         """
         Configures the inspection of login requests
         """
-        WebAclRequestInspection._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password_field=password_field,
-            payload_type=payload_type,
-            username_field=username_field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password_field: 'outputs.WebAclFieldIdentifier',
-             payload_type: 'WebAclRequestInspectionPayloadType',
-             username_field: 'outputs.WebAclFieldIdentifier',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("password_field", password_field)
-        _setter("payload_type", payload_type)
-        _setter("username_field", username_field)
+        pulumi.set(__self__, "password_field", password_field)
+        pulumi.set(__self__, "payload_type", payload_type)
+        pulumi.set(__self__, "username_field", username_field)
 
     @property
     @pulumi.getter(name="passwordField")
@@ -6809,36 +5386,17 @@ class WebAclRequestInspectionAcfp(dict):
         """
         Configures the inspection of sign-up requests
         """
-        WebAclRequestInspectionAcfp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            payload_type=payload_type,
-            address_fields=address_fields,
-            email_field=email_field,
-            password_field=password_field,
-            phone_number_fields=phone_number_fields,
-            username_field=username_field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             payload_type: 'WebAclRequestInspectionAcfpPayloadType',
-             address_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
-             email_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             password_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             phone_number_fields: Optional[Sequence['outputs.WebAclFieldIdentifier']] = None,
-             username_field: Optional['outputs.WebAclFieldIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("payload_type", payload_type)
+        pulumi.set(__self__, "payload_type", payload_type)
         if address_fields is not None:
-            _setter("address_fields", address_fields)
+            pulumi.set(__self__, "address_fields", address_fields)
         if email_field is not None:
-            _setter("email_field", email_field)
+            pulumi.set(__self__, "email_field", email_field)
         if password_field is not None:
-            _setter("password_field", password_field)
+            pulumi.set(__self__, "password_field", password_field)
         if phone_number_fields is not None:
-            _setter("phone_number_fields", phone_number_fields)
+            pulumi.set(__self__, "phone_number_fields", phone_number_fields)
         if username_field is not None:
-            _setter("username_field", username_field)
+            pulumi.set(__self__, "username_field", username_field)
 
     @property
     @pulumi.getter(name="payloadType")
@@ -6903,29 +5461,14 @@ class WebAclResponseInspection(dict):
         """
         Configures the inspection of login responses
         """
-        WebAclResponseInspection._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            body_contains=body_contains,
-            header=header,
-            json=json,
-            status_code=status_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             body_contains: Optional['outputs.WebAclResponseInspectionBodyContains'] = None,
-             header: Optional['outputs.WebAclResponseInspectionHeader'] = None,
-             json: Optional['outputs.WebAclResponseInspectionJson'] = None,
-             status_code: Optional['outputs.WebAclResponseInspectionStatusCode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if body_contains is not None:
-            _setter("body_contains", body_contains)
+            pulumi.set(__self__, "body_contains", body_contains)
         if header is not None:
-            _setter("header", header)
+            pulumi.set(__self__, "header", header)
         if json is not None:
-            _setter("json", json)
+            pulumi.set(__self__, "json", json)
         if status_code is not None:
-            _setter("status_code", status_code)
+            pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="bodyContains")
@@ -6978,19 +5521,8 @@ class WebAclResponseInspectionBodyContains(dict):
         """
         Response body contents that indicate success or failure of a login request
         """
-        WebAclResponseInspectionBodyContains._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_strings=failure_strings,
-            success_strings=success_strings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_strings: Sequence[str],
-             success_strings: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("failure_strings", failure_strings)
-        _setter("success_strings", success_strings)
+        pulumi.set(__self__, "failure_strings", failure_strings)
+        pulumi.set(__self__, "success_strings", success_strings)
 
     @property
     @pulumi.getter(name="failureStrings")
@@ -7034,22 +5566,9 @@ class WebAclResponseInspectionHeader(dict):
         """
         Response headers that indicate success or failure of a login request
         """
-        WebAclResponseInspectionHeader._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_values=failure_values,
-            name=name,
-            success_values=success_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_values: Sequence[str],
-             name: str,
-             success_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("failure_values", failure_values)
-        _setter("name", name)
-        _setter("success_values", success_values)
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "success_values", success_values)
 
     @property
     @pulumi.getter(name="failureValues")
@@ -7098,22 +5617,9 @@ class WebAclResponseInspectionJson(dict):
         """
         Response JSON that indicate success or failure of a login request
         """
-        WebAclResponseInspectionJson._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_values=failure_values,
-            identifier=identifier,
-            success_values=success_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_values: Sequence[str],
-             identifier: str,
-             success_values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("failure_values", failure_values)
-        _setter("identifier", identifier)
-        _setter("success_values", success_values)
+        pulumi.set(__self__, "failure_values", failure_values)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "success_values", success_values)
 
     @property
     @pulumi.getter(name="failureValues")
@@ -7161,19 +5667,8 @@ class WebAclResponseInspectionStatusCode(dict):
         """
         Response status codes that indicate success or failure of a login request
         """
-        WebAclResponseInspectionStatusCode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_codes=failure_codes,
-            success_codes=success_codes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_codes: Sequence[int],
-             success_codes: Sequence[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("failure_codes", failure_codes)
-        _setter("success_codes", success_codes)
+        pulumi.set(__self__, "failure_codes", failure_codes)
+        pulumi.set(__self__, "success_codes", success_codes)
 
     @property
     @pulumi.getter(name="failureCodes")
@@ -7230,45 +5725,20 @@ class WebAclRule(dict):
         Rule of WebACL that contains condition and action.
         :param Sequence['WebAclLabel'] rule_labels: Collection of Rule Labels.
         """
-        WebAclRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            priority=priority,
-            statement=statement,
-            visibility_config=visibility_config,
-            action=action,
-            captcha_config=captcha_config,
-            challenge_config=challenge_config,
-            override_action=override_action,
-            rule_labels=rule_labels,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             priority: int,
-             statement: 'outputs.WebAclStatement',
-             visibility_config: 'outputs.WebAclVisibilityConfig',
-             action: Optional['outputs.WebAclRuleAction'] = None,
-             captcha_config: Optional['outputs.WebAclCaptchaConfig'] = None,
-             challenge_config: Optional['outputs.WebAclChallengeConfig'] = None,
-             override_action: Optional['outputs.WebAclOverrideAction'] = None,
-             rule_labels: Optional[Sequence['outputs.WebAclLabel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("priority", priority)
-        _setter("statement", statement)
-        _setter("visibility_config", visibility_config)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "visibility_config", visibility_config)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if captcha_config is not None:
-            _setter("captcha_config", captcha_config)
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if challenge_config is not None:
-            _setter("challenge_config", challenge_config)
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if override_action is not None:
-            _setter("override_action", override_action)
+            pulumi.set(__self__, "override_action", override_action)
         if rule_labels is not None:
-            _setter("rule_labels", rule_labels)
+            pulumi.set(__self__, "rule_labels", rule_labels)
 
     @property
     @pulumi.getter
@@ -7333,33 +5803,16 @@ class WebAclRuleAction(dict):
         """
         Action taken when Rule matches its condition.
         """
-        WebAclRuleAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow=allow,
-            block=block,
-            captcha=captcha,
-            challenge=challenge,
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow: Optional['outputs.WebAclAllowAction'] = None,
-             block: Optional['outputs.WebAclBlockAction'] = None,
-             captcha: Optional['outputs.WebAclCaptchaAction'] = None,
-             challenge: Optional['outputs.WebAclChallengeAction'] = None,
-             count: Optional['outputs.WebAclCountAction'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow is not None:
-            _setter("allow", allow)
+            pulumi.set(__self__, "allow", allow)
         if block is not None:
-            _setter("block", block)
+            pulumi.set(__self__, "block", block)
         if captcha is not None:
-            _setter("captcha", captcha)
+            pulumi.set(__self__, "captcha", captcha)
         if challenge is not None:
-            _setter("challenge", challenge)
+            pulumi.set(__self__, "challenge", challenge)
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -7415,19 +5868,8 @@ class WebAclRuleActionOverride(dict):
         """
         Action override for rules in the rule group.
         """
-        WebAclRuleActionOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_to_use=action_to_use,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_to_use: 'outputs.WebAclRuleAction',
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action_to_use", action_to_use)
-        _setter("name", name)
+        pulumi.set(__self__, "action_to_use", action_to_use)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="actionToUse")
@@ -7468,24 +5910,11 @@ class WebAclRuleGroupReferenceStatement(dict):
         """
         :param Sequence['WebAclRuleActionOverride'] rule_action_overrides: Action overrides for rules in the rule group.
         """
-        WebAclRuleGroupReferenceStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            excluded_rules=excluded_rules,
-            rule_action_overrides=rule_action_overrides,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             excluded_rules: Optional[Sequence['outputs.WebAclExcludedRule']] = None,
-             rule_action_overrides: Optional[Sequence['outputs.WebAclRuleActionOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
         if excluded_rules is not None:
-            _setter("excluded_rules", excluded_rules)
+            pulumi.set(__self__, "excluded_rules", excluded_rules)
         if rule_action_overrides is not None:
-            _setter("rule_action_overrides", rule_action_overrides)
+            pulumi.set(__self__, "rule_action_overrides", rule_action_overrides)
 
     @property
     @pulumi.getter
@@ -7540,25 +5969,10 @@ class WebAclSizeConstraintStatement(dict):
         """
         Size Constraint statement.
         """
-        WebAclSizeConstraintStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            field_to_match=field_to_match,
-            size=size,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: 'WebAclSizeConstraintStatementComparisonOperator',
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             size: float,
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("field_to_match", field_to_match)
-        _setter("size", size)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -7614,23 +6028,10 @@ class WebAclSqliMatchStatement(dict):
         """
         Sqli Match Statement.
         """
-        WebAclSqliMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            text_transformations=text_transformations,
-            sensitivity_level=sensitivity_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             sensitivity_level: Optional['WebAclSensitivityLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "text_transformations", text_transformations)
         if sensitivity_level is not None:
-            _setter("sensitivity_level", sensitivity_level)
+            pulumi.set(__self__, "sensitivity_level", sensitivity_level)
 
     @property
     @pulumi.getter(name="fieldToMatch")
@@ -7717,73 +6118,36 @@ class WebAclStatement(dict):
         """
         First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
         """
-        WebAclStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            and_statement=and_statement,
-            byte_match_statement=byte_match_statement,
-            geo_match_statement=geo_match_statement,
-            ip_set_reference_statement=ip_set_reference_statement,
-            label_match_statement=label_match_statement,
-            managed_rule_group_statement=managed_rule_group_statement,
-            not_statement=not_statement,
-            or_statement=or_statement,
-            rate_based_statement=rate_based_statement,
-            regex_match_statement=regex_match_statement,
-            regex_pattern_set_reference_statement=regex_pattern_set_reference_statement,
-            rule_group_reference_statement=rule_group_reference_statement,
-            size_constraint_statement=size_constraint_statement,
-            sqli_match_statement=sqli_match_statement,
-            xss_match_statement=xss_match_statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             and_statement: Optional['outputs.WebAclAndStatement'] = None,
-             byte_match_statement: Optional['outputs.WebAclByteMatchStatement'] = None,
-             geo_match_statement: Optional['outputs.WebAclGeoMatchStatement'] = None,
-             ip_set_reference_statement: Optional['outputs.WebAclIpSetReferenceStatement'] = None,
-             label_match_statement: Optional['outputs.WebAclLabelMatchStatement'] = None,
-             managed_rule_group_statement: Optional['outputs.WebAclManagedRuleGroupStatement'] = None,
-             not_statement: Optional['outputs.WebAclNotStatement'] = None,
-             or_statement: Optional['outputs.WebAclOrStatement'] = None,
-             rate_based_statement: Optional['outputs.WebAclRateBasedStatement'] = None,
-             regex_match_statement: Optional['outputs.WebAclRegexMatchStatement'] = None,
-             regex_pattern_set_reference_statement: Optional['outputs.WebAclRegexPatternSetReferenceStatement'] = None,
-             rule_group_reference_statement: Optional['outputs.WebAclRuleGroupReferenceStatement'] = None,
-             size_constraint_statement: Optional['outputs.WebAclSizeConstraintStatement'] = None,
-             sqli_match_statement: Optional['outputs.WebAclSqliMatchStatement'] = None,
-             xss_match_statement: Optional['outputs.WebAclXssMatchStatement'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if and_statement is not None:
-            _setter("and_statement", and_statement)
+            pulumi.set(__self__, "and_statement", and_statement)
         if byte_match_statement is not None:
-            _setter("byte_match_statement", byte_match_statement)
+            pulumi.set(__self__, "byte_match_statement", byte_match_statement)
         if geo_match_statement is not None:
-            _setter("geo_match_statement", geo_match_statement)
+            pulumi.set(__self__, "geo_match_statement", geo_match_statement)
         if ip_set_reference_statement is not None:
-            _setter("ip_set_reference_statement", ip_set_reference_statement)
+            pulumi.set(__self__, "ip_set_reference_statement", ip_set_reference_statement)
         if label_match_statement is not None:
-            _setter("label_match_statement", label_match_statement)
+            pulumi.set(__self__, "label_match_statement", label_match_statement)
         if managed_rule_group_statement is not None:
-            _setter("managed_rule_group_statement", managed_rule_group_statement)
+            pulumi.set(__self__, "managed_rule_group_statement", managed_rule_group_statement)
         if not_statement is not None:
-            _setter("not_statement", not_statement)
+            pulumi.set(__self__, "not_statement", not_statement)
         if or_statement is not None:
-            _setter("or_statement", or_statement)
+            pulumi.set(__self__, "or_statement", or_statement)
         if rate_based_statement is not None:
-            _setter("rate_based_statement", rate_based_statement)
+            pulumi.set(__self__, "rate_based_statement", rate_based_statement)
         if regex_match_statement is not None:
-            _setter("regex_match_statement", regex_match_statement)
+            pulumi.set(__self__, "regex_match_statement", regex_match_statement)
         if regex_pattern_set_reference_statement is not None:
-            _setter("regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
+            pulumi.set(__self__, "regex_pattern_set_reference_statement", regex_pattern_set_reference_statement)
         if rule_group_reference_statement is not None:
-            _setter("rule_group_reference_statement", rule_group_reference_statement)
+            pulumi.set(__self__, "rule_group_reference_statement", rule_group_reference_statement)
         if size_constraint_statement is not None:
-            _setter("size_constraint_statement", size_constraint_statement)
+            pulumi.set(__self__, "size_constraint_statement", size_constraint_statement)
         if sqli_match_statement is not None:
-            _setter("sqli_match_statement", sqli_match_statement)
+            pulumi.set(__self__, "sqli_match_statement", sqli_match_statement)
         if xss_match_statement is not None:
-            _setter("xss_match_statement", xss_match_statement)
+            pulumi.set(__self__, "xss_match_statement", xss_match_statement)
 
     @property
     @pulumi.getter(name="andStatement")
@@ -7866,21 +6230,10 @@ class WebAclTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        WebAclTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -7904,19 +6257,8 @@ class WebAclTextTransformation(dict):
         """
         Text Transformation on the Search String before match.
         """
-        WebAclTextTransformation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            priority=priority,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             priority: int,
-             type: 'WebAclTextTransformationType',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("priority", priority)
-        _setter("type", type)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -7962,22 +6304,9 @@ class WebAclVisibilityConfig(dict):
         """
         Visibility Metric of the WebACL.
         """
-        WebAclVisibilityConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_metrics_enabled=cloud_watch_metrics_enabled,
-            metric_name=metric_name,
-            sampled_requests_enabled=sampled_requests_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_metrics_enabled: bool,
-             metric_name: str,
-             sampled_requests_enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
-        _setter("metric_name", metric_name)
-        _setter("sampled_requests_enabled", sampled_requests_enabled)
+        pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "sampled_requests_enabled", sampled_requests_enabled)
 
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
@@ -8025,19 +6354,8 @@ class WebAclXssMatchStatement(dict):
         """
         Xss Match Statement.
         """
-        WebAclXssMatchStatement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_to_match=field_to_match,
-            text_transformations=text_transformations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_to_match: 'outputs.WebAclFieldToMatch',
-             text_transformations: Sequence['outputs.WebAclTextTransformation'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_to_match", field_to_match)
-        _setter("text_transformations", text_transformations)
+        pulumi.set(__self__, "field_to_match", field_to_match)
+        pulumi.set(__self__, "text_transformations", text_transformations)
 
     @property
     @pulumi.getter(name="fieldToMatch")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,33 +35,16 @@ class LogGroupArgs:
         :param pulumi.Input[int] retention_in_days: The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
         :param pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        LogGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_protection_policy=data_protection_policy,
-            kms_key_id=kms_key_id,
-            log_group_name=log_group_name,
-            retention_in_days=retention_in_days,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_protection_policy: Optional[Any] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             retention_in_days: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LogGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_protection_policy is not None:
-            _setter("data_protection_policy", data_protection_policy)
+            pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if retention_in_days is not None:
-            _setter("retention_in_days", retention_in_days)
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataProtectionPolicy")
@@ -177,10 +160,6 @@ class LogGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

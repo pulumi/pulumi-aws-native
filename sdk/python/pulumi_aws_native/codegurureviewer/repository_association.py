@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,36 +32,17 @@ class RepositoryAssociationArgs:
         :param pulumi.Input[str] owner: The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationTagArgs']]] tags: The tags associated with a repository association.
         """
-        RepositoryAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            bucket_name=bucket_name,
-            connection_arn=connection_arn,
-            name=name,
-            owner=owner,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['RepositoryAssociationType'],
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             connection_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             owner: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if bucket_name is not None:
-            _setter("bucket_name", bucket_name)
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if connection_arn is not None:
-            _setter("connection_arn", connection_arn)
+            pulumi.set(__self__, "connection_arn", connection_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if owner is not None:
-            _setter("owner", owner)
+            pulumi.set(__self__, "owner", owner)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -179,10 +160,6 @@ class RepositoryAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

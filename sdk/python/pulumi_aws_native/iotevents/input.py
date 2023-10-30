@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,28 +28,13 @@ class InputArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
-        InputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_definition=input_definition,
-            input_description=input_description,
-            input_name=input_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_definition: pulumi.Input['InputDefinitionArgs'],
-             input_description: Optional[pulumi.Input[str]] = None,
-             input_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['InputTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_definition", input_definition)
+        pulumi.set(__self__, "input_definition", input_definition)
         if input_description is not None:
-            _setter("input_description", input_description)
+            pulumi.set(__self__, "input_description", input_description)
         if input_name is not None:
-            _setter("input_name", input_name)
+            pulumi.set(__self__, "input_name", input_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="inputDefinition")
@@ -139,10 +124,6 @@ class Input(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InputArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,11 +142,6 @@ class Input(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InputArgs.__new__(InputArgs)
 
-            if input_definition is not None and not isinstance(input_definition, InputDefinitionArgs):
-                input_definition = input_definition or {}
-                def _setter(key, value):
-                    input_definition[key] = value
-                InputDefinitionArgs._configure(_setter, **input_definition)
             if input_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'input_definition'")
             __props__.__dict__["input_definition"] = input_definition

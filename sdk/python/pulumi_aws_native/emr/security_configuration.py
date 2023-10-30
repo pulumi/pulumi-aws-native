@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityConfigurationArgs', 'SecurityConfiguration']
@@ -21,20 +21,9 @@ class SecurityConfigurationArgs:
         :param Any security_configuration: The security configuration details in JSON format.
         :param pulumi.Input[str] name: The name of the security configuration.
         """
-        SecurityConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_configuration=security_configuration,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_configuration: Any,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_configuration", security_configuration)
+        pulumi.set(__self__, "security_configuration", security_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="securityConfiguration")
@@ -96,10 +85,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

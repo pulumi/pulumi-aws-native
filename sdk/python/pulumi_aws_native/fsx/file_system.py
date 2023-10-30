@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,63 +32,30 @@ class FileSystemArgs:
         """
         The set of arguments for constructing a FileSystem resource.
         """
-        FileSystemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_type=file_system_type,
-            subnet_ids=subnet_ids,
-            backup_id=backup_id,
-            file_system_type_version=file_system_type_version,
-            kms_key_id=kms_key_id,
-            lustre_configuration=lustre_configuration,
-            ontap_configuration=ontap_configuration,
-            open_zfs_configuration=open_zfs_configuration,
-            security_group_ids=security_group_ids,
-            storage_capacity=storage_capacity,
-            storage_type=storage_type,
-            tags=tags,
-            windows_configuration=windows_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_type: pulumi.Input[str],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             backup_id: Optional[pulumi.Input[str]] = None,
-             file_system_type_version: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             lustre_configuration: Optional[pulumi.Input['FileSystemLustreConfigurationArgs']] = None,
-             ontap_configuration: Optional[pulumi.Input['FileSystemOntapConfigurationArgs']] = None,
-             open_zfs_configuration: Optional[pulumi.Input['FileSystemOpenZfsConfigurationArgs']] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             storage_capacity: Optional[pulumi.Input[int]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemTagArgs']]]] = None,
-             windows_configuration: Optional[pulumi.Input['FileSystemWindowsConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("file_system_type", file_system_type)
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "file_system_type", file_system_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if backup_id is not None:
-            _setter("backup_id", backup_id)
+            pulumi.set(__self__, "backup_id", backup_id)
         if file_system_type_version is not None:
-            _setter("file_system_type_version", file_system_type_version)
+            pulumi.set(__self__, "file_system_type_version", file_system_type_version)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if lustre_configuration is not None:
-            _setter("lustre_configuration", lustre_configuration)
+            pulumi.set(__self__, "lustre_configuration", lustre_configuration)
         if ontap_configuration is not None:
-            _setter("ontap_configuration", ontap_configuration)
+            pulumi.set(__self__, "ontap_configuration", ontap_configuration)
         if open_zfs_configuration is not None:
-            _setter("open_zfs_configuration", open_zfs_configuration)
+            pulumi.set(__self__, "open_zfs_configuration", open_zfs_configuration)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if storage_capacity is not None:
-            _setter("storage_capacity", storage_capacity)
+            pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if windows_configuration is not None:
-            _setter("windows_configuration", windows_configuration)
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
 
     @property
     @pulumi.getter(name="fileSystemType")
@@ -257,10 +224,6 @@ class FileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,23 +258,8 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["file_system_type"] = file_system_type
             __props__.__dict__["file_system_type_version"] = file_system_type_version
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if lustre_configuration is not None and not isinstance(lustre_configuration, FileSystemLustreConfigurationArgs):
-                lustre_configuration = lustre_configuration or {}
-                def _setter(key, value):
-                    lustre_configuration[key] = value
-                FileSystemLustreConfigurationArgs._configure(_setter, **lustre_configuration)
             __props__.__dict__["lustre_configuration"] = lustre_configuration
-            if ontap_configuration is not None and not isinstance(ontap_configuration, FileSystemOntapConfigurationArgs):
-                ontap_configuration = ontap_configuration or {}
-                def _setter(key, value):
-                    ontap_configuration[key] = value
-                FileSystemOntapConfigurationArgs._configure(_setter, **ontap_configuration)
             __props__.__dict__["ontap_configuration"] = ontap_configuration
-            if open_zfs_configuration is not None and not isinstance(open_zfs_configuration, FileSystemOpenZfsConfigurationArgs):
-                open_zfs_configuration = open_zfs_configuration or {}
-                def _setter(key, value):
-                    open_zfs_configuration[key] = value
-                FileSystemOpenZfsConfigurationArgs._configure(_setter, **open_zfs_configuration)
             __props__.__dict__["open_zfs_configuration"] = open_zfs_configuration
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["storage_capacity"] = storage_capacity
@@ -320,11 +268,6 @@ class FileSystem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
-            if windows_configuration is not None and not isinstance(windows_configuration, FileSystemWindowsConfigurationArgs):
-                windows_configuration = windows_configuration or {}
-                def _setter(key, value):
-                    windows_configuration[key] = value
-                FileSystemWindowsConfigurationArgs._configure(_setter, **windows_configuration)
             __props__.__dict__["windows_configuration"] = windows_configuration
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["lustre_mount_name"] = None

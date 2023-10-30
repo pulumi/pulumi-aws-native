@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,29 +27,14 @@ class DeploymentConfigArgs:
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: The minimum number of healthy instances that should be available at any time during the deployment. There are two parameters expected in the input: type and value.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: The configuration that specifies how the deployment traffic is routed.
         """
-        DeploymentConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_platform=compute_platform,
-            deployment_config_name=deployment_config_name,
-            minimum_healthy_hosts=minimum_healthy_hosts,
-            traffic_routing_config=traffic_routing_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_platform: Optional[pulumi.Input[str]] = None,
-             deployment_config_name: Optional[pulumi.Input[str]] = None,
-             minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
-             traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_platform is not None:
-            _setter("compute_platform", compute_platform)
+            pulumi.set(__self__, "compute_platform", compute_platform)
         if deployment_config_name is not None:
-            _setter("deployment_config_name", deployment_config_name)
+            pulumi.set(__self__, "deployment_config_name", deployment_config_name)
         if minimum_healthy_hosts is not None:
-            _setter("minimum_healthy_hosts", minimum_healthy_hosts)
+            pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
         if traffic_routing_config is not None:
-            _setter("traffic_routing_config", traffic_routing_config)
+            pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
 
     @property
     @pulumi.getter(name="computePlatform")
@@ -139,10 +124,6 @@ class DeploymentConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeploymentConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -163,17 +144,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["deployment_config_name"] = deployment_config_name
-            if minimum_healthy_hosts is not None and not isinstance(minimum_healthy_hosts, DeploymentConfigMinimumHealthyHostsArgs):
-                minimum_healthy_hosts = minimum_healthy_hosts or {}
-                def _setter(key, value):
-                    minimum_healthy_hosts[key] = value
-                DeploymentConfigMinimumHealthyHostsArgs._configure(_setter, **minimum_healthy_hosts)
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
-            if traffic_routing_config is not None and not isinstance(traffic_routing_config, DeploymentConfigTrafficRoutingConfigArgs):
-                traffic_routing_config = traffic_routing_config or {}
-                def _setter(key, value):
-                    traffic_routing_config[key] = value
-                DeploymentConfigTrafficRoutingConfigArgs._configure(_setter, **traffic_routing_config)
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["compute_platform", "deployment_config_name", "minimum_healthy_hosts", "traffic_routing_config"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

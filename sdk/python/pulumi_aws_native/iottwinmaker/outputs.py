@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,21 +23,10 @@ class ComponentTypeStatus(dict):
     def __init__(__self__, *,
                  error: Optional[Any] = None,
                  state: Optional['ComponentTypeStatusState'] = None):
-        ComponentTypeStatus._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            error=error,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             error: Optional[Any] = None,
-             state: Optional['ComponentTypeStatusState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if error is not None:
-            _setter("error", error)
+            pulumi.set(__self__, "error", error)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -61,21 +50,10 @@ class ComponentTypeStatusErrorProperties(dict):
         """
         Error object with Message and Code.
         """
-        ComponentTypeStatusErrorProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code=code,
-            message=message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code: Optional['ComponentTypeStatusErrorPropertiesCode'] = None,
-             message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter
@@ -93,21 +71,10 @@ class EntityStatus(dict):
     def __init__(__self__, *,
                  error: Optional[Any] = None,
                  state: Optional['EntityStatusState'] = None):
-        EntityStatus._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            error=error,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             error: Optional[Any] = None,
-             state: Optional['EntityStatusState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if error is not None:
-            _setter("error", error)
+            pulumi.set(__self__, "error", error)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -131,21 +98,10 @@ class EntityStatusErrorProperties(dict):
         """
         Error object with Message and Code.
         """
-        EntityStatusErrorProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code=code,
-            message=message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code: Optional['EntityStatusErrorPropertiesCode'] = None,
-             message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter

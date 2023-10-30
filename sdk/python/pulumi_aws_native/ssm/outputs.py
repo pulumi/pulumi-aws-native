@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -62,17 +62,8 @@ class AssociationInstanceAssociationOutputLocation(dict):
 
     def __init__(__self__, *,
                  s3_location: Optional['outputs.AssociationS3OutputLocation'] = None):
-        AssociationInstanceAssociationOutputLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_location=s3_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_location: Optional['outputs.AssociationS3OutputLocation'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_location is not None:
-            _setter("s3_location", s3_location)
+            pulumi.set(__self__, "s3_location", s3_location)
 
     @property
     @pulumi.getter(name="s3Location")
@@ -107,25 +98,12 @@ class AssociationS3OutputLocation(dict):
                  output_s3_bucket_name: Optional[str] = None,
                  output_s3_key_prefix: Optional[str] = None,
                  output_s3_region: Optional[str] = None):
-        AssociationS3OutputLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            output_s3_bucket_name=output_s3_bucket_name,
-            output_s3_key_prefix=output_s3_key_prefix,
-            output_s3_region=output_s3_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             output_s3_bucket_name: Optional[str] = None,
-             output_s3_key_prefix: Optional[str] = None,
-             output_s3_region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if output_s3_bucket_name is not None:
-            _setter("output_s3_bucket_name", output_s3_bucket_name)
+            pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
         if output_s3_key_prefix is not None:
-            _setter("output_s3_key_prefix", output_s3_key_prefix)
+            pulumi.set(__self__, "output_s3_key_prefix", output_s3_key_prefix)
         if output_s3_region is not None:
-            _setter("output_s3_region", output_s3_region)
+            pulumi.set(__self__, "output_s3_region", output_s3_region)
 
     @property
     @pulumi.getter(name="outputS3BucketName")
@@ -148,19 +126,8 @@ class AssociationTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
-        AssociationTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -184,25 +151,12 @@ class DocumentAttachmentsSource(dict):
         :param str name: The name of the document attachment file.
         :param Sequence[str] values: The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         """
-        DocumentAttachmentsSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional['DocumentAttachmentsSourceKey'] = None,
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -238,21 +192,10 @@ class DocumentRequires(dict):
         :param str name: The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
         :param str version: The document version required by the current document.
         """
-        DocumentRequires._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -280,21 +223,10 @@ class DocumentTag(dict):
         :param str key: The name of the tag.
         :param str value: The value of the tag.
         """
-        DocumentTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -318,19 +250,8 @@ class MaintenanceWindowTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        MaintenanceWindowTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -348,19 +269,8 @@ class MaintenanceWindowTargetTargets(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
-        MaintenanceWindowTargetTargets._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -397,21 +307,10 @@ class MaintenanceWindowTaskCloudWatchOutputConfig(dict):
     def __init__(__self__, *,
                  cloud_watch_log_group_name: Optional[str] = None,
                  cloud_watch_output_enabled: Optional[bool] = None):
-        MaintenanceWindowTaskCloudWatchOutputConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_log_group_name=cloud_watch_log_group_name,
-            cloud_watch_output_enabled=cloud_watch_output_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_log_group_name: Optional[str] = None,
-             cloud_watch_output_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_name is not None:
-            _setter("cloud_watch_log_group_name", cloud_watch_log_group_name)
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
         if cloud_watch_output_enabled is not None:
-            _setter("cloud_watch_output_enabled", cloud_watch_output_enabled)
+            pulumi.set(__self__, "cloud_watch_output_enabled", cloud_watch_output_enabled)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupName")
@@ -449,23 +348,10 @@ class MaintenanceWindowTaskLoggingInfo(dict):
                  region: str,
                  s3_bucket: str,
                  s3_prefix: Optional[str] = None):
-        MaintenanceWindowTaskLoggingInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            region=region,
-            s3_bucket=s3_bucket,
-            s3_prefix=s3_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             region: str,
-             s3_bucket: str,
-             s3_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("region", region)
-        _setter("s3_bucket", s3_bucket)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_prefix is not None:
-            _setter("s3_prefix", s3_prefix)
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
 
     @property
     @pulumi.getter
@@ -505,21 +391,10 @@ class MaintenanceWindowTaskMaintenanceWindowAutomationParameters(dict):
     def __init__(__self__, *,
                  document_version: Optional[str] = None,
                  parameters: Optional[Any] = None):
-        MaintenanceWindowTaskMaintenanceWindowAutomationParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_version=document_version,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_version: Optional[str] = None,
-             parameters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if document_version is not None:
-            _setter("document_version", document_version)
+            pulumi.set(__self__, "document_version", document_version)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="documentVersion")
@@ -555,25 +430,12 @@ class MaintenanceWindowTaskMaintenanceWindowLambdaParameters(dict):
                  client_context: Optional[str] = None,
                  payload: Optional[str] = None,
                  qualifier: Optional[str] = None):
-        MaintenanceWindowTaskMaintenanceWindowLambdaParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_context=client_context,
-            payload=payload,
-            qualifier=qualifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_context: Optional[str] = None,
-             payload: Optional[str] = None,
-             qualifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if client_context is not None:
-            _setter("client_context", client_context)
+            pulumi.set(__self__, "client_context", client_context)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if qualifier is not None:
-            _setter("qualifier", qualifier)
+            pulumi.set(__self__, "qualifier", qualifier)
 
     @property
     @pulumi.getter(name="clientContext")
@@ -638,57 +500,28 @@ class MaintenanceWindowTaskMaintenanceWindowRunCommandParameters(dict):
                  parameters: Optional[Any] = None,
                  service_role_arn: Optional[str] = None,
                  timeout_seconds: Optional[int] = None):
-        MaintenanceWindowTaskMaintenanceWindowRunCommandParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_output_config=cloud_watch_output_config,
-            comment=comment,
-            document_hash=document_hash,
-            document_hash_type=document_hash_type,
-            document_version=document_version,
-            notification_config=notification_config,
-            output_s3_bucket_name=output_s3_bucket_name,
-            output_s3_key_prefix=output_s3_key_prefix,
-            parameters=parameters,
-            service_role_arn=service_role_arn,
-            timeout_seconds=timeout_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_output_config: Optional['outputs.MaintenanceWindowTaskCloudWatchOutputConfig'] = None,
-             comment: Optional[str] = None,
-             document_hash: Optional[str] = None,
-             document_hash_type: Optional[str] = None,
-             document_version: Optional[str] = None,
-             notification_config: Optional['outputs.MaintenanceWindowTaskNotificationConfig'] = None,
-             output_s3_bucket_name: Optional[str] = None,
-             output_s3_key_prefix: Optional[str] = None,
-             parameters: Optional[Any] = None,
-             service_role_arn: Optional[str] = None,
-             timeout_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_output_config is not None:
-            _setter("cloud_watch_output_config", cloud_watch_output_config)
+            pulumi.set(__self__, "cloud_watch_output_config", cloud_watch_output_config)
         if comment is not None:
-            _setter("comment", comment)
+            pulumi.set(__self__, "comment", comment)
         if document_hash is not None:
-            _setter("document_hash", document_hash)
+            pulumi.set(__self__, "document_hash", document_hash)
         if document_hash_type is not None:
-            _setter("document_hash_type", document_hash_type)
+            pulumi.set(__self__, "document_hash_type", document_hash_type)
         if document_version is not None:
-            _setter("document_version", document_version)
+            pulumi.set(__self__, "document_version", document_version)
         if notification_config is not None:
-            _setter("notification_config", notification_config)
+            pulumi.set(__self__, "notification_config", notification_config)
         if output_s3_bucket_name is not None:
-            _setter("output_s3_bucket_name", output_s3_bucket_name)
+            pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
         if output_s3_key_prefix is not None:
-            _setter("output_s3_key_prefix", output_s3_key_prefix)
+            pulumi.set(__self__, "output_s3_key_prefix", output_s3_key_prefix)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if service_role_arn is not None:
-            _setter("service_role_arn", service_role_arn)
+            pulumi.set(__self__, "service_role_arn", service_role_arn)
         if timeout_seconds is not None:
-            _setter("timeout_seconds", timeout_seconds)
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
 
     @property
     @pulumi.getter(name="cloudWatchOutputConfig")
@@ -751,21 +584,10 @@ class MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters(dict):
     def __init__(__self__, *,
                  input: Optional[str] = None,
                  name: Optional[str] = None):
-        MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input=input,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if input is not None:
-            _setter("input", input)
+            pulumi.set(__self__, "input", input)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -805,24 +627,11 @@ class MaintenanceWindowTaskNotificationConfig(dict):
                  notification_arn: str,
                  notification_events: Optional[Sequence[str]] = None,
                  notification_type: Optional[str] = None):
-        MaintenanceWindowTaskNotificationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            notification_arn=notification_arn,
-            notification_events=notification_events,
-            notification_type=notification_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             notification_arn: str,
-             notification_events: Optional[Sequence[str]] = None,
-             notification_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("notification_arn", notification_arn)
+        pulumi.set(__self__, "notification_arn", notification_arn)
         if notification_events is not None:
-            _setter("notification_events", notification_events)
+            pulumi.set(__self__, "notification_events", notification_events)
         if notification_type is not None:
-            _setter("notification_type", notification_type)
+            pulumi.set(__self__, "notification_type", notification_type)
 
     @property
     @pulumi.getter(name="notificationArn")
@@ -845,19 +654,8 @@ class MaintenanceWindowTaskTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
-        MaintenanceWindowTaskTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             values: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -900,29 +698,14 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
                  maintenance_window_lambda_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters'] = None,
                  maintenance_window_run_command_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters'] = None,
                  maintenance_window_step_functions_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters'] = None):
-        MaintenanceWindowTaskTaskInvocationParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maintenance_window_automation_parameters=maintenance_window_automation_parameters,
-            maintenance_window_lambda_parameters=maintenance_window_lambda_parameters,
-            maintenance_window_run_command_parameters=maintenance_window_run_command_parameters,
-            maintenance_window_step_functions_parameters=maintenance_window_step_functions_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maintenance_window_automation_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowAutomationParameters'] = None,
-             maintenance_window_lambda_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowLambdaParameters'] = None,
-             maintenance_window_run_command_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowRunCommandParameters'] = None,
-             maintenance_window_step_functions_parameters: Optional['outputs.MaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if maintenance_window_automation_parameters is not None:
-            _setter("maintenance_window_automation_parameters", maintenance_window_automation_parameters)
+            pulumi.set(__self__, "maintenance_window_automation_parameters", maintenance_window_automation_parameters)
         if maintenance_window_lambda_parameters is not None:
-            _setter("maintenance_window_lambda_parameters", maintenance_window_lambda_parameters)
+            pulumi.set(__self__, "maintenance_window_lambda_parameters", maintenance_window_lambda_parameters)
         if maintenance_window_run_command_parameters is not None:
-            _setter("maintenance_window_run_command_parameters", maintenance_window_run_command_parameters)
+            pulumi.set(__self__, "maintenance_window_run_command_parameters", maintenance_window_run_command_parameters)
         if maintenance_window_step_functions_parameters is not None:
-            _setter("maintenance_window_step_functions_parameters", maintenance_window_step_functions_parameters)
+            pulumi.set(__self__, "maintenance_window_step_functions_parameters", maintenance_window_step_functions_parameters)
 
     @property
     @pulumi.getter(name="maintenanceWindowAutomationParameters")
@@ -950,21 +733,10 @@ class PatchBaselinePatchFilter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        PatchBaselinePatchFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -998,17 +770,8 @@ class PatchBaselinePatchFilterGroup(dict):
 
     def __init__(__self__, *,
                  patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None):
-        PatchBaselinePatchFilterGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            patch_filters=patch_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             patch_filters: Optional[Sequence['outputs.PatchBaselinePatchFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if patch_filters is not None:
-            _setter("patch_filters", patch_filters)
+            pulumi.set(__self__, "patch_filters", patch_filters)
 
     @property
     @pulumi.getter(name="patchFilters")
@@ -1022,25 +785,12 @@ class PatchBaselinePatchSource(dict):
                  configuration: Optional[str] = None,
                  name: Optional[str] = None,
                  products: Optional[Sequence[str]] = None):
-        PatchBaselinePatchSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration=configuration,
-            name=name,
-            products=products,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration: Optional[str] = None,
-             name: Optional[str] = None,
-             products: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if products is not None:
-            _setter("products", products)
+            pulumi.set(__self__, "products", products)
 
     @property
     @pulumi.getter
@@ -1061,11 +811,6 @@ class PatchBaselinePatchSource(dict):
 @pulumi.output_type
 class PatchBaselinePatchStringDate(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -1102,33 +847,16 @@ class PatchBaselineRule(dict):
                  compliance_level: Optional[str] = None,
                  enable_non_security: Optional[bool] = None,
                  patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None):
-        PatchBaselineRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            approve_after_days=approve_after_days,
-            approve_until_date=approve_until_date,
-            compliance_level=compliance_level,
-            enable_non_security=enable_non_security,
-            patch_filter_group=patch_filter_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             approve_after_days: Optional[int] = None,
-             approve_until_date: Optional['outputs.PatchBaselinePatchStringDate'] = None,
-             compliance_level: Optional[str] = None,
-             enable_non_security: Optional[bool] = None,
-             patch_filter_group: Optional['outputs.PatchBaselinePatchFilterGroup'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if approve_after_days is not None:
-            _setter("approve_after_days", approve_after_days)
+            pulumi.set(__self__, "approve_after_days", approve_after_days)
         if approve_until_date is not None:
-            _setter("approve_until_date", approve_until_date)
+            pulumi.set(__self__, "approve_until_date", approve_until_date)
         if compliance_level is not None:
-            _setter("compliance_level", compliance_level)
+            pulumi.set(__self__, "compliance_level", compliance_level)
         if enable_non_security is not None:
-            _setter("enable_non_security", enable_non_security)
+            pulumi.set(__self__, "enable_non_security", enable_non_security)
         if patch_filter_group is not None:
-            _setter("patch_filter_group", patch_filter_group)
+            pulumi.set(__self__, "patch_filter_group", patch_filter_group)
 
     @property
     @pulumi.getter(name="approveAfterDays")
@@ -1177,17 +905,8 @@ class PatchBaselineRuleGroup(dict):
 
     def __init__(__self__, *,
                  patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None):
-        PatchBaselineRuleGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            patch_rules=patch_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             patch_rules: Optional[Sequence['outputs.PatchBaselineRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if patch_rules is not None:
-            _setter("patch_rules", patch_rules)
+            pulumi.set(__self__, "patch_rules", patch_rules)
 
     @property
     @pulumi.getter(name="patchRules")
@@ -1200,19 +919,8 @@ class PatchBaselineTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PatchBaselineTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1249,20 +957,9 @@ class ResourceDataSyncAwsOrganizationsSource(dict):
     def __init__(__self__, *,
                  organization_source_type: str,
                  organizational_units: Optional[Sequence[str]] = None):
-        ResourceDataSyncAwsOrganizationsSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            organization_source_type=organization_source_type,
-            organizational_units=organizational_units,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             organization_source_type: str,
-             organizational_units: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("organization_source_type", organization_source_type)
+        pulumi.set(__self__, "organization_source_type", organization_source_type)
         if organizational_units is not None:
-            _setter("organizational_units", organizational_units)
+            pulumi.set(__self__, "organizational_units", organizational_units)
 
     @property
     @pulumi.getter(name="organizationSourceType")
@@ -1308,30 +1005,13 @@ class ResourceDataSyncS3Destination(dict):
                  sync_format: str,
                  bucket_prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
-        ResourceDataSyncS3Destination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            bucket_region=bucket_region,
-            sync_format=sync_format,
-            bucket_prefix=bucket_prefix,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             bucket_region: str,
-             sync_format: str,
-             bucket_prefix: Optional[str] = None,
-             kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
-        _setter("bucket_region", bucket_region)
-        _setter("sync_format", sync_format)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_region", bucket_region)
+        pulumi.set(__self__, "sync_format", sync_format)
         if bucket_prefix is not None:
-            _setter("bucket_prefix", bucket_prefix)
+            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1389,27 +1069,12 @@ class ResourceDataSyncSyncSource(dict):
                  source_type: str,
                  aws_organizations_source: Optional['outputs.ResourceDataSyncAwsOrganizationsSource'] = None,
                  include_future_regions: Optional[bool] = None):
-        ResourceDataSyncSyncSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_regions=source_regions,
-            source_type=source_type,
-            aws_organizations_source=aws_organizations_source,
-            include_future_regions=include_future_regions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_regions: Sequence[str],
-             source_type: str,
-             aws_organizations_source: Optional['outputs.ResourceDataSyncAwsOrganizationsSource'] = None,
-             include_future_regions: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source_regions", source_regions)
-        _setter("source_type", source_type)
+        pulumi.set(__self__, "source_regions", source_regions)
+        pulumi.set(__self__, "source_type", source_type)
         if aws_organizations_source is not None:
-            _setter("aws_organizations_source", aws_organizations_source)
+            pulumi.set(__self__, "aws_organizations_source", aws_organizations_source)
         if include_future_regions is not None:
-            _setter("include_future_regions", include_future_regions)
+            pulumi.set(__self__, "include_future_regions", include_future_regions)
 
     @property
     @pulumi.getter(name="sourceRegions")

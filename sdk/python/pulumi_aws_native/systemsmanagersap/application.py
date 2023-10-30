@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,39 +28,18 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: The tags of a SystemsManagerSAP application.
         """
-        ApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            application_type=application_type,
-            credentials=credentials,
-            instances=instances,
-            sap_instance_number=sap_instance_number,
-            sid=sid,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             application_type: pulumi.Input['ApplicationType'],
-             credentials: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]] = None,
-             instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sap_instance_number: Optional[pulumi.Input[str]] = None,
-             sid: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_id", application_id)
-        _setter("application_type", application_type)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "application_type", application_type)
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
         if instances is not None:
-            _setter("instances", instances)
+            pulumi.set(__self__, "instances", instances)
         if sap_instance_number is not None:
-            _setter("sap_instance_number", sap_instance_number)
+            pulumi.set(__self__, "sap_instance_number", sap_instance_number)
         if sid is not None:
-            _setter("sid", sid)
+            pulumi.set(__self__, "sid", sid)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -168,10 +147,6 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

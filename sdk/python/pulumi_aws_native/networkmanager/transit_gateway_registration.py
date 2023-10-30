@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayRegistrationArgs', 'TransitGatewayRegistration']
@@ -21,19 +21,8 @@ class TransitGatewayRegistrationArgs:
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] transit_gateway_arn: The Amazon Resource Name (ARN) of the transit gateway.
         """
-        TransitGatewayRegistrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            global_network_id=global_network_id,
-            transit_gateway_arn=transit_gateway_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             global_network_id: pulumi.Input[str],
-             transit_gateway_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("global_network_id", global_network_id)
-        _setter("transit_gateway_arn", transit_gateway_arn)
+        pulumi.set(__self__, "global_network_id", global_network_id)
+        pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
 
     @property
     @pulumi.getter(name="globalNetworkId")
@@ -95,10 +84,6 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TransitGatewayRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,38 +34,17 @@ class ReplicatorArgs:
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicatorTagArgs']]] tags: A collection of tags associated with a resource
         """
-        ReplicatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kafka_clusters=kafka_clusters,
-            replication_info_list=replication_info_list,
-            service_execution_role_arn=service_execution_role_arn,
-            current_version=current_version,
-            description=description,
-            replicator_name=replicator_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kafka_clusters: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]],
-             replication_info_list: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoArgs']]],
-             service_execution_role_arn: pulumi.Input[str],
-             current_version: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             replicator_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("kafka_clusters", kafka_clusters)
-        _setter("replication_info_list", replication_info_list)
-        _setter("service_execution_role_arn", service_execution_role_arn)
+        pulumi.set(__self__, "kafka_clusters", kafka_clusters)
+        pulumi.set(__self__, "replication_info_list", replication_info_list)
+        pulumi.set(__self__, "service_execution_role_arn", service_execution_role_arn)
         if current_version is not None:
-            _setter("current_version", current_version)
+            pulumi.set(__self__, "current_version", current_version)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if replicator_name is not None:
-            _setter("replicator_name", replicator_name)
+            pulumi.set(__self__, "replicator_name", replicator_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="kafkaClusters")
@@ -197,10 +176,6 @@ class Replicator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

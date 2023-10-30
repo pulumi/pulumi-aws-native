@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,25 +24,12 @@ class SchedulingPolicyArgs:
         :param pulumi.Input[str] name: Name of Scheduling Policy.
         :param Any tags: A key-value pair to associate with a resource.
         """
-        SchedulingPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fairshare_policy=fairshare_policy,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fairshare_policy: Optional[pulumi.Input['SchedulingPolicyFairsharePolicyArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if fairshare_policy is not None:
-            _setter("fairshare_policy", fairshare_policy)
+            pulumi.set(__self__, "fairshare_policy", fairshare_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="fairsharePolicy")
@@ -114,10 +101,6 @@ class SchedulingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchedulingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -135,11 +118,6 @@ class SchedulingPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchedulingPolicyArgs.__new__(SchedulingPolicyArgs)
 
-            if fairshare_policy is not None and not isinstance(fairshare_policy, SchedulingPolicyFairsharePolicyArgs):
-                fairshare_policy = fairshare_policy or {}
-                def _setter(key, value):
-                    fairshare_policy[key] = value
-                SchedulingPolicyFairsharePolicyArgs._configure(_setter, **fairshare_policy)
             __props__.__dict__["fairshare_policy"] = fairshare_policy
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,33 +30,16 @@ class BuildArgs:
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. Use this parameter only when creating a build with files stored in an Amazon S3 bucket that you own. The storage location must specify an Amazon S3 bucket name and key. The location must also specify a role ARN that you set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3 bucket and your new build must be in the same Region.
         :param pulumi.Input[str] version: Version information that is associated with this build. Version strings do not need to be unique.
         """
-        BuildArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            operating_system=operating_system,
-            server_sdk_version=server_sdk_version,
-            storage_location=storage_location,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             operating_system: Optional[pulumi.Input['BuildOperatingSystem']] = None,
-             server_sdk_version: Optional[pulumi.Input[str]] = None,
-             storage_location: Optional[pulumi.Input['BuildStorageLocationArgs']] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if operating_system is not None:
-            _setter("operating_system", operating_system)
+            pulumi.set(__self__, "operating_system", operating_system)
         if server_sdk_version is not None:
-            _setter("server_sdk_version", server_sdk_version)
+            pulumi.set(__self__, "server_sdk_version", server_sdk_version)
         if storage_location is not None:
-            _setter("storage_location", storage_location)
+            pulumi.set(__self__, "storage_location", storage_location)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -160,10 +143,6 @@ class Build(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BuildArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,11 +165,6 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["server_sdk_version"] = server_sdk_version
-            if storage_location is not None and not isinstance(storage_location, BuildStorageLocationArgs):
-                storage_location = storage_location or {}
-                def _setter(key, value):
-                    storage_location[key] = value
-                BuildStorageLocationArgs._configure(_setter, **storage_location)
             __props__.__dict__["storage_location"] = storage_location
             __props__.__dict__["version"] = version
             __props__.__dict__["build_id"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,36 +29,15 @@ class IdMappingWorkflowArgs:
         :param pulumi.Input[str] workflow_name: The name of the IdMappingWorkflow
         :param pulumi.Input[str] description: The description of the IdMappingWorkflow
         """
-        IdMappingWorkflowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id_mapping_techniques=id_mapping_techniques,
-            input_source_config=input_source_config,
-            output_source_config=output_source_config,
-            role_arn=role_arn,
-            workflow_name=workflow_name,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id_mapping_techniques: pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs'],
-             input_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]],
-             output_source_config: pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]],
-             role_arn: pulumi.Input[str],
-             workflow_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id_mapping_techniques", id_mapping_techniques)
-        _setter("input_source_config", input_source_config)
-        _setter("output_source_config", output_source_config)
-        _setter("role_arn", role_arn)
-        _setter("workflow_name", workflow_name)
+        pulumi.set(__self__, "id_mapping_techniques", id_mapping_techniques)
+        pulumi.set(__self__, "input_source_config", input_source_config)
+        pulumi.set(__self__, "output_source_config", output_source_config)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "workflow_name", workflow_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="idMappingTechniques")
@@ -170,10 +149,6 @@ class IdMappingWorkflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdMappingWorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -196,11 +171,6 @@ class IdMappingWorkflow(pulumi.CustomResource):
             __props__ = IdMappingWorkflowArgs.__new__(IdMappingWorkflowArgs)
 
             __props__.__dict__["description"] = description
-            if id_mapping_techniques is not None and not isinstance(id_mapping_techniques, IdMappingWorkflowIdMappingTechniquesArgs):
-                id_mapping_techniques = id_mapping_techniques or {}
-                def _setter(key, value):
-                    id_mapping_techniques[key] = value
-                IdMappingWorkflowIdMappingTechniquesArgs._configure(_setter, **id_mapping_techniques)
             if id_mapping_techniques is None and not opts.urn:
                 raise TypeError("Missing required property 'id_mapping_techniques'")
             __props__.__dict__["id_mapping_techniques"] = id_mapping_techniques

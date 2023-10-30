@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,45 +34,22 @@ class EnvironmentArgs:
         :param pulumi.Input[str] name: Name of the Environment
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        EnvironmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_bundles=data_bundles,
-            description=description,
-            federation_mode=federation_mode,
-            federation_parameters=federation_parameters,
-            kms_key_id=kms_key_id,
-            name=name,
-            superuser_parameters=superuser_parameters,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_bundles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             federation_mode: Optional[pulumi.Input['EnvironmentFederationMode']] = None,
-             federation_parameters: Optional[pulumi.Input['EnvironmentFederationParametersArgs']] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             superuser_parameters: Optional[pulumi.Input['EnvironmentSuperuserParametersArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_bundles is not None:
-            _setter("data_bundles", data_bundles)
+            pulumi.set(__self__, "data_bundles", data_bundles)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if federation_mode is not None:
-            _setter("federation_mode", federation_mode)
+            pulumi.set(__self__, "federation_mode", federation_mode)
         if federation_parameters is not None:
-            _setter("federation_parameters", federation_parameters)
+            pulumi.set(__self__, "federation_parameters", federation_parameters)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if superuser_parameters is not None:
-            _setter("superuser_parameters", superuser_parameters)
+            pulumi.set(__self__, "superuser_parameters", superuser_parameters)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataBundles")
@@ -210,10 +187,6 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -239,19 +212,9 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["data_bundles"] = data_bundles
             __props__.__dict__["description"] = description
             __props__.__dict__["federation_mode"] = federation_mode
-            if federation_parameters is not None and not isinstance(federation_parameters, EnvironmentFederationParametersArgs):
-                federation_parameters = federation_parameters or {}
-                def _setter(key, value):
-                    federation_parameters[key] = value
-                EnvironmentFederationParametersArgs._configure(_setter, **federation_parameters)
             __props__.__dict__["federation_parameters"] = federation_parameters
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
-            if superuser_parameters is not None and not isinstance(superuser_parameters, EnvironmentSuperuserParametersArgs):
-                superuser_parameters = superuser_parameters or {}
-                def _setter(key, value):
-                    superuser_parameters[key] = value
-                EnvironmentSuperuserParametersArgs._configure(_setter, **superuser_parameters)
             __props__.__dict__["superuser_parameters"] = superuser_parameters
             __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_account_id"] = None

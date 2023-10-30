@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -24,19 +24,8 @@ class AnalyzerArchiveRuleArgs:
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
         :param pulumi.Input[str] rule_name: The archive rule name
         """
-        AnalyzerArchiveRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filter=filter,
-            rule_name=rule_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filter: pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]],
-             rule_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("filter", filter)
-        _setter("rule_name", rule_name)
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter
@@ -68,32 +57,15 @@ class AnalyzerFilterArgs:
                  eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exists: Optional[pulumi.Input[bool]] = None,
                  neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        AnalyzerFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property=property,
-            contains=contains,
-            eq=eq,
-            exists=exists,
-            neq=neq,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property: pulumi.Input[str],
-             contains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             eq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             exists: Optional[pulumi.Input[bool]] = None,
-             neq: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("property", property)
+        pulumi.set(__self__, "property", property)
         if contains is not None:
-            _setter("contains", contains)
+            pulumi.set(__self__, "contains", contains)
         if eq is not None:
-            _setter("eq", eq)
+            pulumi.set(__self__, "eq", eq)
         if exists is not None:
-            _setter("exists", exists)
+            pulumi.set(__self__, "exists", exists)
         if neq is not None:
-            _setter("neq", neq)
+            pulumi.set(__self__, "neq", neq)
 
     @property
     @pulumi.getter
@@ -151,19 +123,8 @@ class AnalyzerTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        AnalyzerTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

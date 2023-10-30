@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,24 +25,11 @@ class IpamScopeArgs:
         :param pulumi.Input[str] ipam_id: The Id of the IPAM this scope is a part of.
         :param pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        IpamScopeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ipam_id=ipam_id,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ipam_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamScopeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ipam_id", ipam_id)
+        pulumi.set(__self__, "ipam_id", ipam_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ipamId")
@@ -114,10 +101,6 @@ class IpamScope(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IpamScopeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

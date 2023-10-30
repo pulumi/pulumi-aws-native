@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EmailChannelArgs', 'EmailChannel']
@@ -23,34 +23,15 @@ class EmailChannelArgs:
         """
         The set of arguments for constructing a EmailChannel resource.
         """
-        EmailChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            from_address=from_address,
-            identity=identity,
-            configuration_set=configuration_set,
-            enabled=enabled,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             from_address: pulumi.Input[str],
-             identity: pulumi.Input[str],
-             configuration_set: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_id", application_id)
-        _setter("from_address", from_address)
-        _setter("identity", identity)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "from_address", from_address)
+        pulumi.set(__self__, "identity", identity)
         if configuration_set is not None:
-            _setter("configuration_set", configuration_set)
+            pulumi.set(__self__, "configuration_set", configuration_set)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -149,10 +130,6 @@ class EmailChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EmailChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

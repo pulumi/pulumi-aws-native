@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,16 +44,7 @@ class AssistantAssociationAssociationData(dict):
 
     def __init__(__self__, *,
                  knowledge_base_id: str):
-        AssistantAssociationAssociationData._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            knowledge_base_id=knowledge_base_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             knowledge_base_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("knowledge_base_id", knowledge_base_id)
+        pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
@@ -66,19 +57,8 @@ class AssistantAssociationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        AssistantAssociationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -112,17 +92,8 @@ class AssistantServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None):
-        AssistantServerSideEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -135,19 +106,8 @@ class AssistantTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        AssistantTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -184,20 +144,9 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
     def __init__(__self__, *,
                  app_integration_arn: str,
                  object_fields: Optional[Sequence[str]] = None):
-        KnowledgeBaseAppIntegrationsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_integration_arn=app_integration_arn,
-            object_fields=object_fields,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_integration_arn: str,
-             object_fields: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_integration_arn", app_integration_arn)
+        pulumi.set(__self__, "app_integration_arn", app_integration_arn)
         if object_fields is not None:
-            _setter("object_fields", object_fields)
+            pulumi.set(__self__, "object_fields", object_fields)
 
     @property
     @pulumi.getter(name="appIntegrationArn")
@@ -231,17 +180,8 @@ class KnowledgeBaseRenderingConfiguration(dict):
 
     def __init__(__self__, *,
                  template_uri: Optional[str] = None):
-        KnowledgeBaseRenderingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template_uri=template_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if template_uri is not None:
-            _setter("template_uri", template_uri)
+            pulumi.set(__self__, "template_uri", template_uri)
 
     @property
     @pulumi.getter(name="templateUri")
@@ -270,17 +210,8 @@ class KnowledgeBaseServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None):
-        KnowledgeBaseServerSideEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -309,17 +240,8 @@ class KnowledgeBaseSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  app_integrations: Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration'] = None):
-        KnowledgeBaseSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_integrations=app_integrations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_integrations: Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if app_integrations is not None:
-            _setter("app_integrations", app_integrations)
+            pulumi.set(__self__, "app_integrations", app_integrations)
 
     @property
     @pulumi.getter(name="appIntegrations")
@@ -332,19 +254,8 @@ class KnowledgeBaseTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        KnowledgeBaseTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

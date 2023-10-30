@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,39 +29,18 @@ class ChannelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]] outputs: <p>The channel's output properties.</p>
         :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: The tags to assign to the channel.
         """
-        ChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            outputs=outputs,
-            playback_mode=playback_mode,
-            channel_name=channel_name,
-            filler_slate=filler_slate,
-            log_configuration=log_configuration,
-            tags=tags,
-            tier=tier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             outputs: pulumi.Input[Sequence[pulumi.Input['ChannelRequestOutputItemArgs']]],
-             playback_mode: pulumi.Input['ChannelPlaybackMode'],
-             channel_name: Optional[pulumi.Input[str]] = None,
-             filler_slate: Optional[pulumi.Input['ChannelSlateSourceArgs']] = None,
-             log_configuration: Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None,
-             tier: Optional[pulumi.Input['ChannelTier']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("outputs", outputs)
-        _setter("playback_mode", playback_mode)
+        pulumi.set(__self__, "outputs", outputs)
+        pulumi.set(__self__, "playback_mode", playback_mode)
         if channel_name is not None:
-            _setter("channel_name", channel_name)
+            pulumi.set(__self__, "channel_name", channel_name)
         if filler_slate is not None:
-            _setter("filler_slate", filler_slate)
+            pulumi.set(__self__, "filler_slate", filler_slate)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tier is not None:
-            _setter("tier", tier)
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -173,10 +152,6 @@ class Channel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,17 +174,7 @@ class Channel(pulumi.CustomResource):
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
             __props__.__dict__["channel_name"] = channel_name
-            if filler_slate is not None and not isinstance(filler_slate, ChannelSlateSourceArgs):
-                filler_slate = filler_slate or {}
-                def _setter(key, value):
-                    filler_slate[key] = value
-                ChannelSlateSourceArgs._configure(_setter, **filler_slate)
             __props__.__dict__["filler_slate"] = filler_slate
-            if log_configuration is not None and not isinstance(log_configuration, ChannelLogConfigurationForChannelArgs):
-                log_configuration = log_configuration or {}
-                def _setter(key, value):
-                    log_configuration[key] = value
-                ChannelLogConfigurationForChannelArgs._configure(_setter, **log_configuration)
             __props__.__dict__["log_configuration"] = log_configuration
             if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")

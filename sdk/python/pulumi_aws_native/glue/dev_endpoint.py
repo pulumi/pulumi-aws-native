@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DevEndpointArgs', 'DevEndpoint']
@@ -32,72 +32,35 @@ class DevEndpointArgs:
         """
         The set of arguments for constructing a DevEndpoint resource.
         """
-        DevEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            arguments=arguments,
-            endpoint_name=endpoint_name,
-            extra_jars_s3_path=extra_jars_s3_path,
-            extra_python_libs_s3_path=extra_python_libs_s3_path,
-            glue_version=glue_version,
-            number_of_nodes=number_of_nodes,
-            number_of_workers=number_of_workers,
-            public_key=public_key,
-            public_keys=public_keys,
-            security_configuration=security_configuration,
-            security_group_ids=security_group_ids,
-            subnet_id=subnet_id,
-            tags=tags,
-            worker_type=worker_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             arguments: Optional[Any] = None,
-             endpoint_name: Optional[pulumi.Input[str]] = None,
-             extra_jars_s3_path: Optional[pulumi.Input[str]] = None,
-             extra_python_libs_s3_path: Optional[pulumi.Input[str]] = None,
-             glue_version: Optional[pulumi.Input[str]] = None,
-             number_of_nodes: Optional[pulumi.Input[int]] = None,
-             number_of_workers: Optional[pulumi.Input[int]] = None,
-             public_key: Optional[pulumi.Input[str]] = None,
-             public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_configuration: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             worker_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if arguments is not None:
-            _setter("arguments", arguments)
+            pulumi.set(__self__, "arguments", arguments)
         if endpoint_name is not None:
-            _setter("endpoint_name", endpoint_name)
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if extra_jars_s3_path is not None:
-            _setter("extra_jars_s3_path", extra_jars_s3_path)
+            pulumi.set(__self__, "extra_jars_s3_path", extra_jars_s3_path)
         if extra_python_libs_s3_path is not None:
-            _setter("extra_python_libs_s3_path", extra_python_libs_s3_path)
+            pulumi.set(__self__, "extra_python_libs_s3_path", extra_python_libs_s3_path)
         if glue_version is not None:
-            _setter("glue_version", glue_version)
+            pulumi.set(__self__, "glue_version", glue_version)
         if number_of_nodes is not None:
-            _setter("number_of_nodes", number_of_nodes)
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if number_of_workers is not None:
-            _setter("number_of_workers", number_of_workers)
+            pulumi.set(__self__, "number_of_workers", number_of_workers)
         if public_key is not None:
-            _setter("public_key", public_key)
+            pulumi.set(__self__, "public_key", public_key)
         if public_keys is not None:
-            _setter("public_keys", public_keys)
+            pulumi.set(__self__, "public_keys", public_keys)
         if security_configuration is not None:
-            _setter("security_configuration", security_configuration)
+            pulumi.set(__self__, "security_configuration", security_configuration)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if worker_type is not None:
-            _setter("worker_type", worker_type)
+            pulumi.set(__self__, "worker_type", worker_type)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -286,10 +249,6 @@ class DevEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DevEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

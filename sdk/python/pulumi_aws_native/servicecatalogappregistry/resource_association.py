@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,22 +24,9 @@ class ResourceAssociationArgs:
         :param pulumi.Input[str] resource: The name or the Id of the Resource.
         :param pulumi.Input['ResourceAssociationResourceType'] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
         """
-        ResourceAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application=application,
-            resource=resource,
-            resource_type=resource_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             resource: pulumi.Input[str],
-             resource_type: pulumi.Input['ResourceAssociationResourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application", application)
-        _setter("resource", resource)
-        _setter("resource_type", resource_type)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "resource", resource)
+        pulumi.set(__self__, "resource_type", resource_type)
 
     @property
     @pulumi.getter
@@ -115,10 +102,6 @@ class ResourceAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

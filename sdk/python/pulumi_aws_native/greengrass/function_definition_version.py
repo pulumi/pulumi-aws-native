@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,23 +22,10 @@ class FunctionDefinitionVersionInitArgs:
         """
         The set of arguments for constructing a FunctionDefinitionVersion resource.
         """
-        FunctionDefinitionVersionInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_definition_id=function_definition_id,
-            functions=functions,
-            default_config=default_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_definition_id: pulumi.Input[str],
-             functions: pulumi.Input[Sequence[pulumi.Input['FunctionDefinitionVersionFunctionArgs']]],
-             default_config: Optional[pulumi.Input['FunctionDefinitionVersionDefaultConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_definition_id", function_definition_id)
-        _setter("functions", functions)
+        pulumi.set(__self__, "function_definition_id", function_definition_id)
+        pulumi.set(__self__, "functions", functions)
         if default_config is not None:
-            _setter("default_config", default_config)
+            pulumi.set(__self__, "default_config", default_config)
 
     @property
     @pulumi.getter(name="functionDefinitionId")
@@ -107,10 +94,6 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FunctionDefinitionVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -129,11 +112,6 @@ class FunctionDefinitionVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionDefinitionVersionInitArgs.__new__(FunctionDefinitionVersionInitArgs)
 
-            if default_config is not None and not isinstance(default_config, FunctionDefinitionVersionDefaultConfigArgs):
-                default_config = default_config or {}
-                def _setter(key, value):
-                    default_config[key] = value
-                FunctionDefinitionVersionDefaultConfigArgs._configure(_setter, **default_config)
             __props__.__dict__["default_config"] = default_config
             if function_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'function_definition_id'")

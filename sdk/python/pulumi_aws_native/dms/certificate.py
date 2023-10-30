@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -20,25 +20,12 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_identifier=certificate_identifier,
-            certificate_pem=certificate_pem,
-            certificate_wallet=certificate_wallet,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_identifier: Optional[pulumi.Input[str]] = None,
-             certificate_pem: Optional[pulumi.Input[str]] = None,
-             certificate_wallet: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_identifier is not None:
-            _setter("certificate_identifier", certificate_identifier)
+            pulumi.set(__self__, "certificate_identifier", certificate_identifier)
         if certificate_pem is not None:
-            _setter("certificate_pem", certificate_pem)
+            pulumi.set(__self__, "certificate_pem", certificate_pem)
         if certificate_wallet is not None:
-            _setter("certificate_wallet", certificate_wallet)
+            pulumi.set(__self__, "certificate_wallet", certificate_wallet)
 
     @property
     @pulumi.getter(name="certificateIdentifier")
@@ -107,10 +94,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

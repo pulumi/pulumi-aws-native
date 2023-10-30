@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,25 +25,12 @@ class PackagingGroupArgs:
         :param pulumi.Input['PackagingGroupLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]] tags: A collection of tags associated with a resource
         """
-        PackagingGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization=authorization,
-            egress_access_logs=egress_access_logs,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization: Optional[pulumi.Input['PackagingGroupAuthorizationArgs']] = None,
-             egress_access_logs: Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if egress_access_logs is not None:
-            _setter("egress_access_logs", egress_access_logs)
+            pulumi.set(__self__, "egress_access_logs", egress_access_logs)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -119,10 +106,6 @@ class PackagingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PackagingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,17 +123,7 @@ class PackagingGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PackagingGroupArgs.__new__(PackagingGroupArgs)
 
-            if authorization is not None and not isinstance(authorization, PackagingGroupAuthorizationArgs):
-                authorization = authorization or {}
-                def _setter(key, value):
-                    authorization[key] = value
-                PackagingGroupAuthorizationArgs._configure(_setter, **authorization)
             __props__.__dict__["authorization"] = authorization
-            if egress_access_logs is not None and not isinstance(egress_access_logs, PackagingGroupLogConfigurationArgs):
-                egress_access_logs = egress_access_logs or {}
-                def _setter(key, value):
-                    egress_access_logs[key] = value
-                PackagingGroupLogConfigurationArgs._configure(_setter, **egress_access_logs)
             __props__.__dict__["egress_access_logs"] = egress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

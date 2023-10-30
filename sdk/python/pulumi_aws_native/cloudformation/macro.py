@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MacroArgs', 'Macro']
@@ -22,32 +22,15 @@ class MacroArgs:
         """
         The set of arguments for constructing a Macro resource.
         """
-        MacroArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_name=function_name,
-            description=description,
-            log_group_name=log_group_name,
-            log_role_arn=log_role_arn,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             log_role_arn: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_name", function_name)
+        pulumi.set(__self__, "function_name", function_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if log_role_arn is not None:
-            _setter("log_role_arn", log_role_arn)
+            pulumi.set(__self__, "log_role_arn", log_role_arn)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="functionName")
@@ -136,10 +119,6 @@ class Macro(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MacroArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

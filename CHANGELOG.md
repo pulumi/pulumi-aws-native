@@ -1,5 +1,7 @@
 ## HEAD (Unreleased)
 
+Update pulumi version to 3.91.1
+
 ## 0.82.0 (2023-10-25)
 
 Resource "aws-native:s3:Bucket" input "accessControl" type changed from "#/types/aws-native:s3:BucketAccessControl" to "string"

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,31 +29,14 @@ class EventIntegrationArgs:
         :param pulumi.Input[str] name: The name of the event integration.
         :param pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]] tags: The tags (keys and values) associated with the event integration.
         """
-        EventIntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_bridge_bus=event_bridge_bus,
-            event_filter=event_filter,
-            description=description,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_bridge_bus: pulumi.Input[str],
-             event_filter: pulumi.Input['EventIntegrationEventFilterArgs'],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event_bridge_bus", event_bridge_bus)
-        _setter("event_filter", event_filter)
+        pulumi.set(__self__, "event_bridge_bus", event_bridge_bus)
+        pulumi.set(__self__, "event_filter", event_filter)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="eventBridgeBus")
@@ -157,10 +140,6 @@ class EventIntegration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventIntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,11 +163,6 @@ class EventIntegration(pulumi.CustomResource):
             if event_bridge_bus is None and not opts.urn:
                 raise TypeError("Missing required property 'event_bridge_bus'")
             __props__.__dict__["event_bridge_bus"] = event_bridge_bus
-            if event_filter is not None and not isinstance(event_filter, EventIntegrationEventFilterArgs):
-                event_filter = event_filter or {}
-                def _setter(key, value):
-                    event_filter[key] = value
-                EventIntegrationEventFilterArgs._configure(_setter, **event_filter)
             if event_filter is None and not opts.urn:
                 raise TypeError("Missing required property 'event_filter'")
             __props__.__dict__["event_filter"] = event_filter

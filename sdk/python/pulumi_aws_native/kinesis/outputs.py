@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -48,19 +48,8 @@ class StreamEncryption(dict):
         :param 'StreamEncryptionEncryptionType' encryption_type: The encryption type to use. The only valid value is KMS. 
         :param str key_id: The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
-        StreamEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_type=encryption_type,
-            key_id=key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_type: 'StreamEncryptionEncryptionType',
-             key_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encryption_type", encryption_type)
-        _setter("key_id", key_id)
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -107,16 +96,7 @@ class StreamModeDetails(dict):
         When specified, enables or updates the mode of stream. Default is PROVISIONED.
         :param 'StreamModeDetailsStreamMode' stream_mode: The mode of the stream
         """
-        StreamModeDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stream_mode=stream_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stream_mode: 'StreamModeDetailsStreamMode',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("stream_mode", stream_mode)
+        pulumi.set(__self__, "stream_mode", stream_mode)
 
     @property
     @pulumi.getter(name="streamMode")
@@ -140,19 +120,8 @@ class StreamTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        StreamTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

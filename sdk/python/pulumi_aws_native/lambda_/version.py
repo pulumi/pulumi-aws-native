@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,32 +29,15 @@ class VersionArgs:
         :param pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs'] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's version. Updates are not supported for this property.
         :param pulumi.Input['VersionRuntimePolicyArgs'] runtime_policy: Specifies the runtime management configuration of a function. Displays runtimeVersionArn only for Manual.
         """
-        VersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_name=function_name,
-            code_sha256=code_sha256,
-            description=description,
-            provisioned_concurrency_config=provisioned_concurrency_config,
-            runtime_policy=runtime_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
-             code_sha256: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             provisioned_concurrency_config: Optional[pulumi.Input['VersionProvisionedConcurrencyConfigurationArgs']] = None,
-             runtime_policy: Optional[pulumi.Input['VersionRuntimePolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_name", function_name)
+        pulumi.set(__self__, "function_name", function_name)
         if code_sha256 is not None:
-            _setter("code_sha256", code_sha256)
+            pulumi.set(__self__, "code_sha256", code_sha256)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if provisioned_concurrency_config is not None:
-            _setter("provisioned_concurrency_config", provisioned_concurrency_config)
+            pulumi.set(__self__, "provisioned_concurrency_config", provisioned_concurrency_config)
         if runtime_policy is not None:
-            _setter("runtime_policy", runtime_policy)
+            pulumi.set(__self__, "runtime_policy", runtime_policy)
 
     @property
     @pulumi.getter(name="functionName")
@@ -158,10 +141,6 @@ class Version(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -186,17 +165,7 @@ class Version(pulumi.CustomResource):
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
-            if provisioned_concurrency_config is not None and not isinstance(provisioned_concurrency_config, VersionProvisionedConcurrencyConfigurationArgs):
-                provisioned_concurrency_config = provisioned_concurrency_config or {}
-                def _setter(key, value):
-                    provisioned_concurrency_config[key] = value
-                VersionProvisionedConcurrencyConfigurationArgs._configure(_setter, **provisioned_concurrency_config)
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
-            if runtime_policy is not None and not isinstance(runtime_policy, VersionRuntimePolicyArgs):
-                runtime_policy = runtime_policy or {}
-                def _setter(key, value):
-                    runtime_policy[key] = value
-                VersionRuntimePolicyArgs._configure(_setter, **runtime_policy)
             __props__.__dict__["runtime_policy"] = runtime_policy
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["version"] = None

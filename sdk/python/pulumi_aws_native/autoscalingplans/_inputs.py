@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,21 +26,10 @@ class ScalingPlanApplicationSourceArgs:
     def __init__(__self__, *,
                  cloud_formation_stack_arn: Optional[pulumi.Input[str]] = None,
                  tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanTagFilterArgs']]]] = None):
-        ScalingPlanApplicationSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_formation_stack_arn=cloud_formation_stack_arn,
-            tag_filters=tag_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_formation_stack_arn: Optional[pulumi.Input[str]] = None,
-             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanTagFilterArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_formation_stack_arn is not None:
-            _setter("cloud_formation_stack_arn", cloud_formation_stack_arn)
+            pulumi.set(__self__, "cloud_formation_stack_arn", cloud_formation_stack_arn)
         if tag_filters is not None:
-            _setter("tag_filters", tag_filters)
+            pulumi.set(__self__, "tag_filters", tag_filters)
 
     @property
     @pulumi.getter(name="cloudFormationStackArn")
@@ -69,30 +58,13 @@ class ScalingPlanCustomizedLoadMetricSpecificationArgs:
                  statistic: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanMetricDimensionArgs']]]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        ScalingPlanCustomizedLoadMetricSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            namespace=namespace,
-            statistic=statistic,
-            dimensions=dimensions,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             namespace: pulumi.Input[str],
-             statistic: pulumi.Input[str],
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanMetricDimensionArgs']]]] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("metric_name", metric_name)
-        _setter("namespace", namespace)
-        _setter("statistic", statistic)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "statistic", statistic)
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="metricName")
@@ -148,30 +120,13 @@ class ScalingPlanCustomizedScalingMetricSpecificationArgs:
                  statistic: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanMetricDimensionArgs']]]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        ScalingPlanCustomizedScalingMetricSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            namespace=namespace,
-            statistic=statistic,
-            dimensions=dimensions,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             namespace: pulumi.Input[str],
-             statistic: pulumi.Input[str],
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanMetricDimensionArgs']]]] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("metric_name", metric_name)
-        _setter("namespace", namespace)
-        _setter("statistic", statistic)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "statistic", statistic)
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="metricName")
@@ -224,19 +179,8 @@ class ScalingPlanMetricDimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ScalingPlanMetricDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -262,20 +206,9 @@ class ScalingPlanPredefinedLoadMetricSpecificationArgs:
     def __init__(__self__, *,
                  predefined_load_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
-        ScalingPlanPredefinedLoadMetricSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            predefined_load_metric_type=predefined_load_metric_type,
-            resource_label=resource_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             predefined_load_metric_type: pulumi.Input[str],
-             resource_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("predefined_load_metric_type", predefined_load_metric_type)
+        pulumi.set(__self__, "predefined_load_metric_type", predefined_load_metric_type)
         if resource_label is not None:
-            _setter("resource_label", resource_label)
+            pulumi.set(__self__, "resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedLoadMetricType")
@@ -301,20 +234,9 @@ class ScalingPlanPredefinedScalingMetricSpecificationArgs:
     def __init__(__self__, *,
                  predefined_scaling_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
-        ScalingPlanPredefinedScalingMetricSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            predefined_scaling_metric_type=predefined_scaling_metric_type,
-            resource_label=resource_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             predefined_scaling_metric_type: pulumi.Input[str],
-             resource_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("predefined_scaling_metric_type", predefined_scaling_metric_type)
+        pulumi.set(__self__, "predefined_scaling_metric_type", predefined_scaling_metric_type)
         if resource_label is not None:
-            _setter("resource_label", resource_label)
+            pulumi.set(__self__, "resource_label", resource_label)
 
     @property
     @pulumi.getter(name="predefinedScalingMetricType")
@@ -352,63 +274,28 @@ class ScalingPlanScalingInstructionArgs:
                  predictive_scaling_mode: Optional[pulumi.Input[str]] = None,
                  scaling_policy_update_behavior: Optional[pulumi.Input[str]] = None,
                  scheduled_action_buffer_time: Optional[pulumi.Input[int]] = None):
-        ScalingPlanScalingInstructionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_capacity=max_capacity,
-            min_capacity=min_capacity,
-            resource_id=resource_id,
-            scalable_dimension=scalable_dimension,
-            service_namespace=service_namespace,
-            target_tracking_configurations=target_tracking_configurations,
-            customized_load_metric_specification=customized_load_metric_specification,
-            disable_dynamic_scaling=disable_dynamic_scaling,
-            predefined_load_metric_specification=predefined_load_metric_specification,
-            predictive_scaling_max_capacity_behavior=predictive_scaling_max_capacity_behavior,
-            predictive_scaling_max_capacity_buffer=predictive_scaling_max_capacity_buffer,
-            predictive_scaling_mode=predictive_scaling_mode,
-            scaling_policy_update_behavior=scaling_policy_update_behavior,
-            scheduled_action_buffer_time=scheduled_action_buffer_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_capacity: pulumi.Input[int],
-             min_capacity: pulumi.Input[int],
-             resource_id: pulumi.Input[str],
-             scalable_dimension: pulumi.Input[str],
-             service_namespace: pulumi.Input[str],
-             target_tracking_configurations: pulumi.Input[Sequence[pulumi.Input['ScalingPlanTargetTrackingConfigurationArgs']]],
-             customized_load_metric_specification: Optional[pulumi.Input['ScalingPlanCustomizedLoadMetricSpecificationArgs']] = None,
-             disable_dynamic_scaling: Optional[pulumi.Input[bool]] = None,
-             predefined_load_metric_specification: Optional[pulumi.Input['ScalingPlanPredefinedLoadMetricSpecificationArgs']] = None,
-             predictive_scaling_max_capacity_behavior: Optional[pulumi.Input[str]] = None,
-             predictive_scaling_max_capacity_buffer: Optional[pulumi.Input[int]] = None,
-             predictive_scaling_mode: Optional[pulumi.Input[str]] = None,
-             scaling_policy_update_behavior: Optional[pulumi.Input[str]] = None,
-             scheduled_action_buffer_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_capacity", max_capacity)
-        _setter("min_capacity", min_capacity)
-        _setter("resource_id", resource_id)
-        _setter("scalable_dimension", scalable_dimension)
-        _setter("service_namespace", service_namespace)
-        _setter("target_tracking_configurations", target_tracking_configurations)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "scalable_dimension", scalable_dimension)
+        pulumi.set(__self__, "service_namespace", service_namespace)
+        pulumi.set(__self__, "target_tracking_configurations", target_tracking_configurations)
         if customized_load_metric_specification is not None:
-            _setter("customized_load_metric_specification", customized_load_metric_specification)
+            pulumi.set(__self__, "customized_load_metric_specification", customized_load_metric_specification)
         if disable_dynamic_scaling is not None:
-            _setter("disable_dynamic_scaling", disable_dynamic_scaling)
+            pulumi.set(__self__, "disable_dynamic_scaling", disable_dynamic_scaling)
         if predefined_load_metric_specification is not None:
-            _setter("predefined_load_metric_specification", predefined_load_metric_specification)
+            pulumi.set(__self__, "predefined_load_metric_specification", predefined_load_metric_specification)
         if predictive_scaling_max_capacity_behavior is not None:
-            _setter("predictive_scaling_max_capacity_behavior", predictive_scaling_max_capacity_behavior)
+            pulumi.set(__self__, "predictive_scaling_max_capacity_behavior", predictive_scaling_max_capacity_behavior)
         if predictive_scaling_max_capacity_buffer is not None:
-            _setter("predictive_scaling_max_capacity_buffer", predictive_scaling_max_capacity_buffer)
+            pulumi.set(__self__, "predictive_scaling_max_capacity_buffer", predictive_scaling_max_capacity_buffer)
         if predictive_scaling_mode is not None:
-            _setter("predictive_scaling_mode", predictive_scaling_mode)
+            pulumi.set(__self__, "predictive_scaling_mode", predictive_scaling_mode)
         if scaling_policy_update_behavior is not None:
-            _setter("scaling_policy_update_behavior", scaling_policy_update_behavior)
+            pulumi.set(__self__, "scaling_policy_update_behavior", scaling_policy_update_behavior)
         if scheduled_action_buffer_time is not None:
-            _setter("scheduled_action_buffer_time", scheduled_action_buffer_time)
+            pulumi.set(__self__, "scheduled_action_buffer_time", scheduled_action_buffer_time)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -542,20 +429,9 @@ class ScalingPlanTagFilterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        ScalingPlanTagFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -586,40 +462,19 @@ class ScalingPlanTargetTrackingConfigurationArgs:
                  predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPlanPredefinedScalingMetricSpecificationArgs']] = None,
                  scale_in_cooldown: Optional[pulumi.Input[int]] = None,
                  scale_out_cooldown: Optional[pulumi.Input[int]] = None):
-        ScalingPlanTargetTrackingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_value=target_value,
-            customized_scaling_metric_specification=customized_scaling_metric_specification,
-            disable_scale_in=disable_scale_in,
-            estimated_instance_warmup=estimated_instance_warmup,
-            predefined_scaling_metric_specification=predefined_scaling_metric_specification,
-            scale_in_cooldown=scale_in_cooldown,
-            scale_out_cooldown=scale_out_cooldown,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_value: pulumi.Input[float],
-             customized_scaling_metric_specification: Optional[pulumi.Input['ScalingPlanCustomizedScalingMetricSpecificationArgs']] = None,
-             disable_scale_in: Optional[pulumi.Input[bool]] = None,
-             estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
-             predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPlanPredefinedScalingMetricSpecificationArgs']] = None,
-             scale_in_cooldown: Optional[pulumi.Input[int]] = None,
-             scale_out_cooldown: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_value", target_value)
+        pulumi.set(__self__, "target_value", target_value)
         if customized_scaling_metric_specification is not None:
-            _setter("customized_scaling_metric_specification", customized_scaling_metric_specification)
+            pulumi.set(__self__, "customized_scaling_metric_specification", customized_scaling_metric_specification)
         if disable_scale_in is not None:
-            _setter("disable_scale_in", disable_scale_in)
+            pulumi.set(__self__, "disable_scale_in", disable_scale_in)
         if estimated_instance_warmup is not None:
-            _setter("estimated_instance_warmup", estimated_instance_warmup)
+            pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
         if predefined_scaling_metric_specification is not None:
-            _setter("predefined_scaling_metric_specification", predefined_scaling_metric_specification)
+            pulumi.set(__self__, "predefined_scaling_metric_specification", predefined_scaling_metric_specification)
         if scale_in_cooldown is not None:
-            _setter("scale_in_cooldown", scale_in_cooldown)
+            pulumi.set(__self__, "scale_in_cooldown", scale_in_cooldown)
         if scale_out_cooldown is not None:
-            _setter("scale_out_cooldown", scale_out_cooldown)
+            pulumi.set(__self__, "scale_out_cooldown", scale_out_cooldown)
 
     @property
     @pulumi.getter(name="targetValue")

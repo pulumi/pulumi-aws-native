@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,16 +35,7 @@ class ExecutionPlanCapacityUnitsConfiguration(dict):
 
     def __init__(__self__, *,
                  rescore_capacity_units: int):
-        ExecutionPlanCapacityUnitsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rescore_capacity_units=rescore_capacity_units,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rescore_capacity_units: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rescore_capacity_units", rescore_capacity_units)
+        pulumi.set(__self__, "rescore_capacity_units", rescore_capacity_units)
 
     @property
     @pulumi.getter(name="rescoreCapacityUnits")
@@ -65,19 +56,8 @@ class ExecutionPlanTag(dict):
         :param str key: A string used to identify this tag
         :param str value: A string containing the value for the tag
         """
-        ExecutionPlanTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

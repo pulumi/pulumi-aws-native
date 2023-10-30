@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,33 +25,14 @@ class ThreatIntelSetArgs:
         """
         The set of arguments for constructing a ThreatIntelSet resource.
         """
-        ThreatIntelSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activate=activate,
-            detector_id=detector_id,
-            format=format,
-            location=location,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activate: pulumi.Input[bool],
-             detector_id: pulumi.Input[str],
-             format: pulumi.Input[str],
-             location: pulumi.Input[str],
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelSetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("activate", activate)
-        _setter("detector_id", detector_id)
-        _setter("format", format)
-        _setter("location", location)
+        pulumi.set(__self__, "activate", activate)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -150,10 +131,6 @@ class ThreatIntelSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThreatIntelSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

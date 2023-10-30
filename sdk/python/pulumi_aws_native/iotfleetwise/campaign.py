@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -37,77 +37,36 @@ class CampaignArgs:
         """
         The set of arguments for constructing a Campaign resource.
         """
-        CampaignArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            collection_scheme=collection_scheme,
-            signal_catalog_arn=signal_catalog_arn,
-            target_arn=target_arn,
-            compression=compression,
-            data_destination_configs=data_destination_configs,
-            data_extra_dimensions=data_extra_dimensions,
-            description=description,
-            diagnostics_mode=diagnostics_mode,
-            expiry_time=expiry_time,
-            name=name,
-            post_trigger_collection_duration=post_trigger_collection_duration,
-            priority=priority,
-            signals_to_collect=signals_to_collect,
-            spooling_mode=spooling_mode,
-            start_time=start_time,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['CampaignUpdateCampaignAction'],
-             collection_scheme: pulumi.Input[Union['CampaignCollectionScheme0PropertiesArgs', 'CampaignCollectionScheme1PropertiesArgs']],
-             signal_catalog_arn: pulumi.Input[str],
-             target_arn: pulumi.Input[str],
-             compression: Optional[pulumi.Input['CampaignCompression']] = None,
-             data_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CampaignDataDestinationConfig0PropertiesArgs', 'CampaignDataDestinationConfig1PropertiesArgs']]]]] = None,
-             data_extra_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             diagnostics_mode: Optional[pulumi.Input['CampaignDiagnosticsMode']] = None,
-             expiry_time: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             post_trigger_collection_duration: Optional[pulumi.Input[float]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             signals_to_collect: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignSignalInformationArgs']]]] = None,
-             spooling_mode: Optional[pulumi.Input['CampaignSpoolingMode']] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("collection_scheme", collection_scheme)
-        _setter("signal_catalog_arn", signal_catalog_arn)
-        _setter("target_arn", target_arn)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "collection_scheme", collection_scheme)
+        pulumi.set(__self__, "signal_catalog_arn", signal_catalog_arn)
+        pulumi.set(__self__, "target_arn", target_arn)
         if compression is not None:
-            _setter("compression", compression)
+            pulumi.set(__self__, "compression", compression)
         if data_destination_configs is not None:
-            _setter("data_destination_configs", data_destination_configs)
+            pulumi.set(__self__, "data_destination_configs", data_destination_configs)
         if data_extra_dimensions is not None:
-            _setter("data_extra_dimensions", data_extra_dimensions)
+            pulumi.set(__self__, "data_extra_dimensions", data_extra_dimensions)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if diagnostics_mode is not None:
-            _setter("diagnostics_mode", diagnostics_mode)
+            pulumi.set(__self__, "diagnostics_mode", diagnostics_mode)
         if expiry_time is not None:
-            _setter("expiry_time", expiry_time)
+            pulumi.set(__self__, "expiry_time", expiry_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if post_trigger_collection_duration is not None:
-            _setter("post_trigger_collection_duration", post_trigger_collection_duration)
+            pulumi.set(__self__, "post_trigger_collection_duration", post_trigger_collection_duration)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if signals_to_collect is not None:
-            _setter("signals_to_collect", signals_to_collect)
+            pulumi.set(__self__, "signals_to_collect", signals_to_collect)
         if spooling_mode is not None:
-            _setter("spooling_mode", spooling_mode)
+            pulumi.set(__self__, "spooling_mode", spooling_mode)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -316,10 +275,6 @@ class Campaign(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CampaignArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

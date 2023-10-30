@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RequestValidatorArgs', 'RequestValidator']
@@ -25,28 +25,13 @@ class RequestValidatorArgs:
         :param pulumi.Input[bool] validate_request_body: Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
         :param pulumi.Input[bool] validate_request_parameters: Indicates whether to validate request parameters.
         """
-        RequestValidatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rest_api_id=rest_api_id,
-            name=name,
-            validate_request_body=validate_request_body,
-            validate_request_parameters=validate_request_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rest_api_id: pulumi.Input[str],
-             name: Optional[pulumi.Input[str]] = None,
-             validate_request_body: Optional[pulumi.Input[bool]] = None,
-             validate_request_parameters: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rest_api_id", rest_api_id)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if validate_request_body is not None:
-            _setter("validate_request_body", validate_request_body)
+            pulumi.set(__self__, "validate_request_body", validate_request_body)
         if validate_request_parameters is not None:
-            _setter("validate_request_parameters", validate_request_parameters)
+            pulumi.set(__self__, "validate_request_parameters", validate_request_parameters)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -136,10 +121,6 @@ class RequestValidator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RequestValidatorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

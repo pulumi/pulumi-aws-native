@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -75,17 +75,8 @@ class AlarmModelAcknowledgeFlow(dict):
         Specifies whether to get notified for alarm state changes.
         :param bool enabled: The value must be TRUE or FALSE. If TRUE, you receive a notification when the alarm state changes. You must choose to acknowledge the notification before the alarm state can return to NORMAL. If FALSE, you won't receive notifications. The alarm automatically changes to the NORMAL state when the input property value returns to the specified range.
         """
-        AlarmModelAcknowledgeFlow._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -141,49 +132,24 @@ class AlarmModelAlarmAction(dict):
         """
         The actions to be performed.
         """
-        AlarmModelAlarmAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dynamo_d_bv2=dynamo_d_bv2,
-            dynamo_db=dynamo_db,
-            firehose=firehose,
-            iot_events=iot_events,
-            iot_site_wise=iot_site_wise,
-            iot_topic_publish=iot_topic_publish,
-            lambda_=lambda_,
-            sns=sns,
-            sqs=sqs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dynamo_d_bv2: Optional['outputs.AlarmModelDynamoDBv2'] = None,
-             dynamo_db: Optional['outputs.AlarmModelDynamoDb'] = None,
-             firehose: Optional['outputs.AlarmModelFirehose'] = None,
-             iot_events: Optional['outputs.AlarmModelIotEvents'] = None,
-             iot_site_wise: Optional['outputs.AlarmModelIotSiteWise'] = None,
-             iot_topic_publish: Optional['outputs.AlarmModelIotTopicPublish'] = None,
-             lambda_: Optional['outputs.AlarmModelLambda'] = None,
-             sns: Optional['outputs.AlarmModelSns'] = None,
-             sqs: Optional['outputs.AlarmModelSqs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dynamo_d_bv2 is not None:
-            _setter("dynamo_d_bv2", dynamo_d_bv2)
+            pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
         if dynamo_db is not None:
-            _setter("dynamo_db", dynamo_db)
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if firehose is not None:
-            _setter("firehose", firehose)
+            pulumi.set(__self__, "firehose", firehose)
         if iot_events is not None:
-            _setter("iot_events", iot_events)
+            pulumi.set(__self__, "iot_events", iot_events)
         if iot_site_wise is not None:
-            _setter("iot_site_wise", iot_site_wise)
+            pulumi.set(__self__, "iot_site_wise", iot_site_wise)
         if iot_topic_publish is not None:
-            _setter("iot_topic_publish", iot_topic_publish)
+            pulumi.set(__self__, "iot_topic_publish", iot_topic_publish)
         if lambda_ is not None:
-            _setter("lambda_", lambda_)
+            pulumi.set(__self__, "lambda_", lambda_)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
-            _setter("sqs", sqs)
+            pulumi.set(__self__, "sqs", sqs)
 
     @property
     @pulumi.getter(name="dynamoDBv2")
@@ -261,21 +227,10 @@ class AlarmModelAlarmCapabilities(dict):
         """
         Contains the configuration information of alarm state changes
         """
-        AlarmModelAlarmCapabilities._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acknowledge_flow=acknowledge_flow,
-            initialization_configuration=initialization_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acknowledge_flow: Optional['outputs.AlarmModelAcknowledgeFlow'] = None,
-             initialization_configuration: Optional['outputs.AlarmModelInitializationConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if acknowledge_flow is not None:
-            _setter("acknowledge_flow", acknowledge_flow)
+            pulumi.set(__self__, "acknowledge_flow", acknowledge_flow)
         if initialization_configuration is not None:
-            _setter("initialization_configuration", initialization_configuration)
+            pulumi.set(__self__, "initialization_configuration", initialization_configuration)
 
     @property
     @pulumi.getter(name="acknowledgeFlow")
@@ -315,17 +270,8 @@ class AlarmModelAlarmEventActions(dict):
         """
         Contains information about one or more alarm actions.
         """
-        AlarmModelAlarmEventActions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_actions=alarm_actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_actions: Optional[Sequence['outputs.AlarmModelAlarmAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alarm_actions is not None:
-            _setter("alarm_actions", alarm_actions)
+            pulumi.set(__self__, "alarm_actions", alarm_actions)
 
     @property
     @pulumi.getter(name="alarmActions")
@@ -360,17 +306,8 @@ class AlarmModelAlarmRule(dict):
         """
         Defines when your alarm is invoked.
         """
-        AlarmModelAlarmRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            simple_rule=simple_rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             simple_rule: Optional['outputs.AlarmModelSimpleRule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if simple_rule is not None:
-            _setter("simple_rule", simple_rule)
+            pulumi.set(__self__, "simple_rule", simple_rule)
 
     @property
     @pulumi.getter(name="simpleRule")
@@ -410,20 +347,9 @@ class AlarmModelAssetPropertyTimestamp(dict):
         :param str time_in_seconds: The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
         :param str offset_in_nanos: The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
         """
-        AlarmModelAssetPropertyTimestamp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_in_seconds=time_in_seconds,
-            offset_in_nanos=offset_in_nanos,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_in_seconds: str,
-             offset_in_nanos: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("time_in_seconds", time_in_seconds)
+        pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
-            _setter("offset_in_nanos", offset_in_nanos)
+            pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
 
     @property
     @pulumi.getter(name="timeInSeconds")
@@ -455,24 +381,11 @@ class AlarmModelAssetPropertyValue(dict):
         A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
         :param str quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
         """
-        AlarmModelAssetPropertyValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            quality=quality,
-            timestamp=timestamp,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: 'outputs.AlarmModelAssetPropertyVariant',
-             quality: Optional[str] = None,
-             timestamp: Optional['outputs.AlarmModelAssetPropertyTimestamp'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
         if quality is not None:
-            _setter("quality", quality)
+            pulumi.set(__self__, "quality", quality)
         if timestamp is not None:
-            _setter("timestamp", timestamp)
+            pulumi.set(__self__, "timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -533,29 +446,14 @@ class AlarmModelAssetPropertyVariant(dict):
         :param str integer_value: The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
         :param str string_value: The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
         """
-        AlarmModelAssetPropertyVariant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            boolean_value=boolean_value,
-            double_value=double_value,
-            integer_value=integer_value,
-            string_value=string_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             boolean_value: Optional[str] = None,
-             double_value: Optional[str] = None,
-             integer_value: Optional[str] = None,
-             string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if boolean_value is not None:
-            _setter("boolean_value", boolean_value)
+            pulumi.set(__self__, "boolean_value", boolean_value)
         if double_value is not None:
-            _setter("double_value", double_value)
+            pulumi.set(__self__, "double_value", double_value)
         if integer_value is not None:
-            _setter("integer_value", integer_value)
+            pulumi.set(__self__, "integer_value", integer_value)
         if string_value is not None:
-            _setter("string_value", string_value)
+            pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter(name="booleanValue")
@@ -623,20 +521,9 @@ class AlarmModelDynamoDBv2(dict):
         You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
         :param str table_name: The name of the DynamoDB table.
         """
-        AlarmModelDynamoDBv2._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            table_name=table_name,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             table_name: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="tableName")
@@ -733,50 +620,23 @@ class AlarmModelDynamoDb(dict):
                If you don't specify `rangeKeyField`, the default value is `STRING`.
         :param str range_key_value: The value of the range key (also called the sort key).
         """
-        AlarmModelDynamoDb._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hash_key_field=hash_key_field,
-            hash_key_value=hash_key_value,
-            table_name=table_name,
-            hash_key_type=hash_key_type,
-            operation=operation,
-            payload=payload,
-            payload_field=payload_field,
-            range_key_field=range_key_field,
-            range_key_type=range_key_type,
-            range_key_value=range_key_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hash_key_field: str,
-             hash_key_value: str,
-             table_name: str,
-             hash_key_type: Optional[str] = None,
-             operation: Optional[str] = None,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             payload_field: Optional[str] = None,
-             range_key_field: Optional[str] = None,
-             range_key_type: Optional[str] = None,
-             range_key_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hash_key_field", hash_key_field)
-        _setter("hash_key_value", hash_key_value)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "hash_key_field", hash_key_field)
+        pulumi.set(__self__, "hash_key_value", hash_key_value)
+        pulumi.set(__self__, "table_name", table_name)
         if hash_key_type is not None:
-            _setter("hash_key_type", hash_key_type)
+            pulumi.set(__self__, "hash_key_type", hash_key_type)
         if operation is not None:
-            _setter("operation", operation)
+            pulumi.set(__self__, "operation", operation)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if payload_field is not None:
-            _setter("payload_field", payload_field)
+            pulumi.set(__self__, "payload_field", payload_field)
         if range_key_field is not None:
-            _setter("range_key_field", range_key_field)
+            pulumi.set(__self__, "range_key_field", range_key_field)
         if range_key_type is not None:
-            _setter("range_key_type", range_key_type)
+            pulumi.set(__self__, "range_key_type", range_key_type)
         if range_key_value is not None:
-            _setter("range_key_value", range_key_value)
+            pulumi.set(__self__, "range_key_value", range_key_value)
 
     @property
     @pulumi.getter(name="hashKeyField")
@@ -909,24 +769,11 @@ class AlarmModelFirehose(dict):
         :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
         :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
-        AlarmModelFirehose._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delivery_stream_name=delivery_stream_name,
-            payload=payload,
-            separator=separator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delivery_stream_name: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             separator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("delivery_stream_name", delivery_stream_name)
+        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if separator is not None:
-            _setter("separator", separator)
+            pulumi.set(__self__, "separator", separator)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -978,16 +825,7 @@ class AlarmModelInitializationConfiguration(dict):
         Specifies the default alarm state. The configuration applies to all alarms that were created based on this alarm model.
         :param bool disabled_on_initialization: The value must be TRUE or FALSE. If FALSE, all alarm instances created based on the alarm model are activated. The default value is TRUE.
         """
-        AlarmModelInitializationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            disabled_on_initialization=disabled_on_initialization,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             disabled_on_initialization: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("disabled_on_initialization", disabled_on_initialization)
+        pulumi.set(__self__, "disabled_on_initialization", disabled_on_initialization)
 
     @property
     @pulumi.getter(name="disabledOnInitialization")
@@ -1027,20 +865,9 @@ class AlarmModelIotEvents(dict):
         Sends an AWS IoT Events input, passing in information about the alarm model instance and the event that triggered the action.
         :param str input_name: The name of the AWS IoT Events input where the data is sent.
         """
-        AlarmModelIotEvents._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_name=input_name,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_name: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_name", input_name)
+        pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="inputName")
@@ -1099,33 +926,16 @@ class AlarmModelIotSiteWise(dict):
         :param str property_alias: The alias of the asset property. You can also specify an expression.
         :param str property_id: The ID of the asset property. You can specify an expression.
         """
-        AlarmModelIotSiteWise._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            asset_id=asset_id,
-            entry_id=entry_id,
-            property_alias=property_alias,
-            property_id=property_id,
-            property_value=property_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             asset_id: Optional[str] = None,
-             entry_id: Optional[str] = None,
-             property_alias: Optional[str] = None,
-             property_id: Optional[str] = None,
-             property_value: Optional['outputs.AlarmModelAssetPropertyValue'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if asset_id is not None:
-            _setter("asset_id", asset_id)
+            pulumi.set(__self__, "asset_id", asset_id)
         if entry_id is not None:
-            _setter("entry_id", entry_id)
+            pulumi.set(__self__, "entry_id", entry_id)
         if property_alias is not None:
-            _setter("property_alias", property_alias)
+            pulumi.set(__self__, "property_alias", property_alias)
         if property_id is not None:
-            _setter("property_id", property_id)
+            pulumi.set(__self__, "property_id", property_id)
         if property_value is not None:
-            _setter("property_value", property_value)
+            pulumi.set(__self__, "property_value", property_value)
 
     @property
     @pulumi.getter(name="assetId")
@@ -1194,20 +1004,9 @@ class AlarmModelIotTopicPublish(dict):
         Information required to publish the MQTT message through the AWS IoT message broker.
         :param str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
         """
-        AlarmModelIotTopicPublish._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mqtt_topic=mqtt_topic,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mqtt_topic: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mqtt_topic", mqtt_topic)
+        pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="mqttTopic")
@@ -1248,20 +1047,9 @@ class AlarmModelLambda(dict):
         """
         :param str function_arn: The ARN of the Lambda function that is executed.
         """
-        AlarmModelLambda._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_arn=function_arn,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_arn: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_arn", function_arn)
+        pulumi.set(__self__, "function_arn", function_arn)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -1311,19 +1099,8 @@ class AlarmModelPayload(dict):
         :param str content_expression: The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
         :param str type: The value of the payload type can be either `STRING` or `JSON`.
         """
-        AlarmModelPayload._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_expression=content_expression,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_expression: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("content_expression", content_expression)
-        _setter("type", type)
+        pulumi.set(__self__, "content_expression", content_expression)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="contentExpression")
@@ -1376,22 +1153,9 @@ class AlarmModelSimpleRule(dict):
         :param str input_property: The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.
         :param str threshold: The value on the right side of the comparison operator. You can enter a number or specify an AWS IoT Events input attribute.
         """
-        AlarmModelSimpleRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            input_property=input_property,
-            threshold=threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: 'AlarmModelSimpleRuleComparisonOperator',
-             input_property: str,
-             threshold: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("input_property", input_property)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "input_property", input_property)
+        pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -1447,20 +1211,9 @@ class AlarmModelSns(dict):
         Information required to publish the Amazon SNS message.
         :param str target_arn: The ARN of the Amazon SNS target where the message is sent.
         """
-        AlarmModelSns._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_arn=target_arn,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_arn: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_arn", target_arn)
+        pulumi.set(__self__, "target_arn", target_arn)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -1505,24 +1258,11 @@ class AlarmModelSqs(dict):
         :param str queue_url: The URL of the SQS queue where the data is written.
         :param bool use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
         """
-        AlarmModelSqs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            queue_url=queue_url,
-            payload=payload,
-            use_base64=use_base64,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             queue_url: str,
-             payload: Optional['outputs.AlarmModelPayload'] = None,
-             use_base64: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("queue_url", queue_url)
+        pulumi.set(__self__, "queue_url", queue_url)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if use_base64 is not None:
-            _setter("use_base64", use_base64)
+            pulumi.set(__self__, "use_base64", use_base64)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -1559,19 +1299,8 @@ class AlarmModelTag(dict):
         :param str key: Key of the Tag.
         :param str value: Value of the Tag.
         """
-        AlarmModelTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1647,65 +1376,32 @@ class DetectorModelAction(dict):
         """
         The actions to be performed.
         """
-        DetectorModelAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            clear_timer=clear_timer,
-            dynamo_d_bv2=dynamo_d_bv2,
-            dynamo_db=dynamo_db,
-            firehose=firehose,
-            iot_events=iot_events,
-            iot_site_wise=iot_site_wise,
-            iot_topic_publish=iot_topic_publish,
-            lambda_=lambda_,
-            reset_timer=reset_timer,
-            set_timer=set_timer,
-            set_variable=set_variable,
-            sns=sns,
-            sqs=sqs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             clear_timer: Optional['outputs.DetectorModelClearTimer'] = None,
-             dynamo_d_bv2: Optional['outputs.DetectorModelDynamoDBv2'] = None,
-             dynamo_db: Optional['outputs.DetectorModelDynamoDb'] = None,
-             firehose: Optional['outputs.DetectorModelFirehose'] = None,
-             iot_events: Optional['outputs.DetectorModelIotEvents'] = None,
-             iot_site_wise: Optional['outputs.DetectorModelIotSiteWise'] = None,
-             iot_topic_publish: Optional['outputs.DetectorModelIotTopicPublish'] = None,
-             lambda_: Optional['outputs.DetectorModelLambda'] = None,
-             reset_timer: Optional['outputs.DetectorModelResetTimer'] = None,
-             set_timer: Optional['outputs.DetectorModelSetTimer'] = None,
-             set_variable: Optional['outputs.DetectorModelSetVariable'] = None,
-             sns: Optional['outputs.DetectorModelSns'] = None,
-             sqs: Optional['outputs.DetectorModelSqs'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if clear_timer is not None:
-            _setter("clear_timer", clear_timer)
+            pulumi.set(__self__, "clear_timer", clear_timer)
         if dynamo_d_bv2 is not None:
-            _setter("dynamo_d_bv2", dynamo_d_bv2)
+            pulumi.set(__self__, "dynamo_d_bv2", dynamo_d_bv2)
         if dynamo_db is not None:
-            _setter("dynamo_db", dynamo_db)
+            pulumi.set(__self__, "dynamo_db", dynamo_db)
         if firehose is not None:
-            _setter("firehose", firehose)
+            pulumi.set(__self__, "firehose", firehose)
         if iot_events is not None:
-            _setter("iot_events", iot_events)
+            pulumi.set(__self__, "iot_events", iot_events)
         if iot_site_wise is not None:
-            _setter("iot_site_wise", iot_site_wise)
+            pulumi.set(__self__, "iot_site_wise", iot_site_wise)
         if iot_topic_publish is not None:
-            _setter("iot_topic_publish", iot_topic_publish)
+            pulumi.set(__self__, "iot_topic_publish", iot_topic_publish)
         if lambda_ is not None:
-            _setter("lambda_", lambda_)
+            pulumi.set(__self__, "lambda_", lambda_)
         if reset_timer is not None:
-            _setter("reset_timer", reset_timer)
+            pulumi.set(__self__, "reset_timer", reset_timer)
         if set_timer is not None:
-            _setter("set_timer", set_timer)
+            pulumi.set(__self__, "set_timer", set_timer)
         if set_variable is not None:
-            _setter("set_variable", set_variable)
+            pulumi.set(__self__, "set_variable", set_variable)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
         if sqs is not None:
-            _setter("sqs", sqs)
+            pulumi.set(__self__, "sqs", sqs)
 
     @property
     @pulumi.getter(name="clearTimer")
@@ -1805,20 +1501,9 @@ class DetectorModelAssetPropertyTimestamp(dict):
         :param str time_in_seconds: The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
         :param str offset_in_nanos: The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
         """
-        DetectorModelAssetPropertyTimestamp._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_in_seconds=time_in_seconds,
-            offset_in_nanos=offset_in_nanos,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_in_seconds: str,
-             offset_in_nanos: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("time_in_seconds", time_in_seconds)
+        pulumi.set(__self__, "time_in_seconds", time_in_seconds)
         if offset_in_nanos is not None:
-            _setter("offset_in_nanos", offset_in_nanos)
+            pulumi.set(__self__, "offset_in_nanos", offset_in_nanos)
 
     @property
     @pulumi.getter(name="timeInSeconds")
@@ -1850,24 +1535,11 @@ class DetectorModelAssetPropertyValue(dict):
         A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
         :param str quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
         """
-        DetectorModelAssetPropertyValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            quality=quality,
-            timestamp=timestamp,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: 'outputs.DetectorModelAssetPropertyVariant',
-             quality: Optional[str] = None,
-             timestamp: Optional['outputs.DetectorModelAssetPropertyTimestamp'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
         if quality is not None:
-            _setter("quality", quality)
+            pulumi.set(__self__, "quality", quality)
         if timestamp is not None:
-            _setter("timestamp", timestamp)
+            pulumi.set(__self__, "timestamp", timestamp)
 
     @property
     @pulumi.getter
@@ -1928,29 +1600,14 @@ class DetectorModelAssetPropertyVariant(dict):
         :param str integer_value: The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
         :param str string_value: The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
         """
-        DetectorModelAssetPropertyVariant._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            boolean_value=boolean_value,
-            double_value=double_value,
-            integer_value=integer_value,
-            string_value=string_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             boolean_value: Optional[str] = None,
-             double_value: Optional[str] = None,
-             integer_value: Optional[str] = None,
-             string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if boolean_value is not None:
-            _setter("boolean_value", boolean_value)
+            pulumi.set(__self__, "boolean_value", boolean_value)
         if double_value is not None:
-            _setter("double_value", double_value)
+            pulumi.set(__self__, "double_value", double_value)
         if integer_value is not None:
-            _setter("integer_value", integer_value)
+            pulumi.set(__self__, "integer_value", integer_value)
         if string_value is not None:
-            _setter("string_value", string_value)
+            pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter(name="booleanValue")
@@ -2012,16 +1669,7 @@ class DetectorModelClearTimer(dict):
         """
         Information needed to clear the timer.
         """
-        DetectorModelClearTimer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timer_name=timer_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timer_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("timer_name", timer_name)
+        pulumi.set(__self__, "timer_name", timer_name)
 
     @property
     @pulumi.getter(name="timerName")
@@ -2059,19 +1707,8 @@ class DetectorModelDefinition(dict):
         :param str initial_state_name: The state that is entered at the creation of each detector (instance).
         :param Sequence['DetectorModelState'] states: Information about the states of the detector.
         """
-        DetectorModelDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            initial_state_name=initial_state_name,
-            states=states,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             initial_state_name: str,
-             states: Sequence['outputs.DetectorModelState'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("initial_state_name", initial_state_name)
-        _setter("states", states)
+        pulumi.set(__self__, "initial_state_name", initial_state_name)
+        pulumi.set(__self__, "states", states)
 
     @property
     @pulumi.getter(name="initialStateName")
@@ -2123,20 +1760,9 @@ class DetectorModelDynamoDBv2(dict):
         You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
         :param str table_name: The name of the DynamoDB table.
         """
-        DetectorModelDynamoDBv2._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            table_name=table_name,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             table_name: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "table_name", table_name)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="tableName")
@@ -2233,50 +1859,23 @@ class DetectorModelDynamoDb(dict):
                If you don't specify `rangeKeyField`, the default value is `STRING`.
         :param str range_key_value: The value of the range key (also called the sort key).
         """
-        DetectorModelDynamoDb._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hash_key_field=hash_key_field,
-            hash_key_value=hash_key_value,
-            table_name=table_name,
-            hash_key_type=hash_key_type,
-            operation=operation,
-            payload=payload,
-            payload_field=payload_field,
-            range_key_field=range_key_field,
-            range_key_type=range_key_type,
-            range_key_value=range_key_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hash_key_field: str,
-             hash_key_value: str,
-             table_name: str,
-             hash_key_type: Optional[str] = None,
-             operation: Optional[str] = None,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             payload_field: Optional[str] = None,
-             range_key_field: Optional[str] = None,
-             range_key_type: Optional[str] = None,
-             range_key_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hash_key_field", hash_key_field)
-        _setter("hash_key_value", hash_key_value)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "hash_key_field", hash_key_field)
+        pulumi.set(__self__, "hash_key_value", hash_key_value)
+        pulumi.set(__self__, "table_name", table_name)
         if hash_key_type is not None:
-            _setter("hash_key_type", hash_key_type)
+            pulumi.set(__self__, "hash_key_type", hash_key_type)
         if operation is not None:
-            _setter("operation", operation)
+            pulumi.set(__self__, "operation", operation)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if payload_field is not None:
-            _setter("payload_field", payload_field)
+            pulumi.set(__self__, "payload_field", payload_field)
         if range_key_field is not None:
-            _setter("range_key_field", range_key_field)
+            pulumi.set(__self__, "range_key_field", range_key_field)
         if range_key_type is not None:
-            _setter("range_key_type", range_key_type)
+            pulumi.set(__self__, "range_key_type", range_key_type)
         if range_key_value is not None:
-            _setter("range_key_value", range_key_value)
+            pulumi.set(__self__, "range_key_value", range_key_value)
 
     @property
     @pulumi.getter(name="hashKeyField")
@@ -2410,24 +2009,11 @@ class DetectorModelEvent(dict):
         :param Sequence['DetectorModelAction'] actions: The actions to be performed.
         :param str condition: The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
         """
-        DetectorModelEvent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_name=event_name,
-            actions=actions,
-            condition=condition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_name: str,
-             actions: Optional[Sequence['outputs.DetectorModelAction']] = None,
-             condition: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event_name", event_name)
+        pulumi.set(__self__, "event_name", event_name)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
 
     @property
     @pulumi.getter(name="eventName")
@@ -2485,24 +2071,11 @@ class DetectorModelFirehose(dict):
         :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
         :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
-        DetectorModelFirehose._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delivery_stream_name=delivery_stream_name,
-            payload=payload,
-            separator=separator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delivery_stream_name: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             separator: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("delivery_stream_name", delivery_stream_name)
+        pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if separator is not None:
-            _setter("separator", separator)
+            pulumi.set(__self__, "separator", separator)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
@@ -2555,20 +2128,9 @@ class DetectorModelIotEvents(dict):
         Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
         :param str input_name: The name of the AWS IoT Events input where the data is sent.
         """
-        DetectorModelIotEvents._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_name=input_name,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_name: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_name", input_name)
+        pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="inputName")
@@ -2627,32 +2189,15 @@ class DetectorModelIotSiteWise(dict):
         :param str property_alias: The alias of the asset property. You can also specify an expression.
         :param str property_id: The ID of the asset property. You can specify an expression.
         """
-        DetectorModelIotSiteWise._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_value=property_value,
-            asset_id=asset_id,
-            entry_id=entry_id,
-            property_alias=property_alias,
-            property_id=property_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_value: 'outputs.DetectorModelAssetPropertyValue',
-             asset_id: Optional[str] = None,
-             entry_id: Optional[str] = None,
-             property_alias: Optional[str] = None,
-             property_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("property_value", property_value)
+        pulumi.set(__self__, "property_value", property_value)
         if asset_id is not None:
-            _setter("asset_id", asset_id)
+            pulumi.set(__self__, "asset_id", asset_id)
         if entry_id is not None:
-            _setter("entry_id", entry_id)
+            pulumi.set(__self__, "entry_id", entry_id)
         if property_alias is not None:
-            _setter("property_alias", property_alias)
+            pulumi.set(__self__, "property_alias", property_alias)
         if property_id is not None:
-            _setter("property_id", property_id)
+            pulumi.set(__self__, "property_id", property_id)
 
     @property
     @pulumi.getter(name="propertyValue")
@@ -2721,20 +2266,9 @@ class DetectorModelIotTopicPublish(dict):
         Information required to publish the MQTT message through the AWS IoT message broker.
         :param str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
         """
-        DetectorModelIotTopicPublish._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mqtt_topic=mqtt_topic,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mqtt_topic: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mqtt_topic", mqtt_topic)
+        pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="mqttTopic")
@@ -2775,20 +2309,9 @@ class DetectorModelLambda(dict):
         """
         :param str function_arn: The ARN of the Lambda function that is executed.
         """
-        DetectorModelLambda._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_arn=function_arn,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_arn: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_arn", function_arn)
+        pulumi.set(__self__, "function_arn", function_arn)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -2815,17 +2338,8 @@ class DetectorModelOnEnter(dict):
         When entering this state, perform these `actions` if the `condition` is `TRUE`.
         :param Sequence['DetectorModelEvent'] events: Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
         """
-        DetectorModelOnEnter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[Sequence['outputs.DetectorModelEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if events is not None:
-            _setter("events", events)
+            pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
@@ -2847,17 +2361,8 @@ class DetectorModelOnExit(dict):
         When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
         :param Sequence['DetectorModelEvent'] events: Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
         """
-        DetectorModelOnExit._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[Sequence['outputs.DetectorModelEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if events is not None:
-            _setter("events", events)
+            pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
@@ -2898,21 +2403,10 @@ class DetectorModelOnInput(dict):
         :param Sequence['DetectorModelEvent'] events: Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
         :param Sequence['DetectorModelTransitionEvent'] transition_events: Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
         """
-        DetectorModelOnInput._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-            transition_events=transition_events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Optional[Sequence['outputs.DetectorModelEvent']] = None,
-             transition_events: Optional[Sequence['outputs.DetectorModelTransitionEvent']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if events is not None:
-            _setter("events", events)
+            pulumi.set(__self__, "events", events)
         if transition_events is not None:
-            _setter("transition_events", transition_events)
+            pulumi.set(__self__, "transition_events", transition_events)
 
     @property
     @pulumi.getter
@@ -2965,19 +2459,8 @@ class DetectorModelPayload(dict):
         :param str content_expression: The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
         :param str type: The value of the payload type can be either `STRING` or `JSON`.
         """
-        DetectorModelPayload._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_expression=content_expression,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_expression: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("content_expression", content_expression)
-        _setter("type", type)
+        pulumi.set(__self__, "content_expression", content_expression)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="contentExpression")
@@ -3024,16 +2507,7 @@ class DetectorModelResetTimer(dict):
         Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
         :param str timer_name: The name of the timer to reset.
         """
-        DetectorModelResetTimer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timer_name=timer_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timer_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("timer_name", timer_name)
+        pulumi.set(__self__, "timer_name", timer_name)
 
     @property
     @pulumi.getter(name="timerName")
@@ -3078,24 +2552,11 @@ class DetectorModelSetTimer(dict):
         :param str duration_expression: The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
         :param int seconds: The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
         """
-        DetectorModelSetTimer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timer_name=timer_name,
-            duration_expression=duration_expression,
-            seconds=seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timer_name: str,
-             duration_expression: Optional[str] = None,
-             seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("timer_name", timer_name)
+        pulumi.set(__self__, "timer_name", timer_name)
         if duration_expression is not None:
-            _setter("duration_expression", duration_expression)
+            pulumi.set(__self__, "duration_expression", duration_expression)
         if seconds is not None:
-            _setter("seconds", seconds)
+            pulumi.set(__self__, "seconds", seconds)
 
     @property
     @pulumi.getter(name="timerName")
@@ -3152,19 +2613,8 @@ class DetectorModelSetVariable(dict):
         :param str value: The new value of the variable.
         :param str variable_name: The name of the variable.
         """
-        DetectorModelSetVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-            variable_name=variable_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: str,
-             variable_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
-        _setter("variable_name", variable_name)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "variable_name", variable_name)
 
     @property
     @pulumi.getter
@@ -3212,20 +2662,9 @@ class DetectorModelSns(dict):
         Information required to publish the Amazon SNS message.
         :param str target_arn: The ARN of the Amazon SNS target where the message is sent.
         """
-        DetectorModelSns._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_arn=target_arn,
-            payload=payload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_arn: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_arn", target_arn)
+        pulumi.set(__self__, "target_arn", target_arn)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -3270,24 +2709,11 @@ class DetectorModelSqs(dict):
         :param str queue_url: The URL of the SQS queue where the data is written.
         :param bool use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
         """
-        DetectorModelSqs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            queue_url=queue_url,
-            payload=payload,
-            use_base64=use_base64,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             queue_url: str,
-             payload: Optional['outputs.DetectorModelPayload'] = None,
-             use_base64: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("queue_url", queue_url)
+        pulumi.set(__self__, "queue_url", queue_url)
         if payload is not None:
-            _setter("payload", payload)
+            pulumi.set(__self__, "payload", payload)
         if use_base64 is not None:
-            _setter("use_base64", use_base64)
+            pulumi.set(__self__, "use_base64", use_base64)
 
     @property
     @pulumi.getter(name="queueUrl")
@@ -3348,28 +2774,13 @@ class DetectorModelState(dict):
         Information that defines a state of a detector.
         :param str state_name: The name of the state.
         """
-        DetectorModelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            state_name=state_name,
-            on_enter=on_enter,
-            on_exit=on_exit,
-            on_input=on_input,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             state_name: str,
-             on_enter: Optional['outputs.DetectorModelOnEnter'] = None,
-             on_exit: Optional['outputs.DetectorModelOnExit'] = None,
-             on_input: Optional['outputs.DetectorModelOnInput'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("state_name", state_name)
+        pulumi.set(__self__, "state_name", state_name)
         if on_enter is not None:
-            _setter("on_enter", on_enter)
+            pulumi.set(__self__, "on_enter", on_enter)
         if on_exit is not None:
-            _setter("on_exit", on_exit)
+            pulumi.set(__self__, "on_exit", on_exit)
         if on_input is not None:
-            _setter("on_input", on_input)
+            pulumi.set(__self__, "on_input", on_input)
 
     @property
     @pulumi.getter(name="stateName")
@@ -3408,19 +2819,8 @@ class DetectorModelTag(dict):
         :param str key: Key of the Tag.
         :param str value: Value of the Tag.
         """
-        DetectorModelTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3475,26 +2875,11 @@ class DetectorModelTransitionEvent(dict):
         :param str next_state: The next state to enter.
         :param Sequence['DetectorModelAction'] actions: The actions to be performed.
         """
-        DetectorModelTransitionEvent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            event_name=event_name,
-            next_state=next_state,
-            actions=actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: str,
-             event_name: str,
-             next_state: str,
-             actions: Optional[Sequence['outputs.DetectorModelAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("condition", condition)
-        _setter("event_name", event_name)
-        _setter("next_state", next_state)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "event_name", event_name)
+        pulumi.set(__self__, "next_state", next_state)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
 
     @property
     @pulumi.getter
@@ -3559,16 +2944,7 @@ class InputAttribute(dict):
                
                _Syntax_: `<field-name>.<field-name>...`
         """
-        InputAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            json_path=json_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             json_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("json_path", json_path)
+        pulumi.set(__self__, "json_path", json_path)
 
     @property
     @pulumi.getter(name="jsonPath")
@@ -3592,16 +2968,7 @@ class InputDefinition(dict):
         The definition of the input.
         :param Sequence['InputAttribute'] attributes: The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
         """
-        InputDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Sequence['outputs.InputAttribute'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attributes", attributes)
+        pulumi.set(__self__, "attributes", attributes)
 
     @property
     @pulumi.getter
@@ -3625,19 +2992,8 @@ class InputTag(dict):
         :param str key: Key of the Tag.
         :param str value: Value of the Tag.
         """
-        InputTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

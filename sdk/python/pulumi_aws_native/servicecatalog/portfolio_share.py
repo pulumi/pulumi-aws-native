@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PortfolioShareArgs', 'PortfolioShare']
@@ -21,27 +21,12 @@ class PortfolioShareArgs:
         """
         The set of arguments for constructing a PortfolioShare resource.
         """
-        PortfolioShareArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            portfolio_id=portfolio_id,
-            accept_language=accept_language,
-            share_tag_options=share_tag_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             portfolio_id: pulumi.Input[str],
-             accept_language: Optional[pulumi.Input[str]] = None,
-             share_tag_options: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("account_id", account_id)
-        _setter("portfolio_id", portfolio_id)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "portfolio_id", portfolio_id)
         if accept_language is not None:
-            _setter("accept_language", accept_language)
+            pulumi.set(__self__, "accept_language", accept_language)
         if share_tag_options is not None:
-            _setter("share_tag_options", share_tag_options)
+            pulumi.set(__self__, "share_tag_options", share_tag_options)
 
     @property
     @pulumi.getter(name="accountId")
@@ -120,10 +105,6 @@ class PortfolioShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PortfolioShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

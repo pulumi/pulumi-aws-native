@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,56 +41,27 @@ class ScalingPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]] step_adjustments: A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
         :param pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs'] target_tracking_configuration: A target tracking scaling policy. Includes support for predefined or customized metrics.
         """
-        ScalingPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_scaling_group_name=auto_scaling_group_name,
-            adjustment_type=adjustment_type,
-            cooldown=cooldown,
-            estimated_instance_warmup=estimated_instance_warmup,
-            metric_aggregation_type=metric_aggregation_type,
-            min_adjustment_magnitude=min_adjustment_magnitude,
-            policy_type=policy_type,
-            predictive_scaling_configuration=predictive_scaling_configuration,
-            scaling_adjustment=scaling_adjustment,
-            step_adjustments=step_adjustments,
-            target_tracking_configuration=target_tracking_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
-             adjustment_type: Optional[pulumi.Input[str]] = None,
-             cooldown: Optional[pulumi.Input[str]] = None,
-             estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
-             metric_aggregation_type: Optional[pulumi.Input[str]] = None,
-             min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
-             policy_type: Optional[pulumi.Input[str]] = None,
-             predictive_scaling_configuration: Optional[pulumi.Input['ScalingPolicyPredictiveScalingConfigurationArgs']] = None,
-             scaling_adjustment: Optional[pulumi.Input[int]] = None,
-             step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyStepAdjustmentArgs']]]] = None,
-             target_tracking_configuration: Optional[pulumi.Input['ScalingPolicyTargetTrackingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_scaling_group_name", auto_scaling_group_name)
+        pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if adjustment_type is not None:
-            _setter("adjustment_type", adjustment_type)
+            pulumi.set(__self__, "adjustment_type", adjustment_type)
         if cooldown is not None:
-            _setter("cooldown", cooldown)
+            pulumi.set(__self__, "cooldown", cooldown)
         if estimated_instance_warmup is not None:
-            _setter("estimated_instance_warmup", estimated_instance_warmup)
+            pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
         if metric_aggregation_type is not None:
-            _setter("metric_aggregation_type", metric_aggregation_type)
+            pulumi.set(__self__, "metric_aggregation_type", metric_aggregation_type)
         if min_adjustment_magnitude is not None:
-            _setter("min_adjustment_magnitude", min_adjustment_magnitude)
+            pulumi.set(__self__, "min_adjustment_magnitude", min_adjustment_magnitude)
         if policy_type is not None:
-            _setter("policy_type", policy_type)
+            pulumi.set(__self__, "policy_type", policy_type)
         if predictive_scaling_configuration is not None:
-            _setter("predictive_scaling_configuration", predictive_scaling_configuration)
+            pulumi.set(__self__, "predictive_scaling_configuration", predictive_scaling_configuration)
         if scaling_adjustment is not None:
-            _setter("scaling_adjustment", scaling_adjustment)
+            pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if step_adjustments is not None:
-            _setter("step_adjustments", step_adjustments)
+            pulumi.set(__self__, "step_adjustments", step_adjustments)
         if target_tracking_configuration is not None:
-            _setter("target_tracking_configuration", target_tracking_configuration)
+            pulumi.set(__self__, "target_tracking_configuration", target_tracking_configuration)
 
     @property
     @pulumi.getter(name="autoScalingGroupName")
@@ -278,10 +249,6 @@ class ScalingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScalingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,19 +283,9 @@ class ScalingPolicy(pulumi.CustomResource):
             __props__.__dict__["metric_aggregation_type"] = metric_aggregation_type
             __props__.__dict__["min_adjustment_magnitude"] = min_adjustment_magnitude
             __props__.__dict__["policy_type"] = policy_type
-            if predictive_scaling_configuration is not None and not isinstance(predictive_scaling_configuration, ScalingPolicyPredictiveScalingConfigurationArgs):
-                predictive_scaling_configuration = predictive_scaling_configuration or {}
-                def _setter(key, value):
-                    predictive_scaling_configuration[key] = value
-                ScalingPolicyPredictiveScalingConfigurationArgs._configure(_setter, **predictive_scaling_configuration)
             __props__.__dict__["predictive_scaling_configuration"] = predictive_scaling_configuration
             __props__.__dict__["scaling_adjustment"] = scaling_adjustment
             __props__.__dict__["step_adjustments"] = step_adjustments
-            if target_tracking_configuration is not None and not isinstance(target_tracking_configuration, ScalingPolicyTargetTrackingConfigurationArgs):
-                target_tracking_configuration = target_tracking_configuration or {}
-                def _setter(key, value):
-                    target_tracking_configuration[key] = value
-                ScalingPolicyTargetTrackingConfigurationArgs._configure(_setter, **target_tracking_configuration)
             __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_name"] = None

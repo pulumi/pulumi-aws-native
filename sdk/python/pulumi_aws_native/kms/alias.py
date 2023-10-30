@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AliasArgs', 'Alias']
@@ -21,20 +21,9 @@ class AliasArgs:
         :param pulumi.Input[str] target_key_id: Identifies the AWS KMS key to which the alias refers. Specify the key ID or the Amazon Resource Name (ARN) of the AWS KMS key. You cannot specify another alias. For help finding the key ID and ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
         :param pulumi.Input[str] alias_name: Specifies the alias name. This value must begin with alias/ followed by a name, such as alias/ExampleAlias. The alias name cannot begin with alias/aws/. The alias/aws/ prefix is reserved for AWS managed keys.
         """
-        AliasArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_key_id=target_key_id,
-            alias_name=alias_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_key_id: pulumi.Input[str],
-             alias_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_key_id", target_key_id)
+        pulumi.set(__self__, "target_key_id", target_key_id)
         if alias_name is not None:
-            _setter("alias_name", alias_name)
+            pulumi.set(__self__, "alias_name", alias_name)
 
     @property
     @pulumi.getter(name="targetKeyId")
@@ -96,10 +85,6 @@ class Alias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

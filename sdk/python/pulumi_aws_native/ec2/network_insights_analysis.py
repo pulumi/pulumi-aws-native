@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,28 +24,13 @@ class NetworkInsightsAnalysisArgs:
         """
         The set of arguments for constructing a NetworkInsightsAnalysis resource.
         """
-        NetworkInsightsAnalysisArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_insights_path_id=network_insights_path_id,
-            additional_accounts=additional_accounts,
-            filter_in_arns=filter_in_arns,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_insights_path_id: pulumi.Input[str],
-             additional_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("network_insights_path_id", network_insights_path_id)
+        pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
         if additional_accounts is not None:
-            _setter("additional_accounts", additional_accounts)
+            pulumi.set(__self__, "additional_accounts", additional_accounts)
         if filter_in_arns is not None:
-            _setter("filter_in_arns", filter_in_arns)
+            pulumi.set(__self__, "filter_in_arns", filter_in_arns)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="networkInsightsPathId")
@@ -119,10 +104,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkInsightsAnalysisArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

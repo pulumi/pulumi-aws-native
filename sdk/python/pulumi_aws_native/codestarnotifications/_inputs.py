@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -19,19 +19,8 @@ class NotificationRuleTargetArgs:
     def __init__(__self__, *,
                  target_address: pulumi.Input[str],
                  target_type: pulumi.Input[str]):
-        NotificationRuleTargetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_address=target_address,
-            target_type=target_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_address: pulumi.Input[str],
-             target_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_address", target_address)
-        _setter("target_type", target_type)
+        pulumi.set(__self__, "target_address", target_address)
+        pulumi.set(__self__, "target_type", target_type)
 
     @property
     @pulumi.getter(name="targetAddress")

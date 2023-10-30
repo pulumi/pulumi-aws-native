@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,55 +30,26 @@ class AuthorizerArgs:
         """
         The set of arguments for constructing a Authorizer resource.
         """
-        AuthorizerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            authorizer_type=authorizer_type,
-            authorizer_credentials_arn=authorizer_credentials_arn,
-            authorizer_payload_format_version=authorizer_payload_format_version,
-            authorizer_result_ttl_in_seconds=authorizer_result_ttl_in_seconds,
-            authorizer_uri=authorizer_uri,
-            enable_simple_responses=enable_simple_responses,
-            identity_source=identity_source,
-            identity_validation_expression=identity_validation_expression,
-            jwt_configuration=jwt_configuration,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             authorizer_type: pulumi.Input[str],
-             authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
-             authorizer_payload_format_version: Optional[pulumi.Input[str]] = None,
-             authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
-             authorizer_uri: Optional[pulumi.Input[str]] = None,
-             enable_simple_responses: Optional[pulumi.Input[bool]] = None,
-             identity_source: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             identity_validation_expression: Optional[pulumi.Input[str]] = None,
-             jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_id", api_id)
-        _setter("authorizer_type", authorizer_type)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "authorizer_type", authorizer_type)
         if authorizer_credentials_arn is not None:
-            _setter("authorizer_credentials_arn", authorizer_credentials_arn)
+            pulumi.set(__self__, "authorizer_credentials_arn", authorizer_credentials_arn)
         if authorizer_payload_format_version is not None:
-            _setter("authorizer_payload_format_version", authorizer_payload_format_version)
+            pulumi.set(__self__, "authorizer_payload_format_version", authorizer_payload_format_version)
         if authorizer_result_ttl_in_seconds is not None:
-            _setter("authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
         if authorizer_uri is not None:
-            _setter("authorizer_uri", authorizer_uri)
+            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
         if enable_simple_responses is not None:
-            _setter("enable_simple_responses", enable_simple_responses)
+            pulumi.set(__self__, "enable_simple_responses", enable_simple_responses)
         if identity_source is not None:
-            _setter("identity_source", identity_source)
+            pulumi.set(__self__, "identity_source", identity_source)
         if identity_validation_expression is not None:
-            _setter("identity_validation_expression", identity_validation_expression)
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
         if jwt_configuration is not None:
-            _setter("jwt_configuration", jwt_configuration)
+            pulumi.set(__self__, "jwt_configuration", jwt_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="apiId")
@@ -222,10 +193,6 @@ class Authorizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AuthorizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -264,11 +231,6 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["enable_simple_responses"] = enable_simple_responses
             __props__.__dict__["identity_source"] = identity_source
             __props__.__dict__["identity_validation_expression"] = identity_validation_expression
-            if jwt_configuration is not None and not isinstance(jwt_configuration, AuthorizerJwtConfigurationArgs):
-                jwt_configuration = jwt_configuration or {}
-                def _setter(key, value):
-                    jwt_configuration[key] = value
-                AuthorizerJwtConfigurationArgs._configure(_setter, **jwt_configuration)
             __props__.__dict__["jwt_configuration"] = jwt_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["authorizer_id"] = None

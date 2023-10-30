@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,29 +26,14 @@ class WorkspaceArgs:
         :param pulumi.Input[str] alias: AMP Workspace alias.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        WorkspaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alert_manager_definition=alert_manager_definition,
-            alias=alias,
-            logging_configuration=logging_configuration,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alert_manager_definition: Optional[pulumi.Input[str]] = None,
-             alias: Optional[pulumi.Input[str]] = None,
-             logging_configuration: Optional[pulumi.Input['WorkspaceLoggingConfigurationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_manager_definition is not None:
-            _setter("alert_manager_definition", alert_manager_definition)
+            pulumi.set(__self__, "alert_manager_definition", alert_manager_definition)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if logging_configuration is not None:
-            _setter("logging_configuration", logging_configuration)
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="alertManagerDefinition")
@@ -134,10 +119,6 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -158,11 +139,6 @@ class Workspace(pulumi.CustomResource):
 
             __props__.__dict__["alert_manager_definition"] = alert_manager_definition
             __props__.__dict__["alias"] = alias
-            if logging_configuration is not None and not isinstance(logging_configuration, WorkspaceLoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                WorkspaceLoggingConfigurationArgs._configure(_setter, **logging_configuration)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

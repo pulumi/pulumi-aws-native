@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -52,22 +52,9 @@ class AccessPointCreationInfo(dict):
         :param str owner_uid: Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
         :param str permissions: Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
-        AccessPointCreationInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            owner_gid=owner_gid,
-            owner_uid=owner_uid,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             owner_gid: str,
-             owner_uid: str,
-             permissions: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("owner_gid", owner_gid)
-        _setter("owner_uid", owner_uid)
-        _setter("permissions", permissions)
+        pulumi.set(__self__, "owner_gid", owner_gid)
+        pulumi.set(__self__, "owner_uid", owner_uid)
+        pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter(name="ownerGid")
@@ -122,23 +109,10 @@ class AccessPointPosixUser(dict):
         :param str uid: The POSIX user ID used for all file system operations using this access point.
         :param Sequence[str] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
         """
-        AccessPointPosixUser._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gid=gid,
-            uid=uid,
-            secondary_gids=secondary_gids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gid: str,
-             uid: str,
-             secondary_gids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("gid", gid)
-        _setter("uid", uid)
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
         if secondary_gids is not None:
-            _setter("secondary_gids", secondary_gids)
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
 
     @property
     @pulumi.getter
@@ -191,21 +165,10 @@ class AccessPointRootDirectory(dict):
         :param 'AccessPointCreationInfo' creation_info: (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail. 
         :param str path: Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
         """
-        AccessPointRootDirectory._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            creation_info=creation_info,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             creation_info: Optional['outputs.AccessPointCreationInfo'] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if creation_info is not None:
-            _setter("creation_info", creation_info)
+            pulumi.set(__self__, "creation_info", creation_info)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter(name="creationInfo")
@@ -229,21 +192,10 @@ class AccessPointTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        AccessPointTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -260,16 +212,7 @@ class AccessPointTag(dict):
 class FileSystemBackupPolicy(dict):
     def __init__(__self__, *,
                  status: str):
-        FileSystemBackupPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -282,19 +225,8 @@ class FileSystemElasticFileSystemTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        FileSystemElasticFileSystemTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -331,21 +263,10 @@ class FileSystemLifecyclePolicy(dict):
     def __init__(__self__, *,
                  transition_to_ia: Optional[str] = None,
                  transition_to_primary_storage_class: Optional[str] = None):
-        FileSystemLifecyclePolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            transition_to_ia=transition_to_ia,
-            transition_to_primary_storage_class=transition_to_primary_storage_class,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             transition_to_ia: Optional[str] = None,
-             transition_to_primary_storage_class: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if transition_to_ia is not None:
-            _setter("transition_to_ia", transition_to_ia)
+            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
-            _setter("transition_to_primary_storage_class", transition_to_primary_storage_class)
+            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIa")
@@ -362,17 +283,8 @@ class FileSystemLifecyclePolicy(dict):
 class FileSystemReplicationConfiguration(dict):
     def __init__(__self__, *,
                  destinations: Optional[Sequence['outputs.FileSystemReplicationDestination']] = None):
-        FileSystemReplicationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destinations=destinations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destinations: Optional[Sequence['outputs.FileSystemReplicationDestination']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
 
     @property
     @pulumi.getter
@@ -408,29 +320,14 @@ class FileSystemReplicationDestination(dict):
                  file_system_id: Optional[str] = None,
                  kms_key_id: Optional[str] = None,
                  region: Optional[str] = None):
-        FileSystemReplicationDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone_name=availability_zone_name,
-            file_system_id=file_system_id,
-            kms_key_id=kms_key_id,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone_name: Optional[str] = None,
-             file_system_id: Optional[str] = None,
-             kms_key_id: Optional[str] = None,
-             region: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone_name is not None:
-            _setter("availability_zone_name", availability_zone_name)
+            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
         if file_system_id is not None:
-            _setter("file_system_id", file_system_id)
+            pulumi.set(__self__, "file_system_id", file_system_id)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="availabilityZoneName")

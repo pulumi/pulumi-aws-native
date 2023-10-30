@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,24 +22,11 @@ class AccessLogSubscriptionArgs:
         """
         The set of arguments for constructing a AccessLogSubscription resource.
         """
-        AccessLogSubscriptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_arn=destination_arn,
-            resource_identifier=resource_identifier,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_arn: pulumi.Input[str],
-             resource_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessLogSubscriptionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_arn", destination_arn)
+        pulumi.set(__self__, "destination_arn", destination_arn)
         if resource_identifier is not None:
-            _setter("resource_identifier", resource_identifier)
+            pulumi.set(__self__, "resource_identifier", resource_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -103,10 +90,6 @@ class AccessLogSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessLogSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

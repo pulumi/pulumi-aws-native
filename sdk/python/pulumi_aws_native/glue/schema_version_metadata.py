@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SchemaVersionMetadataArgs', 'SchemaVersionMetadata']
@@ -23,22 +23,9 @@ class SchemaVersionMetadataArgs:
         :param pulumi.Input[str] schema_version_id: Represents the version ID associated with the schema version.
         :param pulumi.Input[str] value: Metadata value
         """
-        SchemaVersionMetadataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            schema_version_id=schema_version_id,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             schema_version_id: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("schema_version_id", schema_version_id)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "schema_version_id", schema_version_id)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -114,10 +101,6 @@ class SchemaVersionMetadata(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaVersionMetadataArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

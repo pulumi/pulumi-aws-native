@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,25 +23,10 @@ class PartitionArgs:
         """
         The set of arguments for constructing a Partition resource.
         """
-        PartitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            catalog_id=catalog_id,
-            database_name=database_name,
-            partition_input=partition_input,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             database_name: pulumi.Input[str],
-             partition_input: pulumi.Input['PartitionInputArgs'],
-             table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("catalog_id", catalog_id)
-        _setter("database_name", database_name)
-        _setter("partition_input", partition_input)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "partition_input", partition_input)
+        pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -120,10 +105,6 @@ class Partition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PartitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -149,11 +130,6 @@ class Partition(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if partition_input is not None and not isinstance(partition_input, PartitionInputArgs):
-                partition_input = partition_input or {}
-                def _setter(key, value):
-                    partition_input[key] = value
-                PartitionInputArgs._configure(_setter, **partition_input)
             if partition_input is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_input'")
             __props__.__dict__["partition_input"] = partition_input

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkflowArgs', 'Workflow']
@@ -22,33 +22,16 @@ class WorkflowArgs:
         """
         The set of arguments for constructing a Workflow resource.
         """
-        WorkflowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_run_properties=default_run_properties,
-            description=description,
-            max_concurrent_runs=max_concurrent_runs,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_run_properties: Optional[Any] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             max_concurrent_runs: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if default_run_properties is not None:
-            _setter("default_run_properties", default_run_properties)
+            pulumi.set(__self__, "default_run_properties", default_run_properties)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max_concurrent_runs is not None:
-            _setter("max_concurrent_runs", max_concurrent_runs)
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="defaultRunProperties")
@@ -137,10 +120,6 @@ class Workflow(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkflowArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

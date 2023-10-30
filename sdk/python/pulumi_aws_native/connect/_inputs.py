@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -86,25 +86,12 @@ class ConstraintsPropertiesArgs:
         """
         The constraints for the task template
         """
-        ConstraintsPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invisible_fields=invisible_fields,
-            read_only_fields=read_only_fields,
-            required_fields=required_fields,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invisible_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateInvisibleFieldInfoArgs']]]] = None,
-             read_only_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateReadOnlyFieldInfoArgs']]]] = None,
-             required_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateRequiredFieldInfoArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if invisible_fields is not None:
-            _setter("invisible_fields", invisible_fields)
+            pulumi.set(__self__, "invisible_fields", invisible_fields)
         if read_only_fields is not None:
-            _setter("read_only_fields", read_only_fields)
+            pulumi.set(__self__, "read_only_fields", read_only_fields)
         if required_fields is not None:
-            _setter("required_fields", required_fields)
+            pulumi.set(__self__, "required_fields", required_fields)
 
     @property
     @pulumi.getter(name="invisibleFields")
@@ -144,19 +131,8 @@ class ContactFlowModuleTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ContactFlowModuleTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -193,19 +169,8 @@ class ContactFlowTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ContactFlowTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -240,16 +205,7 @@ class EvaluationFormBaseItemArgs:
         The evaluation form base item.
         :param pulumi.Input['EvaluationFormSectionArgs'] section: The evaluation form section item
         """
-        EvaluationFormBaseItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            section=section,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             section: pulumi.Input['EvaluationFormSectionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("section", section)
+        pulumi.set(__self__, "section", section)
 
     @property
     @pulumi.getter
@@ -274,21 +230,10 @@ class EvaluationFormItemArgs:
         :param pulumi.Input['EvaluationFormQuestionArgs'] question: The evaluation form question item
         :param pulumi.Input['EvaluationFormSectionArgs'] section: The evaluation form section item
         """
-        EvaluationFormItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            question=question,
-            section=section,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             question: Optional[pulumi.Input['EvaluationFormQuestionArgs']] = None,
-             section: Optional[pulumi.Input['EvaluationFormSectionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if question is not None:
-            _setter("question", question)
+            pulumi.set(__self__, "question", question)
         if section is not None:
-            _setter("section", section)
+            pulumi.set(__self__, "section", section)
 
     @property
     @pulumi.getter
@@ -323,16 +268,7 @@ class EvaluationFormNumericQuestionAutomationArgs:
         The automation properties for the numeric question.
         :param pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs'] property_value: The automation property name of the question.
         """
-        EvaluationFormNumericQuestionAutomationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_value=property_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_value: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("property_value", property_value)
+        pulumi.set(__self__, "property_value", property_value)
 
     @property
     @pulumi.getter(name="propertyValue")
@@ -361,27 +297,12 @@ class EvaluationFormNumericQuestionOptionArgs:
         :param pulumi.Input[bool] automatic_fail: The flag to mark the option as automatic fail.
         :param pulumi.Input[int] score: The score of the option range.
         """
-        EvaluationFormNumericQuestionOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_value=max_value,
-            min_value=min_value,
-            automatic_fail=automatic_fail,
-            score=score,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_value: pulumi.Input[int],
-             min_value: pulumi.Input[int],
-             automatic_fail: Optional[pulumi.Input[bool]] = None,
-             score: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_value", max_value)
-        _setter("min_value", min_value)
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
         if automatic_fail is not None:
-            _setter("automatic_fail", automatic_fail)
+            pulumi.set(__self__, "automatic_fail", automatic_fail)
         if score is not None:
-            _setter("score", score)
+            pulumi.set(__self__, "score", score)
 
     @property
     @pulumi.getter(name="maxValue")
@@ -446,27 +367,12 @@ class EvaluationFormNumericQuestionPropertiesArgs:
         :param pulumi.Input['EvaluationFormNumericQuestionAutomationArgs'] automation: The automation properties for the numeric question.
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormNumericQuestionOptionArgs']]] options: The list of option ranges used for scoring.
         """
-        EvaluationFormNumericQuestionPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_value=max_value,
-            min_value=min_value,
-            automation=automation,
-            options=options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_value: pulumi.Input[int],
-             min_value: pulumi.Input[int],
-             automation: Optional[pulumi.Input['EvaluationFormNumericQuestionAutomationArgs']] = None,
-             options: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormNumericQuestionOptionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_value", max_value)
-        _setter("min_value", min_value)
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "min_value", min_value)
         if automation is not None:
-            _setter("automation", automation)
+            pulumi.set(__self__, "automation", automation)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter(name="maxValue")
@@ -525,16 +431,7 @@ class EvaluationFormNumericQuestionPropertyValueAutomationArgs:
         The automation property name of the question.
         :param pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel'] label: The automation property label.
         """
-        EvaluationFormNumericQuestionPropertyValueAutomationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            label=label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             label: pulumi.Input['EvaluationFormNumericQuestionPropertyValueAutomationLabel'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("label", label)
+        pulumi.set(__self__, "label", label)
 
     @property
     @pulumi.getter
@@ -559,21 +456,10 @@ class EvaluationFormQuestionTypePropertiesArgs:
         :param pulumi.Input['EvaluationFormNumericQuestionPropertiesArgs'] numeric: The properties of the numeric question.
         :param pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesArgs'] single_select: The properties of the single-select question.
         """
-        EvaluationFormQuestionTypePropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            numeric=numeric,
-            single_select=single_select,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             numeric: Optional[pulumi.Input['EvaluationFormNumericQuestionPropertiesArgs']] = None,
-             single_select: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if numeric is not None:
-            _setter("numeric", numeric)
+            pulumi.set(__self__, "numeric", numeric)
         if single_select is not None:
-            _setter("single_select", single_select)
+            pulumi.set(__self__, "single_select", single_select)
 
     @property
     @pulumi.getter
@@ -620,38 +506,17 @@ class EvaluationFormQuestionArgs:
         :param pulumi.Input['EvaluationFormQuestionTypePropertiesArgs'] question_type_properties: The properties of the question
         :param pulumi.Input[float] weight: The question weight used for scoring.
         """
-        EvaluationFormQuestionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            question_type=question_type,
-            ref_id=ref_id,
-            title=title,
-            instructions=instructions,
-            not_applicable_enabled=not_applicable_enabled,
-            question_type_properties=question_type_properties,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             question_type: pulumi.Input['EvaluationFormQuestionQuestionType'],
-             ref_id: pulumi.Input[str],
-             title: pulumi.Input[str],
-             instructions: Optional[pulumi.Input[str]] = None,
-             not_applicable_enabled: Optional[pulumi.Input[bool]] = None,
-             question_type_properties: Optional[pulumi.Input['EvaluationFormQuestionTypePropertiesArgs']] = None,
-             weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("question_type", question_type)
-        _setter("ref_id", ref_id)
-        _setter("title", title)
+        pulumi.set(__self__, "question_type", question_type)
+        pulumi.set(__self__, "ref_id", ref_id)
+        pulumi.set(__self__, "title", title)
         if instructions is not None:
-            _setter("instructions", instructions)
+            pulumi.set(__self__, "instructions", instructions)
         if not_applicable_enabled is not None:
-            _setter("not_applicable_enabled", not_applicable_enabled)
+            pulumi.set(__self__, "not_applicable_enabled", not_applicable_enabled)
         if question_type_properties is not None:
-            _setter("question_type_properties", question_type_properties)
+            pulumi.set(__self__, "question_type_properties", question_type_properties)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="questionType")
@@ -748,19 +613,8 @@ class EvaluationFormScoringStrategyArgs:
         :param pulumi.Input['EvaluationFormScoringStrategyMode'] mode: The scoring mode.
         :param pulumi.Input['EvaluationFormScoringStrategyStatus'] status: The scoring status.
         """
-        EvaluationFormScoringStrategyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input['EvaluationFormScoringStrategyMode'],
-             status: pulumi.Input['EvaluationFormScoringStrategyStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mode", mode)
-        _setter("status", status)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -803,31 +657,14 @@ class EvaluationFormSectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]] items: The list of section items.
         :param pulumi.Input[float] weight: The item weight used for scoring.
         """
-        EvaluationFormSectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ref_id=ref_id,
-            title=title,
-            instructions=instructions,
-            items=items,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ref_id: pulumi.Input[str],
-             title: pulumi.Input[str],
-             instructions: Optional[pulumi.Input[str]] = None,
-             items: Optional[pulumi.Input[Sequence[pulumi.Input['EvaluationFormItemArgs']]]] = None,
-             weight: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ref_id", ref_id)
-        _setter("title", title)
+        pulumi.set(__self__, "ref_id", ref_id)
+        pulumi.set(__self__, "title", title)
         if instructions is not None:
-            _setter("instructions", instructions)
+            pulumi.set(__self__, "instructions", instructions)
         if items is not None:
-            _setter("items", items)
+            pulumi.set(__self__, "items", items)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="refId")
@@ -898,16 +735,7 @@ class EvaluationFormSingleSelectQuestionAutomationOptionArgs:
         The automation option for the single-select question.
         :param pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs'] rule_category: The automation option based on Rules categories.
         """
-        EvaluationFormSingleSelectQuestionAutomationOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_category=rule_category,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_category: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rule_category", rule_category)
+        pulumi.set(__self__, "rule_category", rule_category)
 
     @property
     @pulumi.getter(name="ruleCategory")
@@ -932,20 +760,9 @@ class EvaluationFormSingleSelectQuestionAutomationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]] options: The answer options for the automation.
         :param pulumi.Input[str] default_option_ref_id: The option reference identifier of the default answer.
         """
-        EvaluationFormSingleSelectQuestionAutomationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            options=options,
-            default_option_ref_id=default_option_ref_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationOptionArgs']]],
-             default_option_ref_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("options", options)
+        pulumi.set(__self__, "options", options)
         if default_option_ref_id is not None:
-            _setter("default_option_ref_id", default_option_ref_id)
+            pulumi.set(__self__, "default_option_ref_id", default_option_ref_id)
 
     @property
     @pulumi.getter
@@ -986,27 +803,12 @@ class EvaluationFormSingleSelectQuestionOptionArgs:
         :param pulumi.Input[bool] automatic_fail: The flag to mark the option as automatic fail.
         :param pulumi.Input[int] score: The score of the option.
         """
-        EvaluationFormSingleSelectQuestionOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ref_id=ref_id,
-            text=text,
-            automatic_fail=automatic_fail,
-            score=score,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ref_id: pulumi.Input[str],
-             text: pulumi.Input[str],
-             automatic_fail: Optional[pulumi.Input[bool]] = None,
-             score: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ref_id", ref_id)
-        _setter("text", text)
+        pulumi.set(__self__, "ref_id", ref_id)
+        pulumi.set(__self__, "text", text)
         if automatic_fail is not None:
-            _setter("automatic_fail", automatic_fail)
+            pulumi.set(__self__, "automatic_fail", automatic_fail)
         if score is not None:
-            _setter("score", score)
+            pulumi.set(__self__, "score", score)
 
     @property
     @pulumi.getter(name="refId")
@@ -1069,24 +871,11 @@ class EvaluationFormSingleSelectQuestionPropertiesArgs:
         :param pulumi.Input['EvaluationFormSingleSelectQuestionAutomationArgs'] automation: The automation properties for the single-select question.
         :param pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesDisplayAs'] display_as: The display mode of the single-select question.
         """
-        EvaluationFormSingleSelectQuestionPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            options=options,
-            automation=automation,
-            display_as=display_as,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             options: pulumi.Input[Sequence[pulumi.Input['EvaluationFormSingleSelectQuestionOptionArgs']]],
-             automation: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionAutomationArgs']] = None,
-             display_as: Optional[pulumi.Input['EvaluationFormSingleSelectQuestionPropertiesDisplayAs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("options", options)
+        pulumi.set(__self__, "options", options)
         if automation is not None:
-            _setter("automation", automation)
+            pulumi.set(__self__, "automation", automation)
         if display_as is not None:
-            _setter("display_as", display_as)
+            pulumi.set(__self__, "display_as", display_as)
 
     @property
     @pulumi.getter
@@ -1137,22 +926,9 @@ class EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs:
         :param pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition'] condition: The automation condition applied on contact categories.
         :param pulumi.Input[str] option_ref_id: The option identifier referencing the option to be selected when the automation option is triggered.
         """
-        EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            category=category,
-            condition=condition,
-            option_ref_id=option_ref_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             category: pulumi.Input[str],
-             condition: pulumi.Input['EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition'],
-             option_ref_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("category", category)
-        _setter("condition", condition)
-        _setter("option_ref_id", option_ref_id)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "option_ref_id", option_ref_id)
 
     @property
     @pulumi.getter
@@ -1201,19 +977,8 @@ class EvaluationFormTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that's 1 to 256 characters in length.
         """
-        EvaluationFormTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1252,22 +1017,9 @@ class HoursOfOperationConfigArgs:
         :param pulumi.Input['HoursOfOperationTimeSliceArgs'] end_time: The end time that your contact center closes.
         :param pulumi.Input['HoursOfOperationTimeSliceArgs'] start_time: The start time that your contact center opens.
         """
-        HoursOfOperationConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day=day,
-            end_time=end_time,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day: pulumi.Input['HoursOfOperationConfigDay'],
-             end_time: pulumi.Input['HoursOfOperationTimeSliceArgs'],
-             start_time: pulumi.Input['HoursOfOperationTimeSliceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("day", day)
-        _setter("end_time", end_time)
-        _setter("start_time", start_time)
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter
@@ -1316,19 +1068,8 @@ class HoursOfOperationTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        HoursOfOperationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1365,19 +1106,8 @@ class HoursOfOperationTimeSliceArgs:
         :param pulumi.Input[int] hours: The hours.
         :param pulumi.Input[int] minutes: The minutes.
         """
-        HoursOfOperationTimeSliceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hours=hours,
-            minutes=minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hours: pulumi.Input[int],
-             minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hours", hours)
-        _setter("minutes", minutes)
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
 
     @property
     @pulumi.getter
@@ -1414,39 +1144,18 @@ class InstanceAttributesArgs:
                  contactflow_logs: Optional[pulumi.Input[bool]] = None,
                  early_media: Optional[pulumi.Input[bool]] = None,
                  use_custom_tts_voices: Optional[pulumi.Input[bool]] = None):
-        InstanceAttributesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inbound_calls=inbound_calls,
-            outbound_calls=outbound_calls,
-            auto_resolve_best_voices=auto_resolve_best_voices,
-            contact_lens=contact_lens,
-            contactflow_logs=contactflow_logs,
-            early_media=early_media,
-            use_custom_tts_voices=use_custom_tts_voices,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inbound_calls: pulumi.Input[bool],
-             outbound_calls: pulumi.Input[bool],
-             auto_resolve_best_voices: Optional[pulumi.Input[bool]] = None,
-             contact_lens: Optional[pulumi.Input[bool]] = None,
-             contactflow_logs: Optional[pulumi.Input[bool]] = None,
-             early_media: Optional[pulumi.Input[bool]] = None,
-             use_custom_tts_voices: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("inbound_calls", inbound_calls)
-        _setter("outbound_calls", outbound_calls)
+        pulumi.set(__self__, "inbound_calls", inbound_calls)
+        pulumi.set(__self__, "outbound_calls", outbound_calls)
         if auto_resolve_best_voices is not None:
-            _setter("auto_resolve_best_voices", auto_resolve_best_voices)
+            pulumi.set(__self__, "auto_resolve_best_voices", auto_resolve_best_voices)
         if contact_lens is not None:
-            _setter("contact_lens", contact_lens)
+            pulumi.set(__self__, "contact_lens", contact_lens)
         if contactflow_logs is not None:
-            _setter("contactflow_logs", contactflow_logs)
+            pulumi.set(__self__, "contactflow_logs", contactflow_logs)
         if early_media is not None:
-            _setter("early_media", early_media)
+            pulumi.set(__self__, "early_media", early_media)
         if use_custom_tts_voices is not None:
-            _setter("use_custom_tts_voices", use_custom_tts_voices)
+            pulumi.set(__self__, "use_custom_tts_voices", use_custom_tts_voices)
 
     @property
     @pulumi.getter(name="inboundCalls")
@@ -1517,19 +1226,8 @@ class InstanceStorageConfigEncryptionConfigArgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input['InstanceStorageConfigEncryptionType'],
                  key_id: pulumi.Input[str]):
-        InstanceStorageConfigEncryptionConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_type=encryption_type,
-            key_id=key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_type: pulumi.Input['InstanceStorageConfigEncryptionType'],
-             key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encryption_type", encryption_type)
-        _setter("key_id", key_id)
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -1554,16 +1252,7 @@ class InstanceStorageConfigEncryptionConfigArgs:
 class InstanceStorageConfigKinesisFirehoseConfigArgs:
     def __init__(__self__, *,
                  firehose_arn: pulumi.Input[str]):
-        InstanceStorageConfigKinesisFirehoseConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firehose_arn=firehose_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firehose_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("firehose_arn", firehose_arn)
+        pulumi.set(__self__, "firehose_arn", firehose_arn)
 
     @property
     @pulumi.getter(name="firehoseArn")
@@ -1579,16 +1268,7 @@ class InstanceStorageConfigKinesisFirehoseConfigArgs:
 class InstanceStorageConfigKinesisStreamConfigArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str]):
-        InstanceStorageConfigKinesisStreamConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stream_arn=stream_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("stream_arn", stream_arn)
+        pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -1606,23 +1286,10 @@ class InstanceStorageConfigKinesisVideoStreamConfigArgs:
                  prefix: pulumi.Input[str],
                  retention_period_hours: pulumi.Input[float],
                  encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None):
-        InstanceStorageConfigKinesisVideoStreamConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix=prefix,
-            retention_period_hours=retention_period_hours,
-            encryption_config=encryption_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix: pulumi.Input[str],
-             retention_period_hours: pulumi.Input[float],
-             encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("prefix", prefix)
-        _setter("retention_period_hours", retention_period_hours)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "retention_period_hours", retention_period_hours)
         if encryption_config is not None:
-            _setter("encryption_config", encryption_config)
+            pulumi.set(__self__, "encryption_config", encryption_config)
 
     @property
     @pulumi.getter
@@ -1658,23 +1325,10 @@ class InstanceStorageConfigS3ConfigArgs:
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: pulumi.Input[str],
                  encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None):
-        InstanceStorageConfigS3ConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            bucket_prefix=bucket_prefix,
-            encryption_config=encryption_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: pulumi.Input[str],
-             bucket_prefix: pulumi.Input[str],
-             encryption_config: Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
-        _setter("bucket_prefix", bucket_prefix)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_prefix", bucket_prefix)
         if encryption_config is not None:
-            _setter("encryption_config", encryption_config)
+            pulumi.set(__self__, "encryption_config", encryption_config)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1714,19 +1368,8 @@ class PhoneNumberTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        PhoneNumberTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1763,19 +1406,8 @@ class PromptTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        PromptTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1811,25 +1443,12 @@ class QueueOutboundCallerConfigArgs:
         """
         The outbound caller ID name, number, and outbound whisper flow.
         """
-        QueueOutboundCallerConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            outbound_caller_id_name=outbound_caller_id_name,
-            outbound_caller_id_number_arn=outbound_caller_id_number_arn,
-            outbound_flow_arn=outbound_flow_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             outbound_caller_id_name: Optional[pulumi.Input[str]] = None,
-             outbound_caller_id_number_arn: Optional[pulumi.Input[str]] = None,
-             outbound_flow_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if outbound_caller_id_name is not None:
-            _setter("outbound_caller_id_name", outbound_caller_id_name)
+            pulumi.set(__self__, "outbound_caller_id_name", outbound_caller_id_name)
         if outbound_caller_id_number_arn is not None:
-            _setter("outbound_caller_id_number_arn", outbound_caller_id_number_arn)
+            pulumi.set(__self__, "outbound_caller_id_number_arn", outbound_caller_id_number_arn)
         if outbound_flow_arn is not None:
-            _setter("outbound_flow_arn", outbound_flow_arn)
+            pulumi.set(__self__, "outbound_flow_arn", outbound_flow_arn)
 
     @property
     @pulumi.getter(name="outboundCallerIdName")
@@ -1867,19 +1486,8 @@ class QueueTagArgs:
         """
         A key-value pair to associate with a resource.
         """
-        QueueTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1910,28 +1518,13 @@ class QuickConnectConfigArgs:
         """
         Configuration settings for the quick connect.
         """
-        QuickConnectConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            quick_connect_type=quick_connect_type,
-            phone_config=phone_config,
-            queue_config=queue_config,
-            user_config=user_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             quick_connect_type: pulumi.Input['QuickConnectType'],
-             phone_config: Optional[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs']] = None,
-             queue_config: Optional[pulumi.Input['QuickConnectQueueQuickConnectConfigArgs']] = None,
-             user_config: Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("quick_connect_type", quick_connect_type)
+        pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_config is not None:
-            _setter("phone_config", phone_config)
+            pulumi.set(__self__, "phone_config", phone_config)
         if queue_config is not None:
-            _setter("queue_config", queue_config)
+            pulumi.set(__self__, "queue_config", queue_config)
         if user_config is not None:
-            _setter("user_config", user_config)
+            pulumi.set(__self__, "user_config", user_config)
 
     @property
     @pulumi.getter(name="quickConnectType")
@@ -1977,16 +1570,7 @@ class QuickConnectPhoneNumberQuickConnectConfigArgs:
         """
         The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         """
-        QuickConnectPhoneNumberQuickConnectConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            phone_number=phone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             phone_number: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("phone_number", phone_number)
+        pulumi.set(__self__, "phone_number", phone_number)
 
     @property
     @pulumi.getter(name="phoneNumber")
@@ -2006,19 +1590,8 @@ class QuickConnectQueueQuickConnectConfigArgs:
         """
         The queue configuration. This is required only if QuickConnectType is QUEUE.
         """
-        QuickConnectQueueQuickConnectConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_flow_arn=contact_flow_arn,
-            queue_arn=queue_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_flow_arn: pulumi.Input[str],
-             queue_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("contact_flow_arn", contact_flow_arn)
-        _setter("queue_arn", queue_arn)
+        pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+        pulumi.set(__self__, "queue_arn", queue_arn)
 
     @property
     @pulumi.getter(name="contactFlowArn")
@@ -2049,19 +1622,8 @@ class QuickConnectTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        QuickConnectTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2096,19 +1658,8 @@ class QuickConnectUserQuickConnectConfigArgs:
         """
         The user configuration. This is required only if QuickConnectType is USER.
         """
-        QuickConnectUserQuickConnectConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_flow_arn=contact_flow_arn,
-            user_arn=user_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_flow_arn: pulumi.Input[str],
-             user_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("contact_flow_arn", contact_flow_arn)
-        _setter("user_arn", user_arn)
+        pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+        pulumi.set(__self__, "user_arn", user_arn)
 
     @property
     @pulumi.getter(name="contactFlowArn")
@@ -2136,16 +1687,7 @@ class RoutingProfileCrossChannelBehaviorArgs:
         """
         Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
         """
-        RoutingProfileCrossChannelBehaviorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            behavior_type=behavior_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             behavior_type: pulumi.Input['RoutingProfileBehaviorType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("behavior_type", behavior_type)
+        pulumi.set(__self__, "behavior_type", behavior_type)
 
     @property
     @pulumi.getter(name="behaviorType")
@@ -2166,23 +1708,10 @@ class RoutingProfileMediaConcurrencyArgs:
         """
         Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.
         """
-        RoutingProfileMediaConcurrencyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel=channel,
-            concurrency=concurrency,
-            cross_channel_behavior=cross_channel_behavior,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel: pulumi.Input['RoutingProfileChannel'],
-             concurrency: pulumi.Input[int],
-             cross_channel_behavior: Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("channel", channel)
-        _setter("concurrency", concurrency)
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "concurrency", concurrency)
         if cross_channel_behavior is not None:
-            _setter("cross_channel_behavior", cross_channel_behavior)
+            pulumi.set(__self__, "cross_channel_behavior", cross_channel_behavior)
 
     @property
     @pulumi.getter
@@ -2221,22 +1750,9 @@ class RoutingProfileQueueConfigArgs:
         """
         Contains information about the queue and channel for which priority and delay can be set.
         """
-        RoutingProfileQueueConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delay=delay,
-            priority=priority,
-            queue_reference=queue_reference,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delay: pulumi.Input[int],
-             priority: pulumi.Input[int],
-             queue_reference: pulumi.Input['RoutingProfileQueueReferenceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("delay", delay)
-        _setter("priority", priority)
-        _setter("queue_reference", queue_reference)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "queue_reference", queue_reference)
 
     @property
     @pulumi.getter
@@ -2274,19 +1790,8 @@ class RoutingProfileQueueReferenceArgs:
         """
         Contains the channel and queue identifier for a routing profile.
         """
-        RoutingProfileQueueReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel=channel,
-            queue_arn=queue_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel: pulumi.Input['RoutingProfileChannel'],
-             queue_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("channel", channel)
-        _setter("queue_arn", queue_arn)
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "queue_arn", queue_arn)
 
     @property
     @pulumi.getter
@@ -2317,19 +1822,8 @@ class RoutingProfileTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        RoutingProfileTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2366,29 +1860,14 @@ class RuleActionsArgs:
         """
         The list of actions that will be executed when a rule is triggered.
         """
-        RuleActionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assign_contact_category_actions=assign_contact_category_actions,
-            event_bridge_actions=event_bridge_actions,
-            send_notification_actions=send_notification_actions,
-            task_actions=task_actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assign_contact_category_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleAssignContactCategoryActionArgs']]]] = None,
-             event_bridge_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEventBridgeActionArgs']]]] = None,
-             send_notification_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSendNotificationActionArgs']]]] = None,
-             task_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTaskActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if assign_contact_category_actions is not None:
-            _setter("assign_contact_category_actions", assign_contact_category_actions)
+            pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
         if event_bridge_actions is not None:
-            _setter("event_bridge_actions", event_bridge_actions)
+            pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
         if send_notification_actions is not None:
-            _setter("send_notification_actions", send_notification_actions)
+            pulumi.set(__self__, "send_notification_actions", send_notification_actions)
         if task_actions is not None:
-            _setter("task_actions", task_actions)
+            pulumi.set(__self__, "task_actions", task_actions)
 
     @property
     @pulumi.getter(name="assignContactCategoryActions")
@@ -2434,11 +1913,6 @@ class RuleAssignContactCategoryActionArgs:
         The definition for assigning contact category action.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.input_type
@@ -2449,16 +1923,7 @@ class RuleEventBridgeActionArgs:
         The definition for event bridge action.
         :param pulumi.Input[str] name: The name of the event bridge action.
         """
-        RuleEventBridgeActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2483,21 +1948,10 @@ class RuleNotificationRecipientTypeArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_arns: The list of recipients by user arns.
         :param Any user_tags: The collection of recipients who are identified by user tags
         """
-        RuleNotificationRecipientTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_arns=user_arns,
-            user_tags=user_tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             user_tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if user_arns is not None:
-            _setter("user_arns", user_arns)
+            pulumi.set(__self__, "user_arns", user_arns)
         if user_tags is not None:
-            _setter("user_tags", user_tags)
+            pulumi.set(__self__, "user_tags", user_tags)
 
     @property
     @pulumi.getter(name="userArns")
@@ -2539,29 +1993,12 @@ class RuleSendNotificationActionArgs:
         :param pulumi.Input['RuleSendNotificationActionDeliveryMethod'] delivery_method: The means of delivery.
         :param pulumi.Input[str] subject: The subject of notification.
         """
-        RuleSendNotificationActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            content_type=content_type,
-            delivery_method=delivery_method,
-            recipient=recipient,
-            subject=subject,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             content_type: pulumi.Input['RuleSendNotificationActionContentType'],
-             delivery_method: pulumi.Input['RuleSendNotificationActionDeliveryMethod'],
-             recipient: pulumi.Input['RuleNotificationRecipientTypeArgs'],
-             subject: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("content", content)
-        _setter("content_type", content_type)
-        _setter("delivery_method", delivery_method)
-        _setter("recipient", recipient)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "delivery_method", delivery_method)
+        pulumi.set(__self__, "recipient", recipient)
         if subject is not None:
-            _setter("subject", subject)
+            pulumi.set(__self__, "subject", subject)
 
     @property
     @pulumi.getter
@@ -2631,19 +2068,8 @@ class RuleTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that's 1 to 256 characters in length.
         """
-        RuleTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2684,27 +2110,12 @@ class RuleTaskActionArgs:
         :param pulumi.Input[str] description: The description which appears in the agent's Contact Control Panel (CCP).
         :param Any references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
         """
-        RuleTaskActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_flow_arn=contact_flow_arn,
-            name=name,
-            description=description,
-            references=references,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_flow_arn: pulumi.Input[str],
-             name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             references: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("contact_flow_arn", contact_flow_arn)
-        _setter("name", name)
+        pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if references is not None:
-            _setter("references", references)
+            pulumi.set(__self__, "references", references)
 
     @property
     @pulumi.getter(name="contactFlowArn")
@@ -2765,20 +2176,9 @@ class RuleTriggerEventSourceArgs:
         :param pulumi.Input['RuleTriggerEventSourceEventSourceName'] event_source_name: The name of event source.
         :param pulumi.Input[str] integration_association_arn: The Amazon Resource Name (ARN) for the AppIntegration association.
         """
-        RuleTriggerEventSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_source_name=event_source_name,
-            integration_association_arn=integration_association_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_source_name: pulumi.Input['RuleTriggerEventSourceEventSourceName'],
-             integration_association_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event_source_name", event_source_name)
+        pulumi.set(__self__, "event_source_name", event_source_name)
         if integration_association_arn is not None:
-            _setter("integration_association_arn", integration_association_arn)
+            pulumi.set(__self__, "integration_association_arn", integration_association_arn)
 
     @property
     @pulumi.getter(name="eventSourceName")
@@ -2815,19 +2215,8 @@ class SecurityProfileTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        SecurityProfileTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2862,19 +2251,8 @@ class TaskTemplateDefaultFieldValueArgs:
         """
         the default value for the task template's field
         """
-        TaskTemplateDefaultFieldValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_value=default_value,
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_value: pulumi.Input[str],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_value", default_value)
-        _setter("id", id)
+        pulumi.set(__self__, "default_value", default_value)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -2903,16 +2281,7 @@ class TaskTemplateFieldIdentifierArgs:
         the identifier (name) for the task template field
         :param pulumi.Input[str] name: The name of the task template field
         """
-        TaskTemplateFieldIdentifierArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2939,27 +2308,12 @@ class TaskTemplateFieldArgs:
         :param pulumi.Input[str] description: The description of the task template's field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] single_select_options: list of field options to be used with single select
         """
-        TaskTemplateFieldArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-            description=description,
-            single_select_options=single_select_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             type: pulumi.Input['TaskTemplateFieldType'],
-             description: Optional[pulumi.Input[str]] = None,
-             single_select_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("type", type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if single_select_options is not None:
-            _setter("single_select_options", single_select_options)
+            pulumi.set(__self__, "single_select_options", single_select_options)
 
     @property
     @pulumi.getter
@@ -3011,16 +2365,7 @@ class TaskTemplateInvisibleFieldInfoArgs:
         """
         Invisible field info
         """
-        TaskTemplateInvisibleFieldInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -3039,16 +2384,7 @@ class TaskTemplateReadOnlyFieldInfoArgs:
         """
         ReadOnly field info
         """
-        TaskTemplateReadOnlyFieldInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -3067,16 +2403,7 @@ class TaskTemplateRequiredFieldInfoArgs:
         """
         Required field info
         """
-        TaskTemplateRequiredFieldInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input['TaskTemplateFieldIdentifierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -3098,19 +2425,8 @@ class TaskTemplateTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. . You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        TaskTemplateTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3147,19 +2463,8 @@ class TrafficDistributionGroupTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        TrafficDistributionGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3196,19 +2501,8 @@ class UserHierarchyGroupTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        UserHierarchyGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3246,33 +2540,16 @@ class UserIdentityInfoArgs:
         """
         Contains information about the identity of a user.
         """
-        UserIdentityInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            first_name=first_name,
-            last_name=last_name,
-            mobile=mobile,
-            secondary_email=secondary_email,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[pulumi.Input[str]] = None,
-             first_name: Optional[pulumi.Input[str]] = None,
-             last_name: Optional[pulumi.Input[str]] = None,
-             mobile: Optional[pulumi.Input[str]] = None,
-             secondary_email: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if first_name is not None:
-            _setter("first_name", first_name)
+            pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
-            _setter("last_name", last_name)
+            pulumi.set(__self__, "last_name", last_name)
         if mobile is not None:
-            _setter("mobile", mobile)
+            pulumi.set(__self__, "mobile", mobile)
         if secondary_email is not None:
-            _setter("secondary_email", secondary_email)
+            pulumi.set(__self__, "secondary_email", secondary_email)
 
     @property
     @pulumi.getter
@@ -3330,28 +2607,13 @@ class UserPhoneConfigArgs:
         """
         Contains information about the phone configuration settings for a user.
         """
-        UserPhoneConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            phone_type=phone_type,
-            after_contact_work_time_limit=after_contact_work_time_limit,
-            auto_accept=auto_accept,
-            desk_phone_number=desk_phone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             phone_type: pulumi.Input['UserPhoneType'],
-             after_contact_work_time_limit: Optional[pulumi.Input[int]] = None,
-             auto_accept: Optional[pulumi.Input[bool]] = None,
-             desk_phone_number: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("phone_type", phone_type)
+        pulumi.set(__self__, "phone_type", phone_type)
         if after_contact_work_time_limit is not None:
-            _setter("after_contact_work_time_limit", after_contact_work_time_limit)
+            pulumi.set(__self__, "after_contact_work_time_limit", after_contact_work_time_limit)
         if auto_accept is not None:
-            _setter("auto_accept", auto_accept)
+            pulumi.set(__self__, "auto_accept", auto_accept)
         if desk_phone_number is not None:
-            _setter("desk_phone_number", desk_phone_number)
+            pulumi.set(__self__, "desk_phone_number", desk_phone_number)
 
     @property
     @pulumi.getter(name="phoneType")
@@ -3400,19 +2662,8 @@ class UserTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        UserTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3449,19 +2700,8 @@ class ViewTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters
         :param pulumi.Input[str] value: The value for the tag. . You can specify a value that is maximum of 256 Unicode characters
         """
-        ViewTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

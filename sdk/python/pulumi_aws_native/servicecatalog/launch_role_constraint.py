@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LaunchRoleConstraintArgs', 'LaunchRoleConstraint']
@@ -23,35 +23,16 @@ class LaunchRoleConstraintArgs:
         """
         The set of arguments for constructing a LaunchRoleConstraint resource.
         """
-        LaunchRoleConstraintArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            portfolio_id=portfolio_id,
-            product_id=product_id,
-            accept_language=accept_language,
-            description=description,
-            local_role_name=local_role_name,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             portfolio_id: pulumi.Input[str],
-             product_id: pulumi.Input[str],
-             accept_language: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             local_role_name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("portfolio_id", portfolio_id)
-        _setter("product_id", product_id)
+        pulumi.set(__self__, "portfolio_id", portfolio_id)
+        pulumi.set(__self__, "product_id", product_id)
         if accept_language is not None:
-            _setter("accept_language", accept_language)
+            pulumi.set(__self__, "accept_language", accept_language)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if local_role_name is not None:
-            _setter("local_role_name", local_role_name)
+            pulumi.set(__self__, "local_role_name", local_role_name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="portfolioId")
@@ -150,10 +131,6 @@ class LaunchRoleConstraint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LaunchRoleConstraintArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

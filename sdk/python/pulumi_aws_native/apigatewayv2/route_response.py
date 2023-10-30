@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,34 +31,15 @@ class RouteResponseArgs:
         :param Any response_models: The response models for the route response.
         :param pulumi.Input['RouteResponseRouteParametersArgs'] response_parameters: The route response parameters.
         """
-        RouteResponseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            route_id=route_id,
-            route_response_key=route_response_key,
-            model_selection_expression=model_selection_expression,
-            response_models=response_models,
-            response_parameters=response_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             route_id: pulumi.Input[str],
-             route_response_key: pulumi.Input[str],
-             model_selection_expression: Optional[pulumi.Input[str]] = None,
-             response_models: Optional[Any] = None,
-             response_parameters: Optional[pulumi.Input['RouteResponseRouteParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_id", api_id)
-        _setter("route_id", route_id)
-        _setter("route_response_key", route_response_key)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "route_id", route_id)
+        pulumi.set(__self__, "route_response_key", route_response_key)
         if model_selection_expression is not None:
-            _setter("model_selection_expression", model_selection_expression)
+            pulumi.set(__self__, "model_selection_expression", model_selection_expression)
         if response_models is not None:
-            _setter("response_models", response_models)
+            pulumi.set(__self__, "response_models", response_models)
         if response_parameters is not None:
-            _setter("response_parameters", response_parameters)
+            pulumi.set(__self__, "response_parameters", response_parameters)
 
     @property
     @pulumi.getter(name="apiId")
@@ -176,10 +157,6 @@ class RouteResponse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RouteResponseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,11 +182,6 @@ class RouteResponse(pulumi.CustomResource):
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["model_selection_expression"] = model_selection_expression
             __props__.__dict__["response_models"] = response_models
-            if response_parameters is not None and not isinstance(response_parameters, RouteResponseRouteParametersArgs):
-                response_parameters = response_parameters or {}
-                def _setter(key, value):
-                    response_parameters[key] = value
-                RouteResponseRouteParametersArgs._configure(_setter, **response_parameters)
             __props__.__dict__["response_parameters"] = response_parameters
             if route_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_id'")

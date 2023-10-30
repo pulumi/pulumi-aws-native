@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,16 +18,7 @@ __all__ = [
 class JobTemplateAccelerationSettings(dict):
     def __init__(__self__, *,
                  mode: str):
-        JobTemplateAccelerationSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -58,25 +49,12 @@ class JobTemplateHopDestination(dict):
                  priority: Optional[int] = None,
                  queue: Optional[str] = None,
                  wait_minutes: Optional[int] = None):
-        JobTemplateHopDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            priority=priority,
-            queue=queue,
-            wait_minutes=wait_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             priority: Optional[int] = None,
-             queue: Optional[str] = None,
-             wait_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if queue is not None:
-            _setter("queue", queue)
+            pulumi.set(__self__, "queue", queue)
         if wait_minutes is not None:
-            _setter("wait_minutes", wait_minutes)
+            pulumi.set(__self__, "wait_minutes", wait_minutes)
 
     @property
     @pulumi.getter

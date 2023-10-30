@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupVersionInitArgs', 'GroupVersion']
@@ -25,44 +25,21 @@ class GroupVersionInitArgs:
         """
         The set of arguments for constructing a GroupVersion resource.
         """
-        GroupVersionInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_id=group_id,
-            connector_definition_version_arn=connector_definition_version_arn,
-            core_definition_version_arn=core_definition_version_arn,
-            device_definition_version_arn=device_definition_version_arn,
-            function_definition_version_arn=function_definition_version_arn,
-            logger_definition_version_arn=logger_definition_version_arn,
-            resource_definition_version_arn=resource_definition_version_arn,
-            subscription_definition_version_arn=subscription_definition_version_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
-             connector_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             core_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             device_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             function_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             logger_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             resource_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             subscription_definition_version_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_id", group_id)
+        pulumi.set(__self__, "group_id", group_id)
         if connector_definition_version_arn is not None:
-            _setter("connector_definition_version_arn", connector_definition_version_arn)
+            pulumi.set(__self__, "connector_definition_version_arn", connector_definition_version_arn)
         if core_definition_version_arn is not None:
-            _setter("core_definition_version_arn", core_definition_version_arn)
+            pulumi.set(__self__, "core_definition_version_arn", core_definition_version_arn)
         if device_definition_version_arn is not None:
-            _setter("device_definition_version_arn", device_definition_version_arn)
+            pulumi.set(__self__, "device_definition_version_arn", device_definition_version_arn)
         if function_definition_version_arn is not None:
-            _setter("function_definition_version_arn", function_definition_version_arn)
+            pulumi.set(__self__, "function_definition_version_arn", function_definition_version_arn)
         if logger_definition_version_arn is not None:
-            _setter("logger_definition_version_arn", logger_definition_version_arn)
+            pulumi.set(__self__, "logger_definition_version_arn", logger_definition_version_arn)
         if resource_definition_version_arn is not None:
-            _setter("resource_definition_version_arn", resource_definition_version_arn)
+            pulumi.set(__self__, "resource_definition_version_arn", resource_definition_version_arn)
         if subscription_definition_version_arn is not None:
-            _setter("subscription_definition_version_arn", subscription_definition_version_arn)
+            pulumi.set(__self__, "subscription_definition_version_arn", subscription_definition_version_arn)
 
     @property
     @pulumi.getter(name="groupId")
@@ -181,10 +158,6 @@ class GroupVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityGroupEgressInitArgs', 'SecurityGroupEgress']
@@ -26,47 +26,22 @@ class SecurityGroupEgressInitArgs:
         """
         The set of arguments for constructing a SecurityGroupEgress resource.
         """
-        SecurityGroupEgressInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_id=group_id,
-            ip_protocol=ip_protocol,
-            cidr_ip=cidr_ip,
-            cidr_ipv6=cidr_ipv6,
-            description=description,
-            destination_prefix_list_id=destination_prefix_list_id,
-            destination_security_group_id=destination_security_group_id,
-            from_port=from_port,
-            to_port=to_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_id: pulumi.Input[str],
-             ip_protocol: pulumi.Input[str],
-             cidr_ip: Optional[pulumi.Input[str]] = None,
-             cidr_ipv6: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
-             destination_security_group_id: Optional[pulumi.Input[str]] = None,
-             from_port: Optional[pulumi.Input[int]] = None,
-             to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_id", group_id)
-        _setter("ip_protocol", ip_protocol)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "ip_protocol", ip_protocol)
         if cidr_ip is not None:
-            _setter("cidr_ip", cidr_ip)
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
         if cidr_ipv6 is not None:
-            _setter("cidr_ipv6", cidr_ipv6)
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if destination_prefix_list_id is not None:
-            _setter("destination_prefix_list_id", destination_prefix_list_id)
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if destination_security_group_id is not None:
-            _setter("destination_security_group_id", destination_security_group_id)
+            pulumi.set(__self__, "destination_security_group_id", destination_security_group_id)
         if from_port is not None:
-            _setter("from_port", from_port)
+            pulumi.set(__self__, "from_port", from_port)
         if to_port is not None:
-            _setter("to_port", to_port)
+            pulumi.set(__self__, "to_port", to_port)
 
     @property
     @pulumi.getter(name="groupId")
@@ -195,10 +170,6 @@ class SecurityGroupEgress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityGroupEgressInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MountTargetArgs', 'MountTarget']
@@ -21,26 +21,11 @@ class MountTargetArgs:
         """
         The set of arguments for constructing a MountTarget resource.
         """
-        MountTargetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_id=file_system_id,
-            security_groups=security_groups,
-            subnet_id=subnet_id,
-            ip_address=ip_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_id: pulumi.Input[str],
-             security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_id: pulumi.Input[str],
-             ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("file_system_id", file_system_id)
-        _setter("security_groups", security_groups)
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "security_groups", security_groups)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -114,10 +99,6 @@ class MountTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MountTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

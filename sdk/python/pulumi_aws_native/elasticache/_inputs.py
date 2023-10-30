@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -42,20 +42,9 @@ class AuthenticationModePropertiesArgs:
         :param pulumi.Input['UserAuthenticationModePropertiesType'] type: Authentication Type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         """
-        AuthenticationModePropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            passwords=passwords,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['UserAuthenticationModePropertiesType'],
-             passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if passwords is not None:
-            _setter("passwords", passwords)
+            pulumi.set(__self__, "passwords", passwords)
 
     @property
     @pulumi.getter
@@ -86,16 +75,7 @@ class AuthenticationModePropertiesArgs:
 class CacheClusterCloudWatchLogsDestinationDetailsArgs:
     def __init__(__self__, *,
                  log_group: pulumi.Input[str]):
-        CacheClusterCloudWatchLogsDestinationDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group=log_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_group", log_group)
+        pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
@@ -112,21 +92,10 @@ class CacheClusterDestinationDetailsArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
                  kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None):
-        CacheClusterDestinationDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_logs_details=cloud_watch_logs_details,
-            kinesis_firehose_details=kinesis_firehose_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_logs_details: Optional[pulumi.Input['CacheClusterCloudWatchLogsDestinationDetailsArgs']] = None,
-             kinesis_firehose_details: Optional[pulumi.Input['CacheClusterKinesisFirehoseDestinationDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_logs_details is not None:
-            _setter("cloud_watch_logs_details", cloud_watch_logs_details)
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
         if kinesis_firehose_details is not None:
-            _setter("kinesis_firehose_details", kinesis_firehose_details)
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
 
     @property
     @pulumi.getter(name="cloudWatchLogsDetails")
@@ -151,16 +120,7 @@ class CacheClusterDestinationDetailsArgs:
 class CacheClusterKinesisFirehoseDestinationDetailsArgs:
     def __init__(__self__, *,
                  delivery_stream: pulumi.Input[str]):
-        CacheClusterKinesisFirehoseDestinationDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delivery_stream=delivery_stream,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delivery_stream: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("delivery_stream", delivery_stream)
+        pulumi.set(__self__, "delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter(name="deliveryStream")
@@ -179,25 +139,10 @@ class CacheClusterLogDeliveryConfigurationRequestArgs:
                  destination_type: pulumi.Input[str],
                  log_format: pulumi.Input[str],
                  log_type: pulumi.Input[str]):
-        CacheClusterLogDeliveryConfigurationRequestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_details=destination_details,
-            destination_type=destination_type,
-            log_format=log_format,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_details: pulumi.Input['CacheClusterDestinationDetailsArgs'],
-             destination_type: pulumi.Input[str],
-             log_format: pulumi.Input[str],
-             log_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_details", destination_details)
-        _setter("destination_type", destination_type)
-        _setter("log_format", log_format)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "destination_details", destination_details)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter(name="destinationDetails")
@@ -241,19 +186,8 @@ class CacheClusterTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        CacheClusterTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -285,25 +219,12 @@ class GlobalReplicationGroupMemberArgs:
         :param pulumi.Input[str] replication_group_region: The AWS region of the Global Datastore member.
         :param pulumi.Input['GlobalReplicationGroupMemberRole'] role: Indicates the role of the member, primary or secondary.
         """
-        GlobalReplicationGroupMemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replication_group_id=replication_group_id,
-            replication_group_region=replication_group_region,
-            role=role,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replication_group_id: Optional[pulumi.Input[str]] = None,
-             replication_group_region: Optional[pulumi.Input[str]] = None,
-             role: Optional[pulumi.Input['GlobalReplicationGroupMemberRole']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if replication_group_id is not None:
-            _setter("replication_group_id", replication_group_id)
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if replication_group_region is not None:
-            _setter("replication_group_region", replication_group_region)
+            pulumi.set(__self__, "replication_group_region", replication_group_region)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -353,25 +274,12 @@ class GlobalReplicationGroupRegionalConfigurationArgs:
         :param pulumi.Input[str] replication_group_region: The AWS region of the Global Datastore member.
         :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]] resharding_configurations: A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
         """
-        GlobalReplicationGroupRegionalConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replication_group_id=replication_group_id,
-            replication_group_region=replication_group_region,
-            resharding_configurations=resharding_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replication_group_id: Optional[pulumi.Input[str]] = None,
-             replication_group_region: Optional[pulumi.Input[str]] = None,
-             resharding_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupReshardingConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if replication_group_id is not None:
-            _setter("replication_group_id", replication_group_id)
+            pulumi.set(__self__, "replication_group_id", replication_group_id)
         if replication_group_region is not None:
-            _setter("replication_group_region", replication_group_region)
+            pulumi.set(__self__, "replication_group_region", replication_group_region)
         if resharding_configurations is not None:
-            _setter("resharding_configurations", resharding_configurations)
+            pulumi.set(__self__, "resharding_configurations", resharding_configurations)
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -419,21 +327,10 @@ class GlobalReplicationGroupReshardingConfigurationArgs:
         :param pulumi.Input[str] node_group_id: Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preferred_availability_zones: A list of preferred availability zones for the nodes of new node groups.
         """
-        GlobalReplicationGroupReshardingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            node_group_id=node_group_id,
-            preferred_availability_zones=preferred_availability_zones,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             node_group_id: Optional[pulumi.Input[str]] = None,
-             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if node_group_id is not None:
-            _setter("node_group_id", node_group_id)
+            pulumi.set(__self__, "node_group_id", node_group_id)
         if preferred_availability_zones is not None:
-            _setter("preferred_availability_zones", preferred_availability_zones)
+            pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
 
     @property
     @pulumi.getter(name="nodeGroupId")
@@ -465,19 +362,8 @@ class ParameterGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ParameterGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -502,16 +388,7 @@ class ParameterGroupTagArgs:
 class ReplicationGroupCloudWatchLogsDestinationDetailsArgs:
     def __init__(__self__, *,
                  log_group: pulumi.Input[str]):
-        ReplicationGroupCloudWatchLogsDestinationDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group=log_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_group", log_group)
+        pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
@@ -528,21 +405,10 @@ class ReplicationGroupDestinationDetailsArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
                  kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None):
-        ReplicationGroupDestinationDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_logs_details=cloud_watch_logs_details,
-            kinesis_firehose_details=kinesis_firehose_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_logs_details: Optional[pulumi.Input['ReplicationGroupCloudWatchLogsDestinationDetailsArgs']] = None,
-             kinesis_firehose_details: Optional[pulumi.Input['ReplicationGroupKinesisFirehoseDestinationDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_logs_details is not None:
-            _setter("cloud_watch_logs_details", cloud_watch_logs_details)
+            pulumi.set(__self__, "cloud_watch_logs_details", cloud_watch_logs_details)
         if kinesis_firehose_details is not None:
-            _setter("kinesis_firehose_details", kinesis_firehose_details)
+            pulumi.set(__self__, "kinesis_firehose_details", kinesis_firehose_details)
 
     @property
     @pulumi.getter(name="cloudWatchLogsDetails")
@@ -567,16 +433,7 @@ class ReplicationGroupDestinationDetailsArgs:
 class ReplicationGroupKinesisFirehoseDestinationDetailsArgs:
     def __init__(__self__, *,
                  delivery_stream: pulumi.Input[str]):
-        ReplicationGroupKinesisFirehoseDestinationDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delivery_stream=delivery_stream,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delivery_stream: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("delivery_stream", delivery_stream)
+        pulumi.set(__self__, "delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter(name="deliveryStream")
@@ -595,25 +452,10 @@ class ReplicationGroupLogDeliveryConfigurationRequestArgs:
                  destination_type: pulumi.Input[str],
                  log_format: pulumi.Input[str],
                  log_type: pulumi.Input[str]):
-        ReplicationGroupLogDeliveryConfigurationRequestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_details=destination_details,
-            destination_type=destination_type,
-            log_format=log_format,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_details: pulumi.Input['ReplicationGroupDestinationDetailsArgs'],
-             destination_type: pulumi.Input[str],
-             log_format: pulumi.Input[str],
-             log_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_details", destination_details)
-        _setter("destination_type", destination_type)
-        _setter("log_format", log_format)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "destination_details", destination_details)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter(name="destinationDetails")
@@ -660,33 +502,16 @@ class ReplicationGroupNodeGroupConfigurationArgs:
                  replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  slots: Optional[pulumi.Input[str]] = None):
-        ReplicationGroupNodeGroupConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            node_group_id=node_group_id,
-            primary_availability_zone=primary_availability_zone,
-            replica_availability_zones=replica_availability_zones,
-            replica_count=replica_count,
-            slots=slots,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             node_group_id: Optional[pulumi.Input[str]] = None,
-             primary_availability_zone: Optional[pulumi.Input[str]] = None,
-             replica_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             replica_count: Optional[pulumi.Input[int]] = None,
-             slots: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if node_group_id is not None:
-            _setter("node_group_id", node_group_id)
+            pulumi.set(__self__, "node_group_id", node_group_id)
         if primary_availability_zone is not None:
-            _setter("primary_availability_zone", primary_availability_zone)
+            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
         if replica_availability_zones is not None:
-            _setter("replica_availability_zones", replica_availability_zones)
+            pulumi.set(__self__, "replica_availability_zones", replica_availability_zones)
         if replica_count is not None:
-            _setter("replica_count", replica_count)
+            pulumi.set(__self__, "replica_count", replica_count)
         if slots is not None:
-            _setter("slots", slots)
+            pulumi.set(__self__, "slots", slots)
 
     @property
     @pulumi.getter(name="nodeGroupId")
@@ -739,19 +564,8 @@ class ReplicationGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ReplicationGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -777,19 +591,8 @@ class SecurityGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        SecurityGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -818,19 +621,8 @@ class SubnetGroupTagArgs:
         """
         A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
         """
-        SubnetGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -861,20 +653,9 @@ class UserGroupTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        UserGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -911,20 +692,9 @@ class UserTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        UserTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

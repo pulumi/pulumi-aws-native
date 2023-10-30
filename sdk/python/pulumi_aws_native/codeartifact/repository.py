@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,44 +35,21 @@ class RepositoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] upstreams: A list of upstream repositories associated with the repository.
         """
-        RepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            description=description,
-            domain_owner=domain_owner,
-            external_connections=external_connections,
-            permissions_policy_document=permissions_policy_document,
-            repository_name=repository_name,
-            tags=tags,
-            upstreams=upstreams,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             domain_owner: Optional[pulumi.Input[str]] = None,
-             external_connections: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             permissions_policy_document: Optional[Any] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
-             upstreams: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "domain_name", domain_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if domain_owner is not None:
-            _setter("domain_owner", domain_owner)
+            pulumi.set(__self__, "domain_owner", domain_owner)
         if external_connections is not None:
-            _setter("external_connections", external_connections)
+            pulumi.set(__self__, "external_connections", external_connections)
         if permissions_policy_document is not None:
-            _setter("permissions_policy_document", permissions_policy_document)
+            pulumi.set(__self__, "permissions_policy_document", permissions_policy_document)
         if repository_name is not None:
-            _setter("repository_name", repository_name)
+            pulumi.set(__self__, "repository_name", repository_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if upstreams is not None:
-            _setter("upstreams", upstreams)
+            pulumi.set(__self__, "upstreams", upstreams)
 
     @property
     @pulumi.getter(name="domainName")
@@ -218,10 +195,6 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

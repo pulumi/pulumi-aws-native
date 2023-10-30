@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,16 +33,7 @@ class CapacityReservationCapacityAssignmentConfigurationArgs:
         """
         Assignment configuration to assign workgroups to a reservation
         """
-        CapacityReservationCapacityAssignmentConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity_assignments=capacity_assignments,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity_assignments: pulumi.Input[Sequence[pulumi.Input['CapacityReservationCapacityAssignmentArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("capacity_assignments", capacity_assignments)
+        pulumi.set(__self__, "capacity_assignments", capacity_assignments)
 
     @property
     @pulumi.getter(name="capacityAssignments")
@@ -58,16 +49,7 @@ class CapacityReservationCapacityAssignmentConfigurationArgs:
 class CapacityReservationCapacityAssignmentArgs:
     def __init__(__self__, *,
                  workgroup_names: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        CapacityReservationCapacityAssignmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            workgroup_names=workgroup_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             workgroup_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("workgroup_names", workgroup_names)
+        pulumi.set(__self__, "workgroup_names", workgroup_names)
 
     @property
     @pulumi.getter(name="workgroupNames")
@@ -84,19 +66,8 @@ class CapacityReservationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        CapacityReservationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -122,19 +93,8 @@ class DataCatalogTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        DataCatalogTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -162,16 +122,7 @@ class WorkGroupAclConfigurationArgs:
         """
         Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results
         """
-        WorkGroupAclConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_acl_option=s3_acl_option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_acl_option: pulumi.Input['WorkGroupS3AclOption'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_acl_option", s3_acl_option)
+        pulumi.set(__self__, "s3_acl_option", s3_acl_option)
 
     @property
     @pulumi.getter(name="s3AclOption")
@@ -200,57 +151,28 @@ class WorkGroupConfigurationUpdatesArgs:
         """
         The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified. 
         """
-        WorkGroupConfigurationUpdatesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_configuration=additional_configuration,
-            bytes_scanned_cutoff_per_query=bytes_scanned_cutoff_per_query,
-            customer_content_encryption_configuration=customer_content_encryption_configuration,
-            enforce_work_group_configuration=enforce_work_group_configuration,
-            engine_version=engine_version,
-            execution_role=execution_role,
-            publish_cloud_watch_metrics_enabled=publish_cloud_watch_metrics_enabled,
-            remove_bytes_scanned_cutoff_per_query=remove_bytes_scanned_cutoff_per_query,
-            remove_customer_content_encryption_configuration=remove_customer_content_encryption_configuration,
-            requester_pays_enabled=requester_pays_enabled,
-            result_configuration_updates=result_configuration_updates,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_configuration: Optional[pulumi.Input[str]] = None,
-             bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
-             customer_content_encryption_configuration: Optional[pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgs']] = None,
-             enforce_work_group_configuration: Optional[pulumi.Input[bool]] = None,
-             engine_version: Optional[pulumi.Input['WorkGroupEngineVersionArgs']] = None,
-             execution_role: Optional[pulumi.Input[str]] = None,
-             publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-             remove_bytes_scanned_cutoff_per_query: Optional[pulumi.Input[bool]] = None,
-             remove_customer_content_encryption_configuration: Optional[pulumi.Input[bool]] = None,
-             requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
-             result_configuration_updates: Optional[pulumi.Input['WorkGroupResultConfigurationUpdatesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_configuration is not None:
-            _setter("additional_configuration", additional_configuration)
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
         if bytes_scanned_cutoff_per_query is not None:
-            _setter("bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
+            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if customer_content_encryption_configuration is not None:
-            _setter("customer_content_encryption_configuration", customer_content_encryption_configuration)
+            pulumi.set(__self__, "customer_content_encryption_configuration", customer_content_encryption_configuration)
         if enforce_work_group_configuration is not None:
-            _setter("enforce_work_group_configuration", enforce_work_group_configuration)
+            pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
-            _setter("execution_role", execution_role)
+            pulumi.set(__self__, "execution_role", execution_role)
         if publish_cloud_watch_metrics_enabled is not None:
-            _setter("publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
+            pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if remove_bytes_scanned_cutoff_per_query is not None:
-            _setter("remove_bytes_scanned_cutoff_per_query", remove_bytes_scanned_cutoff_per_query)
+            pulumi.set(__self__, "remove_bytes_scanned_cutoff_per_query", remove_bytes_scanned_cutoff_per_query)
         if remove_customer_content_encryption_configuration is not None:
-            _setter("remove_customer_content_encryption_configuration", remove_customer_content_encryption_configuration)
+            pulumi.set(__self__, "remove_customer_content_encryption_configuration", remove_customer_content_encryption_configuration)
         if requester_pays_enabled is not None:
-            _setter("requester_pays_enabled", requester_pays_enabled)
+            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
         if result_configuration_updates is not None:
-            _setter("result_configuration_updates", result_configuration_updates)
+            pulumi.set(__self__, "result_configuration_updates", result_configuration_updates)
 
     @property
     @pulumi.getter(name="additionalConfiguration")
@@ -364,49 +286,24 @@ class WorkGroupConfigurationArgs:
                  publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkGroupResultConfigurationArgs']] = None):
-        WorkGroupConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_configuration=additional_configuration,
-            bytes_scanned_cutoff_per_query=bytes_scanned_cutoff_per_query,
-            customer_content_encryption_configuration=customer_content_encryption_configuration,
-            enforce_work_group_configuration=enforce_work_group_configuration,
-            engine_version=engine_version,
-            execution_role=execution_role,
-            publish_cloud_watch_metrics_enabled=publish_cloud_watch_metrics_enabled,
-            requester_pays_enabled=requester_pays_enabled,
-            result_configuration=result_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_configuration: Optional[pulumi.Input[str]] = None,
-             bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
-             customer_content_encryption_configuration: Optional[pulumi.Input['WorkGroupCustomerContentEncryptionConfigurationArgs']] = None,
-             enforce_work_group_configuration: Optional[pulumi.Input[bool]] = None,
-             engine_version: Optional[pulumi.Input['WorkGroupEngineVersionArgs']] = None,
-             execution_role: Optional[pulumi.Input[str]] = None,
-             publish_cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
-             requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
-             result_configuration: Optional[pulumi.Input['WorkGroupResultConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_configuration is not None:
-            _setter("additional_configuration", additional_configuration)
+            pulumi.set(__self__, "additional_configuration", additional_configuration)
         if bytes_scanned_cutoff_per_query is not None:
-            _setter("bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
+            pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if customer_content_encryption_configuration is not None:
-            _setter("customer_content_encryption_configuration", customer_content_encryption_configuration)
+            pulumi.set(__self__, "customer_content_encryption_configuration", customer_content_encryption_configuration)
         if enforce_work_group_configuration is not None:
-            _setter("enforce_work_group_configuration", enforce_work_group_configuration)
+            pulumi.set(__self__, "enforce_work_group_configuration", enforce_work_group_configuration)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if execution_role is not None:
-            _setter("execution_role", execution_role)
+            pulumi.set(__self__, "execution_role", execution_role)
         if publish_cloud_watch_metrics_enabled is not None:
-            _setter("publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
+            pulumi.set(__self__, "publish_cloud_watch_metrics_enabled", publish_cloud_watch_metrics_enabled)
         if requester_pays_enabled is not None:
-            _setter("requester_pays_enabled", requester_pays_enabled)
+            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
         if result_configuration is not None:
-            _setter("result_configuration", result_configuration)
+            pulumi.set(__self__, "result_configuration", result_configuration)
 
     @property
     @pulumi.getter(name="additionalConfiguration")
@@ -497,16 +394,7 @@ class WorkGroupCustomerContentEncryptionConfigurationArgs:
         """
         Indicates the KMS key for encrypting notebook content.
         """
-        WorkGroupCustomerContentEncryptionConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key=kms_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("kms_key", kms_key)
+        pulumi.set(__self__, "kms_key", kms_key)
 
     @property
     @pulumi.getter(name="kmsKey")
@@ -526,20 +414,9 @@ class WorkGroupEncryptionConfigurationArgs:
         """
         If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
         """
-        WorkGroupEncryptionConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_option=encryption_option,
-            kms_key=kms_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_option: pulumi.Input['WorkGroupEncryptionOption'],
-             kms_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encryption_option", encryption_option)
+        pulumi.set(__self__, "encryption_option", encryption_option)
         if kms_key is not None:
-            _setter("kms_key", kms_key)
+            pulumi.set(__self__, "kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionOption")
@@ -568,21 +445,10 @@ class WorkGroupEngineVersionArgs:
         """
         The Athena engine version for running queries.
         """
-        WorkGroupEngineVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            effective_engine_version=effective_engine_version,
-            selected_engine_version=selected_engine_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             effective_engine_version: Optional[pulumi.Input[str]] = None,
-             selected_engine_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if effective_engine_version is not None:
-            _setter("effective_engine_version", effective_engine_version)
+            pulumi.set(__self__, "effective_engine_version", effective_engine_version)
         if selected_engine_version is not None:
-            _setter("selected_engine_version", selected_engine_version)
+            pulumi.set(__self__, "selected_engine_version", selected_engine_version)
 
     @property
     @pulumi.getter(name="effectiveEngineVersion")
@@ -617,45 +483,22 @@ class WorkGroupResultConfigurationUpdatesArgs:
         """
         The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results. 
         """
-        WorkGroupResultConfigurationUpdatesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acl_configuration=acl_configuration,
-            encryption_configuration=encryption_configuration,
-            expected_bucket_owner=expected_bucket_owner,
-            output_location=output_location,
-            remove_acl_configuration=remove_acl_configuration,
-            remove_encryption_configuration=remove_encryption_configuration,
-            remove_expected_bucket_owner=remove_expected_bucket_owner,
-            remove_output_location=remove_output_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acl_configuration: Optional[pulumi.Input['WorkGroupAclConfigurationArgs']] = None,
-             encryption_configuration: Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             output_location: Optional[pulumi.Input[str]] = None,
-             remove_acl_configuration: Optional[pulumi.Input[bool]] = None,
-             remove_encryption_configuration: Optional[pulumi.Input[bool]] = None,
-             remove_expected_bucket_owner: Optional[pulumi.Input[bool]] = None,
-             remove_output_location: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if acl_configuration is not None:
-            _setter("acl_configuration", acl_configuration)
+            pulumi.set(__self__, "acl_configuration", acl_configuration)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if output_location is not None:
-            _setter("output_location", output_location)
+            pulumi.set(__self__, "output_location", output_location)
         if remove_acl_configuration is not None:
-            _setter("remove_acl_configuration", remove_acl_configuration)
+            pulumi.set(__self__, "remove_acl_configuration", remove_acl_configuration)
         if remove_encryption_configuration is not None:
-            _setter("remove_encryption_configuration", remove_encryption_configuration)
+            pulumi.set(__self__, "remove_encryption_configuration", remove_encryption_configuration)
         if remove_expected_bucket_owner is not None:
-            _setter("remove_expected_bucket_owner", remove_expected_bucket_owner)
+            pulumi.set(__self__, "remove_expected_bucket_owner", remove_expected_bucket_owner)
         if remove_output_location is not None:
-            _setter("remove_output_location", remove_output_location)
+            pulumi.set(__self__, "remove_output_location", remove_output_location)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -740,29 +583,14 @@ class WorkGroupResultConfigurationArgs:
         """
         The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
         """
-        WorkGroupResultConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acl_configuration=acl_configuration,
-            encryption_configuration=encryption_configuration,
-            expected_bucket_owner=expected_bucket_owner,
-            output_location=output_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acl_configuration: Optional[pulumi.Input['WorkGroupAclConfigurationArgs']] = None,
-             encryption_configuration: Optional[pulumi.Input['WorkGroupEncryptionConfigurationArgs']] = None,
-             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
-             output_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if acl_configuration is not None:
-            _setter("acl_configuration", acl_configuration)
+            pulumi.set(__self__, "acl_configuration", acl_configuration)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if expected_bucket_owner is not None:
-            _setter("expected_bucket_owner", expected_bucket_owner)
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if output_location is not None:
-            _setter("output_location", output_location)
+            pulumi.set(__self__, "output_location", output_location)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -806,19 +634,8 @@ class WorkGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        WorkGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

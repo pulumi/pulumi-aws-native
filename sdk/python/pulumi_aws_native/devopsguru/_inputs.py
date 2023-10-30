@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -27,21 +27,10 @@ class NotificationChannelConfigArgs:
         """
         Information about notification channels you have configured with DevOps Guru.
         """
-        NotificationChannelConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filters=filters,
-            sns=sns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filters: Optional[pulumi.Input['NotificationChannelNotificationFilterConfigArgs']] = None,
-             sns: Optional[pulumi.Input['NotificationChannelSnsChannelConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
         if sns is not None:
-            _setter("sns", sns)
+            pulumi.set(__self__, "sns", sns)
 
     @property
     @pulumi.getter
@@ -70,21 +59,10 @@ class NotificationChannelNotificationFilterConfigArgs:
         """
         Information about filters of a notification channel configured in DevOpsGuru to filter for insights.
         """
-        NotificationChannelNotificationFilterConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message_types=message_types,
-            severities=severities,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message_types: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelNotificationMessageType']]]] = None,
-             severities: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationChannelInsightSeverity']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if message_types is not None:
-            _setter("message_types", message_types)
+            pulumi.set(__self__, "message_types", message_types)
         if severities is not None:
-            _setter("severities", severities)
+            pulumi.set(__self__, "severities", severities)
 
     @property
     @pulumi.getter(name="messageTypes")
@@ -112,17 +90,8 @@ class NotificationChannelSnsChannelConfigArgs:
         """
         Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
         """
-        NotificationChannelSnsChannelConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            topic_arn=topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if topic_arn is not None:
-            _setter("topic_arn", topic_arn)
+            pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -142,17 +111,8 @@ class ResourceCollectionCloudFormationCollectionFilterArgs:
         CloudFormation resource for DevOps Guru to monitor
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stack_names: An array of CloudFormation stack names.
         """
-        ResourceCollectionCloudFormationCollectionFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stack_names=stack_names,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stack_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if stack_names is not None:
-            _setter("stack_names", stack_names)
+            pulumi.set(__self__, "stack_names", stack_names)
 
     @property
     @pulumi.getter(name="stackNames")
@@ -175,21 +135,10 @@ class ResourceCollectionFilterArgs:
         """
         Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
-        ResourceCollectionFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_formation=cloud_formation,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_formation: Optional[pulumi.Input['ResourceCollectionCloudFormationCollectionFilterArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceCollectionTagCollectionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_formation is not None:
-            _setter("cloud_formation", cloud_formation)
+            pulumi.set(__self__, "cloud_formation", cloud_formation)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cloudFormation")
@@ -220,21 +169,10 @@ class ResourceCollectionTagCollectionArgs:
         :param pulumi.Input[str] app_boundary_key: A Tag key for DevOps Guru app boundary.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_values: Tag values of DevOps Guru app boundary.
         """
-        ResourceCollectionTagCollectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_boundary_key=app_boundary_key,
-            tag_values=tag_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_boundary_key: Optional[pulumi.Input[str]] = None,
-             tag_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if app_boundary_key is not None:
-            _setter("app_boundary_key", app_boundary_key)
+            pulumi.set(__self__, "app_boundary_key", app_boundary_key)
         if tag_values is not None:
-            _setter("tag_values", tag_values)
+            pulumi.set(__self__, "tag_values", tag_values)
 
     @property
     @pulumi.getter(name="appBoundaryKey")

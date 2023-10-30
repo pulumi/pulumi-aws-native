@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class ConnectionArgs:
         """
         The set of arguments for constructing a Connection resource.
         """
-        ConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            catalog_id=catalog_id,
-            connection_input=connection_input,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             catalog_id: pulumi.Input[str],
-             connection_input: pulumi.Input['ConnectionInputArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("catalog_id", catalog_id)
-        _setter("connection_input", connection_input)
+        pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "connection_input", connection_input)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -92,10 +81,6 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -116,11 +101,6 @@ class Connection(pulumi.CustomResource):
             if catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_id'")
             __props__.__dict__["catalog_id"] = catalog_id
-            if connection_input is not None and not isinstance(connection_input, ConnectionInputArgs):
-                connection_input = connection_input or {}
-                def _setter(key, value):
-                    connection_input[key] = value
-                ConnectionInputArgs._configure(_setter, **connection_input)
             if connection_input is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_input'")
             __props__.__dict__["connection_input"] = connection_input

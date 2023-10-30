@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -46,17 +46,8 @@ __all__ = [
 class ConfigAntennaDownlinkConfigArgs:
     def __init__(__self__, *,
                  spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None):
-        ConfigAntennaDownlinkConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spectrum_config=spectrum_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if spectrum_config is not None:
-            _setter("spectrum_config", spectrum_config)
+            pulumi.set(__self__, "spectrum_config", spectrum_config)
 
     @property
     @pulumi.getter(name="spectrumConfig")
@@ -74,25 +65,12 @@ class ConfigAntennaDownlinkDemodDecodeConfigArgs:
                  decode_config: Optional[pulumi.Input['ConfigDecodeConfigArgs']] = None,
                  demodulation_config: Optional[pulumi.Input['ConfigDemodulationConfigArgs']] = None,
                  spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None):
-        ConfigAntennaDownlinkDemodDecodeConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            decode_config=decode_config,
-            demodulation_config=demodulation_config,
-            spectrum_config=spectrum_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             decode_config: Optional[pulumi.Input['ConfigDecodeConfigArgs']] = None,
-             demodulation_config: Optional[pulumi.Input['ConfigDemodulationConfigArgs']] = None,
-             spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if decode_config is not None:
-            _setter("decode_config", decode_config)
+            pulumi.set(__self__, "decode_config", decode_config)
         if demodulation_config is not None:
-            _setter("demodulation_config", demodulation_config)
+            pulumi.set(__self__, "demodulation_config", demodulation_config)
         if spectrum_config is not None:
-            _setter("spectrum_config", spectrum_config)
+            pulumi.set(__self__, "spectrum_config", spectrum_config)
 
     @property
     @pulumi.getter(name="decodeConfig")
@@ -128,25 +106,12 @@ class ConfigAntennaUplinkConfigArgs:
                  spectrum_config: Optional[pulumi.Input['ConfigUplinkSpectrumConfigArgs']] = None,
                  target_eirp: Optional[pulumi.Input['ConfigEirpArgs']] = None,
                  transmit_disabled: Optional[pulumi.Input[bool]] = None):
-        ConfigAntennaUplinkConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            spectrum_config=spectrum_config,
-            target_eirp=target_eirp,
-            transmit_disabled=transmit_disabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             spectrum_config: Optional[pulumi.Input['ConfigUplinkSpectrumConfigArgs']] = None,
-             target_eirp: Optional[pulumi.Input['ConfigEirpArgs']] = None,
-             transmit_disabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if spectrum_config is not None:
-            _setter("spectrum_config", spectrum_config)
+            pulumi.set(__self__, "spectrum_config", spectrum_config)
         if target_eirp is not None:
-            _setter("target_eirp", target_eirp)
+            pulumi.set(__self__, "target_eirp", target_eirp)
         if transmit_disabled is not None:
-            _setter("transmit_disabled", transmit_disabled)
+            pulumi.set(__self__, "transmit_disabled", transmit_disabled)
 
     @property
     @pulumi.getter(name="spectrumConfig")
@@ -181,21 +146,10 @@ class ConfigDataflowEndpointConfigArgs:
     def __init__(__self__, *,
                  dataflow_endpoint_name: Optional[pulumi.Input[str]] = None,
                  dataflow_endpoint_region: Optional[pulumi.Input[str]] = None):
-        ConfigDataflowEndpointConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dataflow_endpoint_name=dataflow_endpoint_name,
-            dataflow_endpoint_region=dataflow_endpoint_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dataflow_endpoint_name: Optional[pulumi.Input[str]] = None,
-             dataflow_endpoint_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dataflow_endpoint_name is not None:
-            _setter("dataflow_endpoint_name", dataflow_endpoint_name)
+            pulumi.set(__self__, "dataflow_endpoint_name", dataflow_endpoint_name)
         if dataflow_endpoint_region is not None:
-            _setter("dataflow_endpoint_region", dataflow_endpoint_region)
+            pulumi.set(__self__, "dataflow_endpoint_region", dataflow_endpoint_region)
 
     @property
     @pulumi.getter(name="dataflowEndpointName")
@@ -226,41 +180,20 @@ class ConfigDataArgs:
                  s3_recording_config: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']] = None,
                  tracking_config: Optional[pulumi.Input['ConfigTrackingConfigArgs']] = None,
                  uplink_echo_config: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']] = None):
-        ConfigDataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            antenna_downlink_config=antenna_downlink_config,
-            antenna_downlink_demod_decode_config=antenna_downlink_demod_decode_config,
-            antenna_uplink_config=antenna_uplink_config,
-            dataflow_endpoint_config=dataflow_endpoint_config,
-            s3_recording_config=s3_recording_config,
-            tracking_config=tracking_config,
-            uplink_echo_config=uplink_echo_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             antenna_downlink_config: Optional[pulumi.Input['ConfigAntennaDownlinkConfigArgs']] = None,
-             antenna_downlink_demod_decode_config: Optional[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs']] = None,
-             antenna_uplink_config: Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']] = None,
-             dataflow_endpoint_config: Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']] = None,
-             s3_recording_config: Optional[pulumi.Input['ConfigS3RecordingConfigArgs']] = None,
-             tracking_config: Optional[pulumi.Input['ConfigTrackingConfigArgs']] = None,
-             uplink_echo_config: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if antenna_downlink_config is not None:
-            _setter("antenna_downlink_config", antenna_downlink_config)
+            pulumi.set(__self__, "antenna_downlink_config", antenna_downlink_config)
         if antenna_downlink_demod_decode_config is not None:
-            _setter("antenna_downlink_demod_decode_config", antenna_downlink_demod_decode_config)
+            pulumi.set(__self__, "antenna_downlink_demod_decode_config", antenna_downlink_demod_decode_config)
         if antenna_uplink_config is not None:
-            _setter("antenna_uplink_config", antenna_uplink_config)
+            pulumi.set(__self__, "antenna_uplink_config", antenna_uplink_config)
         if dataflow_endpoint_config is not None:
-            _setter("dataflow_endpoint_config", dataflow_endpoint_config)
+            pulumi.set(__self__, "dataflow_endpoint_config", dataflow_endpoint_config)
         if s3_recording_config is not None:
-            _setter("s3_recording_config", s3_recording_config)
+            pulumi.set(__self__, "s3_recording_config", s3_recording_config)
         if tracking_config is not None:
-            _setter("tracking_config", tracking_config)
+            pulumi.set(__self__, "tracking_config", tracking_config)
         if uplink_echo_config is not None:
-            _setter("uplink_echo_config", uplink_echo_config)
+            pulumi.set(__self__, "uplink_echo_config", uplink_echo_config)
 
     @property
     @pulumi.getter(name="antennaDownlinkConfig")
@@ -330,17 +263,8 @@ class ConfigDataArgs:
 class ConfigDecodeConfigArgs:
     def __init__(__self__, *,
                  unvalidated_json: Optional[pulumi.Input[str]] = None):
-        ConfigDecodeConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unvalidated_json=unvalidated_json,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unvalidated_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if unvalidated_json is not None:
-            _setter("unvalidated_json", unvalidated_json)
+            pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
     @pulumi.getter(name="unvalidatedJson")
@@ -356,17 +280,8 @@ class ConfigDecodeConfigArgs:
 class ConfigDemodulationConfigArgs:
     def __init__(__self__, *,
                  unvalidated_json: Optional[pulumi.Input[str]] = None):
-        ConfigDemodulationConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unvalidated_json=unvalidated_json,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unvalidated_json: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if unvalidated_json is not None:
-            _setter("unvalidated_json", unvalidated_json)
+            pulumi.set(__self__, "unvalidated_json", unvalidated_json)
 
     @property
     @pulumi.getter(name="unvalidatedJson")
@@ -383,21 +298,10 @@ class ConfigEirpArgs:
     def __init__(__self__, *,
                  units: Optional[pulumi.Input['ConfigEirpUnits']] = None,
                  value: Optional[pulumi.Input[float]] = None):
-        ConfigEirpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            units=units,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             units: Optional[pulumi.Input['ConfigEirpUnits']] = None,
-             value: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if units is not None:
-            _setter("units", units)
+            pulumi.set(__self__, "units", units)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -423,21 +327,10 @@ class ConfigFrequencyBandwidthArgs:
     def __init__(__self__, *,
                  units: Optional[pulumi.Input['ConfigBandwidthUnits']] = None,
                  value: Optional[pulumi.Input[float]] = None):
-        ConfigFrequencyBandwidthArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            units=units,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             units: Optional[pulumi.Input['ConfigBandwidthUnits']] = None,
-             value: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if units is not None:
-            _setter("units", units)
+            pulumi.set(__self__, "units", units)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -463,21 +356,10 @@ class ConfigFrequencyArgs:
     def __init__(__self__, *,
                  units: Optional[pulumi.Input['ConfigFrequencyUnits']] = None,
                  value: Optional[pulumi.Input[float]] = None):
-        ConfigFrequencyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            units=units,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             units: Optional[pulumi.Input['ConfigFrequencyUnits']] = None,
-             value: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if units is not None:
-            _setter("units", units)
+            pulumi.set(__self__, "units", units)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -504,25 +386,12 @@ class ConfigS3RecordingConfigArgs:
                  bucket_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
-        ConfigS3RecordingConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            prefix=prefix,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: Optional[pulumi.Input[str]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_arn is not None:
-            _setter("bucket_arn", bucket_arn)
+            pulumi.set(__self__, "bucket_arn", bucket_arn)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -558,25 +427,12 @@ class ConfigSpectrumConfigArgs:
                  bandwidth: Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']] = None,
                  center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
                  polarization: Optional[pulumi.Input['ConfigPolarization']] = None):
-        ConfigSpectrumConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bandwidth=bandwidth,
-            center_frequency=center_frequency,
-            polarization=polarization,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bandwidth: Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']] = None,
-             center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
-             polarization: Optional[pulumi.Input['ConfigPolarization']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bandwidth is not None:
-            _setter("bandwidth", bandwidth)
+            pulumi.set(__self__, "bandwidth", bandwidth)
         if center_frequency is not None:
-            _setter("center_frequency", center_frequency)
+            pulumi.set(__self__, "center_frequency", center_frequency)
         if polarization is not None:
-            _setter("polarization", polarization)
+            pulumi.set(__self__, "polarization", polarization)
 
     @property
     @pulumi.getter
@@ -611,21 +467,10 @@ class ConfigTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        ConfigTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -650,17 +495,8 @@ class ConfigTagArgs:
 class ConfigTrackingConfigArgs:
     def __init__(__self__, *,
                  autotrack: Optional[pulumi.Input['ConfigTrackingConfigAutotrack']] = None):
-        ConfigTrackingConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autotrack=autotrack,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autotrack: Optional[pulumi.Input['ConfigTrackingConfigAutotrack']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if autotrack is not None:
-            _setter("autotrack", autotrack)
+            pulumi.set(__self__, "autotrack", autotrack)
 
     @property
     @pulumi.getter
@@ -677,21 +513,10 @@ class ConfigUplinkEchoConfigArgs:
     def __init__(__self__, *,
                  antenna_uplink_config_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
-        ConfigUplinkEchoConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            antenna_uplink_config_arn=antenna_uplink_config_arn,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             antenna_uplink_config_arn: Optional[pulumi.Input[str]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if antenna_uplink_config_arn is not None:
-            _setter("antenna_uplink_config_arn", antenna_uplink_config_arn)
+            pulumi.set(__self__, "antenna_uplink_config_arn", antenna_uplink_config_arn)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="antennaUplinkConfigArn")
@@ -717,21 +542,10 @@ class ConfigUplinkSpectrumConfigArgs:
     def __init__(__self__, *,
                  center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
                  polarization: Optional[pulumi.Input['ConfigPolarization']] = None):
-        ConfigUplinkSpectrumConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            center_frequency=center_frequency,
-            polarization=polarization,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
-             polarization: Optional[pulumi.Input['ConfigPolarization']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if center_frequency is not None:
-            _setter("center_frequency", center_frequency)
+            pulumi.set(__self__, "center_frequency", center_frequency)
         if polarization is not None:
-            _setter("polarization", polarization)
+            pulumi.set(__self__, "polarization", polarization)
 
     @property
     @pulumi.getter(name="centerFrequency")
@@ -763,33 +577,16 @@ class DataflowEndpointGroupAwsGroundStationAgentEndpointArgs:
         """
         Information about AwsGroundStationAgentEndpoint.
         """
-        DataflowEndpointGroupAwsGroundStationAgentEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            agent_status=agent_status,
-            audit_results=audit_results,
-            egress_address=egress_address,
-            ingress_address=ingress_address,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             agent_status: Optional[pulumi.Input['DataflowEndpointGroupAgentStatus']] = None,
-             audit_results: Optional[pulumi.Input['DataflowEndpointGroupAuditResults']] = None,
-             egress_address: Optional[pulumi.Input['DataflowEndpointGroupConnectionDetailsArgs']] = None,
-             ingress_address: Optional[pulumi.Input['DataflowEndpointGroupRangedConnectionDetailsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if agent_status is not None:
-            _setter("agent_status", agent_status)
+            pulumi.set(__self__, "agent_status", agent_status)
         if audit_results is not None:
-            _setter("audit_results", audit_results)
+            pulumi.set(__self__, "audit_results", audit_results)
         if egress_address is not None:
-            _setter("egress_address", egress_address)
+            pulumi.set(__self__, "egress_address", egress_address)
         if ingress_address is not None:
-            _setter("ingress_address", ingress_address)
+            pulumi.set(__self__, "ingress_address", ingress_address)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="agentStatus")
@@ -846,21 +643,10 @@ class DataflowEndpointGroupConnectionDetailsArgs:
         Egress address of AgentEndpoint with an optional mtu.
         :param pulumi.Input[int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
-        DataflowEndpointGroupConnectionDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mtu=mtu,
-            socket_address=socket_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mtu: Optional[pulumi.Input[int]] = None,
-             socket_address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if socket_address is not None:
-            _setter("socket_address", socket_address)
+            pulumi.set(__self__, "socket_address", socket_address)
 
     @property
     @pulumi.getter
@@ -890,25 +676,12 @@ class DataflowEndpointGroupDataflowEndpointArgs:
                  address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None,
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        DataflowEndpointGroupDataflowEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            mtu=mtu,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']] = None,
-             mtu: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -944,25 +717,12 @@ class DataflowEndpointGroupEndpointDetailsArgs:
                  aws_ground_station_agent_endpoint: Optional[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgs']] = None,
                  endpoint: Optional[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs']] = None,
                  security_details: Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']] = None):
-        DataflowEndpointGroupEndpointDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_ground_station_agent_endpoint=aws_ground_station_agent_endpoint,
-            endpoint=endpoint,
-            security_details=security_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_ground_station_agent_endpoint: Optional[pulumi.Input['DataflowEndpointGroupAwsGroundStationAgentEndpointArgs']] = None,
-             endpoint: Optional[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs']] = None,
-             security_details: Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_ground_station_agent_endpoint is not None:
-            _setter("aws_ground_station_agent_endpoint", aws_ground_station_agent_endpoint)
+            pulumi.set(__self__, "aws_ground_station_agent_endpoint", aws_ground_station_agent_endpoint)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if security_details is not None:
-            _setter("security_details", security_details)
+            pulumi.set(__self__, "security_details", security_details)
 
     @property
     @pulumi.getter(name="awsGroundStationAgentEndpoint")
@@ -1002,21 +762,10 @@ class DataflowEndpointGroupIntegerRangeArgs:
         :param pulumi.Input[int] maximum: A maximum value.
         :param pulumi.Input[int] minimum: A minimum value.
         """
-        DataflowEndpointGroupIntegerRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum=maximum,
-            minimum=minimum,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum: Optional[pulumi.Input[int]] = None,
-             minimum: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if maximum is not None:
-            _setter("maximum", maximum)
+            pulumi.set(__self__, "maximum", maximum)
         if minimum is not None:
-            _setter("minimum", minimum)
+            pulumi.set(__self__, "minimum", minimum)
 
     @property
     @pulumi.getter
@@ -1052,21 +801,10 @@ class DataflowEndpointGroupRangedConnectionDetailsArgs:
         Ingress address of AgentEndpoint with a port range and an optional mtu.
         :param pulumi.Input[int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         """
-        DataflowEndpointGroupRangedConnectionDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mtu=mtu,
-            socket_address=socket_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mtu: Optional[pulumi.Input[int]] = None,
-             socket_address: Optional[pulumi.Input['DataflowEndpointGroupRangedSocketAddressArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if socket_address is not None:
-            _setter("socket_address", socket_address)
+            pulumi.set(__self__, "socket_address", socket_address)
 
     @property
     @pulumi.getter
@@ -1100,21 +838,10 @@ class DataflowEndpointGroupRangedSocketAddressArgs:
         :param pulumi.Input[str] name: IPv4 socket address.
         :param pulumi.Input['DataflowEndpointGroupIntegerRangeArgs'] port_range: Port range of a socket address.
         """
-        DataflowEndpointGroupRangedSocketAddressArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            port_range=port_range,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             port_range: Optional[pulumi.Input['DataflowEndpointGroupIntegerRangeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if port_range is not None:
-            _setter("port_range", port_range)
+            pulumi.set(__self__, "port_range", port_range)
 
     @property
     @pulumi.getter
@@ -1147,25 +874,12 @@ class DataflowEndpointGroupSecurityDetailsArgs:
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        DataflowEndpointGroupSecurityDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1200,21 +914,10 @@ class DataflowEndpointGroupSocketAddressArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
-        DataflowEndpointGroupSocketAddressArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -1240,19 +943,8 @@ class DataflowEndpointGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        DataflowEndpointGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1278,21 +970,10 @@ class MissionProfileDataflowEdgeArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None):
-        MissionProfileDataflowEdgeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -1318,21 +999,10 @@ class MissionProfileStreamsKmsKeyArgs:
     def __init__(__self__, *,
                  kms_alias_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
-        MissionProfileStreamsKmsKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_alias_arn=kms_alias_arn,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_alias_arn: Optional[pulumi.Input[str]] = None,
-             kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_alias_arn is not None:
-            _setter("kms_alias_arn", kms_alias_arn)
+            pulumi.set(__self__, "kms_alias_arn", kms_alias_arn)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="kmsAliasArn")
@@ -1358,19 +1028,8 @@ class MissionProfileTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        MissionProfileTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

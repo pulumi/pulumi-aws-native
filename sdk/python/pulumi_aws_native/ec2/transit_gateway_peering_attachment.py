@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,29 +29,12 @@ class TransitGatewayPeeringAttachmentArgs:
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]] tags: The tags for the transit gateway peering attachment.
         """
-        TransitGatewayPeeringAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            peer_account_id=peer_account_id,
-            peer_region=peer_region,
-            peer_transit_gateway_id=peer_transit_gateway_id,
-            transit_gateway_id=transit_gateway_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             peer_account_id: pulumi.Input[str],
-             peer_region: pulumi.Input[str],
-             peer_transit_gateway_id: pulumi.Input[str],
-             transit_gateway_id: pulumi.Input[str],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("peer_account_id", peer_account_id)
-        _setter("peer_region", peer_region)
-        _setter("peer_transit_gateway_id", peer_transit_gateway_id)
-        _setter("transit_gateway_id", transit_gateway_id)
+        pulumi.set(__self__, "peer_account_id", peer_account_id)
+        pulumi.set(__self__, "peer_region", peer_region)
+        pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="peerAccountId")
@@ -155,10 +138,6 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TransitGatewayPeeringAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

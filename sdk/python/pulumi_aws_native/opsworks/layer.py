@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,83 +38,38 @@ class LayerArgs:
         """
         The set of arguments for constructing a Layer resource.
         """
-        LayerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_assign_elastic_ips=auto_assign_elastic_ips,
-            auto_assign_public_ips=auto_assign_public_ips,
-            enable_auto_healing=enable_auto_healing,
-            shortname=shortname,
-            stack_id=stack_id,
-            type=type,
-            attributes=attributes,
-            custom_instance_profile_arn=custom_instance_profile_arn,
-            custom_json=custom_json,
-            custom_recipes=custom_recipes,
-            custom_security_group_ids=custom_security_group_ids,
-            install_updates_on_boot=install_updates_on_boot,
-            lifecycle_event_configuration=lifecycle_event_configuration,
-            load_based_auto_scaling=load_based_auto_scaling,
-            name=name,
-            packages=packages,
-            tags=tags,
-            use_ebs_optimized_instances=use_ebs_optimized_instances,
-            volume_configurations=volume_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_assign_elastic_ips: pulumi.Input[bool],
-             auto_assign_public_ips: pulumi.Input[bool],
-             enable_auto_healing: pulumi.Input[bool],
-             shortname: pulumi.Input[str],
-             stack_id: pulumi.Input[str],
-             type: pulumi.Input[str],
-             attributes: Optional[Any] = None,
-             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
-             custom_json: Optional[Any] = None,
-             custom_recipes: Optional[pulumi.Input['LayerRecipesArgs']] = None,
-             custom_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
-             lifecycle_event_configuration: Optional[pulumi.Input['LayerLifecycleEventConfigurationArgs']] = None,
-             load_based_auto_scaling: Optional[pulumi.Input['LayerLoadBasedAutoScalingArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LayerTagArgs']]]] = None,
-             use_ebs_optimized_instances: Optional[pulumi.Input[bool]] = None,
-             volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LayerVolumeConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_assign_elastic_ips", auto_assign_elastic_ips)
-        _setter("auto_assign_public_ips", auto_assign_public_ips)
-        _setter("enable_auto_healing", enable_auto_healing)
-        _setter("shortname", shortname)
-        _setter("stack_id", stack_id)
-        _setter("type", type)
+        pulumi.set(__self__, "auto_assign_elastic_ips", auto_assign_elastic_ips)
+        pulumi.set(__self__, "auto_assign_public_ips", auto_assign_public_ips)
+        pulumi.set(__self__, "enable_auto_healing", enable_auto_healing)
+        pulumi.set(__self__, "shortname", shortname)
+        pulumi.set(__self__, "stack_id", stack_id)
+        pulumi.set(__self__, "type", type)
         if attributes is not None:
-            _setter("attributes", attributes)
+            pulumi.set(__self__, "attributes", attributes)
         if custom_instance_profile_arn is not None:
-            _setter("custom_instance_profile_arn", custom_instance_profile_arn)
+            pulumi.set(__self__, "custom_instance_profile_arn", custom_instance_profile_arn)
         if custom_json is not None:
-            _setter("custom_json", custom_json)
+            pulumi.set(__self__, "custom_json", custom_json)
         if custom_recipes is not None:
-            _setter("custom_recipes", custom_recipes)
+            pulumi.set(__self__, "custom_recipes", custom_recipes)
         if custom_security_group_ids is not None:
-            _setter("custom_security_group_ids", custom_security_group_ids)
+            pulumi.set(__self__, "custom_security_group_ids", custom_security_group_ids)
         if install_updates_on_boot is not None:
-            _setter("install_updates_on_boot", install_updates_on_boot)
+            pulumi.set(__self__, "install_updates_on_boot", install_updates_on_boot)
         if lifecycle_event_configuration is not None:
-            _setter("lifecycle_event_configuration", lifecycle_event_configuration)
+            pulumi.set(__self__, "lifecycle_event_configuration", lifecycle_event_configuration)
         if load_based_auto_scaling is not None:
-            _setter("load_based_auto_scaling", load_based_auto_scaling)
+            pulumi.set(__self__, "load_based_auto_scaling", load_based_auto_scaling)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if packages is not None:
-            _setter("packages", packages)
+            pulumi.set(__self__, "packages", packages)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if use_ebs_optimized_instances is not None:
-            _setter("use_ebs_optimized_instances", use_ebs_optimized_instances)
+            pulumi.set(__self__, "use_ebs_optimized_instances", use_ebs_optimized_instances)
         if volume_configurations is not None:
-            _setter("volume_configurations", volume_configurations)
+            pulumi.set(__self__, "volume_configurations", volume_configurations)
 
     @property
     @pulumi.getter(name="autoAssignElasticIps")
@@ -343,10 +298,6 @@ class Layer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LayerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -390,28 +341,13 @@ class Layer(pulumi.CustomResource):
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
             __props__.__dict__["custom_instance_profile_arn"] = custom_instance_profile_arn
             __props__.__dict__["custom_json"] = custom_json
-            if custom_recipes is not None and not isinstance(custom_recipes, LayerRecipesArgs):
-                custom_recipes = custom_recipes or {}
-                def _setter(key, value):
-                    custom_recipes[key] = value
-                LayerRecipesArgs._configure(_setter, **custom_recipes)
             __props__.__dict__["custom_recipes"] = custom_recipes
             __props__.__dict__["custom_security_group_ids"] = custom_security_group_ids
             if enable_auto_healing is None and not opts.urn:
                 raise TypeError("Missing required property 'enable_auto_healing'")
             __props__.__dict__["enable_auto_healing"] = enable_auto_healing
             __props__.__dict__["install_updates_on_boot"] = install_updates_on_boot
-            if lifecycle_event_configuration is not None and not isinstance(lifecycle_event_configuration, LayerLifecycleEventConfigurationArgs):
-                lifecycle_event_configuration = lifecycle_event_configuration or {}
-                def _setter(key, value):
-                    lifecycle_event_configuration[key] = value
-                LayerLifecycleEventConfigurationArgs._configure(_setter, **lifecycle_event_configuration)
             __props__.__dict__["lifecycle_event_configuration"] = lifecycle_event_configuration
-            if load_based_auto_scaling is not None and not isinstance(load_based_auto_scaling, LayerLoadBasedAutoScalingArgs):
-                load_based_auto_scaling = load_based_auto_scaling or {}
-                def _setter(key, value):
-                    load_based_auto_scaling[key] = value
-                LayerLoadBasedAutoScalingArgs._configure(_setter, **load_based_auto_scaling)
             __props__.__dict__["load_based_auto_scaling"] = load_based_auto_scaling
             __props__.__dict__["name"] = name
             __props__.__dict__["packages"] = packages

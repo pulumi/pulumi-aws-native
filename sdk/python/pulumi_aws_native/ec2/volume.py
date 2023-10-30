@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,60 +43,29 @@ class VolumeArgs:
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s.
         :param pulumi.Input[str] volume_type: The volume type. This parameter can be one of the following values: General Purpose SSD: gp2 | gp3, Provisioned IOPS SSD: io1 | io2, Throughput Optimized HDD: st1, Cold HDD: sc1, Magnetic: standard
         """
-        VolumeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            auto_enable_io=auto_enable_io,
-            encrypted=encrypted,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            multi_attach_enabled=multi_attach_enabled,
-            outpost_arn=outpost_arn,
-            size=size,
-            snapshot_id=snapshot_id,
-            tags=tags,
-            throughput=throughput,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
-             auto_enable_io: Optional[pulumi.Input[bool]] = None,
-             encrypted: Optional[pulumi.Input[bool]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
-             outpost_arn: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[int]] = None,
-             snapshot_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeTagArgs']]]] = None,
-             throughput: Optional[pulumi.Input[int]] = None,
-             volume_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("availability_zone", availability_zone)
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if auto_enable_io is not None:
-            _setter("auto_enable_io", auto_enable_io)
+            pulumi.set(__self__, "auto_enable_io", auto_enable_io)
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_attach_enabled is not None:
-            _setter("multi_attach_enabled", multi_attach_enabled)
+            pulumi.set(__self__, "multi_attach_enabled", multi_attach_enabled)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if snapshot_id is not None:
-            _setter("snapshot_id", snapshot_id)
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -298,10 +267,6 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

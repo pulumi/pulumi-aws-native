@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,46 +28,21 @@ class FirewallArgs:
         """
         The set of arguments for constructing a Firewall resource.
         """
-        FirewallArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firewall_policy_arn=firewall_policy_arn,
-            subnet_mappings=subnet_mappings,
-            vpc_id=vpc_id,
-            delete_protection=delete_protection,
-            description=description,
-            firewall_name=firewall_name,
-            firewall_policy_change_protection=firewall_policy_change_protection,
-            subnet_change_protection=subnet_change_protection,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firewall_policy_arn: pulumi.Input[str],
-             subnet_mappings: pulumi.Input[Sequence[pulumi.Input['FirewallSubnetMappingArgs']]],
-             vpc_id: pulumi.Input[str],
-             delete_protection: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             firewall_name: Optional[pulumi.Input[str]] = None,
-             firewall_policy_change_protection: Optional[pulumi.Input[bool]] = None,
-             subnet_change_protection: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("firewall_policy_arn", firewall_policy_arn)
-        _setter("subnet_mappings", subnet_mappings)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "firewall_policy_arn", firewall_policy_arn)
+        pulumi.set(__self__, "subnet_mappings", subnet_mappings)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if delete_protection is not None:
-            _setter("delete_protection", delete_protection)
+            pulumi.set(__self__, "delete_protection", delete_protection)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if firewall_name is not None:
-            _setter("firewall_name", firewall_name)
+            pulumi.set(__self__, "firewall_name", firewall_name)
         if firewall_policy_change_protection is not None:
-            _setter("firewall_policy_change_protection", firewall_policy_change_protection)
+            pulumi.set(__self__, "firewall_policy_change_protection", firewall_policy_change_protection)
         if subnet_change_protection is not None:
-            _setter("subnet_change_protection", subnet_change_protection)
+            pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
@@ -191,10 +166,6 @@ class Firewall(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FirewallArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

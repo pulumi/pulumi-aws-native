@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -49,27 +49,12 @@ class LoadBalancerAccessLoggingPolicy(dict):
                  s3_bucket_name: str,
                  emit_interval: Optional[int] = None,
                  s3_bucket_prefix: Optional[str] = None):
-        LoadBalancerAccessLoggingPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            s3_bucket_name=s3_bucket_name,
-            emit_interval=emit_interval,
-            s3_bucket_prefix=s3_bucket_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             s3_bucket_name: str,
-             emit_interval: Optional[int] = None,
-             s3_bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
-        _setter("s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if emit_interval is not None:
-            _setter("emit_interval", emit_interval)
+            pulumi.set(__self__, "emit_interval", emit_interval)
         if s3_bucket_prefix is not None:
-            _setter("s3_bucket_prefix", s3_bucket_prefix)
+            pulumi.set(__self__, "s3_bucket_prefix", s3_bucket_prefix)
 
     @property
     @pulumi.getter
@@ -116,19 +101,8 @@ class LoadBalancerAppCookieStickinessPolicy(dict):
     def __init__(__self__, *,
                  cookie_name: str,
                  policy_name: str):
-        LoadBalancerAppCookieStickinessPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cookie_name=cookie_name,
-            policy_name=policy_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cookie_name: str,
-             policy_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cookie_name", cookie_name)
-        _setter("policy_name", policy_name)
+        pulumi.set(__self__, "cookie_name", cookie_name)
+        pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="cookieName")
@@ -146,20 +120,9 @@ class LoadBalancerConnectionDrainingPolicy(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[int] = None):
-        LoadBalancerConnectionDrainingPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -193,16 +156,7 @@ class LoadBalancerConnectionSettings(dict):
 
     def __init__(__self__, *,
                  idle_timeout: int):
-        LoadBalancerConnectionSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle_timeout=idle_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle_timeout: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("idle_timeout", idle_timeout)
+        pulumi.set(__self__, "idle_timeout", idle_timeout)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -237,28 +191,11 @@ class LoadBalancerHealthCheck(dict):
                  target: str,
                  timeout: str,
                  unhealthy_threshold: str):
-        LoadBalancerHealthCheck._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            healthy_threshold=healthy_threshold,
-            interval=interval,
-            target=target,
-            timeout=timeout,
-            unhealthy_threshold=unhealthy_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             healthy_threshold: str,
-             interval: str,
-             target: str,
-             timeout: str,
-             unhealthy_threshold: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("healthy_threshold", healthy_threshold)
-        _setter("interval", interval)
-        _setter("target", target)
-        _setter("timeout", timeout)
-        _setter("unhealthy_threshold", unhealthy_threshold)
+        pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
 
     @property
     @pulumi.getter(name="healthyThreshold")
@@ -310,21 +247,10 @@ class LoadBalancerLbCookieStickinessPolicy(dict):
     def __init__(__self__, *,
                  cookie_expiration_period: Optional[str] = None,
                  policy_name: Optional[str] = None):
-        LoadBalancerLbCookieStickinessPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cookie_expiration_period=cookie_expiration_period,
-            policy_name=policy_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cookie_expiration_period: Optional[str] = None,
-             policy_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cookie_expiration_period is not None:
-            _setter("cookie_expiration_period", cookie_expiration_period)
+            pulumi.set(__self__, "cookie_expiration_period", cookie_expiration_period)
         if policy_name is not None:
-            _setter("policy_name", policy_name)
+            pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="cookieExpirationPeriod")
@@ -371,34 +297,15 @@ class LoadBalancerListeners(dict):
                  instance_protocol: Optional[str] = None,
                  policy_names: Optional[Sequence[str]] = None,
                  ssl_certificate_id: Optional[str] = None):
-        LoadBalancerListeners._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_port=instance_port,
-            load_balancer_port=load_balancer_port,
-            protocol=protocol,
-            instance_protocol=instance_protocol,
-            policy_names=policy_names,
-            ssl_certificate_id=ssl_certificate_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_port: str,
-             load_balancer_port: str,
-             protocol: str,
-             instance_protocol: Optional[str] = None,
-             policy_names: Optional[Sequence[str]] = None,
-             ssl_certificate_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_port", instance_port)
-        _setter("load_balancer_port", load_balancer_port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "instance_port", instance_port)
+        pulumi.set(__self__, "load_balancer_port", load_balancer_port)
+        pulumi.set(__self__, "protocol", protocol)
         if instance_protocol is not None:
-            _setter("instance_protocol", instance_protocol)
+            pulumi.set(__self__, "instance_protocol", instance_protocol)
         if policy_names is not None:
-            _setter("policy_names", policy_names)
+            pulumi.set(__self__, "policy_names", policy_names)
         if ssl_certificate_id is not None:
-            _setter("ssl_certificate_id", ssl_certificate_id)
+            pulumi.set(__self__, "ssl_certificate_id", ssl_certificate_id)
 
     @property
     @pulumi.getter(name="instancePort")
@@ -462,30 +369,13 @@ class LoadBalancerPolicies(dict):
                  policy_type: str,
                  instance_ports: Optional[Sequence[str]] = None,
                  load_balancer_ports: Optional[Sequence[str]] = None):
-        LoadBalancerPolicies._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-            policy_name=policy_name,
-            policy_type=policy_type,
-            instance_ports=instance_ports,
-            load_balancer_ports=load_balancer_ports,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Sequence[Any],
-             policy_name: str,
-             policy_type: str,
-             instance_ports: Optional[Sequence[str]] = None,
-             load_balancer_ports: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attributes", attributes)
-        _setter("policy_name", policy_name)
-        _setter("policy_type", policy_type)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "policy_name", policy_name)
+        pulumi.set(__self__, "policy_type", policy_type)
         if instance_ports is not None:
-            _setter("instance_ports", instance_ports)
+            pulumi.set(__self__, "instance_ports", instance_ports)
         if load_balancer_ports is not None:
-            _setter("load_balancer_ports", load_balancer_ports)
+            pulumi.set(__self__, "load_balancer_ports", load_balancer_ports)
 
     @property
     @pulumi.getter
@@ -518,19 +408,8 @@ class LoadBalancerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        LoadBalancerTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

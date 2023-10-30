@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,31 +29,14 @@ class ReportPlanArgs:
         :param pulumi.Input[str] report_plan_name: The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).
         :param pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]] report_plan_tags: Metadata that you can assign to help organize the report plans that you create. Each tag is a key-value pair.
         """
-        ReportPlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            report_delivery_channel=report_delivery_channel,
-            report_setting=report_setting,
-            report_plan_description=report_plan_description,
-            report_plan_name=report_plan_name,
-            report_plan_tags=report_plan_tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             report_delivery_channel: pulumi.Input['ReportDeliveryChannelPropertiesArgs'],
-             report_setting: pulumi.Input['ReportSettingPropertiesArgs'],
-             report_plan_description: Optional[pulumi.Input[str]] = None,
-             report_plan_name: Optional[pulumi.Input[str]] = None,
-             report_plan_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReportPlanTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("report_delivery_channel", report_delivery_channel)
-        _setter("report_setting", report_setting)
+        pulumi.set(__self__, "report_delivery_channel", report_delivery_channel)
+        pulumi.set(__self__, "report_setting", report_setting)
         if report_plan_description is not None:
-            _setter("report_plan_description", report_plan_description)
+            pulumi.set(__self__, "report_plan_description", report_plan_description)
         if report_plan_name is not None:
-            _setter("report_plan_name", report_plan_name)
+            pulumi.set(__self__, "report_plan_name", report_plan_name)
         if report_plan_tags is not None:
-            _setter("report_plan_tags", report_plan_tags)
+            pulumi.set(__self__, "report_plan_tags", report_plan_tags)
 
     @property
     @pulumi.getter(name="reportDeliveryChannel")
@@ -157,10 +140,6 @@ class ReportPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReportPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -180,22 +159,12 @@ class ReportPlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReportPlanArgs.__new__(ReportPlanArgs)
 
-            if report_delivery_channel is not None and not isinstance(report_delivery_channel, ReportDeliveryChannelPropertiesArgs):
-                report_delivery_channel = report_delivery_channel or {}
-                def _setter(key, value):
-                    report_delivery_channel[key] = value
-                ReportDeliveryChannelPropertiesArgs._configure(_setter, **report_delivery_channel)
             if report_delivery_channel is None and not opts.urn:
                 raise TypeError("Missing required property 'report_delivery_channel'")
             __props__.__dict__["report_delivery_channel"] = report_delivery_channel
             __props__.__dict__["report_plan_description"] = report_plan_description
             __props__.__dict__["report_plan_name"] = report_plan_name
             __props__.__dict__["report_plan_tags"] = report_plan_tags
-            if report_setting is not None and not isinstance(report_setting, ReportSettingPropertiesArgs):
-                report_setting = report_setting or {}
-                def _setter(key, value):
-                    report_setting[key] = value
-                ReportSettingPropertiesArgs._configure(_setter, **report_setting)
             if report_setting is None and not opts.urn:
                 raise TypeError("Missing required property 'report_setting'")
             __props__.__dict__["report_setting"] = report_setting

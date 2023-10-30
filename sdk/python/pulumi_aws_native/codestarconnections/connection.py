@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,29 +27,14 @@ class ConnectionArgs:
         :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionTagArgs']]] tags: Specifies the tags applied to a connection.
         """
-        ConnectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connection_name=connection_name,
-            host_arn=host_arn,
-            provider_type=provider_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connection_name: Optional[pulumi.Input[str]] = None,
-             host_arn: Optional[pulumi.Input[str]] = None,
-             provider_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_name is not None:
-            _setter("connection_name", connection_name)
+            pulumi.set(__self__, "connection_name", connection_name)
         if host_arn is not None:
-            _setter("host_arn", host_arn)
+            pulumi.set(__self__, "host_arn", host_arn)
         if provider_type is not None:
-            _setter("provider_type", provider_type)
+            pulumi.set(__self__, "provider_type", provider_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -139,10 +124,6 @@ class Connection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

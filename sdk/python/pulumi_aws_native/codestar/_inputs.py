@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,16 +18,7 @@ __all__ = [
 class GitHubRepositoryCodeArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['GitHubRepositoryS3Args']):
-        GitHubRepositoryCodeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3=s3,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3: pulumi.Input['GitHubRepositoryS3Args'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3", s3)
+        pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
@@ -45,23 +36,10 @@ class GitHubRepositoryS3Args:
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],
                  object_version: Optional[pulumi.Input[str]] = None):
-        GitHubRepositoryS3Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-            object_version=object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
-             object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("key", key)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
         if object_version is not None:
-            _setter("object_version", object_version)
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter

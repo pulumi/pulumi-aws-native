@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,36 +26,17 @@ class InAppTemplateArgs:
         """
         The set of arguments for constructing a InAppTemplate resource.
         """
-        InAppTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template_name=template_name,
-            content=content,
-            custom_config=custom_config,
-            layout=layout,
-            tags=tags,
-            template_description=template_description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template_name: pulumi.Input[str],
-             content: Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]] = None,
-             custom_config: Optional[Any] = None,
-             layout: Optional[pulumi.Input['InAppTemplateLayout']] = None,
-             tags: Optional[Any] = None,
-             template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("template_name", template_name)
+        pulumi.set(__self__, "template_name", template_name)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if custom_config is not None:
-            _setter("custom_config", custom_config)
+            pulumi.set(__self__, "custom_config", custom_config)
         if layout is not None:
-            _setter("layout", layout)
+            pulumi.set(__self__, "layout", layout)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if template_description is not None:
-            _setter("template_description", template_description)
+            pulumi.set(__self__, "template_description", template_description)
 
     @property
     @pulumi.getter(name="templateName")
@@ -149,10 +130,6 @@ class InAppTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InAppTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

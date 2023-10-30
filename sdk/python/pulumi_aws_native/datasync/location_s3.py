@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,32 +29,15 @@ class LocationS3Args:
         :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        LocationS3Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_config=s3_config,
-            s3_bucket_arn=s3_bucket_arn,
-            s3_storage_class=s3_storage_class,
-            subdirectory=subdirectory,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_config: pulumi.Input['LocationS3s3ConfigArgs'],
-             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-             s3_storage_class: Optional[pulumi.Input['LocationS3S3StorageClass']] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_config", s3_config)
+        pulumi.set(__self__, "s3_config", s3_config)
         if s3_bucket_arn is not None:
-            _setter("s3_bucket_arn", s3_bucket_arn)
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if s3_storage_class is not None:
-            _setter("s3_storage_class", s3_storage_class)
+            pulumi.set(__self__, "s3_storage_class", s3_storage_class)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="s3Config")
@@ -154,10 +137,6 @@ class LocationS3(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocationS3Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -178,11 +157,6 @@ class LocationS3(pulumi.CustomResource):
             __props__ = LocationS3Args.__new__(LocationS3Args)
 
             __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
-            if s3_config is not None and not isinstance(s3_config, LocationS3s3ConfigArgs):
-                s3_config = s3_config or {}
-                def _setter(key, value):
-                    s3_config[key] = value
-                LocationS3s3ConfigArgs._configure(_setter, **s3_config)
             if s3_config is None and not opts.urn:
                 raise TypeError("Missing required property 's3_config'")
             __props__.__dict__["s3_config"] = s3_config

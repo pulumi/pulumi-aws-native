@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiKeyArgs', 'ApiKey']
@@ -20,24 +20,11 @@ class ApiKeyArgs:
         """
         The set of arguments for constructing a ApiKey resource.
         """
-        ApiKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            description=description,
-            expires=expires,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             expires: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_id", api_id)
+        pulumi.set(__self__, "api_id", api_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if expires is not None:
-            _setter("expires", expires)
+            pulumi.set(__self__, "expires", expires)
 
     @property
     @pulumi.getter(name="apiId")
@@ -106,10 +93,6 @@ class ApiKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

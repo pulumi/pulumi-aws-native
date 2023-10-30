@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,20 +23,9 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointObjectLambdaConfigurationArgs'] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         :param pulumi.Input[str] name: The name you want to assign to this Object lambda Access Point.
         """
-        AccessPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_lambda_configuration=object_lambda_configuration,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_lambda_configuration: pulumi.Input['AccessPointObjectLambdaConfigurationArgs'],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("object_lambda_configuration", object_lambda_configuration)
+        pulumi.set(__self__, "object_lambda_configuration", object_lambda_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="objectLambdaConfiguration")
@@ -98,10 +87,6 @@ class AccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -119,11 +104,6 @@ class AccessPoint(pulumi.CustomResource):
             __props__ = AccessPointArgs.__new__(AccessPointArgs)
 
             __props__.__dict__["name"] = name
-            if object_lambda_configuration is not None and not isinstance(object_lambda_configuration, AccessPointObjectLambdaConfigurationArgs):
-                object_lambda_configuration = object_lambda_configuration or {}
-                def _setter(key, value):
-                    object_lambda_configuration[key] = value
-                AccessPointObjectLambdaConfigurationArgs._configure(_setter, **object_lambda_configuration)
             if object_lambda_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'object_lambda_configuration'")
             __props__.__dict__["object_lambda_configuration"] = object_lambda_configuration

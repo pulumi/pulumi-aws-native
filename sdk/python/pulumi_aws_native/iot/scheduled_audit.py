@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,35 +32,16 @@ class ScheduledAuditArgs:
         :param pulumi.Input[str] scheduled_audit_name: The name you want to give to the scheduled audit.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        ScheduledAuditArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency=frequency,
-            target_check_names=target_check_names,
-            day_of_month=day_of_month,
-            day_of_week=day_of_week,
-            scheduled_audit_name=scheduled_audit_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency: pulumi.Input['ScheduledAuditFrequency'],
-             target_check_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             day_of_month: Optional[pulumi.Input[str]] = None,
-             day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
-             scheduled_audit_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("frequency", frequency)
-        _setter("target_check_names", target_check_names)
+        pulumi.set(__self__, "frequency", frequency)
+        pulumi.set(__self__, "target_check_names", target_check_names)
         if day_of_month is not None:
-            _setter("day_of_month", day_of_month)
+            pulumi.set(__self__, "day_of_month", day_of_month)
         if day_of_week is not None:
-            _setter("day_of_week", day_of_week)
+            pulumi.set(__self__, "day_of_week", day_of_week)
         if scheduled_audit_name is not None:
-            _setter("scheduled_audit_name", scheduled_audit_name)
+            pulumi.set(__self__, "scheduled_audit_name", scheduled_audit_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -178,10 +159,6 @@ class ScheduledAudit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScheduledAuditArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

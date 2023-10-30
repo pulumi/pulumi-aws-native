@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -29,21 +29,10 @@ class PolicyIeMapArgs:
         """
         An FMS includeMap or excludeMap.
         """
-        PolicyIeMapArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account=account,
-            orgunit=orgunit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             orgunit: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if account is not None:
-            _setter("account", account)
+            pulumi.set(__self__, "account", account)
         if orgunit is not None:
-            _setter("orgunit", orgunit)
+            pulumi.set(__self__, "orgunit", orgunit)
 
     @property
     @pulumi.getter
@@ -71,16 +60,7 @@ class PolicyNetworkFirewallPolicyArgs:
         """
         Network firewall policy.
         """
-        PolicyNetworkFirewallPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firewall_deployment_model=firewall_deployment_model,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("firewall_deployment_model", firewall_deployment_model)
+        pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
 
     @property
     @pulumi.getter(name="firewallDeploymentModel")
@@ -100,21 +80,10 @@ class PolicyOptionArgs:
         """
         Firewall policy option.
         """
-        PolicyOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_firewall_policy=network_firewall_policy,
-            third_party_firewall_policy=third_party_firewall_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_firewall_policy: Optional[pulumi.Input['PolicyNetworkFirewallPolicyArgs']] = None,
-             third_party_firewall_policy: Optional[pulumi.Input['PolicyThirdPartyFirewallPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if network_firewall_policy is not None:
-            _setter("network_firewall_policy", network_firewall_policy)
+            pulumi.set(__self__, "network_firewall_policy", network_firewall_policy)
         if third_party_firewall_policy is not None:
-            _setter("third_party_firewall_policy", third_party_firewall_policy)
+            pulumi.set(__self__, "third_party_firewall_policy", third_party_firewall_policy)
 
     @property
     @pulumi.getter(name="networkFirewallPolicy")
@@ -143,20 +112,9 @@ class PolicyResourceTagArgs:
         """
         A resource tag.
         """
-        PolicyResourceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -186,24 +144,11 @@ class PolicySecurityServicePolicyDataArgs:
         """
         Firewall security service policy data.
         """
-        PolicySecurityServicePolicyDataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            managed_service_data=managed_service_data,
-            policy_option=policy_option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['PolicyType'],
-             managed_service_data: Optional[pulumi.Input[str]] = None,
-             policy_option: Optional[pulumi.Input['PolicyOptionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if managed_service_data is not None:
-            _setter("managed_service_data", managed_service_data)
+            pulumi.set(__self__, "managed_service_data", managed_service_data)
         if policy_option is not None:
-            _setter("policy_option", policy_option)
+            pulumi.set(__self__, "policy_option", policy_option)
 
     @property
     @pulumi.getter
@@ -241,19 +186,8 @@ class PolicyTagArgs:
         """
         A policy tag.
         """
-        PolicyTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -281,16 +215,7 @@ class PolicyThirdPartyFirewallPolicyArgs:
         """
         Third party firewall policy.
         """
-        PolicyThirdPartyFirewallPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firewall_deployment_model=firewall_deployment_model,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firewall_deployment_model: pulumi.Input['PolicyFirewallDeploymentModel'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("firewall_deployment_model", firewall_deployment_model)
+        pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
 
     @property
     @pulumi.getter(name="firewallDeploymentModel")
@@ -310,19 +235,8 @@ class ResourceSetTagArgs:
         """
         A tag.
         """
-        ResourceSetTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

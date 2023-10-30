@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -54,24 +54,11 @@ class DataInputConfigurationProperties(dict):
         Specifies configuration information for the input data for the inference scheduler, including delimiter, format, and dataset location.
         :param str input_time_zone_offset: Indicates the difference between your time zone and Greenwich Mean Time (GMT).
         """
-        DataInputConfigurationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_input_configuration=s3_input_configuration,
-            inference_input_name_configuration=inference_input_name_configuration,
-            input_time_zone_offset=input_time_zone_offset,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_input_configuration: 'outputs.InferenceSchedulerS3InputConfiguration',
-             inference_input_name_configuration: Optional['outputs.InferenceSchedulerInputNameConfiguration'] = None,
-             input_time_zone_offset: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_input_configuration", s3_input_configuration)
+        pulumi.set(__self__, "s3_input_configuration", s3_input_configuration)
         if inference_input_name_configuration is not None:
-            _setter("inference_input_name_configuration", inference_input_name_configuration)
+            pulumi.set(__self__, "inference_input_name_configuration", inference_input_name_configuration)
         if input_time_zone_offset is not None:
-            _setter("input_time_zone_offset", input_time_zone_offset)
+            pulumi.set(__self__, "input_time_zone_offset", input_time_zone_offset)
 
     @property
     @pulumi.getter(name="s3InputConfiguration")
@@ -123,20 +110,9 @@ class DataOutputConfigurationProperties(dict):
         Specifies configuration information for the output results for the inference scheduler, including the S3 location for the output.
         :param str kms_key_id: The ID number for the AWS KMS key used to encrypt the inference output.
         """
-        DataOutputConfigurationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_output_configuration=s3_output_configuration,
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_output_configuration: 'outputs.InferenceSchedulerS3OutputConfiguration',
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_output_configuration", s3_output_configuration)
+        pulumi.set(__self__, "s3_output_configuration", s3_output_configuration)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="s3OutputConfiguration")
@@ -184,21 +160,10 @@ class InferenceSchedulerInputNameConfiguration(dict):
         :param str component_timestamp_delimiter: Indicates the delimiter character used between items in the data.
         :param str timestamp_format: The format of the timestamp, whether Epoch time, or standard, with or without hyphens (-).
         """
-        InferenceSchedulerInputNameConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            component_timestamp_delimiter=component_timestamp_delimiter,
-            timestamp_format=timestamp_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             component_timestamp_delimiter: Optional[str] = None,
-             timestamp_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if component_timestamp_delimiter is not None:
-            _setter("component_timestamp_delimiter", component_timestamp_delimiter)
+            pulumi.set(__self__, "component_timestamp_delimiter", component_timestamp_delimiter)
         if timestamp_format is not None:
-            _setter("timestamp_format", timestamp_format)
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
 
     @property
     @pulumi.getter(name="componentTimestampDelimiter")
@@ -228,20 +193,9 @@ class InferenceSchedulerS3InputConfiguration(dict):
         """
         Specifies configuration information for the input data for the inference, including input data S3 location.
         """
-        InferenceSchedulerS3InputConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -265,20 +219,9 @@ class InferenceSchedulerS3OutputConfiguration(dict):
         """
         Specifies configuration information for the output results from the inference, including output S3 location.
         """
-        InferenceSchedulerS3OutputConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -304,19 +247,8 @@ class InferenceSchedulerTag(dict):
         :param str key: The key for the specified tag.
         :param str value: The value for the specified tag.
         """
-        InferenceSchedulerTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

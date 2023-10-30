@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VolumeArgs', 'Volume']
@@ -21,27 +21,12 @@ class VolumeArgs:
         """
         The set of arguments for constructing a Volume resource.
         """
-        VolumeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ec2_volume_id=ec2_volume_id,
-            stack_id=stack_id,
-            mount_point=mount_point,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ec2_volume_id: pulumi.Input[str],
-             stack_id: pulumi.Input[str],
-             mount_point: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ec2_volume_id", ec2_volume_id)
-        _setter("stack_id", stack_id)
+        pulumi.set(__self__, "ec2_volume_id", ec2_volume_id)
+        pulumi.set(__self__, "stack_id", stack_id)
         if mount_point is not None:
-            _setter("mount_point", mount_point)
+            pulumi.set(__self__, "mount_point", mount_point)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="ec2VolumeId")
@@ -120,10 +105,6 @@ class Volume(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VolumeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

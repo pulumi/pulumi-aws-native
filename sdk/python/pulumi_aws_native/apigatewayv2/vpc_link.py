@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcLinkArgs', 'VpcLink']
@@ -22,28 +22,13 @@ class VpcLinkArgs:
         The set of arguments for constructing a VpcLink resource.
         :param Any tags: This resource type use map for Tags, suggest to use List of Tag
         """
-        VpcLinkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            name=name,
-            security_group_ids=security_group_ids,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -121,10 +106,6 @@ class VpcLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

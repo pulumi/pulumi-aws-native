@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,41 +28,18 @@ class ThemeArgs:
         """
         The set of arguments for constructing a Theme resource.
         """
-        ThemeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_account_id=aws_account_id,
-            base_theme_id=base_theme_id,
-            configuration=configuration,
-            theme_id=theme_id,
-            name=name,
-            permissions=permissions,
-            tags=tags,
-            version_description=version_description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_account_id: pulumi.Input[str],
-             base_theme_id: pulumi.Input[str],
-             configuration: pulumi.Input['ThemeConfigurationArgs'],
-             theme_id: pulumi.Input[str],
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeResourcePermissionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeTagArgs']]]] = None,
-             version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aws_account_id", aws_account_id)
-        _setter("base_theme_id", base_theme_id)
-        _setter("configuration", configuration)
-        _setter("theme_id", theme_id)
+        pulumi.set(__self__, "aws_account_id", aws_account_id)
+        pulumi.set(__self__, "base_theme_id", base_theme_id)
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "theme_id", theme_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if version_description is not None:
-            _setter("version_description", version_description)
+            pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -176,10 +153,6 @@ class Theme(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ThemeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,11 +181,6 @@ class Theme(pulumi.CustomResource):
             if base_theme_id is None and not opts.urn:
                 raise TypeError("Missing required property 'base_theme_id'")
             __props__.__dict__["base_theme_id"] = base_theme_id
-            if configuration is not None and not isinstance(configuration, ThemeConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                ThemeConfigurationArgs._configure(_setter, **configuration)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

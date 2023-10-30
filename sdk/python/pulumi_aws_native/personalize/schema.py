@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,24 +24,11 @@ class SchemaArgs:
         :param pulumi.Input['SchemaDomain'] domain: The domain of a Domain dataset group.
         :param pulumi.Input[str] name: Name for the schema.
         """
-        SchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            schema=schema,
-            domain=domain,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             schema: pulumi.Input[str],
-             domain: Optional[pulumi.Input['SchemaDomain']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("schema", schema)
+        pulumi.set(__self__, "schema", schema)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -117,10 +104,6 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

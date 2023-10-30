@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -32,37 +32,18 @@ class GlobalClusterArgs:
         :param pulumi.Input[bool] storage_encrypted:  The storage encryption setting for the new global database cluster.
                If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         """
-        GlobalClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deletion_protection=deletion_protection,
-            engine=engine,
-            engine_version=engine_version,
-            global_cluster_identifier=global_cluster_identifier,
-            source_db_cluster_identifier=source_db_cluster_identifier,
-            storage_encrypted=storage_encrypted,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deletion_protection: Optional[pulumi.Input[bool]] = None,
-             engine: Optional[pulumi.Input['GlobalClusterEngine']] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if deletion_protection is not None:
-            _setter("deletion_protection", deletion_protection)
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if global_cluster_identifier is not None:
-            _setter("global_cluster_identifier", global_cluster_identifier)
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if source_db_cluster_identifier is not None:
-            _setter("source_db_cluster_identifier", source_db_cluster_identifier)
+            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
-            _setter("storage_encrypted", storage_encrypted)
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -184,10 +165,6 @@ class GlobalCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GlobalClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

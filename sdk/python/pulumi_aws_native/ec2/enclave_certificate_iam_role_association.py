@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnclaveCertificateIamRoleAssociationArgs', 'EnclaveCertificateIamRoleAssociation']
@@ -21,19 +21,8 @@ class EnclaveCertificateIamRoleAssociationArgs:
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
         """
-        EnclaveCertificateIamRoleAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("certificate_arn", certificate_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -95,10 +84,6 @@ class EnclaveCertificateIamRoleAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EnclaveCertificateIamRoleAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

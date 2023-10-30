@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -187,313 +187,156 @@ class DbInstanceArgs:
         :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether the DB instance is restored from the latest backup time. By default, the DB instance isn't restored from the latest backup time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_groups: A list of the VPC security group IDs to assign to the DB instance. The list can include both the physical IDs of existing VPC security groups and references to AWS::EC2::SecurityGroup resources created in the template.
         """
-        DbInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocated_storage=allocated_storage,
-            allow_major_version_upgrade=allow_major_version_upgrade,
-            associated_roles=associated_roles,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            automatic_backup_replication_region=automatic_backup_replication_region,
-            availability_zone=availability_zone,
-            backup_retention_period=backup_retention_period,
-            ca_certificate_identifier=ca_certificate_identifier,
-            certificate_details=certificate_details,
-            certificate_rotation_restart=certificate_rotation_restart,
-            character_set_name=character_set_name,
-            copy_tags_to_snapshot=copy_tags_to_snapshot,
-            custom_iam_instance_profile=custom_iam_instance_profile,
-            db_cluster_identifier=db_cluster_identifier,
-            db_cluster_snapshot_identifier=db_cluster_snapshot_identifier,
-            db_instance_class=db_instance_class,
-            db_instance_identifier=db_instance_identifier,
-            db_name=db_name,
-            db_parameter_group_name=db_parameter_group_name,
-            db_security_groups=db_security_groups,
-            db_snapshot_identifier=db_snapshot_identifier,
-            db_subnet_group_name=db_subnet_group_name,
-            delete_automated_backups=delete_automated_backups,
-            deletion_protection=deletion_protection,
-            domain=domain,
-            domain_auth_secret_arn=domain_auth_secret_arn,
-            domain_dns_ips=domain_dns_ips,
-            domain_fqdn=domain_fqdn,
-            domain_iam_role_name=domain_iam_role_name,
-            domain_ou=domain_ou,
-            enable_cloudwatch_logs_exports=enable_cloudwatch_logs_exports,
-            enable_iam_database_authentication=enable_iam_database_authentication,
-            enable_performance_insights=enable_performance_insights,
-            endpoint=endpoint,
-            engine=engine,
-            engine_version=engine_version,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            license_model=license_model,
-            manage_master_user_password=manage_master_user_password,
-            master_user_password=master_user_password,
-            master_user_secret=master_user_secret,
-            master_username=master_username,
-            max_allocated_storage=max_allocated_storage,
-            monitoring_interval=monitoring_interval,
-            monitoring_role_arn=monitoring_role_arn,
-            multi_az=multi_az,
-            nchar_character_set_name=nchar_character_set_name,
-            network_type=network_type,
-            option_group_name=option_group_name,
-            performance_insights_kms_key_id=performance_insights_kms_key_id,
-            performance_insights_retention_period=performance_insights_retention_period,
-            port=port,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            processor_features=processor_features,
-            promotion_tier=promotion_tier,
-            publicly_accessible=publicly_accessible,
-            replica_mode=replica_mode,
-            restore_time=restore_time,
-            source_db_cluster_identifier=source_db_cluster_identifier,
-            source_db_instance_automated_backups_arn=source_db_instance_automated_backups_arn,
-            source_db_instance_identifier=source_db_instance_identifier,
-            source_dbi_resource_id=source_dbi_resource_id,
-            source_region=source_region,
-            storage_encrypted=storage_encrypted,
-            storage_throughput=storage_throughput,
-            storage_type=storage_type,
-            tags=tags,
-            tde_credential_arn=tde_credential_arn,
-            tde_credential_password=tde_credential_password,
-            timezone=timezone,
-            use_default_processor_features=use_default_processor_features,
-            use_latest_restorable_time=use_latest_restorable_time,
-            vpc_security_groups=vpc_security_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocated_storage: Optional[pulumi.Input[str]] = None,
-             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceDbInstanceRoleArgs']]]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             automatic_backup_replication_region: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             backup_retention_period: Optional[pulumi.Input[int]] = None,
-             ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
-             certificate_details: Optional[pulumi.Input['DbInstanceCertificateDetailsArgs']] = None,
-             certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
-             character_set_name: Optional[pulumi.Input[str]] = None,
-             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-             custom_iam_instance_profile: Optional[pulumi.Input[str]] = None,
-             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             db_cluster_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             db_instance_class: Optional[pulumi.Input[str]] = None,
-             db_instance_identifier: Optional[pulumi.Input[str]] = None,
-             db_name: Optional[pulumi.Input[str]] = None,
-             db_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             delete_automated_backups: Optional[pulumi.Input[bool]] = None,
-             deletion_protection: Optional[pulumi.Input[bool]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             domain_auth_secret_arn: Optional[pulumi.Input[str]] = None,
-             domain_dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             domain_fqdn: Optional[pulumi.Input[str]] = None,
-             domain_iam_role_name: Optional[pulumi.Input[str]] = None,
-             domain_ou: Optional[pulumi.Input[str]] = None,
-             enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
-             enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-             endpoint: Optional[pulumi.Input['DbInstanceEndpointArgs']] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             license_model: Optional[pulumi.Input[str]] = None,
-             manage_master_user_password: Optional[pulumi.Input[bool]] = None,
-             master_user_password: Optional[pulumi.Input[str]] = None,
-             master_user_secret: Optional[pulumi.Input['DbInstanceMasterUserSecretArgs']] = None,
-             master_username: Optional[pulumi.Input[str]] = None,
-             max_allocated_storage: Optional[pulumi.Input[int]] = None,
-             monitoring_interval: Optional[pulumi.Input[int]] = None,
-             monitoring_role_arn: Optional[pulumi.Input[str]] = None,
-             multi_az: Optional[pulumi.Input[bool]] = None,
-             nchar_character_set_name: Optional[pulumi.Input[str]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             option_group_name: Optional[pulumi.Input[str]] = None,
-             performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
-             performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[str]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             processor_features: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceProcessorFeatureArgs']]]] = None,
-             promotion_tier: Optional[pulumi.Input[int]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             replica_mode: Optional[pulumi.Input[str]] = None,
-             restore_time: Optional[pulumi.Input[str]] = None,
-             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
-             source_db_instance_identifier: Optional[pulumi.Input[str]] = None,
-             source_dbi_resource_id: Optional[pulumi.Input[str]] = None,
-             source_region: Optional[pulumi.Input[str]] = None,
-             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             storage_throughput: Optional[pulumi.Input[int]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
-             tde_credential_arn: Optional[pulumi.Input[str]] = None,
-             tde_credential_password: Optional[pulumi.Input[str]] = None,
-             timezone: Optional[pulumi.Input[str]] = None,
-             use_default_processor_features: Optional[pulumi.Input[bool]] = None,
-             use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
-             vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allocated_storage is not None:
-            _setter("allocated_storage", allocated_storage)
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
-            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
+            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if associated_roles is not None:
-            _setter("associated_roles", associated_roles)
+            pulumi.set(__self__, "associated_roles", associated_roles)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if automatic_backup_replication_region is not None:
-            _setter("automatic_backup_replication_region", automatic_backup_replication_region)
+            pulumi.set(__self__, "automatic_backup_replication_region", automatic_backup_replication_region)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_retention_period is not None:
-            _setter("backup_retention_period", backup_retention_period)
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if ca_certificate_identifier is not None:
-            _setter("ca_certificate_identifier", ca_certificate_identifier)
+            pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
         if certificate_details is not None:
-            _setter("certificate_details", certificate_details)
+            pulumi.set(__self__, "certificate_details", certificate_details)
         if certificate_rotation_restart is not None:
-            _setter("certificate_rotation_restart", certificate_rotation_restart)
+            pulumi.set(__self__, "certificate_rotation_restart", certificate_rotation_restart)
         if character_set_name is not None:
-            _setter("character_set_name", character_set_name)
+            pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
-            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if custom_iam_instance_profile is not None:
-            _setter("custom_iam_instance_profile", custom_iam_instance_profile)
+            pulumi.set(__self__, "custom_iam_instance_profile", custom_iam_instance_profile)
         if db_cluster_identifier is not None:
-            _setter("db_cluster_identifier", db_cluster_identifier)
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         if db_cluster_snapshot_identifier is not None:
-            _setter("db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+            pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
         if db_instance_class is not None:
-            _setter("db_instance_class", db_instance_class)
+            pulumi.set(__self__, "db_instance_class", db_instance_class)
         if db_instance_identifier is not None:
-            _setter("db_instance_identifier", db_instance_identifier)
+            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         if db_name is not None:
-            _setter("db_name", db_name)
+            pulumi.set(__self__, "db_name", db_name)
         if db_parameter_group_name is not None:
-            _setter("db_parameter_group_name", db_parameter_group_name)
+            pulumi.set(__self__, "db_parameter_group_name", db_parameter_group_name)
         if db_security_groups is not None:
-            _setter("db_security_groups", db_security_groups)
+            pulumi.set(__self__, "db_security_groups", db_security_groups)
         if db_snapshot_identifier is not None:
-            _setter("db_snapshot_identifier", db_snapshot_identifier)
+            pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
         if db_subnet_group_name is not None:
-            _setter("db_subnet_group_name", db_subnet_group_name)
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if delete_automated_backups is not None:
-            _setter("delete_automated_backups", delete_automated_backups)
+            pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
-            _setter("deletion_protection", deletion_protection)
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if domain_auth_secret_arn is not None:
-            _setter("domain_auth_secret_arn", domain_auth_secret_arn)
+            pulumi.set(__self__, "domain_auth_secret_arn", domain_auth_secret_arn)
         if domain_dns_ips is not None:
-            _setter("domain_dns_ips", domain_dns_ips)
+            pulumi.set(__self__, "domain_dns_ips", domain_dns_ips)
         if domain_fqdn is not None:
-            _setter("domain_fqdn", domain_fqdn)
+            pulumi.set(__self__, "domain_fqdn", domain_fqdn)
         if domain_iam_role_name is not None:
-            _setter("domain_iam_role_name", domain_iam_role_name)
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if domain_ou is not None:
-            _setter("domain_ou", domain_ou)
+            pulumi.set(__self__, "domain_ou", domain_ou)
         if enable_cloudwatch_logs_exports is not None:
-            _setter("enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+            pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if enable_iam_database_authentication is not None:
-            _setter("enable_iam_database_authentication", enable_iam_database_authentication)
+            pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
         if enable_performance_insights is not None:
-            _setter("enable_performance_insights", enable_performance_insights)
+            pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if license_model is not None:
-            _setter("license_model", license_model)
+            pulumi.set(__self__, "license_model", license_model)
         if manage_master_user_password is not None:
-            _setter("manage_master_user_password", manage_master_user_password)
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_user_password is not None:
-            _setter("master_user_password", master_user_password)
+            pulumi.set(__self__, "master_user_password", master_user_password)
         if master_user_secret is not None:
-            _setter("master_user_secret", master_user_secret)
+            pulumi.set(__self__, "master_user_secret", master_user_secret)
         if master_username is not None:
-            _setter("master_username", master_username)
+            pulumi.set(__self__, "master_username", master_username)
         if max_allocated_storage is not None:
-            _setter("max_allocated_storage", max_allocated_storage)
+            pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
         if monitoring_interval is not None:
-            _setter("monitoring_interval", monitoring_interval)
+            pulumi.set(__self__, "monitoring_interval", monitoring_interval)
         if monitoring_role_arn is not None:
-            _setter("monitoring_role_arn", monitoring_role_arn)
+            pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
-            _setter("multi_az", multi_az)
+            pulumi.set(__self__, "multi_az", multi_az)
         if nchar_character_set_name is not None:
-            _setter("nchar_character_set_name", nchar_character_set_name)
+            pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "network_type", network_type)
         if option_group_name is not None:
-            _setter("option_group_name", option_group_name)
+            pulumi.set(__self__, "option_group_name", option_group_name)
         if performance_insights_kms_key_id is not None:
-            _setter("performance_insights_kms_key_id", performance_insights_kms_key_id)
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
         if performance_insights_retention_period is not None:
-            _setter("performance_insights_retention_period", performance_insights_retention_period)
+            pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if processor_features is not None:
-            _setter("processor_features", processor_features)
+            pulumi.set(__self__, "processor_features", processor_features)
         if promotion_tier is not None:
-            _setter("promotion_tier", promotion_tier)
+            pulumi.set(__self__, "promotion_tier", promotion_tier)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if replica_mode is not None:
-            _setter("replica_mode", replica_mode)
+            pulumi.set(__self__, "replica_mode", replica_mode)
         if restore_time is not None:
-            _setter("restore_time", restore_time)
+            pulumi.set(__self__, "restore_time", restore_time)
         if source_db_cluster_identifier is not None:
-            _setter("source_db_cluster_identifier", source_db_cluster_identifier)
+            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if source_db_instance_automated_backups_arn is not None:
-            _setter("source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
+            pulumi.set(__self__, "source_db_instance_automated_backups_arn", source_db_instance_automated_backups_arn)
         if source_db_instance_identifier is not None:
-            _setter("source_db_instance_identifier", source_db_instance_identifier)
+            pulumi.set(__self__, "source_db_instance_identifier", source_db_instance_identifier)
         if source_dbi_resource_id is not None:
-            _setter("source_dbi_resource_id", source_dbi_resource_id)
+            pulumi.set(__self__, "source_dbi_resource_id", source_dbi_resource_id)
         if source_region is not None:
-            _setter("source_region", source_region)
+            pulumi.set(__self__, "source_region", source_region)
         if storage_encrypted is not None:
-            _setter("storage_encrypted", storage_encrypted)
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if storage_throughput is not None:
-            _setter("storage_throughput", storage_throughput)
+            pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tde_credential_arn is not None:
-            _setter("tde_credential_arn", tde_credential_arn)
+            pulumi.set(__self__, "tde_credential_arn", tde_credential_arn)
         if tde_credential_password is not None:
-            _setter("tde_credential_password", tde_credential_password)
+            pulumi.set(__self__, "tde_credential_password", tde_credential_password)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
         if use_default_processor_features is not None:
-            _setter("use_default_processor_features", use_default_processor_features)
+            pulumi.set(__self__, "use_default_processor_features", use_default_processor_features)
         if use_latest_restorable_time is not None:
-            _setter("use_latest_restorable_time", use_latest_restorable_time)
+            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_groups is not None:
-            _setter("vpc_security_groups", vpc_security_groups)
+            pulumi.set(__self__, "vpc_security_groups", vpc_security_groups)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -1611,10 +1454,6 @@ class DbInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DbInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1712,11 +1551,6 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
-            if certificate_details is not None and not isinstance(certificate_details, DbInstanceCertificateDetailsArgs):
-                certificate_details = certificate_details or {}
-                def _setter(key, value):
-                    certificate_details[key] = value
-                DbInstanceCertificateDetailsArgs._configure(_setter, **certificate_details)
             __props__.__dict__["certificate_details"] = certificate_details
             __props__.__dict__["certificate_rotation_restart"] = certificate_rotation_restart
             __props__.__dict__["character_set_name"] = character_set_name
@@ -1742,11 +1576,6 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["enable_performance_insights"] = enable_performance_insights
-            if endpoint is not None and not isinstance(endpoint, DbInstanceEndpointArgs):
-                endpoint = endpoint or {}
-                def _setter(key, value):
-                    endpoint[key] = value
-                DbInstanceEndpointArgs._configure(_setter, **endpoint)
             __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
@@ -1755,11 +1584,6 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["license_model"] = license_model
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_user_password"] = master_user_password
-            if master_user_secret is not None and not isinstance(master_user_secret, DbInstanceMasterUserSecretArgs):
-                master_user_secret = master_user_secret or {}
-                def _setter(key, value):
-                    master_user_secret[key] = value
-                DbInstanceMasterUserSecretArgs._configure(_setter, **master_user_secret)
             __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["max_allocated_storage"] = max_allocated_storage

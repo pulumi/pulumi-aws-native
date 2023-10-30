@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueryDefinitionArgs', 'QueryDefinition']
@@ -23,24 +23,11 @@ class QueryDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Optionally define specific log groups as part of your query definition
         :param pulumi.Input[str] name: A name for the saved query definition
         """
-        QueryDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query_string=query_string,
-            log_group_names=log_group_names,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query_string: pulumi.Input[str],
-             log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("query_string", query_string)
+        pulumi.set(__self__, "query_string", query_string)
         if log_group_names is not None:
-            _setter("log_group_names", log_group_names)
+            pulumi.set(__self__, "log_group_names", log_group_names)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="queryString")
@@ -116,10 +103,6 @@ class QueryDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueryDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

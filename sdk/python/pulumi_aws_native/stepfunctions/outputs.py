@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,19 +30,8 @@ class ActivityTagsEntry(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ActivityTagsEntry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -90,31 +79,14 @@ class StateMachineAliasDeploymentPreference(dict):
         :param int interval: The time in minutes between each traffic shifting increment.
         :param int percentage: The percentage of traffic to shift to the new version in each increment.
         """
-        StateMachineAliasDeploymentPreference._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            state_machine_version_arn=state_machine_version_arn,
-            type=type,
-            alarms=alarms,
-            interval=interval,
-            percentage=percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             state_machine_version_arn: str,
-             type: 'StateMachineAliasDeploymentPreferenceType',
-             alarms: Optional[Sequence[str]] = None,
-             interval: Optional[int] = None,
-             percentage: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("state_machine_version_arn", state_machine_version_arn)
-        _setter("type", type)
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "type", type)
         if alarms is not None:
-            _setter("alarms", alarms)
+            pulumi.set(__self__, "alarms", alarms)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if percentage is not None:
-            _setter("percentage", percentage)
+            pulumi.set(__self__, "percentage", percentage)
 
     @property
     @pulumi.getter(name="stateMachineVersionArn")
@@ -180,19 +152,8 @@ class StateMachineAliasRoutingConfigurationVersion(dict):
         :param str state_machine_version_arn: The Amazon Resource Name (ARN) that identifies one or two state machine versions defined in the routing configuration.
         :param int weight: The percentage of traffic you want to route to the state machine version. The sum of the weights in the routing configuration must be equal to 100.
         """
-        StateMachineAliasRoutingConfigurationVersion._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            state_machine_version_arn=state_machine_version_arn,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             state_machine_version_arn: str,
-             weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("state_machine_version_arn", state_machine_version_arn)
-        _setter("weight", weight)
+        pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
+        pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="stateMachineVersionArn")
@@ -232,17 +193,8 @@ class StateMachineCloudWatchLogsLogGroup(dict):
 
     def __init__(__self__, *,
                  log_group_arn: Optional[str] = None):
-        StateMachineCloudWatchLogsLogGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_arn=log_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group_arn is not None:
-            _setter("log_group_arn", log_group_arn)
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")
@@ -254,21 +206,11 @@ class StateMachineCloudWatchLogsLogGroup(dict):
 class StateMachineDefinition(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
 class StateMachineDefinitionSubstitutions(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -293,17 +235,8 @@ class StateMachineLogDestination(dict):
 
     def __init__(__self__, *,
                  cloud_watch_logs_log_group: Optional['outputs.StateMachineCloudWatchLogsLogGroup'] = None):
-        StateMachineLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_logs_log_group=cloud_watch_logs_log_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_logs_log_group: Optional['outputs.StateMachineCloudWatchLogsLogGroup'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_logs_log_group is not None:
-            _setter("cloud_watch_logs_log_group", cloud_watch_logs_log_group)
+            pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
 
     @property
     @pulumi.getter(name="cloudWatchLogsLogGroup")
@@ -334,25 +267,12 @@ class StateMachineLoggingConfiguration(dict):
                  destinations: Optional[Sequence['outputs.StateMachineLogDestination']] = None,
                  include_execution_data: Optional[bool] = None,
                  level: Optional['StateMachineLoggingConfigurationLevel'] = None):
-        StateMachineLoggingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destinations=destinations,
-            include_execution_data=include_execution_data,
-            level=level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destinations: Optional[Sequence['outputs.StateMachineLogDestination']] = None,
-             include_execution_data: Optional[bool] = None,
-             level: Optional['StateMachineLoggingConfigurationLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if include_execution_data is not None:
-            _setter("include_execution_data", include_execution_data)
+            pulumi.set(__self__, "include_execution_data", include_execution_data)
         if level is not None:
-            _setter("level", level)
+            pulumi.set(__self__, "level", level)
 
     @property
     @pulumi.getter
@@ -376,23 +296,10 @@ class StateMachineS3Location(dict):
                  bucket: str,
                  key: str,
                  version: Optional[str] = None):
-        StateMachineS3Location._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             key: str,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("key", key)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -415,19 +322,8 @@ class StateMachineTagsEntry(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        StateMachineTagsEntry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -444,17 +340,8 @@ class StateMachineTagsEntry(dict):
 class StateMachineTracingConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
-        StateMachineTracingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter

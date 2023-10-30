@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -67,19 +67,8 @@ class CalculatedAttributeDefinitionAttributeDetails(dict):
         """
         Mathematical expression and a list of attribute items specified in that expression.
         """
-        CalculatedAttributeDefinitionAttributeDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attributes=attributes,
-            expression=expression,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attributes: Sequence['outputs.CalculatedAttributeDefinitionAttributeItem'],
-             expression: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attributes", attributes)
-        _setter("expression", expression)
+        pulumi.set(__self__, "attributes", attributes)
+        pulumi.set(__self__, "expression", expression)
 
     @property
     @pulumi.getter
@@ -102,16 +91,7 @@ class CalculatedAttributeDefinitionAttributeItem(dict):
         """
         The details of a single attribute item specified in the mathematical expression.
         """
-        CalculatedAttributeDefinitionAttributeItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -148,25 +128,12 @@ class CalculatedAttributeDefinitionConditions(dict):
         """
         The conditions including range, object count, and threshold for the calculated attribute.
         """
-        CalculatedAttributeDefinitionConditions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_count=object_count,
-            range=range,
-            threshold=threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_count: Optional[int] = None,
-             range: Optional['outputs.CalculatedAttributeDefinitionRange'] = None,
-             threshold: Optional['outputs.CalculatedAttributeDefinitionThreshold'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if object_count is not None:
-            _setter("object_count", object_count)
+            pulumi.set(__self__, "object_count", object_count)
         if range is not None:
-            _setter("range", range)
+            pulumi.set(__self__, "range", range)
         if threshold is not None:
-            _setter("threshold", threshold)
+            pulumi.set(__self__, "threshold", threshold)
 
     @property
     @pulumi.getter(name="objectCount")
@@ -195,19 +162,8 @@ class CalculatedAttributeDefinitionRange(dict):
         """
         The relative time period over which data is included in the aggregation.
         """
-        CalculatedAttributeDefinitionRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: 'CalculatedAttributeDefinitionRangeUnit',
-             value: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("unit", unit)
-        _setter("value", value)
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -233,19 +189,8 @@ class CalculatedAttributeDefinitionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        CalculatedAttributeDefinitionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -275,19 +220,8 @@ class CalculatedAttributeDefinitionThreshold(dict):
         """
         The threshold for the calculated attribute.
         """
-        CalculatedAttributeDefinitionThreshold._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            operator=operator,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             operator: 'CalculatedAttributeDefinitionThresholdOperator',
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("operator", operator)
-        _setter("value", value)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -311,19 +245,8 @@ class DestinationDetailsProperties(dict):
         """
         Details regarding the Kinesis stream.
         """
-        DestinationDetailsProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: 'EventStreamStatus',
-             uri: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
-        _setter("uri", uri)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -374,28 +297,13 @@ class DomainAttributeTypesSelector(dict):
         :param Sequence[str] email_address: The Email type. You can choose from EmailAddress, BusinessEmailAddress and PersonalEmailAddress. You only can use the EmailAddress type in the MatchingRule. For example, if you want to match profile based on PersonalEmailAddress or BusinessEmailAddress, you need to choose the PersonalEmailAddress and the BusinessEmailAddress to represent the EmailAddress type and only specify the EmailAddress on the matching rule.
         :param Sequence[str] phone_number: The PhoneNumber type. You can choose from PhoneNumber, HomePhoneNumber, and MobilePhoneNumber. You only can use the PhoneNumber type in the MatchingRule. For example, if you want to match a profile based on Phone or HomePhone, you need to choose the Phone and the HomePhone to represent the PhoneNumber type and only specify the PhoneNumber on the matching rule.
         """
-        DomainAttributeTypesSelector._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_matching_model=attribute_matching_model,
-            address=address,
-            email_address=email_address,
-            phone_number=phone_number,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_matching_model: 'DomainAttributeTypesSelectorAttributeMatchingModel',
-             address: Optional[Sequence[str]] = None,
-             email_address: Optional[Sequence[str]] = None,
-             phone_number: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attribute_matching_model", attribute_matching_model)
+        pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if email_address is not None:
-            _setter("email_address", email_address)
+            pulumi.set(__self__, "email_address", email_address)
         if phone_number is not None:
-            _setter("phone_number", phone_number)
+            pulumi.set(__self__, "phone_number", phone_number)
 
     @property
     @pulumi.getter(name="attributeMatchingModel")
@@ -464,28 +372,13 @@ class DomainAutoMerging(dict):
         :param bool enabled: The flag that enables the auto-merging of duplicate profiles.
         :param float min_allowed_confidence_score_for_merging: A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
         """
-        DomainAutoMerging._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            conflict_resolution=conflict_resolution,
-            consolidation=consolidation,
-            min_allowed_confidence_score_for_merging=min_allowed_confidence_score_for_merging,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             conflict_resolution: Optional['outputs.DomainConflictResolution'] = None,
-             consolidation: Optional['outputs.DomainConsolidation'] = None,
-             min_allowed_confidence_score_for_merging: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if conflict_resolution is not None:
-            _setter("conflict_resolution", conflict_resolution)
+            pulumi.set(__self__, "conflict_resolution", conflict_resolution)
         if consolidation is not None:
-            _setter("consolidation", consolidation)
+            pulumi.set(__self__, "consolidation", consolidation)
         if min_allowed_confidence_score_for_merging is not None:
-            _setter("min_allowed_confidence_score_for_merging", min_allowed_confidence_score_for_merging)
+            pulumi.set(__self__, "min_allowed_confidence_score_for_merging", min_allowed_confidence_score_for_merging)
 
     @property
     @pulumi.getter
@@ -546,20 +439,9 @@ class DomainConflictResolution(dict):
         :param 'DomainConflictResolutionConflictResolvingModel' conflict_resolving_model: How the auto-merging process should resolve conflicts between different profiles.
         :param str source_name: The ObjectType name that is used to resolve profile merging conflicts when choosing SOURCE as the ConflictResolvingModel.
         """
-        DomainConflictResolution._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conflict_resolving_model=conflict_resolving_model,
-            source_name=source_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conflict_resolving_model: 'DomainConflictResolutionConflictResolvingModel',
-             source_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("conflict_resolving_model", conflict_resolving_model)
+        pulumi.set(__self__, "conflict_resolving_model", conflict_resolving_model)
         if source_name is not None:
-            _setter("source_name", source_name)
+            pulumi.set(__self__, "source_name", source_name)
 
     @property
     @pulumi.getter(name="conflictResolvingModel")
@@ -606,16 +488,7 @@ class DomainConsolidation(dict):
         A list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged.
         :param Sequence[Sequence[str]] matching_attributes_list: A list of matching criteria.
         """
-        DomainConsolidation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matching_attributes_list=matching_attributes_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matching_attributes_list: Sequence[Sequence[str]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("matching_attributes_list", matching_attributes_list)
+        pulumi.set(__self__, "matching_attributes_list", matching_attributes_list)
 
     @property
     @pulumi.getter(name="matchingAttributesList")
@@ -653,17 +526,8 @@ class DomainExportingConfig(dict):
         """
         Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
         """
-        DomainExportingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_exporting=s3_exporting,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_exporting: Optional['outputs.DomainS3ExportingConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_exporting is not None:
-            _setter("s3_exporting", s3_exporting)
+            pulumi.set(__self__, "s3_exporting", s3_exporting)
 
     @property
     @pulumi.getter(name="s3Exporting")
@@ -701,19 +565,8 @@ class DomainJobSchedule(dict):
         :param 'DomainJobScheduleDayOfTheWeek' day_of_the_week: The day when the Identity Resolution Job should run every week.
         :param str time: The time when the Identity Resolution Job should run every week.
         """
-        DomainJobSchedule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day_of_the_week=day_of_the_week,
-            time=time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day_of_the_week: 'DomainJobScheduleDayOfTheWeek',
-             time: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("day_of_the_week", day_of_the_week)
-        _setter("time", time)
+        pulumi.set(__self__, "day_of_the_week", day_of_the_week)
+        pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter(name="dayOfTheWeek")
@@ -767,28 +620,13 @@ class DomainMatching(dict):
         The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
         :param bool enabled: The flag that enables the matching process of duplicate profiles.
         """
-        DomainMatching._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            auto_merging=auto_merging,
-            exporting_config=exporting_config,
-            job_schedule=job_schedule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             auto_merging: Optional['outputs.DomainAutoMerging'] = None,
-             exporting_config: Optional['outputs.DomainExportingConfig'] = None,
-             job_schedule: Optional['outputs.DomainJobSchedule'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if auto_merging is not None:
-            _setter("auto_merging", auto_merging)
+            pulumi.set(__self__, "auto_merging", auto_merging)
         if exporting_config is not None:
-            _setter("exporting_config", exporting_config)
+            pulumi.set(__self__, "exporting_config", exporting_config)
         if job_schedule is not None:
-            _setter("job_schedule", job_schedule)
+            pulumi.set(__self__, "job_schedule", job_schedule)
 
     @property
     @pulumi.getter
@@ -824,16 +662,7 @@ class DomainMatchingRule(dict):
         """
         Specifies how does the rule-based matching process should match profiles.
         """
-        DomainMatchingRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule=rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rule", rule)
+        pulumi.set(__self__, "rule", rule)
 
     @property
     @pulumi.getter
@@ -889,44 +718,21 @@ class DomainRuleBasedMatching(dict):
         :param int max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
         :param int max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
         """
-        DomainRuleBasedMatching._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            attribute_types_selector=attribute_types_selector,
-            conflict_resolution=conflict_resolution,
-            exporting_config=exporting_config,
-            matching_rules=matching_rules,
-            max_allowed_rule_level_for_matching=max_allowed_rule_level_for_matching,
-            max_allowed_rule_level_for_merging=max_allowed_rule_level_for_merging,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             attribute_types_selector: Optional['outputs.DomainAttributeTypesSelector'] = None,
-             conflict_resolution: Optional['outputs.DomainConflictResolution'] = None,
-             exporting_config: Optional['outputs.DomainExportingConfig'] = None,
-             matching_rules: Optional[Sequence['outputs.DomainMatchingRule']] = None,
-             max_allowed_rule_level_for_matching: Optional[int] = None,
-             max_allowed_rule_level_for_merging: Optional[int] = None,
-             status: Optional['DomainRuleBasedMatchingStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if attribute_types_selector is not None:
-            _setter("attribute_types_selector", attribute_types_selector)
+            pulumi.set(__self__, "attribute_types_selector", attribute_types_selector)
         if conflict_resolution is not None:
-            _setter("conflict_resolution", conflict_resolution)
+            pulumi.set(__self__, "conflict_resolution", conflict_resolution)
         if exporting_config is not None:
-            _setter("exporting_config", exporting_config)
+            pulumi.set(__self__, "exporting_config", exporting_config)
         if matching_rules is not None:
-            _setter("matching_rules", matching_rules)
+            pulumi.set(__self__, "matching_rules", matching_rules)
         if max_allowed_rule_level_for_matching is not None:
-            _setter("max_allowed_rule_level_for_matching", max_allowed_rule_level_for_matching)
+            pulumi.set(__self__, "max_allowed_rule_level_for_matching", max_allowed_rule_level_for_matching)
         if max_allowed_rule_level_for_merging is not None:
-            _setter("max_allowed_rule_level_for_merging", max_allowed_rule_level_for_merging)
+            pulumi.set(__self__, "max_allowed_rule_level_for_merging", max_allowed_rule_level_for_merging)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -1013,20 +819,9 @@ class DomainS3ExportingConfig(dict):
         :param str s3_bucket_name: The name of the S3 bucket where Identity Resolution Jobs write result files.
         :param str s3_key_name: The S3 key name of the location where Identity Resolution Jobs write result files.
         """
-        DomainS3ExportingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket_name=s3_bucket_name,
-            s3_key_name=s3_key_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket_name: str,
-             s3_key_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_name is not None:
-            _setter("s3_key_name", s3_key_name)
+            pulumi.set(__self__, "s3_key_name", s3_key_name)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -1085,29 +880,14 @@ class DomainStats(dict):
         :param float profile_count: The total number of profiles currently in the domain.
         :param float total_size: The total size, in bytes, of all objects in the domain.
         """
-        DomainStats._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metering_profile_count=metering_profile_count,
-            object_count=object_count,
-            profile_count=profile_count,
-            total_size=total_size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metering_profile_count: Optional[float] = None,
-             object_count: Optional[float] = None,
-             profile_count: Optional[float] = None,
-             total_size: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if metering_profile_count is not None:
-            _setter("metering_profile_count", metering_profile_count)
+            pulumi.set(__self__, "metering_profile_count", metering_profile_count)
         if object_count is not None:
-            _setter("object_count", object_count)
+            pulumi.set(__self__, "object_count", object_count)
         if profile_count is not None:
-            _setter("profile_count", profile_count)
+            pulumi.set(__self__, "profile_count", profile_count)
         if total_size is not None:
-            _setter("total_size", total_size)
+            pulumi.set(__self__, "total_size", total_size)
 
     @property
     @pulumi.getter(name="meteringProfileCount")
@@ -1147,19 +927,8 @@ class DomainTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        DomainTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1185,19 +954,8 @@ class EventStreamTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        EventStreamTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1241,33 +999,16 @@ class IntegrationConnectorOperator(dict):
                  salesforce: Optional['IntegrationSalesforceConnectorOperator'] = None,
                  service_now: Optional['IntegrationServiceNowConnectorOperator'] = None,
                  zendesk: Optional['IntegrationZendeskConnectorOperator'] = None):
-        IntegrationConnectorOperator._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            marketo=marketo,
-            s3=s3,
-            salesforce=salesforce,
-            service_now=service_now,
-            zendesk=zendesk,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             marketo: Optional['IntegrationMarketoConnectorOperator'] = None,
-             s3: Optional['IntegrationS3ConnectorOperator'] = None,
-             salesforce: Optional['IntegrationSalesforceConnectorOperator'] = None,
-             service_now: Optional['IntegrationServiceNowConnectorOperator'] = None,
-             zendesk: Optional['IntegrationZendeskConnectorOperator'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if marketo is not None:
-            _setter("marketo", marketo)
+            pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if salesforce is not None:
-            _setter("salesforce", salesforce)
+            pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
-            _setter("service_now", service_now)
+            pulumi.set(__self__, "service_now", service_now)
         if zendesk is not None:
-            _setter("zendesk", zendesk)
+            pulumi.set(__self__, "zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -1327,32 +1068,13 @@ class IntegrationFlowDefinition(dict):
                  tasks: Sequence['outputs.IntegrationTask'],
                  trigger_config: 'outputs.IntegrationTriggerConfig',
                  description: Optional[str] = None):
-        IntegrationFlowDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            flow_name=flow_name,
-            kms_arn=kms_arn,
-            source_flow_config=source_flow_config,
-            tasks=tasks,
-            trigger_config=trigger_config,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             flow_name: str,
-             kms_arn: str,
-             source_flow_config: 'outputs.IntegrationSourceFlowConfig',
-             tasks: Sequence['outputs.IntegrationTask'],
-             trigger_config: 'outputs.IntegrationTriggerConfig',
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("flow_name", flow_name)
-        _setter("kms_arn", kms_arn)
-        _setter("source_flow_config", source_flow_config)
-        _setter("tasks", tasks)
-        _setter("trigger_config", trigger_config)
+        pulumi.set(__self__, "flow_name", flow_name)
+        pulumi.set(__self__, "kms_arn", kms_arn)
+        pulumi.set(__self__, "source_flow_config", source_flow_config)
+        pulumi.set(__self__, "tasks", tasks)
+        pulumi.set(__self__, "trigger_config", trigger_config)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="flowName")
@@ -1406,17 +1128,8 @@ class IntegrationIncrementalPullConfig(dict):
 
     def __init__(__self__, *,
                  datetime_type_field_name: Optional[str] = None):
-        IntegrationIncrementalPullConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            datetime_type_field_name=datetime_type_field_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             datetime_type_field_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if datetime_type_field_name is not None:
-            _setter("datetime_type_field_name", datetime_type_field_name)
+            pulumi.set(__self__, "datetime_type_field_name", datetime_type_field_name)
 
     @property
     @pulumi.getter(name="datetimeTypeFieldName")
@@ -1428,16 +1141,7 @@ class IntegrationIncrementalPullConfig(dict):
 class IntegrationMarketoSourceProperties(dict):
     def __init__(__self__, *,
                  object: str):
-        IntegrationMarketoSourceProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object=object,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("object", object)
+        pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
@@ -1450,19 +1154,8 @@ class IntegrationObjectTypeMapping(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        IntegrationObjectTypeMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1499,20 +1192,9 @@ class IntegrationS3SourceProperties(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  bucket_prefix: Optional[str] = None):
-        IntegrationS3SourceProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            bucket_prefix=bucket_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             bucket_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
-            _setter("bucket_prefix", bucket_prefix)
+            pulumi.set(__self__, "bucket_prefix", bucket_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1550,24 +1232,11 @@ class IntegrationSalesforceSourceProperties(dict):
                  object: str,
                  enable_dynamic_field_update: Optional[bool] = None,
                  include_deleted_records: Optional[bool] = None):
-        IntegrationSalesforceSourceProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object=object,
-            enable_dynamic_field_update=enable_dynamic_field_update,
-            include_deleted_records=include_deleted_records,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object: str,
-             enable_dynamic_field_update: Optional[bool] = None,
-             include_deleted_records: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("object", object)
+        pulumi.set(__self__, "object", object)
         if enable_dynamic_field_update is not None:
-            _setter("enable_dynamic_field_update", enable_dynamic_field_update)
+            pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
         if include_deleted_records is not None:
-            _setter("include_deleted_records", include_deleted_records)
+            pulumi.set(__self__, "include_deleted_records", include_deleted_records)
 
     @property
     @pulumi.getter
@@ -1622,40 +1291,19 @@ class IntegrationScheduledTriggerProperties(dict):
                  schedule_offset: Optional[int] = None,
                  schedule_start_time: Optional[float] = None,
                  timezone: Optional[str] = None):
-        IntegrationScheduledTriggerProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            schedule_expression=schedule_expression,
-            data_pull_mode=data_pull_mode,
-            first_execution_from=first_execution_from,
-            schedule_end_time=schedule_end_time,
-            schedule_offset=schedule_offset,
-            schedule_start_time=schedule_start_time,
-            timezone=timezone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             schedule_expression: str,
-             data_pull_mode: Optional['IntegrationScheduledTriggerPropertiesDataPullMode'] = None,
-             first_execution_from: Optional[float] = None,
-             schedule_end_time: Optional[float] = None,
-             schedule_offset: Optional[int] = None,
-             schedule_start_time: Optional[float] = None,
-             timezone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("schedule_expression", schedule_expression)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
         if data_pull_mode is not None:
-            _setter("data_pull_mode", data_pull_mode)
+            pulumi.set(__self__, "data_pull_mode", data_pull_mode)
         if first_execution_from is not None:
-            _setter("first_execution_from", first_execution_from)
+            pulumi.set(__self__, "first_execution_from", first_execution_from)
         if schedule_end_time is not None:
-            _setter("schedule_end_time", schedule_end_time)
+            pulumi.set(__self__, "schedule_end_time", schedule_end_time)
         if schedule_offset is not None:
-            _setter("schedule_offset", schedule_offset)
+            pulumi.set(__self__, "schedule_offset", schedule_offset)
         if schedule_start_time is not None:
-            _setter("schedule_start_time", schedule_start_time)
+            pulumi.set(__self__, "schedule_start_time", schedule_start_time)
         if timezone is not None:
-            _setter("timezone", timezone)
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -1697,16 +1345,7 @@ class IntegrationScheduledTriggerProperties(dict):
 class IntegrationServiceNowSourceProperties(dict):
     def __init__(__self__, *,
                  object: str):
-        IntegrationServiceNowSourceProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object=object,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("object", object)
+        pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
@@ -1739,33 +1378,16 @@ class IntegrationSourceConnectorProperties(dict):
                  salesforce: Optional['outputs.IntegrationSalesforceSourceProperties'] = None,
                  service_now: Optional['outputs.IntegrationServiceNowSourceProperties'] = None,
                  zendesk: Optional['outputs.IntegrationZendeskSourceProperties'] = None):
-        IntegrationSourceConnectorProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            marketo=marketo,
-            s3=s3,
-            salesforce=salesforce,
-            service_now=service_now,
-            zendesk=zendesk,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             marketo: Optional['outputs.IntegrationMarketoSourceProperties'] = None,
-             s3: Optional['outputs.IntegrationS3SourceProperties'] = None,
-             salesforce: Optional['outputs.IntegrationSalesforceSourceProperties'] = None,
-             service_now: Optional['outputs.IntegrationServiceNowSourceProperties'] = None,
-             zendesk: Optional['outputs.IntegrationZendeskSourceProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if marketo is not None:
-            _setter("marketo", marketo)
+            pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if salesforce is not None:
-            _setter("salesforce", salesforce)
+            pulumi.set(__self__, "salesforce", salesforce)
         if service_now is not None:
-            _setter("service_now", service_now)
+            pulumi.set(__self__, "service_now", service_now)
         if zendesk is not None:
-            _setter("zendesk", zendesk)
+            pulumi.set(__self__, "zendesk", zendesk)
 
     @property
     @pulumi.getter
@@ -1823,27 +1445,12 @@ class IntegrationSourceFlowConfig(dict):
                  source_connector_properties: 'outputs.IntegrationSourceConnectorProperties',
                  connector_profile_name: Optional[str] = None,
                  incremental_pull_config: Optional['outputs.IntegrationIncrementalPullConfig'] = None):
-        IntegrationSourceFlowConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connector_type=connector_type,
-            source_connector_properties=source_connector_properties,
-            connector_profile_name=connector_profile_name,
-            incremental_pull_config=incremental_pull_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connector_type: 'IntegrationConnectorType',
-             source_connector_properties: 'outputs.IntegrationSourceConnectorProperties',
-             connector_profile_name: Optional[str] = None,
-             incremental_pull_config: Optional['outputs.IntegrationIncrementalPullConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("connector_type", connector_type)
-        _setter("source_connector_properties", source_connector_properties)
+        pulumi.set(__self__, "connector_type", connector_type)
+        pulumi.set(__self__, "source_connector_properties", source_connector_properties)
         if connector_profile_name is not None:
-            _setter("connector_profile_name", connector_profile_name)
+            pulumi.set(__self__, "connector_profile_name", connector_profile_name)
         if incremental_pull_config is not None:
-            _setter("incremental_pull_config", incremental_pull_config)
+            pulumi.set(__self__, "incremental_pull_config", incremental_pull_config)
 
     @property
     @pulumi.getter(name="connectorType")
@@ -1871,19 +1478,8 @@ class IntegrationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        IntegrationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1929,31 +1525,14 @@ class IntegrationTask(dict):
                  connector_operator: Optional['outputs.IntegrationConnectorOperator'] = None,
                  destination_field: Optional[str] = None,
                  task_properties: Optional[Sequence['outputs.IntegrationTaskPropertiesMap']] = None):
-        IntegrationTask._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_fields=source_fields,
-            task_type=task_type,
-            connector_operator=connector_operator,
-            destination_field=destination_field,
-            task_properties=task_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_fields: Sequence[str],
-             task_type: 'IntegrationTaskType',
-             connector_operator: Optional['outputs.IntegrationConnectorOperator'] = None,
-             destination_field: Optional[str] = None,
-             task_properties: Optional[Sequence['outputs.IntegrationTaskPropertiesMap']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source_fields", source_fields)
-        _setter("task_type", task_type)
+        pulumi.set(__self__, "source_fields", source_fields)
+        pulumi.set(__self__, "task_type", task_type)
         if connector_operator is not None:
-            _setter("connector_operator", connector_operator)
+            pulumi.set(__self__, "connector_operator", connector_operator)
         if destination_field is not None:
-            _setter("destination_field", destination_field)
+            pulumi.set(__self__, "destination_field", destination_field)
         if task_properties is not None:
-            _setter("task_properties", task_properties)
+            pulumi.set(__self__, "task_properties", task_properties)
 
     @property
     @pulumi.getter(name="sourceFields")
@@ -2003,19 +1582,8 @@ class IntegrationTaskPropertiesMap(dict):
     def __init__(__self__, *,
                  operator_property_key: 'IntegrationOperatorPropertiesKeys',
                  property: str):
-        IntegrationTaskPropertiesMap._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            operator_property_key=operator_property_key,
-            property=property,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             operator_property_key: 'IntegrationOperatorPropertiesKeys',
-             property: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("operator_property_key", operator_property_key)
-        _setter("property", property)
+        pulumi.set(__self__, "operator_property_key", operator_property_key)
+        pulumi.set(__self__, "property", property)
 
     @property
     @pulumi.getter(name="operatorPropertyKey")
@@ -2052,20 +1620,9 @@ class IntegrationTriggerConfig(dict):
     def __init__(__self__, *,
                  trigger_type: 'IntegrationTriggerType',
                  trigger_properties: Optional['outputs.IntegrationTriggerProperties'] = None):
-        IntegrationTriggerConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trigger_type=trigger_type,
-            trigger_properties=trigger_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trigger_type: 'IntegrationTriggerType',
-             trigger_properties: Optional['outputs.IntegrationTriggerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("trigger_type", trigger_type)
+        pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
-            _setter("trigger_properties", trigger_properties)
+            pulumi.set(__self__, "trigger_properties", trigger_properties)
 
     @property
     @pulumi.getter(name="triggerType")
@@ -2082,17 +1639,8 @@ class IntegrationTriggerConfig(dict):
 class IntegrationTriggerProperties(dict):
     def __init__(__self__, *,
                  scheduled: Optional['outputs.IntegrationScheduledTriggerProperties'] = None):
-        IntegrationTriggerProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scheduled=scheduled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scheduled: Optional['outputs.IntegrationScheduledTriggerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if scheduled is not None:
-            _setter("scheduled", scheduled)
+            pulumi.set(__self__, "scheduled", scheduled)
 
     @property
     @pulumi.getter
@@ -2104,16 +1652,7 @@ class IntegrationTriggerProperties(dict):
 class IntegrationZendeskSourceProperties(dict):
     def __init__(__self__, *,
                  object: str):
-        IntegrationZendeskSourceProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object=object,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("object", object)
+        pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
@@ -2153,25 +1692,12 @@ class ObjectTypeField(dict):
         :param str source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param str target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
-        ObjectTypeField._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content_type=content_type,
-            source=source,
-            target=target,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content_type: Optional['ObjectTypeFieldContentType'] = None,
-             source: Optional[str] = None,
-             target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter(name="contentType")
@@ -2220,21 +1746,10 @@ class ObjectTypeFieldMap(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  object_type_field: Optional['outputs.ObjectTypeField'] = None):
-        ObjectTypeFieldMap._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            object_type_field=object_type_field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             object_type_field: Optional['outputs.ObjectTypeField'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if object_type_field is not None:
-            _setter("object_type_field", object_type_field)
+            pulumi.set(__self__, "object_type_field", object_type_field)
 
     @property
     @pulumi.getter
@@ -2279,21 +1794,10 @@ class ObjectTypeKey(dict):
         :param Sequence[str] field_names: The reference for the key name of the fields map. 
         :param Sequence['ObjectTypeKeyStandardIdentifiersItem'] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
-        ObjectTypeKey._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_names=field_names,
-            standard_identifiers=standard_identifiers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_names: Optional[Sequence[str]] = None,
-             standard_identifiers: Optional[Sequence['ObjectTypeKeyStandardIdentifiersItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if field_names is not None:
-            _setter("field_names", field_names)
+            pulumi.set(__self__, "field_names", field_names)
         if standard_identifiers is not None:
-            _setter("standard_identifiers", standard_identifiers)
+            pulumi.set(__self__, "standard_identifiers", standard_identifiers)
 
     @property
     @pulumi.getter(name="fieldNames")
@@ -2334,21 +1838,10 @@ class ObjectTypeKeyMap(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  object_type_key_list: Optional[Sequence['outputs.ObjectTypeKey']] = None):
-        ObjectTypeKeyMap._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            object_type_key_list=object_type_key_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             object_type_key_list: Optional[Sequence['outputs.ObjectTypeKey']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if object_type_key_list is not None:
-            _setter("object_type_key_list", object_type_key_list)
+            pulumi.set(__self__, "object_type_key_list", object_type_key_list)
 
     @property
     @pulumi.getter
@@ -2366,19 +1859,8 @@ class ObjectTypeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ObjectTypeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

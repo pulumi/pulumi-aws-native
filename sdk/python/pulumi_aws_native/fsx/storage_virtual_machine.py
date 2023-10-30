@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,36 +25,17 @@ class StorageVirtualMachineArgs:
         """
         The set of arguments for constructing a StorageVirtualMachine resource.
         """
-        StorageVirtualMachineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_id=file_system_id,
-            active_directory_configuration=active_directory_configuration,
-            name=name,
-            root_volume_security_style=root_volume_security_style,
-            svm_admin_password=svm_admin_password,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_id: pulumi.Input[str],
-             active_directory_configuration: Optional[pulumi.Input['StorageVirtualMachineActiveDirectoryConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             root_volume_security_style: Optional[pulumi.Input[str]] = None,
-             svm_admin_password: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StorageVirtualMachineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_id", file_system_id)
         if active_directory_configuration is not None:
-            _setter("active_directory_configuration", active_directory_configuration)
+            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if root_volume_security_style is not None:
-            _setter("root_volume_security_style", root_volume_security_style)
+            pulumi.set(__self__, "root_volume_security_style", root_volume_security_style)
         if svm_admin_password is not None:
-            _setter("svm_admin_password", svm_admin_password)
+            pulumi.set(__self__, "svm_admin_password", svm_admin_password)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -153,10 +134,6 @@ class StorageVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StorageVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -178,11 +155,6 @@ class StorageVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageVirtualMachineArgs.__new__(StorageVirtualMachineArgs)
 
-            if active_directory_configuration is not None and not isinstance(active_directory_configuration, StorageVirtualMachineActiveDirectoryConfigurationArgs):
-                active_directory_configuration = active_directory_configuration or {}
-                def _setter(key, value):
-                    active_directory_configuration[key] = value
-                StorageVirtualMachineActiveDirectoryConfigurationArgs._configure(_setter, **active_directory_configuration)
             __props__.__dict__["active_directory_configuration"] = active_directory_configuration
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")

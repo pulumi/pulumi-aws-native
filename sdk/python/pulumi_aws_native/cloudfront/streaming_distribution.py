@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class StreamingDistributionArgs:
         """
         The set of arguments for constructing a StreamingDistribution resource.
         """
-        StreamingDistributionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            streaming_distribution_config=streaming_distribution_config,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             streaming_distribution_config: pulumi.Input['StreamingDistributionConfigArgs'],
-             tags: pulumi.Input[Sequence[pulumi.Input['StreamingDistributionTagArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("streaming_distribution_config", streaming_distribution_config)
-        _setter("tags", tags)
+        pulumi.set(__self__, "streaming_distribution_config", streaming_distribution_config)
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="streamingDistributionConfig")
@@ -92,10 +81,6 @@ class StreamingDistribution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StreamingDistributionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -113,11 +98,6 @@ class StreamingDistribution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingDistributionArgs.__new__(StreamingDistributionArgs)
 
-            if streaming_distribution_config is not None and not isinstance(streaming_distribution_config, StreamingDistributionConfigArgs):
-                streaming_distribution_config = streaming_distribution_config or {}
-                def _setter(key, value):
-                    streaming_distribution_config[key] = value
-                StreamingDistributionConfigArgs._configure(_setter, **streaming_distribution_config)
             if streaming_distribution_config is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_distribution_config'")
             __props__.__dict__["streaming_distribution_config"] = streaming_distribution_config

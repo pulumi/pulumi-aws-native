@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,45 +32,22 @@ class RepositoryArgs:
         :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        RepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            empty_on_delete=empty_on_delete,
-            encryption_configuration=encryption_configuration,
-            image_scanning_configuration=image_scanning_configuration,
-            image_tag_mutability=image_tag_mutability,
-            lifecycle_policy=lifecycle_policy,
-            repository_name=repository_name,
-            repository_policy_text=repository_policy_text,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             empty_on_delete: Optional[pulumi.Input[bool]] = None,
-             encryption_configuration: Optional[pulumi.Input['RepositoryEncryptionConfigurationArgs']] = None,
-             image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
-             image_tag_mutability: Optional[pulumi.Input['RepositoryImageTagMutability']] = None,
-             lifecycle_policy: Optional[pulumi.Input['RepositoryLifecyclePolicyArgs']] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             repository_policy_text: Optional[Any] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if empty_on_delete is not None:
-            _setter("empty_on_delete", empty_on_delete)
+            pulumi.set(__self__, "empty_on_delete", empty_on_delete)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if image_scanning_configuration is not None:
-            _setter("image_scanning_configuration", image_scanning_configuration)
+            pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
-            _setter("image_tag_mutability", image_tag_mutability)
+            pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
         if lifecycle_policy is not None:
-            _setter("lifecycle_policy", lifecycle_policy)
+            pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
         if repository_name is not None:
-            _setter("repository_name", repository_name)
+            pulumi.set(__self__, "repository_name", repository_name)
         if repository_policy_text is not None:
-            _setter("repository_policy_text", repository_policy_text)
+            pulumi.set(__self__, "repository_policy_text", repository_policy_text)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="emptyOnDelete")
@@ -200,10 +177,6 @@ class Repository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -227,24 +200,9 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["empty_on_delete"] = empty_on_delete
-            if encryption_configuration is not None and not isinstance(encryption_configuration, RepositoryEncryptionConfigurationArgs):
-                encryption_configuration = encryption_configuration or {}
-                def _setter(key, value):
-                    encryption_configuration[key] = value
-                RepositoryEncryptionConfigurationArgs._configure(_setter, **encryption_configuration)
             __props__.__dict__["encryption_configuration"] = encryption_configuration
-            if image_scanning_configuration is not None and not isinstance(image_scanning_configuration, RepositoryImageScanningConfigurationArgs):
-                image_scanning_configuration = image_scanning_configuration or {}
-                def _setter(key, value):
-                    image_scanning_configuration[key] = value
-                RepositoryImageScanningConfigurationArgs._configure(_setter, **image_scanning_configuration)
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
-            if lifecycle_policy is not None and not isinstance(lifecycle_policy, RepositoryLifecyclePolicyArgs):
-                lifecycle_policy = lifecycle_policy or {}
-                def _setter(key, value):
-                    lifecycle_policy[key] = value
-                RepositoryLifecyclePolicyArgs._configure(_setter, **lifecycle_policy)
             __props__.__dict__["lifecycle_policy"] = lifecycle_policy
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["repository_policy_text"] = repository_policy_text

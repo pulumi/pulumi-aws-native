@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,25 +26,12 @@ class TopicRuleDestinationArgs:
         :param pulumi.Input['TopicRuleDestinationStatus'] status: The status of the TopicRuleDestination.
         :param pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs'] vpc_properties: VPC destination properties.
         """
-        TopicRuleDestinationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_url_properties=http_url_properties,
-            status=status,
-            vpc_properties=vpc_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_url_properties: Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
-             status: Optional[pulumi.Input['TopicRuleDestinationStatus']] = None,
-             vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if http_url_properties is not None:
-            _setter("http_url_properties", http_url_properties)
+            pulumi.set(__self__, "http_url_properties", http_url_properties)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if vpc_properties is not None:
-            _setter("vpc_properties", vpc_properties)
+            pulumi.set(__self__, "vpc_properties", vpc_properties)
 
     @property
     @pulumi.getter(name="httpUrlProperties")
@@ -120,10 +107,6 @@ class TopicRuleDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TopicRuleDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,18 +124,8 @@ class TopicRuleDestination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TopicRuleDestinationArgs.__new__(TopicRuleDestinationArgs)
 
-            if http_url_properties is not None and not isinstance(http_url_properties, TopicRuleDestinationHttpUrlDestinationSummaryArgs):
-                http_url_properties = http_url_properties or {}
-                def _setter(key, value):
-                    http_url_properties[key] = value
-                TopicRuleDestinationHttpUrlDestinationSummaryArgs._configure(_setter, **http_url_properties)
             __props__.__dict__["http_url_properties"] = http_url_properties
             __props__.__dict__["status"] = status
-            if vpc_properties is not None and not isinstance(vpc_properties, TopicRuleDestinationVpcDestinationPropertiesArgs):
-                vpc_properties = vpc_properties or {}
-                def _setter(key, value):
-                    vpc_properties[key] = value
-                TopicRuleDestinationVpcDestinationPropertiesArgs._configure(_setter, **vpc_properties)
             __props__.__dict__["vpc_properties"] = vpc_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["status_reason"] = None

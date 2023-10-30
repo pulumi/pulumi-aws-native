@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayRouteTableAssociationArgs', 'GatewayRouteTableAssociation']
@@ -21,19 +21,8 @@ class GatewayRouteTableAssociationArgs:
         :param pulumi.Input[str] gateway_id: The ID of the gateway.
         :param pulumi.Input[str] route_table_id: The ID of the route table.
         """
-        GatewayRouteTableAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gateway_id=gateway_id,
-            route_table_id=route_table_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gateway_id: pulumi.Input[str],
-             route_table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("gateway_id", gateway_id)
-        _setter("route_table_id", route_table_id)
+        pulumi.set(__self__, "gateway_id", gateway_id)
+        pulumi.set(__self__, "route_table_id", route_table_id)
 
     @property
     @pulumi.getter(name="gatewayId")
@@ -95,10 +84,6 @@ class GatewayRouteTableAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GatewayRouteTableAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,24 +23,11 @@ class IdentitySourceArgs:
         """
         The set of arguments for constructing a IdentitySource resource.
         """
-        IdentitySourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration=configuration,
-            policy_store_id=policy_store_id,
-            principal_entity_type=principal_entity_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
-             policy_store_id: Optional[pulumi.Input[str]] = None,
-             principal_entity_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("configuration", configuration)
+        pulumi.set(__self__, "configuration", configuration)
         if policy_store_id is not None:
-            _setter("policy_store_id", policy_store_id)
+            pulumi.set(__self__, "policy_store_id", policy_store_id)
         if principal_entity_type is not None:
-            _setter("principal_entity_type", principal_entity_type)
+            pulumi.set(__self__, "principal_entity_type", principal_entity_type)
 
     @property
     @pulumi.getter
@@ -104,10 +91,6 @@ class IdentitySource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdentitySourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,11 +108,6 @@ class IdentitySource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentitySourceArgs.__new__(IdentitySourceArgs)
 
-            if configuration is not None and not isinstance(configuration, IdentitySourceConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                IdentitySourceConfigurationArgs._configure(_setter, **configuration)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

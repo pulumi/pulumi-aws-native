@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,20 +21,9 @@ class LogDeliveryConfigurationArgs:
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
         """
-        LogDeliveryConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_pool_id=user_pool_id,
-            log_configurations=log_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_pool_id: pulumi.Input[str],
-             log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if log_configurations is not None:
-            _setter("log_configurations", log_configurations)
+            pulumi.set(__self__, "log_configurations", log_configurations)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -88,10 +77,6 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LogDeliveryConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

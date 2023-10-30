@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,34 +25,15 @@ class SchemaArgs:
         """
         The set of arguments for constructing a Schema resource.
         """
-        SchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            registry_name=registry_name,
-            type=type,
-            description=description,
-            schema_name=schema_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             registry_name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             schema_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("content", content)
-        _setter("registry_name", registry_name)
-        _setter("type", type)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "registry_name", registry_name)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if schema_name is not None:
-            _setter("schema_name", schema_name)
+            pulumi.set(__self__, "schema_name", schema_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -151,10 +132,6 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

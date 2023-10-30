@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,29 +28,12 @@ class EndpointAccessArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of vpc security group ids to apply to the created endpoint access.
         :param pulumi.Input[str] resource_owner: The AWS account ID of the owner of the cluster.
         """
-        EndpointAccessArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_identifier=cluster_identifier,
-            endpoint_name=endpoint_name,
-            subnet_group_name=subnet_group_name,
-            vpc_security_group_ids=vpc_security_group_ids,
-            resource_owner=resource_owner,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_identifier: pulumi.Input[str],
-             endpoint_name: pulumi.Input[str],
-             subnet_group_name: pulumi.Input[str],
-             vpc_security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             resource_owner: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cluster_identifier", cluster_identifier)
-        _setter("endpoint_name", endpoint_name)
-        _setter("subnet_group_name", subnet_group_name)
-        _setter("vpc_security_group_ids", vpc_security_group_ids)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+        pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
         if resource_owner is not None:
-            _setter("resource_owner", resource_owner)
+            pulumi.set(__self__, "resource_owner", resource_owner)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
@@ -154,10 +137,6 @@ class EndpointAccess(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointAccessArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

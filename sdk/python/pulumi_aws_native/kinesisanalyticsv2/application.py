@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,47 +38,22 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationRunConfigurationArgs'] run_configuration: Specifies run configuration (start parameters) of a Kinesis Data Analytics application. Evaluated on update for RUNNING applications an only.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.
         """
-        ApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            runtime_environment=runtime_environment,
-            service_execution_role=service_execution_role,
-            application_configuration=application_configuration,
-            application_description=application_description,
-            application_maintenance_configuration=application_maintenance_configuration,
-            application_mode=application_mode,
-            application_name=application_name,
-            run_configuration=run_configuration,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             runtime_environment: pulumi.Input[str],
-             service_execution_role: pulumi.Input[str],
-             application_configuration: Optional[pulumi.Input['ApplicationConfigurationArgs']] = None,
-             application_description: Optional[pulumi.Input[str]] = None,
-             application_maintenance_configuration: Optional[pulumi.Input['ApplicationMaintenanceConfigurationArgs']] = None,
-             application_mode: Optional[pulumi.Input['ApplicationMode']] = None,
-             application_name: Optional[pulumi.Input[str]] = None,
-             run_configuration: Optional[pulumi.Input['ApplicationRunConfigurationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("runtime_environment", runtime_environment)
-        _setter("service_execution_role", service_execution_role)
+        pulumi.set(__self__, "runtime_environment", runtime_environment)
+        pulumi.set(__self__, "service_execution_role", service_execution_role)
         if application_configuration is not None:
-            _setter("application_configuration", application_configuration)
+            pulumi.set(__self__, "application_configuration", application_configuration)
         if application_description is not None:
-            _setter("application_description", application_description)
+            pulumi.set(__self__, "application_description", application_description)
         if application_maintenance_configuration is not None:
-            _setter("application_maintenance_configuration", application_maintenance_configuration)
+            pulumi.set(__self__, "application_maintenance_configuration", application_maintenance_configuration)
         if application_mode is not None:
-            _setter("application_mode", application_mode)
+            pulumi.set(__self__, "application_mode", application_mode)
         if application_name is not None:
-            _setter("application_name", application_name)
+            pulumi.set(__self__, "application_name", application_name)
         if run_configuration is not None:
-            _setter("run_configuration", run_configuration)
+            pulumi.set(__self__, "run_configuration", run_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="runtimeEnvironment")
@@ -238,10 +213,6 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -265,26 +236,11 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            if application_configuration is not None and not isinstance(application_configuration, ApplicationConfigurationArgs):
-                application_configuration = application_configuration or {}
-                def _setter(key, value):
-                    application_configuration[key] = value
-                ApplicationConfigurationArgs._configure(_setter, **application_configuration)
             __props__.__dict__["application_configuration"] = application_configuration
             __props__.__dict__["application_description"] = application_description
-            if application_maintenance_configuration is not None and not isinstance(application_maintenance_configuration, ApplicationMaintenanceConfigurationArgs):
-                application_maintenance_configuration = application_maintenance_configuration or {}
-                def _setter(key, value):
-                    application_maintenance_configuration[key] = value
-                ApplicationMaintenanceConfigurationArgs._configure(_setter, **application_maintenance_configuration)
             __props__.__dict__["application_maintenance_configuration"] = application_maintenance_configuration
             __props__.__dict__["application_mode"] = application_mode
             __props__.__dict__["application_name"] = application_name
-            if run_configuration is not None and not isinstance(run_configuration, ApplicationRunConfigurationArgs):
-                run_configuration = run_configuration or {}
-                def _setter(key, value):
-                    run_configuration[key] = value
-                ApplicationRunConfigurationArgs._configure(_setter, **run_configuration)
             __props__.__dict__["run_configuration"] = run_configuration
             if runtime_environment is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_environment'")

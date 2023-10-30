@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GraphQlSchemaArgs', 'GraphQlSchema']
@@ -20,24 +20,11 @@ class GraphQlSchemaArgs:
         """
         The set of arguments for constructing a GraphQlSchema resource.
         """
-        GraphQlSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            definition=definition,
-            definition_s3_location=definition_s3_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             definition: Optional[pulumi.Input[str]] = None,
-             definition_s3_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_id", api_id)
+        pulumi.set(__self__, "api_id", api_id)
         if definition is not None:
-            _setter("definition", definition)
+            pulumi.set(__self__, "definition", definition)
         if definition_s3_location is not None:
-            _setter("definition_s3_location", definition_s3_location)
+            pulumi.set(__self__, "definition_s3_location", definition_s3_location)
 
     @property
     @pulumi.getter(name="apiId")
@@ -106,10 +93,6 @@ class GraphQlSchema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GraphQlSchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

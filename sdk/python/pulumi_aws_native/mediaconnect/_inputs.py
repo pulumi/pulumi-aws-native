@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -47,16 +47,7 @@ class BridgeEgressGatewayBridgeArgs:
         """
         :param pulumi.Input[int] max_bitrate: The maximum expected bitrate of the egress bridge.
         """
-        BridgeEgressGatewayBridgeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_bitrate=max_bitrate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_bitrate: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_bitrate", max_bitrate)
+        pulumi.set(__self__, "max_bitrate", max_bitrate)
 
     @property
     @pulumi.getter(name="maxBitrate")
@@ -82,24 +73,11 @@ class BridgeFailoverConfigArgs:
         :param pulumi.Input['BridgeFailoverModeEnum'] failover_mode: The type of failover you choose for this flow. FAILOVER allows switching between different streams.
         :param pulumi.Input['BridgeSourcePriorityArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         """
-        BridgeFailoverConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failover_mode=failover_mode,
-            source_priority=source_priority,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failover_mode: pulumi.Input['BridgeFailoverModeEnum'],
-             source_priority: Optional[pulumi.Input['BridgeSourcePriorityArgs']] = None,
-             state: Optional[pulumi.Input['BridgeFailoverConfigStateEnum']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("failover_mode", failover_mode)
+        pulumi.set(__self__, "failover_mode", failover_mode)
         if source_priority is not None:
-            _setter("source_priority", source_priority)
+            pulumi.set(__self__, "source_priority", source_priority)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="failoverMode")
@@ -147,23 +125,10 @@ class BridgeFlowSourceArgs:
         :param pulumi.Input[str] name: The name of the flow source.
         :param pulumi.Input['BridgeVpcInterfaceAttachmentArgs'] flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
         """
-        BridgeFlowSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            flow_arn=flow_arn,
-            name=name,
-            flow_vpc_interface_attachment=flow_vpc_interface_attachment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             flow_arn: pulumi.Input[str],
-             name: pulumi.Input[str],
-             flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeVpcInterfaceAttachmentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("flow_arn", flow_arn)
-        _setter("name", name)
+        pulumi.set(__self__, "flow_arn", flow_arn)
+        pulumi.set(__self__, "name", name)
         if flow_vpc_interface_attachment is not None:
-            _setter("flow_vpc_interface_attachment", flow_vpc_interface_attachment)
+            pulumi.set(__self__, "flow_vpc_interface_attachment", flow_vpc_interface_attachment)
 
     @property
     @pulumi.getter(name="flowArn")
@@ -211,19 +176,8 @@ class BridgeIngressGatewayBridgeArgs:
         :param pulumi.Input[int] max_bitrate: The maximum expected bitrate of the ingress bridge.
         :param pulumi.Input[int] max_outputs: The maximum number of outputs on the ingress bridge.
         """
-        BridgeIngressGatewayBridgeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_bitrate=max_bitrate,
-            max_outputs=max_outputs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_bitrate: pulumi.Input[int],
-             max_outputs: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_bitrate", max_bitrate)
-        _setter("max_outputs", max_outputs)
+        pulumi.set(__self__, "max_bitrate", max_bitrate)
+        pulumi.set(__self__, "max_outputs", max_outputs)
 
     @property
     @pulumi.getter(name="maxBitrate")
@@ -268,31 +222,12 @@ class BridgeNetworkOutputArgs:
         :param pulumi.Input['BridgeProtocolEnum'] protocol: The network output protocol.
         :param pulumi.Input[int] ttl: The network output TTL.
         """
-        BridgeNetworkOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_address=ip_address,
-            name=name,
-            network_name=network_name,
-            port=port,
-            protocol=protocol,
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_address: pulumi.Input[str],
-             name: pulumi.Input[str],
-             network_name: pulumi.Input[str],
-             port: pulumi.Input[int],
-             protocol: pulumi.Input['BridgeProtocolEnum'],
-             ttl: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ip_address", ip_address)
-        _setter("name", name)
-        _setter("network_name", network_name)
-        _setter("port", port)
-        _setter("protocol", protocol)
-        _setter("ttl", ttl)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -383,28 +318,11 @@ class BridgeNetworkSourceArgs:
         :param pulumi.Input[int] port: The network source port.
         :param pulumi.Input['BridgeProtocolEnum'] protocol: The network source protocol.
         """
-        BridgeNetworkSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            multicast_ip=multicast_ip,
-            name=name,
-            network_name=network_name,
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             multicast_ip: pulumi.Input[str],
-             name: pulumi.Input[str],
-             network_name: pulumi.Input[str],
-             port: pulumi.Input[int],
-             protocol: pulumi.Input['BridgeProtocolEnum'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("multicast_ip", multicast_ip)
-        _setter("name", name)
-        _setter("network_name", network_name)
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "multicast_ip", multicast_ip)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="multicastIp")
@@ -483,28 +401,11 @@ class BridgeOutputResourceBridgeNetworkOutputArgs:
         :param pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol'] protocol: The network output protocol.
         :param pulumi.Input[int] ttl: The network output TTL.
         """
-        BridgeOutputResourceBridgeNetworkOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_address=ip_address,
-            network_name=network_name,
-            port=port,
-            protocol=protocol,
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_address: pulumi.Input[str],
-             network_name: pulumi.Input[str],
-             port: pulumi.Input[int],
-             protocol: pulumi.Input['BridgeOutputResourceBridgeNetworkOutputProtocol'],
-             ttl: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ip_address", ip_address)
-        _setter("network_name", network_name)
-        _setter("port", port)
-        _setter("protocol", protocol)
-        _setter("ttl", ttl)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -574,17 +475,8 @@ class BridgeOutputArgs:
         """
         The output of the bridge.
         """
-        BridgeOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_output=network_output,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_output: Optional[pulumi.Input['BridgeNetworkOutputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if network_output is not None:
-            _setter("network_output", network_output)
+            pulumi.set(__self__, "network_output", network_output)
 
     @property
     @pulumi.getter(name="networkOutput")
@@ -606,20 +498,9 @@ class BridgeSourceBridgeFlowSourceArgs:
         :param pulumi.Input[str] flow_arn: The ARN of the cloud flow used as a source of this bridge.
         :param pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs'] flow_vpc_interface_attachment: The name of the VPC interface attachment to use for this source.
         """
-        BridgeSourceBridgeFlowSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            flow_arn=flow_arn,
-            flow_vpc_interface_attachment=flow_vpc_interface_attachment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             flow_arn: pulumi.Input[str],
-             flow_vpc_interface_attachment: Optional[pulumi.Input['BridgeSourceVpcInterfaceAttachmentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("flow_arn", flow_arn)
+        pulumi.set(__self__, "flow_arn", flow_arn)
         if flow_vpc_interface_attachment is not None:
-            _setter("flow_vpc_interface_attachment", flow_vpc_interface_attachment)
+            pulumi.set(__self__, "flow_vpc_interface_attachment", flow_vpc_interface_attachment)
 
     @property
     @pulumi.getter(name="flowArn")
@@ -660,25 +541,10 @@ class BridgeSourceBridgeNetworkSourceArgs:
         :param pulumi.Input[int] port: The network source port.
         :param pulumi.Input['BridgeSourceProtocolEnum'] protocol: The network source protocol.
         """
-        BridgeSourceBridgeNetworkSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            multicast_ip=multicast_ip,
-            network_name=network_name,
-            port=port,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             multicast_ip: pulumi.Input[str],
-             network_name: pulumi.Input[str],
-             port: pulumi.Input[int],
-             protocol: pulumi.Input['BridgeSourceProtocolEnum'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("multicast_ip", multicast_ip)
-        _setter("network_name", network_name)
-        _setter("port", port)
-        _setter("protocol", protocol)
+        pulumi.set(__self__, "multicast_ip", multicast_ip)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="multicastIp")
@@ -737,17 +603,8 @@ class BridgeSourcePriorityArgs:
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         :param pulumi.Input[str] primary_source: The name of the source you choose as the primary source for this flow.
         """
-        BridgeSourcePriorityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary_source=primary_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary_source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if primary_source is not None:
-            _setter("primary_source", primary_source)
+            pulumi.set(__self__, "primary_source", primary_source)
 
     @property
     @pulumi.getter(name="primarySource")
@@ -770,17 +627,8 @@ class BridgeSourceVpcInterfaceAttachmentArgs:
         The settings for attaching a VPC interface to an resource.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
-        BridgeSourceVpcInterfaceAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_interface_name=vpc_interface_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_interface_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_interface_name is not None:
-            _setter("vpc_interface_name", vpc_interface_name)
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
 
     @property
     @pulumi.getter(name="vpcInterfaceName")
@@ -803,21 +651,10 @@ class BridgeSourceArgs:
         """
         The bridge's source.
         """
-        BridgeSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            flow_source=flow_source,
-            network_source=network_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             flow_source: Optional[pulumi.Input['BridgeFlowSourceArgs']] = None,
-             network_source: Optional[pulumi.Input['BridgeNetworkSourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if flow_source is not None:
-            _setter("flow_source", flow_source)
+            pulumi.set(__self__, "flow_source", flow_source)
         if network_source is not None:
-            _setter("network_source", network_source)
+            pulumi.set(__self__, "network_source", network_source)
 
     @property
     @pulumi.getter(name="flowSource")
@@ -846,17 +683,8 @@ class BridgeVpcInterfaceAttachmentArgs:
         The settings for attaching a VPC interface to an resource.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
-        BridgeVpcInterfaceAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_interface_name=vpc_interface_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_interface_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_interface_name is not None:
-            _setter("vpc_interface_name", vpc_interface_name)
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
 
     @property
     @pulumi.getter(name="vpcInterfaceName")
@@ -895,48 +723,23 @@ class FlowEncryptionArgs:
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param pulumi.Input[str] url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
-        FlowEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            algorithm=algorithm,
-            constant_initialization_vector=constant_initialization_vector,
-            device_id=device_id,
-            key_type=key_type,
-            region=region,
-            resource_id=resource_id,
-            secret_arn=secret_arn,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             algorithm: Optional[pulumi.Input['FlowEncryptionAlgorithm']] = None,
-             constant_initialization_vector: Optional[pulumi.Input[str]] = None,
-             device_id: Optional[pulumi.Input[str]] = None,
-             key_type: Optional[pulumi.Input['FlowEncryptionKeyType']] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             secret_arn: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if algorithm is not None:
-            _setter("algorithm", algorithm)
+            pulumi.set(__self__, "algorithm", algorithm)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if device_id is not None:
-            _setter("device_id", device_id)
+            pulumi.set(__self__, "device_id", device_id)
         if key_type is not None:
-            _setter("key_type", key_type)
+            pulumi.set(__self__, "key_type", key_type)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
         if secret_arn is not None:
-            _setter("secret_arn", secret_arn)
+            pulumi.set(__self__, "secret_arn", secret_arn)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1071,47 +874,22 @@ class FlowEntitlementEncryptionArgs:
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param pulumi.Input[str] url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
-        FlowEntitlementEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            algorithm=algorithm,
-            role_arn=role_arn,
-            constant_initialization_vector=constant_initialization_vector,
-            device_id=device_id,
-            key_type=key_type,
-            region=region,
-            resource_id=resource_id,
-            secret_arn=secret_arn,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             algorithm: pulumi.Input['FlowEntitlementEncryptionAlgorithm'],
-             role_arn: pulumi.Input[str],
-             constant_initialization_vector: Optional[pulumi.Input[str]] = None,
-             device_id: Optional[pulumi.Input[str]] = None,
-             key_type: Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             secret_arn: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("algorithm", algorithm)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "role_arn", role_arn)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if device_id is not None:
-            _setter("device_id", device_id)
+            pulumi.set(__self__, "device_id", device_id)
         if key_type is not None:
-            _setter("key_type", key_type)
+            pulumi.set(__self__, "key_type", key_type)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
         if secret_arn is not None:
-            _setter("secret_arn", secret_arn)
+            pulumi.set(__self__, "secret_arn", secret_arn)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -1230,16 +1008,7 @@ class FlowFailoverConfigSourcePriorityPropertiesArgs:
         The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         :param pulumi.Input[str] primary_source: The name of the source you choose as the primary source for this flow.
         """
-        FlowFailoverConfigSourcePriorityPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            primary_source=primary_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             primary_source: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("primary_source", primary_source)
+        pulumi.set(__self__, "primary_source", primary_source)
 
     @property
     @pulumi.getter(name="primarySource")
@@ -1267,29 +1036,14 @@ class FlowFailoverConfigArgs:
         :param pulumi.Input[int] recovery_window: Search window time to look for dash-7 packets
         :param pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs'] source_priority: The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
         """
-        FlowFailoverConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failover_mode=failover_mode,
-            recovery_window=recovery_window,
-            source_priority=source_priority,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failover_mode: Optional[pulumi.Input['FlowFailoverConfigFailoverMode']] = None,
-             recovery_window: Optional[pulumi.Input[int]] = None,
-             source_priority: Optional[pulumi.Input['FlowFailoverConfigSourcePriorityPropertiesArgs']] = None,
-             state: Optional[pulumi.Input['FlowFailoverConfigState']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if failover_mode is not None:
-            _setter("failover_mode", failover_mode)
+            pulumi.set(__self__, "failover_mode", failover_mode)
         if recovery_window is not None:
-            _setter("recovery_window", recovery_window)
+            pulumi.set(__self__, "recovery_window", recovery_window)
         if source_priority is not None:
-            _setter("source_priority", source_priority)
+            pulumi.set(__self__, "source_priority", source_priority)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="failoverMode")
@@ -1347,20 +1101,9 @@ class FlowGatewayBridgeSourceArgs:
         :param pulumi.Input[str] bridge_arn: The ARN of the bridge feeding this flow.
         :param pulumi.Input['FlowVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
         """
-        FlowGatewayBridgeSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bridge_arn=bridge_arn,
-            vpc_interface_attachment=vpc_interface_attachment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bridge_arn: pulumi.Input[str],
-             vpc_interface_attachment: Optional[pulumi.Input['FlowVpcInterfaceAttachmentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bridge_arn", bridge_arn)
+        pulumi.set(__self__, "bridge_arn", bridge_arn)
         if vpc_interface_attachment is not None:
-            _setter("vpc_interface_attachment", vpc_interface_attachment)
+            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
 
     @property
     @pulumi.getter(name="bridgeArn")
@@ -1401,27 +1144,12 @@ class FlowOutputEncryptionArgs:
         :param pulumi.Input['FlowOutputEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input['FlowOutputEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
-        FlowOutputEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            secret_arn=secret_arn,
-            algorithm=algorithm,
-            key_type=key_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             secret_arn: pulumi.Input[str],
-             algorithm: Optional[pulumi.Input['FlowOutputEncryptionAlgorithm']] = None,
-             key_type: Optional[pulumi.Input['FlowOutputEncryptionKeyType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
-        _setter("secret_arn", secret_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
         if algorithm is not None:
-            _setter("algorithm", algorithm)
+            pulumi.set(__self__, "algorithm", algorithm)
         if key_type is not None:
-            _setter("key_type", key_type)
+            pulumi.set(__self__, "key_type", key_type)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1480,17 +1208,8 @@ class FlowOutputVpcInterfaceAttachmentArgs:
         The settings for attaching a VPC interface to an output.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this output.
         """
-        FlowOutputVpcInterfaceAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_interface_name=vpc_interface_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_interface_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_interface_name is not None:
-            _setter("vpc_interface_name", vpc_interface_name)
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
 
     @property
     @pulumi.getter(name="vpcInterfaceName")
@@ -1529,48 +1248,23 @@ class FlowSourceEncryptionArgs:
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
         :param pulumi.Input[str] url: The URL from the API Gateway proxy that you set up to talk to your key server. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         """
-        FlowSourceEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            algorithm=algorithm,
-            constant_initialization_vector=constant_initialization_vector,
-            device_id=device_id,
-            key_type=key_type,
-            region=region,
-            resource_id=resource_id,
-            secret_arn=secret_arn,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             algorithm: Optional[pulumi.Input['FlowSourceEncryptionAlgorithm']] = None,
-             constant_initialization_vector: Optional[pulumi.Input[str]] = None,
-             device_id: Optional[pulumi.Input[str]] = None,
-             key_type: Optional[pulumi.Input['FlowSourceEncryptionKeyType']] = None,
-             region: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             secret_arn: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if algorithm is not None:
-            _setter("algorithm", algorithm)
+            pulumi.set(__self__, "algorithm", algorithm)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if device_id is not None:
-            _setter("device_id", device_id)
+            pulumi.set(__self__, "device_id", device_id)
         if key_type is not None:
-            _setter("key_type", key_type)
+            pulumi.set(__self__, "key_type", key_type)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
         if secret_arn is not None:
-            _setter("secret_arn", secret_arn)
+            pulumi.set(__self__, "secret_arn", secret_arn)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1691,20 +1385,9 @@ class FlowSourceGatewayBridgeSourceArgs:
         :param pulumi.Input[str] bridge_arn: The ARN of the bridge feeding this flow.
         :param pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this bridge source.
         """
-        FlowSourceGatewayBridgeSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bridge_arn=bridge_arn,
-            vpc_interface_attachment=vpc_interface_attachment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bridge_arn: pulumi.Input[str],
-             vpc_interface_attachment: Optional[pulumi.Input['FlowSourceVpcInterfaceAttachmentArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bridge_arn", bridge_arn)
+        pulumi.set(__self__, "bridge_arn", bridge_arn)
         if vpc_interface_attachment is not None:
-            _setter("vpc_interface_attachment", vpc_interface_attachment)
+            pulumi.set(__self__, "vpc_interface_attachment", vpc_interface_attachment)
 
     @property
     @pulumi.getter(name="bridgeArn")
@@ -1739,17 +1422,8 @@ class FlowSourceVpcInterfaceAttachmentArgs:
         The settings for attaching a VPC interface to an resource.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
-        FlowSourceVpcInterfaceAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_interface_name=vpc_interface_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_interface_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_interface_name is not None:
-            _setter("vpc_interface_name", vpc_interface_name)
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
 
     @property
     @pulumi.getter(name="vpcInterfaceName")
@@ -1810,93 +1484,46 @@ class FlowSourceArgs:
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
-        FlowSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            decryption=decryption,
-            description=description,
-            entitlement_arn=entitlement_arn,
-            gateway_bridge_source=gateway_bridge_source,
-            ingest_ip=ingest_ip,
-            ingest_port=ingest_port,
-            max_bitrate=max_bitrate,
-            max_latency=max_latency,
-            min_latency=min_latency,
-            name=name,
-            protocol=protocol,
-            sender_control_port=sender_control_port,
-            sender_ip_address=sender_ip_address,
-            source_arn=source_arn,
-            source_ingest_port=source_ingest_port,
-            source_listener_address=source_listener_address,
-            source_listener_port=source_listener_port,
-            stream_id=stream_id,
-            vpc_interface_name=vpc_interface_name,
-            whitelist_cidr=whitelist_cidr,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             decryption: Optional[pulumi.Input['FlowEncryptionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             entitlement_arn: Optional[pulumi.Input[str]] = None,
-             gateway_bridge_source: Optional[pulumi.Input['FlowGatewayBridgeSourceArgs']] = None,
-             ingest_ip: Optional[pulumi.Input[str]] = None,
-             ingest_port: Optional[pulumi.Input[int]] = None,
-             max_bitrate: Optional[pulumi.Input[int]] = None,
-             max_latency: Optional[pulumi.Input[int]] = None,
-             min_latency: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
-             sender_control_port: Optional[pulumi.Input[int]] = None,
-             sender_ip_address: Optional[pulumi.Input[str]] = None,
-             source_arn: Optional[pulumi.Input[str]] = None,
-             source_ingest_port: Optional[pulumi.Input[str]] = None,
-             source_listener_address: Optional[pulumi.Input[str]] = None,
-             source_listener_port: Optional[pulumi.Input[int]] = None,
-             stream_id: Optional[pulumi.Input[str]] = None,
-             vpc_interface_name: Optional[pulumi.Input[str]] = None,
-             whitelist_cidr: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if decryption is not None:
-            _setter("decryption", decryption)
+            pulumi.set(__self__, "decryption", decryption)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if entitlement_arn is not None:
-            _setter("entitlement_arn", entitlement_arn)
+            pulumi.set(__self__, "entitlement_arn", entitlement_arn)
         if gateway_bridge_source is not None:
-            _setter("gateway_bridge_source", gateway_bridge_source)
+            pulumi.set(__self__, "gateway_bridge_source", gateway_bridge_source)
         if ingest_ip is not None:
-            _setter("ingest_ip", ingest_ip)
+            pulumi.set(__self__, "ingest_ip", ingest_ip)
         if ingest_port is not None:
-            _setter("ingest_port", ingest_port)
+            pulumi.set(__self__, "ingest_port", ingest_port)
         if max_bitrate is not None:
-            _setter("max_bitrate", max_bitrate)
+            pulumi.set(__self__, "max_bitrate", max_bitrate)
         if max_latency is not None:
-            _setter("max_latency", max_latency)
+            pulumi.set(__self__, "max_latency", max_latency)
         if min_latency is not None:
-            _setter("min_latency", min_latency)
+            pulumi.set(__self__, "min_latency", min_latency)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if sender_control_port is not None:
-            _setter("sender_control_port", sender_control_port)
+            pulumi.set(__self__, "sender_control_port", sender_control_port)
         if sender_ip_address is not None:
-            _setter("sender_ip_address", sender_ip_address)
+            pulumi.set(__self__, "sender_ip_address", sender_ip_address)
         if source_arn is not None:
-            _setter("source_arn", source_arn)
+            pulumi.set(__self__, "source_arn", source_arn)
         if source_ingest_port is not None:
-            _setter("source_ingest_port", source_ingest_port)
+            pulumi.set(__self__, "source_ingest_port", source_ingest_port)
         if source_listener_address is not None:
-            _setter("source_listener_address", source_listener_address)
+            pulumi.set(__self__, "source_listener_address", source_listener_address)
         if source_listener_port is not None:
-            _setter("source_listener_port", source_listener_port)
+            pulumi.set(__self__, "source_listener_port", source_listener_port)
         if stream_id is not None:
-            _setter("stream_id", stream_id)
+            pulumi.set(__self__, "stream_id", stream_id)
         if vpc_interface_name is not None:
-            _setter("vpc_interface_name", vpc_interface_name)
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
         if whitelist_cidr is not None:
-            _setter("whitelist_cidr", whitelist_cidr)
+            pulumi.set(__self__, "whitelist_cidr", whitelist_cidr)
 
     @property
     @pulumi.getter
@@ -2147,17 +1774,8 @@ class FlowVpcInterfaceAttachmentArgs:
         The settings for attaching a VPC interface to an resource.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC interface to use for this resource.
         """
-        FlowVpcInterfaceAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_interface_name=vpc_interface_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_interface_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_interface_name is not None:
-            _setter("vpc_interface_name", vpc_interface_name)
+            pulumi.set(__self__, "vpc_interface_name", vpc_interface_name)
 
     @property
     @pulumi.getter(name="vpcInterfaceName")
@@ -2182,19 +1800,8 @@ class GatewayNetworkArgs:
         :param pulumi.Input[str] cidr_block: A unique IP address range to use for this network. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         :param pulumi.Input[str] name: The name of the network. This name is used to reference the network and must be unique among networks in this gateway.
         """
-        GatewayNetworkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr_block=cidr_block,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr_block: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cidr_block", cidr_block)
-        _setter("name", name)
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cidrBlock")

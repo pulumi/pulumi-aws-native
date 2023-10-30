@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,48 +28,23 @@ class PushTemplateArgs:
         """
         The set of arguments for constructing a PushTemplate resource.
         """
-        PushTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template_name=template_name,
-            adm=adm,
-            apns=apns,
-            baidu=baidu,
-            default=default,
-            default_substitutions=default_substitutions,
-            gcm=gcm,
-            tags=tags,
-            template_description=template_description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template_name: pulumi.Input[str],
-             adm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
-             apns: Optional[pulumi.Input['PushTemplateApnsPushNotificationTemplateArgs']] = None,
-             baidu: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
-             default: Optional[pulumi.Input['PushTemplateDefaultPushNotificationTemplateArgs']] = None,
-             default_substitutions: Optional[pulumi.Input[str]] = None,
-             gcm: Optional[pulumi.Input['PushTemplateAndroidPushNotificationTemplateArgs']] = None,
-             tags: Optional[Any] = None,
-             template_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("template_name", template_name)
+        pulumi.set(__self__, "template_name", template_name)
         if adm is not None:
-            _setter("adm", adm)
+            pulumi.set(__self__, "adm", adm)
         if apns is not None:
-            _setter("apns", apns)
+            pulumi.set(__self__, "apns", apns)
         if baidu is not None:
-            _setter("baidu", baidu)
+            pulumi.set(__self__, "baidu", baidu)
         if default is not None:
-            _setter("default", default)
+            pulumi.set(__self__, "default", default)
         if default_substitutions is not None:
-            _setter("default_substitutions", default_substitutions)
+            pulumi.set(__self__, "default_substitutions", default_substitutions)
         if gcm is not None:
-            _setter("gcm", gcm)
+            pulumi.set(__self__, "gcm", gcm)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if template_description is not None:
-            _setter("template_description", template_description)
+            pulumi.set(__self__, "template_description", template_description)
 
     @property
     @pulumi.getter(name="templateName")
@@ -198,10 +173,6 @@ class PushTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PushTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -226,36 +197,11 @@ class PushTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PushTemplateArgs.__new__(PushTemplateArgs)
 
-            if adm is not None and not isinstance(adm, PushTemplateAndroidPushNotificationTemplateArgs):
-                adm = adm or {}
-                def _setter(key, value):
-                    adm[key] = value
-                PushTemplateAndroidPushNotificationTemplateArgs._configure(_setter, **adm)
             __props__.__dict__["adm"] = adm
-            if apns is not None and not isinstance(apns, PushTemplateApnsPushNotificationTemplateArgs):
-                apns = apns or {}
-                def _setter(key, value):
-                    apns[key] = value
-                PushTemplateApnsPushNotificationTemplateArgs._configure(_setter, **apns)
             __props__.__dict__["apns"] = apns
-            if baidu is not None and not isinstance(baidu, PushTemplateAndroidPushNotificationTemplateArgs):
-                baidu = baidu or {}
-                def _setter(key, value):
-                    baidu[key] = value
-                PushTemplateAndroidPushNotificationTemplateArgs._configure(_setter, **baidu)
             __props__.__dict__["baidu"] = baidu
-            if default is not None and not isinstance(default, PushTemplateDefaultPushNotificationTemplateArgs):
-                default = default or {}
-                def _setter(key, value):
-                    default[key] = value
-                PushTemplateDefaultPushNotificationTemplateArgs._configure(_setter, **default)
             __props__.__dict__["default"] = default
             __props__.__dict__["default_substitutions"] = default_substitutions
-            if gcm is not None and not isinstance(gcm, PushTemplateAndroidPushNotificationTemplateArgs):
-                gcm = gcm or {}
-                def _setter(key, value):
-                    gcm[key] = value
-                PushTemplateAndroidPushNotificationTemplateArgs._configure(_setter, **gcm)
             __props__.__dict__["gcm"] = gcm
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_description"] = template_description

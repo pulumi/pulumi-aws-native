@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -73,17 +73,8 @@ class ApplicationCatalogConfigurationArgs:
         The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.
         :param pulumi.Input['ApplicationGlueDataCatalogConfigurationArgs'] glue_data_catalog_configuration: The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.
         """
-        ApplicationCatalogConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            glue_data_catalog_configuration=glue_data_catalog_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             glue_data_catalog_configuration: Optional[pulumi.Input['ApplicationGlueDataCatalogConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if glue_data_catalog_configuration is not None:
-            _setter("glue_data_catalog_configuration", glue_data_catalog_configuration)
+            pulumi.set(__self__, "glue_data_catalog_configuration", glue_data_catalog_configuration)
 
     @property
     @pulumi.getter(name="glueDataCatalogConfiguration")
@@ -112,28 +103,13 @@ class ApplicationCheckpointConfigurationArgs:
         :param pulumi.Input[bool] checkpointing_enabled: Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input[int] min_pause_between_checkpoints: Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start. If a checkpoint operation takes longer than the CheckpointInterval, the application otherwise performs continual checkpoint operations. For more information, see Tuning Checkpointing in the Apache Flink Documentation.
         """
-        ApplicationCheckpointConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_type=configuration_type,
-            checkpoint_interval=checkpoint_interval,
-            checkpointing_enabled=checkpointing_enabled,
-            min_pause_between_checkpoints=min_pause_between_checkpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_type: pulumi.Input['ApplicationCheckpointConfigurationConfigurationType'],
-             checkpoint_interval: Optional[pulumi.Input[int]] = None,
-             checkpointing_enabled: Optional[pulumi.Input[bool]] = None,
-             min_pause_between_checkpoints: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("configuration_type", configuration_type)
+        pulumi.set(__self__, "configuration_type", configuration_type)
         if checkpoint_interval is not None:
-            _setter("checkpoint_interval", checkpoint_interval)
+            pulumi.set(__self__, "checkpoint_interval", checkpoint_interval)
         if checkpointing_enabled is not None:
-            _setter("checkpointing_enabled", checkpointing_enabled)
+            pulumi.set(__self__, "checkpointing_enabled", checkpointing_enabled)
         if min_pause_between_checkpoints is not None:
-            _setter("min_pause_between_checkpoints", min_pause_between_checkpoints)
+            pulumi.set(__self__, "min_pause_between_checkpoints", min_pause_between_checkpoints)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -188,16 +164,7 @@ class ApplicationCheckpointConfigurationArgs:
 class ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs:
     def __init__(__self__, *,
                  log_stream_arn: pulumi.Input[str]):
-        ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_stream_arn=log_stream_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_stream_arn", log_stream_arn)
+        pulumi.set(__self__, "log_stream_arn", log_stream_arn)
 
     @property
     @pulumi.getter(name="logStreamArn")
@@ -219,19 +186,8 @@ class ApplicationCodeConfigurationArgs:
         :param pulumi.Input['ApplicationCodeContentArgs'] code_content: The location and type of the application code.
         :param pulumi.Input['ApplicationCodeConfigurationCodeContentType'] code_content_type: Specifies whether the code content is in text or zip format.
         """
-        ApplicationCodeConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code_content=code_content,
-            code_content_type=code_content_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code_content: pulumi.Input['ApplicationCodeContentArgs'],
-             code_content_type: pulumi.Input['ApplicationCodeConfigurationCodeContentType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("code_content", code_content)
-        _setter("code_content_type", code_content_type)
+        pulumi.set(__self__, "code_content", code_content)
+        pulumi.set(__self__, "code_content_type", code_content_type)
 
     @property
     @pulumi.getter(name="codeContent")
@@ -270,25 +226,12 @@ class ApplicationCodeContentArgs:
         :param pulumi.Input[str] text_content: The text-format code for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input[str] zip_file_content: The zip-format code for a Flink-based Kinesis Data Analytics application.
         """
-        ApplicationCodeContentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_content_location=s3_content_location,
-            text_content=text_content,
-            zip_file_content=zip_file_content,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_content_location: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']] = None,
-             text_content: Optional[pulumi.Input[str]] = None,
-             zip_file_content: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_content_location is not None:
-            _setter("s3_content_location", s3_content_location)
+            pulumi.set(__self__, "s3_content_location", s3_content_location)
         if text_content is not None:
-            _setter("text_content", text_content)
+            pulumi.set(__self__, "text_content", text_content)
         if zip_file_content is not None:
-            _setter("zip_file_content", zip_file_content)
+            pulumi.set(__self__, "zip_file_content", zip_file_content)
 
     @property
     @pulumi.getter(name="s3ContentLocation")
@@ -347,41 +290,20 @@ class ApplicationConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationVpcConfigurationArgs']]] vpc_configurations: The array of descriptions of VPC configurations available to the application.
         :param pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs'] zeppelin_application_configuration: The configuration parameters for a Kinesis Data Analytics Studio notebook.
         """
-        ApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_code_configuration=application_code_configuration,
-            application_snapshot_configuration=application_snapshot_configuration,
-            environment_properties=environment_properties,
-            flink_application_configuration=flink_application_configuration,
-            sql_application_configuration=sql_application_configuration,
-            vpc_configurations=vpc_configurations,
-            zeppelin_application_configuration=zeppelin_application_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_code_configuration: Optional[pulumi.Input['ApplicationCodeConfigurationArgs']] = None,
-             application_snapshot_configuration: Optional[pulumi.Input['ApplicationSnapshotConfigurationArgs']] = None,
-             environment_properties: Optional[pulumi.Input['ApplicationEnvironmentPropertiesArgs']] = None,
-             flink_application_configuration: Optional[pulumi.Input['ApplicationFlinkApplicationConfigurationArgs']] = None,
-             sql_application_configuration: Optional[pulumi.Input['ApplicationSqlApplicationConfigurationArgs']] = None,
-             vpc_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationVpcConfigurationArgs']]]] = None,
-             zeppelin_application_configuration: Optional[pulumi.Input['ApplicationZeppelinApplicationConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if application_code_configuration is not None:
-            _setter("application_code_configuration", application_code_configuration)
+            pulumi.set(__self__, "application_code_configuration", application_code_configuration)
         if application_snapshot_configuration is not None:
-            _setter("application_snapshot_configuration", application_snapshot_configuration)
+            pulumi.set(__self__, "application_snapshot_configuration", application_snapshot_configuration)
         if environment_properties is not None:
-            _setter("environment_properties", environment_properties)
+            pulumi.set(__self__, "environment_properties", environment_properties)
         if flink_application_configuration is not None:
-            _setter("flink_application_configuration", flink_application_configuration)
+            pulumi.set(__self__, "flink_application_configuration", flink_application_configuration)
         if sql_application_configuration is not None:
-            _setter("sql_application_configuration", sql_application_configuration)
+            pulumi.set(__self__, "sql_application_configuration", sql_application_configuration)
         if vpc_configurations is not None:
-            _setter("vpc_configurations", vpc_configurations)
+            pulumi.set(__self__, "vpc_configurations", vpc_configurations)
         if zeppelin_application_configuration is not None:
-            _setter("zeppelin_application_configuration", zeppelin_application_configuration)
+            pulumi.set(__self__, "zeppelin_application_configuration", zeppelin_application_configuration)
 
     @property
     @pulumi.getter(name="applicationCodeConfiguration")
@@ -480,19 +402,8 @@ class ApplicationCsvMappingParametersArgs:
         :param pulumi.Input[str] record_column_delimiter: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
         :param pulumi.Input[str] record_row_delimiter: The row delimiter. For example, in a CSV format, '\\n' is the typical row delimiter.
         """
-        ApplicationCsvMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_column_delimiter=record_column_delimiter,
-            record_row_delimiter=record_row_delimiter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_column_delimiter: pulumi.Input[str],
-             record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_column_delimiter", record_column_delimiter)
-        _setter("record_row_delimiter", record_row_delimiter)
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @property
     @pulumi.getter(name="recordColumnDelimiter")
@@ -531,24 +442,11 @@ class ApplicationCustomArtifactConfigurationArgs:
         :param pulumi.Input['ApplicationMavenReferenceArgs'] maven_reference: The parameters required to fully specify a Maven reference.
         :param pulumi.Input['ApplicationS3ContentLocationArgs'] s3_content_location: The location of the custom artifacts.
         """
-        ApplicationCustomArtifactConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifact_type=artifact_type,
-            maven_reference=maven_reference,
-            s3_content_location=s3_content_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifact_type: pulumi.Input['ApplicationCustomArtifactConfigurationArtifactType'],
-             maven_reference: Optional[pulumi.Input['ApplicationMavenReferenceArgs']] = None,
-             s3_content_location: Optional[pulumi.Input['ApplicationS3ContentLocationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("artifact_type", artifact_type)
+        pulumi.set(__self__, "artifact_type", artifact_type)
         if maven_reference is not None:
-            _setter("maven_reference", maven_reference)
+            pulumi.set(__self__, "maven_reference", maven_reference)
         if s3_content_location is not None:
-            _setter("s3_content_location", s3_content_location)
+            pulumi.set(__self__, "s3_content_location", s3_content_location)
 
     @property
     @pulumi.getter(name="artifactType")
@@ -595,16 +493,7 @@ class ApplicationDeployAsApplicationConfigurationArgs:
         The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
         :param pulumi.Input['ApplicationS3ContentBaseLocationArgs'] s3_content_location: The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data.
         """
-        ApplicationDeployAsApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_content_location=s3_content_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_content_location: pulumi.Input['ApplicationS3ContentBaseLocationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_content_location", s3_content_location)
+        pulumi.set(__self__, "s3_content_location", s3_content_location)
 
     @property
     @pulumi.getter(name="s3ContentLocation")
@@ -627,17 +516,8 @@ class ApplicationEnvironmentPropertiesArgs:
         Describes execution properties for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationPropertyGroupArgs']]] property_groups: Describes the execution property groups.
         """
-        ApplicationEnvironmentPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_groups=property_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationPropertyGroupArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if property_groups is not None:
-            _setter("property_groups", property_groups)
+            pulumi.set(__self__, "property_groups", property_groups)
 
     @property
     @pulumi.getter(name="propertyGroups")
@@ -664,25 +544,12 @@ class ApplicationFlinkApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationMonitoringConfigurationArgs'] monitoring_configuration: Describes configuration parameters for Amazon CloudWatch logging for an application.
         :param pulumi.Input['ApplicationParallelismConfigurationArgs'] parallelism_configuration: Describes parameters for how an application executes multiple tasks simultaneously.
         """
-        ApplicationFlinkApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            checkpoint_configuration=checkpoint_configuration,
-            monitoring_configuration=monitoring_configuration,
-            parallelism_configuration=parallelism_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             checkpoint_configuration: Optional[pulumi.Input['ApplicationCheckpointConfigurationArgs']] = None,
-             monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
-             parallelism_configuration: Optional[pulumi.Input['ApplicationParallelismConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if checkpoint_configuration is not None:
-            _setter("checkpoint_configuration", checkpoint_configuration)
+            pulumi.set(__self__, "checkpoint_configuration", checkpoint_configuration)
         if monitoring_configuration is not None:
-            _setter("monitoring_configuration", monitoring_configuration)
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if parallelism_configuration is not None:
-            _setter("parallelism_configuration", parallelism_configuration)
+            pulumi.set(__self__, "parallelism_configuration", parallelism_configuration)
 
     @property
     @pulumi.getter(name="checkpointConfiguration")
@@ -729,17 +596,8 @@ class ApplicationFlinkRunConfigurationArgs:
         Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input[bool] allow_non_restored_state: When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Defaults to false. If you update your application without specifying this parameter, AllowNonRestoredState will be set to false, even if it was previously set to true.
         """
-        ApplicationFlinkRunConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_non_restored_state=allow_non_restored_state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_non_restored_state: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_non_restored_state is not None:
-            _setter("allow_non_restored_state", allow_non_restored_state)
+            pulumi.set(__self__, "allow_non_restored_state", allow_non_restored_state)
 
     @property
     @pulumi.getter(name="allowNonRestoredState")
@@ -762,17 +620,8 @@ class ApplicationGlueDataCatalogConfigurationArgs:
         The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application.
         :param pulumi.Input[str] database_arn: The Amazon Resource Name (ARN) of the database.
         """
-        ApplicationGlueDataCatalogConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_arn=database_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if database_arn is not None:
-            _setter("database_arn", database_arn)
+            pulumi.set(__self__, "database_arn", database_arn)
 
     @property
     @pulumi.getter(name="databaseArn")
@@ -795,16 +644,7 @@ class ApplicationInputLambdaProcessorArgs:
         An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application.
         :param pulumi.Input[str] resource_arn: The ARN of the Amazon Lambda function that operates on records in the stream.
         """
-        ApplicationInputLambdaProcessorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -827,17 +667,8 @@ class ApplicationInputParallelismArgs:
         For a SQL-based Kinesis Data Analytics application, describes the number of in-application streams to create for a given streaming source.
         :param pulumi.Input[int] count: The number of in-application streams to create.
         """
-        ApplicationInputParallelismArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -860,17 +691,8 @@ class ApplicationInputProcessingConfigurationArgs:
         For an SQL-based Amazon Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is Amazon Lambda.
         :param pulumi.Input['ApplicationInputLambdaProcessorArgs'] input_lambda_processor: The InputLambdaProcessor that is used to preprocess the records in the stream before being processed by your application code.
         """
-        ApplicationInputProcessingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_lambda_processor=input_lambda_processor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_lambda_processor: Optional[pulumi.Input['ApplicationInputLambdaProcessorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if input_lambda_processor is not None:
-            _setter("input_lambda_processor", input_lambda_processor)
+            pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
 
     @property
     @pulumi.getter(name="inputLambdaProcessor")
@@ -897,23 +719,10 @@ class ApplicationInputSchemaArgs:
         :param pulumi.Input['ApplicationRecordFormatArgs'] record_format: Specifies the format of the records on the streaming source.
         :param pulumi.Input['ApplicationInputSchemaRecordEncoding'] record_encoding: Specifies the encoding of the records in the streaming source. For example, UTF-8.
         """
-        ApplicationInputSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_columns=record_columns,
-            record_format=record_format,
-            record_encoding=record_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]],
-             record_format: pulumi.Input['ApplicationRecordFormatArgs'],
-             record_encoding: Optional[pulumi.Input['ApplicationInputSchemaRecordEncoding']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_columns", record_columns)
-        _setter("record_format", record_format)
+        pulumi.set(__self__, "record_columns", record_columns)
+        pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
-            _setter("record_encoding", record_encoding)
+            pulumi.set(__self__, "record_encoding", record_encoding)
 
     @property
     @pulumi.getter(name="recordColumns")
@@ -970,35 +779,16 @@ class ApplicationInputArgs:
         :param pulumi.Input['ApplicationKinesisFirehoseInputArgs'] kinesis_firehose_input: If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
         :param pulumi.Input['ApplicationKinesisStreamsInputArgs'] kinesis_streams_input: If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         """
-        ApplicationInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_schema=input_schema,
-            name_prefix=name_prefix,
-            input_parallelism=input_parallelism,
-            input_processing_configuration=input_processing_configuration,
-            kinesis_firehose_input=kinesis_firehose_input,
-            kinesis_streams_input=kinesis_streams_input,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_schema: pulumi.Input['ApplicationInputSchemaArgs'],
-             name_prefix: pulumi.Input[str],
-             input_parallelism: Optional[pulumi.Input['ApplicationInputParallelismArgs']] = None,
-             input_processing_configuration: Optional[pulumi.Input['ApplicationInputProcessingConfigurationArgs']] = None,
-             kinesis_firehose_input: Optional[pulumi.Input['ApplicationKinesisFirehoseInputArgs']] = None,
-             kinesis_streams_input: Optional[pulumi.Input['ApplicationKinesisStreamsInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_schema", input_schema)
-        _setter("name_prefix", name_prefix)
+        pulumi.set(__self__, "input_schema", input_schema)
+        pulumi.set(__self__, "name_prefix", name_prefix)
         if input_parallelism is not None:
-            _setter("input_parallelism", input_parallelism)
+            pulumi.set(__self__, "input_parallelism", input_parallelism)
         if input_processing_configuration is not None:
-            _setter("input_processing_configuration", input_processing_configuration)
+            pulumi.set(__self__, "input_processing_configuration", input_processing_configuration)
         if kinesis_firehose_input is not None:
-            _setter("kinesis_firehose_input", kinesis_firehose_input)
+            pulumi.set(__self__, "kinesis_firehose_input", kinesis_firehose_input)
         if kinesis_streams_input is not None:
-            _setter("kinesis_streams_input", kinesis_streams_input)
+            pulumi.set(__self__, "kinesis_streams_input", kinesis_streams_input)
 
     @property
     @pulumi.getter(name="inputSchema")
@@ -1081,16 +871,7 @@ class ApplicationJsonMappingParametersArgs:
         For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
         :param pulumi.Input[str] record_row_path: The path to the top-level parent that contains the records.
         """
-        ApplicationJsonMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_row_path=record_row_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_row_path", record_row_path)
+        pulumi.set(__self__, "record_row_path", record_row_path)
 
     @property
     @pulumi.getter(name="recordRowPath")
@@ -1113,16 +894,7 @@ class ApplicationKinesisFirehoseInputArgs:
         For a SQL-based Kinesis Data Analytics application, identifies a Kinesis Data Firehose delivery stream as the streaming source. You provide the delivery stream's Amazon Resource Name (ARN).
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the delivery stream.
         """
-        ApplicationKinesisFirehoseInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1145,16 +917,7 @@ class ApplicationKinesisStreamsInputArgs:
         Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN).
         :param pulumi.Input[str] resource_arn: The ARN of the input Kinesis data stream to read.
         """
-        ApplicationKinesisStreamsInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1177,16 +940,7 @@ class ApplicationMaintenanceConfigurationArgs:
         Describes the maintenance configuration for the application.
         :param pulumi.Input[str] application_maintenance_window_start_time: The start time for the maintenance window.
         """
-        ApplicationMaintenanceConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_maintenance_window_start_time=application_maintenance_window_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_maintenance_window_start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_maintenance_window_start_time", application_maintenance_window_start_time)
+        pulumi.set(__self__, "application_maintenance_window_start_time", application_maintenance_window_start_time)
 
     @property
     @pulumi.getter(name="applicationMaintenanceWindowStartTime")
@@ -1211,21 +965,10 @@ class ApplicationMappingParametersArgs:
         :param pulumi.Input['ApplicationCsvMappingParametersArgs'] csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
         :param pulumi.Input['ApplicationJsonMappingParametersArgs'] json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
-        ApplicationMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv_mapping_parameters=csv_mapping_parameters,
-            json_mapping_parameters=json_mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv_mapping_parameters: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']] = None,
-             json_mapping_parameters: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if csv_mapping_parameters is not None:
-            _setter("csv_mapping_parameters", csv_mapping_parameters)
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
-            _setter("json_mapping_parameters", json_mapping_parameters)
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
     @pulumi.getter(name="csvMappingParameters")
@@ -1264,22 +1007,9 @@ class ApplicationMavenReferenceArgs:
         :param pulumi.Input[str] group_id: The group ID of the Maven reference.
         :param pulumi.Input[str] version: The version of the Maven reference.
         """
-        ApplicationMavenReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifact_id=artifact_id,
-            group_id=group_id,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifact_id: pulumi.Input[str],
-             group_id: pulumi.Input[str],
-             version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("artifact_id", artifact_id)
-        _setter("group_id", group_id)
-        _setter("version", version)
+        pulumi.set(__self__, "artifact_id", artifact_id)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="artifactId")
@@ -1330,24 +1060,11 @@ class ApplicationMonitoringConfigurationArgs:
         :param pulumi.Input['ApplicationMonitoringConfigurationLogLevel'] log_level: Describes the verbosity of the CloudWatch Logs for an application.
         :param pulumi.Input['ApplicationMonitoringConfigurationMetricsLevel'] metrics_level: Describes the granularity of the CloudWatch Logs for an application. The Parallelism level is not recommended for applications with a Parallelism over 64 due to excessive costs.
         """
-        ApplicationMonitoringConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_type=configuration_type,
-            log_level=log_level,
-            metrics_level=metrics_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_type: pulumi.Input['ApplicationMonitoringConfigurationConfigurationType'],
-             log_level: Optional[pulumi.Input['ApplicationMonitoringConfigurationLogLevel']] = None,
-             metrics_level: Optional[pulumi.Input['ApplicationMonitoringConfigurationMetricsLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("configuration_type", configuration_type)
+        pulumi.set(__self__, "configuration_type", configuration_type)
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
         if metrics_level is not None:
-            _setter("metrics_level", metrics_level)
+            pulumi.set(__self__, "metrics_level", metrics_level)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -1390,17 +1107,8 @@ class ApplicationMonitoringConfigurationArgs:
 class ApplicationOutputResourceDestinationSchemaArgs:
     def __init__(__self__, *,
                  record_format_type: Optional[pulumi.Input[str]] = None):
-        ApplicationOutputResourceDestinationSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if record_format_type is not None:
-            _setter("record_format_type", record_format_type)
+            pulumi.set(__self__, "record_format_type", record_format_type)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -1416,16 +1124,7 @@ class ApplicationOutputResourceDestinationSchemaArgs:
 class ApplicationOutputResourceKinesisFirehoseOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str]):
-        ApplicationOutputResourceKinesisFirehoseOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1441,16 +1140,7 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
 class ApplicationOutputResourceKinesisStreamsOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str]):
-        ApplicationOutputResourceKinesisStreamsOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1466,16 +1156,7 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
 class ApplicationOutputResourceLambdaOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str]):
-        ApplicationOutputResourceLambdaOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -1495,32 +1176,15 @@ class ApplicationOutputResourceOutputArgs:
                  kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
                  lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        ApplicationOutputResourceOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_schema=destination_schema,
-            kinesis_firehose_output=kinesis_firehose_output,
-            kinesis_streams_output=kinesis_streams_output,
-            lambda_output=lambda_output,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_schema: pulumi.Input['ApplicationOutputResourceDestinationSchemaArgs'],
-             kinesis_firehose_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisFirehoseOutputArgs']] = None,
-             kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
-             lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_schema", destination_schema)
+        pulumi.set(__self__, "destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
-            _setter("kinesis_firehose_output", kinesis_firehose_output)
+            pulumi.set(__self__, "kinesis_firehose_output", kinesis_firehose_output)
         if kinesis_streams_output is not None:
-            _setter("kinesis_streams_output", kinesis_streams_output)
+            pulumi.set(__self__, "kinesis_streams_output", kinesis_streams_output)
         if lambda_output is not None:
-            _setter("lambda_output", lambda_output)
+            pulumi.set(__self__, "lambda_output", lambda_output)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="destinationSchema")
@@ -1582,28 +1246,13 @@ class ApplicationParallelismConfigurationArgs:
         :param pulumi.Input[int] parallelism: Describes the initial number of parallel tasks that a Java-based Kinesis Data Analytics application can perform. The Kinesis Data Analytics service can increase this number automatically if ParallelismConfiguration:AutoScalingEnabled is set to true.
         :param pulumi.Input[int] parallelism_per_kpu: Describes the number of parallel tasks that a Java-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application. For more information about KPUs, see Amazon Kinesis Data Analytics Pricing.
         """
-        ApplicationParallelismConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration_type=configuration_type,
-            auto_scaling_enabled=auto_scaling_enabled,
-            parallelism=parallelism,
-            parallelism_per_kpu=parallelism_per_kpu,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration_type: pulumi.Input['ApplicationParallelismConfigurationConfigurationType'],
-             auto_scaling_enabled: Optional[pulumi.Input[bool]] = None,
-             parallelism: Optional[pulumi.Input[int]] = None,
-             parallelism_per_kpu: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("configuration_type", configuration_type)
+        pulumi.set(__self__, "configuration_type", configuration_type)
         if auto_scaling_enabled is not None:
-            _setter("auto_scaling_enabled", auto_scaling_enabled)
+            pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if parallelism is not None:
-            _setter("parallelism", parallelism)
+            pulumi.set(__self__, "parallelism", parallelism)
         if parallelism_per_kpu is not None:
-            _setter("parallelism_per_kpu", parallelism_per_kpu)
+            pulumi.set(__self__, "parallelism_per_kpu", parallelism_per_kpu)
 
     @property
     @pulumi.getter(name="configurationType")
@@ -1664,21 +1313,10 @@ class ApplicationPropertyGroupArgs:
         :param pulumi.Input[str] property_group_id: Describes the key of an application execution property key-value pair.
         :param Any property_map: Describes the value of an application execution property key-value pair.
         """
-        ApplicationPropertyGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_group_id=property_group_id,
-            property_map=property_map,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_group_id: Optional[pulumi.Input[str]] = None,
-             property_map: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if property_group_id is not None:
-            _setter("property_group_id", property_group_id)
+            pulumi.set(__self__, "property_group_id", property_group_id)
         if property_map is not None:
-            _setter("property_map", property_map)
+            pulumi.set(__self__, "property_map", property_map)
 
     @property
     @pulumi.getter(name="propertyGroupId")
@@ -1718,23 +1356,10 @@ class ApplicationRecordColumnArgs:
         :param pulumi.Input[str] sql_type: The type of column created in the in-application input stream or reference table.
         :param pulumi.Input[str] mapping: A reference to the data element in the streaming input or the reference data source.
         """
-        ApplicationRecordColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            sql_type=sql_type,
-            mapping=mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             sql_type: pulumi.Input[str],
-             mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("sql_type", sql_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
-            _setter("mapping", mapping)
+            pulumi.set(__self__, "mapping", mapping)
 
     @property
     @pulumi.getter
@@ -1783,20 +1408,9 @@ class ApplicationRecordFormatArgs:
         :param pulumi.Input['ApplicationRecordFormatRecordFormatType'] record_format_type: The type of record format.
         :param pulumi.Input['ApplicationMappingParametersArgs'] mapping_parameters: When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
         """
-        ApplicationRecordFormatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-            mapping_parameters=mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: pulumi.Input['ApplicationRecordFormatRecordFormatType'],
-             mapping_parameters: Optional[pulumi.Input['ApplicationMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "record_format_type", record_format_type)
         if mapping_parameters is not None:
-            _setter("mapping_parameters", mapping_parameters)
+            pulumi.set(__self__, "mapping_parameters", mapping_parameters)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -1828,19 +1442,8 @@ class ApplicationReferenceDataSourceCsvMappingParametersArgs:
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[str],
                  record_row_delimiter: pulumi.Input[str]):
-        ApplicationReferenceDataSourceCsvMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_column_delimiter=record_column_delimiter,
-            record_row_delimiter=record_row_delimiter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_column_delimiter: pulumi.Input[str],
-             record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_column_delimiter", record_column_delimiter)
-        _setter("record_row_delimiter", record_row_delimiter)
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @property
     @pulumi.getter(name="recordColumnDelimiter")
@@ -1865,16 +1468,7 @@ class ApplicationReferenceDataSourceCsvMappingParametersArgs:
 class ApplicationReferenceDataSourceJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[str]):
-        ApplicationReferenceDataSourceJsonMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_row_path=record_row_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_row_path", record_row_path)
+        pulumi.set(__self__, "record_row_path", record_row_path)
 
     @property
     @pulumi.getter(name="recordRowPath")
@@ -1891,21 +1485,10 @@ class ApplicationReferenceDataSourceMappingParametersArgs:
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
                  json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None):
-        ApplicationReferenceDataSourceMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv_mapping_parameters=csv_mapping_parameters,
-            json_mapping_parameters=json_mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
-             json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if csv_mapping_parameters is not None:
-            _setter("csv_mapping_parameters", csv_mapping_parameters)
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
-            _setter("json_mapping_parameters", json_mapping_parameters)
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
     @pulumi.getter(name="csvMappingParameters")
@@ -1932,23 +1515,10 @@ class ApplicationReferenceDataSourceRecordColumnArgs:
                  name: pulumi.Input[str],
                  sql_type: pulumi.Input[str],
                  mapping: Optional[pulumi.Input[str]] = None):
-        ApplicationReferenceDataSourceRecordColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            sql_type=sql_type,
-            mapping=mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             sql_type: pulumi.Input[str],
-             mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("sql_type", sql_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
-            _setter("mapping", mapping)
+            pulumi.set(__self__, "mapping", mapping)
 
     @property
     @pulumi.getter
@@ -1983,20 +1553,9 @@ class ApplicationReferenceDataSourceRecordFormatArgs:
     def __init__(__self__, *,
                  record_format_type: pulumi.Input[str],
                  mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceMappingParametersArgs']] = None):
-        ApplicationReferenceDataSourceRecordFormatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-            mapping_parameters=mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: pulumi.Input[str],
-             mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "record_format_type", record_format_type)
         if mapping_parameters is not None:
-            _setter("mapping_parameters", mapping_parameters)
+            pulumi.set(__self__, "mapping_parameters", mapping_parameters)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -2023,24 +1582,11 @@ class ApplicationReferenceDataSourceReferenceDataSourceArgs:
                  reference_schema: pulumi.Input['ApplicationReferenceDataSourceReferenceSchemaArgs'],
                  s3_reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
-        ApplicationReferenceDataSourceReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reference_schema=reference_schema,
-            s3_reference_data_source=s3_reference_data_source,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reference_schema: pulumi.Input['ApplicationReferenceDataSourceReferenceSchemaArgs'],
-             s3_reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("reference_schema", reference_schema)
+        pulumi.set(__self__, "reference_schema", reference_schema)
         if s3_reference_data_source is not None:
-            _setter("s3_reference_data_source", s3_reference_data_source)
+            pulumi.set(__self__, "s3_reference_data_source", s3_reference_data_source)
         if table_name is not None:
-            _setter("table_name", table_name)
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="referenceSchema")
@@ -2076,23 +1622,10 @@ class ApplicationReferenceDataSourceReferenceSchemaArgs:
                  record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationReferenceDataSourceRecordColumnArgs']]],
                  record_format: pulumi.Input['ApplicationReferenceDataSourceRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[str]] = None):
-        ApplicationReferenceDataSourceReferenceSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_columns=record_columns,
-            record_format=record_format,
-            record_encoding=record_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationReferenceDataSourceRecordColumnArgs']]],
-             record_format: pulumi.Input['ApplicationReferenceDataSourceRecordFormatArgs'],
-             record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_columns", record_columns)
-        _setter("record_format", record_format)
+        pulumi.set(__self__, "record_columns", record_columns)
+        pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
-            _setter("record_encoding", record_encoding)
+            pulumi.set(__self__, "record_encoding", record_encoding)
 
     @property
     @pulumi.getter(name="recordColumns")
@@ -2127,19 +1660,8 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  file_key: pulumi.Input[str]):
-        ApplicationReferenceDataSourceS3ReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            file_key=file_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             file_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
-        _setter("file_key", file_key)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "file_key", file_key)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -2170,20 +1692,9 @@ class ApplicationRestoreConfigurationArgs:
         :param pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType'] application_restore_type: Specifies how the application should be restored.
         :param pulumi.Input[str] snapshot_name: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if RESTORE_FROM_CUSTOM_SNAPSHOT is specified for the ApplicationRestoreType.
         """
-        ApplicationRestoreConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_restore_type=application_restore_type,
-            snapshot_name=snapshot_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_restore_type: pulumi.Input['ApplicationRestoreConfigurationApplicationRestoreType'],
-             snapshot_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_restore_type", application_restore_type)
+        pulumi.set(__self__, "application_restore_type", application_restore_type)
         if snapshot_name is not None:
-            _setter("snapshot_name", snapshot_name)
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
 
     @property
     @pulumi.getter(name="applicationRestoreType")
@@ -2220,21 +1731,10 @@ class ApplicationRunConfigurationArgs:
         :param pulumi.Input['ApplicationRestoreConfigurationArgs'] application_restore_configuration: Describes the restore behavior of a restarting application.
         :param pulumi.Input['ApplicationFlinkRunConfigurationArgs'] flink_run_configuration: Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
         """
-        ApplicationRunConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_restore_configuration=application_restore_configuration,
-            flink_run_configuration=flink_run_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_restore_configuration: Optional[pulumi.Input['ApplicationRestoreConfigurationArgs']] = None,
-             flink_run_configuration: Optional[pulumi.Input['ApplicationFlinkRunConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if application_restore_configuration is not None:
-            _setter("application_restore_configuration", application_restore_configuration)
+            pulumi.set(__self__, "application_restore_configuration", application_restore_configuration)
         if flink_run_configuration is not None:
-            _setter("flink_run_configuration", flink_run_configuration)
+            pulumi.set(__self__, "flink_run_configuration", flink_run_configuration)
 
     @property
     @pulumi.getter(name="applicationRestoreConfiguration")
@@ -2271,20 +1771,9 @@ class ApplicationS3ContentBaseLocationArgs:
         :param pulumi.Input[str] bucket_arn: The Amazon Resource Name (ARN) of the S3 bucket.
         :param pulumi.Input[str] base_path: The base path for the S3 bucket.
         """
-        ApplicationS3ContentBaseLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            base_path=base_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             base_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
         if base_path is not None:
-            _setter("base_path", base_path)
+            pulumi.set(__self__, "base_path", base_path)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -2323,23 +1812,10 @@ class ApplicationS3ContentLocationArgs:
         :param pulumi.Input[str] file_key: The file key for the object containing the application code.
         :param pulumi.Input[str] object_version: The version of the object containing the application code.
         """
-        ApplicationS3ContentLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            file_key=file_key,
-            object_version=object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             file_key: pulumi.Input[str],
-             object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
-        _setter("file_key", file_key)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "file_key", file_key)
         if object_version is not None:
-            _setter("object_version", object_version)
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -2386,16 +1862,7 @@ class ApplicationSnapshotConfigurationArgs:
         Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         :param pulumi.Input[bool] snapshots_enabled: Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
         """
-        ApplicationSnapshotConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            snapshots_enabled=snapshots_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             snapshots_enabled: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("snapshots_enabled", snapshots_enabled)
+        pulumi.set(__self__, "snapshots_enabled", snapshots_enabled)
 
     @property
     @pulumi.getter(name="snapshotsEnabled")
@@ -2418,17 +1885,8 @@ class ApplicationSqlApplicationConfigurationArgs:
         Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]] inputs: The array of Input objects describing the input streams used by the application.
         """
-        ApplicationSqlApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inputs=inputs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inputs: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInputArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if inputs is not None:
-            _setter("inputs", inputs)
+            pulumi.set(__self__, "inputs", inputs)
 
     @property
     @pulumi.getter
@@ -2453,19 +1911,8 @@ class ApplicationTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that's 1 to 128 Unicode characters in length and can't be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that's 0 to 256 characters in length.
         """
-        ApplicationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2502,19 +1949,8 @@ class ApplicationVpcConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The array of SecurityGroup IDs used by the VPC configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The array of Subnet IDs used by the VPC configuration.
         """
-        ApplicationVpcConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -2555,29 +1991,14 @@ class ApplicationZeppelinApplicationConfigurationArgs:
         :param pulumi.Input['ApplicationDeployAsApplicationConfigurationArgs'] deploy_as_application_configuration: The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.
         :param pulumi.Input['ApplicationZeppelinMonitoringConfigurationArgs'] monitoring_configuration: The monitoring configuration of a Kinesis Data Analytics Studio notebook.
         """
-        ApplicationZeppelinApplicationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            catalog_configuration=catalog_configuration,
-            custom_artifacts_configuration=custom_artifacts_configuration,
-            deploy_as_application_configuration=deploy_as_application_configuration,
-            monitoring_configuration=monitoring_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             catalog_configuration: Optional[pulumi.Input['ApplicationCatalogConfigurationArgs']] = None,
-             custom_artifacts_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomArtifactConfigurationArgs']]]] = None,
-             deploy_as_application_configuration: Optional[pulumi.Input['ApplicationDeployAsApplicationConfigurationArgs']] = None,
-             monitoring_configuration: Optional[pulumi.Input['ApplicationZeppelinMonitoringConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_configuration is not None:
-            _setter("catalog_configuration", catalog_configuration)
+            pulumi.set(__self__, "catalog_configuration", catalog_configuration)
         if custom_artifacts_configuration is not None:
-            _setter("custom_artifacts_configuration", custom_artifacts_configuration)
+            pulumi.set(__self__, "custom_artifacts_configuration", custom_artifacts_configuration)
         if deploy_as_application_configuration is not None:
-            _setter("deploy_as_application_configuration", deploy_as_application_configuration)
+            pulumi.set(__self__, "deploy_as_application_configuration", deploy_as_application_configuration)
         if monitoring_configuration is not None:
-            _setter("monitoring_configuration", monitoring_configuration)
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
 
     @property
     @pulumi.getter(name="catalogConfiguration")
@@ -2636,17 +2057,8 @@ class ApplicationZeppelinMonitoringConfigurationArgs:
         Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see Monitoring.
         :param pulumi.Input['ApplicationZeppelinMonitoringConfigurationLogLevel'] log_level: The verbosity of the CloudWatch Logs for an application. You can set it to `INFO`, `WARN`, `ERROR`, or `DEBUG`.
         """
-        ApplicationZeppelinMonitoringConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_level=log_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_level: Optional[pulumi.Input['ApplicationZeppelinMonitoringConfigurationLogLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
 
     @property
     @pulumi.getter(name="logLevel")

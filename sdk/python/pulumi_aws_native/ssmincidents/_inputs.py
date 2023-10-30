@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -35,16 +35,7 @@ class ReplicationSetRegionConfigurationArgs:
         """
         The ReplicationSet regional configuration.
         """
-        ReplicationSetRegionConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sse_kms_key_id=sse_kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sse_kms_key_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sse_kms_key_id", sse_kms_key_id)
+        pulumi.set(__self__, "sse_kms_key_id", sse_kms_key_id)
 
     @property
     @pulumi.getter(name="sseKmsKeyId")
@@ -64,21 +55,10 @@ class ReplicationSetReplicationRegionArgs:
         """
         The ReplicationSet regional configuration.
         """
-        ReplicationSetReplicationRegionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            region_configuration=region_configuration,
-            region_name=region_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             region_configuration: Optional[pulumi.Input['ReplicationSetRegionConfigurationArgs']] = None,
-             region_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if region_configuration is not None:
-            _setter("region_configuration", region_configuration)
+            pulumi.set(__self__, "region_configuration", region_configuration)
         if region_name is not None:
-            _setter("region_name", region_name)
+            pulumi.set(__self__, "region_name", region_name)
 
     @property
     @pulumi.getter(name="regionConfiguration")
@@ -107,19 +87,8 @@ class ReplicationSetTagArgs:
         """
         A key-value pair to tag a resource.
         """
-        ReplicationSetTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -147,17 +116,8 @@ class ResponsePlanActionArgs:
         """
         The automation configuration to launch.
         """
-        ResponsePlanActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ssm_automation=ssm_automation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ssm_automation: Optional[pulumi.Input['ResponsePlanSsmAutomationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ssm_automation is not None:
-            _setter("ssm_automation", ssm_automation)
+            pulumi.set(__self__, "ssm_automation", ssm_automation)
 
     @property
     @pulumi.getter(name="ssmAutomation")
@@ -176,17 +136,8 @@ class ResponsePlanChatChannelArgs:
         """
         The chat channel configuration.
         """
-        ResponsePlanChatChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            chatbot_sns=chatbot_sns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             chatbot_sns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if chatbot_sns is not None:
-            _setter("chatbot_sns", chatbot_sns)
+            pulumi.set(__self__, "chatbot_sns", chatbot_sns)
 
     @property
     @pulumi.getter(name="chatbotSns")
@@ -205,17 +156,8 @@ class ResponsePlanDynamicSsmParameterValueArgs:
         """
         Value of the dynamic parameter to set when starting the SSM automation document.
         """
-        ResponsePlanDynamicSsmParameterValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            variable=variable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             variable: Optional[pulumi.Input['ResponsePlanVariableType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if variable is not None:
-            _setter("variable", variable)
+            pulumi.set(__self__, "variable", variable)
 
     @property
     @pulumi.getter
@@ -235,19 +177,8 @@ class ResponsePlanDynamicSsmParameterArgs:
         """
         A parameter with a dynamic value to set when starting the SSM automation document.
         """
-        ResponsePlanDynamicSsmParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input['ResponsePlanDynamicSsmParameterValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -286,35 +217,16 @@ class ResponsePlanIncidentTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]] notification_targets: The list of notification targets.
         :param pulumi.Input[str] summary: The summary string.
         """
-        ResponsePlanIncidentTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            impact=impact,
-            title=title,
-            dedupe_string=dedupe_string,
-            incident_tags=incident_tags,
-            notification_targets=notification_targets,
-            summary=summary,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             impact: pulumi.Input[int],
-             title: pulumi.Input[str],
-             dedupe_string: Optional[pulumi.Input[str]] = None,
-             incident_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanTagArgs']]]] = None,
-             notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanNotificationTargetItemArgs']]]] = None,
-             summary: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("impact", impact)
-        _setter("title", title)
+        pulumi.set(__self__, "impact", impact)
+        pulumi.set(__self__, "title", title)
         if dedupe_string is not None:
-            _setter("dedupe_string", dedupe_string)
+            pulumi.set(__self__, "dedupe_string", dedupe_string)
         if incident_tags is not None:
-            _setter("incident_tags", incident_tags)
+            pulumi.set(__self__, "incident_tags", incident_tags)
         if notification_targets is not None:
-            _setter("notification_targets", notification_targets)
+            pulumi.set(__self__, "notification_targets", notification_targets)
         if summary is not None:
-            _setter("summary", summary)
+            pulumi.set(__self__, "summary", summary)
 
     @property
     @pulumi.getter
@@ -393,17 +305,8 @@ class ResponsePlanIncidentTemplateArgs:
 class ResponsePlanIntegrationArgs:
     def __init__(__self__, *,
                  pager_duty_configuration: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']] = None):
-        ResponsePlanIntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pager_duty_configuration=pager_duty_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pager_duty_configuration: Optional[pulumi.Input['ResponsePlanPagerDutyConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if pager_duty_configuration is not None:
-            _setter("pager_duty_configuration", pager_duty_configuration)
+            pulumi.set(__self__, "pager_duty_configuration", pager_duty_configuration)
 
     @property
     @pulumi.getter(name="pagerDutyConfiguration")
@@ -422,17 +325,8 @@ class ResponsePlanNotificationTargetItemArgs:
         """
         A notification target.
         """
-        ResponsePlanNotificationTargetItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sns_topic_arn=sns_topic_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if sns_topic_arn is not None:
-            _setter("sns_topic_arn", sns_topic_arn)
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="snsTopicArn")
@@ -455,22 +349,9 @@ class ResponsePlanPagerDutyConfigurationArgs:
         :param pulumi.Input[str] name: The name of the pagerDuty configuration.
         :param pulumi.Input[str] secret_id: The AWS secrets manager secretId storing the pagerDuty token.
         """
-        ResponsePlanPagerDutyConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            pager_duty_incident_configuration=pager_duty_incident_configuration,
-            secret_id=secret_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             pager_duty_incident_configuration: pulumi.Input['ResponsePlanPagerDutyIncidentConfigurationArgs'],
-             secret_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("pager_duty_incident_configuration", pager_duty_incident_configuration)
-        _setter("secret_id", secret_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pager_duty_incident_configuration", pager_duty_incident_configuration)
+        pulumi.set(__self__, "secret_id", secret_id)
 
     @property
     @pulumi.getter
@@ -514,16 +395,7 @@ class ResponsePlanPagerDutyIncidentConfigurationArgs:
         The pagerDuty incident configuration.
         :param pulumi.Input[str] service_id: The pagerDuty serviceId.
         """
-        ResponsePlanPagerDutyIncidentConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_id=service_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("service_id", service_id)
+        pulumi.set(__self__, "service_id", service_id)
 
     @property
     @pulumi.getter(name="serviceId")
@@ -556,35 +428,16 @@ class ResponsePlanSsmAutomationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]] parameters: The parameters to set when starting the SSM automation document.
         :param pulumi.Input['ResponsePlanSsmAutomationTargetAccount'] target_account: The account type to use when starting the SSM automation document.
         """
-        ResponsePlanSsmAutomationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_name=document_name,
-            role_arn=role_arn,
-            document_version=document_version,
-            dynamic_parameters=dynamic_parameters,
-            parameters=parameters,
-            target_account=target_account,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             document_version: Optional[pulumi.Input[str]] = None,
-             dynamic_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanDynamicSsmParameterArgs']]]] = None,
-             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
-             target_account: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_name", document_name)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "document_name", document_name)
+        pulumi.set(__self__, "role_arn", role_arn)
         if document_version is not None:
-            _setter("document_version", document_version)
+            pulumi.set(__self__, "document_version", document_version)
         if dynamic_parameters is not None:
-            _setter("dynamic_parameters", dynamic_parameters)
+            pulumi.set(__self__, "dynamic_parameters", dynamic_parameters)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if target_account is not None:
-            _setter("target_account", target_account)
+            pulumi.set(__self__, "target_account", target_account)
 
     @property
     @pulumi.getter(name="documentName")
@@ -667,19 +520,8 @@ class ResponsePlanSsmParameterArgs:
         """
         A parameter to set when starting the SSM automation document.
         """
-        ResponsePlanSsmParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             values: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("values", values)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -708,19 +550,8 @@ class ResponsePlanTagArgs:
         """
         A key-value pair to tag a resource.
         """
-        ResponsePlanTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

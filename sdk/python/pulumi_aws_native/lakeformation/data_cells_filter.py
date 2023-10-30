@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,38 +33,17 @@ class DataCellsFilterArgs:
         :param pulumi.Input[str] name: The desired name of the Data Cells Filter.
         :param pulumi.Input['DataCellsFilterRowFilterArgs'] row_filter: An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required
         """
-        DataCellsFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_name=database_name,
-            table_catalog_id=table_catalog_id,
-            table_name=table_name,
-            column_names=column_names,
-            column_wildcard=column_wildcard,
-            name=name,
-            row_filter=row_filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             table_catalog_id: pulumi.Input[str],
-             table_name: pulumi.Input[str],
-             column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             column_wildcard: Optional[pulumi.Input['DataCellsFilterColumnWildcardArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             row_filter: Optional[pulumi.Input['DataCellsFilterRowFilterArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("database_name", database_name)
-        _setter("table_catalog_id", table_catalog_id)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
         if column_names is not None:
-            _setter("column_names", column_names)
+            pulumi.set(__self__, "column_names", column_names)
         if column_wildcard is not None:
-            _setter("column_wildcard", column_wildcard)
+            pulumi.set(__self__, "column_wildcard", column_wildcard)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if row_filter is not None:
-            _setter("row_filter", row_filter)
+            pulumi.set(__self__, "row_filter", row_filter)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -196,10 +175,6 @@ class DataCellsFilter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataCellsFilterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -222,21 +197,11 @@ class DataCellsFilter(pulumi.CustomResource):
             __props__ = DataCellsFilterArgs.__new__(DataCellsFilterArgs)
 
             __props__.__dict__["column_names"] = column_names
-            if column_wildcard is not None and not isinstance(column_wildcard, DataCellsFilterColumnWildcardArgs):
-                column_wildcard = column_wildcard or {}
-                def _setter(key, value):
-                    column_wildcard[key] = value
-                DataCellsFilterColumnWildcardArgs._configure(_setter, **column_wildcard)
             __props__.__dict__["column_wildcard"] = column_wildcard
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["name"] = name
-            if row_filter is not None and not isinstance(row_filter, DataCellsFilterRowFilterArgs):
-                row_filter = row_filter or {}
-                def _setter(key, value):
-                    row_filter[key] = value
-                DataCellsFilterRowFilterArgs._configure(_setter, **row_filter)
             __props__.__dict__["row_filter"] = row_filter
             if table_catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'table_catalog_id'")

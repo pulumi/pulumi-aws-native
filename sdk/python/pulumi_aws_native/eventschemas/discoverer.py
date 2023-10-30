@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,28 +23,13 @@ class DiscovererArgs:
         """
         The set of arguments for constructing a Discoverer resource.
         """
-        DiscovererArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_arn=source_arn,
-            cross_account=cross_account,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_arn: pulumi.Input[str],
-             cross_account: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiscovererTagsEntryArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source_arn", source_arn)
+        pulumi.set(__self__, "source_arn", source_arn)
         if cross_account is not None:
-            _setter("cross_account", cross_account)
+            pulumi.set(__self__, "cross_account", cross_account)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="sourceArn")
@@ -123,10 +108,6 @@ class Discoverer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DiscovererArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

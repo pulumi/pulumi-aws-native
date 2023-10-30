@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,51 +38,24 @@ class EndpointGroupArgs:
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
-        EndpointGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint_group_region=endpoint_group_region,
-            listener_arn=listener_arn,
-            endpoint_configurations=endpoint_configurations,
-            health_check_interval_seconds=health_check_interval_seconds,
-            health_check_path=health_check_path,
-            health_check_port=health_check_port,
-            health_check_protocol=health_check_protocol,
-            port_overrides=port_overrides,
-            threshold_count=threshold_count,
-            traffic_dial_percentage=traffic_dial_percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint_group_region: pulumi.Input[str],
-             listener_arn: pulumi.Input[str],
-             endpoint_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]] = None,
-             health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
-             health_check_path: Optional[pulumi.Input[str]] = None,
-             health_check_port: Optional[pulumi.Input[int]] = None,
-             health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
-             port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
-             threshold_count: Optional[pulumi.Input[int]] = None,
-             traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("endpoint_group_region", endpoint_group_region)
-        _setter("listener_arn", listener_arn)
+        pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
+        pulumi.set(__self__, "listener_arn", listener_arn)
         if endpoint_configurations is not None:
-            _setter("endpoint_configurations", endpoint_configurations)
+            pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
         if health_check_interval_seconds is not None:
-            _setter("health_check_interval_seconds", health_check_interval_seconds)
+            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
         if health_check_path is not None:
-            _setter("health_check_path", health_check_path)
+            pulumi.set(__self__, "health_check_path", health_check_path)
         if health_check_port is not None:
-            _setter("health_check_port", health_check_port)
+            pulumi.set(__self__, "health_check_port", health_check_port)
         if health_check_protocol is not None:
-            _setter("health_check_protocol", health_check_protocol)
+            pulumi.set(__self__, "health_check_protocol", health_check_protocol)
         if port_overrides is not None:
-            _setter("port_overrides", port_overrides)
+            pulumi.set(__self__, "port_overrides", port_overrides)
         if threshold_count is not None:
-            _setter("threshold_count", threshold_count)
+            pulumi.set(__self__, "threshold_count", threshold_count)
         if traffic_dial_percentage is not None:
-            _setter("traffic_dial_percentage", traffic_dial_percentage)
+            pulumi.set(__self__, "traffic_dial_percentage", traffic_dial_percentage)
 
     @property
     @pulumi.getter(name="endpointGroupRegion")
@@ -248,10 +221,6 @@ class EndpointGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EndpointGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

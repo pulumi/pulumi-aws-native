@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -133,229 +133,114 @@ class DbClusterArgs:
         :param pulumi.Input[bool] use_latest_restorable_time: A value that indicates whether to restore the DB cluster to the latest restorable backup time. By default, the DB cluster is not restored to the latest restorable backup time.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with this DB cluster.
         """
-        DbClusterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocated_storage=allocated_storage,
-            associated_roles=associated_roles,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zones=availability_zones,
-            backtrack_window=backtrack_window,
-            backup_retention_period=backup_retention_period,
-            copy_tags_to_snapshot=copy_tags_to_snapshot,
-            database_name=database_name,
-            db_cluster_identifier=db_cluster_identifier,
-            db_cluster_instance_class=db_cluster_instance_class,
-            db_cluster_parameter_group_name=db_cluster_parameter_group_name,
-            db_instance_parameter_group_name=db_instance_parameter_group_name,
-            db_subnet_group_name=db_subnet_group_name,
-            db_system_id=db_system_id,
-            deletion_protection=deletion_protection,
-            domain=domain,
-            domain_iam_role_name=domain_iam_role_name,
-            enable_cloudwatch_logs_exports=enable_cloudwatch_logs_exports,
-            enable_http_endpoint=enable_http_endpoint,
-            enable_iam_database_authentication=enable_iam_database_authentication,
-            engine=engine,
-            engine_mode=engine_mode,
-            engine_version=engine_version,
-            global_cluster_identifier=global_cluster_identifier,
-            iops=iops,
-            kms_key_id=kms_key_id,
-            manage_master_user_password=manage_master_user_password,
-            master_user_password=master_user_password,
-            master_user_secret=master_user_secret,
-            master_username=master_username,
-            monitoring_interval=monitoring_interval,
-            monitoring_role_arn=monitoring_role_arn,
-            network_type=network_type,
-            performance_insights_enabled=performance_insights_enabled,
-            performance_insights_kms_key_id=performance_insights_kms_key_id,
-            performance_insights_retention_period=performance_insights_retention_period,
-            port=port,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            publicly_accessible=publicly_accessible,
-            read_endpoint=read_endpoint,
-            replication_source_identifier=replication_source_identifier,
-            restore_to_time=restore_to_time,
-            restore_type=restore_type,
-            scaling_configuration=scaling_configuration,
-            serverless_v2_scaling_configuration=serverless_v2_scaling_configuration,
-            snapshot_identifier=snapshot_identifier,
-            source_db_cluster_identifier=source_db_cluster_identifier,
-            source_region=source_region,
-            storage_encrypted=storage_encrypted,
-            storage_type=storage_type,
-            tags=tags,
-            use_latest_restorable_time=use_latest_restorable_time,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocated_storage: Optional[pulumi.Input[int]] = None,
-             associated_roles: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             backtrack_window: Optional[pulumi.Input[int]] = None,
-             backup_retention_period: Optional[pulumi.Input[int]] = None,
-             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
-             database_name: Optional[pulumi.Input[str]] = None,
-             db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
-             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
-             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-             db_system_id: Optional[pulumi.Input[str]] = None,
-             deletion_protection: Optional[pulumi.Input[bool]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             domain_iam_role_name: Optional[pulumi.Input[str]] = None,
-             enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
-             enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_mode: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             iops: Optional[pulumi.Input[int]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             manage_master_user_password: Optional[pulumi.Input[bool]] = None,
-             master_user_password: Optional[pulumi.Input[str]] = None,
-             master_user_secret: Optional[pulumi.Input['DbClusterMasterUserSecretArgs']] = None,
-             master_username: Optional[pulumi.Input[str]] = None,
-             monitoring_interval: Optional[pulumi.Input[int]] = None,
-             monitoring_role_arn: Optional[pulumi.Input[str]] = None,
-             network_type: Optional[pulumi.Input[str]] = None,
-             performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
-             performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
-             performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             read_endpoint: Optional[pulumi.Input['DbClusterReadEndpointArgs']] = None,
-             replication_source_identifier: Optional[pulumi.Input[str]] = None,
-             restore_to_time: Optional[pulumi.Input[str]] = None,
-             restore_type: Optional[pulumi.Input[str]] = None,
-             scaling_configuration: Optional[pulumi.Input['DbClusterScalingConfigurationArgs']] = None,
-             serverless_v2_scaling_configuration: Optional[pulumi.Input['DbClusterServerlessV2ScalingConfigurationArgs']] = None,
-             snapshot_identifier: Optional[pulumi.Input[str]] = None,
-             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-             source_region: Optional[pulumi.Input[str]] = None,
-             storage_encrypted: Optional[pulumi.Input[bool]] = None,
-             storage_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbClusterTagArgs']]]] = None,
-             use_latest_restorable_time: Optional[pulumi.Input[bool]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allocated_storage is not None:
-            _setter("allocated_storage", allocated_storage)
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
         if associated_roles is not None:
-            _setter("associated_roles", associated_roles)
+            pulumi.set(__self__, "associated_roles", associated_roles)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if backtrack_window is not None:
-            _setter("backtrack_window", backtrack_window)
+            pulumi.set(__self__, "backtrack_window", backtrack_window)
         if backup_retention_period is not None:
-            _setter("backup_retention_period", backup_retention_period)
+            pulumi.set(__self__, "backup_retention_period", backup_retention_period)
         if copy_tags_to_snapshot is not None:
-            _setter("copy_tags_to_snapshot", copy_tags_to_snapshot)
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if db_cluster_identifier is not None:
-            _setter("db_cluster_identifier", db_cluster_identifier)
+            pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         if db_cluster_instance_class is not None:
-            _setter("db_cluster_instance_class", db_cluster_instance_class)
+            pulumi.set(__self__, "db_cluster_instance_class", db_cluster_instance_class)
         if db_cluster_parameter_group_name is not None:
-            _setter("db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+            pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
         if db_instance_parameter_group_name is not None:
-            _setter("db_instance_parameter_group_name", db_instance_parameter_group_name)
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
         if db_subnet_group_name is not None:
-            _setter("db_subnet_group_name", db_subnet_group_name)
+            pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if db_system_id is not None:
-            _setter("db_system_id", db_system_id)
+            pulumi.set(__self__, "db_system_id", db_system_id)
         if deletion_protection is not None:
-            _setter("deletion_protection", deletion_protection)
+            pulumi.set(__self__, "deletion_protection", deletion_protection)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if domain_iam_role_name is not None:
-            _setter("domain_iam_role_name", domain_iam_role_name)
+            pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_cloudwatch_logs_exports is not None:
-            _setter("enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+            pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
         if enable_http_endpoint is not None:
-            _setter("enable_http_endpoint", enable_http_endpoint)
+            pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enable_iam_database_authentication is not None:
-            _setter("enable_iam_database_authentication", enable_iam_database_authentication)
+            pulumi.set(__self__, "enable_iam_database_authentication", enable_iam_database_authentication)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_mode is not None:
-            _setter("engine_mode", engine_mode)
+            pulumi.set(__self__, "engine_mode", engine_mode)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if global_cluster_identifier is not None:
-            _setter("global_cluster_identifier", global_cluster_identifier)
+            pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manage_master_user_password is not None:
-            _setter("manage_master_user_password", manage_master_user_password)
+            pulumi.set(__self__, "manage_master_user_password", manage_master_user_password)
         if master_user_password is not None:
-            _setter("master_user_password", master_user_password)
+            pulumi.set(__self__, "master_user_password", master_user_password)
         if master_user_secret is not None:
-            _setter("master_user_secret", master_user_secret)
+            pulumi.set(__self__, "master_user_secret", master_user_secret)
         if master_username is not None:
-            _setter("master_username", master_username)
+            pulumi.set(__self__, "master_username", master_username)
         if monitoring_interval is not None:
-            _setter("monitoring_interval", monitoring_interval)
+            pulumi.set(__self__, "monitoring_interval", monitoring_interval)
         if monitoring_role_arn is not None:
-            _setter("monitoring_role_arn", monitoring_role_arn)
+            pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if network_type is not None:
-            _setter("network_type", network_type)
+            pulumi.set(__self__, "network_type", network_type)
         if performance_insights_enabled is not None:
-            _setter("performance_insights_enabled", performance_insights_enabled)
+            pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
         if performance_insights_kms_key_id is not None:
-            _setter("performance_insights_kms_key_id", performance_insights_kms_key_id)
+            pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
         if performance_insights_retention_period is not None:
-            _setter("performance_insights_retention_period", performance_insights_retention_period)
+            pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if read_endpoint is not None:
-            _setter("read_endpoint", read_endpoint)
+            pulumi.set(__self__, "read_endpoint", read_endpoint)
         if replication_source_identifier is not None:
-            _setter("replication_source_identifier", replication_source_identifier)
+            pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if restore_to_time is not None:
-            _setter("restore_to_time", restore_to_time)
+            pulumi.set(__self__, "restore_to_time", restore_to_time)
         if restore_type is not None:
-            _setter("restore_type", restore_type)
+            pulumi.set(__self__, "restore_type", restore_type)
         if scaling_configuration is not None:
-            _setter("scaling_configuration", scaling_configuration)
+            pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         if serverless_v2_scaling_configuration is not None:
-            _setter("serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
+            pulumi.set(__self__, "serverless_v2_scaling_configuration", serverless_v2_scaling_configuration)
         if snapshot_identifier is not None:
-            _setter("snapshot_identifier", snapshot_identifier)
+            pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if source_db_cluster_identifier is not None:
-            _setter("source_db_cluster_identifier", source_db_cluster_identifier)
+            pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if source_region is not None:
-            _setter("source_region", source_region)
+            pulumi.set(__self__, "source_region", source_region)
         if storage_encrypted is not None:
-            _setter("storage_encrypted", storage_encrypted)
+            pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if storage_type is not None:
-            _setter("storage_type", storage_type)
+            pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if use_latest_restorable_time is not None:
-            _setter("use_latest_restorable_time", use_latest_restorable_time)
+            pulumi.set(__self__, "use_latest_restorable_time", use_latest_restorable_time)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="allocatedStorage")
@@ -1155,10 +1040,6 @@ class DbCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DbClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1255,11 +1136,6 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["manage_master_user_password"] = manage_master_user_password
             __props__.__dict__["master_user_password"] = master_user_password
-            if master_user_secret is not None and not isinstance(master_user_secret, DbClusterMasterUserSecretArgs):
-                master_user_secret = master_user_secret or {}
-                def _setter(key, value):
-                    master_user_secret[key] = value
-                DbClusterMasterUserSecretArgs._configure(_setter, **master_user_secret)
             __props__.__dict__["master_user_secret"] = master_user_secret
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["monitoring_interval"] = monitoring_interval
@@ -1272,26 +1148,11 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
-            if read_endpoint is not None and not isinstance(read_endpoint, DbClusterReadEndpointArgs):
-                read_endpoint = read_endpoint or {}
-                def _setter(key, value):
-                    read_endpoint[key] = value
-                DbClusterReadEndpointArgs._configure(_setter, **read_endpoint)
             __props__.__dict__["read_endpoint"] = read_endpoint
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["restore_to_time"] = restore_to_time
             __props__.__dict__["restore_type"] = restore_type
-            if scaling_configuration is not None and not isinstance(scaling_configuration, DbClusterScalingConfigurationArgs):
-                scaling_configuration = scaling_configuration or {}
-                def _setter(key, value):
-                    scaling_configuration[key] = value
-                DbClusterScalingConfigurationArgs._configure(_setter, **scaling_configuration)
             __props__.__dict__["scaling_configuration"] = scaling_configuration
-            if serverless_v2_scaling_configuration is not None and not isinstance(serverless_v2_scaling_configuration, DbClusterServerlessV2ScalingConfigurationArgs):
-                serverless_v2_scaling_configuration = serverless_v2_scaling_configuration or {}
-                def _setter(key, value):
-                    serverless_v2_scaling_configuration[key] = value
-                DbClusterServerlessV2ScalingConfigurationArgs._configure(_setter, **serverless_v2_scaling_configuration)
             __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier

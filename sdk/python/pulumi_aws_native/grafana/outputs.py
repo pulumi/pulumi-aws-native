@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,37 +41,18 @@ class WorkspaceAssertionAttributes(dict):
         :param str org: Name of the attribute within the SAML assert to use as the users organizations in Grafana.
         :param str role: Name of the attribute within the SAML assert to use as the users roles in Grafana.
         """
-        WorkspaceAssertionAttributes._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email=email,
-            groups=groups,
-            login=login,
-            name=name,
-            org=org,
-            role=role,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email: Optional[str] = None,
-             groups: Optional[str] = None,
-             login: Optional[str] = None,
-             name: Optional[str] = None,
-             org: Optional[str] = None,
-             role: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if email is not None:
-            _setter("email", email)
+            pulumi.set(__self__, "email", email)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if login is not None:
-            _setter("login", login)
+            pulumi.set(__self__, "login", login)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if org is not None:
-            _setter("org", org)
+            pulumi.set(__self__, "org", org)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
 
     @property
     @pulumi.getter
@@ -135,21 +116,10 @@ class WorkspaceIdpMetadata(dict):
         :param str url: URL that vends the IdPs metadata.
         :param str xml: XML blob of the IdPs metadata.
         """
-        WorkspaceIdpMetadata._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            xml=xml,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: Optional[str] = None,
-             xml: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if xml is not None:
-            _setter("xml", xml)
+            pulumi.set(__self__, "xml", xml)
 
     @property
     @pulumi.getter
@@ -200,21 +170,10 @@ class WorkspaceNetworkAccessControl(dict):
         :param Sequence[str] prefix_list_ids: The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
         :param Sequence[str] vpce_ids: The list of Amazon VPC endpoint IDs for the workspace. If a NetworkAccessConfiguration is specified then only VPC endpoints specified here will be allowed to access the workspace.
         """
-        WorkspaceNetworkAccessControl._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prefix_list_ids=prefix_list_ids,
-            vpce_ids=vpce_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prefix_list_ids: Optional[Sequence[str]] = None,
-             vpce_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if prefix_list_ids is not None:
-            _setter("prefix_list_ids", prefix_list_ids)
+            pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
         if vpce_ids is not None:
-            _setter("vpce_ids", vpce_ids)
+            pulumi.set(__self__, "vpce_ids", vpce_ids)
 
     @property
     @pulumi.getter(name="prefixListIds")
@@ -246,21 +205,10 @@ class WorkspaceRoleValues(dict):
         :param Sequence[str] admin: List of SAML roles which will be mapped into the Grafana Admin role.
         :param Sequence[str] editor: List of SAML roles which will be mapped into the Grafana Editor role.
         """
-        WorkspaceRoleValues._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            admin=admin,
-            editor=editor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             admin: Optional[Sequence[str]] = None,
-             editor: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if admin is not None:
-            _setter("admin", admin)
+            pulumi.set(__self__, "admin", admin)
         if editor is not None:
-            _setter("editor", editor)
+            pulumi.set(__self__, "editor", editor)
 
     @property
     @pulumi.getter
@@ -320,32 +268,15 @@ class WorkspaceSamlConfiguration(dict):
         :param Sequence[str] allowed_organizations: List of SAML organizations allowed to access Grafana.
         :param float login_validity_duration: The maximum lifetime an authenticated user can be logged in (in minutes) before being required to re-authenticate.
         """
-        WorkspaceSamlConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idp_metadata=idp_metadata,
-            allowed_organizations=allowed_organizations,
-            assertion_attributes=assertion_attributes,
-            login_validity_duration=login_validity_duration,
-            role_values=role_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idp_metadata: 'outputs.WorkspaceIdpMetadata',
-             allowed_organizations: Optional[Sequence[str]] = None,
-             assertion_attributes: Optional['outputs.WorkspaceAssertionAttributes'] = None,
-             login_validity_duration: Optional[float] = None,
-             role_values: Optional['outputs.WorkspaceRoleValues'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("idp_metadata", idp_metadata)
+        pulumi.set(__self__, "idp_metadata", idp_metadata)
         if allowed_organizations is not None:
-            _setter("allowed_organizations", allowed_organizations)
+            pulumi.set(__self__, "allowed_organizations", allowed_organizations)
         if assertion_attributes is not None:
-            _setter("assertion_attributes", assertion_attributes)
+            pulumi.set(__self__, "assertion_attributes", assertion_attributes)
         if login_validity_duration is not None:
-            _setter("login_validity_duration", login_validity_duration)
+            pulumi.set(__self__, "login_validity_duration", login_validity_duration)
         if role_values is not None:
-            _setter("role_values", role_values)
+            pulumi.set(__self__, "role_values", role_values)
 
     @property
     @pulumi.getter(name="idpMetadata")
@@ -411,19 +342,8 @@ class WorkspaceVpcConfiguration(dict):
         :param Sequence[str] security_group_ids: The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
         :param Sequence[str] subnet_ids: The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
         """
-        WorkspaceVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Sequence[str],
-             subnet_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")

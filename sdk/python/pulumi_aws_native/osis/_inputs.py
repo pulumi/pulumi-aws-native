@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,17 +23,8 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs:
         """
         The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
         """
-        PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group=log_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group is not None:
-            _setter("log_group", log_group)
+            pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
@@ -55,21 +46,10 @@ class PipelineLogPublishingOptionsArgs:
         :param pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs'] cloud_watch_log_destination: The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
         :param pulumi.Input[bool] is_logging_enabled: Whether logs should be published.
         """
-        PipelineLogPublishingOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_log_destination=cloud_watch_log_destination,
-            is_logging_enabled=is_logging_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_log_destination: Optional[pulumi.Input['PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs']] = None,
-             is_logging_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_destination is not None:
-            _setter("cloud_watch_log_destination", cloud_watch_log_destination)
+            pulumi.set(__self__, "cloud_watch_log_destination", cloud_watch_log_destination)
         if is_logging_enabled is not None:
-            _setter("is_logging_enabled", is_logging_enabled)
+            pulumi.set(__self__, "is_logging_enabled", is_logging_enabled)
 
     @property
     @pulumi.getter(name="cloudWatchLogDestination")
@@ -106,19 +86,8 @@ class PipelineTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        PipelineTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -155,21 +124,10 @@ class PipelineVpcOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security groups associated with the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
         """
-        PipelineVpcOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")

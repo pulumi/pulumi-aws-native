@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupPolicyInitArgs', 'GroupPolicy']
@@ -23,23 +23,10 @@ class GroupPolicyInitArgs:
         :param pulumi.Input[str] policy_name: The name of the policy document.
         :param Any policy_document: The policy document.
         """
-        GroupPolicyInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_name=group_name,
-            policy_name=policy_name,
-            policy_document=policy_document,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_name: pulumi.Input[str],
-             policy_name: pulumi.Input[str],
-             policy_document: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_name", group_name)
-        _setter("policy_name", policy_name)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "policy_name", policy_name)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
 
     @property
     @pulumi.getter(name="groupName")
@@ -115,10 +102,6 @@ class GroupPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupPolicyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

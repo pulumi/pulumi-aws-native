@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,41 +33,20 @@ class SecretArgs:
         :param pulumi.Input[str] secret_string: (Optional) Specifies text data that you want to encrypt and store in this new version of the secret.
         :param pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]] tags: The list of user-defined tags associated with the secret. Use tags to manage your AWS resources. For additional information about tags, see TagResource.
         """
-        SecretArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            generate_secret_string=generate_secret_string,
-            kms_key_id=kms_key_id,
-            name=name,
-            replica_regions=replica_regions,
-            secret_string=secret_string,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             generate_secret_string: Optional[pulumi.Input['SecretGenerateSecretStringArgs']] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             replica_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaRegionArgs']]]] = None,
-             secret_string: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecretTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if generate_secret_string is not None:
-            _setter("generate_secret_string", generate_secret_string)
+            pulumi.set(__self__, "generate_secret_string", generate_secret_string)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if replica_regions is not None:
-            _setter("replica_regions", replica_regions)
+            pulumi.set(__self__, "replica_regions", replica_regions)
         if secret_string is not None:
-            _setter("secret_string", secret_string)
+            pulumi.set(__self__, "secret_string", secret_string)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -199,10 +178,6 @@ class Secret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -225,11 +200,6 @@ class Secret(pulumi.CustomResource):
             __props__ = SecretArgs.__new__(SecretArgs)
 
             __props__.__dict__["description"] = description
-            if generate_secret_string is not None and not isinstance(generate_secret_string, SecretGenerateSecretStringArgs):
-                generate_secret_string = generate_secret_string or {}
-                def _setter(key, value):
-                    generate_secret_string[key] = value
-                SecretGenerateSecretStringArgs._configure(_setter, **generate_secret_string)
             __props__.__dict__["generate_secret_string"] = generate_secret_string
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name

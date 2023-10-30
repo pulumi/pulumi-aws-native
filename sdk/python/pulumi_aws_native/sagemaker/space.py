@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,28 +28,13 @@ class SpaceArgs:
         :param pulumi.Input['SpaceSettingsArgs'] space_settings: A collection of settings.
         :param pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]] tags: A list of tags to apply to the space.
         """
-        SpaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_id=domain_id,
-            space_name=space_name,
-            space_settings=space_settings,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_id: pulumi.Input[str],
-             space_name: Optional[pulumi.Input[str]] = None,
-             space_settings: Optional[pulumi.Input['SpaceSettingsArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpaceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_id", domain_id)
+        pulumi.set(__self__, "domain_id", domain_id)
         if space_name is not None:
-            _setter("space_name", space_name)
+            pulumi.set(__self__, "space_name", space_name)
         if space_settings is not None:
-            _setter("space_settings", space_settings)
+            pulumi.set(__self__, "space_settings", space_settings)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="domainId")
@@ -139,10 +124,6 @@ class Space(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SpaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -165,11 +146,6 @@ class Space(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
             __props__.__dict__["space_name"] = space_name
-            if space_settings is not None and not isinstance(space_settings, SpaceSettingsArgs):
-                space_settings = space_settings or {}
-                def _setter(key, value):
-                    space_settings[key] = value
-                SpaceSettingsArgs._configure(_setter, **space_settings)
             __props__.__dict__["space_settings"] = space_settings
             __props__.__dict__["tags"] = tags
             __props__.__dict__["space_arn"] = None

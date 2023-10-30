@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,28 +27,13 @@ class CapacityReservationArgs:
         :param pulumi.Input[str] name: The reservation name.
         :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        CapacityReservationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_dpus=target_dpus,
-            capacity_assignment_configuration=capacity_assignment_configuration,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_dpus: pulumi.Input[int],
-             capacity_assignment_configuration: Optional[pulumi.Input['CapacityReservationCapacityAssignmentConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_dpus", target_dpus)
+        pulumi.set(__self__, "target_dpus", target_dpus)
         if capacity_assignment_configuration is not None:
-            _setter("capacity_assignment_configuration", capacity_assignment_configuration)
+            pulumi.set(__self__, "capacity_assignment_configuration", capacity_assignment_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="targetDpus")
@@ -134,10 +119,6 @@ class CapacityReservation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CapacityReservationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -156,11 +137,6 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
 
-            if capacity_assignment_configuration is not None and not isinstance(capacity_assignment_configuration, CapacityReservationCapacityAssignmentConfigurationArgs):
-                capacity_assignment_configuration = capacity_assignment_configuration or {}
-                def _setter(key, value):
-                    capacity_assignment_configuration[key] = value
-                CapacityReservationCapacityAssignmentConfigurationArgs._configure(_setter, **capacity_assignment_configuration)
             __props__.__dict__["capacity_assignment_configuration"] = capacity_assignment_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

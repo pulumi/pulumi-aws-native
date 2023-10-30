@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostArgs', 'Host']
@@ -33,44 +33,21 @@ class HostArgs:
         :param pulumi.Input[str] instance_type: Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.
         """
-        HostArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            asset_id=asset_id,
-            auto_placement=auto_placement,
-            host_maintenance=host_maintenance,
-            host_recovery=host_recovery,
-            instance_family=instance_family,
-            instance_type=instance_type,
-            outpost_arn=outpost_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
-             asset_id: Optional[pulumi.Input[str]] = None,
-             auto_placement: Optional[pulumi.Input[str]] = None,
-             host_maintenance: Optional[pulumi.Input[str]] = None,
-             host_recovery: Optional[pulumi.Input[str]] = None,
-             instance_family: Optional[pulumi.Input[str]] = None,
-             instance_type: Optional[pulumi.Input[str]] = None,
-             outpost_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("availability_zone", availability_zone)
+        pulumi.set(__self__, "availability_zone", availability_zone)
         if asset_id is not None:
-            _setter("asset_id", asset_id)
+            pulumi.set(__self__, "asset_id", asset_id)
         if auto_placement is not None:
-            _setter("auto_placement", auto_placement)
+            pulumi.set(__self__, "auto_placement", auto_placement)
         if host_maintenance is not None:
-            _setter("host_maintenance", host_maintenance)
+            pulumi.set(__self__, "host_maintenance", host_maintenance)
         if host_recovery is not None:
-            _setter("host_recovery", host_recovery)
+            pulumi.set(__self__, "host_recovery", host_recovery)
         if instance_family is not None:
-            _setter("instance_family", instance_family)
+            pulumi.set(__self__, "instance_family", instance_family)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -216,10 +193,6 @@ class Host(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,173 +59,86 @@ class InstanceArgs:
         """
         The set of arguments for constructing a Instance resource.
         """
-        InstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_info=additional_info,
-            affinity=affinity,
-            availability_zone=availability_zone,
-            block_device_mappings=block_device_mappings,
-            cpu_options=cpu_options,
-            credit_specification=credit_specification,
-            disable_api_termination=disable_api_termination,
-            ebs_optimized=ebs_optimized,
-            elastic_gpu_specifications=elastic_gpu_specifications,
-            elastic_inference_accelerators=elastic_inference_accelerators,
-            enclave_options=enclave_options,
-            hibernation_options=hibernation_options,
-            host_id=host_id,
-            host_resource_group_arn=host_resource_group_arn,
-            iam_instance_profile=iam_instance_profile,
-            image_id=image_id,
-            instance_initiated_shutdown_behavior=instance_initiated_shutdown_behavior,
-            instance_type=instance_type,
-            ipv6_address_count=ipv6_address_count,
-            ipv6_addresses=ipv6_addresses,
-            kernel_id=kernel_id,
-            key_name=key_name,
-            launch_template=launch_template,
-            license_specifications=license_specifications,
-            monitoring=monitoring,
-            network_interfaces=network_interfaces,
-            placement_group_name=placement_group_name,
-            private_dns_name_options=private_dns_name_options,
-            private_ip_address=private_ip_address,
-            propagate_tags_to_volume_on_creation=propagate_tags_to_volume_on_creation,
-            ramdisk_id=ramdisk_id,
-            security_group_ids=security_group_ids,
-            security_groups=security_groups,
-            source_dest_check=source_dest_check,
-            ssm_associations=ssm_associations,
-            subnet_id=subnet_id,
-            tags=tags,
-            tenancy=tenancy,
-            user_data=user_data,
-            volumes=volumes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_info: Optional[pulumi.Input[str]] = None,
-             affinity: Optional[pulumi.Input[str]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceBlockDeviceMappingArgs']]]] = None,
-             cpu_options: Optional[pulumi.Input['InstanceCpuOptionsArgs']] = None,
-             credit_specification: Optional[pulumi.Input['InstanceCreditSpecificationArgs']] = None,
-             disable_api_termination: Optional[pulumi.Input[bool]] = None,
-             ebs_optimized: Optional[pulumi.Input[bool]] = None,
-             elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticGpuSpecificationArgs']]]] = None,
-             elastic_inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceElasticInferenceAcceleratorArgs']]]] = None,
-             enclave_options: Optional[pulumi.Input['InstanceEnclaveOptionsArgs']] = None,
-             hibernation_options: Optional[pulumi.Input['InstanceHibernationOptionsArgs']] = None,
-             host_id: Optional[pulumi.Input[str]] = None,
-             host_resource_group_arn: Optional[pulumi.Input[str]] = None,
-             iam_instance_profile: Optional[pulumi.Input[str]] = None,
-             image_id: Optional[pulumi.Input[str]] = None,
-             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
-             instance_type: Optional[pulumi.Input[str]] = None,
-             ipv6_address_count: Optional[pulumi.Input[int]] = None,
-             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceIpv6AddressArgs']]]] = None,
-             kernel_id: Optional[pulumi.Input[str]] = None,
-             key_name: Optional[pulumi.Input[str]] = None,
-             launch_template: Optional[pulumi.Input['InstanceLaunchTemplateSpecificationArgs']] = None,
-             license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceLicenseSpecificationArgs']]]] = None,
-             monitoring: Optional[pulumi.Input[bool]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
-             placement_group_name: Optional[pulumi.Input[str]] = None,
-             private_dns_name_options: Optional[pulumi.Input['InstancePrivateDnsNameOptionsArgs']] = None,
-             private_ip_address: Optional[pulumi.Input[str]] = None,
-             propagate_tags_to_volume_on_creation: Optional[pulumi.Input[bool]] = None,
-             ramdisk_id: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             source_dest_check: Optional[pulumi.Input[bool]] = None,
-             ssm_associations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceSsmAssociationArgs']]]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
-             tenancy: Optional[pulumi.Input[str]] = None,
-             user_data: Optional[pulumi.Input[str]] = None,
-             volumes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVolumeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_info is not None:
-            _setter("additional_info", additional_info)
+            pulumi.set(__self__, "additional_info", additional_info)
         if affinity is not None:
-            _setter("affinity", affinity)
+            pulumi.set(__self__, "affinity", affinity)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if block_device_mappings is not None:
-            _setter("block_device_mappings", block_device_mappings)
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if cpu_options is not None:
-            _setter("cpu_options", cpu_options)
+            pulumi.set(__self__, "cpu_options", cpu_options)
         if credit_specification is not None:
-            _setter("credit_specification", credit_specification)
+            pulumi.set(__self__, "credit_specification", credit_specification)
         if disable_api_termination is not None:
-            _setter("disable_api_termination", disable_api_termination)
+            pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
-            _setter("ebs_optimized", ebs_optimized)
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
         if elastic_gpu_specifications is not None:
-            _setter("elastic_gpu_specifications", elastic_gpu_specifications)
+            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
         if elastic_inference_accelerators is not None:
-            _setter("elastic_inference_accelerators", elastic_inference_accelerators)
+            pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
         if enclave_options is not None:
-            _setter("enclave_options", enclave_options)
+            pulumi.set(__self__, "enclave_options", enclave_options)
         if hibernation_options is not None:
-            _setter("hibernation_options", hibernation_options)
+            pulumi.set(__self__, "hibernation_options", hibernation_options)
         if host_id is not None:
-            _setter("host_id", host_id)
+            pulumi.set(__self__, "host_id", host_id)
         if host_resource_group_arn is not None:
-            _setter("host_resource_group_arn", host_resource_group_arn)
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
         if iam_instance_profile is not None:
-            _setter("iam_instance_profile", iam_instance_profile)
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if image_id is not None:
-            _setter("image_id", image_id)
+            pulumi.set(__self__, "image_id", image_id)
         if instance_initiated_shutdown_behavior is not None:
-            _setter("instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+            pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if ipv6_address_count is not None:
-            _setter("ipv6_address_count", ipv6_address_count)
+            pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
-            _setter("ipv6_addresses", ipv6_addresses)
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if kernel_id is not None:
-            _setter("kernel_id", kernel_id)
+            pulumi.set(__self__, "kernel_id", kernel_id)
         if key_name is not None:
-            _setter("key_name", key_name)
+            pulumi.set(__self__, "key_name", key_name)
         if launch_template is not None:
-            _setter("launch_template", launch_template)
+            pulumi.set(__self__, "launch_template", launch_template)
         if license_specifications is not None:
-            _setter("license_specifications", license_specifications)
+            pulumi.set(__self__, "license_specifications", license_specifications)
         if monitoring is not None:
-            _setter("monitoring", monitoring)
+            pulumi.set(__self__, "monitoring", monitoring)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement_group_name is not None:
-            _setter("placement_group_name", placement_group_name)
+            pulumi.set(__self__, "placement_group_name", placement_group_name)
         if private_dns_name_options is not None:
-            _setter("private_dns_name_options", private_dns_name_options)
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if private_ip_address is not None:
-            _setter("private_ip_address", private_ip_address)
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if propagate_tags_to_volume_on_creation is not None:
-            _setter("propagate_tags_to_volume_on_creation", propagate_tags_to_volume_on_creation)
+            pulumi.set(__self__, "propagate_tags_to_volume_on_creation", propagate_tags_to_volume_on_creation)
         if ramdisk_id is not None:
-            _setter("ramdisk_id", ramdisk_id)
+            pulumi.set(__self__, "ramdisk_id", ramdisk_id)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
         if source_dest_check is not None:
-            _setter("source_dest_check", source_dest_check)
+            pulumi.set(__self__, "source_dest_check", source_dest_check)
         if ssm_associations is not None:
-            _setter("ssm_associations", ssm_associations)
+            pulumi.set(__self__, "ssm_associations", ssm_associations)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tenancy is not None:
-            _setter("tenancy", tenancy)
+            pulumi.set(__self__, "tenancy", tenancy)
         if user_data is not None:
-            _setter("user_data", user_data)
+            pulumi.set(__self__, "user_data", user_data)
         if volumes is not None:
-            _setter("volumes", volumes)
+            pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -664,10 +577,6 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -727,33 +636,13 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["affinity"] = affinity
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["block_device_mappings"] = block_device_mappings
-            if cpu_options is not None and not isinstance(cpu_options, InstanceCpuOptionsArgs):
-                cpu_options = cpu_options or {}
-                def _setter(key, value):
-                    cpu_options[key] = value
-                InstanceCpuOptionsArgs._configure(_setter, **cpu_options)
             __props__.__dict__["cpu_options"] = cpu_options
-            if credit_specification is not None and not isinstance(credit_specification, InstanceCreditSpecificationArgs):
-                credit_specification = credit_specification or {}
-                def _setter(key, value):
-                    credit_specification[key] = value
-                InstanceCreditSpecificationArgs._configure(_setter, **credit_specification)
             __props__.__dict__["credit_specification"] = credit_specification
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_optimized"] = ebs_optimized
             __props__.__dict__["elastic_gpu_specifications"] = elastic_gpu_specifications
             __props__.__dict__["elastic_inference_accelerators"] = elastic_inference_accelerators
-            if enclave_options is not None and not isinstance(enclave_options, InstanceEnclaveOptionsArgs):
-                enclave_options = enclave_options or {}
-                def _setter(key, value):
-                    enclave_options[key] = value
-                InstanceEnclaveOptionsArgs._configure(_setter, **enclave_options)
             __props__.__dict__["enclave_options"] = enclave_options
-            if hibernation_options is not None and not isinstance(hibernation_options, InstanceHibernationOptionsArgs):
-                hibernation_options = hibernation_options or {}
-                def _setter(key, value):
-                    hibernation_options[key] = value
-                InstanceHibernationOptionsArgs._configure(_setter, **hibernation_options)
             __props__.__dict__["hibernation_options"] = hibernation_options
             __props__.__dict__["host_id"] = host_id
             __props__.__dict__["host_resource_group_arn"] = host_resource_group_arn
@@ -765,21 +654,11 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
-            if launch_template is not None and not isinstance(launch_template, InstanceLaunchTemplateSpecificationArgs):
-                launch_template = launch_template or {}
-                def _setter(key, value):
-                    launch_template[key] = value
-                InstanceLaunchTemplateSpecificationArgs._configure(_setter, **launch_template)
             __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["license_specifications"] = license_specifications
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group_name"] = placement_group_name
-            if private_dns_name_options is not None and not isinstance(private_dns_name_options, InstancePrivateDnsNameOptionsArgs):
-                private_dns_name_options = private_dns_name_options or {}
-                def _setter(key, value):
-                    private_dns_name_options[key] = value
-                InstancePrivateDnsNameOptionsArgs._configure(_setter, **private_dns_name_options)
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["propagate_tags_to_volume_on_creation"] = propagate_tags_to_volume_on_creation

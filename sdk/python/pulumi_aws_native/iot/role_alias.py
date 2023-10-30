@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,28 +23,13 @@ class RoleAliasArgs:
         """
         The set of arguments for constructing a RoleAlias resource.
         """
-        RoleAliasArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            credential_duration_seconds=credential_duration_seconds,
-            role_alias=role_alias,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             credential_duration_seconds: Optional[pulumi.Input[int]] = None,
-             role_alias: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAliasTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if credential_duration_seconds is not None:
-            _setter("credential_duration_seconds", credential_duration_seconds)
+            pulumi.set(__self__, "credential_duration_seconds", credential_duration_seconds)
         if role_alias is not None:
-            _setter("role_alias", role_alias)
+            pulumi.set(__self__, "role_alias", role_alias)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -118,10 +103,6 @@ class RoleAlias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RoleAliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

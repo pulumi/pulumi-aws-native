@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,21 +31,10 @@ class ClusterEndpoint(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  port: Optional[str] = None):
-        ClusterEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[str] = None,
-             port: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -82,20 +71,9 @@ class ClusterLoggingProperties(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  s3_key_prefix: Optional[str] = None):
-        ClusterLoggingProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            s3_key_prefix=s3_key_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             s3_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if s3_key_prefix is not None:
-            _setter("s3_key_prefix", s3_key_prefix)
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -136,19 +114,8 @@ class ClusterParameterGroupParameter(dict):
         :param str parameter_name: The name of the parameter.
         :param str parameter_value: The value of the parameter. If `ParameterName` is `wlm_json_configuration`, then the maximum size of `ParameterValue` is 8000 characters.
         """
-        ClusterParameterGroupParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter_name=parameter_name,
-            parameter_value=parameter_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter_name: str,
-             parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("parameter_name", parameter_name)
-        _setter("parameter_value", parameter_value)
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -180,19 +147,8 @@ class ClusterParameterGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ClusterParameterGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -216,19 +172,8 @@ class ClusterSecurityGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ClusterSecurityGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -254,19 +199,8 @@ class ClusterSubnetGroupTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ClusterSubnetGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -298,19 +232,8 @@ class ClusterTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ClusterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -369,29 +292,14 @@ class EndpointAccessNetworkInterface(dict):
         :param str private_ip_address: The IPv4 address of the network interface within the subnet.
         :param str subnet_id: The subnet identifier.
         """
-        EndpointAccessNetworkInterface._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            network_interface_id=network_interface_id,
-            private_ip_address=private_ip_address,
-            subnet_id=subnet_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: Optional[str] = None,
-             network_interface_id: Optional[str] = None,
-             private_ip_address: Optional[str] = None,
-             subnet_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
-            _setter("network_interface_id", network_interface_id)
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
         if private_ip_address is not None:
-            _setter("private_ip_address", private_ip_address)
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -456,21 +364,10 @@ class EndpointAccessVpcSecurityGroup(dict):
         :param str status: The status of the VPC security group.
         :param str vpc_security_group_id: The identifier of the VPC security group.
         """
-        EndpointAccessVpcSecurityGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            vpc_security_group_id=vpc_security_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: Optional[str] = None,
-             vpc_security_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if vpc_security_group_id is not None:
-            _setter("vpc_security_group_id", vpc_security_group_id)
+            pulumi.set(__self__, "vpc_security_group_id", vpc_security_group_id)
 
     @property
     @pulumi.getter
@@ -502,19 +399,8 @@ class EventSubscriptionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        EventSubscriptionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -536,11 +422,6 @@ class EventSubscriptionTag(dict):
 @pulumi.output_type
 class ScheduledActionType(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -580,25 +461,12 @@ class VpcEndpointProperties(dict):
         :param str vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         :param str vpc_id: The VPC identifier that the endpoint is associated.
         """
-        VpcEndpointProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_interfaces=network_interfaces,
-            vpc_endpoint_id=vpc_endpoint_id,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_interfaces: Optional[Sequence['outputs.EndpointAccessNetworkInterface']] = None,
-             vpc_endpoint_id: Optional[str] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
-            _setter("vpc_endpoint_id", vpc_endpoint_id)
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="networkInterfaces")

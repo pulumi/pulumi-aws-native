@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventStreamArgs', 'EventStream']
@@ -20,22 +20,9 @@ class EventStreamArgs:
         """
         The set of arguments for constructing a EventStream resource.
         """
-        EventStreamArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            destination_stream_arn=destination_stream_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             destination_stream_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_id", application_id)
-        _setter("destination_stream_arn", destination_stream_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "destination_stream_arn", destination_stream_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -104,10 +91,6 @@ class EventStream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventStreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BaiduChannelArgs', 'BaiduChannel']
@@ -21,26 +21,11 @@ class BaiduChannelArgs:
         """
         The set of arguments for constructing a BaiduChannel resource.
         """
-        BaiduChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            application_id=application_id,
-            secret_key=secret_key,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: pulumi.Input[str],
-             application_id: pulumi.Input[str],
-             secret_key: pulumi.Input[str],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_key", api_key)
-        _setter("application_id", application_id)
-        _setter("secret_key", secret_key)
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "secret_key", secret_key)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -119,10 +104,6 @@ class BaiduChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BaiduChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

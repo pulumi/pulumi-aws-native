@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -47,31 +47,14 @@ class SuiteDefinitionConfigurationProperties(dict):
                  devices: Optional[Sequence['outputs.SuiteDefinitionDeviceUnderTest']] = None,
                  intended_for_qualification: Optional[bool] = None,
                  suite_definition_name: Optional[str] = None):
-        SuiteDefinitionConfigurationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_permission_role_arn=device_permission_role_arn,
-            root_group=root_group,
-            devices=devices,
-            intended_for_qualification=intended_for_qualification,
-            suite_definition_name=suite_definition_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_permission_role_arn: str,
-             root_group: str,
-             devices: Optional[Sequence['outputs.SuiteDefinitionDeviceUnderTest']] = None,
-             intended_for_qualification: Optional[bool] = None,
-             suite_definition_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("device_permission_role_arn", device_permission_role_arn)
-        _setter("root_group", root_group)
+        pulumi.set(__self__, "device_permission_role_arn", device_permission_role_arn)
+        pulumi.set(__self__, "root_group", root_group)
         if devices is not None:
-            _setter("devices", devices)
+            pulumi.set(__self__, "devices", devices)
         if intended_for_qualification is not None:
-            _setter("intended_for_qualification", intended_for_qualification)
+            pulumi.set(__self__, "intended_for_qualification", intended_for_qualification)
         if suite_definition_name is not None:
-            _setter("suite_definition_name", suite_definition_name)
+            pulumi.set(__self__, "suite_definition_name", suite_definition_name)
 
     @property
     @pulumi.getter(name="devicePermissionRoleArn")
@@ -123,21 +106,10 @@ class SuiteDefinitionDeviceUnderTest(dict):
     def __init__(__self__, *,
                  certificate_arn: Optional[str] = None,
                  thing_arn: Optional[str] = None):
-        SuiteDefinitionDeviceUnderTest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-            thing_arn=thing_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             thing_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            _setter("certificate_arn", certificate_arn)
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
         if thing_arn is not None:
-            _setter("thing_arn", thing_arn)
+            pulumi.set(__self__, "thing_arn", thing_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -163,19 +135,8 @@ class SuiteDefinitionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        SuiteDefinitionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

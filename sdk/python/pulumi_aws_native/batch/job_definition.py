@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,60 +31,29 @@ class JobDefinitionArgs:
         """
         The set of arguments for constructing a JobDefinition resource.
         """
-        JobDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            container_properties=container_properties,
-            eks_properties=eks_properties,
-            job_definition_name=job_definition_name,
-            node_properties=node_properties,
-            parameters=parameters,
-            platform_capabilities=platform_capabilities,
-            propagate_tags=propagate_tags,
-            retry_strategy=retry_strategy,
-            scheduling_priority=scheduling_priority,
-            tags=tags,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             container_properties: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
-             eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
-             job_definition_name: Optional[pulumi.Input[str]] = None,
-             node_properties: Optional[pulumi.Input['JobDefinitionNodePropertiesArgs']] = None,
-             parameters: Optional[Any] = None,
-             platform_capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             propagate_tags: Optional[pulumi.Input[bool]] = None,
-             retry_strategy: Optional[pulumi.Input['JobDefinitionRetryStrategyArgs']] = None,
-             scheduling_priority: Optional[pulumi.Input[int]] = None,
-             tags: Optional[Any] = None,
-             timeout: Optional[pulumi.Input['JobDefinitionTimeoutArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if container_properties is not None:
-            _setter("container_properties", container_properties)
+            pulumi.set(__self__, "container_properties", container_properties)
         if eks_properties is not None:
-            _setter("eks_properties", eks_properties)
+            pulumi.set(__self__, "eks_properties", eks_properties)
         if job_definition_name is not None:
-            _setter("job_definition_name", job_definition_name)
+            pulumi.set(__self__, "job_definition_name", job_definition_name)
         if node_properties is not None:
-            _setter("node_properties", node_properties)
+            pulumi.set(__self__, "node_properties", node_properties)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if platform_capabilities is not None:
-            _setter("platform_capabilities", platform_capabilities)
+            pulumi.set(__self__, "platform_capabilities", platform_capabilities)
         if propagate_tags is not None:
-            _setter("propagate_tags", propagate_tags)
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if retry_strategy is not None:
-            _setter("retry_strategy", retry_strategy)
+            pulumi.set(__self__, "retry_strategy", retry_strategy)
         if scheduling_priority is not None:
-            _setter("scheduling_priority", scheduling_priority)
+            pulumi.set(__self__, "scheduling_priority", scheduling_priority)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -243,10 +212,6 @@ class JobDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            JobDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -274,41 +239,16 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
-            if container_properties is not None and not isinstance(container_properties, JobDefinitionContainerPropertiesArgs):
-                container_properties = container_properties or {}
-                def _setter(key, value):
-                    container_properties[key] = value
-                JobDefinitionContainerPropertiesArgs._configure(_setter, **container_properties)
             __props__.__dict__["container_properties"] = container_properties
-            if eks_properties is not None and not isinstance(eks_properties, JobDefinitionEksPropertiesArgs):
-                eks_properties = eks_properties or {}
-                def _setter(key, value):
-                    eks_properties[key] = value
-                JobDefinitionEksPropertiesArgs._configure(_setter, **eks_properties)
             __props__.__dict__["eks_properties"] = eks_properties
             __props__.__dict__["job_definition_name"] = job_definition_name
-            if node_properties is not None and not isinstance(node_properties, JobDefinitionNodePropertiesArgs):
-                node_properties = node_properties or {}
-                def _setter(key, value):
-                    node_properties[key] = value
-                JobDefinitionNodePropertiesArgs._configure(_setter, **node_properties)
             __props__.__dict__["node_properties"] = node_properties
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["platform_capabilities"] = platform_capabilities
             __props__.__dict__["propagate_tags"] = propagate_tags
-            if retry_strategy is not None and not isinstance(retry_strategy, JobDefinitionRetryStrategyArgs):
-                retry_strategy = retry_strategy or {}
-                def _setter(key, value):
-                    retry_strategy[key] = value
-                JobDefinitionRetryStrategyArgs._configure(_setter, **retry_strategy)
             __props__.__dict__["retry_strategy"] = retry_strategy
             __props__.__dict__["scheduling_priority"] = scheduling_priority
             __props__.__dict__["tags"] = tags
-            if timeout is not None and not isinstance(timeout, JobDefinitionTimeoutArgs):
-                timeout = timeout or {}
-                def _setter(key, value):
-                    timeout[key] = value
-                JobDefinitionTimeoutArgs._configure(_setter, **timeout)
             __props__.__dict__["timeout"] = timeout
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

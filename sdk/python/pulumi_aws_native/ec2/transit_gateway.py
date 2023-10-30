@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,61 +31,30 @@ class TransitGatewayArgs:
         """
         The set of arguments for constructing a TransitGateway resource.
         """
-        TransitGatewayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amazon_side_asn=amazon_side_asn,
-            association_default_route_table_id=association_default_route_table_id,
-            auto_accept_shared_attachments=auto_accept_shared_attachments,
-            default_route_table_association=default_route_table_association,
-            default_route_table_propagation=default_route_table_propagation,
-            description=description,
-            dns_support=dns_support,
-            multicast_support=multicast_support,
-            propagation_default_route_table_id=propagation_default_route_table_id,
-            tags=tags,
-            transit_gateway_cidr_blocks=transit_gateway_cidr_blocks,
-            vpn_ecmp_support=vpn_ecmp_support,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amazon_side_asn: Optional[pulumi.Input[int]] = None,
-             association_default_route_table_id: Optional[pulumi.Input[str]] = None,
-             auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
-             default_route_table_association: Optional[pulumi.Input[str]] = None,
-             default_route_table_propagation: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dns_support: Optional[pulumi.Input[str]] = None,
-             multicast_support: Optional[pulumi.Input[str]] = None,
-             propagation_default_route_table_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayTagArgs']]]] = None,
-             transit_gateway_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if amazon_side_asn is not None:
-            _setter("amazon_side_asn", amazon_side_asn)
+            pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
         if association_default_route_table_id is not None:
-            _setter("association_default_route_table_id", association_default_route_table_id)
+            pulumi.set(__self__, "association_default_route_table_id", association_default_route_table_id)
         if auto_accept_shared_attachments is not None:
-            _setter("auto_accept_shared_attachments", auto_accept_shared_attachments)
+            pulumi.set(__self__, "auto_accept_shared_attachments", auto_accept_shared_attachments)
         if default_route_table_association is not None:
-            _setter("default_route_table_association", default_route_table_association)
+            pulumi.set(__self__, "default_route_table_association", default_route_table_association)
         if default_route_table_propagation is not None:
-            _setter("default_route_table_propagation", default_route_table_propagation)
+            pulumi.set(__self__, "default_route_table_propagation", default_route_table_propagation)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dns_support is not None:
-            _setter("dns_support", dns_support)
+            pulumi.set(__self__, "dns_support", dns_support)
         if multicast_support is not None:
-            _setter("multicast_support", multicast_support)
+            pulumi.set(__self__, "multicast_support", multicast_support)
         if propagation_default_route_table_id is not None:
-            _setter("propagation_default_route_table_id", propagation_default_route_table_id)
+            pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if transit_gateway_cidr_blocks is not None:
-            _setter("transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
+            pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
         if vpn_ecmp_support is not None:
-            _setter("vpn_ecmp_support", vpn_ecmp_support)
+            pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
     @property
     @pulumi.getter(name="amazonSideAsn")
@@ -239,10 +208,6 @@ class TransitGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TransitGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

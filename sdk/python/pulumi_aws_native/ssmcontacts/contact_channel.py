@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,33 +28,16 @@ class ContactChannelArgs:
         :param pulumi.Input[str] contact_id: ARN of the contact resource
         :param pulumi.Input[bool] defer_activation: If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
-        ContactChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_address=channel_address,
-            channel_name=channel_name,
-            channel_type=channel_type,
-            contact_id=contact_id,
-            defer_activation=defer_activation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_address: Optional[pulumi.Input[str]] = None,
-             channel_name: Optional[pulumi.Input[str]] = None,
-             channel_type: Optional[pulumi.Input['ContactChannelChannelType']] = None,
-             contact_id: Optional[pulumi.Input[str]] = None,
-             defer_activation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if channel_address is not None:
-            _setter("channel_address", channel_address)
+            pulumi.set(__self__, "channel_address", channel_address)
         if channel_name is not None:
-            _setter("channel_name", channel_name)
+            pulumi.set(__self__, "channel_name", channel_name)
         if channel_type is not None:
-            _setter("channel_type", channel_type)
+            pulumi.set(__self__, "channel_type", channel_type)
         if contact_id is not None:
-            _setter("contact_id", contact_id)
+            pulumi.set(__self__, "contact_id", contact_id)
         if defer_activation is not None:
-            _setter("defer_activation", defer_activation)
+            pulumi.set(__self__, "defer_activation", defer_activation)
 
     @property
     @pulumi.getter(name="channelAddress")
@@ -158,10 +141,6 @@ class ContactChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ContactChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

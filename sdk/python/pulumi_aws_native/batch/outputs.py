@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -126,82 +126,39 @@ class ComputeEnvironmentComputeResources(dict):
         """
         :param Any tags: A key-value pair to associate with a resource.
         """
-        ComputeEnvironmentComputeResources._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maxv_cpus=maxv_cpus,
-            subnets=subnets,
-            type=type,
-            allocation_strategy=allocation_strategy,
-            bid_percentage=bid_percentage,
-            desiredv_cpus=desiredv_cpus,
-            ec2_configuration=ec2_configuration,
-            ec2_key_pair=ec2_key_pair,
-            image_id=image_id,
-            instance_role=instance_role,
-            instance_types=instance_types,
-            launch_template=launch_template,
-            minv_cpus=minv_cpus,
-            placement_group=placement_group,
-            security_group_ids=security_group_ids,
-            spot_iam_fleet_role=spot_iam_fleet_role,
-            tags=tags,
-            update_to_latest_image_version=update_to_latest_image_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maxv_cpus: int,
-             subnets: Sequence[str],
-             type: str,
-             allocation_strategy: Optional[str] = None,
-             bid_percentage: Optional[int] = None,
-             desiredv_cpus: Optional[int] = None,
-             ec2_configuration: Optional[Sequence['outputs.ComputeEnvironmentEc2ConfigurationObject']] = None,
-             ec2_key_pair: Optional[str] = None,
-             image_id: Optional[str] = None,
-             instance_role: Optional[str] = None,
-             instance_types: Optional[Sequence[str]] = None,
-             launch_template: Optional['outputs.ComputeEnvironmentLaunchTemplateSpecification'] = None,
-             minv_cpus: Optional[int] = None,
-             placement_group: Optional[str] = None,
-             security_group_ids: Optional[Sequence[str]] = None,
-             spot_iam_fleet_role: Optional[str] = None,
-             tags: Optional[Any] = None,
-             update_to_latest_image_version: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("maxv_cpus", maxv_cpus)
-        _setter("subnets", subnets)
-        _setter("type", type)
+        pulumi.set(__self__, "maxv_cpus", maxv_cpus)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "type", type)
         if allocation_strategy is not None:
-            _setter("allocation_strategy", allocation_strategy)
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         if bid_percentage is not None:
-            _setter("bid_percentage", bid_percentage)
+            pulumi.set(__self__, "bid_percentage", bid_percentage)
         if desiredv_cpus is not None:
-            _setter("desiredv_cpus", desiredv_cpus)
+            pulumi.set(__self__, "desiredv_cpus", desiredv_cpus)
         if ec2_configuration is not None:
-            _setter("ec2_configuration", ec2_configuration)
+            pulumi.set(__self__, "ec2_configuration", ec2_configuration)
         if ec2_key_pair is not None:
-            _setter("ec2_key_pair", ec2_key_pair)
+            pulumi.set(__self__, "ec2_key_pair", ec2_key_pair)
         if image_id is not None:
-            _setter("image_id", image_id)
+            pulumi.set(__self__, "image_id", image_id)
         if instance_role is not None:
-            _setter("instance_role", instance_role)
+            pulumi.set(__self__, "instance_role", instance_role)
         if instance_types is not None:
-            _setter("instance_types", instance_types)
+            pulumi.set(__self__, "instance_types", instance_types)
         if launch_template is not None:
-            _setter("launch_template", launch_template)
+            pulumi.set(__self__, "launch_template", launch_template)
         if minv_cpus is not None:
-            _setter("minv_cpus", minv_cpus)
+            pulumi.set(__self__, "minv_cpus", minv_cpus)
         if placement_group is not None:
-            _setter("placement_group", placement_group)
+            pulumi.set(__self__, "placement_group", placement_group)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if spot_iam_fleet_role is not None:
-            _setter("spot_iam_fleet_role", spot_iam_fleet_role)
+            pulumi.set(__self__, "spot_iam_fleet_role", spot_iam_fleet_role)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if update_to_latest_image_version is not None:
-            _setter("update_to_latest_image_version", update_to_latest_image_version)
+            pulumi.set(__self__, "update_to_latest_image_version", update_to_latest_image_version)
 
     @property
     @pulumi.getter(name="maxvCpus")
@@ -324,24 +281,11 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
                  image_type: str,
                  image_id_override: Optional[str] = None,
                  image_kubernetes_version: Optional[str] = None):
-        ComputeEnvironmentEc2ConfigurationObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image_type=image_type,
-            image_id_override=image_id_override,
-            image_kubernetes_version=image_kubernetes_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image_type: str,
-             image_id_override: Optional[str] = None,
-             image_kubernetes_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("image_type", image_type)
+        pulumi.set(__self__, "image_type", image_type)
         if image_id_override is not None:
-            _setter("image_id_override", image_id_override)
+            pulumi.set(__self__, "image_id_override", image_id_override)
         if image_kubernetes_version is not None:
-            _setter("image_kubernetes_version", image_kubernetes_version)
+            pulumi.set(__self__, "image_kubernetes_version", image_kubernetes_version)
 
     @property
     @pulumi.getter(name="imageType")
@@ -383,19 +327,8 @@ class ComputeEnvironmentEksConfiguration(dict):
     def __init__(__self__, *,
                  eks_cluster_arn: str,
                  kubernetes_namespace: str):
-        ComputeEnvironmentEksConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            eks_cluster_arn=eks_cluster_arn,
-            kubernetes_namespace=kubernetes_namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             eks_cluster_arn: str,
-             kubernetes_namespace: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("eks_cluster_arn", eks_cluster_arn)
-        _setter("kubernetes_namespace", kubernetes_namespace)
+        pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
+        pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
 
     @property
     @pulumi.getter(name="eksClusterArn")
@@ -433,25 +366,12 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
                  version: Optional[str] = None):
-        ComputeEnvironmentLaunchTemplateSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            launch_template_id=launch_template_id,
-            launch_template_name=launch_template_name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             launch_template_id: Optional[str] = None,
-             launch_template_name: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if launch_template_id is not None:
-            _setter("launch_template_id", launch_template_id)
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
-            _setter("launch_template_name", launch_template_name)
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="launchTemplateId")
@@ -493,21 +413,10 @@ class ComputeEnvironmentUpdatePolicy(dict):
     def __init__(__self__, *,
                  job_execution_timeout_minutes: Optional[int] = None,
                  terminate_jobs_on_update: Optional[bool] = None):
-        ComputeEnvironmentUpdatePolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            job_execution_timeout_minutes=job_execution_timeout_minutes,
-            terminate_jobs_on_update=terminate_jobs_on_update,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             job_execution_timeout_minutes: Optional[int] = None,
-             terminate_jobs_on_update: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if job_execution_timeout_minutes is not None:
-            _setter("job_execution_timeout_minutes", job_execution_timeout_minutes)
+            pulumi.set(__self__, "job_execution_timeout_minutes", job_execution_timeout_minutes)
         if terminate_jobs_on_update is not None:
-            _setter("terminate_jobs_on_update", terminate_jobs_on_update)
+            pulumi.set(__self__, "terminate_jobs_on_update", terminate_jobs_on_update)
 
     @property
     @pulumi.getter(name="jobExecutionTimeoutMinutes")
@@ -542,21 +451,10 @@ class JobDefinitionAuthorizationConfig(dict):
     def __init__(__self__, *,
                  access_point_id: Optional[str] = None,
                  iam: Optional[str] = None):
-        JobDefinitionAuthorizationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_point_id=access_point_id,
-            iam=iam,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_point_id: Optional[str] = None,
-             iam: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if access_point_id is not None:
-            _setter("access_point_id", access_point_id)
+            pulumi.set(__self__, "access_point_id", access_point_id)
         if iam is not None:
-            _setter("iam", iam)
+            pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter(name="accessPointId")
@@ -633,100 +531,49 @@ class JobDefinitionContainerProperties(dict):
                  user: Optional[str] = None,
                  vcpus: Optional[int] = None,
                  volumes: Optional[Sequence['outputs.JobDefinitionVolumes']] = None):
-        JobDefinitionContainerProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image=image,
-            command=command,
-            environment=environment,
-            ephemeral_storage=ephemeral_storage,
-            execution_role_arn=execution_role_arn,
-            fargate_platform_configuration=fargate_platform_configuration,
-            instance_type=instance_type,
-            job_role_arn=job_role_arn,
-            linux_parameters=linux_parameters,
-            log_configuration=log_configuration,
-            memory=memory,
-            mount_points=mount_points,
-            network_configuration=network_configuration,
-            privileged=privileged,
-            readonly_root_filesystem=readonly_root_filesystem,
-            resource_requirements=resource_requirements,
-            runtime_platform=runtime_platform,
-            secrets=secrets,
-            ulimits=ulimits,
-            user=user,
-            vcpus=vcpus,
-            volumes=volumes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image: str,
-             command: Optional[Sequence[str]] = None,
-             environment: Optional[Sequence['outputs.JobDefinitionEnvironment']] = None,
-             ephemeral_storage: Optional['outputs.JobDefinitionEphemeralStorage'] = None,
-             execution_role_arn: Optional[str] = None,
-             fargate_platform_configuration: Optional['outputs.JobDefinitionFargatePlatformConfiguration'] = None,
-             instance_type: Optional[str] = None,
-             job_role_arn: Optional[str] = None,
-             linux_parameters: Optional['outputs.JobDefinitionLinuxParameters'] = None,
-             log_configuration: Optional['outputs.JobDefinitionLogConfiguration'] = None,
-             memory: Optional[int] = None,
-             mount_points: Optional[Sequence['outputs.JobDefinitionMountPoints']] = None,
-             network_configuration: Optional['outputs.JobDefinitionNetworkConfiguration'] = None,
-             privileged: Optional[bool] = None,
-             readonly_root_filesystem: Optional[bool] = None,
-             resource_requirements: Optional[Sequence['outputs.JobDefinitionResourceRequirement']] = None,
-             runtime_platform: Optional['outputs.JobDefinitionRuntimePlatform'] = None,
-             secrets: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
-             ulimits: Optional[Sequence['outputs.JobDefinitionUlimit']] = None,
-             user: Optional[str] = None,
-             vcpus: Optional[int] = None,
-             volumes: Optional[Sequence['outputs.JobDefinitionVolumes']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("image", image)
+        pulumi.set(__self__, "image", image)
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if ephemeral_storage is not None:
-            _setter("ephemeral_storage", ephemeral_storage)
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
-            _setter("execution_role_arn", execution_role_arn)
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if fargate_platform_configuration is not None:
-            _setter("fargate_platform_configuration", fargate_platform_configuration)
+            pulumi.set(__self__, "fargate_platform_configuration", fargate_platform_configuration)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if job_role_arn is not None:
-            _setter("job_role_arn", job_role_arn)
+            pulumi.set(__self__, "job_role_arn", job_role_arn)
         if linux_parameters is not None:
-            _setter("linux_parameters", linux_parameters)
+            pulumi.set(__self__, "linux_parameters", linux_parameters)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if memory is not None:
-            _setter("memory", memory)
+            pulumi.set(__self__, "memory", memory)
         if mount_points is not None:
-            _setter("mount_points", mount_points)
+            pulumi.set(__self__, "mount_points", mount_points)
         if network_configuration is not None:
-            _setter("network_configuration", network_configuration)
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if privileged is not None:
-            _setter("privileged", privileged)
+            pulumi.set(__self__, "privileged", privileged)
         if readonly_root_filesystem is not None:
-            _setter("readonly_root_filesystem", readonly_root_filesystem)
+            pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
         if resource_requirements is not None:
-            _setter("resource_requirements", resource_requirements)
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
         if runtime_platform is not None:
-            _setter("runtime_platform", runtime_platform)
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
         if ulimits is not None:
-            _setter("ulimits", ulimits)
+            pulumi.set(__self__, "ulimits", ulimits)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
         if vcpus is not None:
-            _setter("vcpus", vcpus)
+            pulumi.set(__self__, "vcpus", vcpus)
         if volumes is not None:
-            _setter("volumes", volumes)
+            pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter
@@ -864,25 +711,12 @@ class JobDefinitionDevice(dict):
                  container_path: Optional[str] = None,
                  host_path: Optional[str] = None,
                  permissions: Optional[Sequence[str]] = None):
-        JobDefinitionDevice._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_path=container_path,
-            host_path=host_path,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_path: Optional[str] = None,
-             host_path: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_path is not None:
-            _setter("container_path", container_path)
+            pulumi.set(__self__, "container_path", container_path)
         if host_path is not None:
-            _setter("host_path", host_path)
+            pulumi.set(__self__, "host_path", host_path)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter(name="containerPath")
@@ -933,32 +767,15 @@ class JobDefinitionEfsVolumeConfiguration(dict):
                  root_directory: Optional[str] = None,
                  transit_encryption: Optional[str] = None,
                  transit_encryption_port: Optional[int] = None):
-        JobDefinitionEfsVolumeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_system_id=file_system_id,
-            authorization_config=authorization_config,
-            root_directory=root_directory,
-            transit_encryption=transit_encryption,
-            transit_encryption_port=transit_encryption_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_system_id: str,
-             authorization_config: Optional['outputs.JobDefinitionAuthorizationConfig'] = None,
-             root_directory: Optional[str] = None,
-             transit_encryption: Optional[str] = None,
-             transit_encryption_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_id", file_system_id)
         if authorization_config is not None:
-            _setter("authorization_config", authorization_config)
+            pulumi.set(__self__, "authorization_config", authorization_config)
         if root_directory is not None:
-            _setter("root_directory", root_directory)
+            pulumi.set(__self__, "root_directory", root_directory)
         if transit_encryption is not None:
-            _setter("transit_encryption", transit_encryption)
+            pulumi.set(__self__, "transit_encryption", transit_encryption)
         if transit_encryption_port is not None:
-            _setter("transit_encryption_port", transit_encryption_port)
+            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -1019,48 +836,23 @@ class JobDefinitionEksContainer(dict):
                  resources: Optional['outputs.JobDefinitionEksContainerResourceRequirements'] = None,
                  security_context: Optional['outputs.JobDefinitionEksContainerSecurityContext'] = None,
                  volume_mounts: Optional[Sequence['outputs.JobDefinitionEksContainerVolumeMount']] = None):
-        JobDefinitionEksContainer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image=image,
-            args=args,
-            command=command,
-            env=env,
-            image_pull_policy=image_pull_policy,
-            name=name,
-            resources=resources,
-            security_context=security_context,
-            volume_mounts=volume_mounts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image: str,
-             args: Optional[Sequence[str]] = None,
-             command: Optional[Sequence[str]] = None,
-             env: Optional[Sequence['outputs.JobDefinitionEksContainerEnvironmentVariable']] = None,
-             image_pull_policy: Optional[str] = None,
-             name: Optional[str] = None,
-             resources: Optional['outputs.JobDefinitionEksContainerResourceRequirements'] = None,
-             security_context: Optional['outputs.JobDefinitionEksContainerSecurityContext'] = None,
-             volume_mounts: Optional[Sequence['outputs.JobDefinitionEksContainerVolumeMount']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("image", image)
+        pulumi.set(__self__, "image", image)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if env is not None:
-            _setter("env", env)
+            pulumi.set(__self__, "env", env)
         if image_pull_policy is not None:
-            _setter("image_pull_policy", image_pull_policy)
+            pulumi.set(__self__, "image_pull_policy", image_pull_policy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resources is not None:
-            _setter("resources", resources)
+            pulumi.set(__self__, "resources", resources)
         if security_context is not None:
-            _setter("security_context", security_context)
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
-            _setter("volume_mounts", volume_mounts)
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -1113,20 +905,9 @@ class JobDefinitionEksContainerEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: str,
                  value: Optional[str] = None):
-        JobDefinitionEksContainerEnvironmentVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1144,21 +925,10 @@ class JobDefinitionEksContainerResourceRequirements(dict):
     def __init__(__self__, *,
                  limits: Optional[Any] = None,
                  requests: Optional[Any] = None):
-        JobDefinitionEksContainerResourceRequirements._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            limits=limits,
-            requests=requests,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             limits: Optional[Any] = None,
-             requests: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if limits is not None:
-            _setter("limits", limits)
+            pulumi.set(__self__, "limits", limits)
         if requests is not None:
-            _setter("requests", requests)
+            pulumi.set(__self__, "requests", requests)
 
     @property
     @pulumi.getter
@@ -1202,33 +972,16 @@ class JobDefinitionEksContainerSecurityContext(dict):
                  run_as_group: Optional[int] = None,
                  run_as_non_root: Optional[bool] = None,
                  run_as_user: Optional[int] = None):
-        JobDefinitionEksContainerSecurityContext._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            privileged=privileged,
-            read_only_root_filesystem=read_only_root_filesystem,
-            run_as_group=run_as_group,
-            run_as_non_root=run_as_non_root,
-            run_as_user=run_as_user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             privileged: Optional[bool] = None,
-             read_only_root_filesystem: Optional[bool] = None,
-             run_as_group: Optional[int] = None,
-             run_as_non_root: Optional[bool] = None,
-             run_as_user: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if privileged is not None:
-            _setter("privileged", privileged)
+            pulumi.set(__self__, "privileged", privileged)
         if read_only_root_filesystem is not None:
-            _setter("read_only_root_filesystem", read_only_root_filesystem)
+            pulumi.set(__self__, "read_only_root_filesystem", read_only_root_filesystem)
         if run_as_group is not None:
-            _setter("run_as_group", run_as_group)
+            pulumi.set(__self__, "run_as_group", run_as_group)
         if run_as_non_root is not None:
-            _setter("run_as_non_root", run_as_non_root)
+            pulumi.set(__self__, "run_as_non_root", run_as_non_root)
         if run_as_user is not None:
-            _setter("run_as_user", run_as_user)
+            pulumi.set(__self__, "run_as_user", run_as_user)
 
     @property
     @pulumi.getter
@@ -1281,25 +1034,12 @@ class JobDefinitionEksContainerVolumeMount(dict):
                  mount_path: Optional[str] = None,
                  name: Optional[str] = None,
                  read_only: Optional[bool] = None):
-        JobDefinitionEksContainerVolumeMount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mount_path=mount_path,
-            name=name,
-            read_only=read_only,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mount_path: Optional[str] = None,
-             name: Optional[str] = None,
-             read_only: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if mount_path is not None:
-            _setter("mount_path", mount_path)
+            pulumi.set(__self__, "mount_path", mount_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if read_only is not None:
-            _setter("read_only", read_only)
+            pulumi.set(__self__, "read_only", read_only)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -1339,21 +1079,10 @@ class JobDefinitionEksEmptyDir(dict):
     def __init__(__self__, *,
                  medium: Optional[str] = None,
                  size_limit: Optional[str] = None):
-        JobDefinitionEksEmptyDir._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            medium=medium,
-            size_limit=size_limit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             medium: Optional[str] = None,
-             size_limit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if medium is not None:
-            _setter("medium", medium)
+            pulumi.set(__self__, "medium", medium)
         if size_limit is not None:
-            _setter("size_limit", size_limit)
+            pulumi.set(__self__, "size_limit", size_limit)
 
     @property
     @pulumi.getter
@@ -1370,17 +1099,8 @@ class JobDefinitionEksEmptyDir(dict):
 class JobDefinitionEksHostPath(dict):
     def __init__(__self__, *,
                  path: Optional[str] = None):
-        JobDefinitionEksHostPath._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -1409,17 +1129,8 @@ class JobDefinitionEksProperties(dict):
 
     def __init__(__self__, *,
                  pod_properties: Optional['outputs.JobDefinitionPodProperties'] = None):
-        JobDefinitionEksProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pod_properties=pod_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pod_properties: Optional['outputs.JobDefinitionPodProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if pod_properties is not None:
-            _setter("pod_properties", pod_properties)
+            pulumi.set(__self__, "pod_properties", pod_properties)
 
     @property
     @pulumi.getter(name="podProperties")
@@ -1449,20 +1160,9 @@ class JobDefinitionEksSecret(dict):
     def __init__(__self__, *,
                  secret_name: str,
                  optional: Optional[bool] = None):
-        JobDefinitionEksSecret._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_name=secret_name,
-            optional=optional,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_name: str,
-             optional: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("secret_name", secret_name)
+        pulumi.set(__self__, "secret_name", secret_name)
         if optional is not None:
-            _setter("optional", optional)
+            pulumi.set(__self__, "optional", optional)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1501,28 +1201,13 @@ class JobDefinitionEksVolume(dict):
                  empty_dir: Optional['outputs.JobDefinitionEksEmptyDir'] = None,
                  host_path: Optional['outputs.JobDefinitionEksHostPath'] = None,
                  secret: Optional['outputs.JobDefinitionEksSecret'] = None):
-        JobDefinitionEksVolume._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            empty_dir=empty_dir,
-            host_path=host_path,
-            secret=secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             empty_dir: Optional['outputs.JobDefinitionEksEmptyDir'] = None,
-             host_path: Optional['outputs.JobDefinitionEksHostPath'] = None,
-             secret: Optional['outputs.JobDefinitionEksSecret'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if empty_dir is not None:
-            _setter("empty_dir", empty_dir)
+            pulumi.set(__self__, "empty_dir", empty_dir)
         if host_path is not None:
-            _setter("host_path", host_path)
+            pulumi.set(__self__, "host_path", host_path)
         if secret is not None:
-            _setter("secret", secret)
+            pulumi.set(__self__, "secret", secret)
 
     @property
     @pulumi.getter
@@ -1550,21 +1235,10 @@ class JobDefinitionEnvironment(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
-        JobDefinitionEnvironment._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1598,16 +1272,7 @@ class JobDefinitionEphemeralStorage(dict):
 
     def __init__(__self__, *,
                  size_in_gi_b: int):
-        JobDefinitionEphemeralStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gi_b=size_in_gi_b,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gi_b: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_gi_b", size_in_gi_b)
+        pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
 
     @property
     @pulumi.getter(name="sizeInGiB")
@@ -1643,28 +1308,13 @@ class JobDefinitionEvaluateOnExit(dict):
                  on_exit_code: Optional[str] = None,
                  on_reason: Optional[str] = None,
                  on_status_reason: Optional[str] = None):
-        JobDefinitionEvaluateOnExit._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            on_exit_code=on_exit_code,
-            on_reason=on_reason,
-            on_status_reason=on_status_reason,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: str,
-             on_exit_code: Optional[str] = None,
-             on_reason: Optional[str] = None,
-             on_status_reason: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
+        pulumi.set(__self__, "action", action)
         if on_exit_code is not None:
-            _setter("on_exit_code", on_exit_code)
+            pulumi.set(__self__, "on_exit_code", on_exit_code)
         if on_reason is not None:
-            _setter("on_reason", on_reason)
+            pulumi.set(__self__, "on_reason", on_reason)
         if on_status_reason is not None:
-            _setter("on_status_reason", on_status_reason)
+            pulumi.set(__self__, "on_status_reason", on_status_reason)
 
     @property
     @pulumi.getter
@@ -1708,17 +1358,8 @@ class JobDefinitionFargatePlatformConfiguration(dict):
 
     def __init__(__self__, *,
                  platform_version: Optional[str] = None):
-        JobDefinitionFargatePlatformConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            platform_version=platform_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             platform_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if platform_version is not None:
-            _setter("platform_version", platform_version)
+            pulumi.set(__self__, "platform_version", platform_version)
 
     @property
     @pulumi.getter(name="platformVersion")
@@ -1756,37 +1397,18 @@ class JobDefinitionLinuxParameters(dict):
                  shared_memory_size: Optional[int] = None,
                  swappiness: Optional[int] = None,
                  tmpfs: Optional[Sequence['outputs.JobDefinitionTmpfs']] = None):
-        JobDefinitionLinuxParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            devices=devices,
-            init_process_enabled=init_process_enabled,
-            max_swap=max_swap,
-            shared_memory_size=shared_memory_size,
-            swappiness=swappiness,
-            tmpfs=tmpfs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             devices: Optional[Sequence['outputs.JobDefinitionDevice']] = None,
-             init_process_enabled: Optional[bool] = None,
-             max_swap: Optional[int] = None,
-             shared_memory_size: Optional[int] = None,
-             swappiness: Optional[int] = None,
-             tmpfs: Optional[Sequence['outputs.JobDefinitionTmpfs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if devices is not None:
-            _setter("devices", devices)
+            pulumi.set(__self__, "devices", devices)
         if init_process_enabled is not None:
-            _setter("init_process_enabled", init_process_enabled)
+            pulumi.set(__self__, "init_process_enabled", init_process_enabled)
         if max_swap is not None:
-            _setter("max_swap", max_swap)
+            pulumi.set(__self__, "max_swap", max_swap)
         if shared_memory_size is not None:
-            _setter("shared_memory_size", shared_memory_size)
+            pulumi.set(__self__, "shared_memory_size", shared_memory_size)
         if swappiness is not None:
-            _setter("swappiness", swappiness)
+            pulumi.set(__self__, "swappiness", swappiness)
         if tmpfs is not None:
-            _setter("tmpfs", tmpfs)
+            pulumi.set(__self__, "tmpfs", tmpfs)
 
     @property
     @pulumi.getter
@@ -1844,24 +1466,11 @@ class JobDefinitionLogConfiguration(dict):
                  log_driver: str,
                  options: Optional[Any] = None,
                  secret_options: Optional[Sequence['outputs.JobDefinitionSecret']] = None):
-        JobDefinitionLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_driver=log_driver,
-            options=options,
-            secret_options=secret_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_driver: str,
-             options: Optional[Any] = None,
-             secret_options: Optional[Sequence['outputs.JobDefinitionSecret']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_driver", log_driver)
+        pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if secret_options is not None:
-            _setter("secret_options", secret_options)
+            pulumi.set(__self__, "secret_options", secret_options)
 
     @property
     @pulumi.getter(name="logDriver")
@@ -1883,17 +1492,8 @@ class JobDefinitionLogConfiguration(dict):
 class JobDefinitionMetadata(dict):
     def __init__(__self__, *,
                  labels: Optional[Any] = None):
-        JobDefinitionMetadata._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            labels=labels,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             labels: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter
@@ -1928,25 +1528,12 @@ class JobDefinitionMountPoints(dict):
                  container_path: Optional[str] = None,
                  read_only: Optional[bool] = None,
                  source_volume: Optional[str] = None):
-        JobDefinitionMountPoints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_path=container_path,
-            read_only=read_only,
-            source_volume=source_volume,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_path: Optional[str] = None,
-             read_only: Optional[bool] = None,
-             source_volume: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_path is not None:
-            _setter("container_path", container_path)
+            pulumi.set(__self__, "container_path", container_path)
         if read_only is not None:
-            _setter("read_only", read_only)
+            pulumi.set(__self__, "read_only", read_only)
         if source_volume is not None:
-            _setter("source_volume", source_volume)
+            pulumi.set(__self__, "source_volume", source_volume)
 
     @property
     @pulumi.getter(name="containerPath")
@@ -1985,17 +1572,8 @@ class JobDefinitionNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  assign_public_ip: Optional[str] = None):
-        JobDefinitionNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assign_public_ip=assign_public_ip,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assign_public_ip: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if assign_public_ip is not None:
-            _setter("assign_public_ip", assign_public_ip)
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
 
     @property
     @pulumi.getter(name="assignPublicIp")
@@ -2030,22 +1608,9 @@ class JobDefinitionNodeProperties(dict):
                  main_node: int,
                  node_range_properties: Sequence['outputs.JobDefinitionNodeRangeProperty'],
                  num_nodes: int):
-        JobDefinitionNodeProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            main_node=main_node,
-            node_range_properties=node_range_properties,
-            num_nodes=num_nodes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             main_node: int,
-             node_range_properties: Sequence['outputs.JobDefinitionNodeRangeProperty'],
-             num_nodes: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("main_node", main_node)
-        _setter("node_range_properties", node_range_properties)
-        _setter("num_nodes", num_nodes)
+        pulumi.set(__self__, "main_node", main_node)
+        pulumi.set(__self__, "node_range_properties", node_range_properties)
+        pulumi.set(__self__, "num_nodes", num_nodes)
 
     @property
     @pulumi.getter(name="mainNode")
@@ -2085,20 +1650,9 @@ class JobDefinitionNodeRangeProperty(dict):
     def __init__(__self__, *,
                  target_nodes: str,
                  container: Optional['outputs.JobDefinitionContainerProperties'] = None):
-        JobDefinitionNodeRangeProperty._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_nodes=target_nodes,
-            container=container,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_nodes: str,
-             container: Optional['outputs.JobDefinitionContainerProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_nodes", target_nodes)
+        pulumi.set(__self__, "target_nodes", target_nodes)
         if container is not None:
-            _setter("container", container)
+            pulumi.set(__self__, "container", container)
 
     @property
     @pulumi.getter(name="targetNodes")
@@ -2141,37 +1695,18 @@ class JobDefinitionPodProperties(dict):
                  metadata: Optional['outputs.JobDefinitionMetadata'] = None,
                  service_account_name: Optional[str] = None,
                  volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None):
-        JobDefinitionPodProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            containers=containers,
-            dns_policy=dns_policy,
-            host_network=host_network,
-            metadata=metadata,
-            service_account_name=service_account_name,
-            volumes=volumes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             containers: Optional[Sequence['outputs.JobDefinitionEksContainer']] = None,
-             dns_policy: Optional[str] = None,
-             host_network: Optional[bool] = None,
-             metadata: Optional['outputs.JobDefinitionMetadata'] = None,
-             service_account_name: Optional[str] = None,
-             volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if containers is not None:
-            _setter("containers", containers)
+            pulumi.set(__self__, "containers", containers)
         if dns_policy is not None:
-            _setter("dns_policy", dns_policy)
+            pulumi.set(__self__, "dns_policy", dns_policy)
         if host_network is not None:
-            _setter("host_network", host_network)
+            pulumi.set(__self__, "host_network", host_network)
         if metadata is not None:
-            _setter("metadata", metadata)
+            pulumi.set(__self__, "metadata", metadata)
         if service_account_name is not None:
-            _setter("service_account_name", service_account_name)
+            pulumi.set(__self__, "service_account_name", service_account_name)
         if volumes is not None:
-            _setter("volumes", volumes)
+            pulumi.set(__self__, "volumes", volumes)
 
     @property
     @pulumi.getter
@@ -2209,21 +1744,10 @@ class JobDefinitionResourceRequirement(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[str] = None):
-        JobDefinitionResourceRequirement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2258,21 +1782,10 @@ class JobDefinitionRetryStrategy(dict):
     def __init__(__self__, *,
                  attempts: Optional[int] = None,
                  evaluate_on_exit: Optional[Sequence['outputs.JobDefinitionEvaluateOnExit']] = None):
-        JobDefinitionRetryStrategy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attempts=attempts,
-            evaluate_on_exit=evaluate_on_exit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attempts: Optional[int] = None,
-             evaluate_on_exit: Optional[Sequence['outputs.JobDefinitionEvaluateOnExit']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attempts is not None:
-            _setter("attempts", attempts)
+            pulumi.set(__self__, "attempts", attempts)
         if evaluate_on_exit is not None:
-            _setter("evaluate_on_exit", evaluate_on_exit)
+            pulumi.set(__self__, "evaluate_on_exit", evaluate_on_exit)
 
     @property
     @pulumi.getter
@@ -2309,21 +1822,10 @@ class JobDefinitionRuntimePlatform(dict):
     def __init__(__self__, *,
                  cpu_architecture: Optional[str] = None,
                  operating_system_family: Optional[str] = None):
-        JobDefinitionRuntimePlatform._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cpu_architecture=cpu_architecture,
-            operating_system_family=operating_system_family,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cpu_architecture: Optional[str] = None,
-             operating_system_family: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu_architecture is not None:
-            _setter("cpu_architecture", cpu_architecture)
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
         if operating_system_family is not None:
-            _setter("operating_system_family", operating_system_family)
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
 
     @property
     @pulumi.getter(name="cpuArchitecture")
@@ -2358,19 +1860,8 @@ class JobDefinitionSecret(dict):
     def __init__(__self__, *,
                  name: str,
                  value_from: str):
-        JobDefinitionSecret._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value_from=value_from,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value_from: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value_from", value_from)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -2404,17 +1895,8 @@ class JobDefinitionTimeout(dict):
 
     def __init__(__self__, *,
                  attempt_duration_seconds: Optional[int] = None):
-        JobDefinitionTimeout._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attempt_duration_seconds=attempt_duration_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attempt_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attempt_duration_seconds is not None:
-            _setter("attempt_duration_seconds", attempt_duration_seconds)
+            pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
 
     @property
     @pulumi.getter(name="attemptDurationSeconds")
@@ -2447,23 +1929,10 @@ class JobDefinitionTmpfs(dict):
                  container_path: str,
                  size: int,
                  mount_options: Optional[Sequence[str]] = None):
-        JobDefinitionTmpfs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_path=container_path,
-            size=size,
-            mount_options=mount_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_path: str,
-             size: int,
-             mount_options: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("container_path", container_path)
-        _setter("size", size)
+        pulumi.set(__self__, "container_path", container_path)
+        pulumi.set(__self__, "size", size)
         if mount_options is not None:
-            _setter("mount_options", mount_options)
+            pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="containerPath")
@@ -2506,22 +1975,9 @@ class JobDefinitionUlimit(dict):
                  hard_limit: int,
                  name: str,
                  soft_limit: int):
-        JobDefinitionUlimit._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hard_limit=hard_limit,
-            name=name,
-            soft_limit=soft_limit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hard_limit: int,
-             name: str,
-             soft_limit: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hard_limit", hard_limit)
-        _setter("name", name)
-        _setter("soft_limit", soft_limit)
+        pulumi.set(__self__, "hard_limit", hard_limit)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "soft_limit", soft_limit)
 
     @property
     @pulumi.getter(name="hardLimit")
@@ -2562,25 +2018,12 @@ class JobDefinitionVolumes(dict):
                  efs_volume_configuration: Optional['outputs.JobDefinitionEfsVolumeConfiguration'] = None,
                  host: Optional['outputs.JobDefinitionVolumesHost'] = None,
                  name: Optional[str] = None):
-        JobDefinitionVolumes._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            efs_volume_configuration=efs_volume_configuration,
-            host=host,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             efs_volume_configuration: Optional['outputs.JobDefinitionEfsVolumeConfiguration'] = None,
-             host: Optional['outputs.JobDefinitionVolumesHost'] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if efs_volume_configuration is not None:
-            _setter("efs_volume_configuration", efs_volume_configuration)
+            pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="efsVolumeConfiguration")
@@ -2619,17 +2062,8 @@ class JobDefinitionVolumesHost(dict):
 
     def __init__(__self__, *,
                  source_path: Optional[str] = None):
-        JobDefinitionVolumesHost._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_path=source_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if source_path is not None:
-            _setter("source_path", source_path)
+            pulumi.set(__self__, "source_path", source_path)
 
     @property
     @pulumi.getter(name="sourcePath")
@@ -2659,19 +2093,8 @@ class JobQueueComputeEnvironmentOrder(dict):
     def __init__(__self__, *,
                  compute_environment: str,
                  order: int):
-        JobQueueComputeEnvironmentOrder._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_environment=compute_environment,
-            order=order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_environment: str,
-             order: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("compute_environment", compute_environment)
-        _setter("order", order)
+        pulumi.set(__self__, "compute_environment", compute_environment)
+        pulumi.set(__self__, "order", order)
 
     @property
     @pulumi.getter(name="computeEnvironment")
@@ -2718,25 +2141,12 @@ class SchedulingPolicyFairsharePolicy(dict):
         Fair Share Policy for the Job Queue.
         :param Sequence['SchedulingPolicyShareAttributes'] share_distribution: List of Share Attributes
         """
-        SchedulingPolicyFairsharePolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_reservation=compute_reservation,
-            share_decay_seconds=share_decay_seconds,
-            share_distribution=share_distribution,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_reservation: Optional[float] = None,
-             share_decay_seconds: Optional[float] = None,
-             share_distribution: Optional[Sequence['outputs.SchedulingPolicyShareAttributes']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_reservation is not None:
-            _setter("compute_reservation", compute_reservation)
+            pulumi.set(__self__, "compute_reservation", compute_reservation)
         if share_decay_seconds is not None:
-            _setter("share_decay_seconds", share_decay_seconds)
+            pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
         if share_distribution is not None:
-            _setter("share_distribution", share_distribution)
+            pulumi.set(__self__, "share_distribution", share_distribution)
 
     @property
     @pulumi.getter(name="computeReservation")
@@ -2781,21 +2191,10 @@ class SchedulingPolicyShareAttributes(dict):
     def __init__(__self__, *,
                  share_identifier: Optional[str] = None,
                  weight_factor: Optional[float] = None):
-        SchedulingPolicyShareAttributes._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            share_identifier=share_identifier,
-            weight_factor=weight_factor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             share_identifier: Optional[str] = None,
-             weight_factor: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if share_identifier is not None:
-            _setter("share_identifier", share_identifier)
+            pulumi.set(__self__, "share_identifier", share_identifier)
         if weight_factor is not None:
-            _setter("weight_factor", weight_factor)
+            pulumi.set(__self__, "weight_factor", weight_factor)
 
     @property
     @pulumi.getter(name="shareIdentifier")

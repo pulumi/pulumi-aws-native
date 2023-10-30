@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,21 +26,10 @@ class KeyspaceReplicationSpecificationArgs:
     def __init__(__self__, *,
                  region_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]] = None,
                  replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None):
-        KeyspaceReplicationSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            region_list=region_list,
-            replication_strategy=replication_strategy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             region_list: Optional[pulumi.Input[Sequence[pulumi.Input['KeyspaceRegionListItem']]]] = None,
-             replication_strategy: Optional[pulumi.Input['KeyspaceReplicationSpecificationReplicationStrategy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if region_list is not None:
-            _setter("region_list", region_list)
+            pulumi.set(__self__, "region_list", region_list)
         if replication_strategy is not None:
-            _setter("replication_strategy", replication_strategy)
+            pulumi.set(__self__, "replication_strategy", replication_strategy)
 
     @property
     @pulumi.getter(name="regionList")
@@ -66,19 +55,8 @@ class KeyspaceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        KeyspaceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -104,20 +82,9 @@ class TableBillingModeArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input['TableMode'],
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
-        TableBillingModeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            provisioned_throughput=provisioned_throughput,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: pulumi.Input['TableMode'],
-             provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if provisioned_throughput is not None:
-            _setter("provisioned_throughput", provisioned_throughput)
+            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
 
     @property
     @pulumi.getter
@@ -143,20 +110,9 @@ class TableClusteringKeyColumnArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TableColumnArgs'],
                  order_by: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']] = None):
-        TableClusteringKeyColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            column=column,
-            order_by=order_by,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             column: pulumi.Input['TableColumnArgs'],
-             order_by: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("column", column)
+        pulumi.set(__self__, "column", column)
         if order_by is not None:
-            _setter("order_by", order_by)
+            pulumi.set(__self__, "order_by", order_by)
 
     @property
     @pulumi.getter
@@ -182,19 +138,8 @@ class TableColumnArgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[str],
                  column_type: pulumi.Input[str]):
-        TableColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            column_name=column_name,
-            column_type=column_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             column_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("column_name", column_name)
-        _setter("column_type", column_type)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "column_type", column_type)
 
     @property
     @pulumi.getter(name="columnName")
@@ -223,20 +168,9 @@ class TableEncryptionSpecificationArgs:
         """
         Represents the settings used to enable server-side encryption
         """
-        TableEncryptionSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_type=encryption_type,
-            kms_key_identifier=kms_key_identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_type: pulumi.Input['TableEncryptionType'],
-             kms_key_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encryption_type", encryption_type)
+        pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key_identifier is not None:
-            _setter("kms_key_identifier", kms_key_identifier)
+            pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -265,19 +199,8 @@ class TableProvisionedThroughputArgs:
         """
         Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
         """
-        TableProvisionedThroughputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            read_capacity_units=read_capacity_units,
-            write_capacity_units=write_capacity_units,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             read_capacity_units: pulumi.Input[int],
-             write_capacity_units: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("read_capacity_units", read_capacity_units)
-        _setter("write_capacity_units", write_capacity_units)
+        pulumi.set(__self__, "read_capacity_units", read_capacity_units)
+        pulumi.set(__self__, "write_capacity_units", write_capacity_units)
 
     @property
     @pulumi.getter(name="readCapacityUnits")
@@ -306,19 +229,8 @@ class TableTagArgs:
         """
         A key-value pair to apply to the resource
         """
-        TableTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

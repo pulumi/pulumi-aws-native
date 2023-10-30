@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OrganizationAdminArgs', 'OrganizationAdmin']
@@ -19,16 +19,7 @@ class OrganizationAdminArgs:
         The set of arguments for constructing a OrganizationAdmin resource.
         :param pulumi.Input[str] account_id: The account ID of the account that should be registered as your Organization's delegated administrator for Detective
         """
-        OrganizationAdminArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("account_id", account_id)
+        pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter(name="accountId")
@@ -76,10 +67,6 @@ class OrganizationAdmin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OrganizationAdminArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssessmentTargetArgs', 'AssessmentTarget']
@@ -19,21 +19,10 @@ class AssessmentTargetArgs:
         """
         The set of arguments for constructing a AssessmentTarget resource.
         """
-        AssessmentTargetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_target_name=assessment_target_name,
-            resource_group_arn=resource_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_target_name: Optional[pulumi.Input[str]] = None,
-             resource_group_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if assessment_target_name is not None:
-            _setter("assessment_target_name", assessment_target_name)
+            pulumi.set(__self__, "assessment_target_name", assessment_target_name)
         if resource_group_arn is not None:
-            _setter("resource_group_arn", resource_group_arn)
+            pulumi.set(__self__, "resource_group_arn", resource_group_arn)
 
     @property
     @pulumi.getter(name="assessmentTargetName")
@@ -87,10 +76,6 @@ class AssessmentTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssessmentTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

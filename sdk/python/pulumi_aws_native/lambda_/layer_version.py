@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,36 +31,17 @@ class LayerVersionArgs:
         :param pulumi.Input[str] layer_name: The name or Amazon Resource Name (ARN) of the layer.
         :param pulumi.Input[str] license_info: The layer's software license.
         """
-        LayerVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            compatible_architectures=compatible_architectures,
-            compatible_runtimes=compatible_runtimes,
-            description=description,
-            layer_name=layer_name,
-            license_info=license_info,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: pulumi.Input['LayerVersionContentArgs'],
-             compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             layer_name: Optional[pulumi.Input[str]] = None,
-             license_info: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("content", content)
+        pulumi.set(__self__, "content", content)
         if compatible_architectures is not None:
-            _setter("compatible_architectures", compatible_architectures)
+            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
-            _setter("compatible_runtimes", compatible_runtimes)
+            pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if layer_name is not None:
-            _setter("layer_name", layer_name)
+            pulumi.set(__self__, "layer_name", layer_name)
         if license_info is not None:
-            _setter("license_info", license_info)
+            pulumi.set(__self__, "license_info", license_info)
 
     @property
     @pulumi.getter
@@ -178,10 +159,6 @@ class LayerVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LayerVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -204,11 +181,6 @@ class LayerVersion(pulumi.CustomResource):
 
             __props__.__dict__["compatible_architectures"] = compatible_architectures
             __props__.__dict__["compatible_runtimes"] = compatible_runtimes
-            if content is not None and not isinstance(content, LayerVersionContentArgs):
-                content = content or {}
-                def _setter(key, value):
-                    content[key] = value
-                LayerVersionContentArgs._configure(_setter, **content)
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content

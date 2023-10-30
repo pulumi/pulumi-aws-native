@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -93,29 +93,14 @@ class ClusterApplication(dict):
                  args: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  version: Optional[str] = None):
-        ClusterApplication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_info=additional_info,
-            args=args,
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_info: Optional[Any] = None,
-             args: Optional[Sequence[str]] = None,
-             name: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_info is not None:
-            _setter("additional_info", additional_info)
+            pulumi.set(__self__, "additional_info", additional_info)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="additionalInfo")
@@ -143,19 +128,8 @@ class ClusterAutoScalingPolicy(dict):
     def __init__(__self__, *,
                  constraints: 'outputs.ClusterScalingConstraints',
                  rules: Sequence['outputs.ClusterScalingRule']):
-        ClusterAutoScalingPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            constraints=constraints,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             constraints: 'outputs.ClusterScalingConstraints',
-             rules: Sequence['outputs.ClusterScalingRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("constraints", constraints)
-        _setter("rules", rules)
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -189,17 +163,8 @@ class ClusterAutoTerminationPolicy(dict):
 
     def __init__(__self__, *,
                  idle_timeout: Optional[int] = None):
-        ClusterAutoTerminationPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            idle_timeout=idle_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             idle_timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if idle_timeout is not None:
-            _setter("idle_timeout", idle_timeout)
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -229,19 +194,8 @@ class ClusterBootstrapActionConfig(dict):
     def __init__(__self__, *,
                  name: str,
                  script_bootstrap_action: 'outputs.ClusterScriptBootstrapActionConfig'):
-        ClusterBootstrapActionConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            script_bootstrap_action=script_bootstrap_action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             script_bootstrap_action: 'outputs.ClusterScriptBootstrapActionConfig',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("script_bootstrap_action", script_bootstrap_action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "script_bootstrap_action", script_bootstrap_action)
 
     @property
     @pulumi.getter
@@ -287,45 +241,20 @@ class ClusterCloudWatchAlarmDefinition(dict):
                  namespace: Optional[str] = None,
                  statistic: Optional[str] = None,
                  unit: Optional[str] = None):
-        ClusterCloudWatchAlarmDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            metric_name=metric_name,
-            period=period,
-            threshold=threshold,
-            dimensions=dimensions,
-            evaluation_periods=evaluation_periods,
-            namespace=namespace,
-            statistic=statistic,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: str,
-             metric_name: str,
-             period: int,
-             threshold: float,
-             dimensions: Optional[Sequence['outputs.ClusterMetricDimension']] = None,
-             evaluation_periods: Optional[int] = None,
-             namespace: Optional[str] = None,
-             statistic: Optional[str] = None,
-             unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("metric_name", metric_name)
-        _setter("period", period)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "threshold", threshold)
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if evaluation_periods is not None:
-            _setter("evaluation_periods", evaluation_periods)
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if statistic is not None:
-            _setter("statistic", statistic)
+            pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -406,30 +335,13 @@ class ClusterComputeLimits(dict):
                  unit_type: str,
                  maximum_core_capacity_units: Optional[int] = None,
                  maximum_on_demand_capacity_units: Optional[int] = None):
-        ClusterComputeLimits._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum_capacity_units=maximum_capacity_units,
-            minimum_capacity_units=minimum_capacity_units,
-            unit_type=unit_type,
-            maximum_core_capacity_units=maximum_core_capacity_units,
-            maximum_on_demand_capacity_units=maximum_on_demand_capacity_units,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum_capacity_units: int,
-             minimum_capacity_units: int,
-             unit_type: str,
-             maximum_core_capacity_units: Optional[int] = None,
-             maximum_on_demand_capacity_units: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("maximum_capacity_units", maximum_capacity_units)
-        _setter("minimum_capacity_units", minimum_capacity_units)
-        _setter("unit_type", unit_type)
+        pulumi.set(__self__, "maximum_capacity_units", maximum_capacity_units)
+        pulumi.set(__self__, "minimum_capacity_units", minimum_capacity_units)
+        pulumi.set(__self__, "unit_type", unit_type)
         if maximum_core_capacity_units is not None:
-            _setter("maximum_core_capacity_units", maximum_core_capacity_units)
+            pulumi.set(__self__, "maximum_core_capacity_units", maximum_core_capacity_units)
         if maximum_on_demand_capacity_units is not None:
-            _setter("maximum_on_demand_capacity_units", maximum_on_demand_capacity_units)
+            pulumi.set(__self__, "maximum_on_demand_capacity_units", maximum_on_demand_capacity_units)
 
     @property
     @pulumi.getter(name="maximumCapacityUnits")
@@ -480,25 +392,12 @@ class ClusterConfiguration(dict):
                  classification: Optional[str] = None,
                  configuration_properties: Optional[Any] = None,
                  configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None):
-        ClusterConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            classification=classification,
-            configuration_properties=configuration_properties,
-            configurations=configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             classification: Optional[str] = None,
-             configuration_properties: Optional[Any] = None,
-             configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if classification is not None:
-            _setter("classification", classification)
+            pulumi.set(__self__, "classification", classification)
         if configuration_properties is not None:
-            _setter("configuration_properties", configuration_properties)
+            pulumi.set(__self__, "configuration_properties", configuration_properties)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
 
     @property
     @pulumi.getter
@@ -540,20 +439,9 @@ class ClusterEbsBlockDeviceConfig(dict):
     def __init__(__self__, *,
                  volume_specification: 'outputs.ClusterVolumeSpecification',
                  volumes_per_instance: Optional[int] = None):
-        ClusterEbsBlockDeviceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            volume_specification=volume_specification,
-            volumes_per_instance=volumes_per_instance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             volume_specification: 'outputs.ClusterVolumeSpecification',
-             volumes_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("volume_specification", volume_specification)
+        pulumi.set(__self__, "volume_specification", volume_specification)
         if volumes_per_instance is not None:
-            _setter("volumes_per_instance", volumes_per_instance)
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter(name="volumeSpecification")
@@ -590,21 +478,10 @@ class ClusterEbsConfiguration(dict):
     def __init__(__self__, *,
                  ebs_block_device_configs: Optional[Sequence['outputs.ClusterEbsBlockDeviceConfig']] = None,
                  ebs_optimized: Optional[bool] = None):
-        ClusterEbsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_block_device_configs=ebs_block_device_configs,
-            ebs_optimized=ebs_optimized,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_block_device_configs: Optional[Sequence['outputs.ClusterEbsBlockDeviceConfig']] = None,
-             ebs_optimized: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ebs_block_device_configs is not None:
-            _setter("ebs_block_device_configs", ebs_block_device_configs)
+            pulumi.set(__self__, "ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
-            _setter("ebs_optimized", ebs_optimized)
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
 
     @property
     @pulumi.getter(name="ebsBlockDeviceConfigs")
@@ -643,28 +520,13 @@ class ClusterHadoopJarStepConfig(dict):
                  args: Optional[Sequence[str]] = None,
                  main_class: Optional[str] = None,
                  step_properties: Optional[Sequence['outputs.ClusterKeyValue']] = None):
-        ClusterHadoopJarStepConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jar=jar,
-            args=args,
-            main_class=main_class,
-            step_properties=step_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jar: str,
-             args: Optional[Sequence[str]] = None,
-             main_class: Optional[str] = None,
-             step_properties: Optional[Sequence['outputs.ClusterKeyValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("jar", jar)
+        pulumi.set(__self__, "jar", jar)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
         if main_class is not None:
-            _setter("main_class", main_class)
+            pulumi.set(__self__, "main_class", main_class)
         if step_properties is not None:
-            _setter("step_properties", step_properties)
+            pulumi.set(__self__, "step_properties", step_properties)
 
     @property
     @pulumi.getter
@@ -718,33 +580,16 @@ class ClusterInstanceFleetConfig(dict):
                  name: Optional[str] = None,
                  target_on_demand_capacity: Optional[int] = None,
                  target_spot_capacity: Optional[int] = None):
-        ClusterInstanceFleetConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_type_configs=instance_type_configs,
-            launch_specifications=launch_specifications,
-            name=name,
-            target_on_demand_capacity=target_on_demand_capacity,
-            target_spot_capacity=target_spot_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_type_configs: Optional[Sequence['outputs.ClusterInstanceTypeConfig']] = None,
-             launch_specifications: Optional['outputs.ClusterInstanceFleetProvisioningSpecifications'] = None,
-             name: Optional[str] = None,
-             target_on_demand_capacity: Optional[int] = None,
-             target_spot_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_type_configs is not None:
-            _setter("instance_type_configs", instance_type_configs)
+            pulumi.set(__self__, "instance_type_configs", instance_type_configs)
         if launch_specifications is not None:
-            _setter("launch_specifications", launch_specifications)
+            pulumi.set(__self__, "launch_specifications", launch_specifications)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if target_on_demand_capacity is not None:
-            _setter("target_on_demand_capacity", target_on_demand_capacity)
+            pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
         if target_spot_capacity is not None:
-            _setter("target_spot_capacity", target_spot_capacity)
+            pulumi.set(__self__, "target_spot_capacity", target_spot_capacity)
 
     @property
     @pulumi.getter(name="instanceTypeConfigs")
@@ -796,21 +641,10 @@ class ClusterInstanceFleetProvisioningSpecifications(dict):
     def __init__(__self__, *,
                  on_demand_specification: Optional['outputs.ClusterOnDemandProvisioningSpecification'] = None,
                  spot_specification: Optional['outputs.ClusterSpotProvisioningSpecification'] = None):
-        ClusterInstanceFleetProvisioningSpecifications._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_demand_specification=on_demand_specification,
-            spot_specification=spot_specification,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_demand_specification: Optional['outputs.ClusterOnDemandProvisioningSpecification'] = None,
-             spot_specification: Optional['outputs.ClusterSpotProvisioningSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if on_demand_specification is not None:
-            _setter("on_demand_specification", on_demand_specification)
+            pulumi.set(__self__, "on_demand_specification", on_demand_specification)
         if spot_specification is not None:
-            _setter("spot_specification", spot_specification)
+            pulumi.set(__self__, "spot_specification", spot_specification)
 
     @property
     @pulumi.getter(name="onDemandSpecification")
@@ -862,47 +696,22 @@ class ClusterInstanceGroupConfig(dict):
                  ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
                  market: Optional[str] = None,
                  name: Optional[str] = None):
-        ClusterInstanceGroupConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_count=instance_count,
-            instance_type=instance_type,
-            auto_scaling_policy=auto_scaling_policy,
-            bid_price=bid_price,
-            configurations=configurations,
-            custom_ami_id=custom_ami_id,
-            ebs_configuration=ebs_configuration,
-            market=market,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_count: int,
-             instance_type: str,
-             auto_scaling_policy: Optional['outputs.ClusterAutoScalingPolicy'] = None,
-             bid_price: Optional[str] = None,
-             configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None,
-             custom_ami_id: Optional[str] = None,
-             ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
-             market: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_count", instance_count)
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
         if auto_scaling_policy is not None:
-            _setter("auto_scaling_policy", auto_scaling_policy)
+            pulumi.set(__self__, "auto_scaling_policy", auto_scaling_policy)
         if bid_price is not None:
-            _setter("bid_price", bid_price)
+            pulumi.set(__self__, "bid_price", bid_price)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
         if custom_ami_id is not None:
-            _setter("custom_ami_id", custom_ami_id)
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
-            _setter("ebs_configuration", ebs_configuration)
+            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if market is not None:
-            _setter("market", market)
+            pulumi.set(__self__, "market", market)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="instanceCount")
@@ -987,40 +796,19 @@ class ClusterInstanceTypeConfig(dict):
                  custom_ami_id: Optional[str] = None,
                  ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
                  weighted_capacity: Optional[int] = None):
-        ClusterInstanceTypeConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_type=instance_type,
-            bid_price=bid_price,
-            bid_price_as_percentage_of_on_demand_price=bid_price_as_percentage_of_on_demand_price,
-            configurations=configurations,
-            custom_ami_id=custom_ami_id,
-            ebs_configuration=ebs_configuration,
-            weighted_capacity=weighted_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_type: str,
-             bid_price: Optional[str] = None,
-             bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
-             configurations: Optional[Sequence['outputs.ClusterConfiguration']] = None,
-             custom_ami_id: Optional[str] = None,
-             ebs_configuration: Optional['outputs.ClusterEbsConfiguration'] = None,
-             weighted_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
-            _setter("bid_price", bid_price)
+            pulumi.set(__self__, "bid_price", bid_price)
         if bid_price_as_percentage_of_on_demand_price is not None:
-            _setter("bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
         if custom_ami_id is not None:
-            _setter("custom_ami_id", custom_ami_id)
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
-            _setter("ebs_configuration", ebs_configuration)
+            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if weighted_capacity is not None:
-            _setter("weighted_capacity", weighted_capacity)
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -1128,85 +916,42 @@ class ClusterJobFlowInstancesConfig(dict):
                  task_instance_fleets: Optional[Sequence['outputs.ClusterInstanceFleetConfig']] = None,
                  task_instance_groups: Optional[Sequence['outputs.ClusterInstanceGroupConfig']] = None,
                  termination_protected: Optional[bool] = None):
-        ClusterJobFlowInstancesConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_master_security_groups=additional_master_security_groups,
-            additional_slave_security_groups=additional_slave_security_groups,
-            core_instance_fleet=core_instance_fleet,
-            core_instance_group=core_instance_group,
-            ec2_key_name=ec2_key_name,
-            ec2_subnet_id=ec2_subnet_id,
-            ec2_subnet_ids=ec2_subnet_ids,
-            emr_managed_master_security_group=emr_managed_master_security_group,
-            emr_managed_slave_security_group=emr_managed_slave_security_group,
-            hadoop_version=hadoop_version,
-            keep_job_flow_alive_when_no_steps=keep_job_flow_alive_when_no_steps,
-            master_instance_fleet=master_instance_fleet,
-            master_instance_group=master_instance_group,
-            placement=placement,
-            service_access_security_group=service_access_security_group,
-            task_instance_fleets=task_instance_fleets,
-            task_instance_groups=task_instance_groups,
-            termination_protected=termination_protected,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_master_security_groups: Optional[Sequence[str]] = None,
-             additional_slave_security_groups: Optional[Sequence[str]] = None,
-             core_instance_fleet: Optional['outputs.ClusterInstanceFleetConfig'] = None,
-             core_instance_group: Optional['outputs.ClusterInstanceGroupConfig'] = None,
-             ec2_key_name: Optional[str] = None,
-             ec2_subnet_id: Optional[str] = None,
-             ec2_subnet_ids: Optional[Sequence[str]] = None,
-             emr_managed_master_security_group: Optional[str] = None,
-             emr_managed_slave_security_group: Optional[str] = None,
-             hadoop_version: Optional[str] = None,
-             keep_job_flow_alive_when_no_steps: Optional[bool] = None,
-             master_instance_fleet: Optional['outputs.ClusterInstanceFleetConfig'] = None,
-             master_instance_group: Optional['outputs.ClusterInstanceGroupConfig'] = None,
-             placement: Optional['outputs.ClusterPlacementType'] = None,
-             service_access_security_group: Optional[str] = None,
-             task_instance_fleets: Optional[Sequence['outputs.ClusterInstanceFleetConfig']] = None,
-             task_instance_groups: Optional[Sequence['outputs.ClusterInstanceGroupConfig']] = None,
-             termination_protected: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if additional_master_security_groups is not None:
-            _setter("additional_master_security_groups", additional_master_security_groups)
+            pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
         if additional_slave_security_groups is not None:
-            _setter("additional_slave_security_groups", additional_slave_security_groups)
+            pulumi.set(__self__, "additional_slave_security_groups", additional_slave_security_groups)
         if core_instance_fleet is not None:
-            _setter("core_instance_fleet", core_instance_fleet)
+            pulumi.set(__self__, "core_instance_fleet", core_instance_fleet)
         if core_instance_group is not None:
-            _setter("core_instance_group", core_instance_group)
+            pulumi.set(__self__, "core_instance_group", core_instance_group)
         if ec2_key_name is not None:
-            _setter("ec2_key_name", ec2_key_name)
+            pulumi.set(__self__, "ec2_key_name", ec2_key_name)
         if ec2_subnet_id is not None:
-            _setter("ec2_subnet_id", ec2_subnet_id)
+            pulumi.set(__self__, "ec2_subnet_id", ec2_subnet_id)
         if ec2_subnet_ids is not None:
-            _setter("ec2_subnet_ids", ec2_subnet_ids)
+            pulumi.set(__self__, "ec2_subnet_ids", ec2_subnet_ids)
         if emr_managed_master_security_group is not None:
-            _setter("emr_managed_master_security_group", emr_managed_master_security_group)
+            pulumi.set(__self__, "emr_managed_master_security_group", emr_managed_master_security_group)
         if emr_managed_slave_security_group is not None:
-            _setter("emr_managed_slave_security_group", emr_managed_slave_security_group)
+            pulumi.set(__self__, "emr_managed_slave_security_group", emr_managed_slave_security_group)
         if hadoop_version is not None:
-            _setter("hadoop_version", hadoop_version)
+            pulumi.set(__self__, "hadoop_version", hadoop_version)
         if keep_job_flow_alive_when_no_steps is not None:
-            _setter("keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
+            pulumi.set(__self__, "keep_job_flow_alive_when_no_steps", keep_job_flow_alive_when_no_steps)
         if master_instance_fleet is not None:
-            _setter("master_instance_fleet", master_instance_fleet)
+            pulumi.set(__self__, "master_instance_fleet", master_instance_fleet)
         if master_instance_group is not None:
-            _setter("master_instance_group", master_instance_group)
+            pulumi.set(__self__, "master_instance_group", master_instance_group)
         if placement is not None:
-            _setter("placement", placement)
+            pulumi.set(__self__, "placement", placement)
         if service_access_security_group is not None:
-            _setter("service_access_security_group", service_access_security_group)
+            pulumi.set(__self__, "service_access_security_group", service_access_security_group)
         if task_instance_fleets is not None:
-            _setter("task_instance_fleets", task_instance_fleets)
+            pulumi.set(__self__, "task_instance_fleets", task_instance_fleets)
         if task_instance_groups is not None:
-            _setter("task_instance_groups", task_instance_groups)
+            pulumi.set(__self__, "task_instance_groups", task_instance_groups)
         if termination_protected is not None:
-            _setter("termination_protected", termination_protected)
+            pulumi.set(__self__, "termination_protected", termination_protected)
 
     @property
     @pulumi.getter(name="additionalMasterSecurityGroups")
@@ -1330,31 +1075,14 @@ class ClusterKerberosAttributes(dict):
                  ad_domain_join_password: Optional[str] = None,
                  ad_domain_join_user: Optional[str] = None,
                  cross_realm_trust_principal_password: Optional[str] = None):
-        ClusterKerberosAttributes._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kdc_admin_password=kdc_admin_password,
-            realm=realm,
-            ad_domain_join_password=ad_domain_join_password,
-            ad_domain_join_user=ad_domain_join_user,
-            cross_realm_trust_principal_password=cross_realm_trust_principal_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kdc_admin_password: str,
-             realm: str,
-             ad_domain_join_password: Optional[str] = None,
-             ad_domain_join_user: Optional[str] = None,
-             cross_realm_trust_principal_password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("kdc_admin_password", kdc_admin_password)
-        _setter("realm", realm)
+        pulumi.set(__self__, "kdc_admin_password", kdc_admin_password)
+        pulumi.set(__self__, "realm", realm)
         if ad_domain_join_password is not None:
-            _setter("ad_domain_join_password", ad_domain_join_password)
+            pulumi.set(__self__, "ad_domain_join_password", ad_domain_join_password)
         if ad_domain_join_user is not None:
-            _setter("ad_domain_join_user", ad_domain_join_user)
+            pulumi.set(__self__, "ad_domain_join_user", ad_domain_join_user)
         if cross_realm_trust_principal_password is not None:
-            _setter("cross_realm_trust_principal_password", cross_realm_trust_principal_password)
+            pulumi.set(__self__, "cross_realm_trust_principal_password", cross_realm_trust_principal_password)
 
     @property
     @pulumi.getter(name="kdcAdminPassword")
@@ -1387,21 +1115,10 @@ class ClusterKeyValue(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        ClusterKeyValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1435,17 +1152,8 @@ class ClusterManagedScalingPolicy(dict):
 
     def __init__(__self__, *,
                  compute_limits: Optional['outputs.ClusterComputeLimits'] = None):
-        ClusterManagedScalingPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_limits=compute_limits,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_limits: Optional['outputs.ClusterComputeLimits'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_limits is not None:
-            _setter("compute_limits", compute_limits)
+            pulumi.set(__self__, "compute_limits", compute_limits)
 
     @property
     @pulumi.getter(name="computeLimits")
@@ -1458,19 +1166,8 @@ class ClusterMetricDimension(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ClusterMetricDimension._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1504,16 +1201,7 @@ class ClusterOnDemandProvisioningSpecification(dict):
 
     def __init__(__self__, *,
                  allocation_strategy: str):
-        ClusterOnDemandProvisioningSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_strategy=allocation_strategy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_strategy: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allocation_strategy", allocation_strategy)
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -1542,16 +1230,7 @@ class ClusterPlacementType(dict):
 
     def __init__(__self__, *,
                  availability_zone: str):
-        ClusterPlacementType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("availability_zone", availability_zone)
+        pulumi.set(__self__, "availability_zone", availability_zone)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -1581,20 +1260,9 @@ class ClusterScalingAction(dict):
     def __init__(__self__, *,
                  simple_scaling_policy_configuration: 'outputs.ClusterSimpleScalingPolicyConfiguration',
                  market: Optional[str] = None):
-        ClusterScalingAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            simple_scaling_policy_configuration=simple_scaling_policy_configuration,
-            market=market,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             simple_scaling_policy_configuration: 'outputs.ClusterSimpleScalingPolicyConfiguration',
-             market: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("simple_scaling_policy_configuration", simple_scaling_policy_configuration)
+        pulumi.set(__self__, "simple_scaling_policy_configuration", simple_scaling_policy_configuration)
         if market is not None:
-            _setter("market", market)
+            pulumi.set(__self__, "market", market)
 
     @property
     @pulumi.getter(name="simpleScalingPolicyConfiguration")
@@ -1631,19 +1299,8 @@ class ClusterScalingConstraints(dict):
     def __init__(__self__, *,
                  max_capacity: int,
                  min_capacity: int):
-        ClusterScalingConstraints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_capacity=max_capacity,
-            min_capacity=min_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_capacity: int,
-             min_capacity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_capacity", max_capacity)
-        _setter("min_capacity", min_capacity)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -1663,26 +1320,11 @@ class ClusterScalingRule(dict):
                  name: str,
                  trigger: 'outputs.ClusterScalingTrigger',
                  description: Optional[str] = None):
-        ClusterScalingRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            name=name,
-            trigger=trigger,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: 'outputs.ClusterScalingAction',
-             name: str,
-             trigger: 'outputs.ClusterScalingTrigger',
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("name", name)
-        _setter("trigger", trigger)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trigger", trigger)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -1726,16 +1368,7 @@ class ClusterScalingTrigger(dict):
 
     def __init__(__self__, *,
                  cloud_watch_alarm_definition: 'outputs.ClusterCloudWatchAlarmDefinition'):
-        ClusterScalingTrigger._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_alarm_definition=cloud_watch_alarm_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_alarm_definition: 'outputs.ClusterCloudWatchAlarmDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch_alarm_definition", cloud_watch_alarm_definition)
+        pulumi.set(__self__, "cloud_watch_alarm_definition", cloud_watch_alarm_definition)
 
     @property
     @pulumi.getter(name="cloudWatchAlarmDefinition")
@@ -1748,20 +1381,9 @@ class ClusterScriptBootstrapActionConfig(dict):
     def __init__(__self__, *,
                  path: str,
                  args: Optional[Sequence[str]] = None):
-        ClusterScriptBootstrapActionConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            path=path,
-            args=args,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             path: str,
-             args: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("path", path)
+        pulumi.set(__self__, "path", path)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
 
     @property
     @pulumi.getter
@@ -1801,24 +1423,11 @@ class ClusterSimpleScalingPolicyConfiguration(dict):
                  scaling_adjustment: int,
                  adjustment_type: Optional[str] = None,
                  cool_down: Optional[int] = None):
-        ClusterSimpleScalingPolicyConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scaling_adjustment=scaling_adjustment,
-            adjustment_type=adjustment_type,
-            cool_down=cool_down,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scaling_adjustment: int,
-             adjustment_type: Optional[str] = None,
-             cool_down: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("scaling_adjustment", scaling_adjustment)
+        pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if adjustment_type is not None:
-            _setter("adjustment_type", adjustment_type)
+            pulumi.set(__self__, "adjustment_type", adjustment_type)
         if cool_down is not None:
-            _setter("cool_down", cool_down)
+            pulumi.set(__self__, "cool_down", cool_down)
 
     @property
     @pulumi.getter(name="scalingAdjustment")
@@ -1866,27 +1475,12 @@ class ClusterSpotProvisioningSpecification(dict):
                  timeout_duration_minutes: int,
                  allocation_strategy: Optional[str] = None,
                  block_duration_minutes: Optional[int] = None):
-        ClusterSpotProvisioningSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timeout_action=timeout_action,
-            timeout_duration_minutes=timeout_duration_minutes,
-            allocation_strategy=allocation_strategy,
-            block_duration_minutes=block_duration_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timeout_action: str,
-             timeout_duration_minutes: int,
-             allocation_strategy: Optional[str] = None,
-             block_duration_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("timeout_action", timeout_action)
-        _setter("timeout_duration_minutes", timeout_duration_minutes)
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
         if allocation_strategy is not None:
-            _setter("allocation_strategy", allocation_strategy)
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         if block_duration_minutes is not None:
-            _setter("block_duration_minutes", block_duration_minutes)
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
 
     @property
     @pulumi.getter(name="timeoutAction")
@@ -1934,23 +1528,10 @@ class ClusterStepConfig(dict):
                  hadoop_jar_step: 'outputs.ClusterHadoopJarStepConfig',
                  name: str,
                  action_on_failure: Optional[str] = None):
-        ClusterStepConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hadoop_jar_step=hadoop_jar_step,
-            name=name,
-            action_on_failure=action_on_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hadoop_jar_step: 'outputs.ClusterHadoopJarStepConfig',
-             name: str,
-             action_on_failure: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hadoop_jar_step", hadoop_jar_step)
-        _setter("name", name)
+        pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
+        pulumi.set(__self__, "name", name)
         if action_on_failure is not None:
-            _setter("action_on_failure", action_on_failure)
+            pulumi.set(__self__, "action_on_failure", action_on_failure)
 
     @property
     @pulumi.getter(name="hadoopJarStep")
@@ -1973,19 +1554,8 @@ class ClusterTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ClusterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2024,27 +1594,12 @@ class ClusterVolumeSpecification(dict):
                  volume_type: str,
                  iops: Optional[int] = None,
                  throughput: Optional[int] = None):
-        ClusterVolumeSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gb=size_in_gb,
-            volume_type=volume_type,
-            iops=iops,
-            throughput=throughput,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gb: int,
-             volume_type: str,
-             iops: Optional[int] = None,
-             throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_gb", size_in_gb)
-        _setter("volume_type", volume_type)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        pulumi.set(__self__, "volume_type", volume_type)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -2090,25 +1645,12 @@ class InstanceFleetConfigConfiguration(dict):
                  classification: Optional[str] = None,
                  configuration_properties: Optional[Any] = None,
                  configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None):
-        InstanceFleetConfigConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            classification=classification,
-            configuration_properties=configuration_properties,
-            configurations=configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             classification: Optional[str] = None,
-             configuration_properties: Optional[Any] = None,
-             configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if classification is not None:
-            _setter("classification", classification)
+            pulumi.set(__self__, "classification", classification)
         if configuration_properties is not None:
-            _setter("configuration_properties", configuration_properties)
+            pulumi.set(__self__, "configuration_properties", configuration_properties)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
 
     @property
     @pulumi.getter
@@ -2150,20 +1692,9 @@ class InstanceFleetConfigEbsBlockDeviceConfig(dict):
     def __init__(__self__, *,
                  volume_specification: 'outputs.InstanceFleetConfigVolumeSpecification',
                  volumes_per_instance: Optional[int] = None):
-        InstanceFleetConfigEbsBlockDeviceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            volume_specification=volume_specification,
-            volumes_per_instance=volumes_per_instance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             volume_specification: 'outputs.InstanceFleetConfigVolumeSpecification',
-             volumes_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("volume_specification", volume_specification)
+        pulumi.set(__self__, "volume_specification", volume_specification)
         if volumes_per_instance is not None:
-            _setter("volumes_per_instance", volumes_per_instance)
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter(name="volumeSpecification")
@@ -2200,21 +1731,10 @@ class InstanceFleetConfigEbsConfiguration(dict):
     def __init__(__self__, *,
                  ebs_block_device_configs: Optional[Sequence['outputs.InstanceFleetConfigEbsBlockDeviceConfig']] = None,
                  ebs_optimized: Optional[bool] = None):
-        InstanceFleetConfigEbsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_block_device_configs=ebs_block_device_configs,
-            ebs_optimized=ebs_optimized,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_block_device_configs: Optional[Sequence['outputs.InstanceFleetConfigEbsBlockDeviceConfig']] = None,
-             ebs_optimized: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ebs_block_device_configs is not None:
-            _setter("ebs_block_device_configs", ebs_block_device_configs)
+            pulumi.set(__self__, "ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
-            _setter("ebs_optimized", ebs_optimized)
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
 
     @property
     @pulumi.getter(name="ebsBlockDeviceConfigs")
@@ -2251,21 +1771,10 @@ class InstanceFleetConfigInstanceFleetProvisioningSpecifications(dict):
     def __init__(__self__, *,
                  on_demand_specification: Optional['outputs.InstanceFleetConfigOnDemandProvisioningSpecification'] = None,
                  spot_specification: Optional['outputs.InstanceFleetConfigSpotProvisioningSpecification'] = None):
-        InstanceFleetConfigInstanceFleetProvisioningSpecifications._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_demand_specification=on_demand_specification,
-            spot_specification=spot_specification,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_demand_specification: Optional['outputs.InstanceFleetConfigOnDemandProvisioningSpecification'] = None,
-             spot_specification: Optional['outputs.InstanceFleetConfigSpotProvisioningSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if on_demand_specification is not None:
-            _setter("on_demand_specification", on_demand_specification)
+            pulumi.set(__self__, "on_demand_specification", on_demand_specification)
         if spot_specification is not None:
-            _setter("spot_specification", spot_specification)
+            pulumi.set(__self__, "spot_specification", spot_specification)
 
     @property
     @pulumi.getter(name="onDemandSpecification")
@@ -2315,40 +1824,19 @@ class InstanceFleetConfigInstanceTypeConfig(dict):
                  custom_ami_id: Optional[str] = None,
                  ebs_configuration: Optional['outputs.InstanceFleetConfigEbsConfiguration'] = None,
                  weighted_capacity: Optional[int] = None):
-        InstanceFleetConfigInstanceTypeConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_type=instance_type,
-            bid_price=bid_price,
-            bid_price_as_percentage_of_on_demand_price=bid_price_as_percentage_of_on_demand_price,
-            configurations=configurations,
-            custom_ami_id=custom_ami_id,
-            ebs_configuration=ebs_configuration,
-            weighted_capacity=weighted_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_type: str,
-             bid_price: Optional[str] = None,
-             bid_price_as_percentage_of_on_demand_price: Optional[float] = None,
-             configurations: Optional[Sequence['outputs.InstanceFleetConfigConfiguration']] = None,
-             custom_ami_id: Optional[str] = None,
-             ebs_configuration: Optional['outputs.InstanceFleetConfigEbsConfiguration'] = None,
-             weighted_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
-            _setter("bid_price", bid_price)
+            pulumi.set(__self__, "bid_price", bid_price)
         if bid_price_as_percentage_of_on_demand_price is not None:
-            _setter("bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
+            pulumi.set(__self__, "bid_price_as_percentage_of_on_demand_price", bid_price_as_percentage_of_on_demand_price)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
         if custom_ami_id is not None:
-            _setter("custom_ami_id", custom_ami_id)
+            pulumi.set(__self__, "custom_ami_id", custom_ami_id)
         if ebs_configuration is not None:
-            _setter("ebs_configuration", ebs_configuration)
+            pulumi.set(__self__, "ebs_configuration", ebs_configuration)
         if weighted_capacity is not None:
-            _setter("weighted_capacity", weighted_capacity)
+            pulumi.set(__self__, "weighted_capacity", weighted_capacity)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2407,16 +1895,7 @@ class InstanceFleetConfigOnDemandProvisioningSpecification(dict):
 
     def __init__(__self__, *,
                  allocation_strategy: str):
-        InstanceFleetConfigOnDemandProvisioningSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_strategy=allocation_strategy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_strategy: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allocation_strategy", allocation_strategy)
+        pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
@@ -2454,27 +1933,12 @@ class InstanceFleetConfigSpotProvisioningSpecification(dict):
                  timeout_duration_minutes: int,
                  allocation_strategy: Optional[str] = None,
                  block_duration_minutes: Optional[int] = None):
-        InstanceFleetConfigSpotProvisioningSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timeout_action=timeout_action,
-            timeout_duration_minutes=timeout_duration_minutes,
-            allocation_strategy=allocation_strategy,
-            block_duration_minutes=block_duration_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timeout_action: str,
-             timeout_duration_minutes: int,
-             allocation_strategy: Optional[str] = None,
-             block_duration_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("timeout_action", timeout_action)
-        _setter("timeout_duration_minutes", timeout_duration_minutes)
+        pulumi.set(__self__, "timeout_action", timeout_action)
+        pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
         if allocation_strategy is not None:
-            _setter("allocation_strategy", allocation_strategy)
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         if block_duration_minutes is not None:
-            _setter("block_duration_minutes", block_duration_minutes)
+            pulumi.set(__self__, "block_duration_minutes", block_duration_minutes)
 
     @property
     @pulumi.getter(name="timeoutAction")
@@ -2523,27 +1987,12 @@ class InstanceFleetConfigVolumeSpecification(dict):
                  volume_type: str,
                  iops: Optional[int] = None,
                  throughput: Optional[int] = None):
-        InstanceFleetConfigVolumeSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gb=size_in_gb,
-            volume_type=volume_type,
-            iops=iops,
-            throughput=throughput,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gb: int,
-             volume_type: str,
-             iops: Optional[int] = None,
-             throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_gb", size_in_gb)
-        _setter("volume_type", volume_type)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        pulumi.set(__self__, "volume_type", volume_type)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -2571,19 +2020,8 @@ class InstanceGroupConfigAutoScalingPolicy(dict):
     def __init__(__self__, *,
                  constraints: 'outputs.InstanceGroupConfigScalingConstraints',
                  rules: Sequence['outputs.InstanceGroupConfigScalingRule']):
-        InstanceGroupConfigAutoScalingPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            constraints=constraints,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             constraints: 'outputs.InstanceGroupConfigScalingConstraints',
-             rules: Sequence['outputs.InstanceGroupConfigScalingRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("constraints", constraints)
-        _setter("rules", rules)
+        pulumi.set(__self__, "constraints", constraints)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -2629,45 +2067,20 @@ class InstanceGroupConfigCloudWatchAlarmDefinition(dict):
                  namespace: Optional[str] = None,
                  statistic: Optional[str] = None,
                  unit: Optional[str] = None):
-        InstanceGroupConfigCloudWatchAlarmDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            metric_name=metric_name,
-            period=period,
-            threshold=threshold,
-            dimensions=dimensions,
-            evaluation_periods=evaluation_periods,
-            namespace=namespace,
-            statistic=statistic,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: str,
-             metric_name: str,
-             period: int,
-             threshold: float,
-             dimensions: Optional[Sequence['outputs.InstanceGroupConfigMetricDimension']] = None,
-             evaluation_periods: Optional[int] = None,
-             namespace: Optional[str] = None,
-             statistic: Optional[str] = None,
-             unit: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("metric_name", metric_name)
-        _setter("period", period)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "period", period)
+        pulumi.set(__self__, "threshold", threshold)
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if evaluation_periods is not None:
-            _setter("evaluation_periods", evaluation_periods)
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if statistic is not None:
-            _setter("statistic", statistic)
+            pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -2738,25 +2151,12 @@ class InstanceGroupConfigConfiguration(dict):
                  classification: Optional[str] = None,
                  configuration_properties: Optional[Any] = None,
                  configurations: Optional[Sequence['outputs.InstanceGroupConfigConfiguration']] = None):
-        InstanceGroupConfigConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            classification=classification,
-            configuration_properties=configuration_properties,
-            configurations=configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             classification: Optional[str] = None,
-             configuration_properties: Optional[Any] = None,
-             configurations: Optional[Sequence['outputs.InstanceGroupConfigConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if classification is not None:
-            _setter("classification", classification)
+            pulumi.set(__self__, "classification", classification)
         if configuration_properties is not None:
-            _setter("configuration_properties", configuration_properties)
+            pulumi.set(__self__, "configuration_properties", configuration_properties)
         if configurations is not None:
-            _setter("configurations", configurations)
+            pulumi.set(__self__, "configurations", configurations)
 
     @property
     @pulumi.getter
@@ -2798,20 +2198,9 @@ class InstanceGroupConfigEbsBlockDeviceConfig(dict):
     def __init__(__self__, *,
                  volume_specification: 'outputs.InstanceGroupConfigVolumeSpecification',
                  volumes_per_instance: Optional[int] = None):
-        InstanceGroupConfigEbsBlockDeviceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            volume_specification=volume_specification,
-            volumes_per_instance=volumes_per_instance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             volume_specification: 'outputs.InstanceGroupConfigVolumeSpecification',
-             volumes_per_instance: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("volume_specification", volume_specification)
+        pulumi.set(__self__, "volume_specification", volume_specification)
         if volumes_per_instance is not None:
-            _setter("volumes_per_instance", volumes_per_instance)
+            pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
 
     @property
     @pulumi.getter(name="volumeSpecification")
@@ -2848,21 +2237,10 @@ class InstanceGroupConfigEbsConfiguration(dict):
     def __init__(__self__, *,
                  ebs_block_device_configs: Optional[Sequence['outputs.InstanceGroupConfigEbsBlockDeviceConfig']] = None,
                  ebs_optimized: Optional[bool] = None):
-        InstanceGroupConfigEbsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_block_device_configs=ebs_block_device_configs,
-            ebs_optimized=ebs_optimized,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_block_device_configs: Optional[Sequence['outputs.InstanceGroupConfigEbsBlockDeviceConfig']] = None,
-             ebs_optimized: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ebs_block_device_configs is not None:
-            _setter("ebs_block_device_configs", ebs_block_device_configs)
+            pulumi.set(__self__, "ebs_block_device_configs", ebs_block_device_configs)
         if ebs_optimized is not None:
-            _setter("ebs_optimized", ebs_optimized)
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
 
     @property
     @pulumi.getter(name="ebsBlockDeviceConfigs")
@@ -2880,19 +2258,8 @@ class InstanceGroupConfigMetricDimension(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        InstanceGroupConfigMetricDimension._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2927,20 +2294,9 @@ class InstanceGroupConfigScalingAction(dict):
     def __init__(__self__, *,
                  simple_scaling_policy_configuration: 'outputs.InstanceGroupConfigSimpleScalingPolicyConfiguration',
                  market: Optional[str] = None):
-        InstanceGroupConfigScalingAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            simple_scaling_policy_configuration=simple_scaling_policy_configuration,
-            market=market,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             simple_scaling_policy_configuration: 'outputs.InstanceGroupConfigSimpleScalingPolicyConfiguration',
-             market: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("simple_scaling_policy_configuration", simple_scaling_policy_configuration)
+        pulumi.set(__self__, "simple_scaling_policy_configuration", simple_scaling_policy_configuration)
         if market is not None:
-            _setter("market", market)
+            pulumi.set(__self__, "market", market)
 
     @property
     @pulumi.getter(name="simpleScalingPolicyConfiguration")
@@ -2977,19 +2333,8 @@ class InstanceGroupConfigScalingConstraints(dict):
     def __init__(__self__, *,
                  max_capacity: int,
                  min_capacity: int):
-        InstanceGroupConfigScalingConstraints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_capacity=max_capacity,
-            min_capacity=min_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_capacity: int,
-             min_capacity: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_capacity", max_capacity)
-        _setter("min_capacity", min_capacity)
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -3009,26 +2354,11 @@ class InstanceGroupConfigScalingRule(dict):
                  name: str,
                  trigger: 'outputs.InstanceGroupConfigScalingTrigger',
                  description: Optional[str] = None):
-        InstanceGroupConfigScalingRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            name=name,
-            trigger=trigger,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: 'outputs.InstanceGroupConfigScalingAction',
-             name: str,
-             trigger: 'outputs.InstanceGroupConfigScalingTrigger',
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("name", name)
-        _setter("trigger", trigger)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "trigger", trigger)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -3072,16 +2402,7 @@ class InstanceGroupConfigScalingTrigger(dict):
 
     def __init__(__self__, *,
                  cloud_watch_alarm_definition: 'outputs.InstanceGroupConfigCloudWatchAlarmDefinition'):
-        InstanceGroupConfigScalingTrigger._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_alarm_definition=cloud_watch_alarm_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_alarm_definition: 'outputs.InstanceGroupConfigCloudWatchAlarmDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch_alarm_definition", cloud_watch_alarm_definition)
+        pulumi.set(__self__, "cloud_watch_alarm_definition", cloud_watch_alarm_definition)
 
     @property
     @pulumi.getter(name="cloudWatchAlarmDefinition")
@@ -3116,24 +2437,11 @@ class InstanceGroupConfigSimpleScalingPolicyConfiguration(dict):
                  scaling_adjustment: int,
                  adjustment_type: Optional[str] = None,
                  cool_down: Optional[int] = None):
-        InstanceGroupConfigSimpleScalingPolicyConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scaling_adjustment=scaling_adjustment,
-            adjustment_type=adjustment_type,
-            cool_down=cool_down,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scaling_adjustment: int,
-             adjustment_type: Optional[str] = None,
-             cool_down: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("scaling_adjustment", scaling_adjustment)
+        pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if adjustment_type is not None:
-            _setter("adjustment_type", adjustment_type)
+            pulumi.set(__self__, "adjustment_type", adjustment_type)
         if cool_down is not None:
-            _setter("cool_down", cool_down)
+            pulumi.set(__self__, "cool_down", cool_down)
 
     @property
     @pulumi.getter(name="scalingAdjustment")
@@ -3177,27 +2485,12 @@ class InstanceGroupConfigVolumeSpecification(dict):
                  volume_type: str,
                  iops: Optional[int] = None,
                  throughput: Optional[int] = None):
-        InstanceGroupConfigVolumeSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gb=size_in_gb,
-            volume_type=volume_type,
-            iops=iops,
-            throughput=throughput,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gb: int,
-             volume_type: str,
-             iops: Optional[int] = None,
-             throughput: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_gb", size_in_gb)
-        _setter("volume_type", volume_type)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        pulumi.set(__self__, "volume_type", volume_type)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -3246,28 +2539,13 @@ class StepHadoopJarStepConfig(dict):
                  args: Optional[Sequence[str]] = None,
                  main_class: Optional[str] = None,
                  step_properties: Optional[Sequence['outputs.StepKeyValue']] = None):
-        StepHadoopJarStepConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            jar=jar,
-            args=args,
-            main_class=main_class,
-            step_properties=step_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             jar: str,
-             args: Optional[Sequence[str]] = None,
-             main_class: Optional[str] = None,
-             step_properties: Optional[Sequence['outputs.StepKeyValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("jar", jar)
+        pulumi.set(__self__, "jar", jar)
         if args is not None:
-            _setter("args", args)
+            pulumi.set(__self__, "args", args)
         if main_class is not None:
-            _setter("main_class", main_class)
+            pulumi.set(__self__, "main_class", main_class)
         if step_properties is not None:
-            _setter("step_properties", step_properties)
+            pulumi.set(__self__, "step_properties", step_properties)
 
     @property
     @pulumi.getter
@@ -3295,21 +2573,10 @@ class StepKeyValue(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        StepKeyValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3335,19 +2602,8 @@ class StudioTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        StudioTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3379,19 +2635,8 @@ class WalWorkspaceTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        WalWorkspaceTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

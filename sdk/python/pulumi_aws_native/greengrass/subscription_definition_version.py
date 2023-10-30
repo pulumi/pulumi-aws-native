@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class SubscriptionDefinitionVersionInitArgs:
         """
         The set of arguments for constructing a SubscriptionDefinitionVersion resource.
         """
-        SubscriptionDefinitionVersionInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subscription_definition_id=subscription_definition_id,
-            subscriptions=subscriptions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subscription_definition_id: pulumi.Input[str],
-             subscriptions: pulumi.Input[Sequence[pulumi.Input['SubscriptionDefinitionVersionSubscriptionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subscription_definition_id", subscription_definition_id)
-        _setter("subscriptions", subscriptions)
+        pulumi.set(__self__, "subscription_definition_id", subscription_definition_id)
+        pulumi.set(__self__, "subscriptions", subscriptions)
 
     @property
     @pulumi.getter(name="subscriptionDefinitionId")
@@ -92,10 +81,6 @@ class SubscriptionDefinitionVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SubscriptionDefinitionVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

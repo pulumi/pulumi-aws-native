@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LoadBalancerTlsCertificateArgs', 'LoadBalancerTlsCertificate']
@@ -29,34 +29,15 @@ class LoadBalancerTlsCertificateArgs:
         :param pulumi.Input[bool] https_redirection_enabled: A Boolean value that indicates whether HTTPS redirection is enabled for the load balancer.
         :param pulumi.Input[bool] is_attached: When true, the SSL/TLS certificate is attached to the Lightsail load balancer.
         """
-        LoadBalancerTlsCertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_domain_name=certificate_domain_name,
-            certificate_name=certificate_name,
-            load_balancer_name=load_balancer_name,
-            certificate_alternative_names=certificate_alternative_names,
-            https_redirection_enabled=https_redirection_enabled,
-            is_attached=is_attached,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_domain_name: pulumi.Input[str],
-             certificate_name: pulumi.Input[str],
-             load_balancer_name: pulumi.Input[str],
-             certificate_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             https_redirection_enabled: Optional[pulumi.Input[bool]] = None,
-             is_attached: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("certificate_domain_name", certificate_domain_name)
-        _setter("certificate_name", certificate_name)
-        _setter("load_balancer_name", load_balancer_name)
+        pulumi.set(__self__, "certificate_domain_name", certificate_domain_name)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if certificate_alternative_names is not None:
-            _setter("certificate_alternative_names", certificate_alternative_names)
+            pulumi.set(__self__, "certificate_alternative_names", certificate_alternative_names)
         if https_redirection_enabled is not None:
-            _setter("https_redirection_enabled", https_redirection_enabled)
+            pulumi.set(__self__, "https_redirection_enabled", https_redirection_enabled)
         if is_attached is not None:
-            _setter("is_attached", is_attached)
+            pulumi.set(__self__, "is_attached", is_attached)
 
     @property
     @pulumi.getter(name="certificateDomainName")
@@ -174,10 +155,6 @@ class LoadBalancerTlsCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoadBalancerTlsCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

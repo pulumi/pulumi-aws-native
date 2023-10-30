@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,19 +42,8 @@ class ApplicationCsvMappingParametersArgs:
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[str],
                  record_row_delimiter: pulumi.Input[str]):
-        ApplicationCsvMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_column_delimiter=record_column_delimiter,
-            record_row_delimiter=record_row_delimiter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_column_delimiter: pulumi.Input[str],
-             record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_column_delimiter", record_column_delimiter)
-        _setter("record_row_delimiter", record_row_delimiter)
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @property
     @pulumi.getter(name="recordColumnDelimiter")
@@ -80,19 +69,8 @@ class ApplicationInputLambdaProcessorArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        ApplicationInputLambdaProcessorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -117,17 +95,8 @@ class ApplicationInputLambdaProcessorArgs:
 class ApplicationInputParallelismArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None):
-        ApplicationInputParallelismArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
 
     @property
     @pulumi.getter
@@ -143,17 +112,8 @@ class ApplicationInputParallelismArgs:
 class ApplicationInputProcessingConfigurationArgs:
     def __init__(__self__, *,
                  input_lambda_processor: Optional[pulumi.Input['ApplicationInputLambdaProcessorArgs']] = None):
-        ApplicationInputProcessingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_lambda_processor=input_lambda_processor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_lambda_processor: Optional[pulumi.Input['ApplicationInputLambdaProcessorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if input_lambda_processor is not None:
-            _setter("input_lambda_processor", input_lambda_processor)
+            pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
 
     @property
     @pulumi.getter(name="inputLambdaProcessor")
@@ -171,23 +131,10 @@ class ApplicationInputSchemaArgs:
                  record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]],
                  record_format: pulumi.Input['ApplicationRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[str]] = None):
-        ApplicationInputSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_columns=record_columns,
-            record_format=record_format,
-            record_encoding=record_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationRecordColumnArgs']]],
-             record_format: pulumi.Input['ApplicationRecordFormatArgs'],
-             record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_columns", record_columns)
-        _setter("record_format", record_format)
+        pulumi.set(__self__, "record_columns", record_columns)
+        pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
-            _setter("record_encoding", record_encoding)
+            pulumi.set(__self__, "record_encoding", record_encoding)
 
     @property
     @pulumi.getter(name="recordColumns")
@@ -226,35 +173,16 @@ class ApplicationInputArgs:
                  input_processing_configuration: Optional[pulumi.Input['ApplicationInputProcessingConfigurationArgs']] = None,
                  kinesis_firehose_input: Optional[pulumi.Input['ApplicationKinesisFirehoseInputArgs']] = None,
                  kinesis_streams_input: Optional[pulumi.Input['ApplicationKinesisStreamsInputArgs']] = None):
-        ApplicationInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_schema=input_schema,
-            name_prefix=name_prefix,
-            input_parallelism=input_parallelism,
-            input_processing_configuration=input_processing_configuration,
-            kinesis_firehose_input=kinesis_firehose_input,
-            kinesis_streams_input=kinesis_streams_input,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_schema: pulumi.Input['ApplicationInputSchemaArgs'],
-             name_prefix: pulumi.Input[str],
-             input_parallelism: Optional[pulumi.Input['ApplicationInputParallelismArgs']] = None,
-             input_processing_configuration: Optional[pulumi.Input['ApplicationInputProcessingConfigurationArgs']] = None,
-             kinesis_firehose_input: Optional[pulumi.Input['ApplicationKinesisFirehoseInputArgs']] = None,
-             kinesis_streams_input: Optional[pulumi.Input['ApplicationKinesisStreamsInputArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_schema", input_schema)
-        _setter("name_prefix", name_prefix)
+        pulumi.set(__self__, "input_schema", input_schema)
+        pulumi.set(__self__, "name_prefix", name_prefix)
         if input_parallelism is not None:
-            _setter("input_parallelism", input_parallelism)
+            pulumi.set(__self__, "input_parallelism", input_parallelism)
         if input_processing_configuration is not None:
-            _setter("input_processing_configuration", input_processing_configuration)
+            pulumi.set(__self__, "input_processing_configuration", input_processing_configuration)
         if kinesis_firehose_input is not None:
-            _setter("kinesis_firehose_input", kinesis_firehose_input)
+            pulumi.set(__self__, "kinesis_firehose_input", kinesis_firehose_input)
         if kinesis_streams_input is not None:
-            _setter("kinesis_streams_input", kinesis_streams_input)
+            pulumi.set(__self__, "kinesis_streams_input", kinesis_streams_input)
 
     @property
     @pulumi.getter(name="inputSchema")
@@ -315,16 +243,7 @@ class ApplicationInputArgs:
 class ApplicationJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[str]):
-        ApplicationJsonMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_row_path=record_row_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_row_path", record_row_path)
+        pulumi.set(__self__, "record_row_path", record_row_path)
 
     @property
     @pulumi.getter(name="recordRowPath")
@@ -341,19 +260,8 @@ class ApplicationKinesisFirehoseInputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        ApplicationKinesisFirehoseInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -379,19 +287,8 @@ class ApplicationKinesisStreamsInputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        ApplicationKinesisStreamsInputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -417,21 +314,10 @@ class ApplicationMappingParametersArgs:
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']] = None,
                  json_mapping_parameters: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']] = None):
-        ApplicationMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv_mapping_parameters=csv_mapping_parameters,
-            json_mapping_parameters=json_mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv_mapping_parameters: Optional[pulumi.Input['ApplicationCsvMappingParametersArgs']] = None,
-             json_mapping_parameters: Optional[pulumi.Input['ApplicationJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if csv_mapping_parameters is not None:
-            _setter("csv_mapping_parameters", csv_mapping_parameters)
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
-            _setter("json_mapping_parameters", json_mapping_parameters)
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
     @pulumi.getter(name="csvMappingParameters")
@@ -456,17 +342,8 @@ class ApplicationMappingParametersArgs:
 class ApplicationOutputResourceDestinationSchemaArgs:
     def __init__(__self__, *,
                  record_format_type: Optional[pulumi.Input[str]] = None):
-        ApplicationOutputResourceDestinationSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if record_format_type is not None:
-            _setter("record_format_type", record_format_type)
+            pulumi.set(__self__, "record_format_type", record_format_type)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -483,19 +360,8 @@ class ApplicationOutputResourceKinesisFirehoseOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        ApplicationOutputResourceKinesisFirehoseOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -521,19 +387,8 @@ class ApplicationOutputResourceKinesisStreamsOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        ApplicationOutputResourceKinesisStreamsOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -559,19 +414,8 @@ class ApplicationOutputResourceLambdaOutputArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        ApplicationOutputResourceLambdaOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -600,32 +444,15 @@ class ApplicationOutputResourceOutputArgs:
                  kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
                  lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        ApplicationOutputResourceOutputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_schema=destination_schema,
-            kinesis_firehose_output=kinesis_firehose_output,
-            kinesis_streams_output=kinesis_streams_output,
-            lambda_output=lambda_output,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_schema: pulumi.Input['ApplicationOutputResourceDestinationSchemaArgs'],
-             kinesis_firehose_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisFirehoseOutputArgs']] = None,
-             kinesis_streams_output: Optional[pulumi.Input['ApplicationOutputResourceKinesisStreamsOutputArgs']] = None,
-             lambda_output: Optional[pulumi.Input['ApplicationOutputResourceLambdaOutputArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_schema", destination_schema)
+        pulumi.set(__self__, "destination_schema", destination_schema)
         if kinesis_firehose_output is not None:
-            _setter("kinesis_firehose_output", kinesis_firehose_output)
+            pulumi.set(__self__, "kinesis_firehose_output", kinesis_firehose_output)
         if kinesis_streams_output is not None:
-            _setter("kinesis_streams_output", kinesis_streams_output)
+            pulumi.set(__self__, "kinesis_streams_output", kinesis_streams_output)
         if lambda_output is not None:
-            _setter("lambda_output", lambda_output)
+            pulumi.set(__self__, "lambda_output", lambda_output)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="destinationSchema")
@@ -679,23 +506,10 @@ class ApplicationRecordColumnArgs:
                  name: pulumi.Input[str],
                  sql_type: pulumi.Input[str],
                  mapping: Optional[pulumi.Input[str]] = None):
-        ApplicationRecordColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            sql_type=sql_type,
-            mapping=mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             sql_type: pulumi.Input[str],
-             mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("sql_type", sql_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
-            _setter("mapping", mapping)
+            pulumi.set(__self__, "mapping", mapping)
 
     @property
     @pulumi.getter
@@ -730,20 +544,9 @@ class ApplicationRecordFormatArgs:
     def __init__(__self__, *,
                  record_format_type: pulumi.Input[str],
                  mapping_parameters: Optional[pulumi.Input['ApplicationMappingParametersArgs']] = None):
-        ApplicationRecordFormatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-            mapping_parameters=mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: pulumi.Input[str],
-             mapping_parameters: Optional[pulumi.Input['ApplicationMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "record_format_type", record_format_type)
         if mapping_parameters is not None:
-            _setter("mapping_parameters", mapping_parameters)
+            pulumi.set(__self__, "mapping_parameters", mapping_parameters)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -769,19 +572,8 @@ class ApplicationReferenceDataSourceCsvMappingParametersArgs:
     def __init__(__self__, *,
                  record_column_delimiter: pulumi.Input[str],
                  record_row_delimiter: pulumi.Input[str]):
-        ApplicationReferenceDataSourceCsvMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_column_delimiter=record_column_delimiter,
-            record_row_delimiter=record_row_delimiter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_column_delimiter: pulumi.Input[str],
-             record_row_delimiter: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_column_delimiter", record_column_delimiter)
-        _setter("record_row_delimiter", record_row_delimiter)
+        pulumi.set(__self__, "record_column_delimiter", record_column_delimiter)
+        pulumi.set(__self__, "record_row_delimiter", record_row_delimiter)
 
     @property
     @pulumi.getter(name="recordColumnDelimiter")
@@ -806,16 +598,7 @@ class ApplicationReferenceDataSourceCsvMappingParametersArgs:
 class ApplicationReferenceDataSourceJsonMappingParametersArgs:
     def __init__(__self__, *,
                  record_row_path: pulumi.Input[str]):
-        ApplicationReferenceDataSourceJsonMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_row_path=record_row_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_row_path: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_row_path", record_row_path)
+        pulumi.set(__self__, "record_row_path", record_row_path)
 
     @property
     @pulumi.getter(name="recordRowPath")
@@ -832,21 +615,10 @@ class ApplicationReferenceDataSourceMappingParametersArgs:
     def __init__(__self__, *,
                  csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
                  json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None):
-        ApplicationReferenceDataSourceMappingParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            csv_mapping_parameters=csv_mapping_parameters,
-            json_mapping_parameters=json_mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             csv_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceCsvMappingParametersArgs']] = None,
-             json_mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceJsonMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if csv_mapping_parameters is not None:
-            _setter("csv_mapping_parameters", csv_mapping_parameters)
+            pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
         if json_mapping_parameters is not None:
-            _setter("json_mapping_parameters", json_mapping_parameters)
+            pulumi.set(__self__, "json_mapping_parameters", json_mapping_parameters)
 
     @property
     @pulumi.getter(name="csvMappingParameters")
@@ -873,23 +645,10 @@ class ApplicationReferenceDataSourceRecordColumnArgs:
                  name: pulumi.Input[str],
                  sql_type: pulumi.Input[str],
                  mapping: Optional[pulumi.Input[str]] = None):
-        ApplicationReferenceDataSourceRecordColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            sql_type=sql_type,
-            mapping=mapping,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             sql_type: pulumi.Input[str],
-             mapping: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("sql_type", sql_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_type", sql_type)
         if mapping is not None:
-            _setter("mapping", mapping)
+            pulumi.set(__self__, "mapping", mapping)
 
     @property
     @pulumi.getter
@@ -924,20 +683,9 @@ class ApplicationReferenceDataSourceRecordFormatArgs:
     def __init__(__self__, *,
                  record_format_type: pulumi.Input[str],
                  mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceMappingParametersArgs']] = None):
-        ApplicationReferenceDataSourceRecordFormatArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_format_type=record_format_type,
-            mapping_parameters=mapping_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_format_type: pulumi.Input[str],
-             mapping_parameters: Optional[pulumi.Input['ApplicationReferenceDataSourceMappingParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_format_type", record_format_type)
+        pulumi.set(__self__, "record_format_type", record_format_type)
         if mapping_parameters is not None:
-            _setter("mapping_parameters", mapping_parameters)
+            pulumi.set(__self__, "mapping_parameters", mapping_parameters)
 
     @property
     @pulumi.getter(name="recordFormatType")
@@ -964,24 +712,11 @@ class ApplicationReferenceDataSourceReferenceDataSourceArgs:
                  reference_schema: pulumi.Input['ApplicationReferenceDataSourceReferenceSchemaArgs'],
                  s3_reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
-        ApplicationReferenceDataSourceReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reference_schema=reference_schema,
-            s3_reference_data_source=s3_reference_data_source,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reference_schema: pulumi.Input['ApplicationReferenceDataSourceReferenceSchemaArgs'],
-             s3_reference_data_source: Optional[pulumi.Input['ApplicationReferenceDataSourceS3ReferenceDataSourceArgs']] = None,
-             table_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("reference_schema", reference_schema)
+        pulumi.set(__self__, "reference_schema", reference_schema)
         if s3_reference_data_source is not None:
-            _setter("s3_reference_data_source", s3_reference_data_source)
+            pulumi.set(__self__, "s3_reference_data_source", s3_reference_data_source)
         if table_name is not None:
-            _setter("table_name", table_name)
+            pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="referenceSchema")
@@ -1017,23 +752,10 @@ class ApplicationReferenceDataSourceReferenceSchemaArgs:
                  record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationReferenceDataSourceRecordColumnArgs']]],
                  record_format: pulumi.Input['ApplicationReferenceDataSourceRecordFormatArgs'],
                  record_encoding: Optional[pulumi.Input[str]] = None):
-        ApplicationReferenceDataSourceReferenceSchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            record_columns=record_columns,
-            record_format=record_format,
-            record_encoding=record_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationReferenceDataSourceRecordColumnArgs']]],
-             record_format: pulumi.Input['ApplicationReferenceDataSourceRecordFormatArgs'],
-             record_encoding: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("record_columns", record_columns)
-        _setter("record_format", record_format)
+        pulumi.set(__self__, "record_columns", record_columns)
+        pulumi.set(__self__, "record_format", record_format)
         if record_encoding is not None:
-            _setter("record_encoding", record_encoding)
+            pulumi.set(__self__, "record_encoding", record_encoding)
 
     @property
     @pulumi.getter(name="recordColumns")
@@ -1069,22 +791,9 @@ class ApplicationReferenceDataSourceS3ReferenceDataSourceArgs:
                  bucket_arn: pulumi.Input[str],
                  file_key: pulumi.Input[str],
                  reference_role_arn: pulumi.Input[str]):
-        ApplicationReferenceDataSourceS3ReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            file_key=file_key,
-            reference_role_arn=reference_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             file_key: pulumi.Input[str],
-             reference_role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
-        _setter("file_key", file_key)
-        _setter("reference_role_arn", reference_role_arn)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "file_key", file_key)
+        pulumi.set(__self__, "reference_role_arn", reference_role_arn)
 
     @property
     @pulumi.getter(name="bucketArn")

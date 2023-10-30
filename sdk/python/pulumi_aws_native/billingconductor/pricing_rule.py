@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,55 +41,26 @@ class PricingRuleArgs:
         :param pulumi.Input['TieringPropertiesArgs'] tiering: The set of tiering configurations for the pricing rule.
         :param pulumi.Input[str] usage_type: The UsageType which a SKU pricing rule is modifying
         """
-        PricingRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scope=scope,
-            type=type,
-            billing_entity=billing_entity,
-            description=description,
-            modifier_percentage=modifier_percentage,
-            name=name,
-            operation=operation,
-            service=service,
-            tags=tags,
-            tiering=tiering,
-            usage_type=usage_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scope: pulumi.Input['PricingRuleScope'],
-             type: pulumi.Input['PricingRuleType'],
-             billing_entity: Optional[pulumi.Input['PricingRuleBillingEntity']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             modifier_percentage: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             operation: Optional[pulumi.Input[str]] = None,
-             service: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PricingRuleTagArgs']]]] = None,
-             tiering: Optional[pulumi.Input['TieringPropertiesArgs']] = None,
-             usage_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("scope", scope)
-        _setter("type", type)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "type", type)
         if billing_entity is not None:
-            _setter("billing_entity", billing_entity)
+            pulumi.set(__self__, "billing_entity", billing_entity)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if modifier_percentage is not None:
-            _setter("modifier_percentage", modifier_percentage)
+            pulumi.set(__self__, "modifier_percentage", modifier_percentage)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if operation is not None:
-            _setter("operation", operation)
+            pulumi.set(__self__, "operation", operation)
         if service is not None:
-            _setter("service", service)
+            pulumi.set(__self__, "service", service)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if tiering is not None:
-            _setter("tiering", tiering)
+            pulumi.set(__self__, "tiering", tiering)
         if usage_type is not None:
-            _setter("usage_type", usage_type)
+            pulumi.set(__self__, "usage_type", usage_type)
 
     @property
     @pulumi.getter
@@ -278,10 +249,6 @@ class PricingRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PricingRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -318,11 +285,6 @@ class PricingRule(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["service"] = service
             __props__.__dict__["tags"] = tags
-            if tiering is not None and not isinstance(tiering, TieringPropertiesArgs):
-                tiering = tiering or {}
-                def _setter(key, value):
-                    tiering[key] = value
-                TieringPropertiesArgs._configure(_setter, **tiering)
             __props__.__dict__["tiering"] = tiering
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")

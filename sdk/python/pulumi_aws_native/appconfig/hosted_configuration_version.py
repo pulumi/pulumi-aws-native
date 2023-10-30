@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HostedConfigurationVersionArgs', 'HostedConfigurationVersion']
@@ -24,37 +24,16 @@ class HostedConfigurationVersionArgs:
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
         """
-        HostedConfigurationVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            configuration_profile_id=configuration_profile_id,
-            content=content,
-            content_type=content_type,
-            description=description,
-            latest_version_number=latest_version_number,
-            version_label=version_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             configuration_profile_id: pulumi.Input[str],
-             content: pulumi.Input[str],
-             content_type: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             latest_version_number: Optional[pulumi.Input[float]] = None,
-             version_label: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_id", application_id)
-        _setter("configuration_profile_id", configuration_profile_id)
-        _setter("content", content)
-        _setter("content_type", content_type)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "content_type", content_type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if latest_version_number is not None:
-            _setter("latest_version_number", latest_version_number)
+            pulumi.set(__self__, "latest_version_number", latest_version_number)
         if version_label is not None:
-            _setter("version_label", version_label)
+            pulumi.set(__self__, "version_label", version_label)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -163,10 +142,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HostedConfigurationVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

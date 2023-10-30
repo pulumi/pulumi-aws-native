@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,27 +28,12 @@ class ProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_ids: List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.
         :param pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        ProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            as2_id=as2_id,
-            profile_type=profile_type,
-            certificate_ids=certificate_ids,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             as2_id: pulumi.Input[str],
-             profile_type: pulumi.Input['ProfileType'],
-             certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("as2_id", as2_id)
-        _setter("profile_type", profile_type)
+        pulumi.set(__self__, "as2_id", as2_id)
+        pulumi.set(__self__, "profile_type", profile_type)
         if certificate_ids is not None:
-            _setter("certificate_ids", certificate_ids)
+            pulumi.set(__self__, "certificate_ids", certificate_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="as2Id")
@@ -138,10 +123,6 @@ class Profile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

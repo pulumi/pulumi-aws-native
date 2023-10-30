@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EipAssociationArgs', 'EipAssociation']
@@ -27,33 +27,16 @@ class EipAssociationArgs:
         :param pulumi.Input[str] network_interface_id: The ID of the network interface.
         :param pulumi.Input[str] private_ip_address: The primary or secondary private IP address to associate with the Elastic IP address.
         """
-        EipAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allocation_id=allocation_id,
-            eip=eip,
-            instance_id=instance_id,
-            network_interface_id=network_interface_id,
-            private_ip_address=private_ip_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allocation_id: Optional[pulumi.Input[str]] = None,
-             eip: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             network_interface_id: Optional[pulumi.Input[str]] = None,
-             private_ip_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allocation_id is not None:
-            _setter("allocation_id", allocation_id)
+            pulumi.set(__self__, "allocation_id", allocation_id)
         if eip is not None:
-            _setter("eip", eip)
+            pulumi.set(__self__, "eip", eip)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if network_interface_id is not None:
-            _setter("network_interface_id", network_interface_id)
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
         if private_ip_address is not None:
-            _setter("private_ip_address", private_ip_address)
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -157,10 +140,6 @@ class EipAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EipAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

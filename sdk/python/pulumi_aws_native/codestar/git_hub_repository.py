@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,43 +27,20 @@ class GitHubRepositoryArgs:
         """
         The set of arguments for constructing a GitHubRepository resource.
         """
-        GitHubRepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository_name=repository_name,
-            repository_owner=repository_owner,
-            code=code,
-            connection_arn=connection_arn,
-            enable_issues=enable_issues,
-            is_private=is_private,
-            repository_access_token=repository_access_token,
-            repository_description=repository_description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository_name: pulumi.Input[str],
-             repository_owner: pulumi.Input[str],
-             code: Optional[pulumi.Input['GitHubRepositoryCodeArgs']] = None,
-             connection_arn: Optional[pulumi.Input[str]] = None,
-             enable_issues: Optional[pulumi.Input[bool]] = None,
-             is_private: Optional[pulumi.Input[bool]] = None,
-             repository_access_token: Optional[pulumi.Input[str]] = None,
-             repository_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("repository_name", repository_name)
-        _setter("repository_owner", repository_owner)
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "repository_owner", repository_owner)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if connection_arn is not None:
-            _setter("connection_arn", connection_arn)
+            pulumi.set(__self__, "connection_arn", connection_arn)
         if enable_issues is not None:
-            _setter("enable_issues", enable_issues)
+            pulumi.set(__self__, "enable_issues", enable_issues)
         if is_private is not None:
-            _setter("is_private", is_private)
+            pulumi.set(__self__, "is_private", is_private)
         if repository_access_token is not None:
-            _setter("repository_access_token", repository_access_token)
+            pulumi.set(__self__, "repository_access_token", repository_access_token)
         if repository_description is not None:
-            _setter("repository_description", repository_description)
+            pulumi.set(__self__, "repository_description", repository_description)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -182,10 +159,6 @@ class GitHubRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GitHubRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -209,11 +182,6 @@ class GitHubRepository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GitHubRepositoryArgs.__new__(GitHubRepositoryArgs)
 
-            if code is not None and not isinstance(code, GitHubRepositoryCodeArgs):
-                code = code or {}
-                def _setter(key, value):
-                    code[key] = value
-                GitHubRepositoryCodeArgs._configure(_setter, **code)
             __props__.__dict__["code"] = code
             __props__.__dict__["connection_arn"] = connection_arn
             __props__.__dict__["enable_issues"] = enable_issues

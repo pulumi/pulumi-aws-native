@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -42,52 +42,21 @@ class ReportDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalSchemaElementsItem']]] additional_schema_elements: A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs.
         :param pulumi.Input[str] billing_view_arn: The Amazon resource name of the billing view. You can get this value by using the billing view service public APIs.
         """
-        ReportDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compression=compression,
-            format=format,
-            refresh_closed_reports=refresh_closed_reports,
-            report_name=report_name,
-            report_versioning=report_versioning,
-            s3_bucket=s3_bucket,
-            s3_prefix=s3_prefix,
-            s3_region=s3_region,
-            time_unit=time_unit,
-            additional_artifacts=additional_artifacts,
-            additional_schema_elements=additional_schema_elements,
-            billing_view_arn=billing_view_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compression: pulumi.Input['ReportDefinitionCompression'],
-             format: pulumi.Input['ReportDefinitionFormat'],
-             refresh_closed_reports: pulumi.Input[bool],
-             report_name: pulumi.Input[str],
-             report_versioning: pulumi.Input['ReportDefinitionReportVersioning'],
-             s3_bucket: pulumi.Input[str],
-             s3_prefix: pulumi.Input[str],
-             s3_region: pulumi.Input[str],
-             time_unit: pulumi.Input['ReportDefinitionTimeUnit'],
-             additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalArtifactsItem']]]] = None,
-             additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input['ReportDefinitionAdditionalSchemaElementsItem']]]] = None,
-             billing_view_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("compression", compression)
-        _setter("format", format)
-        _setter("refresh_closed_reports", refresh_closed_reports)
-        _setter("report_name", report_name)
-        _setter("report_versioning", report_versioning)
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_prefix", s3_prefix)
-        _setter("s3_region", s3_region)
-        _setter("time_unit", time_unit)
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "format", format)
+        pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
+        pulumi.set(__self__, "report_name", report_name)
+        pulumi.set(__self__, "report_versioning", report_versioning)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_prefix", s3_prefix)
+        pulumi.set(__self__, "s3_region", s3_region)
+        pulumi.set(__self__, "time_unit", time_unit)
         if additional_artifacts is not None:
-            _setter("additional_artifacts", additional_artifacts)
+            pulumi.set(__self__, "additional_artifacts", additional_artifacts)
         if additional_schema_elements is not None:
-            _setter("additional_schema_elements", additional_schema_elements)
+            pulumi.set(__self__, "additional_schema_elements", additional_schema_elements)
         if billing_view_arn is not None:
-            _setter("billing_view_arn", billing_view_arn)
+            pulumi.set(__self__, "billing_view_arn", billing_view_arn)
 
     @property
     @pulumi.getter
@@ -294,10 +263,6 @@ class ReportDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReportDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

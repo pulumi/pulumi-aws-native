@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -42,17 +42,8 @@ class ConnectAttachmentOptionsArgs:
         Connect attachment options for protocol
         :param pulumi.Input[str] protocol: Tunnel protocol for connect attachment
         """
-        ConnectAttachmentOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             protocol: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -79,25 +70,12 @@ class ConnectAttachmentProposedSegmentChangeArgs:
         :param pulumi.Input[str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]] tags: The list of key-value tags that changed for the segment.
         """
-        ConnectAttachmentProposedSegmentChangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attachment_policy_rule_number=attachment_policy_rule_number,
-            segment_name=segment_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
-             segment_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attachment_policy_rule_number is not None:
-            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
-            _setter("segment_name", segment_name)
+            pulumi.set(__self__, "segment_name", segment_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
@@ -146,19 +124,8 @@ class ConnectAttachmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ConnectAttachmentTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -192,17 +159,8 @@ class ConnectPeerBgpOptionsArgs:
         """
         Bgp options
         """
-        ConnectPeerBgpOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            peer_asn=peer_asn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             peer_asn: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if peer_asn is not None:
-            _setter("peer_asn", peer_asn)
+            pulumi.set(__self__, "peer_asn", peer_asn)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -224,19 +182,8 @@ class ConnectPeerTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ConnectPeerTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -273,19 +220,8 @@ class CoreNetworkTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        CoreNetworkTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -322,21 +258,10 @@ class DeviceAwsLocationArgs:
         :param pulumi.Input[str] subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
         :param pulumi.Input[str] zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
-        DeviceAwsLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_arn=subnet_arn,
-            zone=zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_arn: Optional[pulumi.Input[str]] = None,
-             zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if subnet_arn is not None:
-            _setter("subnet_arn", subnet_arn)
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
         if zone is not None:
-            _setter("zone", zone)
+            pulumi.set(__self__, "zone", zone)
 
     @property
     @pulumi.getter(name="subnetArn")
@@ -375,25 +300,12 @@ class DeviceLocationArgs:
         :param pulumi.Input[str] latitude: The latitude.
         :param pulumi.Input[str] longitude: The longitude.
         """
-        DeviceLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            latitude=latitude,
-            longitude=longitude,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             latitude: Optional[pulumi.Input[str]] = None,
-             longitude: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if latitude is not None:
-            _setter("latitude", latitude)
+            pulumi.set(__self__, "latitude", latitude)
         if longitude is not None:
-            _setter("longitude", longitude)
+            pulumi.set(__self__, "longitude", longitude)
 
     @property
     @pulumi.getter
@@ -442,19 +354,8 @@ class DeviceTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        DeviceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -491,19 +392,8 @@ class GlobalNetworkTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        GlobalNetworkTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -540,21 +430,10 @@ class LinkBandwidthArgs:
         :param pulumi.Input[int] download_speed: Download speed in Mbps.
         :param pulumi.Input[int] upload_speed: Upload speed in Mbps.
         """
-        LinkBandwidthArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            download_speed=download_speed,
-            upload_speed=upload_speed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             download_speed: Optional[pulumi.Input[int]] = None,
-             upload_speed: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if download_speed is not None:
-            _setter("download_speed", download_speed)
+            pulumi.set(__self__, "download_speed", download_speed)
         if upload_speed is not None:
-            _setter("upload_speed", upload_speed)
+            pulumi.set(__self__, "upload_speed", upload_speed)
 
     @property
     @pulumi.getter(name="downloadSpeed")
@@ -591,19 +470,8 @@ class LinkTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        LinkTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -642,25 +510,12 @@ class SiteLocationArgs:
         :param pulumi.Input[str] latitude: The latitude.
         :param pulumi.Input[str] longitude: The longitude.
         """
-        SiteLocationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            latitude=latitude,
-            longitude=longitude,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             latitude: Optional[pulumi.Input[str]] = None,
-             longitude: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if latitude is not None:
-            _setter("latitude", latitude)
+            pulumi.set(__self__, "latitude", latitude)
         if longitude is not None:
-            _setter("longitude", longitude)
+            pulumi.set(__self__, "longitude", longitude)
 
     @property
     @pulumi.getter
@@ -709,19 +564,8 @@ class SiteTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        SiteTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -760,25 +604,12 @@ class SiteToSiteVpnAttachmentProposedSegmentChangeArgs:
         :param pulumi.Input[str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
         """
-        SiteToSiteVpnAttachmentProposedSegmentChangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attachment_policy_rule_number=attachment_policy_rule_number,
-            segment_name=segment_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
-             segment_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteToSiteVpnAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attachment_policy_rule_number is not None:
-            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
-            _setter("segment_name", segment_name)
+            pulumi.set(__self__, "segment_name", segment_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
@@ -827,19 +658,8 @@ class SiteToSiteVpnAttachmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        SiteToSiteVpnAttachmentTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -876,19 +696,8 @@ class TransitGatewayPeeringTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        TransitGatewayPeeringTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -927,25 +736,12 @@ class TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs:
         :param pulumi.Input[str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
         """
-        TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attachment_policy_rule_number=attachment_policy_rule_number,
-            segment_name=segment_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
-             segment_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attachment_policy_rule_number is not None:
-            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
-            _setter("segment_name", segment_name)
+            pulumi.set(__self__, "segment_name", segment_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
@@ -994,19 +790,8 @@ class TransitGatewayRouteTableAttachmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        TransitGatewayRouteTableAttachmentTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1045,25 +830,12 @@ class VpcAttachmentProposedSegmentChangeArgs:
         :param pulumi.Input[str] segment_name: The name of the segment to change.
         :param pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]] tags: The key-value tags that changed for the segment.
         """
-        VpcAttachmentProposedSegmentChangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attachment_policy_rule_number=attachment_policy_rule_number,
-            segment_name=segment_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
-             segment_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcAttachmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attachment_policy_rule_number is not None:
-            _setter("attachment_policy_rule_number", attachment_policy_rule_number)
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
         if segment_name is not None:
-            _setter("segment_name", segment_name)
+            pulumi.set(__self__, "segment_name", segment_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="attachmentPolicyRuleNumber")
@@ -1112,19 +884,8 @@ class VpcAttachmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        VpcAttachmentTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1161,21 +922,10 @@ class VpcAttachmentVpcOptionsArgs:
         :param pulumi.Input[bool] appliance_mode_support: Indicates whether to enable ApplianceModeSupport Support for Vpc Attachment. Valid Values: true | false
         :param pulumi.Input[bool] ipv6_support: Indicates whether to enable Ipv6 Support for Vpc Attachment. Valid Values: enable | disable
         """
-        VpcAttachmentVpcOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            appliance_mode_support=appliance_mode_support,
-            ipv6_support=ipv6_support,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             appliance_mode_support: Optional[pulumi.Input[bool]] = None,
-             ipv6_support: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if appliance_mode_support is not None:
-            _setter("appliance_mode_support", appliance_mode_support)
+            pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
         if ipv6_support is not None:
-            _setter("ipv6_support", ipv6_support)
+            pulumi.set(__self__, "ipv6_support", ipv6_support)
 
     @property
     @pulumi.getter(name="applianceModeSupport")

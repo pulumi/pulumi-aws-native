@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,36 +31,17 @@ class DiskArgs:
         :param pulumi.Input[str] disk_name: The names to use for your new Lightsail disk.
         :param pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        DiskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gb=size_in_gb,
-            add_ons=add_ons,
-            availability_zone=availability_zone,
-            disk_name=disk_name,
-            location=location,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gb: pulumi.Input[int],
-             add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['DiskAddOnArgs']]]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             disk_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input['DiskLocationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_gb", size_in_gb)
+        pulumi.set(__self__, "size_in_gb", size_in_gb)
         if add_ons is not None:
-            _setter("add_ons", add_ons)
+            pulumi.set(__self__, "add_ons", add_ons)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if disk_name is not None:
-            _setter("disk_name", disk_name)
+            pulumi.set(__self__, "disk_name", disk_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -174,10 +155,6 @@ class Disk(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DiskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,11 +178,6 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["add_ons"] = add_ons
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["disk_name"] = disk_name
-            if location is not None and not isinstance(location, DiskLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                DiskLocationArgs._configure(_setter, **location)
             __props__.__dict__["location"] = location
             if size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_gb'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserToGroupAdditionArgs', 'UserToGroupAddition']
@@ -19,19 +19,8 @@ class UserToGroupAdditionArgs:
         """
         The set of arguments for constructing a UserToGroupAddition resource.
         """
-        UserToGroupAdditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_name=group_name,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_name: pulumi.Input[str],
-             users: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_name", group_name)
-        _setter("users", users)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="groupName")
@@ -90,10 +79,6 @@ class UserToGroupAddition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserToGroupAdditionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

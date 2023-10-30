@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DomainNameArgs', 'DomainName']
@@ -20,23 +20,10 @@ class DomainNameArgs:
         """
         The set of arguments for constructing a DomainName resource.
         """
-        DomainNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-            domain_name=domain_name,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: pulumi.Input[str],
-             domain_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("certificate_arn", certificate_arn)
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "certificate_arn", certificate_arn)
+        pulumi.set(__self__, "domain_name", domain_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -100,10 +87,6 @@ class DomainName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

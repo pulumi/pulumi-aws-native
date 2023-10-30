@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -43,22 +43,9 @@ class SkillAuthenticationConfiguration(dict):
                  client_id: str,
                  client_secret: str,
                  refresh_token: str):
-        SkillAuthenticationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_id=client_id,
-            client_secret=client_secret,
-            refresh_token=refresh_token,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_id: str,
-             client_secret: str,
-             refresh_token: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("client_id", client_id)
-        _setter("client_secret", client_secret)
-        _setter("refresh_token", refresh_token)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "refresh_token", refresh_token)
 
     @property
     @pulumi.getter(name="clientId")
@@ -80,17 +67,8 @@ class SkillAuthenticationConfiguration(dict):
 class SkillOverrides(dict):
     def __init__(__self__, *,
                  manifest: Optional[Any] = None):
-        SkillOverrides._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest=manifest,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if manifest is not None:
-            _setter("manifest", manifest)
+            pulumi.set(__self__, "manifest", manifest)
 
     @property
     @pulumi.getter
@@ -129,31 +107,14 @@ class SkillPackage(dict):
                  overrides: Optional['outputs.SkillOverrides'] = None,
                  s3_bucket_role: Optional[str] = None,
                  s3_object_version: Optional[str] = None):
-        SkillPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-            overrides=overrides,
-            s3_bucket_role=s3_bucket_role,
-            s3_object_version=s3_object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: str,
-             s3_key: str,
-             overrides: Optional['outputs.SkillOverrides'] = None,
-             s3_bucket_role: Optional[str] = None,
-             s3_object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
         if overrides is not None:
-            _setter("overrides", overrides)
+            pulumi.set(__self__, "overrides", overrides)
         if s3_bucket_role is not None:
-            _setter("s3_bucket_role", s3_bucket_role)
+            pulumi.set(__self__, "s3_bucket_role", s3_bucket_role)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
 
     @property
     @pulumi.getter(name="s3Bucket")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -38,63 +38,30 @@ class StreamProcessorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]] polygon_regions_of_interest: The PolygonRegionsOfInterest specifies a set of polygon areas of interest in the video frames to analyze, as part of connected home feature. Each polygon is in turn, an ordered list of Point
         :param pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        StreamProcessorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kinesis_video_stream=kinesis_video_stream,
-            role_arn=role_arn,
-            bounding_box_regions_of_interest=bounding_box_regions_of_interest,
-            connected_home_settings=connected_home_settings,
-            data_sharing_preference=data_sharing_preference,
-            face_search_settings=face_search_settings,
-            kinesis_data_stream=kinesis_data_stream,
-            kms_key_id=kms_key_id,
-            name=name,
-            notification_channel=notification_channel,
-            polygon_regions_of_interest=polygon_regions_of_interest,
-            s3_destination=s3_destination,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kinesis_video_stream: pulumi.Input['StreamProcessorKinesisVideoStreamArgs'],
-             role_arn: pulumi.Input[str],
-             bounding_box_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorBoundingBoxArgs']]]] = None,
-             connected_home_settings: Optional[pulumi.Input['StreamProcessorConnectedHomeSettingsArgs']] = None,
-             data_sharing_preference: Optional[pulumi.Input['StreamProcessorDataSharingPreferenceArgs']] = None,
-             face_search_settings: Optional[pulumi.Input['StreamProcessorFaceSearchSettingsArgs']] = None,
-             kinesis_data_stream: Optional[pulumi.Input['StreamProcessorKinesisDataStreamArgs']] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             notification_channel: Optional[pulumi.Input['StreamProcessorNotificationChannelArgs']] = None,
-             polygon_regions_of_interest: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['StreamProcessorPointArgs']]]]]] = None,
-             s3_destination: Optional[pulumi.Input['StreamProcessorS3DestinationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamProcessorTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("kinesis_video_stream", kinesis_video_stream)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "kinesis_video_stream", kinesis_video_stream)
+        pulumi.set(__self__, "role_arn", role_arn)
         if bounding_box_regions_of_interest is not None:
-            _setter("bounding_box_regions_of_interest", bounding_box_regions_of_interest)
+            pulumi.set(__self__, "bounding_box_regions_of_interest", bounding_box_regions_of_interest)
         if connected_home_settings is not None:
-            _setter("connected_home_settings", connected_home_settings)
+            pulumi.set(__self__, "connected_home_settings", connected_home_settings)
         if data_sharing_preference is not None:
-            _setter("data_sharing_preference", data_sharing_preference)
+            pulumi.set(__self__, "data_sharing_preference", data_sharing_preference)
         if face_search_settings is not None:
-            _setter("face_search_settings", face_search_settings)
+            pulumi.set(__self__, "face_search_settings", face_search_settings)
         if kinesis_data_stream is not None:
-            _setter("kinesis_data_stream", kinesis_data_stream)
+            pulumi.set(__self__, "kinesis_data_stream", kinesis_data_stream)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if notification_channel is not None:
-            _setter("notification_channel", notification_channel)
+            pulumi.set(__self__, "notification_channel", notification_channel)
         if polygon_regions_of_interest is not None:
-            _setter("polygon_regions_of_interest", polygon_regions_of_interest)
+            pulumi.set(__self__, "polygon_regions_of_interest", polygon_regions_of_interest)
         if s3_destination is not None:
-            _setter("s3_destination", s3_destination)
+            pulumi.set(__self__, "s3_destination", s3_destination)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="kinesisVideoStream")
@@ -282,10 +249,6 @@ class StreamProcessor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StreamProcessorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -314,55 +277,20 @@ class StreamProcessor(pulumi.CustomResource):
             __props__ = StreamProcessorArgs.__new__(StreamProcessorArgs)
 
             __props__.__dict__["bounding_box_regions_of_interest"] = bounding_box_regions_of_interest
-            if connected_home_settings is not None and not isinstance(connected_home_settings, StreamProcessorConnectedHomeSettingsArgs):
-                connected_home_settings = connected_home_settings or {}
-                def _setter(key, value):
-                    connected_home_settings[key] = value
-                StreamProcessorConnectedHomeSettingsArgs._configure(_setter, **connected_home_settings)
             __props__.__dict__["connected_home_settings"] = connected_home_settings
-            if data_sharing_preference is not None and not isinstance(data_sharing_preference, StreamProcessorDataSharingPreferenceArgs):
-                data_sharing_preference = data_sharing_preference or {}
-                def _setter(key, value):
-                    data_sharing_preference[key] = value
-                StreamProcessorDataSharingPreferenceArgs._configure(_setter, **data_sharing_preference)
             __props__.__dict__["data_sharing_preference"] = data_sharing_preference
-            if face_search_settings is not None and not isinstance(face_search_settings, StreamProcessorFaceSearchSettingsArgs):
-                face_search_settings = face_search_settings or {}
-                def _setter(key, value):
-                    face_search_settings[key] = value
-                StreamProcessorFaceSearchSettingsArgs._configure(_setter, **face_search_settings)
             __props__.__dict__["face_search_settings"] = face_search_settings
-            if kinesis_data_stream is not None and not isinstance(kinesis_data_stream, StreamProcessorKinesisDataStreamArgs):
-                kinesis_data_stream = kinesis_data_stream or {}
-                def _setter(key, value):
-                    kinesis_data_stream[key] = value
-                StreamProcessorKinesisDataStreamArgs._configure(_setter, **kinesis_data_stream)
             __props__.__dict__["kinesis_data_stream"] = kinesis_data_stream
-            if kinesis_video_stream is not None and not isinstance(kinesis_video_stream, StreamProcessorKinesisVideoStreamArgs):
-                kinesis_video_stream = kinesis_video_stream or {}
-                def _setter(key, value):
-                    kinesis_video_stream[key] = value
-                StreamProcessorKinesisVideoStreamArgs._configure(_setter, **kinesis_video_stream)
             if kinesis_video_stream is None and not opts.urn:
                 raise TypeError("Missing required property 'kinesis_video_stream'")
             __props__.__dict__["kinesis_video_stream"] = kinesis_video_stream
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
-            if notification_channel is not None and not isinstance(notification_channel, StreamProcessorNotificationChannelArgs):
-                notification_channel = notification_channel or {}
-                def _setter(key, value):
-                    notification_channel[key] = value
-                StreamProcessorNotificationChannelArgs._configure(_setter, **notification_channel)
             __props__.__dict__["notification_channel"] = notification_channel
             __props__.__dict__["polygon_regions_of_interest"] = polygon_regions_of_interest
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if s3_destination is not None and not isinstance(s3_destination, StreamProcessorS3DestinationArgs):
-                s3_destination = s3_destination or {}
-                def _setter(key, value):
-                    s3_destination[key] = value
-                StreamProcessorS3DestinationArgs._configure(_setter, **s3_destination)
             __props__.__dict__["s3_destination"] = s3_destination
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,31 +24,14 @@ class UserPoolRiskConfigurationAttachmentArgs:
         """
         The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
         """
-        UserPoolRiskConfigurationAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_id=client_id,
-            user_pool_id=user_pool_id,
-            account_takeover_risk_configuration=account_takeover_risk_configuration,
-            compromised_credentials_risk_configuration=compromised_credentials_risk_configuration,
-            risk_exception_configuration=risk_exception_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_id: pulumi.Input[str],
-             user_pool_id: pulumi.Input[str],
-             account_takeover_risk_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']] = None,
-             compromised_credentials_risk_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']] = None,
-             risk_exception_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("client_id", client_id)
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if account_takeover_risk_configuration is not None:
-            _setter("account_takeover_risk_configuration", account_takeover_risk_configuration)
+            pulumi.set(__self__, "account_takeover_risk_configuration", account_takeover_risk_configuration)
         if compromised_credentials_risk_configuration is not None:
-            _setter("compromised_credentials_risk_configuration", compromised_credentials_risk_configuration)
+            pulumi.set(__self__, "compromised_credentials_risk_configuration", compromised_credentials_risk_configuration)
         if risk_exception_configuration is not None:
-            _setter("risk_exception_configuration", risk_exception_configuration)
+            pulumi.set(__self__, "risk_exception_configuration", risk_exception_configuration)
 
     @property
     @pulumi.getter(name="clientId")
@@ -137,10 +120,6 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserPoolRiskConfigurationAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,26 +140,11 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserPoolRiskConfigurationAttachmentArgs.__new__(UserPoolRiskConfigurationAttachmentArgs)
 
-            if account_takeover_risk_configuration is not None and not isinstance(account_takeover_risk_configuration, UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs):
-                account_takeover_risk_configuration = account_takeover_risk_configuration or {}
-                def _setter(key, value):
-                    account_takeover_risk_configuration[key] = value
-                UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs._configure(_setter, **account_takeover_risk_configuration)
             __props__.__dict__["account_takeover_risk_configuration"] = account_takeover_risk_configuration
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
-            if compromised_credentials_risk_configuration is not None and not isinstance(compromised_credentials_risk_configuration, UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs):
-                compromised_credentials_risk_configuration = compromised_credentials_risk_configuration or {}
-                def _setter(key, value):
-                    compromised_credentials_risk_configuration[key] = value
-                UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs._configure(_setter, **compromised_credentials_risk_configuration)
             __props__.__dict__["compromised_credentials_risk_configuration"] = compromised_credentials_risk_configuration
-            if risk_exception_configuration is not None and not isinstance(risk_exception_configuration, UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs):
-                risk_exception_configuration = risk_exception_configuration or {}
-                def _setter(key, value):
-                    risk_exception_configuration[key] = value
-                UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs._configure(_setter, **risk_exception_configuration)
             __props__.__dict__["risk_exception_configuration"] = risk_exception_configuration
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")

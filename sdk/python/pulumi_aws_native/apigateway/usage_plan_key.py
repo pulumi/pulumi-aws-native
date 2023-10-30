@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,22 +24,9 @@ class UsagePlanKeyArgs:
         :param pulumi.Input['UsagePlanKeyKeyType'] key_type: The type of a UsagePlanKey resource for a plan customer.
         :param pulumi.Input[str] usage_plan_id: The Id of the UsagePlan resource representing the usage plan containing the UsagePlanKey resource representing a plan customer.
         """
-        UsagePlanKeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_id=key_id,
-            key_type=key_type,
-            usage_plan_id=usage_plan_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_id: pulumi.Input[str],
-             key_type: pulumi.Input['UsagePlanKeyKeyType'],
-             usage_plan_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key_id", key_id)
-        _setter("key_type", key_type)
-        _setter("usage_plan_id", usage_plan_id)
+        pulumi.set(__self__, "key_id", key_id)
+        pulumi.set(__self__, "key_type", key_type)
+        pulumi.set(__self__, "usage_plan_id", usage_plan_id)
 
     @property
     @pulumi.getter(name="keyId")
@@ -115,10 +102,6 @@ class UsagePlanKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UsagePlanKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

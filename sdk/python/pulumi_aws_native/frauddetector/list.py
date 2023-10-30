@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,33 +29,16 @@ class ListArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]] tags: Tags associated with this list.
         :param pulumi.Input[str] variable_type: The variable type of the list.
         """
-        ListArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            elements=elements,
-            name=name,
-            tags=tags,
-            variable_type=variable_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ListTagArgs']]]] = None,
-             variable_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if elements is not None:
-            _setter("elements", elements)
+            pulumi.set(__self__, "elements", elements)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if variable_type is not None:
-            _setter("variable_type", variable_type)
+            pulumi.set(__self__, "variable_type", variable_type)
 
     @property
     @pulumi.getter
@@ -159,10 +142,6 @@ class List(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

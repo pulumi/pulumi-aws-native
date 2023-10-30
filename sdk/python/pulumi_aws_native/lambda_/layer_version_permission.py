@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LayerVersionPermissionArgs', 'LayerVersionPermission']
@@ -25,26 +25,11 @@ class LayerVersionPermissionArgs:
         :param pulumi.Input[str] principal: An account ID, or * to grant layer usage permission to all accounts in an organization, or all AWS accounts (if organizationId is not specified).
         :param pulumi.Input[str] organization_id: With the principal set to *, grant permission to all accounts in the specified organization.
         """
-        LayerVersionPermissionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            layer_version_arn=layer_version_arn,
-            principal=principal,
-            organization_id=organization_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             layer_version_arn: pulumi.Input[str],
-             principal: pulumi.Input[str],
-             organization_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("layer_version_arn", layer_version_arn)
-        _setter("principal", principal)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "layer_version_arn", layer_version_arn)
+        pulumi.set(__self__, "principal", principal)
         if organization_id is not None:
-            _setter("organization_id", organization_id)
+            pulumi.set(__self__, "organization_id", organization_id)
 
     @property
     @pulumi.getter
@@ -134,10 +119,6 @@ class LayerVersionPermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LayerVersionPermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

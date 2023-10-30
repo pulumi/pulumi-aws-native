@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,59 +40,28 @@ class InstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
-        InstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            blueprint_id=blueprint_id,
-            bundle_id=bundle_id,
-            add_ons=add_ons,
-            availability_zone=availability_zone,
-            hardware=hardware,
-            instance_name=instance_name,
-            key_pair_name=key_pair_name,
-            location=location,
-            networking=networking,
-            state=state,
-            tags=tags,
-            user_data=user_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             blueprint_id: pulumi.Input[str],
-             bundle_id: pulumi.Input[str],
-             add_ons: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             hardware: Optional[pulumi.Input['InstanceHardwareArgs']] = None,
-             instance_name: Optional[pulumi.Input[str]] = None,
-             key_pair_name: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input['InstanceLocationArgs']] = None,
-             networking: Optional[pulumi.Input['InstanceNetworkingArgs']] = None,
-             state: Optional[pulumi.Input['InstanceStateArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None,
-             user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("blueprint_id", blueprint_id)
-        _setter("bundle_id", bundle_id)
+        pulumi.set(__self__, "blueprint_id", blueprint_id)
+        pulumi.set(__self__, "bundle_id", bundle_id)
         if add_ons is not None:
-            _setter("add_ons", add_ons)
+            pulumi.set(__self__, "add_ons", add_ons)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if hardware is not None:
-            _setter("hardware", hardware)
+            pulumi.set(__self__, "hardware", hardware)
         if instance_name is not None:
-            _setter("instance_name", instance_name)
+            pulumi.set(__self__, "instance_name", instance_name)
         if key_pair_name is not None:
-            _setter("key_pair_name", key_pair_name)
+            pulumi.set(__self__, "key_pair_name", key_pair_name)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if networking is not None:
-            _setter("networking", networking)
+            pulumi.set(__self__, "networking", networking)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_data is not None:
-            _setter("user_data", user_data)
+            pulumi.set(__self__, "user_data", user_data)
 
     @property
     @pulumi.getter(name="blueprintId")
@@ -278,10 +247,6 @@ class Instance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,31 +281,11 @@ class Instance(pulumi.CustomResource):
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")
             __props__.__dict__["bundle_id"] = bundle_id
-            if hardware is not None and not isinstance(hardware, InstanceHardwareArgs):
-                hardware = hardware or {}
-                def _setter(key, value):
-                    hardware[key] = value
-                InstanceHardwareArgs._configure(_setter, **hardware)
             __props__.__dict__["hardware"] = hardware
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["key_pair_name"] = key_pair_name
-            if location is not None and not isinstance(location, InstanceLocationArgs):
-                location = location or {}
-                def _setter(key, value):
-                    location[key] = value
-                InstanceLocationArgs._configure(_setter, **location)
             __props__.__dict__["location"] = location
-            if networking is not None and not isinstance(networking, InstanceNetworkingArgs):
-                networking = networking or {}
-                def _setter(key, value):
-                    networking[key] = value
-                InstanceNetworkingArgs._configure(_setter, **networking)
             __props__.__dict__["networking"] = networking
-            if state is not None and not isinstance(state, InstanceStateArgs):
-                state = state or {}
-                def _setter(key, value):
-                    state[key] = value
-                InstanceStateArgs._configure(_setter, **state)
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data

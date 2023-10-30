@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -40,52 +40,25 @@ class ApplicationArgs:
         :param pulumi.Input[str] ops_item_sns_topic_arn: The SNS topic provided to Application Insights that is associated to the created opsItem.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: The tags of Application Insights application.
         """
-        ApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_group_name=resource_group_name,
-            auto_configuration_enabled=auto_configuration_enabled,
-            component_monitoring_settings=component_monitoring_settings,
-            custom_components=custom_components,
-            cwe_monitor_enabled=cwe_monitor_enabled,
-            grouping_type=grouping_type,
-            log_pattern_sets=log_pattern_sets,
-            ops_center_enabled=ops_center_enabled,
-            ops_item_sns_topic_arn=ops_item_sns_topic_arn,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_group_name: pulumi.Input[str],
-             auto_configuration_enabled: Optional[pulumi.Input[bool]] = None,
-             component_monitoring_settings: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]] = None,
-             custom_components: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]] = None,
-             cwe_monitor_enabled: Optional[pulumi.Input[bool]] = None,
-             grouping_type: Optional[pulumi.Input['ApplicationGroupingType']] = None,
-             log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]] = None,
-             ops_center_enabled: Optional[pulumi.Input[bool]] = None,
-             ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_group_name", resource_group_name)
+        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_configuration_enabled is not None:
-            _setter("auto_configuration_enabled", auto_configuration_enabled)
+            pulumi.set(__self__, "auto_configuration_enabled", auto_configuration_enabled)
         if component_monitoring_settings is not None:
-            _setter("component_monitoring_settings", component_monitoring_settings)
+            pulumi.set(__self__, "component_monitoring_settings", component_monitoring_settings)
         if custom_components is not None:
-            _setter("custom_components", custom_components)
+            pulumi.set(__self__, "custom_components", custom_components)
         if cwe_monitor_enabled is not None:
-            _setter("cwe_monitor_enabled", cwe_monitor_enabled)
+            pulumi.set(__self__, "cwe_monitor_enabled", cwe_monitor_enabled)
         if grouping_type is not None:
-            _setter("grouping_type", grouping_type)
+            pulumi.set(__self__, "grouping_type", grouping_type)
         if log_pattern_sets is not None:
-            _setter("log_pattern_sets", log_pattern_sets)
+            pulumi.set(__self__, "log_pattern_sets", log_pattern_sets)
         if ops_center_enabled is not None:
-            _setter("ops_center_enabled", ops_center_enabled)
+            pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
         if ops_item_sns_topic_arn is not None:
-            _setter("ops_item_sns_topic_arn", ops_item_sns_topic_arn)
+            pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -259,10 +232,6 @@ class Application(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

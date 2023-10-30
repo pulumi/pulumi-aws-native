@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,37 +31,18 @@ class DhcpOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
         :param pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]] tags: Any tags assigned to the DHCP options set.
         """
-        DhcpOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            domain_name_servers=domain_name_servers,
-            netbios_name_servers=netbios_name_servers,
-            netbios_node_type=netbios_node_type,
-            ntp_servers=ntp_servers,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             netbios_node_type: Optional[pulumi.Input[int]] = None,
-             ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DhcpOptionsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_servers is not None:
-            _setter("domain_name_servers", domain_name_servers)
+            pulumi.set(__self__, "domain_name_servers", domain_name_servers)
         if netbios_name_servers is not None:
-            _setter("netbios_name_servers", netbios_name_servers)
+            pulumi.set(__self__, "netbios_name_servers", netbios_name_servers)
         if netbios_node_type is not None:
-            _setter("netbios_node_type", netbios_node_type)
+            pulumi.set(__self__, "netbios_node_type", netbios_node_type)
         if ntp_servers is not None:
-            _setter("ntp_servers", ntp_servers)
+            pulumi.set(__self__, "ntp_servers", ntp_servers)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -179,10 +160,6 @@ class DhcpOptions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DhcpOptionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

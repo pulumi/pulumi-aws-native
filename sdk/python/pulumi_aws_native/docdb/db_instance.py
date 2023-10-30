@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,43 +27,20 @@ class DbInstanceArgs:
         """
         The set of arguments for constructing a DbInstance resource.
         """
-        DbInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            db_cluster_identifier=db_cluster_identifier,
-            db_instance_class=db_instance_class,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zone=availability_zone,
-            db_instance_identifier=db_instance_identifier,
-            enable_performance_insights=enable_performance_insights,
-            preferred_maintenance_window=preferred_maintenance_window,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             db_cluster_identifier: pulumi.Input[str],
-             db_instance_class: pulumi.Input[str],
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             db_instance_identifier: Optional[pulumi.Input[str]] = None,
-             enable_performance_insights: Optional[pulumi.Input[bool]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DbInstanceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("db_cluster_identifier", db_cluster_identifier)
-        _setter("db_instance_class", db_instance_class)
+        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        pulumi.set(__self__, "db_instance_class", db_instance_class)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if db_instance_identifier is not None:
-            _setter("db_instance_identifier", db_instance_identifier)
+            pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         if enable_performance_insights is not None:
-            _setter("enable_performance_insights", enable_performance_insights)
+            pulumi.set(__self__, "enable_performance_insights", enable_performance_insights)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -182,10 +159,6 @@ class DbInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DbInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

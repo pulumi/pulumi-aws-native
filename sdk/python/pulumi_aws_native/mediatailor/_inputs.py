@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -52,29 +52,14 @@ class ChannelDashPlaylistSettingsArgs:
         :param pulumi.Input[float] min_update_period_seconds: <p>Minimum amount of time (in seconds) that the player should wait before requesting updates to the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
         :param pulumi.Input[float] suggested_presentation_delay_seconds: <p>Amount of time (in seconds) that the player should be from the live point at the end of the manifest. Minimum value: <code>2</code> seconds. Maximum value: <code>60</code> seconds.</p>
         """
-        ChannelDashPlaylistSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_window_seconds=manifest_window_seconds,
-            min_buffer_time_seconds=min_buffer_time_seconds,
-            min_update_period_seconds=min_update_period_seconds,
-            suggested_presentation_delay_seconds=suggested_presentation_delay_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_window_seconds: Optional[pulumi.Input[float]] = None,
-             min_buffer_time_seconds: Optional[pulumi.Input[float]] = None,
-             min_update_period_seconds: Optional[pulumi.Input[float]] = None,
-             suggested_presentation_delay_seconds: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if manifest_window_seconds is not None:
-            _setter("manifest_window_seconds", manifest_window_seconds)
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if min_buffer_time_seconds is not None:
-            _setter("min_buffer_time_seconds", min_buffer_time_seconds)
+            pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
         if min_update_period_seconds is not None:
-            _setter("min_update_period_seconds", min_update_period_seconds)
+            pulumi.set(__self__, "min_update_period_seconds", min_update_period_seconds)
         if suggested_presentation_delay_seconds is not None:
-            _setter("suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+            pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
 
     @property
     @pulumi.getter(name="manifestWindowSeconds")
@@ -135,21 +120,10 @@ class ChannelHlsPlaylistSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]] ad_markup_type: <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
         :param pulumi.Input[float] manifest_window_seconds: <p>The total duration (in seconds) of each manifest. Minimum value: <code>30</code> seconds. Maximum value: <code>3600</code> seconds.</p>
         """
-        ChannelHlsPlaylistSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_markup_type=ad_markup_type,
-            manifest_window_seconds=manifest_window_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_markup_type: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelAdMarkupType']]]] = None,
-             manifest_window_seconds: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_markup_type is not None:
-            _setter("ad_markup_type", ad_markup_type)
+            pulumi.set(__self__, "ad_markup_type", ad_markup_type)
         if manifest_window_seconds is not None:
-            _setter("manifest_window_seconds", manifest_window_seconds)
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
 
     @property
     @pulumi.getter(name="adMarkupType")
@@ -184,17 +158,8 @@ class ChannelLogConfigurationForChannelArgs:
         <p>The log configuration for the channel.</p>
         :param pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]] log_types: <p>The log types.</p>
         """
-        ChannelLogConfigurationForChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_types=log_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_types: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelLogType']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_types is not None:
-            _setter("log_types", log_types)
+            pulumi.set(__self__, "log_types", log_types)
 
     @property
     @pulumi.getter(name="logTypes")
@@ -221,27 +186,12 @@ class ChannelRequestOutputItemArgs:
         :param pulumi.Input[str] manifest_name: <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
         :param pulumi.Input[str] source_group: <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
         """
-        ChannelRequestOutputItemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_name=manifest_name,
-            source_group=source_group,
-            dash_playlist_settings=dash_playlist_settings,
-            hls_playlist_settings=hls_playlist_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_name: pulumi.Input[str],
-             source_group: pulumi.Input[str],
-             dash_playlist_settings: Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']] = None,
-             hls_playlist_settings: Optional[pulumi.Input['ChannelHlsPlaylistSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("manifest_name", manifest_name)
-        _setter("source_group", source_group)
+        pulumi.set(__self__, "manifest_name", manifest_name)
+        pulumi.set(__self__, "source_group", source_group)
         if dash_playlist_settings is not None:
-            _setter("dash_playlist_settings", dash_playlist_settings)
+            pulumi.set(__self__, "dash_playlist_settings", dash_playlist_settings)
         if hls_playlist_settings is not None:
-            _setter("hls_playlist_settings", hls_playlist_settings)
+            pulumi.set(__self__, "hls_playlist_settings", hls_playlist_settings)
 
     @property
     @pulumi.getter(name="manifestName")
@@ -296,21 +246,10 @@ class ChannelSlateSourceArgs:
         :param pulumi.Input[str] source_location_name: <p>The name of the source location where the slate VOD source is stored.</p>
         :param pulumi.Input[str] vod_source_name: <p>The slate VOD source name. The VOD source must already exist in a source location before it can be used for slate.</p>
         """
-        ChannelSlateSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_location_name=source_location_name,
-            vod_source_name=vod_source_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_location_name: Optional[pulumi.Input[str]] = None,
-             vod_source_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if source_location_name is not None:
-            _setter("source_location_name", source_location_name)
+            pulumi.set(__self__, "source_location_name", source_location_name)
         if vod_source_name is not None:
-            _setter("vod_source_name", vod_source_name)
+            pulumi.set(__self__, "vod_source_name", vod_source_name)
 
     @property
     @pulumi.getter(name="sourceLocationName")
@@ -342,19 +281,8 @@ class ChannelTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ChannelTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -386,22 +314,9 @@ class LiveSourceHttpPackageConfigurationArgs:
         :param pulumi.Input[str] path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
         :param pulumi.Input[str] source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
         """
-        LiveSourceHttpPackageConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            path=path,
-            source_group=source_group,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             path: pulumi.Input[str],
-             source_group: pulumi.Input[str],
-             type: pulumi.Input['LiveSourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("path", path)
-        _setter("source_group", source_group)
-        _setter("type", type)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "source_group", source_group)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -442,19 +357,8 @@ class LiveSourceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        LiveSourceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -483,17 +387,8 @@ class PlaybackConfigurationAdMarkerPassthroughArgs:
         For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
         :param pulumi.Input[bool] enabled: Enables ad marker passthrough for your configuration.
         """
-        PlaybackConfigurationAdMarkerPassthroughArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -518,21 +413,10 @@ class PlaybackConfigurationAvailSuppressionArgs:
         :param pulumi.Input['PlaybackConfigurationAvailSuppressionMode'] mode: Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
         :param pulumi.Input[str] value: A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
         """
-        PlaybackConfigurationAvailSuppressionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionMode']] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -569,21 +453,10 @@ class PlaybackConfigurationBumperArgs:
         :param pulumi.Input[str] end_url: The URL for the end bumper asset.
         :param pulumi.Input[str] start_url: The URL for the start bumper asset.
         """
-        PlaybackConfigurationBumperArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_url=end_url,
-            start_url=start_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_url: Optional[pulumi.Input[str]] = None,
-             start_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if end_url is not None:
-            _setter("end_url", end_url)
+            pulumi.set(__self__, "end_url", end_url)
         if start_url is not None:
-            _setter("start_url", start_url)
+            pulumi.set(__self__, "start_url", start_url)
 
     @property
     @pulumi.getter(name="endUrl")
@@ -620,21 +493,10 @@ class PlaybackConfigurationCdnConfigurationArgs:
         :param pulumi.Input[str] ad_segment_url_prefix: A non-default content delivery network (CDN) to serve ad segments. By default, AWS Elemental MediaTailor uses Amazon CloudFront with default cache settings as its CDN for ad segments. To set up an alternate CDN, create a rule in your CDN for the origin ads.mediatailor.&lt;region>.amazonaws.com. Then specify the rule's name in this AdSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for ad segments.
         :param pulumi.Input[str] content_segment_url_prefix: A content delivery network (CDN) to cache content segments, so that content requests don't always have to go to the origin server. First, create a rule in your CDN for the content segment origin server. Then specify the rule's name in this ContentSegmentUrlPrefix. When AWS Elemental MediaTailor serves a manifest, it reports your CDN as the source for content segments.
         """
-        PlaybackConfigurationCdnConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_segment_url_prefix=ad_segment_url_prefix,
-            content_segment_url_prefix=content_segment_url_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_segment_url_prefix: Optional[pulumi.Input[str]] = None,
-             content_segment_url_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_segment_url_prefix is not None:
-            _setter("ad_segment_url_prefix", ad_segment_url_prefix)
+            pulumi.set(__self__, "ad_segment_url_prefix", ad_segment_url_prefix)
         if content_segment_url_prefix is not None:
-            _setter("content_segment_url_prefix", content_segment_url_prefix)
+            pulumi.set(__self__, "content_segment_url_prefix", content_segment_url_prefix)
 
     @property
     @pulumi.getter(name="adSegmentUrlPrefix")
@@ -673,25 +535,12 @@ class PlaybackConfigurationDashConfigurationArgs:
         :param pulumi.Input[str] mpd_location: The setting that controls whether MediaTailor includes the Location tag in DASH manifests. MediaTailor populates the Location tag with the URL for manifest update requests, to be used by players that don't support sticky redirects. Disable this if you have CDN routing rules set up for accessing MediaTailor manifests, and you are either using client-side reporting or your players support sticky HTTP redirects. Valid values are DISABLED and EMT_DEFAULT. The EMT_DEFAULT setting enables the inclusion of the tag and is the default value.
         :param pulumi.Input['PlaybackConfigurationDashConfigurationOriginManifestType'] origin_manifest_type: The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to SINGLE_PERIOD. The default setting is MULTI_PERIOD. For multi-period manifests, omit this setting or set it to MULTI_PERIOD.
         """
-        PlaybackConfigurationDashConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_endpoint_prefix=manifest_endpoint_prefix,
-            mpd_location=mpd_location,
-            origin_manifest_type=origin_manifest_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_endpoint_prefix: Optional[pulumi.Input[str]] = None,
-             mpd_location: Optional[pulumi.Input[str]] = None,
-             origin_manifest_type: Optional[pulumi.Input['PlaybackConfigurationDashConfigurationOriginManifestType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if manifest_endpoint_prefix is not None:
-            _setter("manifest_endpoint_prefix", manifest_endpoint_prefix)
+            pulumi.set(__self__, "manifest_endpoint_prefix", manifest_endpoint_prefix)
         if mpd_location is not None:
-            _setter("mpd_location", mpd_location)
+            pulumi.set(__self__, "mpd_location", mpd_location)
         if origin_manifest_type is not None:
-            _setter("origin_manifest_type", origin_manifest_type)
+            pulumi.set(__self__, "origin_manifest_type", origin_manifest_type)
 
     @property
     @pulumi.getter(name="manifestEndpointPrefix")
@@ -737,17 +586,8 @@ class PlaybackConfigurationHlsConfigurationArgs:
         """
         :param pulumi.Input[str] manifest_endpoint_prefix: The URL that is used to initiate a playback session for devices that support Apple HLS. The session uses server-side reporting.
         """
-        PlaybackConfigurationHlsConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_endpoint_prefix=manifest_endpoint_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_endpoint_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if manifest_endpoint_prefix is not None:
-            _setter("manifest_endpoint_prefix", manifest_endpoint_prefix)
+            pulumi.set(__self__, "manifest_endpoint_prefix", manifest_endpoint_prefix)
 
     @property
     @pulumi.getter(name="manifestEndpointPrefix")
@@ -772,21 +612,10 @@ class PlaybackConfigurationLivePreRollConfigurationArgs:
         :param pulumi.Input[str] ad_decision_server_url: The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param pulumi.Input[int] max_duration_seconds: The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
         """
-        PlaybackConfigurationLivePreRollConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_decision_server_url=ad_decision_server_url,
-            max_duration_seconds=max_duration_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_decision_server_url: Optional[pulumi.Input[str]] = None,
-             max_duration_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_decision_server_url is not None:
-            _setter("ad_decision_server_url", ad_decision_server_url)
+            pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
         if max_duration_seconds is not None:
-            _setter("max_duration_seconds", max_duration_seconds)
+            pulumi.set(__self__, "max_duration_seconds", max_duration_seconds)
 
     @property
     @pulumi.getter(name="adDecisionServerUrl")
@@ -821,17 +650,8 @@ class PlaybackConfigurationManifestProcessingRulesArgs:
         The configuration for manifest processing rules. Manifest processing rules enable customization of the personalized manifests created by MediaTailor.
         :param pulumi.Input['PlaybackConfigurationAdMarkerPassthroughArgs'] ad_marker_passthrough: For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
         """
-        PlaybackConfigurationManifestProcessingRulesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_marker_passthrough=ad_marker_passthrough,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_marker_passthrough: Optional[pulumi.Input['PlaybackConfigurationAdMarkerPassthroughArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_marker_passthrough is not None:
-            _setter("ad_marker_passthrough", ad_marker_passthrough)
+            pulumi.set(__self__, "ad_marker_passthrough", ad_marker_passthrough)
 
     @property
     @pulumi.getter(name="adMarkerPassthrough")
@@ -851,19 +671,8 @@ class PlaybackConfigurationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        PlaybackConfigurationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -892,21 +701,10 @@ class SourceLocationAccessConfigurationArgs:
         """
         <p>Access configuration parameters.</p>
         """
-        SourceLocationAccessConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_type=access_type,
-            secrets_manager_access_token_configuration=secrets_manager_access_token_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_type: Optional[pulumi.Input['SourceLocationAccessType']] = None,
-             secrets_manager_access_token_configuration: Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if access_type is not None:
-            _setter("access_type", access_type)
+            pulumi.set(__self__, "access_type", access_type)
         if secrets_manager_access_token_configuration is not None:
-            _setter("secrets_manager_access_token_configuration", secrets_manager_access_token_configuration)
+            pulumi.set(__self__, "secrets_manager_access_token_configuration", secrets_manager_access_token_configuration)
 
     @property
     @pulumi.getter(name="accessType")
@@ -935,17 +733,8 @@ class SourceLocationDefaultSegmentDeliveryConfigurationArgs:
         <p>The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.</p>
         :param pulumi.Input[str] base_url: <p>The hostname of the server that will be used to serve segments. This string must include the protocol, such as <b>https://</b>.</p>
         """
-        SourceLocationDefaultSegmentDeliveryConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_url=base_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base_url is not None:
-            _setter("base_url", base_url)
+            pulumi.set(__self__, "base_url", base_url)
 
     @property
     @pulumi.getter(name="baseUrl")
@@ -968,16 +757,7 @@ class SourceLocationHttpConfigurationArgs:
         <p>The HTTP configuration for the source location.</p>
         :param pulumi.Input[str] base_url: <p>The base URL for the source location host server. This string must include the protocol, such as <b>https://</b>.</p>
         """
-        SourceLocationHttpConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_url=base_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("base_url", base_url)
+        pulumi.set(__self__, "base_url", base_url)
 
     @property
     @pulumi.getter(name="baseUrl")
@@ -1004,25 +784,12 @@ class SourceLocationSecretsManagerAccessTokenConfigurationArgs:
         :param pulumi.Input[str] secret_arn: <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the access token.</p>
         :param pulumi.Input[str] secret_string_key: <p>The AWS Secrets Manager <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html#SecretsManager-CreateSecret-request-SecretString.html">SecretString</a> key associated with the access token. MediaTailor uses the key to look up SecretString key and value pair containing the access token.</p>
         """
-        SourceLocationSecretsManagerAccessTokenConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header_name=header_name,
-            secret_arn=secret_arn,
-            secret_string_key=secret_string_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header_name: Optional[pulumi.Input[str]] = None,
-             secret_arn: Optional[pulumi.Input[str]] = None,
-             secret_string_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if header_name is not None:
-            _setter("header_name", header_name)
+            pulumi.set(__self__, "header_name", header_name)
         if secret_arn is not None:
-            _setter("secret_arn", secret_arn)
+            pulumi.set(__self__, "secret_arn", secret_arn)
         if secret_string_key is not None:
-            _setter("secret_string_key", secret_string_key)
+            pulumi.set(__self__, "secret_string_key", secret_string_key)
 
     @property
     @pulumi.getter(name="headerName")
@@ -1071,21 +838,10 @@ class SourceLocationSegmentDeliveryConfigurationArgs:
         :param pulumi.Input[str] base_url: <p>The base URL of the host or path of the segment delivery server that you're using to serve segments. This is typically a content delivery network (CDN). The URL can be absolute or relative. To use an absolute URL include the protocol, such as <code>https://example.com/some/path</code>. To use a relative URL specify the relative path, such as <code>/some/path*</code>.</p>
         :param pulumi.Input[str] name: <p>A unique identifier used to distinguish between multiple segment delivery configurations in a source location.</p>
         """
-        SourceLocationSegmentDeliveryConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_url=base_url,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_url: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base_url is not None:
-            _setter("base_url", base_url)
+            pulumi.set(__self__, "base_url", base_url)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="baseUrl")
@@ -1117,19 +873,8 @@ class SourceLocationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        SourceLocationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1161,22 +906,9 @@ class VodSourceHttpPackageConfigurationArgs:
         :param pulumi.Input[str] path: <p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>
         :param pulumi.Input[str] source_group: <p>The name of the source group. This has to match one of the <code>Channel::Outputs::SourceGroup</code>.</p>
         """
-        VodSourceHttpPackageConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            path=path,
-            source_group=source_group,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             path: pulumi.Input[str],
-             source_group: pulumi.Input[str],
-             type: pulumi.Input['VodSourceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("path", path)
-        _setter("source_group", source_group)
-        _setter("type", type)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "source_group", source_group)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1217,19 +949,8 @@ class VodSourceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        VodSourceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

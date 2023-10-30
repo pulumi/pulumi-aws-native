@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,11 +35,6 @@ __all__ = [
 class AnnotationStoreFormatToHeader(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -63,16 +58,7 @@ class AnnotationStoreReferenceItem(dict):
 
     def __init__(__self__, *,
                  reference_arn: str):
-        AnnotationStoreReferenceItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reference_arn=reference_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reference_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("reference_arn", reference_arn)
+        pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
@@ -83,11 +69,6 @@ class AnnotationStoreReferenceItem(dict):
 @pulumi.output_type
 class AnnotationStoreSchemaItem(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -113,20 +94,9 @@ class AnnotationStoreSseConfig(dict):
     def __init__(__self__, *,
                  type: 'AnnotationStoreEncryptionType',
                  key_arn: Optional[str] = None):
-        AnnotationStoreSseConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'AnnotationStoreEncryptionType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter
@@ -160,16 +130,7 @@ class AnnotationStoreStoreOptionsProperties(dict):
 
     def __init__(__self__, *,
                  tsv_store_options: 'outputs.AnnotationStoreTsvStoreOptions'):
-        AnnotationStoreStoreOptionsProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tsv_store_options=tsv_store_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tsv_store_options: 'outputs.AnnotationStoreTsvStoreOptions',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("tsv_store_options", tsv_store_options)
+        pulumi.set(__self__, "tsv_store_options", tsv_store_options)
 
     @property
     @pulumi.getter(name="tsvStoreOptions")
@@ -180,11 +141,6 @@ class AnnotationStoreStoreOptionsProperties(dict):
 @pulumi.output_type
 class AnnotationStoreTagMap(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -213,25 +169,12 @@ class AnnotationStoreTsvStoreOptions(dict):
                  annotation_type: Optional['AnnotationStoreAnnotationType'] = None,
                  format_to_header: Optional['outputs.AnnotationStoreFormatToHeader'] = None,
                  schema: Optional[Sequence['outputs.AnnotationStoreSchemaItem']] = None):
-        AnnotationStoreTsvStoreOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            annotation_type=annotation_type,
-            format_to_header=format_to_header,
-            schema=schema,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             annotation_type: Optional['AnnotationStoreAnnotationType'] = None,
-             format_to_header: Optional['outputs.AnnotationStoreFormatToHeader'] = None,
-             schema: Optional[Sequence['outputs.AnnotationStoreSchemaItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if annotation_type is not None:
-            _setter("annotation_type", annotation_type)
+            pulumi.set(__self__, "annotation_type", annotation_type)
         if format_to_header is not None:
-            _setter("format_to_header", format_to_header)
+            pulumi.set(__self__, "format_to_header", format_to_header)
         if schema is not None:
-            _setter("schema", schema)
+            pulumi.set(__self__, "schema", schema)
 
     @property
     @pulumi.getter(name="annotationType")
@@ -278,20 +221,9 @@ class ReferenceStoreSseConfig(dict):
         Server-side encryption (SSE) settings for a store.
         :param str key_arn: An encryption key ARN.
         """
-        ReferenceStoreSseConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'ReferenceStoreEncryptionType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter
@@ -311,11 +243,6 @@ class ReferenceStoreSseConfig(dict):
 class ReferenceStoreTagMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -327,11 +254,6 @@ class RunGroupTagMap(dict):
         """
         A map of resource tags
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -364,20 +286,9 @@ class SequenceStoreSseConfig(dict):
         Server-side encryption (SSE) settings for a store.
         :param str key_arn: An encryption key ARN.
         """
-        SequenceStoreSseConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'SequenceStoreEncryptionType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter
@@ -396,11 +307,6 @@ class SequenceStoreSseConfig(dict):
 @pulumi.output_type
 class SequenceStoreTagMap(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -425,16 +331,7 @@ class VariantStoreReferenceItem(dict):
 
     def __init__(__self__, *,
                  reference_arn: str):
-        VariantStoreReferenceItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reference_arn=reference_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reference_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("reference_arn", reference_arn)
+        pulumi.set(__self__, "reference_arn", reference_arn)
 
     @property
     @pulumi.getter(name="referenceArn")
@@ -464,20 +361,9 @@ class VariantStoreSseConfig(dict):
     def __init__(__self__, *,
                  type: 'VariantStoreEncryptionType',
                  key_arn: Optional[str] = None):
-        VariantStoreSseConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'VariantStoreEncryptionType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter
@@ -494,21 +380,11 @@ class VariantStoreSseConfig(dict):
 class VariantStoreTagMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
 class WorkflowParameterTemplate(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -521,11 +397,6 @@ class WorkflowTagMap(dict):
         """
         A map of resource tags
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

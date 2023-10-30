@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,28 +27,13 @@ class CertificateArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: An array of strings that specify the alternate domains (e.g., example2.com) and subdomains (e.g., blog.example.com) for the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            certificate_name=certificate_name,
-            subject_alternative_names=subject_alternative_names,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             certificate_name: Optional[pulumi.Input[str]] = None,
-             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "domain_name", domain_name)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if subject_alternative_names is not None:
-            _setter("subject_alternative_names", subject_alternative_names)
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -138,10 +123,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

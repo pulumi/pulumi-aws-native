@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,16 +56,7 @@ class DataRepositoryAssociationAutoExportPolicy(dict):
         """
         Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
         """
-        DataRepositoryAssociationAutoExportPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Sequence['DataRepositoryAssociationEventType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("events", events)
+        pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
@@ -83,16 +74,7 @@ class DataRepositoryAssociationAutoImportPolicy(dict):
         """
         Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
         """
-        DataRepositoryAssociationAutoImportPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            events=events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             events: Sequence['DataRepositoryAssociationEventType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("events", events)
+        pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
@@ -130,21 +112,10 @@ class DataRepositoryAssociationS3(dict):
         """
         The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         """
-        DataRepositoryAssociationS3._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_export_policy=auto_export_policy,
-            auto_import_policy=auto_import_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_export_policy: Optional['outputs.DataRepositoryAssociationAutoExportPolicy'] = None,
-             auto_import_policy: Optional['outputs.DataRepositoryAssociationAutoImportPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_export_policy is not None:
-            _setter("auto_export_policy", auto_export_policy)
+            pulumi.set(__self__, "auto_export_policy", auto_export_policy)
         if auto_import_policy is not None:
-            _setter("auto_import_policy", auto_import_policy)
+            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
 
     @property
     @pulumi.getter(name="autoExportPolicy")
@@ -170,19 +141,8 @@ class DataRepositoryAssociationTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
-        DataRepositoryAssociationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -228,23 +188,10 @@ class FileSystemAuditLogConfiguration(dict):
                  file_access_audit_log_level: str,
                  file_share_access_audit_log_level: str,
                  audit_log_destination: Optional[str] = None):
-        FileSystemAuditLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            file_access_audit_log_level=file_access_audit_log_level,
-            file_share_access_audit_log_level=file_share_access_audit_log_level,
-            audit_log_destination=audit_log_destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             file_access_audit_log_level: str,
-             file_share_access_audit_log_level: str,
-             audit_log_destination: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("file_access_audit_log_level", file_access_audit_log_level)
-        _setter("file_share_access_audit_log_level", file_share_access_audit_log_level)
+        pulumi.set(__self__, "file_access_audit_log_level", file_access_audit_log_level)
+        pulumi.set(__self__, "file_share_access_audit_log_level", file_share_access_audit_log_level)
         if audit_log_destination is not None:
-            _setter("audit_log_destination", audit_log_destination)
+            pulumi.set(__self__, "audit_log_destination", audit_log_destination)
 
     @property
     @pulumi.getter(name="fileAccessAuditLogLevel")
@@ -267,21 +214,10 @@ class FileSystemClientConfigurations(dict):
     def __init__(__self__, *,
                  clients: Optional[str] = None,
                  options: Optional[Sequence[str]] = None):
-        FileSystemClientConfigurations._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            clients=clients,
-            options=options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             clients: Optional[str] = None,
-             options: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if clients is not None:
-            _setter("clients", clients)
+            pulumi.set(__self__, "clients", clients)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
@@ -299,21 +235,10 @@ class FileSystemDiskIopsConfiguration(dict):
     def __init__(__self__, *,
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
-        FileSystemDiskIopsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            iops=iops,
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             iops: Optional[int] = None,
-             mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -380,61 +305,30 @@ class FileSystemLustreConfiguration(dict):
                  imported_file_chunk_size: Optional[int] = None,
                  per_unit_storage_throughput: Optional[int] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
-        FileSystemLustreConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_import_policy=auto_import_policy,
-            automatic_backup_retention_days=automatic_backup_retention_days,
-            copy_tags_to_backups=copy_tags_to_backups,
-            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
-            data_compression_type=data_compression_type,
-            deployment_type=deployment_type,
-            drive_cache_type=drive_cache_type,
-            export_path=export_path,
-            import_path=import_path,
-            imported_file_chunk_size=imported_file_chunk_size,
-            per_unit_storage_throughput=per_unit_storage_throughput,
-            weekly_maintenance_start_time=weekly_maintenance_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_import_policy: Optional[str] = None,
-             automatic_backup_retention_days: Optional[int] = None,
-             copy_tags_to_backups: Optional[bool] = None,
-             daily_automatic_backup_start_time: Optional[str] = None,
-             data_compression_type: Optional[str] = None,
-             deployment_type: Optional[str] = None,
-             drive_cache_type: Optional[str] = None,
-             export_path: Optional[str] = None,
-             import_path: Optional[str] = None,
-             imported_file_chunk_size: Optional[int] = None,
-             per_unit_storage_throughput: Optional[int] = None,
-             weekly_maintenance_start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_import_policy is not None:
-            _setter("auto_import_policy", auto_import_policy)
+            pulumi.set(__self__, "auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
-            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if copy_tags_to_backups is not None:
-            _setter("copy_tags_to_backups", copy_tags_to_backups)
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
-            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if data_compression_type is not None:
-            _setter("data_compression_type", data_compression_type)
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
         if deployment_type is not None:
-            _setter("deployment_type", deployment_type)
+            pulumi.set(__self__, "deployment_type", deployment_type)
         if drive_cache_type is not None:
-            _setter("drive_cache_type", drive_cache_type)
+            pulumi.set(__self__, "drive_cache_type", drive_cache_type)
         if export_path is not None:
-            _setter("export_path", export_path)
+            pulumi.set(__self__, "export_path", export_path)
         if import_path is not None:
-            _setter("import_path", import_path)
+            pulumi.set(__self__, "import_path", import_path)
         if imported_file_chunk_size is not None:
-            _setter("imported_file_chunk_size", imported_file_chunk_size)
+            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
         if per_unit_storage_throughput is not None:
-            _setter("per_unit_storage_throughput", per_unit_storage_throughput)
+            pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
         if weekly_maintenance_start_time is not None:
-            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="autoImportPolicy")
@@ -518,17 +412,8 @@ class FileSystemNfsExports(dict):
 
     def __init__(__self__, *,
                  client_configurations: Optional[Sequence['outputs.FileSystemClientConfigurations']] = None):
-        FileSystemNfsExports._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_configurations=client_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_configurations: Optional[Sequence['outputs.FileSystemClientConfigurations']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if client_configurations is not None:
-            _setter("client_configurations", client_configurations)
+            pulumi.set(__self__, "client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
@@ -584,52 +469,25 @@ class FileSystemOntapConfiguration(dict):
                  route_table_ids: Optional[Sequence[str]] = None,
                  throughput_capacity: Optional[int] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
-        FileSystemOntapConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_type=deployment_type,
-            automatic_backup_retention_days=automatic_backup_retention_days,
-            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
-            disk_iops_configuration=disk_iops_configuration,
-            endpoint_ip_address_range=endpoint_ip_address_range,
-            fsx_admin_password=fsx_admin_password,
-            preferred_subnet_id=preferred_subnet_id,
-            route_table_ids=route_table_ids,
-            throughput_capacity=throughput_capacity,
-            weekly_maintenance_start_time=weekly_maintenance_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_type: str,
-             automatic_backup_retention_days: Optional[int] = None,
-             daily_automatic_backup_start_time: Optional[str] = None,
-             disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
-             endpoint_ip_address_range: Optional[str] = None,
-             fsx_admin_password: Optional[str] = None,
-             preferred_subnet_id: Optional[str] = None,
-             route_table_ids: Optional[Sequence[str]] = None,
-             throughput_capacity: Optional[int] = None,
-             weekly_maintenance_start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("deployment_type", deployment_type)
+        pulumi.set(__self__, "deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
-            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if daily_automatic_backup_start_time is not None:
-            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if disk_iops_configuration is not None:
-            _setter("disk_iops_configuration", disk_iops_configuration)
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if endpoint_ip_address_range is not None:
-            _setter("endpoint_ip_address_range", endpoint_ip_address_range)
+            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
         if fsx_admin_password is not None:
-            _setter("fsx_admin_password", fsx_admin_password)
+            pulumi.set(__self__, "fsx_admin_password", fsx_admin_password)
         if preferred_subnet_id is not None:
-            _setter("preferred_subnet_id", preferred_subnet_id)
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if route_table_ids is not None:
-            _setter("route_table_ids", route_table_ids)
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
         if throughput_capacity is not None:
-            _setter("throughput_capacity", throughput_capacity)
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if weekly_maintenance_start_time is not None:
-            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -737,64 +595,31 @@ class FileSystemOpenZfsConfiguration(dict):
                  route_table_ids: Optional[Sequence[str]] = None,
                  throughput_capacity: Optional[int] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
-        FileSystemOpenZfsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_type=deployment_type,
-            automatic_backup_retention_days=automatic_backup_retention_days,
-            copy_tags_to_backups=copy_tags_to_backups,
-            copy_tags_to_volumes=copy_tags_to_volumes,
-            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
-            disk_iops_configuration=disk_iops_configuration,
-            endpoint_ip_address_range=endpoint_ip_address_range,
-            options=options,
-            preferred_subnet_id=preferred_subnet_id,
-            root_volume_configuration=root_volume_configuration,
-            route_table_ids=route_table_ids,
-            throughput_capacity=throughput_capacity,
-            weekly_maintenance_start_time=weekly_maintenance_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_type: str,
-             automatic_backup_retention_days: Optional[int] = None,
-             copy_tags_to_backups: Optional[bool] = None,
-             copy_tags_to_volumes: Optional[bool] = None,
-             daily_automatic_backup_start_time: Optional[str] = None,
-             disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
-             endpoint_ip_address_range: Optional[str] = None,
-             options: Optional[Sequence[str]] = None,
-             preferred_subnet_id: Optional[str] = None,
-             root_volume_configuration: Optional['outputs.FileSystemRootVolumeConfiguration'] = None,
-             route_table_ids: Optional[Sequence[str]] = None,
-             throughput_capacity: Optional[int] = None,
-             weekly_maintenance_start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("deployment_type", deployment_type)
+        pulumi.set(__self__, "deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
-            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if copy_tags_to_backups is not None:
-            _setter("copy_tags_to_backups", copy_tags_to_backups)
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if copy_tags_to_volumes is not None:
-            _setter("copy_tags_to_volumes", copy_tags_to_volumes)
+            pulumi.set(__self__, "copy_tags_to_volumes", copy_tags_to_volumes)
         if daily_automatic_backup_start_time is not None:
-            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if disk_iops_configuration is not None:
-            _setter("disk_iops_configuration", disk_iops_configuration)
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if endpoint_ip_address_range is not None:
-            _setter("endpoint_ip_address_range", endpoint_ip_address_range)
+            pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if preferred_subnet_id is not None:
-            _setter("preferred_subnet_id", preferred_subnet_id)
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if root_volume_configuration is not None:
-            _setter("root_volume_configuration", root_volume_configuration)
+            pulumi.set(__self__, "root_volume_configuration", root_volume_configuration)
         if route_table_ids is not None:
-            _setter("route_table_ids", route_table_ids)
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
         if throughput_capacity is not None:
-            _setter("throughput_capacity", throughput_capacity)
+            pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if weekly_maintenance_start_time is not None:
-            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -898,37 +723,18 @@ class FileSystemRootVolumeConfiguration(dict):
                  read_only: Optional[bool] = None,
                  record_size_ki_b: Optional[int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.FileSystemUserAndGroupQuotas']] = None):
-        FileSystemRootVolumeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            copy_tags_to_snapshots=copy_tags_to_snapshots,
-            data_compression_type=data_compression_type,
-            nfs_exports=nfs_exports,
-            read_only=read_only,
-            record_size_ki_b=record_size_ki_b,
-            user_and_group_quotas=user_and_group_quotas,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             copy_tags_to_snapshots: Optional[bool] = None,
-             data_compression_type: Optional[str] = None,
-             nfs_exports: Optional[Sequence['outputs.FileSystemNfsExports']] = None,
-             read_only: Optional[bool] = None,
-             record_size_ki_b: Optional[int] = None,
-             user_and_group_quotas: Optional[Sequence['outputs.FileSystemUserAndGroupQuotas']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if copy_tags_to_snapshots is not None:
-            _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
-            _setter("data_compression_type", data_compression_type)
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
         if nfs_exports is not None:
-            _setter("nfs_exports", nfs_exports)
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
         if read_only is not None:
-            _setter("read_only", read_only)
+            pulumi.set(__self__, "read_only", read_only)
         if record_size_ki_b is not None:
-            _setter("record_size_ki_b", record_size_ki_b)
+            pulumi.set(__self__, "record_size_ki_b", record_size_ki_b)
         if user_and_group_quotas is not None:
-            _setter("user_and_group_quotas", user_and_group_quotas)
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
 
     @property
     @pulumi.getter(name="copyTagsToSnapshots")
@@ -995,37 +801,18 @@ class FileSystemSelfManagedActiveDirectoryConfiguration(dict):
                  organizational_unit_distinguished_name: Optional[str] = None,
                  password: Optional[str] = None,
                  user_name: Optional[str] = None):
-        FileSystemSelfManagedActiveDirectoryConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_ips=dns_ips,
-            domain_name=domain_name,
-            file_system_administrators_group=file_system_administrators_group,
-            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
-            password=password,
-            user_name=user_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_ips: Optional[Sequence[str]] = None,
-             domain_name: Optional[str] = None,
-             file_system_administrators_group: Optional[str] = None,
-             organizational_unit_distinguished_name: Optional[str] = None,
-             password: Optional[str] = None,
-             user_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_ips is not None:
-            _setter("dns_ips", dns_ips)
+            pulumi.set(__self__, "dns_ips", dns_ips)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if file_system_administrators_group is not None:
-            _setter("file_system_administrators_group", file_system_administrators_group)
+            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
         if organizational_unit_distinguished_name is not None:
-            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if user_name is not None:
-            _setter("user_name", user_name)
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="dnsIps")
@@ -1063,19 +850,8 @@ class FileSystemTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        FileSystemTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1111,25 +887,12 @@ class FileSystemUserAndGroupQuotas(dict):
                  id: Optional[int] = None,
                  storage_capacity_quota_gi_b: Optional[int] = None,
                  type: Optional[str] = None):
-        FileSystemUserAndGroupQuotas._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            storage_capacity_quota_gi_b=storage_capacity_quota_gi_b,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[int] = None,
-             storage_capacity_quota_gi_b: Optional[int] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if storage_capacity_quota_gi_b is not None:
-            _setter("storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1199,60 +962,29 @@ class FileSystemWindowsConfiguration(dict):
                  preferred_subnet_id: Optional[str] = None,
                  self_managed_active_directory_configuration: Optional['outputs.FileSystemSelfManagedActiveDirectoryConfiguration'] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
-        FileSystemWindowsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            throughput_capacity=throughput_capacity,
-            active_directory_id=active_directory_id,
-            aliases=aliases,
-            audit_log_configuration=audit_log_configuration,
-            automatic_backup_retention_days=automatic_backup_retention_days,
-            copy_tags_to_backups=copy_tags_to_backups,
-            daily_automatic_backup_start_time=daily_automatic_backup_start_time,
-            deployment_type=deployment_type,
-            disk_iops_configuration=disk_iops_configuration,
-            preferred_subnet_id=preferred_subnet_id,
-            self_managed_active_directory_configuration=self_managed_active_directory_configuration,
-            weekly_maintenance_start_time=weekly_maintenance_start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             throughput_capacity: int,
-             active_directory_id: Optional[str] = None,
-             aliases: Optional[Sequence[str]] = None,
-             audit_log_configuration: Optional['outputs.FileSystemAuditLogConfiguration'] = None,
-             automatic_backup_retention_days: Optional[int] = None,
-             copy_tags_to_backups: Optional[bool] = None,
-             daily_automatic_backup_start_time: Optional[str] = None,
-             deployment_type: Optional[str] = None,
-             disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
-             preferred_subnet_id: Optional[str] = None,
-             self_managed_active_directory_configuration: Optional['outputs.FileSystemSelfManagedActiveDirectoryConfiguration'] = None,
-             weekly_maintenance_start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("throughput_capacity", throughput_capacity)
+        pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
-            _setter("active_directory_id", active_directory_id)
+            pulumi.set(__self__, "active_directory_id", active_directory_id)
         if aliases is not None:
-            _setter("aliases", aliases)
+            pulumi.set(__self__, "aliases", aliases)
         if audit_log_configuration is not None:
-            _setter("audit_log_configuration", audit_log_configuration)
+            pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
-            _setter("automatic_backup_retention_days", automatic_backup_retention_days)
+            pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if copy_tags_to_backups is not None:
-            _setter("copy_tags_to_backups", copy_tags_to_backups)
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
-            _setter("daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+            pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
         if deployment_type is not None:
-            _setter("deployment_type", deployment_type)
+            pulumi.set(__self__, "deployment_type", deployment_type)
         if disk_iops_configuration is not None:
-            _setter("disk_iops_configuration", disk_iops_configuration)
+            pulumi.set(__self__, "disk_iops_configuration", disk_iops_configuration)
         if preferred_subnet_id is not None:
-            _setter("preferred_subnet_id", preferred_subnet_id)
+            pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if self_managed_active_directory_configuration is not None:
-            _setter("self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
         if weekly_maintenance_start_time is not None:
-            _setter("weekly_maintenance_start_time", weekly_maintenance_start_time)
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
     @property
     @pulumi.getter(name="throughputCapacity")
@@ -1320,19 +1052,8 @@ class SnapshotTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        SnapshotTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1369,21 +1090,10 @@ class StorageVirtualMachineActiveDirectoryConfiguration(dict):
     def __init__(__self__, *,
                  net_bios_name: Optional[str] = None,
                  self_managed_active_directory_configuration: Optional['outputs.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration'] = None):
-        StorageVirtualMachineActiveDirectoryConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            net_bios_name=net_bios_name,
-            self_managed_active_directory_configuration=self_managed_active_directory_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             net_bios_name: Optional[str] = None,
-             self_managed_active_directory_configuration: Optional['outputs.StorageVirtualMachineSelfManagedActiveDirectoryConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if net_bios_name is not None:
-            _setter("net_bios_name", net_bios_name)
+            pulumi.set(__self__, "net_bios_name", net_bios_name)
         if self_managed_active_directory_configuration is not None:
-            _setter("self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
 
     @property
     @pulumi.getter(name="netBiosName")
@@ -1430,37 +1140,18 @@ class StorageVirtualMachineSelfManagedActiveDirectoryConfiguration(dict):
                  organizational_unit_distinguished_name: Optional[str] = None,
                  password: Optional[str] = None,
                  user_name: Optional[str] = None):
-        StorageVirtualMachineSelfManagedActiveDirectoryConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_ips=dns_ips,
-            domain_name=domain_name,
-            file_system_administrators_group=file_system_administrators_group,
-            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
-            password=password,
-            user_name=user_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_ips: Optional[Sequence[str]] = None,
-             domain_name: Optional[str] = None,
-             file_system_administrators_group: Optional[str] = None,
-             organizational_unit_distinguished_name: Optional[str] = None,
-             password: Optional[str] = None,
-             user_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_ips is not None:
-            _setter("dns_ips", dns_ips)
+            pulumi.set(__self__, "dns_ips", dns_ips)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if file_system_administrators_group is not None:
-            _setter("file_system_administrators_group", file_system_administrators_group)
+            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
         if organizational_unit_distinguished_name is not None:
-            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if user_name is not None:
-            _setter("user_name", user_name)
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="dnsIps")
@@ -1498,19 +1189,8 @@ class StorageVirtualMachineTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        StorageVirtualMachineTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1528,20 +1208,9 @@ class VolumeAutocommitPeriod(dict):
     def __init__(__self__, *,
                  type: str,
                  value: Optional[int] = None):
-        VolumeAutocommitPeriod._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1559,19 +1228,8 @@ class VolumeClientConfigurations(dict):
     def __init__(__self__, *,
                  clients: str,
                  options: Sequence[str]):
-        VolumeClientConfigurations._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            clients=clients,
-            options=options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             clients: str,
-             options: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("clients", clients)
-        _setter("options", options)
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
 
     @property
     @pulumi.getter
@@ -1605,16 +1263,7 @@ class VolumeNfsExports(dict):
 
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.VolumeClientConfigurations']):
-        VolumeNfsExports._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_configurations=client_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_configurations: Sequence['outputs.VolumeClientConfigurations'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("client_configurations", client_configurations)
+        pulumi.set(__self__, "client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
@@ -1670,51 +1319,24 @@ class VolumeOntapConfiguration(dict):
                  snapshot_policy: Optional[str] = None,
                  storage_efficiency_enabled: Optional[str] = None,
                  tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None):
-        VolumeOntapConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_megabytes=size_in_megabytes,
-            storage_virtual_machine_id=storage_virtual_machine_id,
-            copy_tags_to_backups=copy_tags_to_backups,
-            junction_path=junction_path,
-            ontap_volume_type=ontap_volume_type,
-            security_style=security_style,
-            snaplock_configuration=snaplock_configuration,
-            snapshot_policy=snapshot_policy,
-            storage_efficiency_enabled=storage_efficiency_enabled,
-            tiering_policy=tiering_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_megabytes: str,
-             storage_virtual_machine_id: str,
-             copy_tags_to_backups: Optional[str] = None,
-             junction_path: Optional[str] = None,
-             ontap_volume_type: Optional[str] = None,
-             security_style: Optional[str] = None,
-             snaplock_configuration: Optional['outputs.VolumeSnaplockConfiguration'] = None,
-             snapshot_policy: Optional[str] = None,
-             storage_efficiency_enabled: Optional[str] = None,
-             tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_megabytes", size_in_megabytes)
-        _setter("storage_virtual_machine_id", storage_virtual_machine_id)
+        pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+        pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
         if copy_tags_to_backups is not None:
-            _setter("copy_tags_to_backups", copy_tags_to_backups)
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if junction_path is not None:
-            _setter("junction_path", junction_path)
+            pulumi.set(__self__, "junction_path", junction_path)
         if ontap_volume_type is not None:
-            _setter("ontap_volume_type", ontap_volume_type)
+            pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
         if security_style is not None:
-            _setter("security_style", security_style)
+            pulumi.set(__self__, "security_style", security_style)
         if snaplock_configuration is not None:
-            _setter("snaplock_configuration", snaplock_configuration)
+            pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
         if snapshot_policy is not None:
-            _setter("snapshot_policy", snapshot_policy)
+            pulumi.set(__self__, "snapshot_policy", snapshot_policy)
         if storage_efficiency_enabled is not None:
-            _setter("storage_efficiency_enabled", storage_efficiency_enabled)
+            pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         if tiering_policy is not None:
-            _setter("tiering_policy", tiering_policy)
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
 
     @property
     @pulumi.getter(name="sizeInMegabytes")
@@ -1816,56 +1438,27 @@ class VolumeOpenZfsConfiguration(dict):
                  storage_capacity_quota_gi_b: Optional[int] = None,
                  storage_capacity_reservation_gi_b: Optional[int] = None,
                  user_and_group_quotas: Optional[Sequence['outputs.VolumeUserAndGroupQuotas']] = None):
-        VolumeOpenZfsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parent_volume_id=parent_volume_id,
-            copy_tags_to_snapshots=copy_tags_to_snapshots,
-            data_compression_type=data_compression_type,
-            nfs_exports=nfs_exports,
-            options=options,
-            origin_snapshot=origin_snapshot,
-            read_only=read_only,
-            record_size_ki_b=record_size_ki_b,
-            storage_capacity_quota_gi_b=storage_capacity_quota_gi_b,
-            storage_capacity_reservation_gi_b=storage_capacity_reservation_gi_b,
-            user_and_group_quotas=user_and_group_quotas,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parent_volume_id: str,
-             copy_tags_to_snapshots: Optional[bool] = None,
-             data_compression_type: Optional[str] = None,
-             nfs_exports: Optional[Sequence['outputs.VolumeNfsExports']] = None,
-             options: Optional[Sequence[str]] = None,
-             origin_snapshot: Optional['outputs.VolumeOriginSnapshot'] = None,
-             read_only: Optional[bool] = None,
-             record_size_ki_b: Optional[int] = None,
-             storage_capacity_quota_gi_b: Optional[int] = None,
-             storage_capacity_reservation_gi_b: Optional[int] = None,
-             user_and_group_quotas: Optional[Sequence['outputs.VolumeUserAndGroupQuotas']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("parent_volume_id", parent_volume_id)
+        pulumi.set(__self__, "parent_volume_id", parent_volume_id)
         if copy_tags_to_snapshots is not None:
-            _setter("copy_tags_to_snapshots", copy_tags_to_snapshots)
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
         if data_compression_type is not None:
-            _setter("data_compression_type", data_compression_type)
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
         if nfs_exports is not None:
-            _setter("nfs_exports", nfs_exports)
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if origin_snapshot is not None:
-            _setter("origin_snapshot", origin_snapshot)
+            pulumi.set(__self__, "origin_snapshot", origin_snapshot)
         if read_only is not None:
-            _setter("read_only", read_only)
+            pulumi.set(__self__, "read_only", read_only)
         if record_size_ki_b is not None:
-            _setter("record_size_ki_b", record_size_ki_b)
+            pulumi.set(__self__, "record_size_ki_b", record_size_ki_b)
         if storage_capacity_quota_gi_b is not None:
-            _setter("storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
         if storage_capacity_reservation_gi_b is not None:
-            _setter("storage_capacity_reservation_gi_b", storage_capacity_reservation_gi_b)
+            pulumi.set(__self__, "storage_capacity_reservation_gi_b", storage_capacity_reservation_gi_b)
         if user_and_group_quotas is not None:
-            _setter("user_and_group_quotas", user_and_group_quotas)
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
 
     @property
     @pulumi.getter(name="parentVolumeId")
@@ -1947,19 +1540,8 @@ class VolumeOriginSnapshot(dict):
     def __init__(__self__, *,
                  copy_strategy: str,
                  snapshot_arn: str):
-        VolumeOriginSnapshot._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            copy_strategy=copy_strategy,
-            snapshot_arn=snapshot_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             copy_strategy: str,
-             snapshot_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("copy_strategy", copy_strategy)
-        _setter("snapshot_arn", snapshot_arn)
+        pulumi.set(__self__, "copy_strategy", copy_strategy)
+        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
 
     @property
     @pulumi.getter(name="copyStrategy")
@@ -1977,20 +1559,9 @@ class VolumeRetentionPeriod(dict):
     def __init__(__self__, *,
                  type: str,
                  value: Optional[int] = None):
-        VolumeRetentionPeriod._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2039,36 +1610,17 @@ class VolumeSnaplockConfiguration(dict):
                  privileged_delete: Optional[str] = None,
                  retention_period: Optional['outputs.VolumeSnaplockRetentionPeriod'] = None,
                  volume_append_mode_enabled: Optional[str] = None):
-        VolumeSnaplockConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            snaplock_type=snaplock_type,
-            audit_log_volume=audit_log_volume,
-            autocommit_period=autocommit_period,
-            privileged_delete=privileged_delete,
-            retention_period=retention_period,
-            volume_append_mode_enabled=volume_append_mode_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             snaplock_type: str,
-             audit_log_volume: Optional[str] = None,
-             autocommit_period: Optional['outputs.VolumeAutocommitPeriod'] = None,
-             privileged_delete: Optional[str] = None,
-             retention_period: Optional['outputs.VolumeSnaplockRetentionPeriod'] = None,
-             volume_append_mode_enabled: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("snaplock_type", snaplock_type)
+        pulumi.set(__self__, "snaplock_type", snaplock_type)
         if audit_log_volume is not None:
-            _setter("audit_log_volume", audit_log_volume)
+            pulumi.set(__self__, "audit_log_volume", audit_log_volume)
         if autocommit_period is not None:
-            _setter("autocommit_period", autocommit_period)
+            pulumi.set(__self__, "autocommit_period", autocommit_period)
         if privileged_delete is not None:
-            _setter("privileged_delete", privileged_delete)
+            pulumi.set(__self__, "privileged_delete", privileged_delete)
         if retention_period is not None:
-            _setter("retention_period", retention_period)
+            pulumi.set(__self__, "retention_period", retention_period)
         if volume_append_mode_enabled is not None:
-            _setter("volume_append_mode_enabled", volume_append_mode_enabled)
+            pulumi.set(__self__, "volume_append_mode_enabled", volume_append_mode_enabled)
 
     @property
     @pulumi.getter(name="snaplockType")
@@ -2128,22 +1680,9 @@ class VolumeSnaplockRetentionPeriod(dict):
                  default_retention: 'outputs.VolumeRetentionPeriod',
                  maximum_retention: 'outputs.VolumeRetentionPeriod',
                  minimum_retention: 'outputs.VolumeRetentionPeriod'):
-        VolumeSnaplockRetentionPeriod._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_retention=default_retention,
-            maximum_retention=maximum_retention,
-            minimum_retention=minimum_retention,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_retention: 'outputs.VolumeRetentionPeriod',
-             maximum_retention: 'outputs.VolumeRetentionPeriod',
-             minimum_retention: 'outputs.VolumeRetentionPeriod',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_retention", default_retention)
-        _setter("maximum_retention", maximum_retention)
-        _setter("minimum_retention", minimum_retention)
+        pulumi.set(__self__, "default_retention", default_retention)
+        pulumi.set(__self__, "maximum_retention", maximum_retention)
+        pulumi.set(__self__, "minimum_retention", minimum_retention)
 
     @property
     @pulumi.getter(name="defaultRetention")
@@ -2166,19 +1705,8 @@ class VolumeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        VolumeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2213,21 +1741,10 @@ class VolumeTieringPolicy(dict):
     def __init__(__self__, *,
                  cooling_period: Optional[int] = None,
                  name: Optional[str] = None):
-        VolumeTieringPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cooling_period=cooling_period,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cooling_period: Optional[int] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cooling_period is not None:
-            _setter("cooling_period", cooling_period)
+            pulumi.set(__self__, "cooling_period", cooling_period)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="coolingPeriod")
@@ -2263,22 +1780,9 @@ class VolumeUserAndGroupQuotas(dict):
                  id: int,
                  storage_capacity_quota_gi_b: int,
                  type: str):
-        VolumeUserAndGroupQuotas._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            storage_capacity_quota_gi_b=storage_capacity_quota_gi_b,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: int,
-             storage_capacity_quota_gi_b: int,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
-        _setter("type", type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

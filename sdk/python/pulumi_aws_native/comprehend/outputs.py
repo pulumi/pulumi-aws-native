@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -53,23 +53,10 @@ class DocumentClassifierAugmentedManifestsListItem(dict):
                  attribute_names: Sequence[str],
                  s3_uri: str,
                  split: Optional['DocumentClassifierAugmentedManifestsListItemSplit'] = None):
-        DocumentClassifierAugmentedManifestsListItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_names=attribute_names,
-            s3_uri=s3_uri,
-            split=split,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_names: Sequence[str],
-             s3_uri: str,
-             split: Optional['DocumentClassifierAugmentedManifestsListItemSplit'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attribute_names", attribute_names)
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "attribute_names", attribute_names)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if split is not None:
-            _setter("split", split)
+            pulumi.set(__self__, "split", split)
 
     @property
     @pulumi.getter(name="attributeNames")
@@ -114,24 +101,11 @@ class DocumentClassifierDocumentReaderConfig(dict):
                  document_read_action: 'DocumentClassifierDocumentReaderConfigDocumentReadAction',
                  document_read_mode: Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode'] = None,
                  feature_types: Optional[Sequence['DocumentClassifierDocumentReaderConfigFeatureTypesItem']] = None):
-        DocumentClassifierDocumentReaderConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_read_action=document_read_action,
-            document_read_mode=document_read_mode,
-            feature_types=feature_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_read_action: 'DocumentClassifierDocumentReaderConfigDocumentReadAction',
-             document_read_mode: Optional['DocumentClassifierDocumentReaderConfigDocumentReadMode'] = None,
-             feature_types: Optional[Sequence['DocumentClassifierDocumentReaderConfigFeatureTypesItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_read_action", document_read_action)
+        pulumi.set(__self__, "document_read_action", document_read_action)
         if document_read_mode is not None:
-            _setter("document_read_mode", document_read_mode)
+            pulumi.set(__self__, "document_read_mode", document_read_mode)
         if feature_types is not None:
-            _setter("feature_types", feature_types)
+            pulumi.set(__self__, "feature_types", feature_types)
 
     @property
     @pulumi.getter(name="documentReadAction")
@@ -173,20 +147,9 @@ class DocumentClassifierDocuments(dict):
     def __init__(__self__, *,
                  s3_uri: str,
                  test_s3_uri: Optional[str] = None):
-        DocumentClassifierDocuments._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_uri=s3_uri,
-            test_s3_uri=test_s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_uri: str,
-             test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_uri", s3_uri)
+        pulumi.set(__self__, "s3_uri", s3_uri)
         if test_s3_uri is not None:
-            _setter("test_s3_uri", test_s3_uri)
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -239,45 +202,22 @@ class DocumentClassifierInputDataConfig(dict):
                  label_delimiter: Optional[str] = None,
                  s3_uri: Optional[str] = None,
                  test_s3_uri: Optional[str] = None):
-        DocumentClassifierInputDataConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            augmented_manifests=augmented_manifests,
-            data_format=data_format,
-            document_reader_config=document_reader_config,
-            document_type=document_type,
-            documents=documents,
-            label_delimiter=label_delimiter,
-            s3_uri=s3_uri,
-            test_s3_uri=test_s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             augmented_manifests: Optional[Sequence['outputs.DocumentClassifierAugmentedManifestsListItem']] = None,
-             data_format: Optional['DocumentClassifierInputDataConfigDataFormat'] = None,
-             document_reader_config: Optional['outputs.DocumentClassifierDocumentReaderConfig'] = None,
-             document_type: Optional['DocumentClassifierInputDataConfigDocumentType'] = None,
-             documents: Optional['outputs.DocumentClassifierDocuments'] = None,
-             label_delimiter: Optional[str] = None,
-             s3_uri: Optional[str] = None,
-             test_s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if augmented_manifests is not None:
-            _setter("augmented_manifests", augmented_manifests)
+            pulumi.set(__self__, "augmented_manifests", augmented_manifests)
         if data_format is not None:
-            _setter("data_format", data_format)
+            pulumi.set(__self__, "data_format", data_format)
         if document_reader_config is not None:
-            _setter("document_reader_config", document_reader_config)
+            pulumi.set(__self__, "document_reader_config", document_reader_config)
         if document_type is not None:
-            _setter("document_type", document_type)
+            pulumi.set(__self__, "document_type", document_type)
         if documents is not None:
-            _setter("documents", documents)
+            pulumi.set(__self__, "documents", documents)
         if label_delimiter is not None:
-            _setter("label_delimiter", label_delimiter)
+            pulumi.set(__self__, "label_delimiter", label_delimiter)
         if s3_uri is not None:
-            _setter("s3_uri", s3_uri)
+            pulumi.set(__self__, "s3_uri", s3_uri)
         if test_s3_uri is not None:
-            _setter("test_s3_uri", test_s3_uri)
+            pulumi.set(__self__, "test_s3_uri", test_s3_uri)
 
     @property
     @pulumi.getter(name="augmentedManifests")
@@ -344,21 +284,10 @@ class DocumentClassifierOutputDataConfig(dict):
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None,
                  s3_uri: Optional[str] = None):
-        DocumentClassifierOutputDataConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key_id=kms_key_id,
-            s3_uri=s3_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key_id: Optional[str] = None,
-             s3_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if s3_uri is not None:
-            _setter("s3_uri", s3_uri)
+            pulumi.set(__self__, "s3_uri", s3_uri)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -376,19 +305,8 @@ class DocumentClassifierTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        DocumentClassifierTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -423,19 +341,8 @@ class DocumentClassifierVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
-        DocumentClassifierVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnets=subnets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Sequence[str],
-             subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnets", subnets)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -478,29 +385,14 @@ class FlywheelDataSecurityConfig(dict):
                  model_kms_key_id: Optional[str] = None,
                  volume_kms_key_id: Optional[str] = None,
                  vpc_config: Optional['outputs.FlywheelVpcConfig'] = None):
-        FlywheelDataSecurityConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_lake_kms_key_id=data_lake_kms_key_id,
-            model_kms_key_id=model_kms_key_id,
-            volume_kms_key_id=volume_kms_key_id,
-            vpc_config=vpc_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_lake_kms_key_id: Optional[str] = None,
-             model_kms_key_id: Optional[str] = None,
-             volume_kms_key_id: Optional[str] = None,
-             vpc_config: Optional['outputs.FlywheelVpcConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_lake_kms_key_id is not None:
-            _setter("data_lake_kms_key_id", data_lake_kms_key_id)
+            pulumi.set(__self__, "data_lake_kms_key_id", data_lake_kms_key_id)
         if model_kms_key_id is not None:
-            _setter("model_kms_key_id", model_kms_key_id)
+            pulumi.set(__self__, "model_kms_key_id", model_kms_key_id)
         if volume_kms_key_id is not None:
-            _setter("volume_kms_key_id", volume_kms_key_id)
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
         if vpc_config is not None:
-            _setter("vpc_config", vpc_config)
+            pulumi.set(__self__, "vpc_config", vpc_config)
 
     @property
     @pulumi.getter(name="dataLakeKmsKeyId")
@@ -528,20 +420,9 @@ class FlywheelDocumentClassificationConfig(dict):
     def __init__(__self__, *,
                  mode: 'FlywheelDocumentClassificationConfigMode',
                  labels: Optional[Sequence[str]] = None):
-        FlywheelDocumentClassificationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            labels=labels,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: 'FlywheelDocumentClassificationConfigMode',
-             labels: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
 
     @property
     @pulumi.getter
@@ -575,17 +456,8 @@ class FlywheelEntityRecognitionConfig(dict):
 
     def __init__(__self__, *,
                  entity_types: Optional[Sequence['outputs.FlywheelEntityTypesListItem']] = None):
-        FlywheelEntityRecognitionConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_types=entity_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_types: Optional[Sequence['outputs.FlywheelEntityTypesListItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if entity_types is not None:
-            _setter("entity_types", entity_types)
+            pulumi.set(__self__, "entity_types", entity_types)
 
     @property
     @pulumi.getter(name="entityTypes")
@@ -597,16 +469,7 @@ class FlywheelEntityRecognitionConfig(dict):
 class FlywheelEntityTypesListItem(dict):
     def __init__(__self__, *,
                  type: str):
-        FlywheelEntityTypesListItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -619,19 +482,8 @@ class FlywheelTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        FlywheelTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -671,24 +523,11 @@ class FlywheelTaskConfig(dict):
                  language_code: 'FlywheelTaskConfigLanguageCode',
                  document_classification_config: Optional['outputs.FlywheelDocumentClassificationConfig'] = None,
                  entity_recognition_config: Optional['outputs.FlywheelEntityRecognitionConfig'] = None):
-        FlywheelTaskConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            language_code=language_code,
-            document_classification_config=document_classification_config,
-            entity_recognition_config=entity_recognition_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             language_code: 'FlywheelTaskConfigLanguageCode',
-             document_classification_config: Optional['outputs.FlywheelDocumentClassificationConfig'] = None,
-             entity_recognition_config: Optional['outputs.FlywheelEntityRecognitionConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("language_code", language_code)
+        pulumi.set(__self__, "language_code", language_code)
         if document_classification_config is not None:
-            _setter("document_classification_config", document_classification_config)
+            pulumi.set(__self__, "document_classification_config", document_classification_config)
         if entity_recognition_config is not None:
-            _setter("entity_recognition_config", entity_recognition_config)
+            pulumi.set(__self__, "entity_recognition_config", entity_recognition_config)
 
     @property
     @pulumi.getter(name="languageCode")
@@ -728,19 +567,8 @@ class FlywheelVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnets: Sequence[str]):
-        FlywheelVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnets=subnets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Sequence[str],
-             subnets: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnets", subnets)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroupIds")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -71,48 +71,23 @@ class ProjectArtifacts(dict):
                  override_artifact_name: Optional[bool] = None,
                  packaging: Optional[str] = None,
                  path: Optional[str] = None):
-        ProjectArtifacts._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            artifact_identifier=artifact_identifier,
-            encryption_disabled=encryption_disabled,
-            location=location,
-            name=name,
-            namespace_type=namespace_type,
-            override_artifact_name=override_artifact_name,
-            packaging=packaging,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             artifact_identifier: Optional[str] = None,
-             encryption_disabled: Optional[bool] = None,
-             location: Optional[str] = None,
-             name: Optional[str] = None,
-             namespace_type: Optional[str] = None,
-             override_artifact_name: Optional[bool] = None,
-             packaging: Optional[str] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if artifact_identifier is not None:
-            _setter("artifact_identifier", artifact_identifier)
+            pulumi.set(__self__, "artifact_identifier", artifact_identifier)
         if encryption_disabled is not None:
-            _setter("encryption_disabled", encryption_disabled)
+            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespace_type is not None:
-            _setter("namespace_type", namespace_type)
+            pulumi.set(__self__, "namespace_type", namespace_type)
         if override_artifact_name is not None:
-            _setter("override_artifact_name", override_artifact_name)
+            pulumi.set(__self__, "override_artifact_name", override_artifact_name)
         if packaging is not None:
-            _setter("packaging", packaging)
+            pulumi.set(__self__, "packaging", packaging)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -184,21 +159,10 @@ class ProjectBatchRestrictions(dict):
     def __init__(__self__, *,
                  compute_types_allowed: Optional[Sequence[str]] = None,
                  maximum_builds_allowed: Optional[int] = None):
-        ProjectBatchRestrictions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_types_allowed=compute_types_allowed,
-            maximum_builds_allowed=maximum_builds_allowed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_types_allowed: Optional[Sequence[str]] = None,
-             maximum_builds_allowed: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if compute_types_allowed is not None:
-            _setter("compute_types_allowed", compute_types_allowed)
+            pulumi.set(__self__, "compute_types_allowed", compute_types_allowed)
         if maximum_builds_allowed is not None:
-            _setter("maximum_builds_allowed", maximum_builds_allowed)
+            pulumi.set(__self__, "maximum_builds_allowed", maximum_builds_allowed)
 
     @property
     @pulumi.getter(name="computeTypesAllowed")
@@ -242,33 +206,16 @@ class ProjectBuildBatchConfig(dict):
                  restrictions: Optional['outputs.ProjectBatchRestrictions'] = None,
                  service_role: Optional[str] = None,
                  timeout_in_mins: Optional[int] = None):
-        ProjectBuildBatchConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            batch_report_mode=batch_report_mode,
-            combine_artifacts=combine_artifacts,
-            restrictions=restrictions,
-            service_role=service_role,
-            timeout_in_mins=timeout_in_mins,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             batch_report_mode: Optional[str] = None,
-             combine_artifacts: Optional[bool] = None,
-             restrictions: Optional['outputs.ProjectBatchRestrictions'] = None,
-             service_role: Optional[str] = None,
-             timeout_in_mins: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if batch_report_mode is not None:
-            _setter("batch_report_mode", batch_report_mode)
+            pulumi.set(__self__, "batch_report_mode", batch_report_mode)
         if combine_artifacts is not None:
-            _setter("combine_artifacts", combine_artifacts)
+            pulumi.set(__self__, "combine_artifacts", combine_artifacts)
         if restrictions is not None:
-            _setter("restrictions", restrictions)
+            pulumi.set(__self__, "restrictions", restrictions)
         if service_role is not None:
-            _setter("service_role", service_role)
+            pulumi.set(__self__, "service_role", service_role)
         if timeout_in_mins is not None:
-            _setter("timeout_in_mins", timeout_in_mins)
+            pulumi.set(__self__, "timeout_in_mins", timeout_in_mins)
 
     @property
     @pulumi.getter(name="batchReportMode")
@@ -318,21 +265,10 @@ class ProjectBuildStatusConfig(dict):
     def __init__(__self__, *,
                  context: Optional[str] = None,
                  target_url: Optional[str] = None):
-        ProjectBuildStatusConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            context=context,
-            target_url=target_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             context: Optional[str] = None,
-             target_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if context is not None:
-            _setter("context", context)
+            pulumi.set(__self__, "context", context)
         if target_url is not None:
-            _setter("target_url", target_url)
+            pulumi.set(__self__, "target_url", target_url)
 
     @property
     @pulumi.getter
@@ -351,24 +287,11 @@ class ProjectCache(dict):
                  type: str,
                  location: Optional[str] = None,
                  modes: Optional[Sequence[str]] = None):
-        ProjectCache._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            location=location,
-            modes=modes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             location: Optional[str] = None,
-             modes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if modes is not None:
-            _setter("modes", modes)
+            pulumi.set(__self__, "modes", modes)
 
     @property
     @pulumi.getter
@@ -411,24 +334,11 @@ class ProjectCloudWatchLogsConfig(dict):
                  status: str,
                  group_name: Optional[str] = None,
                  stream_name: Optional[str] = None):
-        ProjectCloudWatchLogsConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            group_name=group_name,
-            stream_name=stream_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: str,
-             group_name: Optional[str] = None,
-             stream_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if group_name is not None:
-            _setter("group_name", group_name)
+            pulumi.set(__self__, "group_name", group_name)
         if stream_name is not None:
-            _setter("stream_name", stream_name)
+            pulumi.set(__self__, "stream_name", stream_name)
 
     @property
     @pulumi.getter
@@ -482,42 +392,19 @@ class ProjectEnvironment(dict):
                  image_pull_credentials_type: Optional[str] = None,
                  privileged_mode: Optional[bool] = None,
                  registry_credential: Optional['outputs.ProjectRegistryCredential'] = None):
-        ProjectEnvironment._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_type=compute_type,
-            image=image,
-            type=type,
-            certificate=certificate,
-            environment_variables=environment_variables,
-            image_pull_credentials_type=image_pull_credentials_type,
-            privileged_mode=privileged_mode,
-            registry_credential=registry_credential,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_type: str,
-             image: str,
-             type: str,
-             certificate: Optional[str] = None,
-             environment_variables: Optional[Sequence['outputs.ProjectEnvironmentVariable']] = None,
-             image_pull_credentials_type: Optional[str] = None,
-             privileged_mode: Optional[bool] = None,
-             registry_credential: Optional['outputs.ProjectRegistryCredential'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("compute_type", compute_type)
-        _setter("image", image)
-        _setter("type", type)
+        pulumi.set(__self__, "compute_type", compute_type)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "type", type)
         if certificate is not None:
-            _setter("certificate", certificate)
+            pulumi.set(__self__, "certificate", certificate)
         if environment_variables is not None:
-            _setter("environment_variables", environment_variables)
+            pulumi.set(__self__, "environment_variables", environment_variables)
         if image_pull_credentials_type is not None:
-            _setter("image_pull_credentials_type", image_pull_credentials_type)
+            pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
-            _setter("privileged_mode", privileged_mode)
+            pulumi.set(__self__, "privileged_mode", privileged_mode)
         if registry_credential is not None:
-            _setter("registry_credential", registry_credential)
+            pulumi.set(__self__, "registry_credential", registry_credential)
 
     @property
     @pulumi.getter(name="computeType")
@@ -566,23 +453,10 @@ class ProjectEnvironmentVariable(dict):
                  name: str,
                  value: str,
                  type: Optional[str] = None):
-        ProjectEnvironmentVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -627,29 +501,12 @@ class ProjectFileSystemLocation(dict):
                  mount_point: str,
                  type: str,
                  mount_options: Optional[str] = None):
-        ProjectFileSystemLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identifier=identifier,
-            location=location,
-            mount_point=mount_point,
-            type=type,
-            mount_options=mount_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identifier: str,
-             location: str,
-             mount_point: str,
-             type: str,
-             mount_options: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("identifier", identifier)
-        _setter("location", location)
-        _setter("mount_point", mount_point)
-        _setter("type", type)
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "mount_point", mount_point)
+        pulumi.set(__self__, "type", type)
         if mount_options is not None:
-            _setter("mount_options", mount_options)
+            pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter
@@ -681,11 +538,6 @@ class ProjectFileSystemLocation(dict):
 class ProjectFilterGroup(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -709,16 +561,7 @@ class ProjectGitSubmodulesConfig(dict):
 
     def __init__(__self__, *,
                  fetch_submodules: bool):
-        ProjectGitSubmodulesConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fetch_submodules=fetch_submodules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fetch_submodules: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fetch_submodules", fetch_submodules)
+        pulumi.set(__self__, "fetch_submodules", fetch_submodules)
 
     @property
     @pulumi.getter(name="fetchSubmodules")
@@ -750,21 +593,10 @@ class ProjectLogsConfig(dict):
     def __init__(__self__, *,
                  cloud_watch_logs: Optional['outputs.ProjectCloudWatchLogsConfig'] = None,
                  s3_logs: Optional['outputs.ProjectS3LogsConfig'] = None):
-        ProjectLogsConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_logs=cloud_watch_logs,
-            s3_logs=s3_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_logs: Optional['outputs.ProjectCloudWatchLogsConfig'] = None,
-             s3_logs: Optional['outputs.ProjectS3LogsConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_logs is not None:
-            _setter("cloud_watch_logs", cloud_watch_logs)
+            pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
         if s3_logs is not None:
-            _setter("s3_logs", s3_logs)
+            pulumi.set(__self__, "s3_logs", s3_logs)
 
     @property
     @pulumi.getter(name="cloudWatchLogs")
@@ -799,19 +631,8 @@ class ProjectRegistryCredential(dict):
     def __init__(__self__, *,
                  credential: str,
                  credential_provider: str):
-        ProjectRegistryCredential._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credential=credential,
-            credential_provider=credential_provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credential: str,
-             credential_provider: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("credential", credential)
-        _setter("credential_provider", credential_provider)
+        pulumi.set(__self__, "credential", credential)
+        pulumi.set(__self__, "credential_provider", credential_provider)
 
     @property
     @pulumi.getter
@@ -847,24 +668,11 @@ class ProjectS3LogsConfig(dict):
                  status: str,
                  encryption_disabled: Optional[bool] = None,
                  location: Optional[str] = None):
-        ProjectS3LogsConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            encryption_disabled=encryption_disabled,
-            location=location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: str,
-             encryption_disabled: Optional[bool] = None,
-             location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if encryption_disabled is not None:
-            _setter("encryption_disabled", encryption_disabled)
+            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
 
     @property
     @pulumi.getter
@@ -924,52 +732,25 @@ class ProjectSource(dict):
                  location: Optional[str] = None,
                  report_build_status: Optional[bool] = None,
                  source_identifier: Optional[str] = None):
-        ProjectSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            auth=auth,
-            build_spec=build_spec,
-            build_status_config=build_status_config,
-            git_clone_depth=git_clone_depth,
-            git_submodules_config=git_submodules_config,
-            insecure_ssl=insecure_ssl,
-            location=location,
-            report_build_status=report_build_status,
-            source_identifier=source_identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             auth: Optional['outputs.ProjectSourceAuth'] = None,
-             build_spec: Optional[str] = None,
-             build_status_config: Optional['outputs.ProjectBuildStatusConfig'] = None,
-             git_clone_depth: Optional[int] = None,
-             git_submodules_config: Optional['outputs.ProjectGitSubmodulesConfig'] = None,
-             insecure_ssl: Optional[bool] = None,
-             location: Optional[str] = None,
-             report_build_status: Optional[bool] = None,
-             source_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if auth is not None:
-            _setter("auth", auth)
+            pulumi.set(__self__, "auth", auth)
         if build_spec is not None:
-            _setter("build_spec", build_spec)
+            pulumi.set(__self__, "build_spec", build_spec)
         if build_status_config is not None:
-            _setter("build_status_config", build_status_config)
+            pulumi.set(__self__, "build_status_config", build_status_config)
         if git_clone_depth is not None:
-            _setter("git_clone_depth", git_clone_depth)
+            pulumi.set(__self__, "git_clone_depth", git_clone_depth)
         if git_submodules_config is not None:
-            _setter("git_submodules_config", git_submodules_config)
+            pulumi.set(__self__, "git_submodules_config", git_submodules_config)
         if insecure_ssl is not None:
-            _setter("insecure_ssl", insecure_ssl)
+            pulumi.set(__self__, "insecure_ssl", insecure_ssl)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if report_build_status is not None:
-            _setter("report_build_status", report_build_status)
+            pulumi.set(__self__, "report_build_status", report_build_status)
         if source_identifier is not None:
-            _setter("source_identifier", source_identifier)
+            pulumi.set(__self__, "source_identifier", source_identifier)
 
     @property
     @pulumi.getter
@@ -1027,20 +808,9 @@ class ProjectSourceAuth(dict):
     def __init__(__self__, *,
                  type: str,
                  resource: Optional[str] = None):
-        ProjectSourceAuth._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            resource=resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             resource: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if resource is not None:
-            _setter("resource", resource)
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter
@@ -1077,20 +847,9 @@ class ProjectSourceVersion(dict):
     def __init__(__self__, *,
                  source_identifier: str,
                  source_version: Optional[str] = None):
-        ProjectSourceVersion._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_identifier=source_identifier,
-            source_version=source_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_identifier: str,
-             source_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source_identifier", source_identifier)
+        pulumi.set(__self__, "source_identifier", source_identifier)
         if source_version is not None:
-            _setter("source_version", source_version)
+            pulumi.set(__self__, "source_version", source_version)
 
     @property
     @pulumi.getter(name="sourceIdentifier")
@@ -1108,19 +867,8 @@ class ProjectTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ProjectTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1158,25 +906,12 @@ class ProjectTriggers(dict):
                  build_type: Optional[str] = None,
                  filter_groups: Optional[Sequence['outputs.ProjectFilterGroup']] = None,
                  webhook: Optional[bool] = None):
-        ProjectTriggers._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            build_type=build_type,
-            filter_groups=filter_groups,
-            webhook=webhook,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             build_type: Optional[str] = None,
-             filter_groups: Optional[Sequence['outputs.ProjectFilterGroup']] = None,
-             webhook: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if build_type is not None:
-            _setter("build_type", build_type)
+            pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
-            _setter("filter_groups", filter_groups)
+            pulumi.set(__self__, "filter_groups", filter_groups)
         if webhook is not None:
-            _setter("webhook", webhook)
+            pulumi.set(__self__, "webhook", webhook)
 
     @property
     @pulumi.getter(name="buildType")
@@ -1219,25 +954,12 @@ class ProjectVpcConfig(dict):
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnets: Optional[Sequence[str]] = None,
                  vpc_id: Optional[str] = None):
-        ProjectVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnets=subnets,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnets: Optional[Sequence[str]] = None,
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -1279,20 +1001,9 @@ class ReportGroupReportExportConfig(dict):
     def __init__(__self__, *,
                  export_config_type: str,
                  s3_destination: Optional['outputs.ReportGroupS3ReportExportConfig'] = None):
-        ReportGroupReportExportConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            export_config_type=export_config_type,
-            s3_destination=s3_destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             export_config_type: str,
-             s3_destination: Optional['outputs.ReportGroupS3ReportExportConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("export_config_type", export_config_type)
+        pulumi.set(__self__, "export_config_type", export_config_type)
         if s3_destination is not None:
-            _setter("s3_destination", s3_destination)
+            pulumi.set(__self__, "s3_destination", s3_destination)
 
     @property
     @pulumi.getter(name="exportConfigType")
@@ -1335,36 +1046,17 @@ class ReportGroupS3ReportExportConfig(dict):
                  encryption_key: Optional[str] = None,
                  packaging: Optional[str] = None,
                  path: Optional[str] = None):
-        ReportGroupS3ReportExportConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            bucket_owner=bucket_owner,
-            encryption_disabled=encryption_disabled,
-            encryption_key=encryption_key,
-            packaging=packaging,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             bucket_owner: Optional[str] = None,
-             encryption_disabled: Optional[bool] = None,
-             encryption_key: Optional[str] = None,
-             packaging: Optional[str] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
+        pulumi.set(__self__, "bucket", bucket)
         if bucket_owner is not None:
-            _setter("bucket_owner", bucket_owner)
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if encryption_disabled is not None:
-            _setter("encryption_disabled", encryption_disabled)
+            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
         if encryption_key is not None:
-            _setter("encryption_key", encryption_key)
+            pulumi.set(__self__, "encryption_key", encryption_key)
         if packaging is not None:
-            _setter("packaging", packaging)
+            pulumi.set(__self__, "packaging", packaging)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -1402,19 +1094,8 @@ class ReportGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ReportGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -23,16 +23,7 @@ __all__ = [
 class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source", source)
+        pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -49,19 +40,8 @@ class InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs']):
-        InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -89,16 +69,7 @@ class InstanceAccessControlAttributeConfigurationPropertiesArgs:
         """
         The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
-        InstanceAccessControlAttributeConfigurationPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_control_attributes=access_control_attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_control_attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("access_control_attributes", access_control_attributes)
+        pulumi.set(__self__, "access_control_attributes", access_control_attributes)
 
     @property
     @pulumi.getter(name="accessControlAttributes")
@@ -115,20 +86,9 @@ class PermissionSetCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
-        PermissionSetCustomerManagedPolicyReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -154,21 +114,10 @@ class PermissionSetPermissionsBoundaryArgs:
     def __init__(__self__, *,
                  customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
                  managed_policy_arn: Optional[pulumi.Input[str]] = None):
-        PermissionSetPermissionsBoundaryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            customer_managed_policy_reference=customer_managed_policy_reference,
-            managed_policy_arn=managed_policy_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             customer_managed_policy_reference: Optional[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']] = None,
-             managed_policy_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if customer_managed_policy_reference is not None:
-            _setter("customer_managed_policy_reference", customer_managed_policy_reference)
+            pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
-            _setter("managed_policy_arn", managed_policy_arn)
+            pulumi.set(__self__, "managed_policy_arn", managed_policy_arn)
 
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
@@ -197,19 +146,8 @@ class PermissionSetTagArgs:
         """
         The metadata that you apply to the permission set to help you categorize and organize them.
         """
-        PermissionSetTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

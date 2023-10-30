@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,101 +42,50 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
         """
-        ServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity_provider_strategy=capacity_provider_strategy,
-            cluster=cluster,
-            deployment_configuration=deployment_configuration,
-            deployment_controller=deployment_controller,
-            desired_count=desired_count,
-            enable_ecs_managed_tags=enable_ecs_managed_tags,
-            enable_execute_command=enable_execute_command,
-            health_check_grace_period_seconds=health_check_grace_period_seconds,
-            launch_type=launch_type,
-            load_balancers=load_balancers,
-            network_configuration=network_configuration,
-            placement_constraints=placement_constraints,
-            placement_strategies=placement_strategies,
-            platform_version=platform_version,
-            propagate_tags=propagate_tags,
-            role=role,
-            scheduling_strategy=scheduling_strategy,
-            service_connect_configuration=service_connect_configuration,
-            service_name=service_name,
-            service_registries=service_registries,
-            tags=tags,
-            task_definition=task_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]] = None,
-             cluster: Optional[pulumi.Input[str]] = None,
-             deployment_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']] = None,
-             deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
-             desired_count: Optional[pulumi.Input[int]] = None,
-             enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
-             enable_execute_command: Optional[pulumi.Input[bool]] = None,
-             health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
-             launch_type: Optional[pulumi.Input['ServiceLaunchType']] = None,
-             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
-             network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
-             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
-             placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementStrategyArgs']]]] = None,
-             platform_version: Optional[pulumi.Input[str]] = None,
-             propagate_tags: Optional[pulumi.Input['ServicePropagateTags']] = None,
-             role: Optional[pulumi.Input[str]] = None,
-             scheduling_strategy: Optional[pulumi.Input['ServiceSchedulingStrategy']] = None,
-             service_connect_configuration: Optional[pulumi.Input['ServiceConnectConfigurationArgs']] = None,
-             service_name: Optional[pulumi.Input[str]] = None,
-             service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-             task_definition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if capacity_provider_strategy is not None:
-            _setter("capacity_provider_strategy", capacity_provider_strategy)
+            pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
         if cluster is not None:
-            _setter("cluster", cluster)
+            pulumi.set(__self__, "cluster", cluster)
         if deployment_configuration is not None:
-            _setter("deployment_configuration", deployment_configuration)
+            pulumi.set(__self__, "deployment_configuration", deployment_configuration)
         if deployment_controller is not None:
-            _setter("deployment_controller", deployment_controller)
+            pulumi.set(__self__, "deployment_controller", deployment_controller)
         if desired_count is not None:
-            _setter("desired_count", desired_count)
+            pulumi.set(__self__, "desired_count", desired_count)
         if enable_ecs_managed_tags is not None:
-            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
+            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            _setter("enable_execute_command", enable_execute_command)
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if health_check_grace_period_seconds is not None:
-            _setter("health_check_grace_period_seconds", health_check_grace_period_seconds)
+            pulumi.set(__self__, "health_check_grace_period_seconds", health_check_grace_period_seconds)
         if launch_type is not None:
-            _setter("launch_type", launch_type)
+            pulumi.set(__self__, "launch_type", launch_type)
         if load_balancers is not None:
-            _setter("load_balancers", load_balancers)
+            pulumi.set(__self__, "load_balancers", load_balancers)
         if network_configuration is not None:
-            _setter("network_configuration", network_configuration)
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if placement_constraints is not None:
-            _setter("placement_constraints", placement_constraints)
+            pulumi.set(__self__, "placement_constraints", placement_constraints)
         if placement_strategies is not None:
-            _setter("placement_strategies", placement_strategies)
+            pulumi.set(__self__, "placement_strategies", placement_strategies)
         if platform_version is not None:
-            _setter("platform_version", platform_version)
+            pulumi.set(__self__, "platform_version", platform_version)
         if propagate_tags is not None:
-            _setter("propagate_tags", propagate_tags)
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if scheduling_strategy is not None:
-            _setter("scheduling_strategy", scheduling_strategy)
+            pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
         if service_connect_configuration is not None:
-            _setter("service_connect_configuration", service_connect_configuration)
+            pulumi.set(__self__, "service_connect_configuration", service_connect_configuration)
         if service_name is not None:
-            _setter("service_name", service_name)
+            pulumi.set(__self__, "service_name", service_name)
         if service_registries is not None:
-            _setter("service_registries", service_registries)
+            pulumi.set(__self__, "service_registries", service_registries)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if task_definition is not None:
-            _setter("task_definition", task_definition)
+            pulumi.set(__self__, "task_definition", task_definition)
 
     @property
     @pulumi.getter(name="capacityProviderStrategy")
@@ -390,10 +339,6 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -432,17 +377,7 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["capacity_provider_strategy"] = capacity_provider_strategy
             __props__.__dict__["cluster"] = cluster
-            if deployment_configuration is not None and not isinstance(deployment_configuration, ServiceDeploymentConfigurationArgs):
-                deployment_configuration = deployment_configuration or {}
-                def _setter(key, value):
-                    deployment_configuration[key] = value
-                ServiceDeploymentConfigurationArgs._configure(_setter, **deployment_configuration)
             __props__.__dict__["deployment_configuration"] = deployment_configuration
-            if deployment_controller is not None and not isinstance(deployment_controller, ServiceDeploymentControllerArgs):
-                deployment_controller = deployment_controller or {}
-                def _setter(key, value):
-                    deployment_controller[key] = value
-                ServiceDeploymentControllerArgs._configure(_setter, **deployment_controller)
             __props__.__dict__["deployment_controller"] = deployment_controller
             __props__.__dict__["desired_count"] = desired_count
             __props__.__dict__["enable_ecs_managed_tags"] = enable_ecs_managed_tags
@@ -450,11 +385,6 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["health_check_grace_period_seconds"] = health_check_grace_period_seconds
             __props__.__dict__["launch_type"] = launch_type
             __props__.__dict__["load_balancers"] = load_balancers
-            if network_configuration is not None and not isinstance(network_configuration, ServiceNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                ServiceNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["placement_strategies"] = placement_strategies
@@ -462,11 +392,6 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["propagate_tags"] = propagate_tags
             __props__.__dict__["role"] = role
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
-            if service_connect_configuration is not None and not isinstance(service_connect_configuration, ServiceConnectConfigurationArgs):
-                service_connect_configuration = service_connect_configuration or {}
-                def _setter(key, value):
-                    service_connect_configuration[key] = value
-                ServiceConnectConfigurationArgs._configure(_setter, **service_connect_configuration)
             __props__.__dict__["service_connect_configuration"] = service_connect_configuration
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_registries"] = service_registries

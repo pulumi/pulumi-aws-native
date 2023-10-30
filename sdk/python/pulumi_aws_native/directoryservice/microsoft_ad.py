@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,39 +26,18 @@ class MicrosoftAdArgs:
         """
         The set of arguments for constructing a MicrosoftAd resource.
         """
-        MicrosoftAdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password=password,
-            vpc_settings=vpc_settings,
-            create_alias=create_alias,
-            edition=edition,
-            enable_sso=enable_sso,
-            name=name,
-            short_name=short_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             vpc_settings: pulumi.Input['MicrosoftAdVpcSettingsArgs'],
-             create_alias: Optional[pulumi.Input[bool]] = None,
-             edition: Optional[pulumi.Input[str]] = None,
-             enable_sso: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             short_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("password", password)
-        _setter("vpc_settings", vpc_settings)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "vpc_settings", vpc_settings)
         if create_alias is not None:
-            _setter("create_alias", create_alias)
+            pulumi.set(__self__, "create_alias", create_alias)
         if edition is not None:
-            _setter("edition", edition)
+            pulumi.set(__self__, "edition", edition)
         if enable_sso is not None:
-            _setter("enable_sso", enable_sso)
+            pulumi.set(__self__, "enable_sso", enable_sso)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if short_name is not None:
-            _setter("short_name", short_name)
+            pulumi.set(__self__, "short_name", short_name)
 
     @property
     @pulumi.getter
@@ -167,10 +146,6 @@ class MicrosoftAd(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MicrosoftAdArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -201,11 +176,6 @@ class MicrosoftAd(pulumi.CustomResource):
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = password
             __props__.__dict__["short_name"] = short_name
-            if vpc_settings is not None and not isinstance(vpc_settings, MicrosoftAdVpcSettingsArgs):
-                vpc_settings = vpc_settings or {}
-                def _setter(key, value):
-                    vpc_settings[key] = value
-                MicrosoftAdVpcSettingsArgs._configure(_setter, **vpc_settings)
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings

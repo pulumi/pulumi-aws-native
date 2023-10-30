@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,11 +30,6 @@ class AllowListCriteria(dict):
         The regex or s3 object to use for the AllowList.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -50,19 +45,8 @@ class AllowListTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        AllowListTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -94,19 +78,8 @@ class CustomDataIdentifierTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        CustomDataIdentifierTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -135,28 +108,14 @@ class FindingsFilterCriterion(dict):
         Map of filter criteria.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
 class FindingsFilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterion: Optional['outputs.FindingsFilterCriterion'] = None):
-        FindingsFilterFindingCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            criterion=criterion,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             criterion: Optional['outputs.FindingsFilterCriterion'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if criterion is not None:
-            _setter("criterion", criterion)
+            pulumi.set(__self__, "criterion", criterion)
 
     @property
     @pulumi.getter
@@ -177,19 +136,8 @@ class FindingsFilterTag(dict):
         :param str key: The tag's key.
         :param str value: The tag's value.
         """
-        FindingsFilterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

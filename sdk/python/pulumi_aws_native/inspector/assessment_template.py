@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,30 +24,13 @@ class AssessmentTemplateArgs:
         """
         The set of arguments for constructing a AssessmentTemplate resource.
         """
-        AssessmentTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_target_arn=assessment_target_arn,
-            duration_in_seconds=duration_in_seconds,
-            rules_package_arns=rules_package_arns,
-            assessment_template_name=assessment_template_name,
-            user_attributes_for_findings=user_attributes_for_findings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_target_arn: pulumi.Input[str],
-             duration_in_seconds: pulumi.Input[int],
-             rules_package_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             assessment_template_name: Optional[pulumi.Input[str]] = None,
-             user_attributes_for_findings: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("assessment_target_arn", assessment_target_arn)
-        _setter("duration_in_seconds", duration_in_seconds)
-        _setter("rules_package_arns", rules_package_arns)
+        pulumi.set(__self__, "assessment_target_arn", assessment_target_arn)
+        pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
+        pulumi.set(__self__, "rules_package_arns", rules_package_arns)
         if assessment_template_name is not None:
-            _setter("assessment_template_name", assessment_template_name)
+            pulumi.set(__self__, "assessment_template_name", assessment_template_name)
         if user_attributes_for_findings is not None:
-            _setter("user_attributes_for_findings", user_attributes_for_findings)
+            pulumi.set(__self__, "user_attributes_for_findings", user_attributes_for_findings)
 
     @property
     @pulumi.getter(name="assessmentTargetArn")
@@ -131,10 +114,6 @@ class AssessmentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssessmentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

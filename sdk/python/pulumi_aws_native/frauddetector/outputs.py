@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -66,41 +66,20 @@ class DetectorEntityType(dict):
         :param str last_updated_time: The time when the entity type was last updated.
         :param Sequence['DetectorTag'] tags: Tags associated with this entity type.
         """
-        DetectorEntityType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -194,53 +173,26 @@ class DetectorEventType(dict):
         :param str name: The name for the event type
         :param Sequence['DetectorTag'] tags: Tags associated with this event type.
         """
-        DetectorEventType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            entity_types=entity_types,
-            event_variables=event_variables,
-            inline=inline,
-            labels=labels,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             entity_types: Optional[Sequence['outputs.DetectorEntityType']] = None,
-             event_variables: Optional[Sequence['outputs.DetectorEventVariable']] = None,
-             inline: Optional[bool] = None,
-             labels: Optional[Sequence['outputs.DetectorLabel']] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if entity_types is not None:
-            _setter("entity_types", entity_types)
+            pulumi.set(__self__, "entity_types", entity_types)
         if event_variables is not None:
-            _setter("event_variables", event_variables)
+            pulumi.set(__self__, "event_variables", event_variables)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -358,57 +310,28 @@ class DetectorEventVariable(dict):
         :param str last_updated_time: The time when the event variable was last updated.
         :param Sequence['DetectorTag'] tags: Tags associated with this event variable.
         """
-        DetectorEventVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            data_source=data_source,
-            data_type=data_type,
-            default_value=default_value,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-            variable_type=variable_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             data_source: Optional['DetectorEventVariableDataSource'] = None,
-             data_type: Optional['DetectorEventVariableDataType'] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             variable_type: Optional['DetectorEventVariableVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if data_source is not None:
-            _setter("data_source", data_source)
+            pulumi.set(__self__, "data_source", data_source)
         if data_type is not None:
-            _setter("data_type", data_type)
+            pulumi.set(__self__, "data_type", data_type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if variable_type is not None:
-            _setter("variable_type", variable_type)
+            pulumi.set(__self__, "variable_type", variable_type)
 
     @property
     @pulumi.getter
@@ -513,41 +436,20 @@ class DetectorLabel(dict):
         :param str last_updated_time: The time when the label was last updated.
         :param Sequence['DetectorTag'] tags: Tags associated with this label.
         """
-        DetectorLabel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -607,17 +509,8 @@ class DetectorModel(dict):
         """
         A model to associate with a detector.
         """
-        DetectorModel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -660,41 +553,20 @@ class DetectorOutcome(dict):
         :param str last_updated_time: The time when the outcome was last updated.
         :param Sequence['DetectorTag'] tags: Tags associated with this outcome.
         """
-        DetectorOutcome._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -789,57 +661,28 @@ class DetectorRule(dict):
         :param str last_updated_time: The time when the event type was last updated.
         :param Sequence['DetectorTag'] tags: Tags associated with this event type.
         """
-        DetectorRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            detector_id=detector_id,
-            expression=expression,
-            language=language,
-            last_updated_time=last_updated_time,
-            outcomes=outcomes,
-            rule_id=rule_id,
-            rule_version=rule_version,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             detector_id: Optional[str] = None,
-             expression: Optional[str] = None,
-             language: Optional['DetectorRuleLanguage'] = None,
-             last_updated_time: Optional[str] = None,
-             outcomes: Optional[Sequence['outputs.DetectorOutcome']] = None,
-             rule_id: Optional[str] = None,
-             rule_version: Optional[str] = None,
-             tags: Optional[Sequence['outputs.DetectorTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if detector_id is not None:
-            _setter("detector_id", detector_id)
+            pulumi.set(__self__, "detector_id", detector_id)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
         if language is not None:
-            _setter("language", language)
+            pulumi.set(__self__, "language", language)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if outcomes is not None:
-            _setter("outcomes", outcomes)
+            pulumi.set(__self__, "outcomes", outcomes)
         if rule_id is not None:
-            _setter("rule_id", rule_id)
+            pulumi.set(__self__, "rule_id", rule_id)
         if rule_version is not None:
-            _setter("rule_version", rule_version)
+            pulumi.set(__self__, "rule_version", rule_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -914,19 +757,8 @@ class DetectorTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        DetectorTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -944,19 +776,8 @@ class EntityTypeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        EntityTypeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1004,41 +825,20 @@ class EventTypeEntityType(dict):
         :param str last_updated_time: The time when the event type was last updated.
         :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
-        EventTypeEntityType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -1135,57 +935,28 @@ class EventTypeEventVariable(dict):
         :param str last_updated_time: The time when the event type was last updated.
         :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
-        EventTypeEventVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            data_source=data_source,
-            data_type=data_type,
-            default_value=default_value,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-            variable_type=variable_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             data_source: Optional['EventTypeEventVariableDataSource'] = None,
-             data_type: Optional['EventTypeEventVariableDataType'] = None,
-             default_value: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             variable_type: Optional['EventTypeEventVariableVariableType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if data_source is not None:
-            _setter("data_source", data_source)
+            pulumi.set(__self__, "data_source", data_source)
         if data_type is not None:
-            _setter("data_type", data_type)
+            pulumi.set(__self__, "data_type", data_type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if variable_type is not None:
-            _setter("variable_type", variable_type)
+            pulumi.set(__self__, "variable_type", variable_type)
 
     @property
     @pulumi.getter
@@ -1290,41 +1061,20 @@ class EventTypeLabel(dict):
         :param str last_updated_time: The time when the event type was last updated.
         :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
-        EventTypeLabel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            created_time=created_time,
-            description=description,
-            inline=inline,
-            last_updated_time=last_updated_time,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             created_time: Optional[str] = None,
-             description: Optional[str] = None,
-             inline: Optional[bool] = None,
-             last_updated_time: Optional[str] = None,
-             name: Optional[str] = None,
-             tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if created_time is not None:
-            _setter("created_time", created_time)
+            pulumi.set(__self__, "created_time", created_time)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inline is not None:
-            _setter("inline", inline)
+            pulumi.set(__self__, "inline", inline)
         if last_updated_time is not None:
-            _setter("last_updated_time", last_updated_time)
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -1379,19 +1129,8 @@ class EventTypeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        EventTypeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1409,19 +1148,8 @@ class LabelTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        LabelTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1447,19 +1175,8 @@ class ListTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ListTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1483,19 +1200,8 @@ class OutcomeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        OutcomeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1513,19 +1219,8 @@ class VariableTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        VariableTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

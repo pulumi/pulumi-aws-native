@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApplicationEntitlementAssociationArgs', 'ApplicationEntitlementAssociation']
@@ -20,22 +20,9 @@ class ApplicationEntitlementAssociationArgs:
         """
         The set of arguments for constructing a ApplicationEntitlementAssociation resource.
         """
-        ApplicationEntitlementAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_identifier=application_identifier,
-            entitlement_name=entitlement_name,
-            stack_name=stack_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_identifier: pulumi.Input[str],
-             entitlement_name: pulumi.Input[str],
-             stack_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_identifier", application_identifier)
-        _setter("entitlement_name", entitlement_name)
-        _setter("stack_name", stack_name)
+        pulumi.set(__self__, "application_identifier", application_identifier)
+        pulumi.set(__self__, "entitlement_name", entitlement_name)
+        pulumi.set(__self__, "stack_name", stack_name)
 
     @property
     @pulumi.getter(name="applicationIdentifier")
@@ -99,10 +86,6 @@ class ApplicationEntitlementAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationEntitlementAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -24,37 +24,18 @@ class TrackerArgs:
         """
         The set of arguments for constructing a Tracker resource.
         """
-        TrackerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            kms_key_id=kms_key_id,
-            position_filtering=position_filtering,
-            pricing_plan=pricing_plan,
-            pricing_plan_data_source=pricing_plan_data_source,
-            tracker_name=tracker_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
-             pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
-             pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
-             tracker_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if position_filtering is not None:
-            _setter("position_filtering", position_filtering)
+            pulumi.set(__self__, "position_filtering", position_filtering)
         if pricing_plan is not None:
-            _setter("pricing_plan", pricing_plan)
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source is not None:
-            _setter("pricing_plan_data_source", pricing_plan_data_source)
+            pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
         if tracker_name is not None:
-            _setter("tracker_name", tracker_name)
+            pulumi.set(__self__, "tracker_name", tracker_name)
 
     @property
     @pulumi.getter
@@ -148,10 +129,6 @@ class Tracker(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TrackerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

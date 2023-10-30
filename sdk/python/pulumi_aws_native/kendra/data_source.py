@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,51 +31,24 @@ class DataSourceArgs:
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]] tags: Tags for labeling the data source
         """
-        DataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            index_id=index_id,
-            type=type,
-            custom_document_enrichment_configuration=custom_document_enrichment_configuration,
-            data_source_configuration=data_source_configuration,
-            description=description,
-            language_code=language_code,
-            name=name,
-            role_arn=role_arn,
-            schedule=schedule,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             index_id: pulumi.Input[str],
-             type: pulumi.Input['DataSourceType'],
-             custom_document_enrichment_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']] = None,
-             data_source_configuration: Optional[pulumi.Input['DataSourceConfigurationArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             language_code: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("index_id", index_id)
-        _setter("type", type)
+        pulumi.set(__self__, "index_id", index_id)
+        pulumi.set(__self__, "type", type)
         if custom_document_enrichment_configuration is not None:
-            _setter("custom_document_enrichment_configuration", custom_document_enrichment_configuration)
+            pulumi.set(__self__, "custom_document_enrichment_configuration", custom_document_enrichment_configuration)
         if data_source_configuration is not None:
-            _setter("data_source_configuration", data_source_configuration)
+            pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if language_code is not None:
-            _setter("language_code", language_code)
+            pulumi.set(__self__, "language_code", language_code)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="indexId")
@@ -213,10 +186,6 @@ class DataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -241,17 +210,7 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
-            if custom_document_enrichment_configuration is not None and not isinstance(custom_document_enrichment_configuration, DataSourceCustomDocumentEnrichmentConfigurationArgs):
-                custom_document_enrichment_configuration = custom_document_enrichment_configuration or {}
-                def _setter(key, value):
-                    custom_document_enrichment_configuration[key] = value
-                DataSourceCustomDocumentEnrichmentConfigurationArgs._configure(_setter, **custom_document_enrichment_configuration)
             __props__.__dict__["custom_document_enrichment_configuration"] = custom_document_enrichment_configuration
-            if data_source_configuration is not None and not isinstance(data_source_configuration, DataSourceConfigurationArgs):
-                data_source_configuration = data_source_configuration or {}
-                def _setter(key, value):
-                    data_source_configuration[key] = value
-                DataSourceConfigurationArgs._configure(_setter, **data_source_configuration)
             __props__.__dict__["data_source_configuration"] = data_source_configuration
             __props__.__dict__["description"] = description
             if index_id is None and not opts.urn:

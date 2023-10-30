@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class ConfigurationAssociationArgs:
         """
         The set of arguments for constructing a ConfigurationAssociation resource.
         """
-        ConfigurationAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            broker=broker,
-            configuration=configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             broker: pulumi.Input[str],
-             configuration: pulumi.Input['ConfigurationAssociationConfigurationIdArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("broker", broker)
-        _setter("configuration", configuration)
+        pulumi.set(__self__, "broker", broker)
+        pulumi.set(__self__, "configuration", configuration)
 
     @property
     @pulumi.getter
@@ -92,10 +81,6 @@ class ConfigurationAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConfigurationAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -116,11 +101,6 @@ class ConfigurationAssociation(pulumi.CustomResource):
             if broker is None and not opts.urn:
                 raise TypeError("Missing required property 'broker'")
             __props__.__dict__["broker"] = broker
-            if configuration is not None and not isinstance(configuration, ConfigurationAssociationConfigurationIdArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                ConfigurationAssociationConfigurationIdArgs._configure(_setter, **configuration)
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration

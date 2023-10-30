@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,31 +24,14 @@ class PortfolioArgs:
         """
         The set of arguments for constructing a Portfolio resource.
         """
-        PortfolioArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            display_name=display_name,
-            provider_name=provider_name,
-            accept_language=accept_language,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             display_name: pulumi.Input[str],
-             provider_name: pulumi.Input[str],
-             accept_language: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PortfolioTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("display_name", display_name)
-        _setter("provider_name", provider_name)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "provider_name", provider_name)
         if accept_language is not None:
-            _setter("accept_language", accept_language)
+            pulumi.set(__self__, "accept_language", accept_language)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -137,10 +120,6 @@ class Portfolio(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PortfolioArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

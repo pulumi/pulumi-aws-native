@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,20 +48,9 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
     def __init__(__self__, *,
                  user_pool_arn: str,
                  client_ids: Optional[Sequence[str]] = None):
-        IdentitySourceCognitoUserPoolConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_pool_arn=user_pool_arn,
-            client_ids=client_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_pool_arn: str,
-             client_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("user_pool_arn", user_pool_arn)
+        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
-            _setter("client_ids", client_ids)
+            pulumi.set(__self__, "client_ids", client_ids)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -95,16 +84,7 @@ class IdentitySourceConfiguration(dict):
 
     def __init__(__self__, *,
                  cognito_user_pool_configuration: 'outputs.IdentitySourceCognitoUserPoolConfiguration'):
-        IdentitySourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cognito_user_pool_configuration=cognito_user_pool_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cognito_user_pool_configuration: 'outputs.IdentitySourceCognitoUserPoolConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cognito_user_pool_configuration", cognito_user_pool_configuration)
+        pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)
 
     @property
     @pulumi.getter(name="cognitoUserPoolConfiguration")
@@ -142,29 +122,14 @@ class IdentitySourceDetails(dict):
                  discovery_url: Optional[str] = None,
                  open_id_issuer: Optional['IdentitySourceOpenIdIssuer'] = None,
                  user_pool_arn: Optional[str] = None):
-        IdentitySourceDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_ids=client_ids,
-            discovery_url=discovery_url,
-            open_id_issuer=open_id_issuer,
-            user_pool_arn=user_pool_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_ids: Optional[Sequence[str]] = None,
-             discovery_url: Optional[str] = None,
-             open_id_issuer: Optional['IdentitySourceOpenIdIssuer'] = None,
-             user_pool_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if client_ids is not None:
-            _setter("client_ids", client_ids)
+            pulumi.set(__self__, "client_ids", client_ids)
         if discovery_url is not None:
-            _setter("discovery_url", discovery_url)
+            pulumi.set(__self__, "discovery_url", discovery_url)
         if open_id_issuer is not None:
-            _setter("open_id_issuer", open_id_issuer)
+            pulumi.set(__self__, "open_id_issuer", open_id_issuer)
         if user_pool_arn is not None:
-            _setter("user_pool_arn", user_pool_arn)
+            pulumi.set(__self__, "user_pool_arn", user_pool_arn)
 
     @property
     @pulumi.getter(name="clientIds")
@@ -191,16 +156,7 @@ class IdentitySourceDetails(dict):
 class PolicyDefinition0Properties(dict):
     def __init__(__self__, *,
                  static: 'outputs.PolicyStaticPolicyDefinition'):
-        PolicyDefinition0Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            static=static,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             static: 'outputs.PolicyStaticPolicyDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("static", static)
+        pulumi.set(__self__, "static", static)
 
     @property
     @pulumi.getter
@@ -229,16 +185,7 @@ class PolicyDefinition1Properties(dict):
 
     def __init__(__self__, *,
                  template_linked: 'outputs.PolicyTemplateLinkedPolicyDefinition'):
-        PolicyDefinition1Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            template_linked=template_linked,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             template_linked: 'outputs.PolicyTemplateLinkedPolicyDefinition',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("template_linked", template_linked)
+        pulumi.set(__self__, "template_linked", template_linked)
 
     @property
     @pulumi.getter(name="templateLinked")
@@ -270,19 +217,8 @@ class PolicyEntityIdentifier(dict):
     def __init__(__self__, *,
                  entity_id: str,
                  entity_type: str):
-        PolicyEntityIdentifier._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_id=entity_id,
-            entity_type=entity_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_id: str,
-             entity_type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("entity_id", entity_id)
-        _setter("entity_type", entity_type)
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "entity_type", entity_type)
 
     @property
     @pulumi.getter(name="entityId")
@@ -300,20 +236,9 @@ class PolicyStaticPolicyDefinition(dict):
     def __init__(__self__, *,
                  statement: str,
                  description: Optional[str] = None):
-        PolicyStaticPolicyDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statement=statement,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statement: str,
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statement", statement)
+        pulumi.set(__self__, "statement", statement)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -347,17 +272,8 @@ class PolicyStoreSchemaDefinition(dict):
 
     def __init__(__self__, *,
                  cedar_json: Optional[str] = None):
-        PolicyStoreSchemaDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cedar_json=cedar_json,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cedar_json: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cedar_json is not None:
-            _setter("cedar_json", cedar_json)
+            pulumi.set(__self__, "cedar_json", cedar_json)
 
     @property
     @pulumi.getter(name="cedarJson")
@@ -369,16 +285,7 @@ class PolicyStoreSchemaDefinition(dict):
 class PolicyStoreValidationSettings(dict):
     def __init__(__self__, *,
                  mode: 'PolicyStoreValidationMode'):
-        PolicyStoreValidationSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: 'PolicyStoreValidationMode',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -409,24 +316,11 @@ class PolicyTemplateLinkedPolicyDefinition(dict):
                  policy_template_id: str,
                  principal: Optional['outputs.PolicyEntityIdentifier'] = None,
                  resource: Optional['outputs.PolicyEntityIdentifier'] = None):
-        PolicyTemplateLinkedPolicyDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_template_id=policy_template_id,
-            principal=principal,
-            resource=resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_template_id: str,
-             principal: Optional['outputs.PolicyEntityIdentifier'] = None,
-             resource: Optional['outputs.PolicyEntityIdentifier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy_template_id", policy_template_id)
+        pulumi.set(__self__, "policy_template_id", policy_template_id)
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if resource is not None:
-            _setter("resource", resource)
+            pulumi.set(__self__, "resource", resource)
 
     @property
     @pulumi.getter(name="policyTemplateId")

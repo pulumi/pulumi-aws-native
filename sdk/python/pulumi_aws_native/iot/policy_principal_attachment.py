@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyPrincipalAttachmentArgs', 'PolicyPrincipalAttachment']
@@ -19,19 +19,8 @@ class PolicyPrincipalAttachmentArgs:
         """
         The set of arguments for constructing a PolicyPrincipalAttachment resource.
         """
-        PolicyPrincipalAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_name=policy_name,
-            principal=principal,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_name: pulumi.Input[str],
-             principal: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy_name", policy_name)
-        _setter("principal", principal)
+        pulumi.set(__self__, "policy_name", policy_name)
+        pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter(name="policyName")
@@ -90,10 +79,6 @@ class PolicyPrincipalAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyPrincipalAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

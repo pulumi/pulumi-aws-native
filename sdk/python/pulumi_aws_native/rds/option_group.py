@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,34 +31,15 @@ class OptionGroupArgs:
         :param pulumi.Input[str] option_group_name: Specifies the name of the option group.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        OptionGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            engine_name=engine_name,
-            major_engine_version=major_engine_version,
-            option_group_description=option_group_description,
-            option_configurations=option_configurations,
-            option_group_name=option_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             engine_name: pulumi.Input[str],
-             major_engine_version: pulumi.Input[str],
-             option_group_description: pulumi.Input[str],
-             option_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionConfigurationArgs']]]] = None,
-             option_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("engine_name", engine_name)
-        _setter("major_engine_version", major_engine_version)
-        _setter("option_group_description", option_group_description)
+        pulumi.set(__self__, "engine_name", engine_name)
+        pulumi.set(__self__, "major_engine_version", major_engine_version)
+        pulumi.set(__self__, "option_group_description", option_group_description)
         if option_configurations is not None:
-            _setter("option_configurations", option_configurations)
+            pulumi.set(__self__, "option_configurations", option_configurations)
         if option_group_name is not None:
-            _setter("option_group_name", option_group_name)
+            pulumi.set(__self__, "option_group_name", option_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="engineName")
@@ -176,10 +157,6 @@ class OptionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OptionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

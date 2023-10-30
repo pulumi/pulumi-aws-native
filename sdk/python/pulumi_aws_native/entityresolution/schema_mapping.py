@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,27 +27,12 @@ class SchemaMappingArgs:
         :param pulumi.Input[str] schema_name: The name of the SchemaMapping
         :param pulumi.Input[str] description: The description of the SchemaMapping
         """
-        SchemaMappingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mapped_input_fields=mapped_input_fields,
-            schema_name=schema_name,
-            description=description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mapped_input_fields: pulumi.Input[Sequence[pulumi.Input['SchemaMappingSchemaInputAttributeArgs']]],
-             schema_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaMappingTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mapped_input_fields", mapped_input_fields)
-        _setter("schema_name", schema_name)
+        pulumi.set(__self__, "mapped_input_fields", mapped_input_fields)
+        pulumi.set(__self__, "schema_name", schema_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="mappedInputFields")
@@ -133,10 +118,6 @@ class SchemaMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

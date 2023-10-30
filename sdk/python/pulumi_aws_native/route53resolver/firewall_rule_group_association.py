@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,34 +32,15 @@ class FirewallRuleGroupAssociationArgs:
         :param pulumi.Input[str] name: FirewallRuleGroupAssociationName
         :param pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]] tags: Tags
         """
-        FirewallRuleGroupAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firewall_rule_group_id=firewall_rule_group_id,
-            priority=priority,
-            vpc_id=vpc_id,
-            mutation_protection=mutation_protection,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firewall_rule_group_id: pulumi.Input[str],
-             priority: pulumi.Input[int],
-             vpc_id: pulumi.Input[str],
-             mutation_protection: Optional[pulumi.Input['FirewallRuleGroupAssociationMutationProtection']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallRuleGroupAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("firewall_rule_group_id", firewall_rule_group_id)
-        _setter("priority", priority)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "firewall_rule_group_id", firewall_rule_group_id)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if mutation_protection is not None:
-            _setter("mutation_protection", mutation_protection)
+            pulumi.set(__self__, "mutation_protection", mutation_protection)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="firewallRuleGroupId")
@@ -177,10 +158,6 @@ class FirewallRuleGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FirewallRuleGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

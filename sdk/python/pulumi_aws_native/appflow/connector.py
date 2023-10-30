@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,27 +27,12 @@ class ConnectorArgs:
         :param pulumi.Input[str] connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
         :param pulumi.Input[str] description: A description about the connector that's being registered.
         """
-        ConnectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connector_provisioning_config=connector_provisioning_config,
-            connector_provisioning_type=connector_provisioning_type,
-            connector_label=connector_label,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connector_provisioning_config: pulumi.Input['ConnectorProvisioningConfigArgs'],
-             connector_provisioning_type: pulumi.Input[str],
-             connector_label: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("connector_provisioning_config", connector_provisioning_config)
-        _setter("connector_provisioning_type", connector_provisioning_type)
+        pulumi.set(__self__, "connector_provisioning_config", connector_provisioning_config)
+        pulumi.set(__self__, "connector_provisioning_type", connector_provisioning_type)
         if connector_label is not None:
-            _setter("connector_label", connector_label)
+            pulumi.set(__self__, "connector_label", connector_label)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="connectorProvisioningConfig")
@@ -137,10 +122,6 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -160,11 +141,6 @@ class Connector(pulumi.CustomResource):
             __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
             __props__.__dict__["connector_label"] = connector_label
-            if connector_provisioning_config is not None and not isinstance(connector_provisioning_config, ConnectorProvisioningConfigArgs):
-                connector_provisioning_config = connector_provisioning_config or {}
-                def _setter(key, value):
-                    connector_provisioning_config[key] = value
-                ConnectorProvisioningConfigArgs._configure(_setter, **connector_provisioning_config)
             if connector_provisioning_config is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_provisioning_config'")
             __props__.__dict__["connector_provisioning_config"] = connector_provisioning_config

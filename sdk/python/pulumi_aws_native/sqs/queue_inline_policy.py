@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['QueueInlinePolicyArgs', 'QueueInlinePolicy']
@@ -21,19 +21,8 @@ class QueueInlinePolicyArgs:
         :param Any policy_document: A policy document that contains permissions to add to the specified SQS queue
         :param pulumi.Input[str] queue: The URL of the SQS queue.
         """
-        QueueInlinePolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_document=policy_document,
-            queue=queue,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_document: Any,
-             queue: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy_document", policy_document)
-        _setter("queue", queue)
+        pulumi.set(__self__, "policy_document", policy_document)
+        pulumi.set(__self__, "queue", queue)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -95,10 +84,6 @@ class QueueInlinePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueueInlinePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

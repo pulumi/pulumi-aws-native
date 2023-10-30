@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,58 +33,27 @@ class WebAclArgs:
         The set of arguments for constructing a WebAcl resource.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: Collection of Rules.
         """
-        WebAclArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_action=default_action,
-            scope=scope,
-            visibility_config=visibility_config,
-            association_config=association_config,
-            captcha_config=captcha_config,
-            challenge_config=challenge_config,
-            custom_response_bodies=custom_response_bodies,
-            description=description,
-            name=name,
-            rules=rules,
-            tags=tags,
-            token_domains=token_domains,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_action: pulumi.Input['WebAclDefaultActionArgs'],
-             scope: pulumi.Input['WebAclScope'],
-             visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
-             association_config: Optional[pulumi.Input['WebAclAssociationConfigArgs']] = None,
-             captcha_config: Optional[pulumi.Input['WebAclCaptchaConfigArgs']] = None,
-             challenge_config: Optional[pulumi.Input['WebAclChallengeConfigArgs']] = None,
-             custom_response_bodies: Optional[pulumi.Input['WebAclCustomResponseBodiesArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclTagArgs']]]] = None,
-             token_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_action", default_action)
-        _setter("scope", scope)
-        _setter("visibility_config", visibility_config)
+        pulumi.set(__self__, "default_action", default_action)
+        pulumi.set(__self__, "scope", scope)
+        pulumi.set(__self__, "visibility_config", visibility_config)
         if association_config is not None:
-            _setter("association_config", association_config)
+            pulumi.set(__self__, "association_config", association_config)
         if captcha_config is not None:
-            _setter("captcha_config", captcha_config)
+            pulumi.set(__self__, "captcha_config", captcha_config)
         if challenge_config is not None:
-            _setter("challenge_config", challenge_config)
+            pulumi.set(__self__, "challenge_config", challenge_config)
         if custom_response_bodies is not None:
-            _setter("custom_response_bodies", custom_response_bodies)
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rules is not None:
-            _setter("rules", rules)
+            pulumi.set(__self__, "rules", rules)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if token_domains is not None:
-            _setter("token_domains", token_domains)
+            pulumi.set(__self__, "token_domains", token_domains)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -242,10 +211,6 @@ class WebAcl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebAclArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -272,35 +237,10 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
-            if association_config is not None and not isinstance(association_config, WebAclAssociationConfigArgs):
-                association_config = association_config or {}
-                def _setter(key, value):
-                    association_config[key] = value
-                WebAclAssociationConfigArgs._configure(_setter, **association_config)
             __props__.__dict__["association_config"] = association_config
-            if captcha_config is not None and not isinstance(captcha_config, WebAclCaptchaConfigArgs):
-                captcha_config = captcha_config or {}
-                def _setter(key, value):
-                    captcha_config[key] = value
-                WebAclCaptchaConfigArgs._configure(_setter, **captcha_config)
             __props__.__dict__["captcha_config"] = captcha_config
-            if challenge_config is not None and not isinstance(challenge_config, WebAclChallengeConfigArgs):
-                challenge_config = challenge_config or {}
-                def _setter(key, value):
-                    challenge_config[key] = value
-                WebAclChallengeConfigArgs._configure(_setter, **challenge_config)
             __props__.__dict__["challenge_config"] = challenge_config
-            if custom_response_bodies is not None and not isinstance(custom_response_bodies, WebAclCustomResponseBodiesArgs):
-                custom_response_bodies = custom_response_bodies or {}
-                def _setter(key, value):
-                    custom_response_bodies[key] = value
-                WebAclCustomResponseBodiesArgs._configure(_setter, **custom_response_bodies)
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
-            if default_action is not None and not isinstance(default_action, WebAclDefaultActionArgs):
-                default_action = default_action or {}
-                def _setter(key, value):
-                    default_action[key] = value
-                WebAclDefaultActionArgs._configure(_setter, **default_action)
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
@@ -312,11 +252,6 @@ class WebAcl(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["token_domains"] = token_domains
-            if visibility_config is not None and not isinstance(visibility_config, WebAclVisibilityConfigArgs):
-                visibility_config = visibility_config or {}
-                def _setter(key, value):
-                    visibility_config[key] = value
-                WebAclVisibilityConfigArgs._configure(_setter, **visibility_config)
             if visibility_config is None and not opts.urn:
                 raise TypeError("Missing required property 'visibility_config'")
             __props__.__dict__["visibility_config"] = visibility_config

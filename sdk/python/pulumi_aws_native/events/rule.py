@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,45 +27,22 @@ class RuleArgs:
         """
         The set of arguments for constructing a Rule resource.
         """
-        RuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            event_bus_name=event_bus_name,
-            event_pattern=event_pattern,
-            name=name,
-            role_arn=role_arn,
-            schedule_expression=schedule_expression,
-            state=state,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             event_bus_name: Optional[pulumi.Input[str]] = None,
-             event_pattern: Optional[Any] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             schedule_expression: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             targets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if event_bus_name is not None:
-            _setter("event_bus_name", event_bus_name)
+            pulumi.set(__self__, "event_bus_name", event_bus_name)
         if event_pattern is not None:
-            _setter("event_pattern", event_pattern)
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if schedule_expression is not None:
-            _setter("schedule_expression", schedule_expression)
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if targets is not None:
-            _setter("targets", targets)
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter
@@ -179,10 +156,6 @@ class Rule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

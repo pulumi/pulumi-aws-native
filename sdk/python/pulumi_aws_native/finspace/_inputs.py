@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,21 +26,10 @@ class EnvironmentFederationParametersAttributeMapItemPropertiesArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        EnvironmentFederationParametersAttributeMapItemPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -85,37 +74,18 @@ class EnvironmentFederationParametersArgs:
         :param pulumi.Input[str] saml_metadata_document: SAML metadata document to link the federation provider to the Environment
         :param pulumi.Input[str] saml_metadata_url: SAML metadata URL to link with the Environment
         """
-        EnvironmentFederationParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_call_back_url=application_call_back_url,
-            attribute_map=attribute_map,
-            federation_provider_name=federation_provider_name,
-            federation_urn=federation_urn,
-            saml_metadata_document=saml_metadata_document,
-            saml_metadata_url=saml_metadata_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_call_back_url: Optional[pulumi.Input[str]] = None,
-             attribute_map: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentFederationParametersAttributeMapItemPropertiesArgs']]]] = None,
-             federation_provider_name: Optional[pulumi.Input[str]] = None,
-             federation_urn: Optional[pulumi.Input[str]] = None,
-             saml_metadata_document: Optional[pulumi.Input[str]] = None,
-             saml_metadata_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if application_call_back_url is not None:
-            _setter("application_call_back_url", application_call_back_url)
+            pulumi.set(__self__, "application_call_back_url", application_call_back_url)
         if attribute_map is not None:
-            _setter("attribute_map", attribute_map)
+            pulumi.set(__self__, "attribute_map", attribute_map)
         if federation_provider_name is not None:
-            _setter("federation_provider_name", federation_provider_name)
+            pulumi.set(__self__, "federation_provider_name", federation_provider_name)
         if federation_urn is not None:
-            _setter("federation_urn", federation_urn)
+            pulumi.set(__self__, "federation_urn", federation_urn)
         if saml_metadata_document is not None:
-            _setter("saml_metadata_document", saml_metadata_document)
+            pulumi.set(__self__, "saml_metadata_document", saml_metadata_document)
         if saml_metadata_url is not None:
-            _setter("saml_metadata_url", saml_metadata_url)
+            pulumi.set(__self__, "saml_metadata_url", saml_metadata_url)
 
     @property
     @pulumi.getter(name="applicationCallBackUrl")
@@ -202,25 +172,12 @@ class EnvironmentSuperuserParametersArgs:
         :param pulumi.Input[str] first_name: First name
         :param pulumi.Input[str] last_name: Last name
         """
-        EnvironmentSuperuserParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            email_address=email_address,
-            first_name=first_name,
-            last_name=last_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             email_address: Optional[pulumi.Input[str]] = None,
-             first_name: Optional[pulumi.Input[str]] = None,
-             last_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if email_address is not None:
-            _setter("email_address", email_address)
+            pulumi.set(__self__, "email_address", email_address)
         if first_name is not None:
-            _setter("first_name", first_name)
+            pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
-            _setter("last_name", last_name)
+            pulumi.set(__self__, "last_name", last_name)
 
     @property
     @pulumi.getter(name="emailAddress")
@@ -269,19 +226,8 @@ class EnvironmentTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        EnvironmentTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

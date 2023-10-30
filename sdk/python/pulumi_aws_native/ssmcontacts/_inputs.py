@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -37,19 +37,8 @@ class ContactChannelTargetInfoArgs:
         :param pulumi.Input[str] channel_id: The Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[int] retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
-        ContactChannelTargetInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_id=channel_id,
-            retry_interval_in_minutes=retry_interval_in_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             retry_interval_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("channel_id", channel_id)
-        _setter("retry_interval_in_minutes", retry_interval_in_minutes)
+        pulumi.set(__self__, "channel_id", channel_id)
+        pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
 
     @property
     @pulumi.getter(name="channelId")
@@ -88,25 +77,12 @@ class ContactStageArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rotation_ids: List of Rotation Ids to associate with Contact
         :param pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
-        ContactStageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_minutes=duration_in_minutes,
-            rotation_ids=rotation_ids,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_minutes: Optional[pulumi.Input[int]] = None,
-             rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             targets: Optional[pulumi.Input[Sequence[pulumi.Input['ContactTargetsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_minutes is not None:
-            _setter("duration_in_minutes", duration_in_minutes)
+            pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
         if rotation_ids is not None:
-            _setter("rotation_ids", rotation_ids)
+            pulumi.set(__self__, "rotation_ids", rotation_ids)
         if targets is not None:
-            _setter("targets", targets)
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="durationInMinutes")
@@ -155,19 +131,8 @@ class ContactTargetInfoArgs:
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact.
         :param pulumi.Input[bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
-        ContactTargetInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_id=contact_id,
-            is_essential=is_essential,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_id: pulumi.Input[str],
-             is_essential: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("contact_id", contact_id)
-        _setter("is_essential", is_essential)
+        pulumi.set(__self__, "contact_id", contact_id)
+        pulumi.set(__self__, "is_essential", is_essential)
 
     @property
     @pulumi.getter(name="contactId")
@@ -202,21 +167,10 @@ class ContactTargetsArgs:
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
-        ContactTargetsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_target_info=channel_target_info,
-            contact_target_info=contact_target_info,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_target_info: Optional[pulumi.Input['ContactChannelTargetInfoArgs']] = None,
-             contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if channel_target_info is not None:
-            _setter("channel_target_info", channel_target_info)
+            pulumi.set(__self__, "channel_target_info", channel_target_info)
         if contact_target_info is not None:
-            _setter("contact_target_info", contact_target_info)
+            pulumi.set(__self__, "contact_target_info", contact_target_info)
 
     @property
     @pulumi.getter(name="channelTargetInfo")
@@ -247,19 +201,8 @@ class PlanChannelTargetInfoArgs:
         :param pulumi.Input[str] channel_id: The Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[int] retry_interval_in_minutes: The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         """
-        PlanChannelTargetInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_id=channel_id,
-            retry_interval_in_minutes=retry_interval_in_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             retry_interval_in_minutes: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("channel_id", channel_id)
-        _setter("retry_interval_in_minutes", retry_interval_in_minutes)
+        pulumi.set(__self__, "channel_id", channel_id)
+        pulumi.set(__self__, "retry_interval_in_minutes", retry_interval_in_minutes)
 
     @property
     @pulumi.getter(name="channelId")
@@ -296,19 +239,8 @@ class PlanContactTargetInfoArgs:
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact.
         :param pulumi.Input[bool] is_essential: A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         """
-        PlanContactTargetInfoArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_id=contact_id,
-            is_essential=is_essential,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_id: pulumi.Input[str],
-             is_essential: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("contact_id", contact_id)
-        _setter("is_essential", is_essential)
+        pulumi.set(__self__, "contact_id", contact_id)
+        pulumi.set(__self__, "is_essential", is_essential)
 
     @property
     @pulumi.getter(name="contactId")
@@ -345,20 +277,9 @@ class PlanStageArgs:
         :param pulumi.Input[int] duration_in_minutes: The time to wait until beginning the next stage.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]] targets: The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
-        PlanStageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_minutes=duration_in_minutes,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_minutes: pulumi.Input[int],
-             targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanTargetsArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("duration_in_minutes", duration_in_minutes)
+        pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
         if targets is not None:
-            _setter("targets", targets)
+            pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="durationInMinutes")
@@ -393,21 +314,10 @@ class PlanTargetsArgs:
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
         """
-        PlanTargetsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_target_info=channel_target_info,
-            contact_target_info=contact_target_info,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_target_info: Optional[pulumi.Input['PlanChannelTargetInfoArgs']] = None,
-             contact_target_info: Optional[pulumi.Input['PlanContactTargetInfoArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if channel_target_info is not None:
-            _setter("channel_target_info", channel_target_info)
+            pulumi.set(__self__, "channel_target_info", channel_target_info)
         if contact_target_info is not None:
-            _setter("contact_target_info", contact_target_info)
+            pulumi.set(__self__, "contact_target_info", contact_target_info)
 
     @property
     @pulumi.getter(name="channelTargetInfo")
@@ -436,19 +346,8 @@ class RotationCoverageTimeArgs:
         """
         StartTime and EndTime for the Shift
         """
-        RotationCoverageTimeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end_time=end_time,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end_time: pulumi.Input[str],
-             start_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("end_time", end_time)
-        _setter("start_time", start_time)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter(name="endTime")
@@ -478,19 +377,8 @@ class RotationMonthlySettingArgs:
         DayOfWeek for Month and HandOff Time for Monthly Recurring Rotation.
         :param pulumi.Input[int] day_of_month: The day of the month when monthly recurring on-call rotations begin.
         """
-        RotationMonthlySettingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day_of_month=day_of_month,
-            hand_off_time=hand_off_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day_of_month: pulumi.Input[int],
-             hand_off_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("day_of_month", day_of_month)
-        _setter("hand_off_time", hand_off_time)
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        pulumi.set(__self__, "hand_off_time", hand_off_time)
 
     @property
     @pulumi.getter(name="dayOfMonth")
@@ -532,37 +420,18 @@ class RotationRecurrenceSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]] shift_coverages: Information about the days of the week included in on-call rotation coverage.
         :param pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]] weekly_settings: Information about on-call rotations that recur weekly.
         """
-        RotationRecurrenceSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            daily_settings=daily_settings,
-            monthly_settings=monthly_settings,
-            number_of_on_calls=number_of_on_calls,
-            recurrence_multiplier=recurrence_multiplier,
-            shift_coverages=shift_coverages,
-            weekly_settings=weekly_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             daily_settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             monthly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationMonthlySettingArgs']]]] = None,
-             number_of_on_calls: Optional[pulumi.Input[int]] = None,
-             recurrence_multiplier: Optional[pulumi.Input[int]] = None,
-             shift_coverages: Optional[pulumi.Input[Sequence[pulumi.Input['RotationShiftCoverageArgs']]]] = None,
-             weekly_settings: Optional[pulumi.Input[Sequence[pulumi.Input['RotationWeeklySettingArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if daily_settings is not None:
-            _setter("daily_settings", daily_settings)
+            pulumi.set(__self__, "daily_settings", daily_settings)
         if monthly_settings is not None:
-            _setter("monthly_settings", monthly_settings)
+            pulumi.set(__self__, "monthly_settings", monthly_settings)
         if number_of_on_calls is not None:
-            _setter("number_of_on_calls", number_of_on_calls)
+            pulumi.set(__self__, "number_of_on_calls", number_of_on_calls)
         if recurrence_multiplier is not None:
-            _setter("recurrence_multiplier", recurrence_multiplier)
+            pulumi.set(__self__, "recurrence_multiplier", recurrence_multiplier)
         if shift_coverages is not None:
-            _setter("shift_coverages", shift_coverages)
+            pulumi.set(__self__, "shift_coverages", shift_coverages)
         if weekly_settings is not None:
-            _setter("weekly_settings", weekly_settings)
+            pulumi.set(__self__, "weekly_settings", weekly_settings)
 
     @property
     @pulumi.getter(name="dailySettings")
@@ -646,19 +515,8 @@ class RotationShiftCoverageArgs:
         Information about the days of the week included in on-call rotation coverage.
         :param pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgs']]] coverage_times: Information about when an on-call shift begins and ends.
         """
-        RotationShiftCoverageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            coverage_times=coverage_times,
-            day_of_week=day_of_week,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             coverage_times: pulumi.Input[Sequence[pulumi.Input['RotationCoverageTimeArgs']]],
-             day_of_week: pulumi.Input['RotationDayOfWeek'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("coverage_times", coverage_times)
-        _setter("day_of_week", day_of_week)
+        pulumi.set(__self__, "coverage_times", coverage_times)
+        pulumi.set(__self__, "day_of_week", day_of_week)
 
     @property
     @pulumi.getter(name="coverageTimes")
@@ -692,19 +550,8 @@ class RotationTagArgs:
         :param pulumi.Input[str] key: The key name of the tag
         :param pulumi.Input[str] value: The value for the tag.
         """
-        RotationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -739,19 +586,8 @@ class RotationWeeklySettingArgs:
         """
         DayOfWeek for Rotation and HandOff Time for Weekly Recurring Rotation.
         """
-        RotationWeeklySettingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day_of_week=day_of_week,
-            hand_off_time=hand_off_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input['RotationDayOfWeek'],
-             hand_off_time: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("day_of_week", day_of_week)
-        _setter("hand_off_time", hand_off_time)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "hand_off_time", hand_off_time)
 
     @property
     @pulumi.getter(name="dayOfWeek")

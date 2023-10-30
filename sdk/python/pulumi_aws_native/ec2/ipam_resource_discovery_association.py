@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,23 +25,10 @@ class IpamResourceDiscoveryAssociationArgs:
         :param pulumi.Input[str] ipam_resource_discovery_id: The Amazon Resource Name (ARN) of the IPAM Resource Discovery Association.
         :param pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        IpamResourceDiscoveryAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ipam_id=ipam_id,
-            ipam_resource_discovery_id=ipam_resource_discovery_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ipam_id: pulumi.Input[str],
-             ipam_resource_discovery_id: pulumi.Input[str],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamResourceDiscoveryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ipam_id", ipam_id)
-        _setter("ipam_resource_discovery_id", ipam_resource_discovery_id)
+        pulumi.set(__self__, "ipam_id", ipam_id)
+        pulumi.set(__self__, "ipam_resource_discovery_id", ipam_resource_discovery_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ipamId")
@@ -117,10 +104,6 @@ class IpamResourceDiscoveryAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IpamResourceDiscoveryAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

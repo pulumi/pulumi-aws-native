@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,26 +23,11 @@ class NetworkSettingsArgs:
         """
         The set of arguments for constructing a NetworkSettings resource.
         """
-        NetworkSettingsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             vpc_id: pulumi.Input[str],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSettingsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -116,10 +101,6 @@ class NetworkSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

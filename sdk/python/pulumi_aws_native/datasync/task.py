@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,51 +35,24 @@ class TaskArgs:
         :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        TaskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_location_arn=destination_location_arn,
-            source_location_arn=source_location_arn,
-            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
-            excludes=excludes,
-            includes=includes,
-            name=name,
-            options=options,
-            schedule=schedule,
-            tags=tags,
-            task_report_config=task_report_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_location_arn: pulumi.Input[str],
-             source_location_arn: pulumi.Input[str],
-             cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
-             excludes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
-             includes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
-             schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTagArgs']]]] = None,
-             task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_location_arn", destination_location_arn)
-        _setter("source_location_arn", source_location_arn)
+        pulumi.set(__self__, "destination_location_arn", destination_location_arn)
+        pulumi.set(__self__, "source_location_arn", source_location_arn)
         if cloud_watch_log_group_arn is not None:
-            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if excludes is not None:
-            _setter("excludes", excludes)
+            pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
-            _setter("includes", includes)
+            pulumi.set(__self__, "includes", includes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if task_report_config is not None:
-            _setter("task_report_config", task_report_config)
+            pulumi.set(__self__, "task_report_config", task_report_config)
 
     @property
     @pulumi.getter(name="destinationLocationArn")
@@ -233,10 +206,6 @@ class Task(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -268,27 +237,12 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["excludes"] = excludes
             __props__.__dict__["includes"] = includes
             __props__.__dict__["name"] = name
-            if options is not None and not isinstance(options, TaskOptionsArgs):
-                options = options or {}
-                def _setter(key, value):
-                    options[key] = value
-                TaskOptionsArgs._configure(_setter, **options)
             __props__.__dict__["options"] = options
-            if schedule is not None and not isinstance(schedule, TaskScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                TaskScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
             if source_location_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_location_arn'")
             __props__.__dict__["source_location_arn"] = source_location_arn
             __props__.__dict__["tags"] = tags
-            if task_report_config is not None and not isinstance(task_report_config, TaskReportConfigArgs):
-                task_report_config = task_report_config or {}
-                def _setter(key, value):
-                    task_report_config[key] = value
-                TaskReportConfigArgs._configure(_setter, **task_report_config)
             __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["destination_network_interface_arns"] = None
             __props__.__dict__["source_network_interface_arns"] = None

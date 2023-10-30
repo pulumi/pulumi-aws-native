@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,19 +26,8 @@ class LogGroupTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
         """
-        LogGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -75,19 +64,8 @@ class MetricFilterDimensionArgs:
         :param pulumi.Input[str] key: The key of the dimension. Maximum length of 255.
         :param pulumi.Input[str] value: The value of the dimension. Maximum length of 255.
         """
-        MetricFilterDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -131,34 +109,15 @@ class MetricFilterMetricTransformationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgs']]] dimensions: Dimensions are the key-value pairs that further define a metric
         :param pulumi.Input['MetricFilterMetricTransformationUnit'] unit: The unit to assign to the metric. If you omit this, the unit is set as None.
         """
-        MetricFilterMetricTransformationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            metric_namespace=metric_namespace,
-            metric_value=metric_value,
-            default_value=default_value,
-            dimensions=dimensions,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             metric_namespace: pulumi.Input[str],
-             metric_value: pulumi.Input[str],
-             default_value: Optional[pulumi.Input[float]] = None,
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricFilterDimensionArgs']]]] = None,
-             unit: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("metric_name", metric_name)
-        _setter("metric_namespace", metric_namespace)
-        _setter("metric_value", metric_value)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_namespace", metric_namespace)
+        pulumi.set(__self__, "metric_value", metric_value)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="metricName")

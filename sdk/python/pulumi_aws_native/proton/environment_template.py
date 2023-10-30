@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,37 +32,18 @@ class EnvironmentTemplateArgs:
                         <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in the
                        <i>Proton User Guide</i>.</p>
         """
-        EnvironmentTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            display_name=display_name,
-            encryption_key=encryption_key,
-            name=name,
-            provisioning=provisioning,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             encryption_key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             provisioning: Optional[pulumi.Input['EnvironmentTemplateProvisioning']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentTemplateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if encryption_key is not None:
-            _setter("encryption_key", encryption_key)
+            pulumi.set(__self__, "encryption_key", encryption_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if provisioning is not None:
-            _setter("provisioning", provisioning)
+            pulumi.set(__self__, "provisioning", provisioning)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -176,10 +157,6 @@ class EnvironmentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EnvironmentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

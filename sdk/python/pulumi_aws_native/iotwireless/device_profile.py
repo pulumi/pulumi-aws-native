@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,25 +25,12 @@ class DeviceProfileArgs:
         :param pulumi.Input[str] name: Name of service profile
         :param pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
-        DeviceProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lo_ra_wan=lo_ra_wan,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lo_ra_wan: Optional[pulumi.Input['DeviceProfileLoRaWanDeviceProfileArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if lo_ra_wan is not None:
-            _setter("lo_ra_wan", lo_ra_wan)
+            pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="loRaWan")
@@ -119,10 +106,6 @@ class DeviceProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeviceProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,11 +123,6 @@ class DeviceProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceProfileArgs.__new__(DeviceProfileArgs)
 
-            if lo_ra_wan is not None and not isinstance(lo_ra_wan, DeviceProfileLoRaWanDeviceProfileArgs):
-                lo_ra_wan = lo_ra_wan or {}
-                def _setter(key, value):
-                    lo_ra_wan[key] = value
-                DeviceProfileLoRaWanDeviceProfileArgs._configure(_setter, **lo_ra_wan)
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

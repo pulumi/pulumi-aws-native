@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,24 +26,11 @@ class SigningProfileArgs:
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: Signature validity period of the profile.
         :param pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]] tags: A list of tags associated with the signing profile.
         """
-        SigningProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            platform_id=platform_id,
-            signature_validity_period=signature_validity_period,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             platform_id: pulumi.Input['SigningProfilePlatformId'],
-             signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("platform_id", platform_id)
+        pulumi.set(__self__, "platform_id", platform_id)
         if signature_validity_period is not None:
-            _setter("signature_validity_period", signature_validity_period)
+            pulumi.set(__self__, "signature_validity_period", signature_validity_period)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="platformId")
@@ -119,10 +106,6 @@ class SigningProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SigningProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -143,11 +126,6 @@ class SigningProfile(pulumi.CustomResource):
             if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
             __props__.__dict__["platform_id"] = platform_id
-            if signature_validity_period is not None and not isinstance(signature_validity_period, SigningProfileSignatureValidityPeriodArgs):
-                signature_validity_period = signature_validity_period or {}
-                def _setter(key, value):
-                    signature_validity_period[key] = value
-                SigningProfileSignatureValidityPeriodArgs._configure(_setter, **signature_validity_period)
             __props__.__dict__["signature_validity_period"] = signature_validity_period
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

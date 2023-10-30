@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,24 +26,11 @@ class CodeSigningConfigArgs:
         :param pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs'] code_signing_policies: Policies to control how to act if a signature is invalid
         :param pulumi.Input[str] description: A description of the CodeSigningConfig
         """
-        CodeSigningConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_publishers=allowed_publishers,
-            code_signing_policies=code_signing_policies,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
-             code_signing_policies: Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allowed_publishers", allowed_publishers)
+        pulumi.set(__self__, "allowed_publishers", allowed_publishers)
         if code_signing_policies is not None:
-            _setter("code_signing_policies", code_signing_policies)
+            pulumi.set(__self__, "code_signing_policies", code_signing_policies)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="allowedPublishers")
@@ -119,10 +106,6 @@ class CodeSigningConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CodeSigningConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,19 +123,9 @@ class CodeSigningConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CodeSigningConfigArgs.__new__(CodeSigningConfigArgs)
 
-            if allowed_publishers is not None and not isinstance(allowed_publishers, CodeSigningConfigAllowedPublishersArgs):
-                allowed_publishers = allowed_publishers or {}
-                def _setter(key, value):
-                    allowed_publishers[key] = value
-                CodeSigningConfigAllowedPublishersArgs._configure(_setter, **allowed_publishers)
             if allowed_publishers is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_publishers'")
             __props__.__dict__["allowed_publishers"] = allowed_publishers
-            if code_signing_policies is not None and not isinstance(code_signing_policies, CodeSigningConfigCodeSigningPoliciesArgs):
-                code_signing_policies = code_signing_policies or {}
-                def _setter(key, value):
-                    code_signing_policies[key] = value
-                CodeSigningConfigCodeSigningPoliciesArgs._configure(_setter, **code_signing_policies)
             __props__.__dict__["code_signing_policies"] = code_signing_policies
             __props__.__dict__["description"] = description
             __props__.__dict__["code_signing_config_arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,36 +26,15 @@ class ExperimentTemplateArgs:
         """
         The set of arguments for constructing a ExperimentTemplate resource.
         """
-        ExperimentTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            role_arn=role_arn,
-            stop_conditions=stop_conditions,
-            tags=tags,
-            targets=targets,
-            actions=actions,
-            log_configuration=log_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateStopConditionArgs']]],
-             tags: Any,
-             targets: pulumi.Input['ExperimentTemplateTargetMapArgs'],
-             actions: Optional[pulumi.Input['ExperimentTemplateActionMapArgs']] = None,
-             log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("description", description)
-        _setter("role_arn", role_arn)
-        _setter("stop_conditions", stop_conditions)
-        _setter("tags", tags)
-        _setter("targets", targets)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "stop_conditions", stop_conditions)
+        pulumi.set(__self__, "tags", tags)
+        pulumi.set(__self__, "targets", targets)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
 
     @property
     @pulumi.getter
@@ -159,10 +138,6 @@ class ExperimentTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExperimentTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -184,20 +159,10 @@ class ExperimentTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExperimentTemplateArgs.__new__(ExperimentTemplateArgs)
 
-            if actions is not None and not isinstance(actions, ExperimentTemplateActionMapArgs):
-                actions = actions or {}
-                def _setter(key, value):
-                    actions[key] = value
-                ExperimentTemplateActionMapArgs._configure(_setter, **actions)
             __props__.__dict__["actions"] = actions
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
-            if log_configuration is not None and not isinstance(log_configuration, ExperimentTemplateLogConfigurationArgs):
-                log_configuration = log_configuration or {}
-                def _setter(key, value):
-                    log_configuration[key] = value
-                ExperimentTemplateLogConfigurationArgs._configure(_setter, **log_configuration)
             __props__.__dict__["log_configuration"] = log_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -208,11 +173,6 @@ class ExperimentTemplate(pulumi.CustomResource):
             if tags is None and not opts.urn:
                 raise TypeError("Missing required property 'tags'")
             __props__.__dict__["tags"] = tags
-            if targets is not None and not isinstance(targets, ExperimentTemplateTargetMapArgs):
-                targets = targets or {}
-                def _setter(key, value):
-                    targets[key] = value
-                ExperimentTemplateTargetMapArgs._configure(_setter, **targets)
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets

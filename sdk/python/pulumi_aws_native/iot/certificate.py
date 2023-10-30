@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -23,32 +23,15 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            ca_certificate_pem=ca_certificate_pem,
-            certificate_mode=certificate_mode,
-            certificate_pem=certificate_pem,
-            certificate_signing_request=certificate_signing_request,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: pulumi.Input['CertificateStatus'],
-             ca_certificate_pem: Optional[pulumi.Input[str]] = None,
-             certificate_mode: Optional[pulumi.Input['CertificateMode']] = None,
-             certificate_pem: Optional[pulumi.Input[str]] = None,
-             certificate_signing_request: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if ca_certificate_pem is not None:
-            _setter("ca_certificate_pem", ca_certificate_pem)
+            pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
         if certificate_mode is not None:
-            _setter("certificate_mode", certificate_mode)
+            pulumi.set(__self__, "certificate_mode", certificate_mode)
         if certificate_pem is not None:
-            _setter("certificate_pem", certificate_pem)
+            pulumi.set(__self__, "certificate_pem", certificate_pem)
         if certificate_signing_request is not None:
-            _setter("certificate_signing_request", certificate_signing_request)
+            pulumi.set(__self__, "certificate_signing_request", certificate_signing_request)
 
     @property
     @pulumi.getter
@@ -132,10 +115,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

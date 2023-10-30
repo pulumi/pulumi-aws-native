@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -38,19 +38,8 @@ class MicrosoftAdVpcSettings(dict):
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
                  vpc_id: str):
-        MicrosoftAdVpcSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: Sequence[str],
-             vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -91,19 +80,8 @@ class SimpleAdVpcSettings(dict):
         :param Sequence[str] subnet_ids: The identifiers of the subnets for the directory servers. The two subnets must be in different Availability Zones. AWS Directory Service specifies a directory server and a DNS server in each of these subnets.
         :param str vpc_id: The identifier of the VPC in which to create the directory.
         """
-        SimpleAdVpcSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_ids: Sequence[str],
-             vpc_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="subnetIds")

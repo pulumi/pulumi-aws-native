@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,37 +32,18 @@ class StreamArgs:
         :param pulumi.Input['StreamModeDetailsArgs'] stream_mode_details: The mode in which the stream is running.
         :param pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]] tags: An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         """
-        StreamArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            retention_period_hours=retention_period_hours,
-            shard_count=shard_count,
-            stream_encryption=stream_encryption,
-            stream_mode_details=stream_mode_details,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             retention_period_hours: Optional[pulumi.Input[int]] = None,
-             shard_count: Optional[pulumi.Input[int]] = None,
-             stream_encryption: Optional[pulumi.Input['StreamEncryptionArgs']] = None,
-             stream_mode_details: Optional[pulumi.Input['StreamModeDetailsArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retention_period_hours is not None:
-            _setter("retention_period_hours", retention_period_hours)
+            pulumi.set(__self__, "retention_period_hours", retention_period_hours)
         if shard_count is not None:
-            _setter("shard_count", shard_count)
+            pulumi.set(__self__, "shard_count", shard_count)
         if stream_encryption is not None:
-            _setter("stream_encryption", stream_encryption)
+            pulumi.set(__self__, "stream_encryption", stream_encryption)
         if stream_mode_details is not None:
-            _setter("stream_mode_details", stream_mode_details)
+            pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -180,10 +161,6 @@ class Stream(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StreamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,17 +184,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["retention_period_hours"] = retention_period_hours
             __props__.__dict__["shard_count"] = shard_count
-            if stream_encryption is not None and not isinstance(stream_encryption, StreamEncryptionArgs):
-                stream_encryption = stream_encryption or {}
-                def _setter(key, value):
-                    stream_encryption[key] = value
-                StreamEncryptionArgs._configure(_setter, **stream_encryption)
             __props__.__dict__["stream_encryption"] = stream_encryption
-            if stream_mode_details is not None and not isinstance(stream_mode_details, StreamModeDetailsArgs):
-                stream_mode_details = stream_mode_details or {}
-                def _setter(key, value):
-                    stream_mode_details[key] = value
-                StreamModeDetailsArgs._configure(_setter, **stream_mode_details)
             __props__.__dict__["stream_mode_details"] = stream_mode_details
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyArgs', 'Policy']
@@ -27,32 +27,15 @@ class PolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The name of the role to associate the policy with. This parameter allows (per its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         :param pulumi.Input[Sequence[pulumi.Input[str]]] users: The name of the user to associate the policy with. This parameter allows (through its regex pattern) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
         """
-        PolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_document=policy_document,
-            groups=groups,
-            policy_name=policy_name,
-            roles=roles,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_document: Any,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             policy_name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy_document", policy_document)
+        pulumi.set(__self__, "policy_document", policy_document)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if policy_name is not None:
-            _setter("policy_name", policy_name)
+            pulumi.set(__self__, "policy_name", policy_name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -161,10 +144,6 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

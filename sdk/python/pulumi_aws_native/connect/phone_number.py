@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,34 +31,15 @@ class PhoneNumberArgs:
         :param pulumi.Input[str] prefix: The phone number prefix.
         :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]] tags: One or more tags.
         """
-        PhoneNumberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            country_code=country_code,
-            target_arn=target_arn,
-            type=type,
-            description=description,
-            prefix=prefix,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             country_code: pulumi.Input[str],
-             target_arn: pulumi.Input[str],
-             type: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("country_code", country_code)
-        _setter("target_arn", target_arn)
-        _setter("type", type)
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "target_arn", target_arn)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="countryCode")
@@ -176,10 +157,6 @@ class PhoneNumber(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PhoneNumberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

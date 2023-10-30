@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,19 +41,8 @@ class SimulationS3Location(dict):
         :param str bucket_name: The Schema S3 bucket name.
         :param str object_key: This is the schema S3 object key, which includes the full path of "folders" from the bucket root to the schema.
         """
-        SimulationS3Location._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            object_key=object_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             object_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
-        _setter("object_key", object_key)
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        pulumi.set(__self__, "object_key", object_key)
 
     @property
     @pulumi.getter(name="bucketName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,64 +41,31 @@ class OriginEndpointArgs:
         :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] whitelist: A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
         """
-        OriginEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            channel_id=channel_id,
-            authorization=authorization,
-            cmaf_package=cmaf_package,
-            dash_package=dash_package,
-            description=description,
-            hls_package=hls_package,
-            manifest_name=manifest_name,
-            mss_package=mss_package,
-            origination=origination,
-            startover_window_seconds=startover_window_seconds,
-            tags=tags,
-            time_delay_seconds=time_delay_seconds,
-            whitelist=whitelist,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             channel_id: pulumi.Input[str],
-             authorization: Optional[pulumi.Input['OriginEndpointAuthorizationArgs']] = None,
-             cmaf_package: Optional[pulumi.Input['OriginEndpointCmafPackageArgs']] = None,
-             dash_package: Optional[pulumi.Input['OriginEndpointDashPackageArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             hls_package: Optional[pulumi.Input['OriginEndpointHlsPackageArgs']] = None,
-             manifest_name: Optional[pulumi.Input[str]] = None,
-             mss_package: Optional[pulumi.Input['OriginEndpointMssPackageArgs']] = None,
-             origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
-             startover_window_seconds: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
-             time_delay_seconds: Optional[pulumi.Input[int]] = None,
-             whitelist: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("channel_id", channel_id)
+        pulumi.set(__self__, "channel_id", channel_id)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if cmaf_package is not None:
-            _setter("cmaf_package", cmaf_package)
+            pulumi.set(__self__, "cmaf_package", cmaf_package)
         if dash_package is not None:
-            _setter("dash_package", dash_package)
+            pulumi.set(__self__, "dash_package", dash_package)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if hls_package is not None:
-            _setter("hls_package", hls_package)
+            pulumi.set(__self__, "hls_package", hls_package)
         if manifest_name is not None:
-            _setter("manifest_name", manifest_name)
+            pulumi.set(__self__, "manifest_name", manifest_name)
         if mss_package is not None:
-            _setter("mss_package", mss_package)
+            pulumi.set(__self__, "mss_package", mss_package)
         if origination is not None:
-            _setter("origination", origination)
+            pulumi.set(__self__, "origination", origination)
         if startover_window_seconds is not None:
-            _setter("startover_window_seconds", startover_window_seconds)
+            pulumi.set(__self__, "startover_window_seconds", startover_window_seconds)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if time_delay_seconds is not None:
-            _setter("time_delay_seconds", time_delay_seconds)
+            pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
         if whitelist is not None:
-            _setter("whitelist", whitelist)
+            pulumi.set(__self__, "whitelist", whitelist)
 
     @property
     @pulumi.getter(name="channelId")
@@ -294,10 +261,6 @@ class OriginEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OriginEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -325,40 +288,15 @@ class OriginEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginEndpointArgs.__new__(OriginEndpointArgs)
 
-            if authorization is not None and not isinstance(authorization, OriginEndpointAuthorizationArgs):
-                authorization = authorization or {}
-                def _setter(key, value):
-                    authorization[key] = value
-                OriginEndpointAuthorizationArgs._configure(_setter, **authorization)
             __props__.__dict__["authorization"] = authorization
             if channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_id'")
             __props__.__dict__["channel_id"] = channel_id
-            if cmaf_package is not None and not isinstance(cmaf_package, OriginEndpointCmafPackageArgs):
-                cmaf_package = cmaf_package or {}
-                def _setter(key, value):
-                    cmaf_package[key] = value
-                OriginEndpointCmafPackageArgs._configure(_setter, **cmaf_package)
             __props__.__dict__["cmaf_package"] = cmaf_package
-            if dash_package is not None and not isinstance(dash_package, OriginEndpointDashPackageArgs):
-                dash_package = dash_package or {}
-                def _setter(key, value):
-                    dash_package[key] = value
-                OriginEndpointDashPackageArgs._configure(_setter, **dash_package)
             __props__.__dict__["dash_package"] = dash_package
             __props__.__dict__["description"] = description
-            if hls_package is not None and not isinstance(hls_package, OriginEndpointHlsPackageArgs):
-                hls_package = hls_package or {}
-                def _setter(key, value):
-                    hls_package[key] = value
-                OriginEndpointHlsPackageArgs._configure(_setter, **hls_package)
             __props__.__dict__["hls_package"] = hls_package
             __props__.__dict__["manifest_name"] = manifest_name
-            if mss_package is not None and not isinstance(mss_package, OriginEndpointMssPackageArgs):
-                mss_package = mss_package or {}
-                def _setter(key, value):
-                    mss_package[key] = value
-                OriginEndpointMssPackageArgs._configure(_setter, **mss_package)
             __props__.__dict__["mss_package"] = mss_package
             __props__.__dict__["origination"] = origination
             __props__.__dict__["startover_window_seconds"] = startover_window_seconds

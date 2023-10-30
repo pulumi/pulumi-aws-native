@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
@@ -20,23 +20,10 @@ class ResourcePolicyArgs:
         """
         The set of arguments for constructing a ResourcePolicy resource.
         """
-        ResourcePolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_policy=resource_policy,
-            secret_id=secret_id,
-            block_public_policy=block_public_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_policy: Any,
-             secret_id: pulumi.Input[str],
-             block_public_policy: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_policy", resource_policy)
-        _setter("secret_id", secret_id)
+        pulumi.set(__self__, "resource_policy", resource_policy)
+        pulumi.set(__self__, "secret_id", secret_id)
         if block_public_policy is not None:
-            _setter("block_public_policy", block_public_policy)
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
 
     @property
     @pulumi.getter(name="resourcePolicy")
@@ -105,10 +92,6 @@ class ResourcePolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourcePolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

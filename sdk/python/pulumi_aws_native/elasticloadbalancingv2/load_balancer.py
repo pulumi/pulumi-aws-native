@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,49 +37,24 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]] tags: The tags to assign to the load balancer.
         :param pulumi.Input[str] type: The type of load balancer. The default is application.
         """
-        LoadBalancerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_address_type=ip_address_type,
-            load_balancer_attributes=load_balancer_attributes,
-            name=name,
-            scheme=scheme,
-            security_groups=security_groups,
-            subnet_mappings=subnet_mappings,
-            subnets=subnets,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             scheme: Optional[pulumi.Input[str]] = None,
-             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]] = None,
-             subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerTagArgs']]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if load_balancer_attributes is not None:
-            _setter("load_balancer_attributes", load_balancer_attributes)
+            pulumi.set(__self__, "load_balancer_attributes", load_balancer_attributes)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if scheme is not None:
-            _setter("scheme", scheme)
+            pulumi.set(__self__, "scheme", scheme)
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
         if subnet_mappings is not None:
-            _setter("subnet_mappings", subnet_mappings)
+            pulumi.set(__self__, "subnet_mappings", subnet_mappings)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="ipAddressType")
@@ -239,10 +214,6 @@ class LoadBalancer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoadBalancerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

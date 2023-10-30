@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -52,101 +52,50 @@ class EnvironmentArgs:
                    "core.dags_folder": "{AIRFLOW_HOME}/dags"
         :param Any tags: A map of tags for the environment.
         """
-        EnvironmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            airflow_configuration_options=airflow_configuration_options,
-            airflow_version=airflow_version,
-            dag_s3_path=dag_s3_path,
-            environment_class=environment_class,
-            execution_role_arn=execution_role_arn,
-            kms_key=kms_key,
-            logging_configuration=logging_configuration,
-            max_workers=max_workers,
-            min_workers=min_workers,
-            name=name,
-            network_configuration=network_configuration,
-            plugins_s3_object_version=plugins_s3_object_version,
-            plugins_s3_path=plugins_s3_path,
-            requirements_s3_object_version=requirements_s3_object_version,
-            requirements_s3_path=requirements_s3_path,
-            schedulers=schedulers,
-            source_bucket_arn=source_bucket_arn,
-            startup_script_s3_object_version=startup_script_s3_object_version,
-            startup_script_s3_path=startup_script_s3_path,
-            tags=tags,
-            webserver_access_mode=webserver_access_mode,
-            weekly_maintenance_window_start=weekly_maintenance_window_start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             airflow_configuration_options: Optional[Any] = None,
-             airflow_version: Optional[pulumi.Input[str]] = None,
-             dag_s3_path: Optional[pulumi.Input[str]] = None,
-             environment_class: Optional[pulumi.Input[str]] = None,
-             execution_role_arn: Optional[pulumi.Input[str]] = None,
-             kms_key: Optional[pulumi.Input[str]] = None,
-             logging_configuration: Optional[pulumi.Input['EnvironmentLoggingConfigurationArgs']] = None,
-             max_workers: Optional[pulumi.Input[int]] = None,
-             min_workers: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_configuration: Optional[pulumi.Input['EnvironmentNetworkConfigurationArgs']] = None,
-             plugins_s3_object_version: Optional[pulumi.Input[str]] = None,
-             plugins_s3_path: Optional[pulumi.Input[str]] = None,
-             requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
-             requirements_s3_path: Optional[pulumi.Input[str]] = None,
-             schedulers: Optional[pulumi.Input[int]] = None,
-             source_bucket_arn: Optional[pulumi.Input[str]] = None,
-             startup_script_s3_object_version: Optional[pulumi.Input[str]] = None,
-             startup_script_s3_path: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             webserver_access_mode: Optional[pulumi.Input['EnvironmentWebserverAccessMode']] = None,
-             weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if airflow_configuration_options is not None:
-            _setter("airflow_configuration_options", airflow_configuration_options)
+            pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
         if airflow_version is not None:
-            _setter("airflow_version", airflow_version)
+            pulumi.set(__self__, "airflow_version", airflow_version)
         if dag_s3_path is not None:
-            _setter("dag_s3_path", dag_s3_path)
+            pulumi.set(__self__, "dag_s3_path", dag_s3_path)
         if environment_class is not None:
-            _setter("environment_class", environment_class)
+            pulumi.set(__self__, "environment_class", environment_class)
         if execution_role_arn is not None:
-            _setter("execution_role_arn", execution_role_arn)
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if kms_key is not None:
-            _setter("kms_key", kms_key)
+            pulumi.set(__self__, "kms_key", kms_key)
         if logging_configuration is not None:
-            _setter("logging_configuration", logging_configuration)
+            pulumi.set(__self__, "logging_configuration", logging_configuration)
         if max_workers is not None:
-            _setter("max_workers", max_workers)
+            pulumi.set(__self__, "max_workers", max_workers)
         if min_workers is not None:
-            _setter("min_workers", min_workers)
+            pulumi.set(__self__, "min_workers", min_workers)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_configuration is not None:
-            _setter("network_configuration", network_configuration)
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if plugins_s3_object_version is not None:
-            _setter("plugins_s3_object_version", plugins_s3_object_version)
+            pulumi.set(__self__, "plugins_s3_object_version", plugins_s3_object_version)
         if plugins_s3_path is not None:
-            _setter("plugins_s3_path", plugins_s3_path)
+            pulumi.set(__self__, "plugins_s3_path", plugins_s3_path)
         if requirements_s3_object_version is not None:
-            _setter("requirements_s3_object_version", requirements_s3_object_version)
+            pulumi.set(__self__, "requirements_s3_object_version", requirements_s3_object_version)
         if requirements_s3_path is not None:
-            _setter("requirements_s3_path", requirements_s3_path)
+            pulumi.set(__self__, "requirements_s3_path", requirements_s3_path)
         if schedulers is not None:
-            _setter("schedulers", schedulers)
+            pulumi.set(__self__, "schedulers", schedulers)
         if source_bucket_arn is not None:
-            _setter("source_bucket_arn", source_bucket_arn)
+            pulumi.set(__self__, "source_bucket_arn", source_bucket_arn)
         if startup_script_s3_object_version is not None:
-            _setter("startup_script_s3_object_version", startup_script_s3_object_version)
+            pulumi.set(__self__, "startup_script_s3_object_version", startup_script_s3_object_version)
         if startup_script_s3_path is not None:
-            _setter("startup_script_s3_path", startup_script_s3_path)
+            pulumi.set(__self__, "startup_script_s3_path", startup_script_s3_path)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if webserver_access_mode is not None:
-            _setter("webserver_access_mode", webserver_access_mode)
+            pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if weekly_maintenance_window_start is not None:
-            _setter("weekly_maintenance_window_start", weekly_maintenance_window_start)
+            pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
 
     @property
     @pulumi.getter(name="airflowConfigurationOptions")
@@ -424,10 +373,6 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -470,20 +415,10 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["environment_class"] = environment_class
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["kms_key"] = kms_key
-            if logging_configuration is not None and not isinstance(logging_configuration, EnvironmentLoggingConfigurationArgs):
-                logging_configuration = logging_configuration or {}
-                def _setter(key, value):
-                    logging_configuration[key] = value
-                EnvironmentLoggingConfigurationArgs._configure(_setter, **logging_configuration)
             __props__.__dict__["logging_configuration"] = logging_configuration
             __props__.__dict__["max_workers"] = max_workers
             __props__.__dict__["min_workers"] = min_workers
             __props__.__dict__["name"] = name
-            if network_configuration is not None and not isinstance(network_configuration, EnvironmentNetworkConfigurationArgs):
-                network_configuration = network_configuration or {}
-                def _setter(key, value):
-                    network_configuration[key] = value
-                EnvironmentNetworkConfigurationArgs._configure(_setter, **network_configuration)
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["plugins_s3_object_version"] = plugins_s3_object_version
             __props__.__dict__["plugins_s3_path"] = plugins_s3_path

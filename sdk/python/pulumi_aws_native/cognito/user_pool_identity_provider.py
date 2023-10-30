@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserPoolIdentityProviderArgs', 'UserPoolIdentityProvider']
@@ -23,34 +23,15 @@ class UserPoolIdentityProviderArgs:
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
         """
-        UserPoolIdentityProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider_name=provider_name,
-            provider_type=provider_type,
-            user_pool_id=user_pool_id,
-            attribute_mapping=attribute_mapping,
-            idp_identifiers=idp_identifiers,
-            provider_details=provider_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider_name: pulumi.Input[str],
-             provider_type: pulumi.Input[str],
-             user_pool_id: pulumi.Input[str],
-             attribute_mapping: Optional[Any] = None,
-             idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             provider_details: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("provider_name", provider_name)
-        _setter("provider_type", provider_type)
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "provider_type", provider_type)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if attribute_mapping is not None:
-            _setter("attribute_mapping", attribute_mapping)
+            pulumi.set(__self__, "attribute_mapping", attribute_mapping)
         if idp_identifiers is not None:
-            _setter("idp_identifiers", idp_identifiers)
+            pulumi.set(__self__, "idp_identifiers", idp_identifiers)
         if provider_details is not None:
-            _setter("provider_details", provider_details)
+            pulumi.set(__self__, "provider_details", provider_details)
 
     @property
     @pulumi.getter(name="providerName")
@@ -149,10 +130,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserPoolIdentityProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

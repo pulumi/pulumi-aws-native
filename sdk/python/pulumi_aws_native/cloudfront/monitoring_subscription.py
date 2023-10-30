@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -22,19 +22,8 @@ class MonitoringSubscriptionInitArgs:
         """
         The set of arguments for constructing a MonitoringSubscription resource.
         """
-        MonitoringSubscriptionInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            distribution_id=distribution_id,
-            monitoring_subscription=monitoring_subscription,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             distribution_id: pulumi.Input[str],
-             monitoring_subscription: pulumi.Input['MonitoringSubscriptionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("distribution_id", distribution_id)
-        _setter("monitoring_subscription", monitoring_subscription)
+        pulumi.set(__self__, "distribution_id", distribution_id)
+        pulumi.set(__self__, "monitoring_subscription", monitoring_subscription)
 
     @property
     @pulumi.getter(name="distributionId")
@@ -88,10 +77,6 @@ class MonitoringSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitoringSubscriptionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -111,11 +96,6 @@ class MonitoringSubscription(pulumi.CustomResource):
             if distribution_id is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_id'")
             __props__.__dict__["distribution_id"] = distribution_id
-            if monitoring_subscription is not None and not isinstance(monitoring_subscription, MonitoringSubscriptionArgs):
-                monitoring_subscription = monitoring_subscription or {}
-                def _setter(key, value):
-                    monitoring_subscription[key] = value
-                MonitoringSubscriptionArgs._configure(_setter, **monitoring_subscription)
             if monitoring_subscription is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_subscription'")
             __props__.__dict__["monitoring_subscription"] = monitoring_subscription

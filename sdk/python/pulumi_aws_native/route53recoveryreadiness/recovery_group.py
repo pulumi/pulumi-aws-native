@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,25 +25,12 @@ class RecoveryGroupArgs:
         :param pulumi.Input[str] recovery_group_name: The name of the recovery group to create.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]] tags: A collection of tags associated with a resource.
         """
-        RecoveryGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cells=cells,
-            recovery_group_name=recovery_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             recovery_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cells is not None:
-            _setter("cells", cells)
+            pulumi.set(__self__, "cells", cells)
         if recovery_group_name is not None:
-            _setter("recovery_group_name", recovery_group_name)
+            pulumi.set(__self__, "recovery_group_name", recovery_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -119,10 +106,6 @@ class RecoveryGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RecoveryGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

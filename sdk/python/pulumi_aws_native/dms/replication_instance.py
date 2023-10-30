@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,72 +34,35 @@ class ReplicationInstanceArgs:
         """
         The set of arguments for constructing a ReplicationInstance resource.
         """
-        ReplicationInstanceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            replication_instance_class=replication_instance_class,
-            allocated_storage=allocated_storage,
-            allow_major_version_upgrade=allow_major_version_upgrade,
-            auto_minor_version_upgrade=auto_minor_version_upgrade,
-            availability_zone=availability_zone,
-            engine_version=engine_version,
-            kms_key_id=kms_key_id,
-            multi_az=multi_az,
-            preferred_maintenance_window=preferred_maintenance_window,
-            publicly_accessible=publicly_accessible,
-            replication_instance_identifier=replication_instance_identifier,
-            replication_subnet_group_identifier=replication_subnet_group_identifier,
-            resource_identifier=resource_identifier,
-            tags=tags,
-            vpc_security_group_ids=vpc_security_group_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             replication_instance_class: pulumi.Input[str],
-             allocated_storage: Optional[pulumi.Input[int]] = None,
-             allow_major_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-             availability_zone: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             multi_az: Optional[pulumi.Input[bool]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             publicly_accessible: Optional[pulumi.Input[bool]] = None,
-             replication_instance_identifier: Optional[pulumi.Input[str]] = None,
-             replication_subnet_group_identifier: Optional[pulumi.Input[str]] = None,
-             resource_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationInstanceTagArgs']]]] = None,
-             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("replication_instance_class", replication_instance_class)
+        pulumi.set(__self__, "replication_instance_class", replication_instance_class)
         if allocated_storage is not None:
-            _setter("allocated_storage", allocated_storage)
+            pulumi.set(__self__, "allocated_storage", allocated_storage)
         if allow_major_version_upgrade is not None:
-            _setter("allow_major_version_upgrade", allow_major_version_upgrade)
+            pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if auto_minor_version_upgrade is not None:
-            _setter("auto_minor_version_upgrade", auto_minor_version_upgrade)
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_az is not None:
-            _setter("multi_az", multi_az)
+            pulumi.set(__self__, "multi_az", multi_az)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
-            _setter("publicly_accessible", publicly_accessible)
+            pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if replication_instance_identifier is not None:
-            _setter("replication_instance_identifier", replication_instance_identifier)
+            pulumi.set(__self__, "replication_instance_identifier", replication_instance_identifier)
         if replication_subnet_group_identifier is not None:
-            _setter("replication_subnet_group_identifier", replication_subnet_group_identifier)
+            pulumi.set(__self__, "replication_subnet_group_identifier", replication_subnet_group_identifier)
         if resource_identifier is not None:
-            _setter("resource_identifier", resource_identifier)
+            pulumi.set(__self__, "resource_identifier", resource_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc_security_group_ids is not None:
-            _setter("vpc_security_group_ids", vpc_security_group_ids)
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
 
     @property
     @pulumi.getter(name="replicationInstanceClass")
@@ -288,10 +251,6 @@ class ReplicationInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ReplicationInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

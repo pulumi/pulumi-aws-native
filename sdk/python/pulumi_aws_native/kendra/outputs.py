@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -97,17 +97,8 @@ class DataSourceAccessControlListConfiguration(dict):
 
     def __init__(__self__, *,
                  key_path: Optional[str] = None):
-        DataSourceAccessControlListConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_path=key_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key_path is not None:
-            _setter("key_path", key_path)
+            pulumi.set(__self__, "key_path", key_path)
 
     @property
     @pulumi.getter(name="keyPath")
@@ -136,16 +127,7 @@ class DataSourceAclConfiguration(dict):
 
     def __init__(__self__, *,
                  allowed_groups_column_name: str):
-        DataSourceAclConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_groups_column_name=allowed_groups_column_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_groups_column_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allowed_groups_column_name", allowed_groups_column_name)
+        pulumi.set(__self__, "allowed_groups_column_name", allowed_groups_column_name)
 
     @property
     @pulumi.getter(name="allowedGroupsColumnName")
@@ -186,30 +168,13 @@ class DataSourceColumnConfiguration(dict):
                  document_id_column_name: str,
                  document_title_column_name: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None):
-        DataSourceColumnConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            change_detecting_columns=change_detecting_columns,
-            document_data_column_name=document_data_column_name,
-            document_id_column_name=document_id_column_name,
-            document_title_column_name=document_title_column_name,
-            field_mappings=field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             change_detecting_columns: Sequence[str],
-             document_data_column_name: str,
-             document_id_column_name: str,
-             document_title_column_name: Optional[str] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("change_detecting_columns", change_detecting_columns)
-        _setter("document_data_column_name", document_data_column_name)
-        _setter("document_id_column_name", document_id_column_name)
+        pulumi.set(__self__, "change_detecting_columns", change_detecting_columns)
+        pulumi.set(__self__, "document_data_column_name", document_data_column_name)
+        pulumi.set(__self__, "document_id_column_name", document_id_column_name)
         if document_title_column_name is not None:
-            _setter("document_title_column_name", document_title_column_name)
+            pulumi.set(__self__, "document_title_column_name", document_title_column_name)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="changeDetectingColumns")
@@ -285,53 +250,26 @@ class DataSourceConfiguration(dict):
                  share_point_configuration: Optional['outputs.DataSourceSharePointConfiguration'] = None,
                  web_crawler_configuration: Optional['outputs.DataSourceWebCrawlerConfiguration'] = None,
                  work_docs_configuration: Optional['outputs.DataSourceWorkDocsConfiguration'] = None):
-        DataSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            confluence_configuration=confluence_configuration,
-            database_configuration=database_configuration,
-            google_drive_configuration=google_drive_configuration,
-            one_drive_configuration=one_drive_configuration,
-            s3_configuration=s3_configuration,
-            salesforce_configuration=salesforce_configuration,
-            service_now_configuration=service_now_configuration,
-            share_point_configuration=share_point_configuration,
-            web_crawler_configuration=web_crawler_configuration,
-            work_docs_configuration=work_docs_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             confluence_configuration: Optional['outputs.DataSourceConfluenceConfiguration'] = None,
-             database_configuration: Optional['outputs.DataSourceDatabaseConfiguration'] = None,
-             google_drive_configuration: Optional['outputs.DataSourceGoogleDriveConfiguration'] = None,
-             one_drive_configuration: Optional['outputs.DataSourceOneDriveConfiguration'] = None,
-             s3_configuration: Optional['outputs.DataSourceS3DataSourceConfiguration'] = None,
-             salesforce_configuration: Optional['outputs.DataSourceSalesforceConfiguration'] = None,
-             service_now_configuration: Optional['outputs.DataSourceServiceNowConfiguration'] = None,
-             share_point_configuration: Optional['outputs.DataSourceSharePointConfiguration'] = None,
-             web_crawler_configuration: Optional['outputs.DataSourceWebCrawlerConfiguration'] = None,
-             work_docs_configuration: Optional['outputs.DataSourceWorkDocsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if confluence_configuration is not None:
-            _setter("confluence_configuration", confluence_configuration)
+            pulumi.set(__self__, "confluence_configuration", confluence_configuration)
         if database_configuration is not None:
-            _setter("database_configuration", database_configuration)
+            pulumi.set(__self__, "database_configuration", database_configuration)
         if google_drive_configuration is not None:
-            _setter("google_drive_configuration", google_drive_configuration)
+            pulumi.set(__self__, "google_drive_configuration", google_drive_configuration)
         if one_drive_configuration is not None:
-            _setter("one_drive_configuration", one_drive_configuration)
+            pulumi.set(__self__, "one_drive_configuration", one_drive_configuration)
         if s3_configuration is not None:
-            _setter("s3_configuration", s3_configuration)
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
         if salesforce_configuration is not None:
-            _setter("salesforce_configuration", salesforce_configuration)
+            pulumi.set(__self__, "salesforce_configuration", salesforce_configuration)
         if service_now_configuration is not None:
-            _setter("service_now_configuration", service_now_configuration)
+            pulumi.set(__self__, "service_now_configuration", service_now_configuration)
         if share_point_configuration is not None:
-            _setter("share_point_configuration", share_point_configuration)
+            pulumi.set(__self__, "share_point_configuration", share_point_configuration)
         if web_crawler_configuration is not None:
-            _setter("web_crawler_configuration", web_crawler_configuration)
+            pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
         if work_docs_configuration is not None:
-            _setter("work_docs_configuration", work_docs_configuration)
+            pulumi.set(__self__, "work_docs_configuration", work_docs_configuration)
 
     @property
     @pulumi.getter(name="confluenceConfiguration")
@@ -408,21 +346,10 @@ class DataSourceConfluenceAttachmentConfiguration(dict):
     def __init__(__self__, *,
                  attachment_field_mappings: Optional[Sequence['outputs.DataSourceConfluenceAttachmentToIndexFieldMapping']] = None,
                  crawl_attachments: Optional[bool] = None):
-        DataSourceConfluenceAttachmentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attachment_field_mappings=attachment_field_mappings,
-            crawl_attachments=crawl_attachments,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attachment_field_mappings: Optional[Sequence['outputs.DataSourceConfluenceAttachmentToIndexFieldMapping']] = None,
-             crawl_attachments: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attachment_field_mappings is not None:
-            _setter("attachment_field_mappings", attachment_field_mappings)
+            pulumi.set(__self__, "attachment_field_mappings", attachment_field_mappings)
         if crawl_attachments is not None:
-            _setter("crawl_attachments", crawl_attachments)
+            pulumi.set(__self__, "crawl_attachments", crawl_attachments)
 
     @property
     @pulumi.getter(name="attachmentFieldMappings")
@@ -462,23 +389,10 @@ class DataSourceConfluenceAttachmentToIndexFieldMapping(dict):
                  data_source_field_name: 'DataSourceConfluenceAttachmentFieldName',
                  index_field_name: str,
                  date_field_format: Optional[str] = None):
-        DataSourceConfluenceAttachmentToIndexFieldMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_field_name=data_source_field_name,
-            index_field_name=index_field_name,
-            date_field_format=date_field_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_field_name: 'DataSourceConfluenceAttachmentFieldName',
-             index_field_name: str,
-             date_field_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_source_field_name", data_source_field_name)
-        _setter("index_field_name", index_field_name)
+        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
+        pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
-            _setter("date_field_format", date_field_format)
+            pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
@@ -517,17 +431,8 @@ class DataSourceConfluenceBlogConfiguration(dict):
 
     def __init__(__self__, *,
                  blog_field_mappings: Optional[Sequence['outputs.DataSourceConfluenceBlogToIndexFieldMapping']] = None):
-        DataSourceConfluenceBlogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            blog_field_mappings=blog_field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             blog_field_mappings: Optional[Sequence['outputs.DataSourceConfluenceBlogToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if blog_field_mappings is not None:
-            _setter("blog_field_mappings", blog_field_mappings)
+            pulumi.set(__self__, "blog_field_mappings", blog_field_mappings)
 
     @property
     @pulumi.getter(name="blogFieldMappings")
@@ -562,23 +467,10 @@ class DataSourceConfluenceBlogToIndexFieldMapping(dict):
                  data_source_field_name: 'DataSourceConfluenceBlogFieldName',
                  index_field_name: str,
                  date_field_format: Optional[str] = None):
-        DataSourceConfluenceBlogToIndexFieldMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_field_name=data_source_field_name,
-            index_field_name=index_field_name,
-            date_field_format=date_field_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_field_name: 'DataSourceConfluenceBlogFieldName',
-             index_field_name: str,
-             date_field_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_source_field_name", data_source_field_name)
-        _setter("index_field_name", index_field_name)
+        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
+        pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
-            _setter("date_field_format", date_field_format)
+            pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
@@ -642,50 +534,23 @@ class DataSourceConfluenceConfiguration(dict):
                  page_configuration: Optional['outputs.DataSourceConfluencePageConfiguration'] = None,
                  space_configuration: Optional['outputs.DataSourceConfluenceSpaceConfiguration'] = None,
                  vpc_configuration: Optional['outputs.DataSourceVpcConfiguration'] = None):
-        DataSourceConfluenceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_arn=secret_arn,
-            server_url=server_url,
-            version=version,
-            attachment_configuration=attachment_configuration,
-            blog_configuration=blog_configuration,
-            exclusion_patterns=exclusion_patterns,
-            inclusion_patterns=inclusion_patterns,
-            page_configuration=page_configuration,
-            space_configuration=space_configuration,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_arn: str,
-             server_url: str,
-             version: 'DataSourceConfluenceVersion',
-             attachment_configuration: Optional['outputs.DataSourceConfluenceAttachmentConfiguration'] = None,
-             blog_configuration: Optional['outputs.DataSourceConfluenceBlogConfiguration'] = None,
-             exclusion_patterns: Optional[Sequence[str]] = None,
-             inclusion_patterns: Optional[Sequence[str]] = None,
-             page_configuration: Optional['outputs.DataSourceConfluencePageConfiguration'] = None,
-             space_configuration: Optional['outputs.DataSourceConfluenceSpaceConfiguration'] = None,
-             vpc_configuration: Optional['outputs.DataSourceVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("secret_arn", secret_arn)
-        _setter("server_url", server_url)
-        _setter("version", version)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "server_url", server_url)
+        pulumi.set(__self__, "version", version)
         if attachment_configuration is not None:
-            _setter("attachment_configuration", attachment_configuration)
+            pulumi.set(__self__, "attachment_configuration", attachment_configuration)
         if blog_configuration is not None:
-            _setter("blog_configuration", blog_configuration)
+            pulumi.set(__self__, "blog_configuration", blog_configuration)
         if exclusion_patterns is not None:
-            _setter("exclusion_patterns", exclusion_patterns)
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
         if inclusion_patterns is not None:
-            _setter("inclusion_patterns", inclusion_patterns)
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
         if page_configuration is not None:
-            _setter("page_configuration", page_configuration)
+            pulumi.set(__self__, "page_configuration", page_configuration)
         if space_configuration is not None:
-            _setter("space_configuration", space_configuration)
+            pulumi.set(__self__, "space_configuration", space_configuration)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -759,17 +624,8 @@ class DataSourceConfluencePageConfiguration(dict):
 
     def __init__(__self__, *,
                  page_field_mappings: Optional[Sequence['outputs.DataSourceConfluencePageToIndexFieldMapping']] = None):
-        DataSourceConfluencePageConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            page_field_mappings=page_field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             page_field_mappings: Optional[Sequence['outputs.DataSourceConfluencePageToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if page_field_mappings is not None:
-            _setter("page_field_mappings", page_field_mappings)
+            pulumi.set(__self__, "page_field_mappings", page_field_mappings)
 
     @property
     @pulumi.getter(name="pageFieldMappings")
@@ -804,23 +660,10 @@ class DataSourceConfluencePageToIndexFieldMapping(dict):
                  data_source_field_name: 'DataSourceConfluencePageFieldName',
                  index_field_name: str,
                  date_field_format: Optional[str] = None):
-        DataSourceConfluencePageToIndexFieldMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_field_name=data_source_field_name,
-            index_field_name=index_field_name,
-            date_field_format=date_field_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_field_name: 'DataSourceConfluencePageFieldName',
-             index_field_name: str,
-             date_field_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_source_field_name", data_source_field_name)
-        _setter("index_field_name", index_field_name)
+        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
+        pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
-            _setter("date_field_format", date_field_format)
+            pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
@@ -871,33 +714,16 @@ class DataSourceConfluenceSpaceConfiguration(dict):
                  exclude_spaces: Optional[Sequence[str]] = None,
                  include_spaces: Optional[Sequence[str]] = None,
                  space_field_mappings: Optional[Sequence['outputs.DataSourceConfluenceSpaceToIndexFieldMapping']] = None):
-        DataSourceConfluenceSpaceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            crawl_archived_spaces=crawl_archived_spaces,
-            crawl_personal_spaces=crawl_personal_spaces,
-            exclude_spaces=exclude_spaces,
-            include_spaces=include_spaces,
-            space_field_mappings=space_field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             crawl_archived_spaces: Optional[bool] = None,
-             crawl_personal_spaces: Optional[bool] = None,
-             exclude_spaces: Optional[Sequence[str]] = None,
-             include_spaces: Optional[Sequence[str]] = None,
-             space_field_mappings: Optional[Sequence['outputs.DataSourceConfluenceSpaceToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if crawl_archived_spaces is not None:
-            _setter("crawl_archived_spaces", crawl_archived_spaces)
+            pulumi.set(__self__, "crawl_archived_spaces", crawl_archived_spaces)
         if crawl_personal_spaces is not None:
-            _setter("crawl_personal_spaces", crawl_personal_spaces)
+            pulumi.set(__self__, "crawl_personal_spaces", crawl_personal_spaces)
         if exclude_spaces is not None:
-            _setter("exclude_spaces", exclude_spaces)
+            pulumi.set(__self__, "exclude_spaces", exclude_spaces)
         if include_spaces is not None:
-            _setter("include_spaces", include_spaces)
+            pulumi.set(__self__, "include_spaces", include_spaces)
         if space_field_mappings is not None:
-            _setter("space_field_mappings", space_field_mappings)
+            pulumi.set(__self__, "space_field_mappings", space_field_mappings)
 
     @property
     @pulumi.getter(name="crawlArchivedSpaces")
@@ -952,23 +778,10 @@ class DataSourceConfluenceSpaceToIndexFieldMapping(dict):
                  data_source_field_name: 'DataSourceConfluenceSpaceFieldName',
                  index_field_name: str,
                  date_field_format: Optional[str] = None):
-        DataSourceConfluenceSpaceToIndexFieldMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_field_name=data_source_field_name,
-            index_field_name=index_field_name,
-            date_field_format=date_field_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_field_name: 'DataSourceConfluenceSpaceFieldName',
-             index_field_name: str,
-             date_field_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_source_field_name", data_source_field_name)
-        _setter("index_field_name", index_field_name)
+        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
+        pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
-            _setter("date_field_format", date_field_format)
+            pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
@@ -1019,28 +832,11 @@ class DataSourceConnectionConfiguration(dict):
                  database_port: int,
                  secret_arn: str,
                  table_name: str):
-        DataSourceConnectionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_host=database_host,
-            database_name=database_name,
-            database_port=database_port,
-            secret_arn=secret_arn,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_host: str,
-             database_name: str,
-             database_port: int,
-             secret_arn: str,
-             table_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("database_host", database_host)
-        _setter("database_name", database_name)
-        _setter("database_port", database_port)
-        _setter("secret_arn", secret_arn)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "database_host", database_host)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "database_port", database_port)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseHost")
@@ -1098,29 +894,14 @@ class DataSourceCustomDocumentEnrichmentConfiguration(dict):
                  post_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
                  pre_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
                  role_arn: Optional[str] = None):
-        DataSourceCustomDocumentEnrichmentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inline_configurations=inline_configurations,
-            post_extraction_hook_configuration=post_extraction_hook_configuration,
-            pre_extraction_hook_configuration=pre_extraction_hook_configuration,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inline_configurations: Optional[Sequence['outputs.DataSourceInlineCustomDocumentEnrichmentConfiguration']] = None,
-             post_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
-             pre_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
-             role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if inline_configurations is not None:
-            _setter("inline_configurations", inline_configurations)
+            pulumi.set(__self__, "inline_configurations", inline_configurations)
         if post_extraction_hook_configuration is not None:
-            _setter("post_extraction_hook_configuration", post_extraction_hook_configuration)
+            pulumi.set(__self__, "post_extraction_hook_configuration", post_extraction_hook_configuration)
         if pre_extraction_hook_configuration is not None:
-            _setter("pre_extraction_hook_configuration", pre_extraction_hook_configuration)
+            pulumi.set(__self__, "pre_extraction_hook_configuration", pre_extraction_hook_configuration)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="inlineConfigurations")
@@ -1179,34 +960,15 @@ class DataSourceDatabaseConfiguration(dict):
                  acl_configuration: Optional['outputs.DataSourceAclConfiguration'] = None,
                  sql_configuration: Optional['outputs.DataSourceSqlConfiguration'] = None,
                  vpc_configuration: Optional['outputs.DataSourceVpcConfiguration'] = None):
-        DataSourceDatabaseConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            column_configuration=column_configuration,
-            connection_configuration=connection_configuration,
-            database_engine_type=database_engine_type,
-            acl_configuration=acl_configuration,
-            sql_configuration=sql_configuration,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             column_configuration: 'outputs.DataSourceColumnConfiguration',
-             connection_configuration: 'outputs.DataSourceConnectionConfiguration',
-             database_engine_type: 'DataSourceDatabaseEngineType',
-             acl_configuration: Optional['outputs.DataSourceAclConfiguration'] = None,
-             sql_configuration: Optional['outputs.DataSourceSqlConfiguration'] = None,
-             vpc_configuration: Optional['outputs.DataSourceVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("column_configuration", column_configuration)
-        _setter("connection_configuration", connection_configuration)
-        _setter("database_engine_type", database_engine_type)
+        pulumi.set(__self__, "column_configuration", column_configuration)
+        pulumi.set(__self__, "connection_configuration", connection_configuration)
+        pulumi.set(__self__, "database_engine_type", database_engine_type)
         if acl_configuration is not None:
-            _setter("acl_configuration", acl_configuration)
+            pulumi.set(__self__, "acl_configuration", acl_configuration)
         if sql_configuration is not None:
-            _setter("sql_configuration", sql_configuration)
+            pulumi.set(__self__, "sql_configuration", sql_configuration)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="columnConfiguration")
@@ -1264,23 +1026,10 @@ class DataSourceDocumentAttributeCondition(dict):
                  condition_document_attribute_key: str,
                  operator: 'DataSourceConditionOperator',
                  condition_on_value: Optional['outputs.DataSourceDocumentAttributeValue'] = None):
-        DataSourceDocumentAttributeCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition_document_attribute_key=condition_document_attribute_key,
-            operator=operator,
-            condition_on_value=condition_on_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition_document_attribute_key: str,
-             operator: 'DataSourceConditionOperator',
-             condition_on_value: Optional['outputs.DataSourceDocumentAttributeValue'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("condition_document_attribute_key", condition_document_attribute_key)
-        _setter("operator", operator)
+        pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
+        pulumi.set(__self__, "operator", operator)
         if condition_on_value is not None:
-            _setter("condition_on_value", condition_on_value)
+            pulumi.set(__self__, "condition_on_value", condition_on_value)
 
     @property
     @pulumi.getter(name="conditionDocumentAttributeKey")
@@ -1325,24 +1074,11 @@ class DataSourceDocumentAttributeTarget(dict):
                  target_document_attribute_key: str,
                  target_document_attribute_value: Optional['outputs.DataSourceDocumentAttributeValue'] = None,
                  target_document_attribute_value_deletion: Optional[bool] = None):
-        DataSourceDocumentAttributeTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_document_attribute_key=target_document_attribute_key,
-            target_document_attribute_value=target_document_attribute_value,
-            target_document_attribute_value_deletion=target_document_attribute_value_deletion,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_document_attribute_key: str,
-             target_document_attribute_value: Optional['outputs.DataSourceDocumentAttributeValue'] = None,
-             target_document_attribute_value_deletion: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_document_attribute_key", target_document_attribute_key)
+        pulumi.set(__self__, "target_document_attribute_key", target_document_attribute_key)
         if target_document_attribute_value is not None:
-            _setter("target_document_attribute_value", target_document_attribute_value)
+            pulumi.set(__self__, "target_document_attribute_value", target_document_attribute_value)
         if target_document_attribute_value_deletion is not None:
-            _setter("target_document_attribute_value_deletion", target_document_attribute_value_deletion)
+            pulumi.set(__self__, "target_document_attribute_value_deletion", target_document_attribute_value_deletion)
 
     @property
     @pulumi.getter(name="targetDocumentAttributeKey")
@@ -1390,29 +1126,14 @@ class DataSourceDocumentAttributeValue(dict):
                  long_value: Optional[int] = None,
                  string_list_value: Optional[Sequence[str]] = None,
                  string_value: Optional[str] = None):
-        DataSourceDocumentAttributeValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            date_value=date_value,
-            long_value=long_value,
-            string_list_value=string_list_value,
-            string_value=string_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             date_value: Optional[str] = None,
-             long_value: Optional[int] = None,
-             string_list_value: Optional[Sequence[str]] = None,
-             string_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if date_value is not None:
-            _setter("date_value", date_value)
+            pulumi.set(__self__, "date_value", date_value)
         if long_value is not None:
-            _setter("long_value", long_value)
+            pulumi.set(__self__, "long_value", long_value)
         if string_list_value is not None:
-            _setter("string_list_value", string_list_value)
+            pulumi.set(__self__, "string_list_value", string_list_value)
         if string_value is not None:
-            _setter("string_value", string_value)
+            pulumi.set(__self__, "string_value", string_value)
 
     @property
     @pulumi.getter(name="dateValue")
@@ -1456,17 +1177,8 @@ class DataSourceDocumentsMetadataConfiguration(dict):
 
     def __init__(__self__, *,
                  s3_prefix: Optional[str] = None):
-        DataSourceDocumentsMetadataConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_prefix=s3_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if s3_prefix is not None:
-            _setter("s3_prefix", s3_prefix)
+            pulumi.set(__self__, "s3_prefix", s3_prefix)
 
     @property
     @pulumi.getter(name="s3Prefix")
@@ -1513,40 +1225,19 @@ class DataSourceGoogleDriveConfiguration(dict):
                  exclusion_patterns: Optional[Sequence[str]] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
                  inclusion_patterns: Optional[Sequence[str]] = None):
-        DataSourceGoogleDriveConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_arn=secret_arn,
-            exclude_mime_types=exclude_mime_types,
-            exclude_shared_drives=exclude_shared_drives,
-            exclude_user_accounts=exclude_user_accounts,
-            exclusion_patterns=exclusion_patterns,
-            field_mappings=field_mappings,
-            inclusion_patterns=inclusion_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_arn: str,
-             exclude_mime_types: Optional[Sequence[str]] = None,
-             exclude_shared_drives: Optional[Sequence[str]] = None,
-             exclude_user_accounts: Optional[Sequence[str]] = None,
-             exclusion_patterns: Optional[Sequence[str]] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             inclusion_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("secret_arn", secret_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
         if exclude_mime_types is not None:
-            _setter("exclude_mime_types", exclude_mime_types)
+            pulumi.set(__self__, "exclude_mime_types", exclude_mime_types)
         if exclude_shared_drives is not None:
-            _setter("exclude_shared_drives", exclude_shared_drives)
+            pulumi.set(__self__, "exclude_shared_drives", exclude_shared_drives)
         if exclude_user_accounts is not None:
-            _setter("exclude_user_accounts", exclude_user_accounts)
+            pulumi.set(__self__, "exclude_user_accounts", exclude_user_accounts)
         if exclusion_patterns is not None:
-            _setter("exclusion_patterns", exclusion_patterns)
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if inclusion_patterns is not None:
-            _setter("inclusion_patterns", inclusion_patterns)
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -1611,23 +1302,10 @@ class DataSourceHookConfiguration(dict):
                  lambda_arn: str,
                  s3_bucket: str,
                  invocation_condition: Optional['outputs.DataSourceDocumentAttributeCondition'] = None):
-        DataSourceHookConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lambda_arn=lambda_arn,
-            s3_bucket=s3_bucket,
-            invocation_condition=invocation_condition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lambda_arn: str,
-             s3_bucket: str,
-             invocation_condition: Optional['outputs.DataSourceDocumentAttributeCondition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("lambda_arn", lambda_arn)
-        _setter("s3_bucket", s3_bucket)
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
         if invocation_condition is not None:
-            _setter("invocation_condition", invocation_condition)
+            pulumi.set(__self__, "invocation_condition", invocation_condition)
 
     @property
     @pulumi.getter(name="lambdaArn")
@@ -1668,25 +1346,12 @@ class DataSourceInlineCustomDocumentEnrichmentConfiguration(dict):
                  condition: Optional['outputs.DataSourceDocumentAttributeCondition'] = None,
                  document_content_deletion: Optional[bool] = None,
                  target: Optional['outputs.DataSourceDocumentAttributeTarget'] = None):
-        DataSourceInlineCustomDocumentEnrichmentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            document_content_deletion=document_content_deletion,
-            target=target,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional['outputs.DataSourceDocumentAttributeCondition'] = None,
-             document_content_deletion: Optional[bool] = None,
-             target: Optional['outputs.DataSourceDocumentAttributeTarget'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if document_content_deletion is not None:
-            _setter("document_content_deletion", document_content_deletion)
+            pulumi.set(__self__, "document_content_deletion", document_content_deletion)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter
@@ -1743,38 +1408,17 @@ class DataSourceOneDriveConfiguration(dict):
                  exclusion_patterns: Optional[Sequence[str]] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
                  inclusion_patterns: Optional[Sequence[str]] = None):
-        DataSourceOneDriveConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            one_drive_users=one_drive_users,
-            secret_arn=secret_arn,
-            tenant_domain=tenant_domain,
-            disable_local_groups=disable_local_groups,
-            exclusion_patterns=exclusion_patterns,
-            field_mappings=field_mappings,
-            inclusion_patterns=inclusion_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             one_drive_users: 'outputs.DataSourceOneDriveUsers',
-             secret_arn: str,
-             tenant_domain: str,
-             disable_local_groups: Optional[bool] = None,
-             exclusion_patterns: Optional[Sequence[str]] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             inclusion_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("one_drive_users", one_drive_users)
-        _setter("secret_arn", secret_arn)
-        _setter("tenant_domain", tenant_domain)
+        pulumi.set(__self__, "one_drive_users", one_drive_users)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "tenant_domain", tenant_domain)
         if disable_local_groups is not None:
-            _setter("disable_local_groups", disable_local_groups)
+            pulumi.set(__self__, "disable_local_groups", disable_local_groups)
         if exclusion_patterns is not None:
-            _setter("exclusion_patterns", exclusion_patterns)
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if inclusion_patterns is not None:
-            _setter("inclusion_patterns", inclusion_patterns)
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
 
     @property
     @pulumi.getter(name="oneDriveUsers")
@@ -1836,21 +1480,10 @@ class DataSourceOneDriveUsers(dict):
     def __init__(__self__, *,
                  one_drive_user_list: Optional[Sequence[str]] = None,
                  one_drive_user_s3_path: Optional['outputs.DataSourceS3Path'] = None):
-        DataSourceOneDriveUsers._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            one_drive_user_list=one_drive_user_list,
-            one_drive_user_s3_path=one_drive_user_s3_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             one_drive_user_list: Optional[Sequence[str]] = None,
-             one_drive_user_s3_path: Optional['outputs.DataSourceS3Path'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if one_drive_user_list is not None:
-            _setter("one_drive_user_list", one_drive_user_list)
+            pulumi.set(__self__, "one_drive_user_list", one_drive_user_list)
         if one_drive_user_s3_path is not None:
-            _setter("one_drive_user_s3_path", one_drive_user_s3_path)
+            pulumi.set(__self__, "one_drive_user_s3_path", one_drive_user_s3_path)
 
     @property
     @pulumi.getter(name="oneDriveUserList")
@@ -1869,23 +1502,10 @@ class DataSourceProxyConfiguration(dict):
                  host: str,
                  port: int,
                  credentials: Optional[str] = None):
-        DataSourceProxyConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host=host,
-            port=port,
-            credentials=credentials,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host: str,
-             port: int,
-             credentials: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("host", host)
-        _setter("port", port)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
 
     @property
     @pulumi.getter
@@ -1945,36 +1565,17 @@ class DataSourceS3DataSourceConfiguration(dict):
         """
         S3 data source configuration
         """
-        DataSourceS3DataSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            access_control_list_configuration=access_control_list_configuration,
-            documents_metadata_configuration=documents_metadata_configuration,
-            exclusion_patterns=exclusion_patterns,
-            inclusion_patterns=inclusion_patterns,
-            inclusion_prefixes=inclusion_prefixes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             access_control_list_configuration: Optional['outputs.DataSourceAccessControlListConfiguration'] = None,
-             documents_metadata_configuration: Optional['outputs.DataSourceDocumentsMetadataConfiguration'] = None,
-             exclusion_patterns: Optional[Sequence[str]] = None,
-             inclusion_patterns: Optional[Sequence[str]] = None,
-             inclusion_prefixes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if access_control_list_configuration is not None:
-            _setter("access_control_list_configuration", access_control_list_configuration)
+            pulumi.set(__self__, "access_control_list_configuration", access_control_list_configuration)
         if documents_metadata_configuration is not None:
-            _setter("documents_metadata_configuration", documents_metadata_configuration)
+            pulumi.set(__self__, "documents_metadata_configuration", documents_metadata_configuration)
         if exclusion_patterns is not None:
-            _setter("exclusion_patterns", exclusion_patterns)
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
         if inclusion_patterns is not None:
-            _setter("inclusion_patterns", inclusion_patterns)
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
         if inclusion_prefixes is not None:
-            _setter("inclusion_prefixes", inclusion_prefixes)
+            pulumi.set(__self__, "inclusion_prefixes", inclusion_prefixes)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2012,19 +1613,8 @@ class DataSourceS3Path(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
-        DataSourceS3Path._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("key", key)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
@@ -2067,28 +1657,13 @@ class DataSourceSalesforceChatterFeedConfiguration(dict):
                  document_title_field_name: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
                  include_filter_types: Optional[Sequence['DataSourceSalesforceChatterFeedIncludeFilterType']] = None):
-        DataSourceSalesforceChatterFeedConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_data_field_name=document_data_field_name,
-            document_title_field_name=document_title_field_name,
-            field_mappings=field_mappings,
-            include_filter_types=include_filter_types,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_data_field_name: str,
-             document_title_field_name: Optional[str] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             include_filter_types: Optional[Sequence['DataSourceSalesforceChatterFeedIncludeFilterType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_data_field_name", document_data_field_name)
+        pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if include_filter_types is not None:
-            _setter("include_filter_types", include_filter_types)
+            pulumi.set(__self__, "include_filter_types", include_filter_types)
 
     @property
     @pulumi.getter(name="documentDataFieldName")
@@ -2156,47 +1731,22 @@ class DataSourceSalesforceConfiguration(dict):
                  knowledge_article_configuration: Optional['outputs.DataSourceSalesforceKnowledgeArticleConfiguration'] = None,
                  standard_object_attachment_configuration: Optional['outputs.DataSourceSalesforceStandardObjectAttachmentConfiguration'] = None,
                  standard_object_configurations: Optional[Sequence['outputs.DataSourceSalesforceStandardObjectConfiguration']] = None):
-        DataSourceSalesforceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_arn=secret_arn,
-            server_url=server_url,
-            chatter_feed_configuration=chatter_feed_configuration,
-            crawl_attachments=crawl_attachments,
-            exclude_attachment_file_patterns=exclude_attachment_file_patterns,
-            include_attachment_file_patterns=include_attachment_file_patterns,
-            knowledge_article_configuration=knowledge_article_configuration,
-            standard_object_attachment_configuration=standard_object_attachment_configuration,
-            standard_object_configurations=standard_object_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_arn: str,
-             server_url: str,
-             chatter_feed_configuration: Optional['outputs.DataSourceSalesforceChatterFeedConfiguration'] = None,
-             crawl_attachments: Optional[bool] = None,
-             exclude_attachment_file_patterns: Optional[Sequence[str]] = None,
-             include_attachment_file_patterns: Optional[Sequence[str]] = None,
-             knowledge_article_configuration: Optional['outputs.DataSourceSalesforceKnowledgeArticleConfiguration'] = None,
-             standard_object_attachment_configuration: Optional['outputs.DataSourceSalesforceStandardObjectAttachmentConfiguration'] = None,
-             standard_object_configurations: Optional[Sequence['outputs.DataSourceSalesforceStandardObjectConfiguration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("secret_arn", secret_arn)
-        _setter("server_url", server_url)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "server_url", server_url)
         if chatter_feed_configuration is not None:
-            _setter("chatter_feed_configuration", chatter_feed_configuration)
+            pulumi.set(__self__, "chatter_feed_configuration", chatter_feed_configuration)
         if crawl_attachments is not None:
-            _setter("crawl_attachments", crawl_attachments)
+            pulumi.set(__self__, "crawl_attachments", crawl_attachments)
         if exclude_attachment_file_patterns is not None:
-            _setter("exclude_attachment_file_patterns", exclude_attachment_file_patterns)
+            pulumi.set(__self__, "exclude_attachment_file_patterns", exclude_attachment_file_patterns)
         if include_attachment_file_patterns is not None:
-            _setter("include_attachment_file_patterns", include_attachment_file_patterns)
+            pulumi.set(__self__, "include_attachment_file_patterns", include_attachment_file_patterns)
         if knowledge_article_configuration is not None:
-            _setter("knowledge_article_configuration", knowledge_article_configuration)
+            pulumi.set(__self__, "knowledge_article_configuration", knowledge_article_configuration)
         if standard_object_attachment_configuration is not None:
-            _setter("standard_object_attachment_configuration", standard_object_attachment_configuration)
+            pulumi.set(__self__, "standard_object_attachment_configuration", standard_object_attachment_configuration)
         if standard_object_configurations is not None:
-            _setter("standard_object_configurations", standard_object_configurations)
+            pulumi.set(__self__, "standard_object_configurations", standard_object_configurations)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -2272,27 +1822,12 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration(dict):
                  name: str,
                  document_title_field_name: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None):
-        DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_data_field_name=document_data_field_name,
-            name=name,
-            document_title_field_name=document_title_field_name,
-            field_mappings=field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_data_field_name: str,
-             name: str,
-             document_title_field_name: Optional[str] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_data_field_name", document_data_field_name)
-        _setter("name", name)
+        pulumi.set(__self__, "document_data_field_name", document_data_field_name)
+        pulumi.set(__self__, "name", name)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="documentDataFieldName")
@@ -2342,24 +1877,11 @@ class DataSourceSalesforceKnowledgeArticleConfiguration(dict):
                  included_states: Sequence['DataSourceSalesforceKnowledgeArticleState'],
                  custom_knowledge_article_type_configurations: Optional[Sequence['outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration']] = None,
                  standard_knowledge_article_type_configuration: Optional['outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration'] = None):
-        DataSourceSalesforceKnowledgeArticleConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            included_states=included_states,
-            custom_knowledge_article_type_configurations=custom_knowledge_article_type_configurations,
-            standard_knowledge_article_type_configuration=standard_knowledge_article_type_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             included_states: Sequence['DataSourceSalesforceKnowledgeArticleState'],
-             custom_knowledge_article_type_configurations: Optional[Sequence['outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration']] = None,
-             standard_knowledge_article_type_configuration: Optional['outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("included_states", included_states)
+        pulumi.set(__self__, "included_states", included_states)
         if custom_knowledge_article_type_configurations is not None:
-            _setter("custom_knowledge_article_type_configurations", custom_knowledge_article_type_configurations)
+            pulumi.set(__self__, "custom_knowledge_article_type_configurations", custom_knowledge_article_type_configurations)
         if standard_knowledge_article_type_configuration is not None:
-            _setter("standard_knowledge_article_type_configuration", standard_knowledge_article_type_configuration)
+            pulumi.set(__self__, "standard_knowledge_article_type_configuration", standard_knowledge_article_type_configuration)
 
     @property
     @pulumi.getter(name="includedStates")
@@ -2404,24 +1926,11 @@ class DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration(dict):
                  document_data_field_name: str,
                  document_title_field_name: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None):
-        DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_data_field_name=document_data_field_name,
-            document_title_field_name=document_title_field_name,
-            field_mappings=field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_data_field_name: str,
-             document_title_field_name: Optional[str] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_data_field_name", document_data_field_name)
+        pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="documentDataFieldName")
@@ -2463,21 +1972,10 @@ class DataSourceSalesforceStandardObjectAttachmentConfiguration(dict):
     def __init__(__self__, *,
                  document_title_field_name: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None):
-        DataSourceSalesforceStandardObjectAttachmentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_title_field_name=document_title_field_name,
-            field_mappings=field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_title_field_name: Optional[str] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="documentTitleFieldName")
@@ -2518,27 +2016,12 @@ class DataSourceSalesforceStandardObjectConfiguration(dict):
                  name: 'DataSourceSalesforceStandardObjectName',
                  document_title_field_name: Optional[str] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None):
-        DataSourceSalesforceStandardObjectConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_data_field_name=document_data_field_name,
-            name=name,
-            document_title_field_name=document_title_field_name,
-            field_mappings=field_mappings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_data_field_name: str,
-             name: 'DataSourceSalesforceStandardObjectName',
-             document_title_field_name: Optional[str] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_data_field_name", document_data_field_name)
-        _setter("name", name)
+        pulumi.set(__self__, "document_data_field_name", document_data_field_name)
+        pulumi.set(__self__, "name", name)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
 
     @property
     @pulumi.getter(name="documentDataFieldName")
@@ -2597,34 +2080,15 @@ class DataSourceServiceNowConfiguration(dict):
                  authentication_type: Optional['DataSourceServiceNowAuthenticationType'] = None,
                  knowledge_article_configuration: Optional['outputs.DataSourceServiceNowKnowledgeArticleConfiguration'] = None,
                  service_catalog_configuration: Optional['outputs.DataSourceServiceNowServiceCatalogConfiguration'] = None):
-        DataSourceServiceNowConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host_url=host_url,
-            secret_arn=secret_arn,
-            service_now_build_version=service_now_build_version,
-            authentication_type=authentication_type,
-            knowledge_article_configuration=knowledge_article_configuration,
-            service_catalog_configuration=service_catalog_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host_url: str,
-             secret_arn: str,
-             service_now_build_version: 'DataSourceServiceNowBuildVersionType',
-             authentication_type: Optional['DataSourceServiceNowAuthenticationType'] = None,
-             knowledge_article_configuration: Optional['outputs.DataSourceServiceNowKnowledgeArticleConfiguration'] = None,
-             service_catalog_configuration: Optional['outputs.DataSourceServiceNowServiceCatalogConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("host_url", host_url)
-        _setter("secret_arn", secret_arn)
-        _setter("service_now_build_version", service_now_build_version)
+        pulumi.set(__self__, "host_url", host_url)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "service_now_build_version", service_now_build_version)
         if authentication_type is not None:
-            _setter("authentication_type", authentication_type)
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if knowledge_article_configuration is not None:
-            _setter("knowledge_article_configuration", knowledge_article_configuration)
+            pulumi.set(__self__, "knowledge_article_configuration", knowledge_article_configuration)
         if service_catalog_configuration is not None:
-            _setter("service_catalog_configuration", service_catalog_configuration)
+            pulumi.set(__self__, "service_catalog_configuration", service_catalog_configuration)
 
     @property
     @pulumi.getter(name="hostUrl")
@@ -2696,40 +2160,19 @@ class DataSourceServiceNowKnowledgeArticleConfiguration(dict):
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
                  filter_query: Optional[str] = None,
                  include_attachment_file_patterns: Optional[Sequence[str]] = None):
-        DataSourceServiceNowKnowledgeArticleConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_data_field_name=document_data_field_name,
-            crawl_attachments=crawl_attachments,
-            document_title_field_name=document_title_field_name,
-            exclude_attachment_file_patterns=exclude_attachment_file_patterns,
-            field_mappings=field_mappings,
-            filter_query=filter_query,
-            include_attachment_file_patterns=include_attachment_file_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_data_field_name: str,
-             crawl_attachments: Optional[bool] = None,
-             document_title_field_name: Optional[str] = None,
-             exclude_attachment_file_patterns: Optional[Sequence[str]] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             filter_query: Optional[str] = None,
-             include_attachment_file_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_data_field_name", document_data_field_name)
+        pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
-            _setter("crawl_attachments", crawl_attachments)
+            pulumi.set(__self__, "crawl_attachments", crawl_attachments)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if exclude_attachment_file_patterns is not None:
-            _setter("exclude_attachment_file_patterns", exclude_attachment_file_patterns)
+            pulumi.set(__self__, "exclude_attachment_file_patterns", exclude_attachment_file_patterns)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if filter_query is not None:
-            _setter("filter_query", filter_query)
+            pulumi.set(__self__, "filter_query", filter_query)
         if include_attachment_file_patterns is not None:
-            _setter("include_attachment_file_patterns", include_attachment_file_patterns)
+            pulumi.set(__self__, "include_attachment_file_patterns", include_attachment_file_patterns)
 
     @property
     @pulumi.getter(name="documentDataFieldName")
@@ -2803,36 +2246,17 @@ class DataSourceServiceNowServiceCatalogConfiguration(dict):
                  exclude_attachment_file_patterns: Optional[Sequence[str]] = None,
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
                  include_attachment_file_patterns: Optional[Sequence[str]] = None):
-        DataSourceServiceNowServiceCatalogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            document_data_field_name=document_data_field_name,
-            crawl_attachments=crawl_attachments,
-            document_title_field_name=document_title_field_name,
-            exclude_attachment_file_patterns=exclude_attachment_file_patterns,
-            field_mappings=field_mappings,
-            include_attachment_file_patterns=include_attachment_file_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             document_data_field_name: str,
-             crawl_attachments: Optional[bool] = None,
-             document_title_field_name: Optional[str] = None,
-             exclude_attachment_file_patterns: Optional[Sequence[str]] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             include_attachment_file_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("document_data_field_name", document_data_field_name)
+        pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if crawl_attachments is not None:
-            _setter("crawl_attachments", crawl_attachments)
+            pulumi.set(__self__, "crawl_attachments", crawl_attachments)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if exclude_attachment_file_patterns is not None:
-            _setter("exclude_attachment_file_patterns", exclude_attachment_file_patterns)
+            pulumi.set(__self__, "exclude_attachment_file_patterns", exclude_attachment_file_patterns)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if include_attachment_file_patterns is not None:
-            _setter("include_attachment_file_patterns", include_attachment_file_patterns)
+            pulumi.set(__self__, "include_attachment_file_patterns", include_attachment_file_patterns)
 
     @property
     @pulumi.getter(name="documentDataFieldName")
@@ -2923,58 +2347,27 @@ class DataSourceSharePointConfiguration(dict):
         """
         SharePoint configuration
         """
-        DataSourceSharePointConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_arn=secret_arn,
-            share_point_version=share_point_version,
-            urls=urls,
-            crawl_attachments=crawl_attachments,
-            disable_local_groups=disable_local_groups,
-            document_title_field_name=document_title_field_name,
-            exclusion_patterns=exclusion_patterns,
-            field_mappings=field_mappings,
-            inclusion_patterns=inclusion_patterns,
-            ssl_certificate_s3_path=ssl_certificate_s3_path,
-            use_change_log=use_change_log,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_arn: str,
-             share_point_version: 'DataSourceSharePointConfigurationSharePointVersion',
-             urls: Sequence[str],
-             crawl_attachments: Optional[bool] = None,
-             disable_local_groups: Optional[bool] = None,
-             document_title_field_name: Optional[str] = None,
-             exclusion_patterns: Optional[Sequence[str]] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             inclusion_patterns: Optional[Sequence[str]] = None,
-             ssl_certificate_s3_path: Optional['outputs.DataSourceS3Path'] = None,
-             use_change_log: Optional[bool] = None,
-             vpc_configuration: Optional['outputs.DataSourceVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("secret_arn", secret_arn)
-        _setter("share_point_version", share_point_version)
-        _setter("urls", urls)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "share_point_version", share_point_version)
+        pulumi.set(__self__, "urls", urls)
         if crawl_attachments is not None:
-            _setter("crawl_attachments", crawl_attachments)
+            pulumi.set(__self__, "crawl_attachments", crawl_attachments)
         if disable_local_groups is not None:
-            _setter("disable_local_groups", disable_local_groups)
+            pulumi.set(__self__, "disable_local_groups", disable_local_groups)
         if document_title_field_name is not None:
-            _setter("document_title_field_name", document_title_field_name)
+            pulumi.set(__self__, "document_title_field_name", document_title_field_name)
         if exclusion_patterns is not None:
-            _setter("exclusion_patterns", exclusion_patterns)
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if inclusion_patterns is not None:
-            _setter("inclusion_patterns", inclusion_patterns)
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
         if ssl_certificate_s3_path is not None:
-            _setter("ssl_certificate_s3_path", ssl_certificate_s3_path)
+            pulumi.set(__self__, "ssl_certificate_s3_path", ssl_certificate_s3_path)
         if use_change_log is not None:
-            _setter("use_change_log", use_change_log)
+            pulumi.set(__self__, "use_change_log", use_change_log)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="secretArn")
@@ -3058,17 +2451,8 @@ class DataSourceSqlConfiguration(dict):
 
     def __init__(__self__, *,
                  query_identifiers_enclosing_option: Optional['DataSourceQueryIdentifiersEnclosingOption'] = None):
-        DataSourceSqlConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query_identifiers_enclosing_option=query_identifiers_enclosing_option,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query_identifiers_enclosing_option: Optional['DataSourceQueryIdentifiersEnclosingOption'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if query_identifiers_enclosing_option is not None:
-            _setter("query_identifiers_enclosing_option", query_identifiers_enclosing_option)
+            pulumi.set(__self__, "query_identifiers_enclosing_option", query_identifiers_enclosing_option)
 
     @property
     @pulumi.getter(name="queryIdentifiersEnclosingOption")
@@ -3089,19 +2473,8 @@ class DataSourceTag(dict):
         :param str key: A string used to identify this tag
         :param str value: A string containing the value for the tag
         """
-        DataSourceTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3147,23 +2520,10 @@ class DataSourceToIndexFieldMapping(dict):
                  data_source_field_name: str,
                  index_field_name: str,
                  date_field_format: Optional[str] = None):
-        DataSourceToIndexFieldMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source_field_name=data_source_field_name,
-            index_field_name=index_field_name,
-            date_field_format=date_field_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source_field_name: str,
-             index_field_name: str,
-             date_field_format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_source_field_name", data_source_field_name)
-        _setter("index_field_name", index_field_name)
+        pulumi.set(__self__, "data_source_field_name", data_source_field_name)
+        pulumi.set(__self__, "index_field_name", index_field_name)
         if date_field_format is not None:
-            _setter("date_field_format", date_field_format)
+            pulumi.set(__self__, "date_field_format", date_field_format)
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
@@ -3205,19 +2565,8 @@ class DataSourceVpcConfiguration(dict):
     def __init__(__self__, *,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str]):
-        DataSourceVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Sequence[str],
-             subnet_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -3251,17 +2600,8 @@ class DataSourceWebCrawlerAuthenticationConfiguration(dict):
 
     def __init__(__self__, *,
                  basic_authentication: Optional[Sequence['outputs.DataSourceWebCrawlerBasicAuthentication']] = None):
-        DataSourceWebCrawlerAuthenticationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            basic_authentication=basic_authentication,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             basic_authentication: Optional[Sequence['outputs.DataSourceWebCrawlerBasicAuthentication']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if basic_authentication is not None:
-            _setter("basic_authentication", basic_authentication)
+            pulumi.set(__self__, "basic_authentication", basic_authentication)
 
     @property
     @pulumi.getter(name="basicAuthentication")
@@ -3275,22 +2615,9 @@ class DataSourceWebCrawlerBasicAuthentication(dict):
                  credentials: str,
                  host: str,
                  port: int):
-        DataSourceWebCrawlerBasicAuthentication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credentials=credentials,
-            host=host,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credentials: str,
-             host: str,
-             port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("credentials", credentials)
-        _setter("host", host)
-        _setter("port", port)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -3351,48 +2678,23 @@ class DataSourceWebCrawlerConfiguration(dict):
                  proxy_configuration: Optional['outputs.DataSourceProxyConfiguration'] = None,
                  url_exclusion_patterns: Optional[Sequence[str]] = None,
                  url_inclusion_patterns: Optional[Sequence[str]] = None):
-        DataSourceWebCrawlerConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            urls=urls,
-            authentication_configuration=authentication_configuration,
-            crawl_depth=crawl_depth,
-            max_content_size_per_page_in_mega_bytes=max_content_size_per_page_in_mega_bytes,
-            max_links_per_page=max_links_per_page,
-            max_urls_per_minute_crawl_rate=max_urls_per_minute_crawl_rate,
-            proxy_configuration=proxy_configuration,
-            url_exclusion_patterns=url_exclusion_patterns,
-            url_inclusion_patterns=url_inclusion_patterns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             urls: 'outputs.DataSourceWebCrawlerUrls',
-             authentication_configuration: Optional['outputs.DataSourceWebCrawlerAuthenticationConfiguration'] = None,
-             crawl_depth: Optional[int] = None,
-             max_content_size_per_page_in_mega_bytes: Optional[float] = None,
-             max_links_per_page: Optional[int] = None,
-             max_urls_per_minute_crawl_rate: Optional[int] = None,
-             proxy_configuration: Optional['outputs.DataSourceProxyConfiguration'] = None,
-             url_exclusion_patterns: Optional[Sequence[str]] = None,
-             url_inclusion_patterns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("urls", urls)
+        pulumi.set(__self__, "urls", urls)
         if authentication_configuration is not None:
-            _setter("authentication_configuration", authentication_configuration)
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if crawl_depth is not None:
-            _setter("crawl_depth", crawl_depth)
+            pulumi.set(__self__, "crawl_depth", crawl_depth)
         if max_content_size_per_page_in_mega_bytes is not None:
-            _setter("max_content_size_per_page_in_mega_bytes", max_content_size_per_page_in_mega_bytes)
+            pulumi.set(__self__, "max_content_size_per_page_in_mega_bytes", max_content_size_per_page_in_mega_bytes)
         if max_links_per_page is not None:
-            _setter("max_links_per_page", max_links_per_page)
+            pulumi.set(__self__, "max_links_per_page", max_links_per_page)
         if max_urls_per_minute_crawl_rate is not None:
-            _setter("max_urls_per_minute_crawl_rate", max_urls_per_minute_crawl_rate)
+            pulumi.set(__self__, "max_urls_per_minute_crawl_rate", max_urls_per_minute_crawl_rate)
         if proxy_configuration is not None:
-            _setter("proxy_configuration", proxy_configuration)
+            pulumi.set(__self__, "proxy_configuration", proxy_configuration)
         if url_exclusion_patterns is not None:
-            _setter("url_exclusion_patterns", url_exclusion_patterns)
+            pulumi.set(__self__, "url_exclusion_patterns", url_exclusion_patterns)
         if url_inclusion_patterns is not None:
-            _setter("url_inclusion_patterns", url_inclusion_patterns)
+            pulumi.set(__self__, "url_inclusion_patterns", url_inclusion_patterns)
 
     @property
     @pulumi.getter
@@ -3464,20 +2766,9 @@ class DataSourceWebCrawlerSeedUrlConfiguration(dict):
     def __init__(__self__, *,
                  seed_urls: Sequence[str],
                  web_crawler_mode: Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode'] = None):
-        DataSourceWebCrawlerSeedUrlConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            seed_urls=seed_urls,
-            web_crawler_mode=web_crawler_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             seed_urls: Sequence[str],
-             web_crawler_mode: Optional['DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("seed_urls", seed_urls)
+        pulumi.set(__self__, "seed_urls", seed_urls)
         if web_crawler_mode is not None:
-            _setter("web_crawler_mode", web_crawler_mode)
+            pulumi.set(__self__, "web_crawler_mode", web_crawler_mode)
 
     @property
     @pulumi.getter(name="seedUrls")
@@ -3511,16 +2802,7 @@ class DataSourceWebCrawlerSiteMapsConfiguration(dict):
 
     def __init__(__self__, *,
                  site_maps: Sequence[str]):
-        DataSourceWebCrawlerSiteMapsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            site_maps=site_maps,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             site_maps: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("site_maps", site_maps)
+        pulumi.set(__self__, "site_maps", site_maps)
 
     @property
     @pulumi.getter(name="siteMaps")
@@ -3552,21 +2834,10 @@ class DataSourceWebCrawlerUrls(dict):
     def __init__(__self__, *,
                  seed_url_configuration: Optional['outputs.DataSourceWebCrawlerSeedUrlConfiguration'] = None,
                  site_maps_configuration: Optional['outputs.DataSourceWebCrawlerSiteMapsConfiguration'] = None):
-        DataSourceWebCrawlerUrls._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            seed_url_configuration=seed_url_configuration,
-            site_maps_configuration=site_maps_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             seed_url_configuration: Optional['outputs.DataSourceWebCrawlerSeedUrlConfiguration'] = None,
-             site_maps_configuration: Optional['outputs.DataSourceWebCrawlerSiteMapsConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if seed_url_configuration is not None:
-            _setter("seed_url_configuration", seed_url_configuration)
+            pulumi.set(__self__, "seed_url_configuration", seed_url_configuration)
         if site_maps_configuration is not None:
-            _setter("site_maps_configuration", site_maps_configuration)
+            pulumi.set(__self__, "site_maps_configuration", site_maps_configuration)
 
     @property
     @pulumi.getter(name="seedUrlConfiguration")
@@ -3615,36 +2886,17 @@ class DataSourceWorkDocsConfiguration(dict):
                  field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
                  inclusion_patterns: Optional[Sequence[str]] = None,
                  use_change_log: Optional[bool] = None):
-        DataSourceWorkDocsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            organization_id=organization_id,
-            crawl_comments=crawl_comments,
-            exclusion_patterns=exclusion_patterns,
-            field_mappings=field_mappings,
-            inclusion_patterns=inclusion_patterns,
-            use_change_log=use_change_log,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             organization_id: str,
-             crawl_comments: Optional[bool] = None,
-             exclusion_patterns: Optional[Sequence[str]] = None,
-             field_mappings: Optional[Sequence['outputs.DataSourceToIndexFieldMapping']] = None,
-             inclusion_patterns: Optional[Sequence[str]] = None,
-             use_change_log: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("organization_id", organization_id)
+        pulumi.set(__self__, "organization_id", organization_id)
         if crawl_comments is not None:
-            _setter("crawl_comments", crawl_comments)
+            pulumi.set(__self__, "crawl_comments", crawl_comments)
         if exclusion_patterns is not None:
-            _setter("exclusion_patterns", exclusion_patterns)
+            pulumi.set(__self__, "exclusion_patterns", exclusion_patterns)
         if field_mappings is not None:
-            _setter("field_mappings", field_mappings)
+            pulumi.set(__self__, "field_mappings", field_mappings)
         if inclusion_patterns is not None:
-            _setter("inclusion_patterns", inclusion_patterns)
+            pulumi.set(__self__, "inclusion_patterns", inclusion_patterns)
         if use_change_log is not None:
-            _setter("use_change_log", use_change_log)
+            pulumi.set(__self__, "use_change_log", use_change_log)
 
     @property
     @pulumi.getter(name="organizationId")
@@ -3682,19 +2934,8 @@ class FaqS3Path(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
-        FaqS3Path._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("key", key)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
@@ -3720,19 +2961,8 @@ class FaqTag(dict):
         :param str key: A string used to identify this tag
         :param str value: A string containing the value for the tag
         """
-        FaqTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3775,19 +3005,8 @@ class IndexCapacityUnitsConfiguration(dict):
     def __init__(__self__, *,
                  query_capacity_units: int,
                  storage_capacity_units: int):
-        IndexCapacityUnitsConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query_capacity_units=query_capacity_units,
-            storage_capacity_units=storage_capacity_units,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query_capacity_units: int,
-             storage_capacity_units: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("query_capacity_units", query_capacity_units)
-        _setter("storage_capacity_units", storage_capacity_units)
+        pulumi.set(__self__, "query_capacity_units", query_capacity_units)
+        pulumi.set(__self__, "storage_capacity_units", storage_capacity_units)
 
     @property
     @pulumi.getter(name="queryCapacityUnits")
@@ -3807,27 +3026,12 @@ class IndexDocumentMetadataConfiguration(dict):
                  type: 'IndexDocumentAttributeValueType',
                  relevance: Optional['outputs.IndexRelevance'] = None,
                  search: Optional['outputs.IndexSearch'] = None):
-        IndexDocumentMetadataConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-            relevance=relevance,
-            search=search,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             type: 'IndexDocumentAttributeValueType',
-             relevance: Optional['outputs.IndexRelevance'] = None,
-             search: Optional['outputs.IndexSearch'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
         if relevance is not None:
-            _setter("relevance", relevance)
+            pulumi.set(__self__, "relevance", relevance)
         if search is not None:
-            _setter("search", search)
+            pulumi.set(__self__, "search", search)
 
     @property
     @pulumi.getter
@@ -3874,19 +3078,8 @@ class IndexJsonTokenTypeConfiguration(dict):
     def __init__(__self__, *,
                  group_attribute_field: str,
                  user_name_attribute_field: str):
-        IndexJsonTokenTypeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_attribute_field=group_attribute_field,
-            user_name_attribute_field=user_name_attribute_field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_attribute_field: str,
-             user_name_attribute_field: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_attribute_field", group_attribute_field)
-        _setter("user_name_attribute_field", user_name_attribute_field)
+        pulumi.set(__self__, "group_attribute_field", group_attribute_field)
+        pulumi.set(__self__, "user_name_attribute_field", user_name_attribute_field)
 
     @property
     @pulumi.getter(name="groupAttributeField")
@@ -3934,40 +3127,19 @@ class IndexJwtTokenTypeConfiguration(dict):
                  secret_manager_arn: Optional[str] = None,
                  url: Optional[str] = None,
                  user_name_attribute_field: Optional[str] = None):
-        IndexJwtTokenTypeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_location=key_location,
-            claim_regex=claim_regex,
-            group_attribute_field=group_attribute_field,
-            issuer=issuer,
-            secret_manager_arn=secret_manager_arn,
-            url=url,
-            user_name_attribute_field=user_name_attribute_field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_location: 'IndexKeyLocation',
-             claim_regex: Optional[str] = None,
-             group_attribute_field: Optional[str] = None,
-             issuer: Optional[str] = None,
-             secret_manager_arn: Optional[str] = None,
-             url: Optional[str] = None,
-             user_name_attribute_field: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key_location", key_location)
+        pulumi.set(__self__, "key_location", key_location)
         if claim_regex is not None:
-            _setter("claim_regex", claim_regex)
+            pulumi.set(__self__, "claim_regex", claim_regex)
         if group_attribute_field is not None:
-            _setter("group_attribute_field", group_attribute_field)
+            pulumi.set(__self__, "group_attribute_field", group_attribute_field)
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
         if secret_manager_arn is not None:
-            _setter("secret_manager_arn", secret_manager_arn)
+            pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if user_name_attribute_field is not None:
-            _setter("user_name_attribute_field", user_name_attribute_field)
+            pulumi.set(__self__, "user_name_attribute_field", user_name_attribute_field)
 
     @property
     @pulumi.getter(name="keyLocation")
@@ -4032,33 +3204,16 @@ class IndexRelevance(dict):
                  importance: Optional[int] = None,
                  rank_order: Optional['IndexOrder'] = None,
                  value_importance_items: Optional[Sequence['outputs.IndexValueImportanceItem']] = None):
-        IndexRelevance._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration=duration,
-            freshness=freshness,
-            importance=importance,
-            rank_order=rank_order,
-            value_importance_items=value_importance_items,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration: Optional[str] = None,
-             freshness: Optional[bool] = None,
-             importance: Optional[int] = None,
-             rank_order: Optional['IndexOrder'] = None,
-             value_importance_items: Optional[Sequence['outputs.IndexValueImportanceItem']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration is not None:
-            _setter("duration", duration)
+            pulumi.set(__self__, "duration", duration)
         if freshness is not None:
-            _setter("freshness", freshness)
+            pulumi.set(__self__, "freshness", freshness)
         if importance is not None:
-            _setter("importance", importance)
+            pulumi.set(__self__, "importance", importance)
         if rank_order is not None:
-            _setter("rank_order", rank_order)
+            pulumi.set(__self__, "rank_order", rank_order)
         if value_importance_items is not None:
-            _setter("value_importance_items", value_importance_items)
+            pulumi.set(__self__, "value_importance_items", value_importance_items)
 
     @property
     @pulumi.getter
@@ -4093,29 +3248,14 @@ class IndexSearch(dict):
                  facetable: Optional[bool] = None,
                  searchable: Optional[bool] = None,
                  sortable: Optional[bool] = None):
-        IndexSearch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            displayable=displayable,
-            facetable=facetable,
-            searchable=searchable,
-            sortable=sortable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             displayable: Optional[bool] = None,
-             facetable: Optional[bool] = None,
-             searchable: Optional[bool] = None,
-             sortable: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if displayable is not None:
-            _setter("displayable", displayable)
+            pulumi.set(__self__, "displayable", displayable)
         if facetable is not None:
-            _setter("facetable", facetable)
+            pulumi.set(__self__, "facetable", facetable)
         if searchable is not None:
-            _setter("searchable", searchable)
+            pulumi.set(__self__, "searchable", searchable)
         if sortable is not None:
-            _setter("sortable", sortable)
+            pulumi.set(__self__, "sortable", sortable)
 
     @property
     @pulumi.getter
@@ -4159,17 +3299,8 @@ class IndexServerSideEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  kms_key_id: Optional[str] = None):
-        IndexServerSideEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -4190,19 +3321,8 @@ class IndexTag(dict):
         :param str key: A string used to identify this tag
         :param str value: A string containing the value for the tag
         """
-        IndexTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4245,21 +3365,10 @@ class IndexUserTokenConfiguration(dict):
     def __init__(__self__, *,
                  json_token_type_configuration: Optional['outputs.IndexJsonTokenTypeConfiguration'] = None,
                  jwt_token_type_configuration: Optional['outputs.IndexJwtTokenTypeConfiguration'] = None):
-        IndexUserTokenConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            json_token_type_configuration=json_token_type_configuration,
-            jwt_token_type_configuration=jwt_token_type_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             json_token_type_configuration: Optional['outputs.IndexJsonTokenTypeConfiguration'] = None,
-             jwt_token_type_configuration: Optional['outputs.IndexJwtTokenTypeConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if json_token_type_configuration is not None:
-            _setter("json_token_type_configuration", json_token_type_configuration)
+            pulumi.set(__self__, "json_token_type_configuration", json_token_type_configuration)
         if jwt_token_type_configuration is not None:
-            _setter("jwt_token_type_configuration", jwt_token_type_configuration)
+            pulumi.set(__self__, "jwt_token_type_configuration", jwt_token_type_configuration)
 
     @property
     @pulumi.getter(name="jsonTokenTypeConfiguration")
@@ -4277,21 +3386,10 @@ class IndexValueImportanceItem(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[int] = None):
-        IndexValueImportanceItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

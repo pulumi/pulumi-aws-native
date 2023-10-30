@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,21 +22,10 @@ class GraphArgs:
         The set of arguments for constructing a Graph resource.
         :param pulumi.Input[bool] auto_enable_members: Indicates whether to automatically enable new organization accounts as member accounts in the organization behavior graph.
         """
-        GraphArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_enable_members=auto_enable_members,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_enable_members: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_enable_members is not None:
-            _setter("auto_enable_members", auto_enable_members)
+            pulumi.set(__self__, "auto_enable_members", auto_enable_members)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoEnableMembers")
@@ -94,10 +83,6 @@ class Graph(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GraphArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,57 +34,26 @@ class ExperimentArgs:
         :param pulumi.Input['ExperimentRunningStatusObjectArgs'] running_status: Start Experiment. Default is False
         :param pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        ExperimentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_goals=metric_goals,
-            online_ab_config=online_ab_config,
-            project=project,
-            treatments=treatments,
-            description=description,
-            name=name,
-            randomization_salt=randomization_salt,
-            remove_segment=remove_segment,
-            running_status=running_status,
-            sampling_rate=sampling_rate,
-            segment=segment,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_goals: pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]],
-             online_ab_config: pulumi.Input['ExperimentOnlineAbConfigObjectArgs'],
-             project: pulumi.Input[str],
-             treatments: pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             randomization_salt: Optional[pulumi.Input[str]] = None,
-             remove_segment: Optional[pulumi.Input[bool]] = None,
-             running_status: Optional[pulumi.Input['ExperimentRunningStatusObjectArgs']] = None,
-             sampling_rate: Optional[pulumi.Input[int]] = None,
-             segment: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("metric_goals", metric_goals)
-        _setter("online_ab_config", online_ab_config)
-        _setter("project", project)
-        _setter("treatments", treatments)
+        pulumi.set(__self__, "metric_goals", metric_goals)
+        pulumi.set(__self__, "online_ab_config", online_ab_config)
+        pulumi.set(__self__, "project", project)
+        pulumi.set(__self__, "treatments", treatments)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if randomization_salt is not None:
-            _setter("randomization_salt", randomization_salt)
+            pulumi.set(__self__, "randomization_salt", randomization_salt)
         if remove_segment is not None:
-            _setter("remove_segment", remove_segment)
+            pulumi.set(__self__, "remove_segment", remove_segment)
         if running_status is not None:
-            _setter("running_status", running_status)
+            pulumi.set(__self__, "running_status", running_status)
         if sampling_rate is not None:
-            _setter("sampling_rate", sampling_rate)
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
         if segment is not None:
-            _setter("segment", segment)
+            pulumi.set(__self__, "segment", segment)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="metricGoals")
@@ -246,10 +215,6 @@ class Experiment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ExperimentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -281,11 +246,6 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'metric_goals'")
             __props__.__dict__["metric_goals"] = metric_goals
             __props__.__dict__["name"] = name
-            if online_ab_config is not None and not isinstance(online_ab_config, ExperimentOnlineAbConfigObjectArgs):
-                online_ab_config = online_ab_config or {}
-                def _setter(key, value):
-                    online_ab_config[key] = value
-                ExperimentOnlineAbConfigObjectArgs._configure(_setter, **online_ab_config)
             if online_ab_config is None and not opts.urn:
                 raise TypeError("Missing required property 'online_ab_config'")
             __props__.__dict__["online_ab_config"] = online_ab_config
@@ -294,11 +254,6 @@ class Experiment(pulumi.CustomResource):
             __props__.__dict__["project"] = project
             __props__.__dict__["randomization_salt"] = randomization_salt
             __props__.__dict__["remove_segment"] = remove_segment
-            if running_status is not None and not isinstance(running_status, ExperimentRunningStatusObjectArgs):
-                running_status = running_status or {}
-                def _setter(key, value):
-                    running_status[key] = value
-                ExperimentRunningStatusObjectArgs._configure(_setter, **running_status)
             __props__.__dict__["running_status"] = running_status
             __props__.__dict__["sampling_rate"] = sampling_rate
             __props__.__dict__["segment"] = segment
