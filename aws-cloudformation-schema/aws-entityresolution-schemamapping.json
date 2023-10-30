@@ -69,6 +69,10 @@
       "description" : "The time of this SchemaMapping got last updated at",
       "type" : "string"
     },
+    "HasWorkflows" : {
+      "description" : "The boolean value that indicates whether or not a SchemaMapping has MatchingWorkflows that are associated with",
+      "type" : "boolean"
+    },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource",
       "type" : "object",
@@ -121,10 +125,13 @@
     },
     "UpdatedAt" : {
       "$ref" : "#/definitions/UpdatedAt"
+    },
+    "HasWorkflows" : {
+      "$ref" : "#/definitions/HasWorkflows"
     }
   },
-  "createOnlyProperties" : [ "/properties/SchemaName", "/properties/Description", "/properties/MappedInputFields" ],
-  "readOnlyProperties" : [ "/properties/SchemaArn", "/properties/CreatedAt", "/properties/UpdatedAt" ],
+  "createOnlyProperties" : [ "/properties/SchemaName" ],
+  "readOnlyProperties" : [ "/properties/SchemaArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/HasWorkflows" ],
   "primaryIdentifier" : [ "/properties/SchemaName" ],
   "tagging" : {
     "taggable" : true,
@@ -144,7 +151,7 @@
       "permissions" : [ "entityresolution:DeleteSchemaMapping", "entityresolution:GetSchemaMapping" ]
     },
     "update" : {
-      "permissions" : [ "entityresolution:GetSchemaMapping", "entityresolution:ListTagsForResource", "entityresolution:TagResource", "entityresolution:UntagResource" ]
+      "permissions" : [ "entityresolution:GetSchemaMapping", "entityresolution:UpdateSchemaMapping", "entityresolution:ListTagsForResource", "entityresolution:TagResource", "entityresolution:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "entityresolution:ListSchemaMappings" ]

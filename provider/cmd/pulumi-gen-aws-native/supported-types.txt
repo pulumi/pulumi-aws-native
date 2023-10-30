@@ -63,6 +63,7 @@ AWS::AppStream::ImageBuilder
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::AppSync::FunctionConfiguration
+AWS::AppSync::Resolver
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationInsights::Application
@@ -146,6 +147,7 @@ AWS::Cognito::UserPool
 AWS::Cognito::UserPoolClient
 AWS::Cognito::UserPoolGroup
 AWS::Cognito::UserPoolUser
+AWS::Cognito::UserPoolUserToGroupAttachment
 AWS::Comprehend::DocumentClassifier
 AWS::Comprehend::Flywheel
 AWS::Config::AggregationAuthorization
@@ -283,6 +285,7 @@ AWS::EC2::VPCEndpoint
 AWS::EC2::VPCEndpointConnectionNotification
 AWS::EC2::VPCEndpointService
 AWS::EC2::VPCEndpointServicePermissions
+AWS::EC2::VPCGatewayAttachment
 AWS::EC2::VPCPeeringConnection
 AWS::EC2::VPNConnection
 AWS::EC2::VPNConnectionRoute
