@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MasterArgs', 'Master']
@@ -20,23 +20,10 @@ class MasterArgs:
         """
         The set of arguments for constructing a Master resource.
         """
-        MasterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detector_id=detector_id,
-            master_id=master_id,
-            invitation_id=invitation_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detector_id: pulumi.Input[str],
-             master_id: pulumi.Input[str],
-             invitation_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("detector_id", detector_id)
-        _setter("master_id", master_id)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "master_id", master_id)
         if invitation_id is not None:
-            _setter("invitation_id", invitation_id)
+            pulumi.set(__self__, "invitation_id", invitation_id)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -105,10 +92,6 @@ class Master(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MasterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

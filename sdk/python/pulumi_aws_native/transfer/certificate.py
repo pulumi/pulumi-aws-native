@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,43 +36,20 @@ class CertificateArgs:
         :param pulumi.Input[str] private_key: Specifies the private key for the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         """
-        CertificateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate=certificate,
-            usage=usage,
-            active_date=active_date,
-            certificate_chain=certificate_chain,
-            description=description,
-            inactive_date=inactive_date,
-            private_key=private_key,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate: pulumi.Input[str],
-             usage: pulumi.Input['CertificateUsage'],
-             active_date: Optional[pulumi.Input[str]] = None,
-             certificate_chain: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             inactive_date: Optional[pulumi.Input[str]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("certificate", certificate)
-        _setter("usage", usage)
+        pulumi.set(__self__, "certificate", certificate)
+        pulumi.set(__self__, "usage", usage)
         if active_date is not None:
-            _setter("active_date", active_date)
+            pulumi.set(__self__, "active_date", active_date)
         if certificate_chain is not None:
-            _setter("certificate_chain", certificate_chain)
+            pulumi.set(__self__, "certificate_chain", certificate_chain)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if inactive_date is not None:
-            _setter("inactive_date", inactive_date)
+            pulumi.set(__self__, "inactive_date", inactive_date)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -218,10 +195,6 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

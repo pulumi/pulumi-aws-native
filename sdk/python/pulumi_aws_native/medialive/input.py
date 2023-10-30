@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,53 +29,26 @@ class InputArgs:
         """
         The set of arguments for constructing a Input resource.
         """
-        InputArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destinations=destinations,
-            input_devices=input_devices,
-            input_security_groups=input_security_groups,
-            media_connect_flows=media_connect_flows,
-            name=name,
-            role_arn=role_arn,
-            sources=sources,
-            tags=tags,
-            type=type,
-            vpc=vpc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationRequestArgs']]]] = None,
-             input_devices: Optional[pulumi.Input[Sequence[pulumi.Input['InputDeviceSettingsArgs']]]] = None,
-             input_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             media_connect_flows: Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowRequestArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceRequestArgs']]]] = None,
-             tags: Optional[Any] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             vpc: Optional[pulumi.Input['InputVpcRequestArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if input_devices is not None:
-            _setter("input_devices", input_devices)
+            pulumi.set(__self__, "input_devices", input_devices)
         if input_security_groups is not None:
-            _setter("input_security_groups", input_security_groups)
+            pulumi.set(__self__, "input_security_groups", input_security_groups)
         if media_connect_flows is not None:
-            _setter("media_connect_flows", media_connect_flows)
+            pulumi.set(__self__, "media_connect_flows", media_connect_flows)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if vpc is not None:
-            _setter("vpc", vpc)
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter
@@ -214,10 +187,6 @@ class Input(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InputArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -252,11 +221,6 @@ class Input(pulumi.CustomResource):
             __props__.__dict__["sources"] = sources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
-            if vpc is not None and not isinstance(vpc, InputVpcRequestArgs):
-                vpc = vpc or {}
-                def _setter(key, value):
-                    vpc[key] = value
-                InputVpcRequestArgs._configure(_setter, **vpc)
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["type", "vpc"])

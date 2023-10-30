@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AttributeGroupAssociationArgs', 'AttributeGroupAssociation']
@@ -21,19 +21,8 @@ class AttributeGroupAssociationArgs:
         :param pulumi.Input[str] application: The name or the Id of the Application.
         :param pulumi.Input[str] attribute_group: The name or the Id of the AttributeGroup.
         """
-        AttributeGroupAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application=application,
-            attribute_group=attribute_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             attribute_group: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application", application)
-        _setter("attribute_group", attribute_group)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "attribute_group", attribute_group)
 
     @property
     @pulumi.getter
@@ -95,10 +84,6 @@ class AttributeGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AttributeGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

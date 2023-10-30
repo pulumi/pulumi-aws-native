@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,82 +37,39 @@ class CampaignArgs:
         """
         The set of arguments for constructing a Campaign resource.
         """
-        CampaignArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            schedule=schedule,
-            segment_id=segment_id,
-            additional_treatments=additional_treatments,
-            campaign_hook=campaign_hook,
-            custom_delivery_configuration=custom_delivery_configuration,
-            description=description,
-            holdout_percent=holdout_percent,
-            is_paused=is_paused,
-            limits=limits,
-            message_configuration=message_configuration,
-            name=name,
-            priority=priority,
-            segment_version=segment_version,
-            tags=tags,
-            template_configuration=template_configuration,
-            treatment_description=treatment_description,
-            treatment_name=treatment_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: pulumi.Input[str],
-             schedule: pulumi.Input['CampaignScheduleArgs'],
-             segment_id: pulumi.Input[str],
-             additional_treatments: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignWriteTreatmentResourceArgs']]]] = None,
-             campaign_hook: Optional[pulumi.Input['CampaignHookArgs']] = None,
-             custom_delivery_configuration: Optional[pulumi.Input['CampaignCustomDeliveryConfigurationArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             holdout_percent: Optional[pulumi.Input[int]] = None,
-             is_paused: Optional[pulumi.Input[bool]] = None,
-             limits: Optional[pulumi.Input['CampaignLimitsArgs']] = None,
-             message_configuration: Optional[pulumi.Input['CampaignMessageConfigurationArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             segment_version: Optional[pulumi.Input[int]] = None,
-             tags: Optional[Any] = None,
-             template_configuration: Optional[pulumi.Input['CampaignTemplateConfigurationArgs']] = None,
-             treatment_description: Optional[pulumi.Input[str]] = None,
-             treatment_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_id", application_id)
-        _setter("schedule", schedule)
-        _setter("segment_id", segment_id)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "segment_id", segment_id)
         if additional_treatments is not None:
-            _setter("additional_treatments", additional_treatments)
+            pulumi.set(__self__, "additional_treatments", additional_treatments)
         if campaign_hook is not None:
-            _setter("campaign_hook", campaign_hook)
+            pulumi.set(__self__, "campaign_hook", campaign_hook)
         if custom_delivery_configuration is not None:
-            _setter("custom_delivery_configuration", custom_delivery_configuration)
+            pulumi.set(__self__, "custom_delivery_configuration", custom_delivery_configuration)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if holdout_percent is not None:
-            _setter("holdout_percent", holdout_percent)
+            pulumi.set(__self__, "holdout_percent", holdout_percent)
         if is_paused is not None:
-            _setter("is_paused", is_paused)
+            pulumi.set(__self__, "is_paused", is_paused)
         if limits is not None:
-            _setter("limits", limits)
+            pulumi.set(__self__, "limits", limits)
         if message_configuration is not None:
-            _setter("message_configuration", message_configuration)
+            pulumi.set(__self__, "message_configuration", message_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if segment_version is not None:
-            _setter("segment_version", segment_version)
+            pulumi.set(__self__, "segment_version", segment_version)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if template_configuration is not None:
-            _setter("template_configuration", template_configuration)
+            pulumi.set(__self__, "template_configuration", template_configuration)
         if treatment_description is not None:
-            _setter("treatment_description", treatment_description)
+            pulumi.set(__self__, "treatment_description", treatment_description)
         if treatment_name is not None:
-            _setter("treatment_name", treatment_name)
+            pulumi.set(__self__, "treatment_name", treatment_name)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -331,10 +288,6 @@ class Campaign(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CampaignArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -372,40 +325,15 @@ class Campaign(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
-            if campaign_hook is not None and not isinstance(campaign_hook, CampaignHookArgs):
-                campaign_hook = campaign_hook or {}
-                def _setter(key, value):
-                    campaign_hook[key] = value
-                CampaignHookArgs._configure(_setter, **campaign_hook)
             __props__.__dict__["campaign_hook"] = campaign_hook
-            if custom_delivery_configuration is not None and not isinstance(custom_delivery_configuration, CampaignCustomDeliveryConfigurationArgs):
-                custom_delivery_configuration = custom_delivery_configuration or {}
-                def _setter(key, value):
-                    custom_delivery_configuration[key] = value
-                CampaignCustomDeliveryConfigurationArgs._configure(_setter, **custom_delivery_configuration)
             __props__.__dict__["custom_delivery_configuration"] = custom_delivery_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["holdout_percent"] = holdout_percent
             __props__.__dict__["is_paused"] = is_paused
-            if limits is not None and not isinstance(limits, CampaignLimitsArgs):
-                limits = limits or {}
-                def _setter(key, value):
-                    limits[key] = value
-                CampaignLimitsArgs._configure(_setter, **limits)
             __props__.__dict__["limits"] = limits
-            if message_configuration is not None and not isinstance(message_configuration, CampaignMessageConfigurationArgs):
-                message_configuration = message_configuration or {}
-                def _setter(key, value):
-                    message_configuration[key] = value
-                CampaignMessageConfigurationArgs._configure(_setter, **message_configuration)
             __props__.__dict__["message_configuration"] = message_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
-            if schedule is not None and not isinstance(schedule, CampaignScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                CampaignScheduleArgs._configure(_setter, **schedule)
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -414,11 +342,6 @@ class Campaign(pulumi.CustomResource):
             __props__.__dict__["segment_id"] = segment_id
             __props__.__dict__["segment_version"] = segment_version
             __props__.__dict__["tags"] = tags
-            if template_configuration is not None and not isinstance(template_configuration, CampaignTemplateConfigurationArgs):
-                template_configuration = template_configuration or {}
-                def _setter(key, value):
-                    template_configuration[key] = value
-                CampaignTemplateConfigurationArgs._configure(_setter, **template_configuration)
             __props__.__dict__["template_configuration"] = template_configuration
             __props__.__dict__["treatment_description"] = treatment_description
             __props__.__dict__["treatment_name"] = treatment_name

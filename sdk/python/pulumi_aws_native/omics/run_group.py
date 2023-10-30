@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,37 +25,18 @@ class RunGroupArgs:
         """
         The set of arguments for constructing a RunGroup resource.
         """
-        RunGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_cpus=max_cpus,
-            max_duration=max_duration,
-            max_gpus=max_gpus,
-            max_runs=max_runs,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_cpus: Optional[pulumi.Input[float]] = None,
-             max_duration: Optional[pulumi.Input[float]] = None,
-             max_gpus: Optional[pulumi.Input[float]] = None,
-             max_runs: Optional[pulumi.Input[float]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input['RunGroupTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_cpus is not None:
-            _setter("max_cpus", max_cpus)
+            pulumi.set(__self__, "max_cpus", max_cpus)
         if max_duration is not None:
-            _setter("max_duration", max_duration)
+            pulumi.set(__self__, "max_duration", max_duration)
         if max_gpus is not None:
-            _setter("max_gpus", max_gpus)
+            pulumi.set(__self__, "max_gpus", max_gpus)
         if max_runs is not None:
-            _setter("max_runs", max_runs)
+            pulumi.set(__self__, "max_runs", max_runs)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="maxCpus")
@@ -149,10 +130,6 @@ class RunGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RunGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -178,11 +155,6 @@ class RunGroup(pulumi.CustomResource):
             __props__.__dict__["max_gpus"] = max_gpus
             __props__.__dict__["max_runs"] = max_runs
             __props__.__dict__["name"] = name
-            if tags is not None and not isinstance(tags, RunGroupTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                RunGroupTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_time"] = None

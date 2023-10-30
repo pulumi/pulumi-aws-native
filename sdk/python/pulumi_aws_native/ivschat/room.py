@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,37 +31,18 @@ class RoomArgs:
         :param pulumi.Input[str] name: The name of the room. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        RoomArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            logging_configuration_identifiers=logging_configuration_identifiers,
-            maximum_message_length=maximum_message_length,
-            maximum_message_rate_per_second=maximum_message_rate_per_second,
-            message_review_handler=message_review_handler,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             logging_configuration_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             maximum_message_length: Optional[pulumi.Input[int]] = None,
-             maximum_message_rate_per_second: Optional[pulumi.Input[int]] = None,
-             message_review_handler: Optional[pulumi.Input['RoomMessageReviewHandlerArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoomTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if logging_configuration_identifiers is not None:
-            _setter("logging_configuration_identifiers", logging_configuration_identifiers)
+            pulumi.set(__self__, "logging_configuration_identifiers", logging_configuration_identifiers)
         if maximum_message_length is not None:
-            _setter("maximum_message_length", maximum_message_length)
+            pulumi.set(__self__, "maximum_message_length", maximum_message_length)
         if maximum_message_rate_per_second is not None:
-            _setter("maximum_message_rate_per_second", maximum_message_rate_per_second)
+            pulumi.set(__self__, "maximum_message_rate_per_second", maximum_message_rate_per_second)
         if message_review_handler is not None:
-            _setter("message_review_handler", message_review_handler)
+            pulumi.set(__self__, "message_review_handler", message_review_handler)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="loggingConfigurationIdentifiers")
@@ -175,10 +156,6 @@ class Room(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RoomArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -202,11 +179,6 @@ class Room(pulumi.CustomResource):
             __props__.__dict__["logging_configuration_identifiers"] = logging_configuration_identifiers
             __props__.__dict__["maximum_message_length"] = maximum_message_length
             __props__.__dict__["maximum_message_rate_per_second"] = maximum_message_rate_per_second
-            if message_review_handler is not None and not isinstance(message_review_handler, RoomMessageReviewHandlerArgs):
-                message_review_handler = message_review_handler or {}
-                def _setter(key, value):
-                    message_review_handler[key] = value
-                RoomMessageReviewHandlerArgs._configure(_setter, **message_review_handler)
             __props__.__dict__["message_review_handler"] = message_review_handler
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

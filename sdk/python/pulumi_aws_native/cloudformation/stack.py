@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,73 +35,36 @@ class StackArgs:
         """
         The set of arguments for constructing a Stack resource.
         """
-        StackArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capabilities=capabilities,
-            description=description,
-            disable_rollback=disable_rollback,
-            enable_termination_protection=enable_termination_protection,
-            notification_arns=notification_arns,
-            parameters=parameters,
-            role_arn=role_arn,
-            stack_name=stack_name,
-            stack_policy_body=stack_policy_body,
-            stack_policy_url=stack_policy_url,
-            stack_status_reason=stack_status_reason,
-            tags=tags,
-            template_body=template_body,
-            template_url=template_url,
-            timeout_in_minutes=timeout_in_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['StackCapabilitiesItem']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             disable_rollback: Optional[pulumi.Input[bool]] = None,
-             enable_termination_protection: Optional[pulumi.Input[bool]] = None,
-             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             parameters: Optional[Any] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             stack_name: Optional[pulumi.Input[str]] = None,
-             stack_policy_body: Optional[Any] = None,
-             stack_policy_url: Optional[pulumi.Input[str]] = None,
-             stack_status_reason: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackTagArgs']]]] = None,
-             template_body: Optional[Any] = None,
-             template_url: Optional[pulumi.Input[str]] = None,
-             timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if capabilities is not None:
-            _setter("capabilities", capabilities)
+            pulumi.set(__self__, "capabilities", capabilities)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disable_rollback is not None:
-            _setter("disable_rollback", disable_rollback)
+            pulumi.set(__self__, "disable_rollback", disable_rollback)
         if enable_termination_protection is not None:
-            _setter("enable_termination_protection", enable_termination_protection)
+            pulumi.set(__self__, "enable_termination_protection", enable_termination_protection)
         if notification_arns is not None:
-            _setter("notification_arns", notification_arns)
+            pulumi.set(__self__, "notification_arns", notification_arns)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if stack_name is not None:
-            _setter("stack_name", stack_name)
+            pulumi.set(__self__, "stack_name", stack_name)
         if stack_policy_body is not None:
-            _setter("stack_policy_body", stack_policy_body)
+            pulumi.set(__self__, "stack_policy_body", stack_policy_body)
         if stack_policy_url is not None:
-            _setter("stack_policy_url", stack_policy_url)
+            pulumi.set(__self__, "stack_policy_url", stack_policy_url)
         if stack_status_reason is not None:
-            _setter("stack_status_reason", stack_status_reason)
+            pulumi.set(__self__, "stack_status_reason", stack_status_reason)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if template_body is not None:
-            _setter("template_body", template_body)
+            pulumi.set(__self__, "template_body", template_body)
         if template_url is not None:
-            _setter("template_url", template_url)
+            pulumi.set(__self__, "template_url", template_url)
         if timeout_in_minutes is not None:
-            _setter("timeout_in_minutes", timeout_in_minutes)
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
 
     @property
     @pulumi.getter
@@ -285,10 +248,6 @@ class Stack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,40 +33,19 @@ class SecurityProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tag_restricted_resources: The list of resources that a security profile applies tag restrictions to in Amazon Connect.
         :param pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
-        SecurityProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_arn=instance_arn,
-            allowed_access_control_tags=allowed_access_control_tags,
-            description=description,
-            permissions=permissions,
-            security_profile_name=security_profile_name,
-            tag_restricted_resources=tag_restricted_resources,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             allowed_access_control_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_profile_name: Optional[pulumi.Input[str]] = None,
-             tag_restricted_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SecurityProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_arn", instance_arn)
+        pulumi.set(__self__, "instance_arn", instance_arn)
         if allowed_access_control_tags is not None:
-            _setter("allowed_access_control_tags", allowed_access_control_tags)
+            pulumi.set(__self__, "allowed_access_control_tags", allowed_access_control_tags)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if security_profile_name is not None:
-            _setter("security_profile_name", security_profile_name)
+            pulumi.set(__self__, "security_profile_name", security_profile_name)
         if tag_restricted_resources is not None:
-            _setter("tag_restricted_resources", tag_restricted_resources)
+            pulumi.set(__self__, "tag_restricted_resources", tag_restricted_resources)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -198,10 +177,6 @@ class SecurityProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

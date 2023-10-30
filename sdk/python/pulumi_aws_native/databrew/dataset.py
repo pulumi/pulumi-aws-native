@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,36 +31,17 @@ class DatasetArgs:
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
         """
-        DatasetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input=input,
-            format=format,
-            format_options=format_options,
-            name=name,
-            path_options=path_options,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input: pulumi.Input['DatasetInputArgs'],
-             format: Optional[pulumi.Input['DatasetFormat']] = None,
-             format_options: Optional[pulumi.Input['DatasetFormatOptionsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input", input)
+        pulumi.set(__self__, "input", input)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
         if format_options is not None:
-            _setter("format_options", format_options)
+            pulumi.set(__self__, "format_options", format_options)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if path_options is not None:
-            _setter("path_options", path_options)
+            pulumi.set(__self__, "path_options", path_options)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -174,10 +155,6 @@ class Dataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -199,26 +176,11 @@ class Dataset(pulumi.CustomResource):
             __props__ = DatasetArgs.__new__(DatasetArgs)
 
             __props__.__dict__["format"] = format
-            if format_options is not None and not isinstance(format_options, DatasetFormatOptionsArgs):
-                format_options = format_options or {}
-                def _setter(key, value):
-                    format_options[key] = value
-                DatasetFormatOptionsArgs._configure(_setter, **format_options)
             __props__.__dict__["format_options"] = format_options
-            if input is not None and not isinstance(input, DatasetInputArgs):
-                input = input or {}
-                def _setter(key, value):
-                    input[key] = value
-                DatasetInputArgs._configure(_setter, **input)
             if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__.__dict__["input"] = input
             __props__.__dict__["name"] = name
-            if path_options is not None and not isinstance(path_options, DatasetPathOptionsArgs):
-                path_options = path_options or {}
-                def _setter(key, value):
-                    path_options[key] = value
-                DatasetPathOptionsArgs._configure(_setter, **path_options)
             __props__.__dict__["path_options"] = path_options
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])

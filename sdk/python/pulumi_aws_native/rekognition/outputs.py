@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -36,19 +36,8 @@ class CollectionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        CollectionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -80,25 +69,10 @@ class StreamProcessorBoundingBox(dict):
         """
         A bounding box denoting a region of interest in the frame to be analyzed.
         """
-        StreamProcessorBoundingBox._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            height=height,
-            left=left,
-            top=top,
-            width=width,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             height: float,
-             left: float,
-             top: float,
-             width: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("height", height)
-        _setter("left", left)
-        _setter("top", top)
-        _setter("width", width)
+        pulumi.set(__self__, "height", height)
+        pulumi.set(__self__, "left", left)
+        pulumi.set(__self__, "top", top)
+        pulumi.set(__self__, "width", width)
 
     @property
     @pulumi.getter
@@ -150,20 +124,9 @@ class StreamProcessorConnectedHomeSettings(dict):
         Connected home settings to use on a streaming video. Note that either ConnectedHomeSettings or FaceSearchSettings should be set. Not both
         :param float min_confidence: Minimum object class match confidence score that must be met to return a result for a recognized object.
         """
-        StreamProcessorConnectedHomeSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            labels=labels,
-            min_confidence=min_confidence,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             labels: Sequence[str],
-             min_confidence: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("labels", labels)
+        pulumi.set(__self__, "labels", labels)
         if min_confidence is not None:
-            _setter("min_confidence", min_confidence)
+            pulumi.set(__self__, "min_confidence", min_confidence)
 
     @property
     @pulumi.getter
@@ -207,16 +170,7 @@ class StreamProcessorDataSharingPreference(dict):
         Indicates whether Rekognition is allowed to store the video stream data for model-training.
         :param bool opt_in: Flag to enable data-sharing
         """
-        StreamProcessorDataSharingPreference._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            opt_in=opt_in,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opt_in: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("opt_in", opt_in)
+        pulumi.set(__self__, "opt_in", opt_in)
 
     @property
     @pulumi.getter(name="optIn")
@@ -259,20 +213,9 @@ class StreamProcessorFaceSearchSettings(dict):
         :param str collection_id: The ID of a collection that contains faces that you want to search for.
         :param float face_match_threshold: Minimum face match confidence score percentage that must be met to return a result for a recognized face. The default is 80. 0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted.
         """
-        StreamProcessorFaceSearchSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            collection_id=collection_id,
-            face_match_threshold=face_match_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             collection_id: str,
-             face_match_threshold: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("collection_id", collection_id)
+        pulumi.set(__self__, "collection_id", collection_id)
         if face_match_threshold is not None:
-            _setter("face_match_threshold", face_match_threshold)
+            pulumi.set(__self__, "face_match_threshold", face_match_threshold)
 
     @property
     @pulumi.getter(name="collectionId")
@@ -302,16 +245,7 @@ class StreamProcessorKinesisDataStream(dict):
         The Amazon Kinesis Data Stream stream to which the Amazon Rekognition stream processor streams the analysis results, as part of face search feature.
         :param str arn: ARN of the Kinesis Data Stream stream.
         """
-        StreamProcessorKinesisDataStream._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -333,16 +267,7 @@ class StreamProcessorKinesisVideoStream(dict):
         The Kinesis Video Stream that streams the source video.
         :param str arn: ARN of the Kinesis Video Stream that streams the source video.
         """
-        StreamProcessorKinesisVideoStream._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -364,16 +289,7 @@ class StreamProcessorNotificationChannel(dict):
         The ARN of the SNS notification channel where events of interests are published, as part of connected home feature.
         :param str arn: ARN of the SNS topic.
         """
-        StreamProcessorNotificationChannel._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
+        pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -397,19 +313,8 @@ class StreamProcessorPoint(dict):
         :param float x: The X coordinate of the point.
         :param float y: The Y coordinate of the point.
         """
-        StreamProcessorPoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            x=x,
-            y=y,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             x: float,
-             y: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("x", x)
-        _setter("y", y)
+        pulumi.set(__self__, "x", x)
+        pulumi.set(__self__, "y", y)
 
     @property
     @pulumi.getter
@@ -460,20 +365,9 @@ class StreamProcessorS3Destination(dict):
         :param str bucket_name: Name of the S3 bucket.
         :param str object_key_prefix: The object key prefix path where the results will be stored. Default is no prefix path
         """
-        StreamProcessorS3Destination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            object_key_prefix=object_key_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             object_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if object_key_prefix is not None:
-            _setter("object_key_prefix", object_key_prefix)
+            pulumi.set(__self__, "object_key_prefix", object_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -505,19 +399,8 @@ class StreamProcessorTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        StreamProcessorTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

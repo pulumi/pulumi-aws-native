@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,41 +36,18 @@ class RoutingProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]] queue_configs: The queues to associate with this routing profile.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        RoutingProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_outbound_queue_arn=default_outbound_queue_arn,
-            description=description,
-            instance_arn=instance_arn,
-            media_concurrencies=media_concurrencies,
-            agent_availability_timer=agent_availability_timer,
-            name=name,
-            queue_configs=queue_configs,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_outbound_queue_arn: pulumi.Input[str],
-             description: pulumi.Input[str],
-             instance_arn: pulumi.Input[str],
-             media_concurrencies: pulumi.Input[Sequence[pulumi.Input['RoutingProfileMediaConcurrencyArgs']]],
-             agent_availability_timer: Optional[pulumi.Input['RoutingProfileAgentAvailabilityTimer']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileQueueConfigArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingProfileTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_outbound_queue_arn", default_outbound_queue_arn)
-        _setter("description", description)
-        _setter("instance_arn", instance_arn)
-        _setter("media_concurrencies", media_concurrencies)
+        pulumi.set(__self__, "default_outbound_queue_arn", default_outbound_queue_arn)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "media_concurrencies", media_concurrencies)
         if agent_availability_timer is not None:
-            _setter("agent_availability_timer", agent_availability_timer)
+            pulumi.set(__self__, "agent_availability_timer", agent_availability_timer)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if queue_configs is not None:
-            _setter("queue_configs", queue_configs)
+            pulumi.set(__self__, "queue_configs", queue_configs)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="defaultOutboundQueueArn")
@@ -216,10 +193,6 @@ class RoutingProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RoutingProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

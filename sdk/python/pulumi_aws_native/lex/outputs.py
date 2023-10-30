@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -129,17 +129,8 @@ class BotAdvancedRecognitionSetting(dict):
         """
         Provides settings that enable advanced recognition settings for slot values.
         """
-        BotAdvancedRecognitionSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audio_recognition_strategy=audio_recognition_strategy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audio_recognition_strategy: Optional['BotAudioRecognitionStrategy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if audio_recognition_strategy is not None:
-            _setter("audio_recognition_strategy", audio_recognition_strategy)
+            pulumi.set(__self__, "audio_recognition_strategy", audio_recognition_strategy)
 
     @property
     @pulumi.getter(name="audioRecognitionStrategy")
@@ -174,16 +165,7 @@ class BotAliasAudioLogDestination(dict):
         """
         The location of audio log files collected when conversation logging is enabled for a bot.
         """
-        BotAliasAudioLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: 'outputs.BotAliasS3BucketLogDestination',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -202,19 +184,8 @@ class BotAliasAudioLogSetting(dict):
         """
         Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
         """
-        BotAliasAudioLogSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: 'outputs.BotAliasAudioLogDestination',
-             enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -255,19 +226,8 @@ class BotAliasCloudWatchLogGroupLogDestination(dict):
         :param str cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
         :param str log_prefix: A string containing the value for the Log Prefix
         """
-        BotAliasCloudWatchLogGroupLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
-            log_prefix=log_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_log_group_arn: str,
-             log_prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
-        _setter("log_prefix", log_prefix)
+        pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+        pulumi.set(__self__, "log_prefix", log_prefix)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -313,16 +273,7 @@ class BotAliasCodeHookSpecification(dict):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        BotAliasCodeHookSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lambda_code_hook=lambda_code_hook,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lambda_code_hook: 'outputs.BotAliasLambdaCodeHook',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("lambda_code_hook", lambda_code_hook)
+        pulumi.set(__self__, "lambda_code_hook", lambda_code_hook)
 
     @property
     @pulumi.getter(name="lambdaCodeHook")
@@ -360,21 +311,10 @@ class BotAliasConversationLogSettings(dict):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        BotAliasConversationLogSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audio_log_settings=audio_log_settings,
-            text_log_settings=text_log_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audio_log_settings: Optional[Sequence['outputs.BotAliasAudioLogSetting']] = None,
-             text_log_settings: Optional[Sequence['outputs.BotAliasTextLogSetting']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if audio_log_settings is not None:
-            _setter("audio_log_settings", audio_log_settings)
+            pulumi.set(__self__, "audio_log_settings", audio_log_settings)
         if text_log_settings is not None:
-            _setter("text_log_settings", text_log_settings)
+            pulumi.set(__self__, "text_log_settings", text_log_settings)
 
     @property
     @pulumi.getter(name="audioLogSettings")
@@ -419,19 +359,8 @@ class BotAliasLambdaCodeHook(dict):
         :param str code_hook_interface_version: The version of the request-response that you want Amazon Lex to use to invoke your Lambda function.
         :param str lambda_arn: The Amazon Resource Name (ARN) of the Lambda function.
         """
-        BotAliasLambdaCodeHook._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code_hook_interface_version=code_hook_interface_version,
-            lambda_arn=lambda_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code_hook_interface_version: str,
-             lambda_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("code_hook_interface_version", code_hook_interface_version)
-        _setter("lambda_arn", lambda_arn)
+        pulumi.set(__self__, "code_hook_interface_version", code_hook_interface_version)
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
 
     @property
     @pulumi.getter(name="codeHookInterfaceVersion")
@@ -479,20 +408,9 @@ class BotAliasLocaleSettings(dict):
         You can use this parameter to specify a specific Lambda function to run different functions in different locales.
         :param bool enabled: Whether the Lambda code hook is enabled
         """
-        BotAliasLocaleSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            code_hook_specification=code_hook_specification,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             code_hook_specification: Optional['outputs.BotAliasCodeHookSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if code_hook_specification is not None:
-            _setter("code_hook_specification", code_hook_specification)
+            pulumi.set(__self__, "code_hook_specification", code_hook_specification)
 
     @property
     @pulumi.getter
@@ -539,19 +457,8 @@ class BotAliasLocaleSettingsItem(dict):
         A locale setting in alias
         :param str locale_id: A string used to identify the locale
         """
-        BotAliasLocaleSettingsItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_alias_locale_setting=bot_alias_locale_setting,
-            locale_id=locale_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_alias_locale_setting: 'outputs.BotAliasLocaleSettings',
-             locale_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bot_alias_locale_setting", bot_alias_locale_setting)
-        _setter("locale_id", locale_id)
+        pulumi.set(__self__, "bot_alias_locale_setting", bot_alias_locale_setting)
+        pulumi.set(__self__, "locale_id", locale_id)
 
     @property
     @pulumi.getter(name="botAliasLocaleSetting")
@@ -603,23 +510,10 @@ class BotAliasS3BucketLogDestination(dict):
         :param str s3_bucket_arn: The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
         :param str kms_key_arn: The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
         """
-        BotAliasS3BucketLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_prefix=log_prefix,
-            s3_bucket_arn=s3_bucket_arn,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_prefix: str,
-             s3_bucket_arn: str,
-             kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_prefix", log_prefix)
-        _setter("s3_bucket_arn", s3_bucket_arn)
+        pulumi.set(__self__, "log_prefix", log_prefix)
+        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="logPrefix")
@@ -659,19 +553,8 @@ class BotAliasTag(dict):
         :param str key: A string used to identify this tag
         :param str value: A string containing the value for the tag
         """
-        BotAliasTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -717,16 +600,7 @@ class BotAliasTextLogDestination(dict):
         """
         Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
         """
-        BotAliasTextLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch=cloud_watch,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch: 'outputs.BotAliasCloudWatchLogGroupLogDestination',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch", cloud_watch)
+        pulumi.set(__self__, "cloud_watch", cloud_watch)
 
     @property
     @pulumi.getter(name="cloudWatch")
@@ -745,19 +619,8 @@ class BotAliasTextLogSetting(dict):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        BotAliasTextLogSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: 'outputs.BotAliasTextLogDestination',
-             enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -797,16 +660,7 @@ class BotAudioLogDestination(dict):
         """
         The location of audio log files collected when conversation logging is enabled for a bot.
         """
-        BotAudioLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: 'outputs.BotS3BucketLogDestination',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -825,19 +679,8 @@ class BotAudioLogSetting(dict):
         """
         Settings for logging audio of conversations between Amazon Lex and a user. You specify whether to log audio and the Amazon S3 bucket where the audio file is stored.
         """
-        BotAudioLogSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: 'outputs.BotAudioLogDestination',
-             enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -863,19 +706,8 @@ class BotButton(dict):
         :param str text: The text that appears on the button.
         :param str value: The value returned to Amazon Lex when the user chooses this button.
         """
-        BotButton._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            text=text,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             text: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("text", text)
-        _setter("value", value)
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -922,19 +754,8 @@ class BotCloudWatchLogGroupLogDestination(dict):
         :param str cloud_watch_log_group_arn: A string used to identify the groupArn for the Cloudwatch Log Group
         :param str log_prefix: A string containing the value for the Log Prefix
         """
-        BotCloudWatchLogGroupLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
-            log_prefix=log_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_log_group_arn: str,
-             log_prefix: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
-        _setter("log_prefix", log_prefix)
+        pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+        pulumi.set(__self__, "log_prefix", log_prefix)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -981,16 +802,7 @@ class BotCondition(dict):
         Provides an expression that evaluates to true or false.
         :param str expression_string: The expression string that is evaluated.
         """
-        BotCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression_string=expression_string,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression_string: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("expression_string", expression_string)
+        pulumi.set(__self__, "expression_string", expression_string)
 
     @property
     @pulumi.getter(name="expressionString")
@@ -1035,26 +847,11 @@ class BotConditionalBranch(dict):
         :param 'BotDialogState' next_step: The next step in the conversation.
         :param 'BotResponseSpecification' response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
-        BotConditionalBranch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            name=name,
-            next_step=next_step,
-            response=response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: 'outputs.BotCondition',
-             name: str,
-             next_step: 'outputs.BotDialogState',
-             response: Optional['outputs.BotResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("condition", condition)
-        _setter("name", name)
-        _setter("next_step", next_step)
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "next_step", next_step)
         if response is not None:
-            _setter("response", response)
+            pulumi.set(__self__, "response", response)
 
     @property
     @pulumi.getter
@@ -1125,22 +922,9 @@ class BotConditionalSpecification(dict):
         :param 'BotDefaultConditionalBranch' default_branch: The conditional branch that should be followed when the conditions for other branches are not satisfied. A conditional branch is made up of a condition, a response and a next step.
         :param bool is_active: Determines whether a conditional branch is active. When active is false, the conditions are not evaluated.
         """
-        BotConditionalSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conditional_branches=conditional_branches,
-            default_branch=default_branch,
-            is_active=is_active,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conditional_branches: Sequence['outputs.BotConditionalBranch'],
-             default_branch: 'outputs.BotDefaultConditionalBranch',
-             is_active: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("conditional_branches", conditional_branches)
-        _setter("default_branch", default_branch)
-        _setter("is_active", is_active)
+        pulumi.set(__self__, "conditional_branches", conditional_branches)
+        pulumi.set(__self__, "default_branch", default_branch)
+        pulumi.set(__self__, "is_active", is_active)
 
     @property
     @pulumi.getter(name="conditionalBranches")
@@ -1197,21 +981,10 @@ class BotConversationLogSettings(dict):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        BotConversationLogSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audio_log_settings=audio_log_settings,
-            text_log_settings=text_log_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audio_log_settings: Optional[Sequence['outputs.BotAudioLogSetting']] = None,
-             text_log_settings: Optional[Sequence['outputs.BotTextLogSetting']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if audio_log_settings is not None:
-            _setter("audio_log_settings", audio_log_settings)
+            pulumi.set(__self__, "audio_log_settings", audio_log_settings)
         if text_log_settings is not None:
-            _setter("text_log_settings", text_log_settings)
+            pulumi.set(__self__, "text_log_settings", text_log_settings)
 
     @property
     @pulumi.getter(name="audioLogSettings")
@@ -1235,16 +1008,7 @@ class BotCustomPayload(dict):
         A message in a custom format defined by the client application.
         :param str value: The string that is sent to your application.
         """
-        BotCustomPayload._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1282,16 +1046,7 @@ class BotCustomVocabulary(dict):
         """
         A custom vocabulary is a list of specific phrases that you want Amazon Lex V2 to recognize in the audio input.
         """
-        BotCustomVocabulary._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_vocabulary_items=custom_vocabulary_items,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_vocabulary_items: Sequence['outputs.BotCustomVocabularyItem'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("custom_vocabulary_items", custom_vocabulary_items)
+        pulumi.set(__self__, "custom_vocabulary_items", custom_vocabulary_items)
 
     @property
     @pulumi.getter(name="customVocabularyItems")
@@ -1331,24 +1086,11 @@ class BotCustomVocabularyItem(dict):
         :param str display_as: Defines how you want your phrase to look in your transcription output.
         :param int weight: The degree to which the phrase recognition is boosted. The weight 0 means that no boosting will be applied and the entry will only be used for performing replacements using the displayAs field.
         """
-        BotCustomVocabularyItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            phrase=phrase,
-            display_as=display_as,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             phrase: str,
-             display_as: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("phrase", phrase)
+        pulumi.set(__self__, "phrase", phrase)
         if display_as is not None:
-            _setter("display_as", display_as)
+            pulumi.set(__self__, "display_as", display_as)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -1405,21 +1147,10 @@ class BotDefaultConditionalBranch(dict):
         :param 'BotDialogState' next_step: The next step in the conversation.
         :param 'BotResponseSpecification' response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
-        BotDefaultConditionalBranch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            next_step=next_step,
-            response=response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             next_step: Optional['outputs.BotDialogState'] = None,
-             response: Optional['outputs.BotResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if next_step is not None:
-            _setter("next_step", next_step)
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
-            _setter("response", response)
+            pulumi.set(__self__, "response", response)
 
     @property
     @pulumi.getter(name="nextStep")
@@ -1472,24 +1203,11 @@ class BotDialogAction(dict):
         :param str slot_to_elicit: If the dialog action is ElicitSlot, defines the slot to elicit from the user.
         :param bool suppress_next_message: When true the next message for the intent is not used.
         """
-        BotDialogAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            slot_to_elicit=slot_to_elicit,
-            suppress_next_message=suppress_next_message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'BotDialogActionType',
-             slot_to_elicit: Optional[str] = None,
-             suppress_next_message: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if slot_to_elicit is not None:
-            _setter("slot_to_elicit", slot_to_elicit)
+            pulumi.set(__self__, "slot_to_elicit", slot_to_elicit)
         if suppress_next_message is not None:
-            _setter("suppress_next_message", suppress_next_message)
+            pulumi.set(__self__, "suppress_next_message", suppress_next_message)
 
     @property
     @pulumi.getter
@@ -1556,26 +1274,11 @@ class BotDialogCodeHookInvocationSetting(dict):
         :param 'BotPostDialogCodeHookInvocationSpecification' post_code_hook_specification: Contains the responses and actions that Amazon Lex takes after the Lambda function is complete.
         :param str invocation_label: A label that indicates the dialog step from which the dialog code hook is happening.
         """
-        BotDialogCodeHookInvocationSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_code_hook_invocation=enable_code_hook_invocation,
-            is_active=is_active,
-            post_code_hook_specification=post_code_hook_specification,
-            invocation_label=invocation_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_code_hook_invocation: bool,
-             is_active: bool,
-             post_code_hook_specification: 'outputs.BotPostDialogCodeHookInvocationSpecification',
-             invocation_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enable_code_hook_invocation", enable_code_hook_invocation)
-        _setter("is_active", is_active)
-        _setter("post_code_hook_specification", post_code_hook_specification)
+        pulumi.set(__self__, "enable_code_hook_invocation", enable_code_hook_invocation)
+        pulumi.set(__self__, "is_active", is_active)
+        pulumi.set(__self__, "post_code_hook_specification", post_code_hook_specification)
         if invocation_label is not None:
-            _setter("invocation_label", invocation_label)
+            pulumi.set(__self__, "invocation_label", invocation_label)
 
     @property
     @pulumi.getter(name="enableCodeHookInvocation")
@@ -1620,16 +1323,7 @@ class BotDialogCodeHookSetting(dict):
         """
         Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
         """
-        BotDialogCodeHookSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -1671,25 +1365,12 @@ class BotDialogState(dict):
         :param 'BotIntentOverride' intent: Override settings to configure the intent state.
         :param Sequence['BotSessionAttribute'] session_attributes: List of session attributes to be applied when the conversation reaches this step.
         """
-        BotDialogState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dialog_action=dialog_action,
-            intent=intent,
-            session_attributes=session_attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dialog_action: Optional['outputs.BotDialogAction'] = None,
-             intent: Optional['outputs.BotIntentOverride'] = None,
-             session_attributes: Optional[Sequence['outputs.BotSessionAttribute']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dialog_action is not None:
-            _setter("dialog_action", dialog_action)
+            pulumi.set(__self__, "dialog_action", dialog_action)
         if intent is not None:
-            _setter("intent", intent)
+            pulumi.set(__self__, "intent", intent)
         if session_attributes is not None:
-            _setter("session_attributes", session_attributes)
+            pulumi.set(__self__, "session_attributes", session_attributes)
 
     @property
     @pulumi.getter(name="dialogAction")
@@ -1748,20 +1429,9 @@ class BotElicitationCodeHookInvocationSetting(dict):
         :param bool enable_code_hook_invocation: Indicates whether a Lambda function should be invoked for the dialog.
         :param str invocation_label: A label that indicates the dialog step from which the dialog code hook is happening.
         """
-        BotElicitationCodeHookInvocationSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable_code_hook_invocation=enable_code_hook_invocation,
-            invocation_label=invocation_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable_code_hook_invocation: bool,
-             invocation_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enable_code_hook_invocation", enable_code_hook_invocation)
+        pulumi.set(__self__, "enable_code_hook_invocation", enable_code_hook_invocation)
         if invocation_label is not None:
-            _setter("invocation_label", invocation_label)
+            pulumi.set(__self__, "invocation_label", invocation_label)
 
     @property
     @pulumi.getter(name="enableCodeHookInvocation")
@@ -1807,17 +1477,8 @@ class BotExternalSourceSetting(dict):
         """
         Provides information about the external source of the slot type's definition.
         """
-        BotExternalSourceSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grammar_slot_type_setting=grammar_slot_type_setting,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grammar_slot_type_setting: Optional['outputs.BotGrammarSlotTypeSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if grammar_slot_type_setting is not None:
-            _setter("grammar_slot_type_setting", grammar_slot_type_setting)
+            pulumi.set(__self__, "grammar_slot_type_setting", grammar_slot_type_setting)
 
     @property
     @pulumi.getter(name="grammarSlotTypeSetting")
@@ -1860,28 +1521,13 @@ class BotFulfillmentCodeHookSetting(dict):
         Settings that determine if a Lambda function should be invoked to fulfill a specific intent.
         :param bool is_active: Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
         """
-        BotFulfillmentCodeHookSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            fulfillment_updates_specification=fulfillment_updates_specification,
-            is_active=is_active,
-            post_fulfillment_status_specification=post_fulfillment_status_specification,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             fulfillment_updates_specification: Optional['outputs.BotFulfillmentUpdatesSpecification'] = None,
-             is_active: Optional[bool] = None,
-             post_fulfillment_status_specification: Optional['outputs.BotPostFulfillmentStatusSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if fulfillment_updates_specification is not None:
-            _setter("fulfillment_updates_specification", fulfillment_updates_specification)
+            pulumi.set(__self__, "fulfillment_updates_specification", fulfillment_updates_specification)
         if is_active is not None:
-            _setter("is_active", is_active)
+            pulumi.set(__self__, "is_active", is_active)
         if post_fulfillment_status_specification is not None:
-            _setter("post_fulfillment_status_specification", post_fulfillment_status_specification)
+            pulumi.set(__self__, "post_fulfillment_status_specification", post_fulfillment_status_specification)
 
     @property
     @pulumi.getter
@@ -1942,23 +1588,10 @@ class BotFulfillmentStartResponseSpecification(dict):
         :param int delay_in_seconds: The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
         :param bool allow_interrupt: Determines whether the user can interrupt the start message while it is playing.
         """
-        BotFulfillmentStartResponseSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            delay_in_seconds=delay_in_seconds,
-            message_groups=message_groups,
-            allow_interrupt=allow_interrupt,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             delay_in_seconds: int,
-             message_groups: Sequence['outputs.BotMessageGroup'],
-             allow_interrupt: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("delay_in_seconds", delay_in_seconds)
-        _setter("message_groups", message_groups)
+        pulumi.set(__self__, "delay_in_seconds", delay_in_seconds)
+        pulumi.set(__self__, "message_groups", message_groups)
         if allow_interrupt is not None:
-            _setter("allow_interrupt", allow_interrupt)
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
 
     @property
     @pulumi.getter(name="delayInSeconds")
@@ -2017,23 +1650,10 @@ class BotFulfillmentUpdateResponseSpecification(dict):
         :param int frequency_in_seconds: The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.
         :param bool allow_interrupt: Determines whether the user can interrupt an update message while it is playing.
         """
-        BotFulfillmentUpdateResponseSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency_in_seconds=frequency_in_seconds,
-            message_groups=message_groups,
-            allow_interrupt=allow_interrupt,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency_in_seconds: int,
-             message_groups: Sequence['outputs.BotMessageGroup'],
-             allow_interrupt: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("frequency_in_seconds", frequency_in_seconds)
-        _setter("message_groups", message_groups)
+        pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
+        pulumi.set(__self__, "message_groups", message_groups)
         if allow_interrupt is not None:
-            _setter("allow_interrupt", allow_interrupt)
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
 
     @property
     @pulumi.getter(name="frequencyInSeconds")
@@ -2093,28 +1713,13 @@ class BotFulfillmentUpdatesSpecification(dict):
         :param bool active: Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
         :param int timeout_in_seconds: The length of time that the fulfillment Lambda function should run before it times out.
         """
-        BotFulfillmentUpdatesSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active=active,
-            start_response=start_response,
-            timeout_in_seconds=timeout_in_seconds,
-            update_response=update_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active: bool,
-             start_response: Optional['outputs.BotFulfillmentStartResponseSpecification'] = None,
-             timeout_in_seconds: Optional[int] = None,
-             update_response: Optional['outputs.BotFulfillmentUpdateResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("active", active)
+        pulumi.set(__self__, "active", active)
         if start_response is not None:
-            _setter("start_response", start_response)
+            pulumi.set(__self__, "start_response", start_response)
         if timeout_in_seconds is not None:
-            _setter("timeout_in_seconds", timeout_in_seconds)
+            pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if update_response is not None:
-            _setter("update_response", update_response)
+            pulumi.set(__self__, "update_response", update_response)
 
     @property
     @pulumi.getter
@@ -2153,17 +1758,8 @@ class BotGrammarSlotTypeSetting(dict):
         """
         Settings required for a slot type based on a grammar that you provide.
         """
-        BotGrammarSlotTypeSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: Optional['outputs.BotGrammarSlotTypeSource'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -2207,23 +1803,10 @@ class BotGrammarSlotTypeSource(dict):
         :param str s3_object_key: The path to the grammar in the S3 bucket.
         :param str kms_key_arn: The Amazon KMS key required to decrypt the contents of the grammar, if any.
         """
-        BotGrammarSlotTypeSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket_name=s3_bucket_name,
-            s3_object_key=s3_object_key,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket_name: str,
-             s3_object_key: str,
-             kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket_name", s3_bucket_name)
-        _setter("s3_object_key", s3_object_key)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_object_key", s3_object_key)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -2284,28 +1867,13 @@ class BotImageResponseCard(dict):
         :param str image_url: The URL of an image to display on the response card.
         :param str subtitle: The subtitle to display on the response card.
         """
-        BotImageResponseCard._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            title=title,
-            buttons=buttons,
-            image_url=image_url,
-            subtitle=subtitle,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             title: str,
-             buttons: Optional[Sequence['outputs.BotButton']] = None,
-             image_url: Optional[str] = None,
-             subtitle: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("title", title)
+        pulumi.set(__self__, "title", title)
         if buttons is not None:
-            _setter("buttons", buttons)
+            pulumi.set(__self__, "buttons", buttons)
         if image_url is not None:
-            _setter("image_url", image_url)
+            pulumi.set(__self__, "image_url", image_url)
         if subtitle is not None:
-            _setter("subtitle", subtitle)
+            pulumi.set(__self__, "subtitle", subtitle)
 
     @property
     @pulumi.getter
@@ -2378,29 +1946,14 @@ class BotInitialResponseSetting(dict):
         :param 'BotResponseSpecification' initial_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         :param 'BotDialogState' next_step: The next step in the conversation.
         """
-        BotInitialResponseSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            code_hook=code_hook,
-            conditional=conditional,
-            initial_response=initial_response,
-            next_step=next_step,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
-             conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             initial_response: Optional['outputs.BotResponseSpecification'] = None,
-             next_step: Optional['outputs.BotDialogState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if code_hook is not None:
-            _setter("code_hook", code_hook)
+            pulumi.set(__self__, "code_hook", code_hook)
         if conditional is not None:
-            _setter("conditional", conditional)
+            pulumi.set(__self__, "conditional", conditional)
         if initial_response is not None:
-            _setter("initial_response", initial_response)
+            pulumi.set(__self__, "initial_response", initial_response)
         if next_step is not None:
-            _setter("next_step", next_step)
+            pulumi.set(__self__, "next_step", next_step)
 
     @property
     @pulumi.getter(name="codeHook")
@@ -2446,16 +1999,7 @@ class BotInputContext(dict):
         InputContext specified for the intent.
         :param str name: The name of the context.
         """
-        BotInputContext._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -2531,68 +2075,33 @@ class BotIntent(dict):
         :param Sequence['BotSampleUtterance'] sample_utterances: A sample utterance that invokes an intent or respond to a slot elicitation prompt.
         :param Sequence['BotSlot'] slots: List of slots
         """
-        BotIntent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            dialog_code_hook=dialog_code_hook,
-            fulfillment_code_hook=fulfillment_code_hook,
-            initial_response_setting=initial_response_setting,
-            input_contexts=input_contexts,
-            intent_closing_setting=intent_closing_setting,
-            intent_confirmation_setting=intent_confirmation_setting,
-            kendra_configuration=kendra_configuration,
-            output_contexts=output_contexts,
-            parent_intent_signature=parent_intent_signature,
-            sample_utterances=sample_utterances,
-            slot_priorities=slot_priorities,
-            slots=slots,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             description: Optional[str] = None,
-             dialog_code_hook: Optional['outputs.BotDialogCodeHookSetting'] = None,
-             fulfillment_code_hook: Optional['outputs.BotFulfillmentCodeHookSetting'] = None,
-             initial_response_setting: Optional['outputs.BotInitialResponseSetting'] = None,
-             input_contexts: Optional[Sequence['outputs.BotInputContext']] = None,
-             intent_closing_setting: Optional['outputs.BotIntentClosingSetting'] = None,
-             intent_confirmation_setting: Optional['outputs.BotIntentConfirmationSetting'] = None,
-             kendra_configuration: Optional['outputs.BotKendraConfiguration'] = None,
-             output_contexts: Optional[Sequence['outputs.BotOutputContext']] = None,
-             parent_intent_signature: Optional[str] = None,
-             sample_utterances: Optional[Sequence['outputs.BotSampleUtterance']] = None,
-             slot_priorities: Optional[Sequence['outputs.BotSlotPriority']] = None,
-             slots: Optional[Sequence['outputs.BotSlot']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dialog_code_hook is not None:
-            _setter("dialog_code_hook", dialog_code_hook)
+            pulumi.set(__self__, "dialog_code_hook", dialog_code_hook)
         if fulfillment_code_hook is not None:
-            _setter("fulfillment_code_hook", fulfillment_code_hook)
+            pulumi.set(__self__, "fulfillment_code_hook", fulfillment_code_hook)
         if initial_response_setting is not None:
-            _setter("initial_response_setting", initial_response_setting)
+            pulumi.set(__self__, "initial_response_setting", initial_response_setting)
         if input_contexts is not None:
-            _setter("input_contexts", input_contexts)
+            pulumi.set(__self__, "input_contexts", input_contexts)
         if intent_closing_setting is not None:
-            _setter("intent_closing_setting", intent_closing_setting)
+            pulumi.set(__self__, "intent_closing_setting", intent_closing_setting)
         if intent_confirmation_setting is not None:
-            _setter("intent_confirmation_setting", intent_confirmation_setting)
+            pulumi.set(__self__, "intent_confirmation_setting", intent_confirmation_setting)
         if kendra_configuration is not None:
-            _setter("kendra_configuration", kendra_configuration)
+            pulumi.set(__self__, "kendra_configuration", kendra_configuration)
         if output_contexts is not None:
-            _setter("output_contexts", output_contexts)
+            pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
-            _setter("parent_intent_signature", parent_intent_signature)
+            pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
         if sample_utterances is not None:
-            _setter("sample_utterances", sample_utterances)
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_priorities is not None:
-            _setter("slot_priorities", slot_priorities)
+            pulumi.set(__self__, "slot_priorities", slot_priorities)
         if slots is not None:
-            _setter("slots", slots)
+            pulumi.set(__self__, "slots", slots)
 
     @property
     @pulumi.getter
@@ -2718,29 +2227,14 @@ class BotIntentClosingSetting(dict):
         :param bool is_active: Specifies whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
         :param 'BotDialogState' next_step: Specifies the next step that the bot executes after playing the intent's closing response.
         """
-        BotIntentClosingSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            closing_response=closing_response,
-            conditional=conditional,
-            is_active=is_active,
-            next_step=next_step,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             closing_response: Optional['outputs.BotResponseSpecification'] = None,
-             conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             is_active: Optional[bool] = None,
-             next_step: Optional['outputs.BotDialogState'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if closing_response is not None:
-            _setter("closing_response", closing_response)
+            pulumi.set(__self__, "closing_response", closing_response)
         if conditional is not None:
-            _setter("conditional", conditional)
+            pulumi.set(__self__, "conditional", conditional)
         if is_active is not None:
-            _setter("is_active", is_active)
+            pulumi.set(__self__, "is_active", is_active)
         if next_step is not None:
-            _setter("next_step", next_step)
+            pulumi.set(__self__, "next_step", next_step)
 
     @property
     @pulumi.getter(name="closingResponse")
@@ -2851,64 +2345,31 @@ class BotIntentConfirmationSetting(dict):
         :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         :param bool is_active: Specifies whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
         """
-        BotIntentConfirmationSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prompt_specification=prompt_specification,
-            code_hook=code_hook,
-            confirmation_conditional=confirmation_conditional,
-            confirmation_next_step=confirmation_next_step,
-            confirmation_response=confirmation_response,
-            declination_conditional=declination_conditional,
-            declination_next_step=declination_next_step,
-            declination_response=declination_response,
-            elicitation_code_hook=elicitation_code_hook,
-            failure_conditional=failure_conditional,
-            failure_next_step=failure_next_step,
-            failure_response=failure_response,
-            is_active=is_active,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prompt_specification: 'outputs.BotPromptSpecification',
-             code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
-             confirmation_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             confirmation_next_step: Optional['outputs.BotDialogState'] = None,
-             confirmation_response: Optional['outputs.BotResponseSpecification'] = None,
-             declination_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             declination_next_step: Optional['outputs.BotDialogState'] = None,
-             declination_response: Optional['outputs.BotResponseSpecification'] = None,
-             elicitation_code_hook: Optional['outputs.BotElicitationCodeHookInvocationSetting'] = None,
-             failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             failure_next_step: Optional['outputs.BotDialogState'] = None,
-             failure_response: Optional['outputs.BotResponseSpecification'] = None,
-             is_active: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("prompt_specification", prompt_specification)
+        pulumi.set(__self__, "prompt_specification", prompt_specification)
         if code_hook is not None:
-            _setter("code_hook", code_hook)
+            pulumi.set(__self__, "code_hook", code_hook)
         if confirmation_conditional is not None:
-            _setter("confirmation_conditional", confirmation_conditional)
+            pulumi.set(__self__, "confirmation_conditional", confirmation_conditional)
         if confirmation_next_step is not None:
-            _setter("confirmation_next_step", confirmation_next_step)
+            pulumi.set(__self__, "confirmation_next_step", confirmation_next_step)
         if confirmation_response is not None:
-            _setter("confirmation_response", confirmation_response)
+            pulumi.set(__self__, "confirmation_response", confirmation_response)
         if declination_conditional is not None:
-            _setter("declination_conditional", declination_conditional)
+            pulumi.set(__self__, "declination_conditional", declination_conditional)
         if declination_next_step is not None:
-            _setter("declination_next_step", declination_next_step)
+            pulumi.set(__self__, "declination_next_step", declination_next_step)
         if declination_response is not None:
-            _setter("declination_response", declination_response)
+            pulumi.set(__self__, "declination_response", declination_response)
         if elicitation_code_hook is not None:
-            _setter("elicitation_code_hook", elicitation_code_hook)
+            pulumi.set(__self__, "elicitation_code_hook", elicitation_code_hook)
         if failure_conditional is not None:
-            _setter("failure_conditional", failure_conditional)
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
         if failure_next_step is not None:
-            _setter("failure_next_step", failure_next_step)
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
         if failure_response is not None:
-            _setter("failure_response", failure_response)
+            pulumi.set(__self__, "failure_response", failure_response)
         if is_active is not None:
-            _setter("is_active", is_active)
+            pulumi.set(__self__, "is_active", is_active)
 
     @property
     @pulumi.getter(name="promptSpecification")
@@ -3028,21 +2489,10 @@ class BotIntentOverride(dict):
         :param str name: The name of the intent. Only required when you're switching intents.
         :param Sequence['BotSlotValueOverrideMap'] slots: A map of all of the slot value overrides for the intent.
         """
-        BotIntentOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            slots=slots,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             slots: Optional[Sequence['outputs.BotSlotValueOverrideMap']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if slots is not None:
-            _setter("slots", slots)
+            pulumi.set(__self__, "slots", slots)
 
     @property
     @pulumi.getter
@@ -3095,24 +2545,11 @@ class BotKendraConfiguration(dict):
         Configuration for searching a Amazon Kendra index specified for the intent.
         :param bool query_filter_string_enabled: Determines whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
         """
-        BotKendraConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kendra_index=kendra_index,
-            query_filter_string=query_filter_string,
-            query_filter_string_enabled=query_filter_string_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kendra_index: str,
-             query_filter_string: Optional[str] = None,
-             query_filter_string_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("kendra_index", kendra_index)
+        pulumi.set(__self__, "kendra_index", kendra_index)
         if query_filter_string is not None:
-            _setter("query_filter_string", query_filter_string)
+            pulumi.set(__self__, "query_filter_string", query_filter_string)
         if query_filter_string_enabled is not None:
-            _setter("query_filter_string_enabled", query_filter_string_enabled)
+            pulumi.set(__self__, "query_filter_string_enabled", query_filter_string_enabled)
 
     @property
     @pulumi.getter(name="kendraIndex")
@@ -3176,39 +2613,18 @@ class BotLocale(dict):
         :param Sequence['BotIntent'] intents: List of intents
         :param Sequence['BotSlotType'] slot_types: List of SlotTypes
         """
-        BotLocale._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            locale_id=locale_id,
-            nlu_confidence_threshold=nlu_confidence_threshold,
-            custom_vocabulary=custom_vocabulary,
-            description=description,
-            intents=intents,
-            slot_types=slot_types,
-            voice_settings=voice_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             locale_id: str,
-             nlu_confidence_threshold: float,
-             custom_vocabulary: Optional['outputs.BotCustomVocabulary'] = None,
-             description: Optional[str] = None,
-             intents: Optional[Sequence['outputs.BotIntent']] = None,
-             slot_types: Optional[Sequence['outputs.BotSlotType']] = None,
-             voice_settings: Optional['outputs.BotVoiceSettings'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("locale_id", locale_id)
-        _setter("nlu_confidence_threshold", nlu_confidence_threshold)
+        pulumi.set(__self__, "locale_id", locale_id)
+        pulumi.set(__self__, "nlu_confidence_threshold", nlu_confidence_threshold)
         if custom_vocabulary is not None:
-            _setter("custom_vocabulary", custom_vocabulary)
+            pulumi.set(__self__, "custom_vocabulary", custom_vocabulary)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if intents is not None:
-            _setter("intents", intents)
+            pulumi.set(__self__, "intents", intents)
         if slot_types is not None:
-            _setter("slot_types", slot_types)
+            pulumi.set(__self__, "slot_types", slot_types)
         if voice_settings is not None:
-            _setter("voice_settings", voice_settings)
+            pulumi.set(__self__, "voice_settings", voice_settings)
 
     @property
     @pulumi.getter(name="localeId")
@@ -3288,29 +2704,14 @@ class BotMessage(dict):
         """
         The primary message that Amazon Lex should send to the user.
         """
-        BotMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_payload=custom_payload,
-            image_response_card=image_response_card,
-            plain_text_message=plain_text_message,
-            ssml_message=ssml_message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_payload: Optional['outputs.BotCustomPayload'] = None,
-             image_response_card: Optional['outputs.BotImageResponseCard'] = None,
-             plain_text_message: Optional['outputs.BotPlainTextMessage'] = None,
-             ssml_message: Optional['outputs.BotSsmlMessage'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_payload is not None:
-            _setter("custom_payload", custom_payload)
+            pulumi.set(__self__, "custom_payload", custom_payload)
         if image_response_card is not None:
-            _setter("image_response_card", image_response_card)
+            pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
-            _setter("plain_text_message", plain_text_message)
+            pulumi.set(__self__, "plain_text_message", plain_text_message)
         if ssml_message is not None:
-            _setter("ssml_message", ssml_message)
+            pulumi.set(__self__, "ssml_message", ssml_message)
 
     @property
     @pulumi.getter(name="customPayload")
@@ -3345,20 +2746,9 @@ class BotMessageGroup(dict):
         One or more messages that Amazon Lex can send to the user.
         :param Sequence['BotMessage'] variations: Message variations to send to the user.
         """
-        BotMessageGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message=message,
-            variations=variations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message: 'outputs.BotMessage',
-             variations: Optional[Sequence['outputs.BotMessage']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("message", message)
+        pulumi.set(__self__, "message", message)
         if variations is not None:
-            _setter("variations", variations)
+            pulumi.set(__self__, "variations", variations)
 
     @property
     @pulumi.getter
@@ -3401,17 +2791,8 @@ class BotMultipleValuesSetting(dict):
         """
         Indicates whether a slot can return multiple values.
         """
-        BotMultipleValuesSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_multiple_values=allow_multiple_values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_multiple_values: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_multiple_values is not None:
-            _setter("allow_multiple_values", allow_multiple_values)
+            pulumi.set(__self__, "allow_multiple_values", allow_multiple_values)
 
     @property
     @pulumi.getter(name="allowMultipleValues")
@@ -3447,16 +2828,7 @@ class BotObfuscationSetting(dict):
         Determines whether Amazon Lex obscures slot values in conversation logs.
         :param 'BotObfuscationSettingObfuscationSettingType' obfuscation_setting_type: Value that determines whether Amazon Lex obscures slot values in conversation logs. The default is to obscure the values.
         """
-        BotObfuscationSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            obfuscation_setting_type=obfuscation_setting_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             obfuscation_setting_type: 'BotObfuscationSettingObfuscationSettingType',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("obfuscation_setting_type", obfuscation_setting_type)
+        pulumi.set(__self__, "obfuscation_setting_type", obfuscation_setting_type)
 
     @property
     @pulumi.getter(name="obfuscationSettingType")
@@ -3498,22 +2870,9 @@ class BotOutputContext(dict):
         """
         A session context that is activated when an intent is fulfilled.
         """
-        BotOutputContext._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            time_to_live_in_seconds=time_to_live_in_seconds,
-            turns_to_live=turns_to_live,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             time_to_live_in_seconds: int,
-             turns_to_live: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("time_to_live_in_seconds", time_to_live_in_seconds)
-        _setter("turns_to_live", turns_to_live)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "time_to_live_in_seconds", time_to_live_in_seconds)
+        pulumi.set(__self__, "turns_to_live", turns_to_live)
 
     @property
     @pulumi.getter
@@ -3542,16 +2901,7 @@ class BotPlainTextMessage(dict):
         A message in plain text format.
         :param str value: The message to send to the user.
         """
-        BotPlainTextMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3622,49 +2972,24 @@ class BotPostDialogCodeHookInvocationSpecification(dict):
         :param 'BotDialogState' timeout_next_step: Specifies the next step that the bot runs when the code hook times out.
         :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
-        BotPostDialogCodeHookInvocationSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_conditional=failure_conditional,
-            failure_next_step=failure_next_step,
-            failure_response=failure_response,
-            success_conditional=success_conditional,
-            success_next_step=success_next_step,
-            success_response=success_response,
-            timeout_conditional=timeout_conditional,
-            timeout_next_step=timeout_next_step,
-            timeout_response=timeout_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             failure_next_step: Optional['outputs.BotDialogState'] = None,
-             failure_response: Optional['outputs.BotResponseSpecification'] = None,
-             success_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             success_next_step: Optional['outputs.BotDialogState'] = None,
-             success_response: Optional['outputs.BotResponseSpecification'] = None,
-             timeout_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             timeout_next_step: Optional['outputs.BotDialogState'] = None,
-             timeout_response: Optional['outputs.BotResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_conditional is not None:
-            _setter("failure_conditional", failure_conditional)
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
         if failure_next_step is not None:
-            _setter("failure_next_step", failure_next_step)
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
         if failure_response is not None:
-            _setter("failure_response", failure_response)
+            pulumi.set(__self__, "failure_response", failure_response)
         if success_conditional is not None:
-            _setter("success_conditional", success_conditional)
+            pulumi.set(__self__, "success_conditional", success_conditional)
         if success_next_step is not None:
-            _setter("success_next_step", success_next_step)
+            pulumi.set(__self__, "success_next_step", success_next_step)
         if success_response is not None:
-            _setter("success_response", success_response)
+            pulumi.set(__self__, "success_response", success_response)
         if timeout_conditional is not None:
-            _setter("timeout_conditional", timeout_conditional)
+            pulumi.set(__self__, "timeout_conditional", timeout_conditional)
         if timeout_next_step is not None:
-            _setter("timeout_next_step", timeout_next_step)
+            pulumi.set(__self__, "timeout_next_step", timeout_next_step)
         if timeout_response is not None:
-            _setter("timeout_response", timeout_response)
+            pulumi.set(__self__, "timeout_response", timeout_response)
 
     @property
     @pulumi.getter(name="failureConditional")
@@ -3799,49 +3124,24 @@ class BotPostFulfillmentStatusSpecification(dict):
         :param 'BotDialogState' timeout_next_step: Specifies the next step that the bot runs when the fulfillment code hook times out.
         :param 'BotResponseSpecification' timeout_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
-        BotPostFulfillmentStatusSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_conditional=failure_conditional,
-            failure_next_step=failure_next_step,
-            failure_response=failure_response,
-            success_conditional=success_conditional,
-            success_next_step=success_next_step,
-            success_response=success_response,
-            timeout_conditional=timeout_conditional,
-            timeout_next_step=timeout_next_step,
-            timeout_response=timeout_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             failure_next_step: Optional['outputs.BotDialogState'] = None,
-             failure_response: Optional['outputs.BotResponseSpecification'] = None,
-             success_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             success_next_step: Optional['outputs.BotDialogState'] = None,
-             success_response: Optional['outputs.BotResponseSpecification'] = None,
-             timeout_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             timeout_next_step: Optional['outputs.BotDialogState'] = None,
-             timeout_response: Optional['outputs.BotResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_conditional is not None:
-            _setter("failure_conditional", failure_conditional)
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
         if failure_next_step is not None:
-            _setter("failure_next_step", failure_next_step)
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
         if failure_response is not None:
-            _setter("failure_response", failure_response)
+            pulumi.set(__self__, "failure_response", failure_response)
         if success_conditional is not None:
-            _setter("success_conditional", success_conditional)
+            pulumi.set(__self__, "success_conditional", success_conditional)
         if success_next_step is not None:
-            _setter("success_next_step", success_next_step)
+            pulumi.set(__self__, "success_next_step", success_next_step)
         if success_response is not None:
-            _setter("success_response", success_response)
+            pulumi.set(__self__, "success_response", success_response)
         if timeout_conditional is not None:
-            _setter("timeout_conditional", timeout_conditional)
+            pulumi.set(__self__, "timeout_conditional", timeout_conditional)
         if timeout_next_step is not None:
-            _setter("timeout_next_step", timeout_next_step)
+            pulumi.set(__self__, "timeout_next_step", timeout_next_step)
         if timeout_response is not None:
-            _setter("timeout_response", timeout_response)
+            pulumi.set(__self__, "timeout_response", timeout_response)
 
     @property
     @pulumi.getter(name="failureConditional")
@@ -3957,31 +3257,14 @@ class BotPromptSpecification(dict):
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
         :param Any prompt_attempts_specification: Specifies the advanced settings on each attempt of the prompt.
         """
-        BotPromptSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_retries=max_retries,
-            message_groups_list=message_groups_list,
-            allow_interrupt=allow_interrupt,
-            message_selection_strategy=message_selection_strategy,
-            prompt_attempts_specification=prompt_attempts_specification,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_retries: int,
-             message_groups_list: Sequence['outputs.BotMessageGroup'],
-             allow_interrupt: Optional[bool] = None,
-             message_selection_strategy: Optional['BotMessageSelectionStrategy'] = None,
-             prompt_attempts_specification: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("max_retries", max_retries)
-        _setter("message_groups_list", message_groups_list)
+        pulumi.set(__self__, "max_retries", max_retries)
+        pulumi.set(__self__, "message_groups_list", message_groups_list)
         if allow_interrupt is not None:
-            _setter("allow_interrupt", allow_interrupt)
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
         if message_selection_strategy is not None:
-            _setter("message_selection_strategy", message_selection_strategy)
+            pulumi.set(__self__, "message_selection_strategy", message_selection_strategy)
         if prompt_attempts_specification is not None:
-            _setter("prompt_attempts_specification", prompt_attempts_specification)
+            pulumi.set(__self__, "prompt_attempts_specification", prompt_attempts_specification)
 
     @property
     @pulumi.getter(name="maxRetries")
@@ -4046,20 +3329,9 @@ class BotResponseSpecification(dict):
         A list of message groups that Amazon Lex uses to respond the user input.
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
         """
-        BotResponseSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message_groups_list=message_groups_list,
-            allow_interrupt=allow_interrupt,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message_groups_list: Sequence['outputs.BotMessageGroup'],
-             allow_interrupt: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("message_groups_list", message_groups_list)
+        pulumi.set(__self__, "message_groups_list", message_groups_list)
         if allow_interrupt is not None:
-            _setter("allow_interrupt", allow_interrupt)
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
 
     @property
     @pulumi.getter(name="messageGroupsList")
@@ -4111,23 +3383,10 @@ class BotS3BucketLogDestination(dict):
         :param str s3_bucket_arn: The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio log files are stored.
         :param str kms_key_arn: The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key for encrypting audio log files stored in an S3 bucket.
         """
-        BotS3BucketLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_prefix=log_prefix,
-            s3_bucket_arn=s3_bucket_arn,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_prefix: str,
-             s3_bucket_arn: str,
-             kms_key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_prefix", log_prefix)
-        _setter("s3_bucket_arn", s3_bucket_arn)
+        pulumi.set(__self__, "log_prefix", log_prefix)
+        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="logPrefix")
@@ -4190,23 +3449,10 @@ class BotS3Location(dict):
         :param str s3_object_key: The Amazon S3 key of the deployment package.
         :param str s3_object_version: For versioned objects, the version of the deployment package object to use. If not specified, the current object version will be used.
         """
-        BotS3Location._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-            s3_object_key=s3_object_key,
-            s3_object_version=s3_object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: str,
-             s3_object_key: str,
-             s3_object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_object_key", s3_object_key)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_object_key", s3_object_key)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -4243,16 +3489,7 @@ class BotSampleUtterance(dict):
         """
         A sample utterance that invokes an intent or respond to a slot elicitation prompt.
         """
-        BotSampleUtterance._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            utterance=utterance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             utterance: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("utterance", utterance)
+        pulumi.set(__self__, "utterance", utterance)
 
     @property
     @pulumi.getter
@@ -4271,16 +3508,7 @@ class BotSampleValue(dict):
         Defines one of the values for a slot type.
         :param str value: The value that can be used for a slot type.
         """
-        BotSampleValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4302,20 +3530,9 @@ class BotSessionAttribute(dict):
         """
         Key/value pair representing session-specific context information. It contains application information passed between Amazon Lex and a client application.
         """
-        BotSessionAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -4366,34 +3583,15 @@ class BotSlot(dict):
         """
         A slot is a variable needed to fulfill an intent, where an intent can require zero or more slots.
         """
-        BotSlot._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            slot_type_name=slot_type_name,
-            value_elicitation_setting=value_elicitation_setting,
-            description=description,
-            multiple_values_setting=multiple_values_setting,
-            obfuscation_setting=obfuscation_setting,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             slot_type_name: str,
-             value_elicitation_setting: 'outputs.BotSlotValueElicitationSetting',
-             description: Optional[str] = None,
-             multiple_values_setting: Optional['outputs.BotMultipleValuesSetting'] = None,
-             obfuscation_setting: Optional['outputs.BotObfuscationSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("slot_type_name", slot_type_name)
-        _setter("value_elicitation_setting", value_elicitation_setting)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "slot_type_name", slot_type_name)
+        pulumi.set(__self__, "value_elicitation_setting", value_elicitation_setting)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if multiple_values_setting is not None:
-            _setter("multiple_values_setting", multiple_values_setting)
+            pulumi.set(__self__, "multiple_values_setting", multiple_values_setting)
         if obfuscation_setting is not None:
-            _setter("obfuscation_setting", obfuscation_setting)
+            pulumi.set(__self__, "obfuscation_setting", obfuscation_setting)
 
     @property
     @pulumi.getter
@@ -4482,45 +3680,22 @@ class BotSlotCaptureSetting(dict):
         :param 'BotDialogState' failure_next_step: Specifies the next step that the bot runs when the slot value code is not recognized.
         :param 'BotResponseSpecification' failure_response: Specifies a list of message groups that Amazon Lex uses to respond the user input.
         """
-        BotSlotCaptureSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capture_conditional=capture_conditional,
-            capture_next_step=capture_next_step,
-            capture_response=capture_response,
-            code_hook=code_hook,
-            elicitation_code_hook=elicitation_code_hook,
-            failure_conditional=failure_conditional,
-            failure_next_step=failure_next_step,
-            failure_response=failure_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capture_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             capture_next_step: Optional['outputs.BotDialogState'] = None,
-             capture_response: Optional['outputs.BotResponseSpecification'] = None,
-             code_hook: Optional['outputs.BotDialogCodeHookInvocationSetting'] = None,
-             elicitation_code_hook: Optional['outputs.BotElicitationCodeHookInvocationSetting'] = None,
-             failure_conditional: Optional['outputs.BotConditionalSpecification'] = None,
-             failure_next_step: Optional['outputs.BotDialogState'] = None,
-             failure_response: Optional['outputs.BotResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if capture_conditional is not None:
-            _setter("capture_conditional", capture_conditional)
+            pulumi.set(__self__, "capture_conditional", capture_conditional)
         if capture_next_step is not None:
-            _setter("capture_next_step", capture_next_step)
+            pulumi.set(__self__, "capture_next_step", capture_next_step)
         if capture_response is not None:
-            _setter("capture_response", capture_response)
+            pulumi.set(__self__, "capture_response", capture_response)
         if code_hook is not None:
-            _setter("code_hook", code_hook)
+            pulumi.set(__self__, "code_hook", code_hook)
         if elicitation_code_hook is not None:
-            _setter("elicitation_code_hook", elicitation_code_hook)
+            pulumi.set(__self__, "elicitation_code_hook", elicitation_code_hook)
         if failure_conditional is not None:
-            _setter("failure_conditional", failure_conditional)
+            pulumi.set(__self__, "failure_conditional", failure_conditional)
         if failure_next_step is not None:
-            _setter("failure_next_step", failure_next_step)
+            pulumi.set(__self__, "failure_next_step", failure_next_step)
         if failure_response is not None:
-            _setter("failure_response", failure_response)
+            pulumi.set(__self__, "failure_response", failure_response)
 
     @property
     @pulumi.getter(name="captureConditional")
@@ -4615,16 +3790,7 @@ class BotSlotDefaultValue(dict):
         The default value to use when a user doesn't provide a value for a slot.
         :param str default_value: The default value to use when a user doesn't provide a value for a slot.
         """
-        BotSlotDefaultValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_value=default_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_value", default_value)
+        pulumi.set(__self__, "default_value", default_value)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -4663,16 +3829,7 @@ class BotSlotDefaultValueSpecification(dict):
         A list of values that Amazon Lex should use as the default value for a slot.
         :param Sequence['BotSlotDefaultValue'] default_value_list: A list of slot default values
         """
-        BotSlotDefaultValueSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_value_list=default_value_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_value_list: Sequence['outputs.BotSlotDefaultValue'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_value_list", default_value_list)
+        pulumi.set(__self__, "default_value_list", default_value_list)
 
     @property
     @pulumi.getter(name="defaultValueList")
@@ -4712,19 +3869,8 @@ class BotSlotPriority(dict):
         The priority that Amazon Lex should use when eliciting slot values from a user.
         :param str slot_name: The name of the slot.
         """
-        BotSlotPriority._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            priority=priority,
-            slot_name=slot_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             priority: int,
-             slot_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("priority", priority)
-        _setter("slot_name", slot_name)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "slot_name", slot_name)
 
     @property
     @pulumi.getter
@@ -4778,36 +3924,17 @@ class BotSlotType(dict):
         """
         A custom, extended built-in or a grammar slot type.
         """
-        BotSlotType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            external_source_setting=external_source_setting,
-            parent_slot_type_signature=parent_slot_type_signature,
-            slot_type_values=slot_type_values,
-            value_selection_setting=value_selection_setting,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             description: Optional[str] = None,
-             external_source_setting: Optional['outputs.BotExternalSourceSetting'] = None,
-             parent_slot_type_signature: Optional[str] = None,
-             slot_type_values: Optional[Sequence['outputs.BotSlotTypeValue']] = None,
-             value_selection_setting: Optional['outputs.BotSlotValueSelectionSetting'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if external_source_setting is not None:
-            _setter("external_source_setting", external_source_setting)
+            pulumi.set(__self__, "external_source_setting", external_source_setting)
         if parent_slot_type_signature is not None:
-            _setter("parent_slot_type_signature", parent_slot_type_signature)
+            pulumi.set(__self__, "parent_slot_type_signature", parent_slot_type_signature)
         if slot_type_values is not None:
-            _setter("slot_type_values", slot_type_values)
+            pulumi.set(__self__, "slot_type_values", slot_type_values)
         if value_selection_setting is not None:
-            _setter("value_selection_setting", value_selection_setting)
+            pulumi.set(__self__, "value_selection_setting", value_selection_setting)
 
     @property
     @pulumi.getter
@@ -4868,20 +3995,9 @@ class BotSlotTypeValue(dict):
         """
         Value that the slot type can take.
         """
-        BotSlotTypeValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sample_value=sample_value,
-            synonyms=synonyms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sample_value: 'outputs.BotSampleValue',
-             synonyms: Optional[Sequence['outputs.BotSampleValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sample_value", sample_value)
+        pulumi.set(__self__, "sample_value", sample_value)
         if synonyms is not None:
-            _setter("synonyms", synonyms)
+            pulumi.set(__self__, "synonyms", synonyms)
 
     @property
     @pulumi.getter(name="sampleValue")
@@ -4922,17 +4038,8 @@ class BotSlotValue(dict):
         The value to set in a slot.
         :param str interpreted_value: The value that Amazon Lex determines for the slot.
         """
-        BotSlotValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interpreted_value=interpreted_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interpreted_value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if interpreted_value is not None:
-            _setter("interpreted_value", interpreted_value)
+            pulumi.set(__self__, "interpreted_value", interpreted_value)
 
     @property
     @pulumi.getter(name="interpretedValue")
@@ -4991,36 +4098,17 @@ class BotSlotValueElicitationSetting(dict):
         :param 'BotSlotCaptureSetting' slot_capture_setting: Specifies the next stage in the conversation after capturing the slot.
         :param 'BotWaitAndContinueSpecification' wait_and_continue_specification: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
         """
-        BotSlotValueElicitationSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            slot_constraint=slot_constraint,
-            default_value_specification=default_value_specification,
-            prompt_specification=prompt_specification,
-            sample_utterances=sample_utterances,
-            slot_capture_setting=slot_capture_setting,
-            wait_and_continue_specification=wait_and_continue_specification,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             slot_constraint: 'BotSlotConstraint',
-             default_value_specification: Optional['outputs.BotSlotDefaultValueSpecification'] = None,
-             prompt_specification: Optional['outputs.BotPromptSpecification'] = None,
-             sample_utterances: Optional[Sequence['outputs.BotSampleUtterance']] = None,
-             slot_capture_setting: Optional['outputs.BotSlotCaptureSetting'] = None,
-             wait_and_continue_specification: Optional['outputs.BotWaitAndContinueSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("slot_constraint", slot_constraint)
+        pulumi.set(__self__, "slot_constraint", slot_constraint)
         if default_value_specification is not None:
-            _setter("default_value_specification", default_value_specification)
+            pulumi.set(__self__, "default_value_specification", default_value_specification)
         if prompt_specification is not None:
-            _setter("prompt_specification", prompt_specification)
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
         if sample_utterances is not None:
-            _setter("sample_utterances", sample_utterances)
+            pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_capture_setting is not None:
-            _setter("slot_capture_setting", slot_capture_setting)
+            pulumi.set(__self__, "slot_capture_setting", slot_capture_setting)
         if wait_and_continue_specification is not None:
-            _setter("wait_and_continue_specification", wait_and_continue_specification)
+            pulumi.set(__self__, "wait_and_continue_specification", wait_and_continue_specification)
 
     @property
     @pulumi.getter(name="slotConstraint")
@@ -5086,25 +4174,12 @@ class BotSlotValueOverride(dict):
         :param 'BotSlotValue' value: The current value of the slot.
         :param Sequence['BotSlotValueOverride'] values: A list of one or more values that the user provided for the slot. For example, for a slot that elicits pizza toppings, the values might be "pepperoni" and "pineapple."
         """
-        BotSlotValueOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            shape=shape,
-            value=value,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             shape: Optional['BotSlotShape'] = None,
-             value: Optional['outputs.BotSlotValue'] = None,
-             values: Optional[Sequence['outputs.BotSlotValueOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if shape is not None:
-            _setter("shape", shape)
+            pulumi.set(__self__, "shape", shape)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -5161,21 +4236,10 @@ class BotSlotValueOverrideMap(dict):
         """
         A map of slot names and their overridden values.
         """
-        BotSlotValueOverrideMap._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            slot_name=slot_name,
-            slot_value_override=slot_value_override,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             slot_name: Optional[str] = None,
-             slot_value_override: Optional['outputs.BotSlotValueOverride'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if slot_name is not None:
-            _setter("slot_name", slot_name)
+            pulumi.set(__self__, "slot_name", slot_name)
         if slot_value_override is not None:
-            _setter("slot_value_override", slot_value_override)
+            pulumi.set(__self__, "slot_value_override", slot_value_override)
 
     @property
     @pulumi.getter(name="slotName")
@@ -5199,16 +4263,7 @@ class BotSlotValueRegexFilter(dict):
         A regular expression used to validate the value of a slot.
         :param str pattern: Regex pattern
         """
-        BotSlotValueRegexFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pattern=pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pattern: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("pattern", pattern)
+        pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
@@ -5252,24 +4307,11 @@ class BotSlotValueSelectionSetting(dict):
         """
         Contains settings used by Amazon Lex to select a slot value.
         """
-        BotSlotValueSelectionSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resolution_strategy=resolution_strategy,
-            advanced_recognition_setting=advanced_recognition_setting,
-            regex_filter=regex_filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resolution_strategy: 'BotSlotValueResolutionStrategy',
-             advanced_recognition_setting: Optional['outputs.BotAdvancedRecognitionSetting'] = None,
-             regex_filter: Optional['outputs.BotSlotValueRegexFilter'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resolution_strategy", resolution_strategy)
+        pulumi.set(__self__, "resolution_strategy", resolution_strategy)
         if advanced_recognition_setting is not None:
-            _setter("advanced_recognition_setting", advanced_recognition_setting)
+            pulumi.set(__self__, "advanced_recognition_setting", advanced_recognition_setting)
         if regex_filter is not None:
-            _setter("regex_filter", regex_filter)
+            pulumi.set(__self__, "regex_filter", regex_filter)
 
     @property
     @pulumi.getter(name="resolutionStrategy")
@@ -5298,16 +4340,7 @@ class BotSsmlMessage(dict):
         A message in Speech Synthesis Markup Language (SSML).
         :param str value: The SSML text that defines the prompt.
         """
-        BotSsmlMessage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5355,26 +4388,11 @@ class BotStillWaitingResponseSpecification(dict):
         StillWaitingResponseSpecification.
         :param bool allow_interrupt: Indicates whether the user can interrupt a speech prompt from the bot.
         """
-        BotStillWaitingResponseSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            frequency_in_seconds=frequency_in_seconds,
-            message_groups_list=message_groups_list,
-            timeout_in_seconds=timeout_in_seconds,
-            allow_interrupt=allow_interrupt,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             frequency_in_seconds: int,
-             message_groups_list: Sequence['outputs.BotMessageGroup'],
-             timeout_in_seconds: int,
-             allow_interrupt: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("frequency_in_seconds", frequency_in_seconds)
-        _setter("message_groups_list", message_groups_list)
-        _setter("timeout_in_seconds", timeout_in_seconds)
+        pulumi.set(__self__, "frequency_in_seconds", frequency_in_seconds)
+        pulumi.set(__self__, "message_groups_list", message_groups_list)
+        pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
         if allow_interrupt is not None:
-            _setter("allow_interrupt", allow_interrupt)
+            pulumi.set(__self__, "allow_interrupt", allow_interrupt)
 
     @property
     @pulumi.getter(name="frequencyInSeconds")
@@ -5413,19 +4431,8 @@ class BotTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        BotTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -5479,29 +4486,14 @@ class BotTestBotAliasSettings(dict):
         Configuring the test bot alias settings for a given bot
         :param 'BotTestBotAliasSettingsSentimentAnalysisSettingsProperties' sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
-        BotTestBotAliasSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_alias_locale_settings=bot_alias_locale_settings,
-            conversation_log_settings=conversation_log_settings,
-            description=description,
-            sentiment_analysis_settings=sentiment_analysis_settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_alias_locale_settings: Optional[Sequence['outputs.BotAliasLocaleSettingsItem']] = None,
-             conversation_log_settings: Optional['outputs.BotConversationLogSettings'] = None,
-             description: Optional[str] = None,
-             sentiment_analysis_settings: Optional['outputs.BotTestBotAliasSettingsSentimentAnalysisSettingsProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bot_alias_locale_settings is not None:
-            _setter("bot_alias_locale_settings", bot_alias_locale_settings)
+            pulumi.set(__self__, "bot_alias_locale_settings", bot_alias_locale_settings)
         if conversation_log_settings is not None:
-            _setter("conversation_log_settings", conversation_log_settings)
+            pulumi.set(__self__, "conversation_log_settings", conversation_log_settings)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if sentiment_analysis_settings is not None:
-            _setter("sentiment_analysis_settings", sentiment_analysis_settings)
+            pulumi.set(__self__, "sentiment_analysis_settings", sentiment_analysis_settings)
 
     @property
     @pulumi.getter(name="botAliasLocaleSettings")
@@ -5555,16 +4547,7 @@ class BotTestBotAliasSettingsSentimentAnalysisSettingsProperties(dict):
         Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         :param bool detect_sentiment: Enable to call Amazon Comprehend for Sentiment natively within Lex
         """
-        BotTestBotAliasSettingsSentimentAnalysisSettingsProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detect_sentiment=detect_sentiment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detect_sentiment: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("detect_sentiment", detect_sentiment)
+        pulumi.set(__self__, "detect_sentiment", detect_sentiment)
 
     @property
     @pulumi.getter(name="detectSentiment")
@@ -5602,16 +4585,7 @@ class BotTextLogDestination(dict):
         """
         Defines the Amazon CloudWatch Logs destination log group for conversation text logs.
         """
-        BotTextLogDestination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch=cloud_watch,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch: 'outputs.BotCloudWatchLogGroupLogDestination',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cloud_watch", cloud_watch)
+        pulumi.set(__self__, "cloud_watch", cloud_watch)
 
     @property
     @pulumi.getter(name="cloudWatch")
@@ -5630,19 +4604,8 @@ class BotTextLogSetting(dict):
         """
         Contains information about code hooks that Amazon Lex calls during a conversation.
         """
-        BotTextLogSetting._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: 'outputs.BotTextLogDestination',
-             enabled: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -5682,16 +4645,7 @@ class BotVersionLocaleDetails(dict):
         """
         The version of a bot used for a bot locale.
         """
-        BotVersionLocaleDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_bot_version=source_bot_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_bot_version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source_bot_version", source_bot_version)
+        pulumi.set(__self__, "source_bot_version", source_bot_version)
 
     @property
     @pulumi.getter(name="sourceBotVersion")
@@ -5723,19 +4677,8 @@ class BotVersionLocaleSpecification(dict):
     def __init__(__self__, *,
                  bot_version_locale_details: 'outputs.BotVersionLocaleDetails',
                  locale_id: str):
-        BotVersionLocaleSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bot_version_locale_details=bot_version_locale_details,
-            locale_id=locale_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bot_version_locale_details: 'outputs.BotVersionLocaleDetails',
-             locale_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bot_version_locale_details", bot_version_locale_details)
-        _setter("locale_id", locale_id)
+        pulumi.set(__self__, "bot_version_locale_details", bot_version_locale_details)
+        pulumi.set(__self__, "locale_id", locale_id)
 
     @property
     @pulumi.getter(name="botVersionLocaleDetails")
@@ -5778,20 +4721,9 @@ class BotVoiceSettings(dict):
         :param str voice_id: The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user.
         :param 'BotVoiceSettingsEngine' engine: Indicates the type of Amazon Polly voice that Amazon Lex should use for voice interaction with the user. For more information, see the engine parameter of the SynthesizeSpeech operation in the Amazon Polly developer guide.
         """
-        BotVoiceSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            voice_id=voice_id,
-            engine=engine,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             voice_id: str,
-             engine: Optional['BotVoiceSettingsEngine'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("voice_id", voice_id)
+        pulumi.set(__self__, "voice_id", voice_id)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
 
     @property
     @pulumi.getter(name="voiceId")
@@ -5850,27 +4782,12 @@ class BotWaitAndContinueSpecification(dict):
         :param bool is_active: Specifies whether the bot will wait for a user to respond.
         :param 'BotStillWaitingResponseSpecification' still_waiting_response: The response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
         """
-        BotWaitAndContinueSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            continue_response=continue_response,
-            waiting_response=waiting_response,
-            is_active=is_active,
-            still_waiting_response=still_waiting_response,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             continue_response: 'outputs.BotResponseSpecification',
-             waiting_response: 'outputs.BotResponseSpecification',
-             is_active: Optional[bool] = None,
-             still_waiting_response: Optional['outputs.BotStillWaitingResponseSpecification'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("continue_response", continue_response)
-        _setter("waiting_response", waiting_response)
+        pulumi.set(__self__, "continue_response", continue_response)
+        pulumi.set(__self__, "waiting_response", waiting_response)
         if is_active is not None:
-            _setter("is_active", is_active)
+            pulumi.set(__self__, "is_active", is_active)
         if still_waiting_response is not None:
-            _setter("still_waiting_response", still_waiting_response)
+            pulumi.set(__self__, "still_waiting_response", still_waiting_response)
 
     @property
     @pulumi.getter(name="continueResponse")
@@ -5932,16 +4849,7 @@ class DataPrivacyProperties(dict):
         """
         Data privacy setting of the Bot.
         """
-        DataPrivacyProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            child_directed=child_directed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             child_directed: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("child_directed", child_directed)
+        pulumi.set(__self__, "child_directed", child_directed)
 
     @property
     @pulumi.getter(name="childDirected")
@@ -5958,11 +4866,6 @@ class ResourcePolicyPolicy(dict):
         """
         A resource policy to add to the resource. The policy is a JSON structure following the IAM syntax that contains one or more statements that define the policy.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -5994,16 +4897,7 @@ class SentimentAnalysisSettingsProperties(dict):
         Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         :param bool detect_sentiment: Enable to call Amazon Comprehend for Sentiment natively within Lex
         """
-        SentimentAnalysisSettingsProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detect_sentiment=detect_sentiment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detect_sentiment: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("detect_sentiment", detect_sentiment)
+        pulumi.set(__self__, "detect_sentiment", detect_sentiment)
 
     @property
     @pulumi.getter(name="detectSentiment")

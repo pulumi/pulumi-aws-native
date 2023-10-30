@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -28,11 +28,6 @@ class ExperimentTemplateActionMap(dict):
         """
         The actions for the experiment.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -63,24 +58,11 @@ class ExperimentTemplateLogConfiguration(dict):
                  log_schema_version: int,
                  cloud_watch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties'] = None,
                  s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3ConfigurationProperties'] = None):
-        ExperimentTemplateLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_schema_version=log_schema_version,
-            cloud_watch_logs_configuration=cloud_watch_logs_configuration,
-            s3_configuration=s3_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_schema_version: int,
-             cloud_watch_logs_configuration: Optional['outputs.ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties'] = None,
-             s3_configuration: Optional['outputs.ExperimentTemplateLogConfigurationS3ConfigurationProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_schema_version", log_schema_version)
+        pulumi.set(__self__, "log_schema_version", log_schema_version)
         if cloud_watch_logs_configuration is not None:
-            _setter("cloud_watch_logs_configuration", cloud_watch_logs_configuration)
+            pulumi.set(__self__, "cloud_watch_logs_configuration", cloud_watch_logs_configuration)
         if s3_configuration is not None:
-            _setter("s3_configuration", s3_configuration)
+            pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="logSchemaVersion")
@@ -119,16 +101,7 @@ class ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties(di
 
     def __init__(__self__, *,
                  log_group_arn: str):
-        ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_arn=log_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_group_arn", log_group_arn)
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")
@@ -158,20 +131,9 @@ class ExperimentTemplateLogConfigurationS3ConfigurationProperties(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  prefix: Optional[str] = None):
-        ExperimentTemplateLogConfigurationS3ConfigurationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -189,20 +151,9 @@ class ExperimentTemplateStopCondition(dict):
     def __init__(__self__, *,
                  source: str,
                  value: Optional[str] = None):
-        ExperimentTemplateStopCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: str,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source", source)
+        pulumi.set(__self__, "source", source)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -224,11 +175,6 @@ class ExperimentTemplateTargetMap(dict):
         """
         The targets for the experiment.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

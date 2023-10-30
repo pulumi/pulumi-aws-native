@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -54,57 +54,28 @@ class TopicArgs:
                If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
         :param pulumi.Input[str] tracing_config: Tracing mode of an Amazon SNS topic. By default TracingConfig is set to PassThrough, and the topic passes through the tracing header it receives from an SNS publisher to its subscriptions. If set to Active, SNS will vend X-Ray segment data to topic owner account if the sampled flag in the tracing header is true. Only supported on standard topics.
         """
-        TopicArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            archive_policy=archive_policy,
-            content_based_deduplication=content_based_deduplication,
-            data_protection_policy=data_protection_policy,
-            display_name=display_name,
-            fifo_topic=fifo_topic,
-            kms_master_key_id=kms_master_key_id,
-            signature_version=signature_version,
-            subscription=subscription,
-            tags=tags,
-            topic_name=topic_name,
-            tracing_config=tracing_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             archive_policy: Optional[Any] = None,
-             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
-             data_protection_policy: Optional[Any] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             fifo_topic: Optional[pulumi.Input[bool]] = None,
-             kms_master_key_id: Optional[pulumi.Input[str]] = None,
-             signature_version: Optional[pulumi.Input[str]] = None,
-             subscription: Optional[pulumi.Input[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TopicTagArgs']]]] = None,
-             topic_name: Optional[pulumi.Input[str]] = None,
-             tracing_config: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if archive_policy is not None:
-            _setter("archive_policy", archive_policy)
+            pulumi.set(__self__, "archive_policy", archive_policy)
         if content_based_deduplication is not None:
-            _setter("content_based_deduplication", content_based_deduplication)
+            pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
         if data_protection_policy is not None:
-            _setter("data_protection_policy", data_protection_policy)
+            pulumi.set(__self__, "data_protection_policy", data_protection_policy)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if fifo_topic is not None:
-            _setter("fifo_topic", fifo_topic)
+            pulumi.set(__self__, "fifo_topic", fifo_topic)
         if kms_master_key_id is not None:
-            _setter("kms_master_key_id", kms_master_key_id)
+            pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
         if signature_version is not None:
-            _setter("signature_version", signature_version)
+            pulumi.set(__self__, "signature_version", signature_version)
         if subscription is not None:
-            _setter("subscription", subscription)
+            pulumi.set(__self__, "subscription", subscription)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if topic_name is not None:
-            _setter("topic_name", topic_name)
+            pulumi.set(__self__, "topic_name", topic_name)
         if tracing_config is not None:
-            _setter("tracing_config", tracing_config)
+            pulumi.set(__self__, "tracing_config", tracing_config)
 
     @property
     @pulumi.getter(name="archivePolicy")
@@ -316,10 +287,6 @@ class Topic(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TopicArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

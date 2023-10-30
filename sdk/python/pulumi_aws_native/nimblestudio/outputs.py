@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -114,50 +114,23 @@ class LaunchProfileStreamConfiguration(dict):
                                <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                            stopped (instead of terminated).</p>
         """
-        LaunchProfileStreamConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            clipboard_mode=clipboard_mode,
-            ec2_instance_types=ec2_instance_types,
-            streaming_image_ids=streaming_image_ids,
-            automatic_termination_mode=automatic_termination_mode,
-            max_session_length_in_minutes=max_session_length_in_minutes,
-            max_stopped_session_length_in_minutes=max_stopped_session_length_in_minutes,
-            session_backup=session_backup,
-            session_persistence_mode=session_persistence_mode,
-            session_storage=session_storage,
-            volume_configuration=volume_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             clipboard_mode: 'LaunchProfileStreamingClipboardMode',
-             ec2_instance_types: Sequence['LaunchProfileStreamingInstanceType'],
-             streaming_image_ids: Sequence[str],
-             automatic_termination_mode: Optional['LaunchProfileAutomaticTerminationMode'] = None,
-             max_session_length_in_minutes: Optional[float] = None,
-             max_stopped_session_length_in_minutes: Optional[float] = None,
-             session_backup: Optional['outputs.LaunchProfileStreamConfigurationSessionBackup'] = None,
-             session_persistence_mode: Optional['LaunchProfileSessionPersistenceMode'] = None,
-             session_storage: Optional['outputs.LaunchProfileStreamConfigurationSessionStorage'] = None,
-             volume_configuration: Optional['outputs.LaunchProfileVolumeConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("clipboard_mode", clipboard_mode)
-        _setter("ec2_instance_types", ec2_instance_types)
-        _setter("streaming_image_ids", streaming_image_ids)
+        pulumi.set(__self__, "clipboard_mode", clipboard_mode)
+        pulumi.set(__self__, "ec2_instance_types", ec2_instance_types)
+        pulumi.set(__self__, "streaming_image_ids", streaming_image_ids)
         if automatic_termination_mode is not None:
-            _setter("automatic_termination_mode", automatic_termination_mode)
+            pulumi.set(__self__, "automatic_termination_mode", automatic_termination_mode)
         if max_session_length_in_minutes is not None:
-            _setter("max_session_length_in_minutes", max_session_length_in_minutes)
+            pulumi.set(__self__, "max_session_length_in_minutes", max_session_length_in_minutes)
         if max_stopped_session_length_in_minutes is not None:
-            _setter("max_stopped_session_length_in_minutes", max_stopped_session_length_in_minutes)
+            pulumi.set(__self__, "max_stopped_session_length_in_minutes", max_stopped_session_length_in_minutes)
         if session_backup is not None:
-            _setter("session_backup", session_backup)
+            pulumi.set(__self__, "session_backup", session_backup)
         if session_persistence_mode is not None:
-            _setter("session_persistence_mode", session_persistence_mode)
+            pulumi.set(__self__, "session_persistence_mode", session_persistence_mode)
         if session_storage is not None:
-            _setter("session_storage", session_storage)
+            pulumi.set(__self__, "session_storage", session_storage)
         if volume_configuration is not None:
-            _setter("volume_configuration", volume_configuration)
+            pulumi.set(__self__, "volume_configuration", volume_configuration)
 
     @property
     @pulumi.getter(name="clipboardMode")
@@ -274,21 +247,10 @@ class LaunchProfileStreamConfigurationSessionBackup(dict):
         :param float max_backups_to_retain: <p>The maximum number of backups that each streaming session created from this launch
                            profile can have.</p>
         """
-        LaunchProfileStreamConfigurationSessionBackup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_backups_to_retain=max_backups_to_retain,
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_backups_to_retain: Optional[float] = None,
-             mode: Optional['LaunchProfileSessionBackupMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_backups_to_retain is not None:
-            _setter("max_backups_to_retain", max_backups_to_retain)
+            pulumi.set(__self__, "max_backups_to_retain", max_backups_to_retain)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter(name="maxBackupsToRetain")
@@ -318,20 +280,9 @@ class LaunchProfileStreamConfigurationSessionStorage(dict):
         :param Sequence['LaunchProfileStreamingSessionStorageMode'] mode: <p>Allows artists to upload files to their workstations. The only valid option is
                                <code>UPLOAD</code>.</p>
         """
-        LaunchProfileStreamConfigurationSessionStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-            root=root,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Sequence['LaunchProfileStreamingSessionStorageMode'],
-             root: Optional['outputs.LaunchProfileStreamingSessionStorageRoot'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mode", mode)
+        pulumi.set(__self__, "mode", mode)
         if root is not None:
-            _setter("root", root)
+            pulumi.set(__self__, "root", root)
 
     @property
     @pulumi.getter
@@ -363,21 +314,10 @@ class LaunchProfileStreamingSessionStorageRoot(dict):
         :param str linux: <p>The folder path in Linux workstations where files are uploaded.</p>
         :param str windows: <p>The folder path in Windows workstations where files are uploaded.</p>
         """
-        LaunchProfileStreamingSessionStorageRoot._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            linux=linux,
-            windows=windows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             linux: Optional[str] = None,
-             windows: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if linux is not None:
-            _setter("linux", linux)
+            pulumi.set(__self__, "linux", linux)
         if windows is not None:
-            _setter("windows", windows)
+            pulumi.set(__self__, "windows", windows)
 
     @property
     @pulumi.getter
@@ -399,11 +339,6 @@ class LaunchProfileStreamingSessionStorageRoot(dict):
 @pulumi.output_type
 class LaunchProfileTags(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -431,25 +366,12 @@ class LaunchProfileVolumeConfiguration(dict):
         :param float throughput: <p>The throughput to provision for the root volume that is attached to the streaming
                            session. The throughput is measured in MiB/s.</p>
         """
-        LaunchProfileVolumeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            iops=iops,
-            size=size,
-            throughput=throughput,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             iops: Optional[float] = None,
-             size: Optional[float] = None,
-             throughput: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if throughput is not None:
-            _setter("throughput", throughput)
+            pulumi.set(__self__, "throughput", throughput)
 
     @property
     @pulumi.getter
@@ -510,20 +432,9 @@ class StreamingImageEncryptionConfiguration(dict):
         <p>TODO</p>
         :param str key_arn: <p>The ARN for a KMS key that is used to encrypt studio data.</p>
         """
-        StreamingImageEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_type=key_type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_type: 'StreamingImageEncryptionConfigurationKeyType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key_type", key_type)
+        pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyType")
@@ -543,11 +454,6 @@ class StreamingImageEncryptionConfiguration(dict):
 class StreamingImageTags(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -565,21 +471,10 @@ class StudioComponentActiveDirectoryComputerAttribute(dict):
         :param str name: <p>The name for the LDAP attribute.</p>
         :param str value: <p>The value for the LDAP attribute.</p>
         """
-        StudioComponentActiveDirectoryComputerAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -638,25 +533,12 @@ class StudioComponentActiveDirectoryConfiguration(dict):
         :param str organizational_unit_distinguished_name: <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
                            computer.</p>
         """
-        StudioComponentActiveDirectoryConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            computer_attributes=computer_attributes,
-            directory_id=directory_id,
-            organizational_unit_distinguished_name=organizational_unit_distinguished_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             computer_attributes: Optional[Sequence['outputs.StudioComponentActiveDirectoryComputerAttribute']] = None,
-             directory_id: Optional[str] = None,
-             organizational_unit_distinguished_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if computer_attributes is not None:
-            _setter("computer_attributes", computer_attributes)
+            pulumi.set(__self__, "computer_attributes", computer_attributes)
         if directory_id is not None:
-            _setter("directory_id", directory_id)
+            pulumi.set(__self__, "directory_id", directory_id)
         if organizational_unit_distinguished_name is not None:
-            _setter("organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="computerAttributes")
@@ -717,21 +599,10 @@ class StudioComponentComputeFarmConfiguration(dict):
         :param str endpoint: <p>The endpoint of the ComputeFarm that is accessed by the studio component
                            resource.</p>
         """
-        StudioComponentComputeFarmConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active_directory_user=active_directory_user,
-            endpoint=endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active_directory_user: Optional[str] = None,
-             endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if active_directory_user is not None:
-            _setter("active_directory_user", active_directory_user)
+            pulumi.set(__self__, "active_directory_user", active_directory_user)
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter(name="activeDirectoryUser")
@@ -779,16 +650,7 @@ class StudioComponentConfiguration0Properties(dict):
         """
         <p>The configuration of the studio component, based on component type.</p>
         """
-        StudioComponentConfiguration0Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active_directory_configuration=active_directory_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active_directory_configuration: 'outputs.StudioComponentActiveDirectoryConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("active_directory_configuration", active_directory_configuration)
+        pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
 
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
@@ -823,16 +685,7 @@ class StudioComponentConfiguration1Properties(dict):
         """
         <p>The configuration of the studio component, based on component type.</p>
         """
-        StudioComponentConfiguration1Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compute_farm_configuration=compute_farm_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compute_farm_configuration: 'outputs.StudioComponentComputeFarmConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("compute_farm_configuration", compute_farm_configuration)
+        pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
 
     @property
     @pulumi.getter(name="computeFarmConfiguration")
@@ -867,16 +720,7 @@ class StudioComponentConfiguration2Properties(dict):
         """
         <p>The configuration of the studio component, based on component type.</p>
         """
-        StudioComponentConfiguration2Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            license_service_configuration=license_service_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             license_service_configuration: 'outputs.StudioComponentLicenseServiceConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("license_service_configuration", license_service_configuration)
+        pulumi.set(__self__, "license_service_configuration", license_service_configuration)
 
     @property
     @pulumi.getter(name="licenseServiceConfiguration")
@@ -911,16 +755,7 @@ class StudioComponentConfiguration3Properties(dict):
         """
         <p>The configuration of the studio component, based on component type.</p>
         """
-        StudioComponentConfiguration3Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            shared_file_system_configuration=shared_file_system_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             shared_file_system_configuration: 'outputs.StudioComponentSharedFileSystemConfiguration',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("shared_file_system_configuration", shared_file_system_configuration)
+        pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
 
     @property
     @pulumi.getter(name="sharedFileSystemConfiguration")
@@ -963,29 +798,14 @@ class StudioComponentInitializationScript(dict):
                            version is "2021-03-31".</p>
         :param str script: <p>The initialization script.</p>
         """
-        StudioComponentInitializationScript._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            launch_profile_protocol_version=launch_profile_protocol_version,
-            platform=platform,
-            run_context=run_context,
-            script=script,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             launch_profile_protocol_version: Optional[str] = None,
-             platform: Optional['StudioComponentLaunchProfilePlatform'] = None,
-             run_context: Optional['StudioComponentInitializationScriptRunContext'] = None,
-             script: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if launch_profile_protocol_version is not None:
-            _setter("launch_profile_protocol_version", launch_profile_protocol_version)
+            pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
         if platform is not None:
-            _setter("platform", platform)
+            pulumi.set(__self__, "platform", platform)
         if run_context is not None:
-            _setter("run_context", run_context)
+            pulumi.set(__self__, "run_context", run_context)
         if script is not None:
-            _setter("script", script)
+            pulumi.set(__self__, "script", script)
 
     @property
     @pulumi.getter(name="launchProfileProtocolVersion")
@@ -1029,17 +849,8 @@ class StudioComponentLicenseServiceConfiguration(dict):
         :param str endpoint: <p>The endpoint of the license service that is accessed by the studio component
                            resource.</p>
         """
-        StudioComponentLicenseServiceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint=endpoint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
 
     @property
     @pulumi.getter
@@ -1064,21 +875,10 @@ class StudioComponentScriptParameterKeyValue(dict):
         :param str key: <p>A script parameter key.</p>
         :param str value: <p>A script parameter value.</p>
         """
-        StudioComponentScriptParameterKeyValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1142,33 +942,16 @@ class StudioComponentSharedFileSystemConfiguration(dict):
         :param str share_name: <p>The name of the file share.</p>
         :param str windows_mount_drive: <p>The mount location for a shared file system on a Windows virtual workstation.</p>
         """
-        StudioComponentSharedFileSystemConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint=endpoint,
-            file_system_id=file_system_id,
-            linux_mount_point=linux_mount_point,
-            share_name=share_name,
-            windows_mount_drive=windows_mount_drive,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint: Optional[str] = None,
-             file_system_id: Optional[str] = None,
-             linux_mount_point: Optional[str] = None,
-             share_name: Optional[str] = None,
-             windows_mount_drive: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoint is not None:
-            _setter("endpoint", endpoint)
+            pulumi.set(__self__, "endpoint", endpoint)
         if file_system_id is not None:
-            _setter("file_system_id", file_system_id)
+            pulumi.set(__self__, "file_system_id", file_system_id)
         if linux_mount_point is not None:
-            _setter("linux_mount_point", linux_mount_point)
+            pulumi.set(__self__, "linux_mount_point", linux_mount_point)
         if share_name is not None:
-            _setter("share_name", share_name)
+            pulumi.set(__self__, "share_name", share_name)
         if windows_mount_drive is not None:
-            _setter("windows_mount_drive", windows_mount_drive)
+            pulumi.set(__self__, "windows_mount_drive", windows_mount_drive)
 
     @property
     @pulumi.getter
@@ -1216,11 +999,6 @@ class StudioComponentSharedFileSystemConfiguration(dict):
 class StudioComponentTags(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -1254,20 +1032,9 @@ class StudioEncryptionConfiguration(dict):
         <p>Configuration of the encryption method that is used for the studio.</p>
         :param str key_arn: <p>The ARN for a KMS key that is used to encrypt studio data.</p>
         """
-        StudioEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_type=key_type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_type: 'StudioEncryptionConfigurationKeyType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key_type", key_type)
+        pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyType")
@@ -1286,11 +1053,6 @@ class StudioEncryptionConfiguration(dict):
 @pulumi.output_type
 class StudioTags(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

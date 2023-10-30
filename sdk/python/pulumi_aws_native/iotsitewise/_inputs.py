@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -52,17 +52,8 @@ class AccessPolicyIamRoleArgs:
         Contains information for an IAM role identity in an access policy.
         :param pulumi.Input[str] arn: The ARN of the IAM role.
         """
-        AccessPolicyIamRoleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -85,17 +76,8 @@ class AccessPolicyIamUserArgs:
         Contains information for an IAM user identity in an access policy.
         :param pulumi.Input[str] arn: The ARN of the IAM user.
         """
-        AccessPolicyIamUserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -119,25 +101,12 @@ class AccessPolicyIdentityArgs:
         """
         The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
         """
-        AccessPolicyIdentityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            iam_role=iam_role,
-            iam_user=iam_user,
-            user=user,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             iam_role: Optional[pulumi.Input['AccessPolicyIamRoleArgs']] = None,
-             iam_user: Optional[pulumi.Input['AccessPolicyIamUserArgs']] = None,
-             user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if iam_role is not None:
-            _setter("iam_role", iam_role)
+            pulumi.set(__self__, "iam_role", iam_role)
         if iam_user is not None:
-            _setter("iam_user", iam_user)
+            pulumi.set(__self__, "iam_user", iam_user)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
 
     @property
     @pulumi.getter(name="iamRole")
@@ -175,17 +144,8 @@ class AccessPolicyPortalArgs:
         A portal resource.
         :param pulumi.Input[str] id: The ID of the portal.
         """
-        AccessPolicyPortalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -208,17 +168,8 @@ class AccessPolicyProjectArgs:
         A project resource.
         :param pulumi.Input[str] id: The ID of the project.
         """
-        AccessPolicyProjectArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -241,21 +192,10 @@ class AccessPolicyResourceArgs:
         """
         The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
         """
-        AccessPolicyResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            portal=portal,
-            project=project,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             portal: Optional[pulumi.Input['AccessPolicyPortalArgs']] = None,
-             project: Optional[pulumi.Input['AccessPolicyProjectArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if portal is not None:
-            _setter("portal", portal)
+            pulumi.set(__self__, "portal", portal)
         if project is not None:
-            _setter("project", project)
+            pulumi.set(__self__, "project", project)
 
     @property
     @pulumi.getter
@@ -284,17 +224,8 @@ class AccessPolicyUserArgs:
         Contains information for a user identity in an access policy.
         :param pulumi.Input[str] id: The AWS SSO ID of the user.
         """
-        AccessPolicyUserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
@@ -319,21 +250,10 @@ class AlarmsPropertiesArgs:
         :param pulumi.Input[str] alarm_role_arn: The ARN of the IAM role that allows the alarm to perform actions and access AWS resources and services, such as AWS IoT Events.
         :param pulumi.Input[str] notification_lambda_arn: The ARN of the AWS Lambda function that manages alarm notifications. For more information, see Managing alarm notifications in the AWS IoT Events Developer Guide.
         """
-        AlarmsPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_role_arn=alarm_role_arn,
-            notification_lambda_arn=notification_lambda_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_role_arn: Optional[pulumi.Input[str]] = None,
-             notification_lambda_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alarm_role_arn is not None:
-            _setter("alarm_role_arn", alarm_role_arn)
+            pulumi.set(__self__, "alarm_role_arn", alarm_role_arn)
         if notification_lambda_arn is not None:
-            _setter("notification_lambda_arn", notification_lambda_arn)
+            pulumi.set(__self__, "notification_lambda_arn", notification_lambda_arn)
 
     @property
     @pulumi.getter(name="alarmRoleArn")
@@ -370,19 +290,8 @@ class AssetHierarchyArgs:
         :param pulumi.Input[str] child_asset_id: The ID of the child asset to be associated.
         :param pulumi.Input[str] logical_id: The LogicalID of a hierarchy in the parent asset's model.
         """
-        AssetHierarchyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            child_asset_id=child_asset_id,
-            logical_id=logical_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             child_asset_id: pulumi.Input[str],
-             logical_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("child_asset_id", child_asset_id)
-        _setter("logical_id", logical_id)
+        pulumi.set(__self__, "child_asset_id", child_asset_id)
+        pulumi.set(__self__, "logical_id", logical_id)
 
     @property
     @pulumi.getter(name="childAssetId")
@@ -413,17 +322,8 @@ class AssetHierarchyArgs:
 class AssetModelAttributeArgs:
     def __init__(__self__, *,
                  default_value: Optional[pulumi.Input[str]] = None):
-        AssetModelAttributeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_value=default_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
 
     @property
     @pulumi.getter(name="defaultValue")
@@ -449,27 +349,12 @@ class AssetModelCompositeModelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]] composite_model_properties: The property definitions of the asset model. You can specify up to 200 properties per asset model.
         :param pulumi.Input[str] description: A description for the asset composite model.
         """
-        AssetModelCompositeModelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-            composite_model_properties=composite_model_properties,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
-             composite_model_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetModelPropertyArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
         if composite_model_properties is not None:
-            _setter("composite_model_properties", composite_model_properties)
+            pulumi.set(__self__, "composite_model_properties", composite_model_properties)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -529,19 +414,8 @@ class AssetModelExpressionVariableArgs:
         :param pulumi.Input[str] name: The friendly name of the variable to be used in the expression.
         :param pulumi.Input['AssetModelVariableValueArgs'] value: The variable that identifies an asset property from which to use values.
         """
-        AssetModelExpressionVariableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             value: pulumi.Input['AssetModelVariableValueArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -580,22 +454,9 @@ class AssetModelHierarchyArgs:
         :param pulumi.Input[str] logical_id: Customer provided ID for hierarchy.
         :param pulumi.Input[str] name: The name of the asset model hierarchy.
         """
-        AssetModelHierarchyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            child_asset_model_id=child_asset_model_id,
-            logical_id=logical_id,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             child_asset_model_id: pulumi.Input[str],
-             logical_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("child_asset_model_id", child_asset_model_id)
-        _setter("logical_id", logical_id)
-        _setter("name", name)
+        pulumi.set(__self__, "child_asset_model_id", child_asset_model_id)
+        pulumi.set(__self__, "logical_id", logical_id)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="childAssetModelId")
@@ -641,17 +502,8 @@ class AssetModelMetricWindowArgs:
         """
         Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
         """
-        AssetModelMetricWindowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tumbling=tumbling,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if tumbling is not None:
-            _setter("tumbling", tumbling)
+            pulumi.set(__self__, "tumbling", tumbling)
 
     @property
     @pulumi.getter
@@ -674,22 +526,9 @@ class AssetModelMetricArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]] variables: The list of variables used in the expression.
         :param pulumi.Input['AssetModelMetricWindowArgs'] window: The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
         """
-        AssetModelMetricArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression=expression,
-            variables=variables,
-            window=window,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]],
-             window: pulumi.Input['AssetModelMetricWindowArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("expression", expression)
-        _setter("variables", variables)
-        _setter("window", window)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "variables", variables)
+        pulumi.set(__self__, "window", window)
 
     @property
     @pulumi.getter
@@ -738,28 +577,13 @@ class AssetModelPropertyTypeArgs:
         """
         Contains a property type, which can be one of attribute, measurement, metric, or transform.
         """
-        AssetModelPropertyTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type_name=type_name,
-            attribute=attribute,
-            metric=metric,
-            transform=transform,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type_name: pulumi.Input['AssetModelTypeName'],
-             attribute: Optional[pulumi.Input['AssetModelAttributeArgs']] = None,
-             metric: Optional[pulumi.Input['AssetModelMetricArgs']] = None,
-             transform: Optional[pulumi.Input['AssetModelTransformArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type_name", type_name)
+        pulumi.set(__self__, "type_name", type_name)
         if attribute is not None:
-            _setter("attribute", attribute)
+            pulumi.set(__self__, "attribute", attribute)
         if metric is not None:
-            _setter("metric", metric)
+            pulumi.set(__self__, "metric", metric)
         if transform is not None:
-            _setter("transform", transform)
+            pulumi.set(__self__, "transform", transform)
 
     @property
     @pulumi.getter(name="typeName")
@@ -816,33 +640,14 @@ class AssetModelPropertyArgs:
         :param pulumi.Input['AssetModelDataTypeSpec'] data_type_spec: The data type of the structure for this property.
         :param pulumi.Input[str] unit: The unit of the asset model property, such as Newtons or RPM.
         """
-        AssetModelPropertyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_type=data_type,
-            logical_id=logical_id,
-            name=name,
-            type=type,
-            data_type_spec=data_type_spec,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['AssetModelDataType'],
-             logical_id: pulumi.Input[str],
-             name: pulumi.Input[str],
-             type: pulumi.Input['AssetModelPropertyTypeArgs'],
-             data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_type", data_type)
-        _setter("logical_id", logical_id)
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "logical_id", logical_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
         if data_type_spec is not None:
-            _setter("data_type_spec", data_type_spec)
+            pulumi.set(__self__, "data_type_spec", data_type_spec)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="dataType")
@@ -922,19 +727,8 @@ class AssetModelTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        AssetModelTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -964,19 +758,8 @@ class AssetModelTransformArgs:
         :param pulumi.Input[str] expression: The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
         :param pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]] variables: The list of variables used in the expression.
         """
-        AssetModelTransformArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression=expression,
-            variables=variables,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             variables: pulumi.Input[Sequence[pulumi.Input['AssetModelExpressionVariableArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("expression", expression)
-        _setter("variables", variables)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -1011,20 +794,9 @@ class AssetModelTumblingWindowArgs:
         """
         Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
         """
-        AssetModelTumblingWindowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-            offset=offset,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: pulumi.Input[str],
-             offset: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("interval", interval)
+        pulumi.set(__self__, "interval", interval)
         if offset is not None:
-            _setter("offset", offset)
+            pulumi.set(__self__, "offset", offset)
 
     @property
     @pulumi.getter
@@ -1050,20 +822,9 @@ class AssetModelVariableValueArgs:
     def __init__(__self__, *,
                  property_logical_id: pulumi.Input[str],
                  hierarchy_logical_id: Optional[pulumi.Input[str]] = None):
-        AssetModelVariableValueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            property_logical_id=property_logical_id,
-            hierarchy_logical_id=hierarchy_logical_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             property_logical_id: pulumi.Input[str],
-             hierarchy_logical_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("property_logical_id", property_logical_id)
+        pulumi.set(__self__, "property_logical_id", property_logical_id)
         if hierarchy_logical_id is not None:
-            _setter("hierarchy_logical_id", hierarchy_logical_id)
+            pulumi.set(__self__, "hierarchy_logical_id", hierarchy_logical_id)
 
     @property
     @pulumi.getter(name="propertyLogicalId")
@@ -1098,28 +859,13 @@ class AssetPropertyArgs:
         :param pulumi.Input['AssetPropertyNotificationState'] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
         :param pulumi.Input[str] unit: The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a value for this parameter, the service uses the value of the assetModelProperty in the asset model.
         """
-        AssetPropertyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            logical_id=logical_id,
-            alias=alias,
-            notification_state=notification_state,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             logical_id: pulumi.Input[str],
-             alias: Optional[pulumi.Input[str]] = None,
-             notification_state: Optional[pulumi.Input['AssetPropertyNotificationState']] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("logical_id", logical_id)
+        pulumi.set(__self__, "logical_id", logical_id)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if notification_state is not None:
-            _setter("notification_state", notification_state)
+            pulumi.set(__self__, "notification_state", notification_state)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="logicalId")
@@ -1175,19 +921,8 @@ class AssetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        AssetTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1216,19 +951,8 @@ class DashboardTagArgs:
         """
         To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
         """
-        DashboardTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1257,20 +981,9 @@ class GatewayCapabilitySummaryArgs:
         """
         Contains a summary of a gateway capability configuration.
         """
-        GatewayCapabilitySummaryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capability_namespace=capability_namespace,
-            capability_configuration=capability_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capability_namespace: pulumi.Input[str],
-             capability_configuration: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("capability_namespace", capability_namespace)
+        pulumi.set(__self__, "capability_namespace", capability_namespace)
         if capability_configuration is not None:
-            _setter("capability_configuration", capability_configuration)
+            pulumi.set(__self__, "capability_configuration", capability_configuration)
 
     @property
     @pulumi.getter(name="capabilityNamespace")
@@ -1299,16 +1012,7 @@ class GatewayGreengrassV2Args:
         Contains the CoreDeviceThingName of AWS IoT Greengrass Group V2 that the gateway runs on.
         :param pulumi.Input[str] core_device_thing_name: The name of the CoreDevice in GreenGrass V2.
         """
-        GatewayGreengrassV2Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            core_device_thing_name=core_device_thing_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             core_device_thing_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("core_device_thing_name", core_device_thing_name)
+        pulumi.set(__self__, "core_device_thing_name", core_device_thing_name)
 
     @property
     @pulumi.getter(name="coreDeviceThingName")
@@ -1331,16 +1035,7 @@ class GatewayGreengrassArgs:
         Contains the ARN of AWS IoT Greengrass Group V1 that the gateway runs on.
         :param pulumi.Input[str] group_arn: The ARN of the Greengrass group.
         """
-        GatewayGreengrassArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_arn=group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_arn", group_arn)
+        pulumi.set(__self__, "group_arn", group_arn)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -1365,21 +1060,10 @@ class GatewayPlatformArgs:
         :param pulumi.Input['GatewayGreengrassArgs'] greengrass: A gateway that runs on AWS IoT Greengrass V1.
         :param pulumi.Input['GatewayGreengrassV2Args'] greengrass_v2: A gateway that runs on AWS IoT Greengrass V2.
         """
-        GatewayPlatformArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            greengrass=greengrass,
-            greengrass_v2=greengrass_v2,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             greengrass: Optional[pulumi.Input['GatewayGreengrassArgs']] = None,
-             greengrass_v2: Optional[pulumi.Input['GatewayGreengrassV2Args']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if greengrass is not None:
-            _setter("greengrass", greengrass)
+            pulumi.set(__self__, "greengrass", greengrass)
         if greengrass_v2 is not None:
-            _setter("greengrass_v2", greengrass_v2)
+            pulumi.set(__self__, "greengrass_v2", greengrass_v2)
 
     @property
     @pulumi.getter
@@ -1414,19 +1098,8 @@ class GatewayTagArgs:
         """
         To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
         """
-        GatewayTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1455,19 +1128,8 @@ class PortalTagArgs:
         """
         To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
         """
-        PortalTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1496,19 +1158,8 @@ class ProjectTagArgs:
         """
         To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
         """
-        ProjectTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

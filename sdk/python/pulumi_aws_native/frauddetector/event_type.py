@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,34 +29,15 @@ class EventTypeArgs:
         :param pulumi.Input[str] name: The name for the event type
         :param pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]] tags: Tags associated with this event type.
         """
-        EventTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_types=entity_types,
-            event_variables=event_variables,
-            labels=labels,
-            description=description,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_types: pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]],
-             event_variables: pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]],
-             labels: pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("entity_types", entity_types)
-        _setter("event_variables", event_variables)
-        _setter("labels", labels)
+        pulumi.set(__self__, "entity_types", entity_types)
+        pulumi.set(__self__, "event_variables", event_variables)
+        pulumi.set(__self__, "labels", labels)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="entityTypes")
@@ -162,10 +143,6 @@ class EventType(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventTypeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

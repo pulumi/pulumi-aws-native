@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceLinkedRoleArgs', 'ServiceLinkedRole']
@@ -23,25 +23,12 @@ class ServiceLinkedRoleArgs:
         :param pulumi.Input[str] custom_suffix: A string that you provide, which is combined with the service-provided prefix to form the complete role name.
         :param pulumi.Input[str] description: The description of the role.
         """
-        ServiceLinkedRoleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_service_name=aws_service_name,
-            custom_suffix=custom_suffix,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_service_name: Optional[pulumi.Input[str]] = None,
-             custom_suffix: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_service_name is not None:
-            _setter("aws_service_name", aws_service_name)
+            pulumi.set(__self__, "aws_service_name", aws_service_name)
         if custom_suffix is not None:
-            _setter("custom_suffix", custom_suffix)
+            pulumi.set(__self__, "custom_suffix", custom_suffix)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="awsServiceName")
@@ -117,10 +104,6 @@ class ServiceLinkedRole(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceLinkedRoleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

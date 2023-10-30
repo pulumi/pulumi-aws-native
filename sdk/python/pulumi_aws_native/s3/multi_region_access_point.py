@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,24 +25,11 @@ class MultiRegionAccessPointArgs:
         :param pulumi.Input[str] name: The name you want to assign to this Multi Region Access Point.
         :param pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         """
-        MultiRegionAccessPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            regions=regions,
-            name=name,
-            public_access_block_configuration=public_access_block_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointRegionArgs']]],
-             name: Optional[pulumi.Input[str]] = None,
-             public_access_block_configuration: Optional[pulumi.Input['MultiRegionAccessPointPublicAccessBlockConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("regions", regions)
+        pulumi.set(__self__, "regions", regions)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_access_block_configuration is not None:
-            _setter("public_access_block_configuration", public_access_block_configuration)
+            pulumi.set(__self__, "public_access_block_configuration", public_access_block_configuration)
 
     @property
     @pulumi.getter
@@ -118,10 +105,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MultiRegionAccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,11 +123,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
             __props__ = MultiRegionAccessPointArgs.__new__(MultiRegionAccessPointArgs)
 
             __props__.__dict__["name"] = name
-            if public_access_block_configuration is not None and not isinstance(public_access_block_configuration, MultiRegionAccessPointPublicAccessBlockConfigurationArgs):
-                public_access_block_configuration = public_access_block_configuration or {}
-                def _setter(key, value):
-                    public_access_block_configuration[key] = value
-                MultiRegionAccessPointPublicAccessBlockConfigurationArgs._configure(_setter, **public_access_block_configuration)
             __props__.__dict__["public_access_block_configuration"] = public_access_block_configuration
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")

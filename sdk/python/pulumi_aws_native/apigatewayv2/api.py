@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,81 +53,40 @@ class ApiArgs:
         :param pulumi.Input[str] target: This property is part of quick create. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes. For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN. The type of the integration will be HTTP_PROXY or AWS_PROXY, respectively. Supported only for HTTP APIs.
         :param pulumi.Input[str] version: A version identifier for the API.
         """
-        ApiArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key_selection_expression=api_key_selection_expression,
-            base_path=base_path,
-            body=body,
-            body_s3_location=body_s3_location,
-            cors_configuration=cors_configuration,
-            credentials_arn=credentials_arn,
-            description=description,
-            disable_execute_api_endpoint=disable_execute_api_endpoint,
-            disable_schema_validation=disable_schema_validation,
-            fail_on_warnings=fail_on_warnings,
-            name=name,
-            protocol_type=protocol_type,
-            route_key=route_key,
-            route_selection_expression=route_selection_expression,
-            tags=tags,
-            target=target,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key_selection_expression: Optional[pulumi.Input[str]] = None,
-             base_path: Optional[pulumi.Input[str]] = None,
-             body: Optional[Any] = None,
-             body_s3_location: Optional[pulumi.Input['ApiBodyS3LocationArgs']] = None,
-             cors_configuration: Optional[pulumi.Input['ApiCorsArgs']] = None,
-             credentials_arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-             disable_schema_validation: Optional[pulumi.Input[bool]] = None,
-             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             protocol_type: Optional[pulumi.Input[str]] = None,
-             route_key: Optional[pulumi.Input[str]] = None,
-             route_selection_expression: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if api_key_selection_expression is not None:
-            _setter("api_key_selection_expression", api_key_selection_expression)
+            pulumi.set(__self__, "api_key_selection_expression", api_key_selection_expression)
         if base_path is not None:
-            _setter("base_path", base_path)
+            pulumi.set(__self__, "base_path", base_path)
         if body is not None:
-            _setter("body", body)
+            pulumi.set(__self__, "body", body)
         if body_s3_location is not None:
-            _setter("body_s3_location", body_s3_location)
+            pulumi.set(__self__, "body_s3_location", body_s3_location)
         if cors_configuration is not None:
-            _setter("cors_configuration", cors_configuration)
+            pulumi.set(__self__, "cors_configuration", cors_configuration)
         if credentials_arn is not None:
-            _setter("credentials_arn", credentials_arn)
+            pulumi.set(__self__, "credentials_arn", credentials_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disable_execute_api_endpoint is not None:
-            _setter("disable_execute_api_endpoint", disable_execute_api_endpoint)
+            pulumi.set(__self__, "disable_execute_api_endpoint", disable_execute_api_endpoint)
         if disable_schema_validation is not None:
-            _setter("disable_schema_validation", disable_schema_validation)
+            pulumi.set(__self__, "disable_schema_validation", disable_schema_validation)
         if fail_on_warnings is not None:
-            _setter("fail_on_warnings", fail_on_warnings)
+            pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if protocol_type is not None:
-            _setter("protocol_type", protocol_type)
+            pulumi.set(__self__, "protocol_type", protocol_type)
         if route_key is not None:
-            _setter("route_key", route_key)
+            pulumi.set(__self__, "route_key", route_key)
         if route_selection_expression is not None:
-            _setter("route_selection_expression", route_selection_expression)
+            pulumi.set(__self__, "route_selection_expression", route_selection_expression)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="apiKeySelectionExpression")
@@ -399,10 +358,6 @@ class Api(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -437,17 +392,7 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["api_key_selection_expression"] = api_key_selection_expression
             __props__.__dict__["base_path"] = base_path
             __props__.__dict__["body"] = body
-            if body_s3_location is not None and not isinstance(body_s3_location, ApiBodyS3LocationArgs):
-                body_s3_location = body_s3_location or {}
-                def _setter(key, value):
-                    body_s3_location[key] = value
-                ApiBodyS3LocationArgs._configure(_setter, **body_s3_location)
             __props__.__dict__["body_s3_location"] = body_s3_location
-            if cors_configuration is not None and not isinstance(cors_configuration, ApiCorsArgs):
-                cors_configuration = cors_configuration or {}
-                def _setter(key, value):
-                    cors_configuration[key] = value
-                ApiCorsArgs._configure(_setter, **cors_configuration)
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["credentials_arn"] = credentials_arn
             __props__.__dict__["description"] = description

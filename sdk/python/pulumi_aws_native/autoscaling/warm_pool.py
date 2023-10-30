@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,32 +24,15 @@ class WarmPoolArgs:
         """
         The set of arguments for constructing a WarmPool resource.
         """
-        WarmPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_scaling_group_name=auto_scaling_group_name,
-            instance_reuse_policy=instance_reuse_policy,
-            max_group_prepared_capacity=max_group_prepared_capacity,
-            min_size=min_size,
-            pool_state=pool_state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
-             instance_reuse_policy: Optional[pulumi.Input['WarmPoolInstanceReusePolicyArgs']] = None,
-             max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
-             min_size: Optional[pulumi.Input[int]] = None,
-             pool_state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_scaling_group_name", auto_scaling_group_name)
+        pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if instance_reuse_policy is not None:
-            _setter("instance_reuse_policy", instance_reuse_policy)
+            pulumi.set(__self__, "instance_reuse_policy", instance_reuse_policy)
         if max_group_prepared_capacity is not None:
-            _setter("max_group_prepared_capacity", max_group_prepared_capacity)
+            pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
         if min_size is not None:
-            _setter("min_size", min_size)
+            pulumi.set(__self__, "min_size", min_size)
         if pool_state is not None:
-            _setter("pool_state", pool_state)
+            pulumi.set(__self__, "pool_state", pool_state)
 
     @property
     @pulumi.getter(name="autoScalingGroupName")
@@ -133,10 +116,6 @@ class WarmPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WarmPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -159,11 +138,6 @@ class WarmPool(pulumi.CustomResource):
             if auto_scaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_scaling_group_name'")
             __props__.__dict__["auto_scaling_group_name"] = auto_scaling_group_name
-            if instance_reuse_policy is not None and not isinstance(instance_reuse_policy, WarmPoolInstanceReusePolicyArgs):
-                instance_reuse_policy = instance_reuse_policy or {}
-                def _setter(key, value):
-                    instance_reuse_policy[key] = value
-                WarmPoolInstanceReusePolicyArgs._configure(_setter, **instance_reuse_policy)
             __props__.__dict__["instance_reuse_policy"] = instance_reuse_policy
             __props__.__dict__["max_group_prepared_capacity"] = max_group_prepared_capacity
             __props__.__dict__["min_size"] = min_size

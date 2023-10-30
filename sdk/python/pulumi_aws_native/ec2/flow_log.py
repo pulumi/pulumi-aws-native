@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -43,59 +43,28 @@ class FlowLogArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]] tags: The tags to apply to the flow logs.
         :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
-        FlowLogArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_id=resource_id,
-            resource_type=resource_type,
-            deliver_cross_account_role=deliver_cross_account_role,
-            deliver_logs_permission_arn=deliver_logs_permission_arn,
-            destination_options=destination_options,
-            log_destination=log_destination,
-            log_destination_type=log_destination_type,
-            log_format=log_format,
-            log_group_name=log_group_name,
-            max_aggregation_interval=max_aggregation_interval,
-            tags=tags,
-            traffic_type=traffic_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_id: pulumi.Input[str],
-             resource_type: pulumi.Input['FlowLogResourceType'],
-             deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
-             deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
-             destination_options: Optional[pulumi.Input['DestinationOptionsPropertiesArgs']] = None,
-             log_destination: Optional[pulumi.Input[str]] = None,
-             log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
-             log_format: Optional[pulumi.Input[str]] = None,
-             log_group_name: Optional[pulumi.Input[str]] = None,
-             max_aggregation_interval: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowLogTagArgs']]]] = None,
-             traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_id", resource_id)
-        _setter("resource_type", resource_type)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_type", resource_type)
         if deliver_cross_account_role is not None:
-            _setter("deliver_cross_account_role", deliver_cross_account_role)
+            pulumi.set(__self__, "deliver_cross_account_role", deliver_cross_account_role)
         if deliver_logs_permission_arn is not None:
-            _setter("deliver_logs_permission_arn", deliver_logs_permission_arn)
+            pulumi.set(__self__, "deliver_logs_permission_arn", deliver_logs_permission_arn)
         if destination_options is not None:
-            _setter("destination_options", destination_options)
+            pulumi.set(__self__, "destination_options", destination_options)
         if log_destination is not None:
-            _setter("log_destination", log_destination)
+            pulumi.set(__self__, "log_destination", log_destination)
         if log_destination_type is not None:
-            _setter("log_destination_type", log_destination_type)
+            pulumi.set(__self__, "log_destination_type", log_destination_type)
         if log_format is not None:
-            _setter("log_format", log_format)
+            pulumi.set(__self__, "log_format", log_format)
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if max_aggregation_interval is not None:
-            _setter("max_aggregation_interval", max_aggregation_interval)
+            pulumi.set(__self__, "max_aggregation_interval", max_aggregation_interval)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if traffic_type is not None:
-            _setter("traffic_type", traffic_type)
+            pulumi.set(__self__, "traffic_type", traffic_type)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -293,10 +262,6 @@ class FlowLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FlowLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -325,11 +290,6 @@ class FlowLog(pulumi.CustomResource):
 
             __props__.__dict__["deliver_cross_account_role"] = deliver_cross_account_role
             __props__.__dict__["deliver_logs_permission_arn"] = deliver_logs_permission_arn
-            if destination_options is not None and not isinstance(destination_options, DestinationOptionsPropertiesArgs):
-                destination_options = destination_options or {}
-                def _setter(key, value):
-                    destination_options[key] = value
-                DestinationOptionsPropertiesArgs._configure(_setter, **destination_options)
             __props__.__dict__["destination_options"] = destination_options
             __props__.__dict__["log_destination"] = log_destination
             __props__.__dict__["log_destination_type"] = log_destination_type

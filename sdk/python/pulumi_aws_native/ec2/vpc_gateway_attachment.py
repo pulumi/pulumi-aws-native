@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcGatewayAttachmentArgs', 'VpcGatewayAttachment']
@@ -20,24 +20,11 @@ class VpcGatewayAttachmentArgs:
         """
         The set of arguments for constructing a VpcGatewayAttachment resource.
         """
-        VpcGatewayAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_id=vpc_id,
-            internet_gateway_id=internet_gateway_id,
-            vpn_gateway_id=vpn_gateway_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_id: pulumi.Input[str],
-             internet_gateway_id: Optional[pulumi.Input[str]] = None,
-             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if internet_gateway_id is not None:
-            _setter("internet_gateway_id", internet_gateway_id)
+            pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
         if vpn_gateway_id is not None:
-            _setter("vpn_gateway_id", vpn_gateway_id)
+            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -106,10 +93,6 @@ class VpcGatewayAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcGatewayAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

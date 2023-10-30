@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,32 +24,15 @@ class ConfigurationArgs:
         """
         The set of arguments for constructing a Configuration resource.
         """
-        ConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_properties=server_properties,
-            description=description,
-            kafka_versions_list=kafka_versions_list,
-            latest_revision=latest_revision,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_properties: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             kafka_versions_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             latest_revision: Optional[pulumi.Input['ConfigurationLatestRevisionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("server_properties", server_properties)
+        pulumi.set(__self__, "server_properties", server_properties)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kafka_versions_list is not None:
-            _setter("kafka_versions_list", kafka_versions_list)
+            pulumi.set(__self__, "kafka_versions_list", kafka_versions_list)
         if latest_revision is not None:
-            _setter("latest_revision", latest_revision)
+            pulumi.set(__self__, "latest_revision", latest_revision)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="serverProperties")
@@ -133,10 +116,6 @@ class Configuration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -158,11 +137,6 @@ class Configuration(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kafka_versions_list"] = kafka_versions_list
-            if latest_revision is not None and not isinstance(latest_revision, ConfigurationLatestRevisionArgs):
-                latest_revision = latest_revision or {}
-                def _setter(key, value):
-                    latest_revision[key] = value
-                ConfigurationLatestRevisionArgs._configure(_setter, **latest_revision)
             __props__.__dict__["latest_revision"] = latest_revision
             __props__.__dict__["name"] = name
             if server_properties is None and not opts.urn:

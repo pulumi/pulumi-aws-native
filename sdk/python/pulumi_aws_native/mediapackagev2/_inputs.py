@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,21 +30,10 @@ class ChannelGroupTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        ChannelGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -70,21 +59,10 @@ class ChannelTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        ChannelTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -113,19 +91,8 @@ class OriginEndpointEncryptionContractConfigurationArgs:
         """
         <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
         """
-        OriginEndpointEncryptionContractConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            preset_speke20_audio=preset_speke20_audio,
-            preset_speke20_video=preset_speke20_video,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             preset_speke20_audio: pulumi.Input['OriginEndpointPresetSpeke20Audio'],
-             preset_speke20_video: pulumi.Input['OriginEndpointPresetSpeke20Video'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("preset_speke20_audio", preset_speke20_audio)
-        _setter("preset_speke20_video", preset_speke20_video)
+        pulumi.set(__self__, "preset_speke20_audio", preset_speke20_audio)
+        pulumi.set(__self__, "preset_speke20_video", preset_speke20_video)
 
     @property
     @pulumi.getter(name="presetSpeke20Audio")
@@ -154,21 +121,10 @@ class OriginEndpointEncryptionMethodArgs:
         """
         <p>The encryption type.</p>
         """
-        OriginEndpointEncryptionMethodArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cmaf_encryption_method=cmaf_encryption_method,
-            ts_encryption_method=ts_encryption_method,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cmaf_encryption_method: Optional[pulumi.Input['OriginEndpointCmafEncryptionMethod']] = None,
-             ts_encryption_method: Optional[pulumi.Input['OriginEndpointTsEncryptionMethod']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cmaf_encryption_method is not None:
-            _setter("cmaf_encryption_method", cmaf_encryption_method)
+            pulumi.set(__self__, "cmaf_encryption_method", cmaf_encryption_method)
         if ts_encryption_method is not None:
-            _setter("ts_encryption_method", ts_encryption_method)
+            pulumi.set(__self__, "ts_encryption_method", ts_encryption_method)
 
     @property
     @pulumi.getter(name="cmafEncryptionMethod")
@@ -203,27 +159,12 @@ class OriginEndpointEncryptionArgs:
                         <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
                         </p>
         """
-        OriginEndpointEncryptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_method=encryption_method,
-            speke_key_provider=speke_key_provider,
-            constant_initialization_vector=constant_initialization_vector,
-            key_rotation_interval_seconds=key_rotation_interval_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_method: pulumi.Input['OriginEndpointEncryptionMethodArgs'],
-             speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
-             constant_initialization_vector: Optional[pulumi.Input[str]] = None,
-             key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encryption_method", encryption_method)
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "encryption_method", encryption_method)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if key_rotation_interval_seconds is not None:
-            _setter("key_rotation_interval_seconds", key_rotation_interval_seconds)
+            pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
     @property
     @pulumi.getter(name="encryptionMethod")
@@ -291,36 +232,17 @@ class OriginEndpointHlsManifestConfigurationArgs:
                         <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input[str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
-        OriginEndpointHlsManifestConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_name=manifest_name,
-            child_manifest_name=child_manifest_name,
-            manifest_window_seconds=manifest_window_seconds,
-            program_date_time_interval_seconds=program_date_time_interval_seconds,
-            scte_hls=scte_hls,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_name: pulumi.Input[str],
-             child_manifest_name: Optional[pulumi.Input[str]] = None,
-             manifest_window_seconds: Optional[pulumi.Input[int]] = None,
-             program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
-             scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("manifest_name", manifest_name)
+        pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
-            _setter("child_manifest_name", child_manifest_name)
+            pulumi.set(__self__, "child_manifest_name", child_manifest_name)
         if manifest_window_seconds is not None:
-            _setter("manifest_window_seconds", manifest_window_seconds)
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if program_date_time_interval_seconds is not None:
-            _setter("program_date_time_interval_seconds", program_date_time_interval_seconds)
+            pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if scte_hls is not None:
-            _setter("scte_hls", scte_hls)
+            pulumi.set(__self__, "scte_hls", scte_hls)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="manifestName")
@@ -417,36 +339,17 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
                         <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
         :param pulumi.Input[str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
-        OriginEndpointLowLatencyHlsManifestConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_name=manifest_name,
-            child_manifest_name=child_manifest_name,
-            manifest_window_seconds=manifest_window_seconds,
-            program_date_time_interval_seconds=program_date_time_interval_seconds,
-            scte_hls=scte_hls,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_name: pulumi.Input[str],
-             child_manifest_name: Optional[pulumi.Input[str]] = None,
-             manifest_window_seconds: Optional[pulumi.Input[int]] = None,
-             program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
-             scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("manifest_name", manifest_name)
+        pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
-            _setter("child_manifest_name", child_manifest_name)
+            pulumi.set(__self__, "child_manifest_name", child_manifest_name)
         if manifest_window_seconds is not None:
-            _setter("manifest_window_seconds", manifest_window_seconds)
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if program_date_time_interval_seconds is not None:
-            _setter("program_date_time_interval_seconds", program_date_time_interval_seconds)
+            pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if scte_hls is not None:
-            _setter("scte_hls", scte_hls)
+            pulumi.set(__self__, "scte_hls", scte_hls)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="manifestName")
@@ -529,17 +432,8 @@ class OriginEndpointScteHlsArgs:
         """
         <p>The SCTE configuration.</p>
         """
-        OriginEndpointScteHlsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_marker_hls=ad_marker_hls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_marker_hls: Optional[pulumi.Input['OriginEndpointAdMarkerHls']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_marker_hls is not None:
-            _setter("ad_marker_hls", ad_marker_hls)
+            pulumi.set(__self__, "ad_marker_hls", ad_marker_hls)
 
     @property
     @pulumi.getter(name="adMarkerHls")
@@ -559,17 +453,8 @@ class OriginEndpointScteArgs:
         <p>The SCTE configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]] scte_filter: <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
         """
-        OriginEndpointScteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            scte_filter=scte_filter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             scte_filter: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointScteFilter']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if scte_filter is not None:
-            _setter("scte_filter", scte_filter)
+            pulumi.set(__self__, "scte_filter", scte_filter)
 
     @property
     @pulumi.getter(name="scteFilter")
@@ -602,41 +487,20 @@ class OriginEndpointSegmentArgs:
         :param pulumi.Input[bool] ts_include_dvb_subtitles: <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
         :param pulumi.Input[bool] ts_use_audio_rendition_group: <p>When selected, MediaPackage bundles all audio tracks in a rendition group. All other tracks in the stream can be used with any audio rendition from the group.</p>
         """
-        OriginEndpointSegmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption=encryption,
-            include_iframe_only_streams=include_iframe_only_streams,
-            scte=scte,
-            segment_duration_seconds=segment_duration_seconds,
-            segment_name=segment_name,
-            ts_include_dvb_subtitles=ts_include_dvb_subtitles,
-            ts_use_audio_rendition_group=ts_use_audio_rendition_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption: Optional[pulumi.Input['OriginEndpointEncryptionArgs']] = None,
-             include_iframe_only_streams: Optional[pulumi.Input[bool]] = None,
-             scte: Optional[pulumi.Input['OriginEndpointScteArgs']] = None,
-             segment_duration_seconds: Optional[pulumi.Input[int]] = None,
-             segment_name: Optional[pulumi.Input[str]] = None,
-             ts_include_dvb_subtitles: Optional[pulumi.Input[bool]] = None,
-             ts_use_audio_rendition_group: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if include_iframe_only_streams is not None:
-            _setter("include_iframe_only_streams", include_iframe_only_streams)
+            pulumi.set(__self__, "include_iframe_only_streams", include_iframe_only_streams)
         if scte is not None:
-            _setter("scte", scte)
+            pulumi.set(__self__, "scte", scte)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if segment_name is not None:
-            _setter("segment_name", segment_name)
+            pulumi.set(__self__, "segment_name", segment_name)
         if ts_include_dvb_subtitles is not None:
-            _setter("ts_include_dvb_subtitles", ts_include_dvb_subtitles)
+            pulumi.set(__self__, "ts_include_dvb_subtitles", ts_include_dvb_subtitles)
         if ts_use_audio_rendition_group is not None:
-            _setter("ts_use_audio_rendition_group", ts_use_audio_rendition_group)
+            pulumi.set(__self__, "ts_use_audio_rendition_group", ts_use_audio_rendition_group)
 
     @property
     @pulumi.getter
@@ -738,28 +602,11 @@ class OriginEndpointSpekeKeyProviderArgs:
                         <p>The following example shows a URL: <code>https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection</code>
                         </p>
         """
-        OriginEndpointSpekeKeyProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            drm_systems=drm_systems,
-            encryption_contract_configuration=encryption_contract_configuration,
-            resource_id=resource_id,
-            role_arn=role_arn,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             drm_systems: pulumi.Input[Sequence[pulumi.Input['OriginEndpointDrmSystem']]],
-             encryption_contract_configuration: pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'],
-             resource_id: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             url: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("drm_systems", drm_systems)
-        _setter("encryption_contract_configuration", encryption_contract_configuration)
-        _setter("resource_id", resource_id)
-        _setter("role_arn", role_arn)
-        _setter("url", url)
+        pulumi.set(__self__, "drm_systems", drm_systems)
+        pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="drmSystems")
@@ -830,21 +677,10 @@ class OriginEndpointTagArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        OriginEndpointTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

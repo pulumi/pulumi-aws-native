@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,53 +42,26 @@ class TypeActivationArgs:
         :param pulumi.Input[str] type_name_alias: An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
         :param pulumi.Input['TypeActivationVersionBump'] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
-        TypeActivationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_update=auto_update,
-            execution_role_arn=execution_role_arn,
-            logging_config=logging_config,
-            major_version=major_version,
-            public_type_arn=public_type_arn,
-            publisher_id=publisher_id,
-            type=type,
-            type_name=type_name,
-            type_name_alias=type_name_alias,
-            version_bump=version_bump,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_update: Optional[pulumi.Input[bool]] = None,
-             execution_role_arn: Optional[pulumi.Input[str]] = None,
-             logging_config: Optional[pulumi.Input['TypeActivationLoggingConfigArgs']] = None,
-             major_version: Optional[pulumi.Input[str]] = None,
-             public_type_arn: Optional[pulumi.Input[str]] = None,
-             publisher_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input['TypeActivationType']] = None,
-             type_name: Optional[pulumi.Input[str]] = None,
-             type_name_alias: Optional[pulumi.Input[str]] = None,
-             version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if auto_update is not None:
-            _setter("auto_update", auto_update)
+            pulumi.set(__self__, "auto_update", auto_update)
         if execution_role_arn is not None:
-            _setter("execution_role_arn", execution_role_arn)
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if logging_config is not None:
-            _setter("logging_config", logging_config)
+            pulumi.set(__self__, "logging_config", logging_config)
         if major_version is not None:
-            _setter("major_version", major_version)
+            pulumi.set(__self__, "major_version", major_version)
         if public_type_arn is not None:
-            _setter("public_type_arn", public_type_arn)
+            pulumi.set(__self__, "public_type_arn", public_type_arn)
         if publisher_id is not None:
-            _setter("publisher_id", publisher_id)
+            pulumi.set(__self__, "publisher_id", publisher_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if type_name_alias is not None:
-            _setter("type_name_alias", type_name_alias)
+            pulumi.set(__self__, "type_name_alias", type_name_alias)
         if version_bump is not None:
-            _setter("version_bump", version_bump)
+            pulumi.set(__self__, "version_bump", version_bump)
 
     @property
     @pulumi.getter(name="autoUpdate")
@@ -266,10 +239,6 @@ class TypeActivation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TypeActivationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -296,11 +265,6 @@ class TypeActivation(pulumi.CustomResource):
 
             __props__.__dict__["auto_update"] = auto_update
             __props__.__dict__["execution_role_arn"] = execution_role_arn
-            if logging_config is not None and not isinstance(logging_config, TypeActivationLoggingConfigArgs):
-                logging_config = logging_config or {}
-                def _setter(key, value):
-                    logging_config[key] = value
-                TypeActivationLoggingConfigArgs._configure(_setter, **logging_config)
             __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["major_version"] = major_version
             __props__.__dict__["public_type_arn"] = public_type_arn

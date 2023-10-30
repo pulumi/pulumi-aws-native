@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ScheduledActionArgs', 'ScheduledAction']
@@ -33,44 +33,21 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] start_time: The earliest scheduled start time to return. If scheduled action names are provided, this parameter is ignored.
         :param pulumi.Input[str] time_zone: The time zone for the cron expression.
         """
-        ScheduledActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_scaling_group_name=auto_scaling_group_name,
-            desired_capacity=desired_capacity,
-            end_time=end_time,
-            max_size=max_size,
-            min_size=min_size,
-            recurrence=recurrence,
-            start_time=start_time,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_scaling_group_name: pulumi.Input[str],
-             desired_capacity: Optional[pulumi.Input[int]] = None,
-             end_time: Optional[pulumi.Input[str]] = None,
-             max_size: Optional[pulumi.Input[int]] = None,
-             min_size: Optional[pulumi.Input[int]] = None,
-             recurrence: Optional[pulumi.Input[str]] = None,
-             start_time: Optional[pulumi.Input[str]] = None,
-             time_zone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_scaling_group_name", auto_scaling_group_name)
+        pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if desired_capacity is not None:
-            _setter("desired_capacity", desired_capacity)
+            pulumi.set(__self__, "desired_capacity", desired_capacity)
         if end_time is not None:
-            _setter("end_time", end_time)
+            pulumi.set(__self__, "end_time", end_time)
         if max_size is not None:
-            _setter("max_size", max_size)
+            pulumi.set(__self__, "max_size", max_size)
         if min_size is not None:
-            _setter("min_size", min_size)
+            pulumi.set(__self__, "min_size", min_size)
         if recurrence is not None:
-            _setter("recurrence", recurrence)
+            pulumi.set(__self__, "recurrence", recurrence)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
         if time_zone is not None:
-            _setter("time_zone", time_zone)
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="autoScalingGroupName")
@@ -216,10 +193,6 @@ class ScheduledAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ScheduledActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

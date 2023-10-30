@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,35 +26,16 @@ class RuleGroupInitArgs:
         """
         The set of arguments for constructing a RuleGroup resource.
         """
-        RuleGroupInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity=capacity,
-            type=type,
-            description=description,
-            rule_group=rule_group,
-            rule_group_name=rule_group_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity: pulumi.Input[int],
-             type: pulumi.Input['RuleGroupTypeEnum'],
-             description: Optional[pulumi.Input[str]] = None,
-             rule_group: Optional[pulumi.Input['RuleGroupArgs']] = None,
-             rule_group_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("capacity", capacity)
-        _setter("type", type)
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if rule_group is not None:
-            _setter("rule_group", rule_group)
+            pulumi.set(__self__, "rule_group", rule_group)
         if rule_group_name is not None:
-            _setter("rule_group_name", rule_group_name)
+            pulumi.set(__self__, "rule_group_name", rule_group_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -148,10 +129,6 @@ class RuleGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RuleGroupInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -176,11 +153,6 @@ class RuleGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity'")
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["description"] = description
-            if rule_group is not None and not isinstance(rule_group, RuleGroupArgs):
-                rule_group = rule_group or {}
-                def _setter(key, value):
-                    rule_group[key] = value
-                RuleGroupArgs._configure(_setter, **rule_group)
             __props__.__dict__["rule_group"] = rule_group
             __props__.__dict__["rule_group_name"] = rule_group_name
             __props__.__dict__["tags"] = tags

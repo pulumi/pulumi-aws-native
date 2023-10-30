@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,94 +40,45 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         """
-        ServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_profile_arn=instance_profile_arn,
-            instance_type=instance_type,
-            service_role_arn=service_role_arn,
-            associate_public_ip_address=associate_public_ip_address,
-            backup_id=backup_id,
-            backup_retention_count=backup_retention_count,
-            custom_certificate=custom_certificate,
-            custom_domain=custom_domain,
-            custom_private_key=custom_private_key,
-            disable_automated_backup=disable_automated_backup,
-            engine=engine,
-            engine_attributes=engine_attributes,
-            engine_model=engine_model,
-            engine_version=engine_version,
-            key_pair=key_pair,
-            preferred_backup_window=preferred_backup_window,
-            preferred_maintenance_window=preferred_maintenance_window,
-            security_group_ids=security_group_ids,
-            server_name=server_name,
-            subnet_ids=subnet_ids,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_profile_arn: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
-             service_role_arn: pulumi.Input[str],
-             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-             backup_id: Optional[pulumi.Input[str]] = None,
-             backup_retention_count: Optional[pulumi.Input[int]] = None,
-             custom_certificate: Optional[pulumi.Input[str]] = None,
-             custom_domain: Optional[pulumi.Input[str]] = None,
-             custom_private_key: Optional[pulumi.Input[str]] = None,
-             disable_automated_backup: Optional[pulumi.Input[bool]] = None,
-             engine: Optional[pulumi.Input[str]] = None,
-             engine_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['ServerEngineAttributeArgs']]]] = None,
-             engine_model: Optional[pulumi.Input[str]] = None,
-             engine_version: Optional[pulumi.Input[str]] = None,
-             key_pair: Optional[pulumi.Input[str]] = None,
-             preferred_backup_window: Optional[pulumi.Input[str]] = None,
-             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             server_name: Optional[pulumi.Input[str]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_profile_arn", instance_profile_arn)
-        _setter("instance_type", instance_type)
-        _setter("service_role_arn", service_role_arn)
+        pulumi.set(__self__, "instance_profile_arn", instance_profile_arn)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "service_role_arn", service_role_arn)
         if associate_public_ip_address is not None:
-            _setter("associate_public_ip_address", associate_public_ip_address)
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if backup_id is not None:
-            _setter("backup_id", backup_id)
+            pulumi.set(__self__, "backup_id", backup_id)
         if backup_retention_count is not None:
-            _setter("backup_retention_count", backup_retention_count)
+            pulumi.set(__self__, "backup_retention_count", backup_retention_count)
         if custom_certificate is not None:
-            _setter("custom_certificate", custom_certificate)
+            pulumi.set(__self__, "custom_certificate", custom_certificate)
         if custom_domain is not None:
-            _setter("custom_domain", custom_domain)
+            pulumi.set(__self__, "custom_domain", custom_domain)
         if custom_private_key is not None:
-            _setter("custom_private_key", custom_private_key)
+            pulumi.set(__self__, "custom_private_key", custom_private_key)
         if disable_automated_backup is not None:
-            _setter("disable_automated_backup", disable_automated_backup)
+            pulumi.set(__self__, "disable_automated_backup", disable_automated_backup)
         if engine is not None:
-            _setter("engine", engine)
+            pulumi.set(__self__, "engine", engine)
         if engine_attributes is not None:
-            _setter("engine_attributes", engine_attributes)
+            pulumi.set(__self__, "engine_attributes", engine_attributes)
         if engine_model is not None:
-            _setter("engine_model", engine_model)
+            pulumi.set(__self__, "engine_model", engine_model)
         if engine_version is not None:
-            _setter("engine_version", engine_version)
+            pulumi.set(__self__, "engine_version", engine_version)
         if key_pair is not None:
-            _setter("key_pair", key_pair)
+            pulumi.set(__self__, "key_pair", key_pair)
         if preferred_backup_window is not None:
-            _setter("preferred_backup_window", preferred_backup_window)
+            pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
-            _setter("preferred_maintenance_window", preferred_maintenance_window)
+            pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if server_name is not None:
-            _setter("server_name", server_name)
+            pulumi.set(__self__, "server_name", server_name)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="instanceProfileArn")
@@ -371,10 +322,6 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

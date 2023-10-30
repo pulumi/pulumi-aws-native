@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyTemplateArgs', 'PolicyTemplate']
@@ -20,24 +20,11 @@ class PolicyTemplateArgs:
         """
         The set of arguments for constructing a PolicyTemplate resource.
         """
-        PolicyTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statement=statement,
-            description=description,
-            policy_store_id=policy_store_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statement: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             policy_store_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statement", statement)
+        pulumi.set(__self__, "statement", statement)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if policy_store_id is not None:
-            _setter("policy_store_id", policy_store_id)
+            pulumi.set(__self__, "policy_store_id", policy_store_id)
 
     @property
     @pulumi.getter
@@ -101,10 +88,6 @@ class PolicyTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PolicyTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

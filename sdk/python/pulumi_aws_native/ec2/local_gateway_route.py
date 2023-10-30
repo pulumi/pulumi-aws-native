@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalGatewayRouteArgs', 'LocalGatewayRoute']
@@ -25,29 +25,14 @@ class LocalGatewayRouteArgs:
         :param pulumi.Input[str] local_gateway_virtual_interface_group_id: The ID of the virtual interface group.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface.
         """
-        LocalGatewayRouteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_cidr_block=destination_cidr_block,
-            local_gateway_route_table_id=local_gateway_route_table_id,
-            local_gateway_virtual_interface_group_id=local_gateway_virtual_interface_group_id,
-            network_interface_id=network_interface_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_cidr_block: Optional[pulumi.Input[str]] = None,
-             local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-             local_gateway_virtual_interface_group_id: Optional[pulumi.Input[str]] = None,
-             network_interface_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_cidr_block is not None:
-            _setter("destination_cidr_block", destination_cidr_block)
+            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if local_gateway_route_table_id is not None:
-            _setter("local_gateway_route_table_id", local_gateway_route_table_id)
+            pulumi.set(__self__, "local_gateway_route_table_id", local_gateway_route_table_id)
         if local_gateway_virtual_interface_group_id is not None:
-            _setter("local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
+            pulumi.set(__self__, "local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
         if network_interface_id is not None:
-            _setter("network_interface_id", network_interface_id)
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -137,10 +122,6 @@ class LocalGatewayRoute(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocalGatewayRouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

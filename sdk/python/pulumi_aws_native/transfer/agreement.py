@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -36,40 +36,17 @@ class AgreementArgs:
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
         :param pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
-        AgreementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_role=access_role,
-            base_directory=base_directory,
-            local_profile_id=local_profile_id,
-            partner_profile_id=partner_profile_id,
-            server_id=server_id,
-            description=description,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_role: pulumi.Input[str],
-             base_directory: pulumi.Input[str],
-             local_profile_id: pulumi.Input[str],
-             partner_profile_id: pulumi.Input[str],
-             server_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input['AgreementStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgreementTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("access_role", access_role)
-        _setter("base_directory", base_directory)
-        _setter("local_profile_id", local_profile_id)
-        _setter("partner_profile_id", partner_profile_id)
-        _setter("server_id", server_id)
+        pulumi.set(__self__, "access_role", access_role)
+        pulumi.set(__self__, "base_directory", base_directory)
+        pulumi.set(__self__, "local_profile_id", local_profile_id)
+        pulumi.set(__self__, "partner_profile_id", partner_profile_id)
+        pulumi.set(__self__, "server_id", server_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accessRole")
@@ -215,10 +192,6 @@ class Agreement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AgreementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,41 +33,20 @@ class PipelineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]] pipeline_objects: The objects that define the pipeline. These objects overwrite the existing pipeline definition. Not all objects, fields, and values can be updated. For information about restrictions, see Editing Your Pipeline in the AWS Data Pipeline Developer Guide.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]] pipeline_tags: A list of arbitrary tags (key-value pairs) to associate with the pipeline, which you can use to control permissions. For more information, see Controlling Access to Pipelines and Resources in the AWS Data Pipeline Developer Guide.
         """
-        PipelineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activate=activate,
-            description=description,
-            name=name,
-            parameter_objects=parameter_objects,
-            parameter_values=parameter_values,
-            pipeline_objects=pipeline_objects,
-            pipeline_tags=pipeline_tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activate: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameter_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterObjectArgs']]]] = None,
-             parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineParameterValueArgs']]]] = None,
-             pipeline_objects: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineObjectArgs']]]] = None,
-             pipeline_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if activate is not None:
-            _setter("activate", activate)
+            pulumi.set(__self__, "activate", activate)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameter_objects is not None:
-            _setter("parameter_objects", parameter_objects)
+            pulumi.set(__self__, "parameter_objects", parameter_objects)
         if parameter_values is not None:
-            _setter("parameter_values", parameter_values)
+            pulumi.set(__self__, "parameter_values", parameter_values)
         if pipeline_objects is not None:
-            _setter("pipeline_objects", pipeline_objects)
+            pulumi.set(__self__, "pipeline_objects", pipeline_objects)
         if pipeline_tags is not None:
-            _setter("pipeline_tags", pipeline_tags)
+            pulumi.set(__self__, "pipeline_tags", pipeline_tags)
 
     @property
     @pulumi.getter
@@ -199,10 +178,6 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

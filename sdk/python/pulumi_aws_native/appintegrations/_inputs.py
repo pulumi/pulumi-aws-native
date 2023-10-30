@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,20 +28,9 @@ class DataIntegrationFileConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] folders: Identifiers for the source folders to pull all files from recursively.
         :param Any filters: Restrictions for what files should be pulled from the source.
         """
-        DataIntegrationFileConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            folders=folders,
-            filters=filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             folders: pulumi.Input[Sequence[pulumi.Input[str]]],
-             filters: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("folders", folders)
+        pulumi.set(__self__, "folders", folders)
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
@@ -75,11 +64,6 @@ class DataIntegrationObjectConfigurationArgs:
         The configuration for what data should be pulled from the source.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.input_type
@@ -93,24 +77,11 @@ class DataIntegrationScheduleConfigArgs:
         :param pulumi.Input[str] first_execution_from: The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
         :param pulumi.Input[str] object: The name of the object to pull from the data source.
         """
-        DataIntegrationScheduleConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            schedule_expression=schedule_expression,
-            first_execution_from=first_execution_from,
-            object=object,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             schedule_expression: pulumi.Input[str],
-             first_execution_from: Optional[pulumi.Input[str]] = None,
-             object: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("schedule_expression", schedule_expression)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
         if first_execution_from is not None:
-            _setter("first_execution_from", first_execution_from)
+            pulumi.set(__self__, "first_execution_from", first_execution_from)
         if object is not None:
-            _setter("object", object)
+            pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -159,19 +130,8 @@ class DataIntegrationTagArgs:
         :param pulumi.Input[str] key: A key to identify the tag.
         :param pulumi.Input[str] value: Corresponding tag value for the key.
         """
-        DataIntegrationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -205,16 +165,7 @@ class EventIntegrationEventFilterArgs:
         """
         :param pulumi.Input[str] source: The source of the events.
         """
-        EventIntegrationEventFilterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source", source)
+        pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter
@@ -238,19 +189,8 @@ class EventIntegrationTagArgs:
         :param pulumi.Input[str] key: A key to identify the tag.
         :param pulumi.Input[str] value: Corresponding tag value for the key.
         """
-        EventIntegrationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

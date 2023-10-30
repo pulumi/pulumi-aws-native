@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcdhcpOptionsAssociationArgs', 'VpcdhcpOptionsAssociation']
@@ -21,19 +21,8 @@ class VpcdhcpOptionsAssociationArgs:
         :param pulumi.Input[str] dhcp_options_id: The ID of the DHCP options set, or default to associate no DHCP options with the VPC.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
-        VpcdhcpOptionsAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dhcp_options_id=dhcp_options_id,
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dhcp_options_id: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dhcp_options_id", dhcp_options_id)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
+        pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="dhcpOptionsId")
@@ -95,10 +84,6 @@ class VpcdhcpOptionsAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcdhcpOptionsAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

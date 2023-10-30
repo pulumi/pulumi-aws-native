@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -30,11 +30,6 @@ class FleetTagsArgs:
         A key-value pair to associate with a resource.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.input_type
@@ -47,20 +42,9 @@ class RobotApplicationRobotSoftwareSuiteArgs:
         :param pulumi.Input['RobotApplicationRobotSoftwareSuiteName'] name: The name of robot software suite.
         :param pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion'] version: The version of robot software suite.
         """
-        RobotApplicationRobotSoftwareSuiteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['RobotApplicationRobotSoftwareSuiteName'],
-             version: Optional[pulumi.Input['RobotApplicationRobotSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -98,22 +82,9 @@ class RobotApplicationSourceConfigArgs:
         :param pulumi.Input[str] s3_bucket: The Arn of the S3Bucket that stores the robot application source.
         :param pulumi.Input[str] s3_key: The s3 key of robot application source.
         """
-        RobotApplicationSourceConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            architecture=architecture,
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             architecture: pulumi.Input['RobotApplicationSourceConfigArchitecture'],
-             s3_bucket: pulumi.Input[str],
-             s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("architecture", architecture)
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter
@@ -159,11 +130,6 @@ class RobotApplicationTagsArgs:
         A key-value pair to associate with a resource.
         """
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.input_type
@@ -172,11 +138,6 @@ class RobotTagsArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -190,19 +151,8 @@ class SimulationApplicationRenderingEngineArgs:
         :param pulumi.Input['SimulationApplicationRenderingEngineName'] name: The name of the rendering engine.
         :param pulumi.Input[str] version: The version of the rendering engine.
         """
-        SimulationApplicationRenderingEngineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['SimulationApplicationRenderingEngineName'],
-             version: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("version", version)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -239,20 +189,9 @@ class SimulationApplicationRobotSoftwareSuiteArgs:
         :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'] name: The name of the robot software suite.
         :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion'] version: The version of the robot software suite.
         """
-        SimulationApplicationRobotSoftwareSuiteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'],
-             version: Optional[pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -289,20 +228,9 @@ class SimulationApplicationSimulationSoftwareSuiteArgs:
         :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'] name: The name of the simulation software suite.
         :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion'] version: The version of the simulation software suite.
         """
-        SimulationApplicationSimulationSoftwareSuiteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'],
-             version: Optional[pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -341,22 +269,9 @@ class SimulationApplicationSourceConfigArgs:
         :param pulumi.Input[str] s3_bucket: The Amazon S3 bucket name.
         :param pulumi.Input[str] s3_key: The s3 object key.
         """
-        SimulationApplicationSourceConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            architecture=architecture,
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             architecture: pulumi.Input['SimulationApplicationSourceConfigArchitecture'],
-             s3_bucket: pulumi.Input[str],
-             s3_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("architecture", architecture)
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "architecture", architecture)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
 
     @property
     @pulumi.getter
@@ -401,11 +316,6 @@ class SimulationApplicationTagsArgs:
         """
         A key-value pair to associate with a resource.
         """
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

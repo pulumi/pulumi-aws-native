@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,43 +29,20 @@ class FeatureArgs:
         The set of arguments for constructing a Feature resource.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        FeatureArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project=project,
-            variations=variations,
-            default_variation=default_variation,
-            description=description,
-            entity_overrides=entity_overrides,
-            evaluation_strategy=evaluation_strategy,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project: pulumi.Input[str],
-             variations: pulumi.Input[Sequence[pulumi.Input['FeatureVariationObjectArgs']]],
-             default_variation: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             entity_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureEntityOverrideArgs']]]] = None,
-             evaluation_strategy: Optional[pulumi.Input['FeatureEvaluationStrategy']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FeatureTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("project", project)
-        _setter("variations", variations)
+        pulumi.set(__self__, "project", project)
+        pulumi.set(__self__, "variations", variations)
         if default_variation is not None:
-            _setter("default_variation", default_variation)
+            pulumi.set(__self__, "default_variation", default_variation)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if entity_overrides is not None:
-            _setter("entity_overrides", entity_overrides)
+            pulumi.set(__self__, "entity_overrides", entity_overrides)
         if evaluation_strategy is not None:
-            _setter("evaluation_strategy", evaluation_strategy)
+            pulumi.set(__self__, "evaluation_strategy", evaluation_strategy)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -183,10 +160,6 @@ class Feature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

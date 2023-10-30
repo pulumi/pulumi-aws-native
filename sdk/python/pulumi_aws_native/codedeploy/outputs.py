@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -49,19 +49,8 @@ class ApplicationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ApplicationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -79,19 +68,8 @@ class DeploymentConfigMinimumHealthyHosts(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
-        DeploymentConfigMinimumHealthyHosts._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             value: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -128,19 +106,8 @@ class DeploymentConfigTimeBasedCanary(dict):
     def __init__(__self__, *,
                  canary_interval: int,
                  canary_percentage: int):
-        DeploymentConfigTimeBasedCanary._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            canary_interval=canary_interval,
-            canary_percentage=canary_percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             canary_interval: int,
-             canary_percentage: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("canary_interval", canary_interval)
-        _setter("canary_percentage", canary_percentage)
+        pulumi.set(__self__, "canary_interval", canary_interval)
+        pulumi.set(__self__, "canary_percentage", canary_percentage)
 
     @property
     @pulumi.getter(name="canaryInterval")
@@ -177,19 +144,8 @@ class DeploymentConfigTimeBasedLinear(dict):
     def __init__(__self__, *,
                  linear_interval: int,
                  linear_percentage: int):
-        DeploymentConfigTimeBasedLinear._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            linear_interval=linear_interval,
-            linear_percentage=linear_percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             linear_interval: int,
-             linear_percentage: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("linear_interval", linear_interval)
-        _setter("linear_percentage", linear_percentage)
+        pulumi.set(__self__, "linear_interval", linear_interval)
+        pulumi.set(__self__, "linear_percentage", linear_percentage)
 
     @property
     @pulumi.getter(name="linearInterval")
@@ -227,24 +183,11 @@ class DeploymentConfigTrafficRoutingConfig(dict):
                  type: str,
                  time_based_canary: Optional['outputs.DeploymentConfigTimeBasedCanary'] = None,
                  time_based_linear: Optional['outputs.DeploymentConfigTimeBasedLinear'] = None):
-        DeploymentConfigTrafficRoutingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            time_based_canary=time_based_canary,
-            time_based_linear=time_based_linear,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             time_based_canary: Optional['outputs.DeploymentConfigTimeBasedCanary'] = None,
-             time_based_linear: Optional['outputs.DeploymentConfigTimeBasedLinear'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if time_based_canary is not None:
-            _setter("time_based_canary", time_based_canary)
+            pulumi.set(__self__, "time_based_canary", time_based_canary)
         if time_based_linear is not None:
-            _setter("time_based_linear", time_based_linear)
+            pulumi.set(__self__, "time_based_linear", time_based_linear)
 
     @property
     @pulumi.getter
@@ -266,17 +209,8 @@ class DeploymentConfigTrafficRoutingConfig(dict):
 class DeploymentGroupAlarm(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
-        DeploymentGroupAlarm._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -307,25 +241,12 @@ class DeploymentGroupAlarmConfiguration(dict):
                  alarms: Optional[Sequence['outputs.DeploymentGroupAlarm']] = None,
                  enabled: Optional[bool] = None,
                  ignore_poll_alarm_failure: Optional[bool] = None):
-        DeploymentGroupAlarmConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarms=alarms,
-            enabled=enabled,
-            ignore_poll_alarm_failure=ignore_poll_alarm_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarms: Optional[Sequence['outputs.DeploymentGroupAlarm']] = None,
-             enabled: Optional[bool] = None,
-             ignore_poll_alarm_failure: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alarms is not None:
-            _setter("alarms", alarms)
+            pulumi.set(__self__, "alarms", alarms)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if ignore_poll_alarm_failure is not None:
-            _setter("ignore_poll_alarm_failure", ignore_poll_alarm_failure)
+            pulumi.set(__self__, "ignore_poll_alarm_failure", ignore_poll_alarm_failure)
 
     @property
     @pulumi.getter
@@ -348,21 +269,10 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  events: Optional[Sequence[str]] = None):
-        DeploymentGroupAutoRollbackConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            events=events,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             events: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if events is not None:
-            _setter("events", events)
+            pulumi.set(__self__, "events", events)
 
     @property
     @pulumi.getter
@@ -402,25 +312,12 @@ class DeploymentGroupBlueGreenDeploymentConfiguration(dict):
                  deployment_ready_option: Optional['outputs.DeploymentGroupDeploymentReadyOption'] = None,
                  green_fleet_provisioning_option: Optional['outputs.DeploymentGroupGreenFleetProvisioningOption'] = None,
                  terminate_blue_instances_on_deployment_success: Optional['outputs.DeploymentGroupBlueInstanceTerminationOption'] = None):
-        DeploymentGroupBlueGreenDeploymentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_ready_option=deployment_ready_option,
-            green_fleet_provisioning_option=green_fleet_provisioning_option,
-            terminate_blue_instances_on_deployment_success=terminate_blue_instances_on_deployment_success,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_ready_option: Optional['outputs.DeploymentGroupDeploymentReadyOption'] = None,
-             green_fleet_provisioning_option: Optional['outputs.DeploymentGroupGreenFleetProvisioningOption'] = None,
-             terminate_blue_instances_on_deployment_success: Optional['outputs.DeploymentGroupBlueInstanceTerminationOption'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_ready_option is not None:
-            _setter("deployment_ready_option", deployment_ready_option)
+            pulumi.set(__self__, "deployment_ready_option", deployment_ready_option)
         if green_fleet_provisioning_option is not None:
-            _setter("green_fleet_provisioning_option", green_fleet_provisioning_option)
+            pulumi.set(__self__, "green_fleet_provisioning_option", green_fleet_provisioning_option)
         if terminate_blue_instances_on_deployment_success is not None:
-            _setter("terminate_blue_instances_on_deployment_success", terminate_blue_instances_on_deployment_success)
+            pulumi.set(__self__, "terminate_blue_instances_on_deployment_success", terminate_blue_instances_on_deployment_success)
 
     @property
     @pulumi.getter(name="deploymentReadyOption")
@@ -460,21 +357,10 @@ class DeploymentGroupBlueInstanceTerminationOption(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None,
                  termination_wait_time_in_minutes: Optional[int] = None):
-        DeploymentGroupBlueInstanceTerminationOption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            termination_wait_time_in_minutes=termination_wait_time_in_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             termination_wait_time_in_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if termination_wait_time_in_minutes is not None:
-            _setter("termination_wait_time_in_minutes", termination_wait_time_in_minutes)
+            pulumi.set(__self__, "termination_wait_time_in_minutes", termination_wait_time_in_minutes)
 
     @property
     @pulumi.getter
@@ -510,24 +396,11 @@ class DeploymentGroupDeployment(dict):
                  revision: 'outputs.DeploymentGroupRevisionLocation',
                  description: Optional[str] = None,
                  ignore_application_stop_failures: Optional[bool] = None):
-        DeploymentGroupDeployment._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            revision=revision,
-            description=description,
-            ignore_application_stop_failures=ignore_application_stop_failures,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             revision: 'outputs.DeploymentGroupRevisionLocation',
-             description: Optional[str] = None,
-             ignore_application_stop_failures: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("revision", revision)
+        pulumi.set(__self__, "revision", revision)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ignore_application_stop_failures is not None:
-            _setter("ignore_application_stop_failures", ignore_application_stop_failures)
+            pulumi.set(__self__, "ignore_application_stop_failures", ignore_application_stop_failures)
 
     @property
     @pulumi.getter
@@ -569,21 +442,10 @@ class DeploymentGroupDeploymentReadyOption(dict):
     def __init__(__self__, *,
                  action_on_timeout: Optional[str] = None,
                  wait_time_in_minutes: Optional[int] = None):
-        DeploymentGroupDeploymentReadyOption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_on_timeout=action_on_timeout,
-            wait_time_in_minutes=wait_time_in_minutes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_on_timeout: Optional[str] = None,
-             wait_time_in_minutes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if action_on_timeout is not None:
-            _setter("action_on_timeout", action_on_timeout)
+            pulumi.set(__self__, "action_on_timeout", action_on_timeout)
         if wait_time_in_minutes is not None:
-            _setter("wait_time_in_minutes", wait_time_in_minutes)
+            pulumi.set(__self__, "wait_time_in_minutes", wait_time_in_minutes)
 
     @property
     @pulumi.getter(name="actionOnTimeout")
@@ -620,21 +482,10 @@ class DeploymentGroupDeploymentStyle(dict):
     def __init__(__self__, *,
                  deployment_option: Optional[str] = None,
                  deployment_type: Optional[str] = None):
-        DeploymentGroupDeploymentStyle._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deployment_option=deployment_option,
-            deployment_type=deployment_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deployment_option: Optional[str] = None,
-             deployment_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if deployment_option is not None:
-            _setter("deployment_option", deployment_option)
+            pulumi.set(__self__, "deployment_option", deployment_option)
         if deployment_type is not None:
-            _setter("deployment_type", deployment_type)
+            pulumi.set(__self__, "deployment_type", deployment_type)
 
     @property
     @pulumi.getter(name="deploymentOption")
@@ -653,25 +504,12 @@ class DeploymentGroupEc2TagFilter(dict):
                  key: Optional[str] = None,
                  type: Optional[str] = None,
                  value: Optional[str] = None):
-        DeploymentGroupEc2TagFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -710,17 +548,8 @@ class DeploymentGroupEc2TagSet(dict):
 
     def __init__(__self__, *,
                  ec2_tag_set_list: Optional[Sequence['outputs.DeploymentGroupEc2TagSetListObject']] = None):
-        DeploymentGroupEc2TagSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ec2_tag_set_list=ec2_tag_set_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ec2_tag_set_list: Optional[Sequence['outputs.DeploymentGroupEc2TagSetListObject']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ec2_tag_set_list is not None:
-            _setter("ec2_tag_set_list", ec2_tag_set_list)
+            pulumi.set(__self__, "ec2_tag_set_list", ec2_tag_set_list)
 
     @property
     @pulumi.getter(name="ec2TagSetList")
@@ -749,17 +578,8 @@ class DeploymentGroupEc2TagSetListObject(dict):
 
     def __init__(__self__, *,
                  ec2_tag_group: Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']] = None):
-        DeploymentGroupEc2TagSetListObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ec2_tag_group=ec2_tag_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ec2_tag_group: Optional[Sequence['outputs.DeploymentGroupEc2TagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ec2_tag_group is not None:
-            _setter("ec2_tag_group", ec2_tag_group)
+            pulumi.set(__self__, "ec2_tag_group", ec2_tag_group)
 
     @property
     @pulumi.getter(name="ec2TagGroup")
@@ -791,19 +611,8 @@ class DeploymentGroupEcsService(dict):
     def __init__(__self__, *,
                  cluster_name: str,
                  service_name: str):
-        DeploymentGroupEcsService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_name=cluster_name,
-            service_name=service_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_name: str,
-             service_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cluster_name", cluster_name)
-        _setter("service_name", service_name)
+        pulumi.set(__self__, "cluster_name", cluster_name)
+        pulumi.set(__self__, "service_name", service_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -820,17 +629,8 @@ class DeploymentGroupEcsService(dict):
 class DeploymentGroupElbInfo(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
-        DeploymentGroupElbInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -860,19 +660,8 @@ class DeploymentGroupGitHubLocation(dict):
     def __init__(__self__, *,
                  commit_id: str,
                  repository: str):
-        DeploymentGroupGitHubLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            commit_id=commit_id,
-            repository=repository,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             commit_id: str,
-             repository: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("commit_id", commit_id)
-        _setter("repository", repository)
+        pulumi.set(__self__, "commit_id", commit_id)
+        pulumi.set(__self__, "repository", repository)
 
     @property
     @pulumi.getter(name="commitId")
@@ -889,17 +678,8 @@ class DeploymentGroupGitHubLocation(dict):
 class DeploymentGroupGreenFleetProvisioningOption(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None):
-        DeploymentGroupGreenFleetProvisioningOption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
@@ -934,25 +714,12 @@ class DeploymentGroupLoadBalancerInfo(dict):
                  elb_info_list: Optional[Sequence['outputs.DeploymentGroupElbInfo']] = None,
                  target_group_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
                  target_group_pair_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupPairInfo']] = None):
-        DeploymentGroupLoadBalancerInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            elb_info_list=elb_info_list,
-            target_group_info_list=target_group_info_list,
-            target_group_pair_info_list=target_group_pair_info_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             elb_info_list: Optional[Sequence['outputs.DeploymentGroupElbInfo']] = None,
-             target_group_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
-             target_group_pair_info_list: Optional[Sequence['outputs.DeploymentGroupTargetGroupPairInfo']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if elb_info_list is not None:
-            _setter("elb_info_list", elb_info_list)
+            pulumi.set(__self__, "elb_info_list", elb_info_list)
         if target_group_info_list is not None:
-            _setter("target_group_info_list", target_group_info_list)
+            pulumi.set(__self__, "target_group_info_list", target_group_info_list)
         if target_group_pair_info_list is not None:
-            _setter("target_group_pair_info_list", target_group_pair_info_list)
+            pulumi.set(__self__, "target_group_pair_info_list", target_group_pair_info_list)
 
     @property
     @pulumi.getter(name="elbInfoList")
@@ -991,17 +758,8 @@ class DeploymentGroupOnPremisesTagSet(dict):
 
     def __init__(__self__, *,
                  on_premises_tag_set_list: Optional[Sequence['outputs.DeploymentGroupOnPremisesTagSetListObject']] = None):
-        DeploymentGroupOnPremisesTagSet._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_premises_tag_set_list=on_premises_tag_set_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_premises_tag_set_list: Optional[Sequence['outputs.DeploymentGroupOnPremisesTagSetListObject']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if on_premises_tag_set_list is not None:
-            _setter("on_premises_tag_set_list", on_premises_tag_set_list)
+            pulumi.set(__self__, "on_premises_tag_set_list", on_premises_tag_set_list)
 
     @property
     @pulumi.getter(name="onPremisesTagSetList")
@@ -1030,17 +788,8 @@ class DeploymentGroupOnPremisesTagSetListObject(dict):
 
     def __init__(__self__, *,
                  on_premises_tag_group: Optional[Sequence['outputs.DeploymentGroupTagFilter']] = None):
-        DeploymentGroupOnPremisesTagSetListObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_premises_tag_group=on_premises_tag_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_premises_tag_group: Optional[Sequence['outputs.DeploymentGroupTagFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if on_premises_tag_group is not None:
-            _setter("on_premises_tag_group", on_premises_tag_group)
+            pulumi.set(__self__, "on_premises_tag_group", on_premises_tag_group)
 
     @property
     @pulumi.getter(name="onPremisesTagGroup")
@@ -1075,25 +824,12 @@ class DeploymentGroupRevisionLocation(dict):
                  git_hub_location: Optional['outputs.DeploymentGroupGitHubLocation'] = None,
                  revision_type: Optional[str] = None,
                  s3_location: Optional['outputs.DeploymentGroupS3Location'] = None):
-        DeploymentGroupRevisionLocation._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            git_hub_location=git_hub_location,
-            revision_type=revision_type,
-            s3_location=s3_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             git_hub_location: Optional['outputs.DeploymentGroupGitHubLocation'] = None,
-             revision_type: Optional[str] = None,
-             s3_location: Optional['outputs.DeploymentGroupS3Location'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if git_hub_location is not None:
-            _setter("git_hub_location", git_hub_location)
+            pulumi.set(__self__, "git_hub_location", git_hub_location)
         if revision_type is not None:
-            _setter("revision_type", revision_type)
+            pulumi.set(__self__, "revision_type", revision_type)
         if s3_location is not None:
-            _setter("s3_location", s3_location)
+            pulumi.set(__self__, "s3_location", s3_location)
 
     @property
     @pulumi.getter(name="gitHubLocation")
@@ -1138,31 +874,14 @@ class DeploymentGroupS3Location(dict):
                  bundle_type: Optional[str] = None,
                  e_tag: Optional[str] = None,
                  version: Optional[str] = None):
-        DeploymentGroupS3Location._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-            bundle_type=bundle_type,
-            e_tag=e_tag,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: str,
-             key: str,
-             bundle_type: Optional[str] = None,
-             e_tag: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("key", key)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
         if bundle_type is not None:
-            _setter("bundle_type", bundle_type)
+            pulumi.set(__self__, "bundle_type", bundle_type)
         if e_tag is not None:
-            _setter("e_tag", e_tag)
+            pulumi.set(__self__, "e_tag", e_tag)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -1195,19 +914,8 @@ class DeploymentGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        DeploymentGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1226,25 +934,12 @@ class DeploymentGroupTagFilter(dict):
                  key: Optional[str] = None,
                  type: Optional[str] = None,
                  value: Optional[str] = None):
-        DeploymentGroupTagFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1266,17 +961,8 @@ class DeploymentGroupTagFilter(dict):
 class DeploymentGroupTargetGroupInfo(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
-        DeploymentGroupTargetGroupInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1311,25 +997,12 @@ class DeploymentGroupTargetGroupPairInfo(dict):
                  prod_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None,
                  target_groups: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
                  test_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None):
-        DeploymentGroupTargetGroupPairInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            prod_traffic_route=prod_traffic_route,
-            target_groups=target_groups,
-            test_traffic_route=test_traffic_route,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             prod_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None,
-             target_groups: Optional[Sequence['outputs.DeploymentGroupTargetGroupInfo']] = None,
-             test_traffic_route: Optional['outputs.DeploymentGroupTrafficRoute'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if prod_traffic_route is not None:
-            _setter("prod_traffic_route", prod_traffic_route)
+            pulumi.set(__self__, "prod_traffic_route", prod_traffic_route)
         if target_groups is not None:
-            _setter("target_groups", target_groups)
+            pulumi.set(__self__, "target_groups", target_groups)
         if test_traffic_route is not None:
-            _setter("test_traffic_route", test_traffic_route)
+            pulumi.set(__self__, "test_traffic_route", test_traffic_route)
 
     @property
     @pulumi.getter(name="prodTrafficRoute")
@@ -1368,17 +1041,8 @@ class DeploymentGroupTrafficRoute(dict):
 
     def __init__(__self__, *,
                  listener_arns: Optional[Sequence[str]] = None):
-        DeploymentGroupTrafficRoute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            listener_arns=listener_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             listener_arns: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if listener_arns is not None:
-            _setter("listener_arns", listener_arns)
+            pulumi.set(__self__, "listener_arns", listener_arns)
 
     @property
     @pulumi.getter(name="listenerArns")
@@ -1413,25 +1077,12 @@ class DeploymentGroupTriggerConfig(dict):
                  trigger_events: Optional[Sequence[str]] = None,
                  trigger_name: Optional[str] = None,
                  trigger_target_arn: Optional[str] = None):
-        DeploymentGroupTriggerConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            trigger_events=trigger_events,
-            trigger_name=trigger_name,
-            trigger_target_arn=trigger_target_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             trigger_events: Optional[Sequence[str]] = None,
-             trigger_name: Optional[str] = None,
-             trigger_target_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if trigger_events is not None:
-            _setter("trigger_events", trigger_events)
+            pulumi.set(__self__, "trigger_events", trigger_events)
         if trigger_name is not None:
-            _setter("trigger_name", trigger_name)
+            pulumi.set(__self__, "trigger_name", trigger_name)
         if trigger_target_arn is not None:
-            _setter("trigger_target_arn", trigger_target_arn)
+            pulumi.set(__self__, "trigger_target_arn", trigger_target_arn)
 
     @property
     @pulumi.getter(name="triggerEvents")

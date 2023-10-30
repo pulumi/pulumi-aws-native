@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PreparedStatementArgs', 'PreparedStatement']
@@ -25,26 +25,11 @@ class PreparedStatementArgs:
         :param pulumi.Input[str] work_group: The name of the workgroup to which the prepared statement belongs.
         :param pulumi.Input[str] description: The description of the prepared statement.
         """
-        PreparedStatementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            query_statement=query_statement,
-            statement_name=statement_name,
-            work_group=work_group,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             query_statement: pulumi.Input[str],
-             statement_name: pulumi.Input[str],
-             work_group: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("query_statement", query_statement)
-        _setter("statement_name", statement_name)
-        _setter("work_group", work_group)
+        pulumi.set(__self__, "query_statement", query_statement)
+        pulumi.set(__self__, "statement_name", statement_name)
+        pulumi.set(__self__, "work_group", work_group)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="queryStatement")
@@ -134,10 +119,6 @@ class PreparedStatement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PreparedStatementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

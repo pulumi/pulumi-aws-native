@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,25 +23,12 @@ class ComponentVersionArgs:
         """
         The set of arguments for constructing a ComponentVersion resource.
         """
-        ComponentVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            inline_recipe=inline_recipe,
-            lambda_function=lambda_function,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             inline_recipe: Optional[pulumi.Input[str]] = None,
-             lambda_function: Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if inline_recipe is not None:
-            _setter("inline_recipe", inline_recipe)
+            pulumi.set(__self__, "inline_recipe", inline_recipe)
         if lambda_function is not None:
-            _setter("lambda_function", lambda_function)
+            pulumi.set(__self__, "lambda_function", lambda_function)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="inlineRecipe")
@@ -105,10 +92,6 @@ class ComponentVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ComponentVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -127,11 +110,6 @@ class ComponentVersion(pulumi.CustomResource):
             __props__ = ComponentVersionArgs.__new__(ComponentVersionArgs)
 
             __props__.__dict__["inline_recipe"] = inline_recipe
-            if lambda_function is not None and not isinstance(lambda_function, ComponentVersionLambdaFunctionRecipeSourceArgs):
-                lambda_function = lambda_function or {}
-                def _setter(key, value):
-                    lambda_function[key] = value
-                ComponentVersionLambdaFunctionRecipeSourceArgs._configure(_setter, **lambda_function)
             __props__.__dict__["lambda_function"] = lambda_function
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

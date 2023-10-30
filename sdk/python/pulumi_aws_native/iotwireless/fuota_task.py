@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,50 +39,23 @@ class FuotaTaskArgs:
         :param pulumi.Input[str] name: Name of FUOTA task
         :param pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]] tags: A list of key-value pairs that contain metadata for the FUOTA task.
         """
-        FuotaTaskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            firmware_update_image=firmware_update_image,
-            firmware_update_role=firmware_update_role,
-            lo_ra_wan=lo_ra_wan,
-            associate_multicast_group=associate_multicast_group,
-            associate_wireless_device=associate_wireless_device,
-            description=description,
-            disassociate_multicast_group=disassociate_multicast_group,
-            disassociate_wireless_device=disassociate_wireless_device,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             firmware_update_image: pulumi.Input[str],
-             firmware_update_role: pulumi.Input[str],
-             lo_ra_wan: pulumi.Input['FuotaTaskLoRaWanArgs'],
-             associate_multicast_group: Optional[pulumi.Input[str]] = None,
-             associate_wireless_device: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             disassociate_multicast_group: Optional[pulumi.Input[str]] = None,
-             disassociate_wireless_device: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['FuotaTaskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("firmware_update_image", firmware_update_image)
-        _setter("firmware_update_role", firmware_update_role)
-        _setter("lo_ra_wan", lo_ra_wan)
+        pulumi.set(__self__, "firmware_update_image", firmware_update_image)
+        pulumi.set(__self__, "firmware_update_role", firmware_update_role)
+        pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if associate_multicast_group is not None:
-            _setter("associate_multicast_group", associate_multicast_group)
+            pulumi.set(__self__, "associate_multicast_group", associate_multicast_group)
         if associate_wireless_device is not None:
-            _setter("associate_wireless_device", associate_wireless_device)
+            pulumi.set(__self__, "associate_wireless_device", associate_wireless_device)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if disassociate_multicast_group is not None:
-            _setter("disassociate_multicast_group", disassociate_multicast_group)
+            pulumi.set(__self__, "disassociate_multicast_group", disassociate_multicast_group)
         if disassociate_wireless_device is not None:
-            _setter("disassociate_wireless_device", disassociate_wireless_device)
+            pulumi.set(__self__, "disassociate_wireless_device", disassociate_wireless_device)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="firmwareUpdateImage")
@@ -256,10 +229,6 @@ class FuotaTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FuotaTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -295,11 +264,6 @@ class FuotaTask(pulumi.CustomResource):
             if firmware_update_role is None and not opts.urn:
                 raise TypeError("Missing required property 'firmware_update_role'")
             __props__.__dict__["firmware_update_role"] = firmware_update_role
-            if lo_ra_wan is not None and not isinstance(lo_ra_wan, FuotaTaskLoRaWanArgs):
-                lo_ra_wan = lo_ra_wan or {}
-                def _setter(key, value):
-                    lo_ra_wan[key] = value
-                FuotaTaskLoRaWanArgs._configure(_setter, **lo_ra_wan)
             if lo_ra_wan is None and not opts.urn:
                 raise TypeError("Missing required property 'lo_ra_wan'")
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan

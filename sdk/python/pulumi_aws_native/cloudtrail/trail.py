@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -50,75 +50,36 @@ class TrailArgs:
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
         """
-        TrailArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            is_logging=is_logging,
-            s3_bucket_name=s3_bucket_name,
-            advanced_event_selectors=advanced_event_selectors,
-            cloud_watch_logs_log_group_arn=cloud_watch_logs_log_group_arn,
-            cloud_watch_logs_role_arn=cloud_watch_logs_role_arn,
-            enable_log_file_validation=enable_log_file_validation,
-            event_selectors=event_selectors,
-            include_global_service_events=include_global_service_events,
-            insight_selectors=insight_selectors,
-            is_multi_region_trail=is_multi_region_trail,
-            is_organization_trail=is_organization_trail,
-            kms_key_id=kms_key_id,
-            s3_key_prefix=s3_key_prefix,
-            sns_topic_name=sns_topic_name,
-            tags=tags,
-            trail_name=trail_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             is_logging: pulumi.Input[bool],
-             s3_bucket_name: pulumi.Input[str],
-             advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorArgs']]]] = None,
-             cloud_watch_logs_log_group_arn: Optional[pulumi.Input[str]] = None,
-             cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
-             enable_log_file_validation: Optional[pulumi.Input[bool]] = None,
-             event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorArgs']]]] = None,
-             include_global_service_events: Optional[pulumi.Input[bool]] = None,
-             insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['TrailInsightSelectorArgs']]]] = None,
-             is_multi_region_trail: Optional[pulumi.Input[bool]] = None,
-             is_organization_trail: Optional[pulumi.Input[bool]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             sns_topic_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrailTagArgs']]]] = None,
-             trail_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("is_logging", is_logging)
-        _setter("s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "is_logging", is_logging)
+        pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if advanced_event_selectors is not None:
-            _setter("advanced_event_selectors", advanced_event_selectors)
+            pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if cloud_watch_logs_log_group_arn is not None:
-            _setter("cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
+            pulumi.set(__self__, "cloud_watch_logs_log_group_arn", cloud_watch_logs_log_group_arn)
         if cloud_watch_logs_role_arn is not None:
-            _setter("cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         if enable_log_file_validation is not None:
-            _setter("enable_log_file_validation", enable_log_file_validation)
+            pulumi.set(__self__, "enable_log_file_validation", enable_log_file_validation)
         if event_selectors is not None:
-            _setter("event_selectors", event_selectors)
+            pulumi.set(__self__, "event_selectors", event_selectors)
         if include_global_service_events is not None:
-            _setter("include_global_service_events", include_global_service_events)
+            pulumi.set(__self__, "include_global_service_events", include_global_service_events)
         if insight_selectors is not None:
-            _setter("insight_selectors", insight_selectors)
+            pulumi.set(__self__, "insight_selectors", insight_selectors)
         if is_multi_region_trail is not None:
-            _setter("is_multi_region_trail", is_multi_region_trail)
+            pulumi.set(__self__, "is_multi_region_trail", is_multi_region_trail)
         if is_organization_trail is not None:
-            _setter("is_organization_trail", is_organization_trail)
+            pulumi.set(__self__, "is_organization_trail", is_organization_trail)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if s3_key_prefix is not None:
-            _setter("s3_key_prefix", s3_key_prefix)
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if sns_topic_name is not None:
-            _setter("sns_topic_name", sns_topic_name)
+            pulumi.set(__self__, "sns_topic_name", sns_topic_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if trail_name is not None:
-            _setter("trail_name", trail_name)
+            pulumi.set(__self__, "trail_name", trail_name)
 
     @property
     @pulumi.getter(name="isLogging")
@@ -368,10 +329,6 @@ class Trail(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TrailArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

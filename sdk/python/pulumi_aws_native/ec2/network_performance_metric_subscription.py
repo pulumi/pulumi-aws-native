@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkPerformanceMetricSubscriptionArgs', 'NetworkPerformanceMetricSubscription']
@@ -25,25 +25,10 @@ class NetworkPerformanceMetricSubscriptionArgs:
         :param pulumi.Input[str] source: The starting Region or Availability Zone for metric to subscribe to.
         :param pulumi.Input[str] statistic: The statistic to subscribe to.
         """
-        NetworkPerformanceMetricSubscriptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            metric=metric,
-            source=source,
-            statistic=statistic,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             metric: pulumi.Input[str],
-             source: pulumi.Input[str],
-             statistic: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("metric", metric)
-        _setter("source", source)
-        _setter("statistic", statistic)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "metric", metric)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "statistic", statistic)
 
     @property
     @pulumi.getter
@@ -133,10 +118,6 @@ class NetworkPerformanceMetricSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetworkPerformanceMetricSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

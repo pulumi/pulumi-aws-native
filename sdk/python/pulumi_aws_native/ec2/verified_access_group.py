@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,36 +31,17 @@ class VerifiedAccessGroupArgs:
         :param pulumi.Input['VerifiedAccessGroupSseSpecificationArgs'] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        VerifiedAccessGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            verified_access_instance_id=verified_access_instance_id,
-            description=description,
-            policy_document=policy_document,
-            policy_enabled=policy_enabled,
-            sse_specification=sse_specification,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             verified_access_instance_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             policy_enabled: Optional[pulumi.Input[bool]] = None,
-             sse_specification: Optional[pulumi.Input['VerifiedAccessGroupSseSpecificationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("verified_access_instance_id", verified_access_instance_id)
+        pulumi.set(__self__, "verified_access_instance_id", verified_access_instance_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if policy_enabled is not None:
-            _setter("policy_enabled", policy_enabled)
+            pulumi.set(__self__, "policy_enabled", policy_enabled)
         if sse_specification is not None:
-            _setter("sse_specification", sse_specification)
+            pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="verifiedAccessInstanceId")
@@ -178,10 +159,6 @@ class VerifiedAccessGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VerifiedAccessGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -205,11 +182,6 @@ class VerifiedAccessGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_enabled"] = policy_enabled
-            if sse_specification is not None and not isinstance(sse_specification, VerifiedAccessGroupSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                VerifiedAccessGroupSseSpecificationArgs._configure(_setter, **sse_specification)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if verified_access_instance_id is None and not opts.urn:

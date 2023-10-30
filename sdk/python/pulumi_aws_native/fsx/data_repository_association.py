@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,38 +34,17 @@ class DataRepositoryAssociationArgs:
         :param pulumi.Input['DataRepositoryAssociationS3Args'] s3: The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         :param pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationTagArgs']]] tags: A list of Tag values, with a maximum of 50 elements.
         """
-        DataRepositoryAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_repository_path=data_repository_path,
-            file_system_id=file_system_id,
-            file_system_path=file_system_path,
-            batch_import_meta_data_on_create=batch_import_meta_data_on_create,
-            imported_file_chunk_size=imported_file_chunk_size,
-            s3=s3,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_repository_path: pulumi.Input[str],
-             file_system_id: pulumi.Input[str],
-             file_system_path: pulumi.Input[str],
-             batch_import_meta_data_on_create: Optional[pulumi.Input[bool]] = None,
-             imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
-             s3: Optional[pulumi.Input['DataRepositoryAssociationS3Args']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataRepositoryAssociationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_repository_path", data_repository_path)
-        _setter("file_system_id", file_system_id)
-        _setter("file_system_path", file_system_path)
+        pulumi.set(__self__, "data_repository_path", data_repository_path)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "file_system_path", file_system_path)
         if batch_import_meta_data_on_create is not None:
-            _setter("batch_import_meta_data_on_create", batch_import_meta_data_on_create)
+            pulumi.set(__self__, "batch_import_meta_data_on_create", batch_import_meta_data_on_create)
         if imported_file_chunk_size is not None:
-            _setter("imported_file_chunk_size", imported_file_chunk_size)
+            pulumi.set(__self__, "imported_file_chunk_size", imported_file_chunk_size)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataRepositoryPath")
@@ -197,10 +176,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DataRepositoryAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,11 +208,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'file_system_path'")
             __props__.__dict__["file_system_path"] = file_system_path
             __props__.__dict__["imported_file_chunk_size"] = imported_file_chunk_size
-            if s3 is not None and not isinstance(s3, DataRepositoryAssociationS3Args):
-                s3 = s3 or {}
-                def _setter(key, value):
-                    s3[key] = value
-                DataRepositoryAssociationS3Args._configure(_setter, **s3)
             __props__.__dict__["s3"] = s3
             __props__.__dict__["tags"] = tags
             __props__.__dict__["association_id"] = None

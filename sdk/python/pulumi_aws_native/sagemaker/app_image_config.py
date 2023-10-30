@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,25 +25,12 @@ class AppImageConfigArgs:
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The KernelGatewayImageConfig.
         :param pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]] tags: A list of tags to apply to the AppImageConfig.
         """
-        AppImageConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_image_config_name=app_image_config_name,
-            kernel_gateway_image_config=kernel_gateway_image_config,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_image_config_name: Optional[pulumi.Input[str]] = None,
-             kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AppImageConfigTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if app_image_config_name is not None:
-            _setter("app_image_config_name", app_image_config_name)
+            pulumi.set(__self__, "app_image_config_name", app_image_config_name)
         if kernel_gateway_image_config is not None:
-            _setter("kernel_gateway_image_config", kernel_gateway_image_config)
+            pulumi.set(__self__, "kernel_gateway_image_config", kernel_gateway_image_config)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="appImageConfigName")
@@ -119,10 +106,6 @@ class AppImageConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AppImageConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -141,11 +124,6 @@ class AppImageConfig(pulumi.CustomResource):
             __props__ = AppImageConfigArgs.__new__(AppImageConfigArgs)
 
             __props__.__dict__["app_image_config_name"] = app_image_config_name
-            if kernel_gateway_image_config is not None and not isinstance(kernel_gateway_image_config, AppImageConfigKernelGatewayImageConfigArgs):
-                kernel_gateway_image_config = kernel_gateway_image_config or {}
-                def _setter(key, value):
-                    kernel_gateway_image_config[key] = value
-                AppImageConfigKernelGatewayImageConfigArgs._configure(_setter, **kernel_gateway_image_config)
             __props__.__dict__["kernel_gateway_image_config"] = kernel_gateway_image_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["app_image_config_arn"] = None

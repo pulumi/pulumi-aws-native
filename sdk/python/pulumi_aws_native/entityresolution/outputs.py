@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -55,21 +55,10 @@ class IdMappingWorkflowIdMappingTechniques(dict):
     def __init__(__self__, *,
                  id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
                  provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None):
-        IdMappingWorkflowIdMappingTechniques._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id_mapping_type=id_mapping_type,
-            provider_properties=provider_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id_mapping_type: Optional['IdMappingWorkflowIdMappingTechniquesIdMappingType'] = None,
-             provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if id_mapping_type is not None:
-            _setter("id_mapping_type", id_mapping_type)
+            pulumi.set(__self__, "id_mapping_type", id_mapping_type)
         if provider_properties is not None:
-            _setter("provider_properties", provider_properties)
+            pulumi.set(__self__, "provider_properties", provider_properties)
 
     @property
     @pulumi.getter(name="idMappingType")
@@ -109,19 +98,8 @@ class IdMappingWorkflowInputSource(dict):
         """
         :param str input_source_arn: An Glue table ARN for the input source table
         """
-        IdMappingWorkflowInputSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_source_arn=input_source_arn,
-            schema_arn=schema_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_source_arn: str,
-             schema_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_source_arn", input_source_arn)
-        _setter("schema_arn", schema_arn)
+        pulumi.set(__self__, "input_source_arn", input_source_arn)
+        pulumi.set(__self__, "schema_arn", schema_arn)
 
     @property
     @pulumi.getter(name="inputSourceArn")
@@ -161,16 +139,7 @@ class IdMappingWorkflowIntermediateSourceConfiguration(dict):
         """
         :param str intermediate_s3_path: The s3 path that would be used to stage the intermediate data being generated during workflow execution.
         """
-        IdMappingWorkflowIntermediateSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            intermediate_s3_path=intermediate_s3_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             intermediate_s3_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("intermediate_s3_path", intermediate_s3_path)
+        pulumi.set(__self__, "intermediate_s3_path", intermediate_s3_path)
 
     @property
     @pulumi.getter(name="intermediateS3Path")
@@ -208,20 +177,9 @@ class IdMappingWorkflowOutputSource(dict):
         """
         :param str output_s3_path: The S3 path to which Entity Resolution will write the output table
         """
-        IdMappingWorkflowOutputSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            output_s3_path=output_s3_path,
-            kms_arn=kms_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             output_s3_path: str,
-             kms_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("output_s3_path", output_s3_path)
+        pulumi.set(__self__, "output_s3_path", output_s3_path)
         if kms_arn is not None:
-            _setter("kms_arn", kms_arn)
+            pulumi.set(__self__, "kms_arn", kms_arn)
 
     @property
     @pulumi.getter(name="outputS3Path")
@@ -268,24 +226,11 @@ class IdMappingWorkflowProviderProperties(dict):
         :param str provider_service_arn: Arn of the Provider Service being used.
         :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
-        IdMappingWorkflowProviderProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider_service_arn=provider_service_arn,
-            intermediate_source_configuration=intermediate_source_configuration,
-            provider_configuration=provider_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider_service_arn: str,
-             intermediate_source_configuration: Optional['outputs.IdMappingWorkflowIntermediateSourceConfiguration'] = None,
-             provider_configuration: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("provider_service_arn", provider_service_arn)
+        pulumi.set(__self__, "provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
-            _setter("intermediate_source_configuration", intermediate_source_configuration)
+            pulumi.set(__self__, "intermediate_source_configuration", intermediate_source_configuration)
         if provider_configuration is not None:
-            _setter("provider_configuration", provider_configuration)
+            pulumi.set(__self__, "provider_configuration", provider_configuration)
 
     @property
     @pulumi.getter(name="providerServiceArn")
@@ -322,19 +267,8 @@ class IdMappingWorkflowTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        IdMappingWorkflowTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -383,23 +317,10 @@ class MatchingWorkflowInputSource(dict):
         """
         :param str input_source_arn: An Glue table ARN for the input source table
         """
-        MatchingWorkflowInputSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            input_source_arn=input_source_arn,
-            schema_arn=schema_arn,
-            apply_normalization=apply_normalization,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             input_source_arn: str,
-             schema_arn: str,
-             apply_normalization: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("input_source_arn", input_source_arn)
-        _setter("schema_arn", schema_arn)
+        pulumi.set(__self__, "input_source_arn", input_source_arn)
+        pulumi.set(__self__, "schema_arn", schema_arn)
         if apply_normalization is not None:
-            _setter("apply_normalization", apply_normalization)
+            pulumi.set(__self__, "apply_normalization", apply_normalization)
 
     @property
     @pulumi.getter(name="inputSourceArn")
@@ -444,16 +365,7 @@ class MatchingWorkflowIntermediateSourceConfiguration(dict):
         """
         :param str intermediate_s3_path: The s3 path that would be used to stage the intermediate data being generated during workflow execution.
         """
-        MatchingWorkflowIntermediateSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            intermediate_s3_path=intermediate_s3_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             intermediate_s3_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("intermediate_s3_path", intermediate_s3_path)
+        pulumi.set(__self__, "intermediate_s3_path", intermediate_s3_path)
 
     @property
     @pulumi.getter(name="intermediateS3Path")
@@ -469,20 +381,9 @@ class MatchingWorkflowOutputAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  hashed: Optional[bool] = None):
-        MatchingWorkflowOutputAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            hashed=hashed,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             hashed: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if hashed is not None:
-            _setter("hashed", hashed)
+            pulumi.set(__self__, "hashed", hashed)
 
     @property
     @pulumi.getter
@@ -526,27 +427,12 @@ class MatchingWorkflowOutputSource(dict):
         """
         :param str output_s3_path: The S3 path to which Entity Resolution will write the output table
         """
-        MatchingWorkflowOutputSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            output=output,
-            output_s3_path=output_s3_path,
-            apply_normalization=apply_normalization,
-            kms_arn=kms_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             output: Sequence['outputs.MatchingWorkflowOutputAttribute'],
-             output_s3_path: str,
-             apply_normalization: Optional[bool] = None,
-             kms_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("output", output)
-        _setter("output_s3_path", output_s3_path)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "output_s3_path", output_s3_path)
         if apply_normalization is not None:
-            _setter("apply_normalization", apply_normalization)
+            pulumi.set(__self__, "apply_normalization", apply_normalization)
         if kms_arn is not None:
-            _setter("kms_arn", kms_arn)
+            pulumi.set(__self__, "kms_arn", kms_arn)
 
     @property
     @pulumi.getter
@@ -603,24 +489,11 @@ class MatchingWorkflowProviderProperties(dict):
         :param str provider_service_arn: Arn of the Provider service being used.
         :param Any provider_configuration: Additional Provider configuration that would be required for the provider service. The Configuration must be in JSON string format
         """
-        MatchingWorkflowProviderProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider_service_arn=provider_service_arn,
-            intermediate_source_configuration=intermediate_source_configuration,
-            provider_configuration=provider_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider_service_arn: str,
-             intermediate_source_configuration: Optional['outputs.MatchingWorkflowIntermediateSourceConfiguration'] = None,
-             provider_configuration: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("provider_service_arn", provider_service_arn)
+        pulumi.set(__self__, "provider_service_arn", provider_service_arn)
         if intermediate_source_configuration is not None:
-            _setter("intermediate_source_configuration", intermediate_source_configuration)
+            pulumi.set(__self__, "intermediate_source_configuration", intermediate_source_configuration)
         if provider_configuration is not None:
-            _setter("provider_configuration", provider_configuration)
+            pulumi.set(__self__, "provider_configuration", provider_configuration)
 
     @property
     @pulumi.getter(name="providerServiceArn")
@@ -671,25 +544,12 @@ class MatchingWorkflowResolutionTechniques(dict):
                  provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
                  resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
                  rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None):
-        MatchingWorkflowResolutionTechniques._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provider_properties=provider_properties,
-            resolution_type=resolution_type,
-            rule_based_properties=rule_based_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provider_properties: Optional['outputs.MatchingWorkflowProviderProperties'] = None,
-             resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
-             rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if provider_properties is not None:
-            _setter("provider_properties", provider_properties)
+            pulumi.set(__self__, "provider_properties", provider_properties)
         if resolution_type is not None:
-            _setter("resolution_type", resolution_type)
+            pulumi.set(__self__, "resolution_type", resolution_type)
         if rule_based_properties is not None:
-            _setter("rule_based_properties", rule_based_properties)
+            pulumi.set(__self__, "rule_based_properties", rule_based_properties)
 
     @property
     @pulumi.getter(name="providerProperties")
@@ -731,19 +591,8 @@ class MatchingWorkflowRule(dict):
     def __init__(__self__, *,
                  matching_keys: Sequence[str],
                  rule_name: str):
-        MatchingWorkflowRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            matching_keys=matching_keys,
-            rule_name=rule_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             matching_keys: Sequence[str],
-             rule_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("matching_keys", matching_keys)
-        _setter("rule_name", rule_name)
+        pulumi.set(__self__, "matching_keys", matching_keys)
+        pulumi.set(__self__, "rule_name", rule_name)
 
     @property
     @pulumi.getter(name="matchingKeys")
@@ -778,19 +627,8 @@ class MatchingWorkflowRuleBasedProperties(dict):
     def __init__(__self__, *,
                  attribute_matching_model: 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
                  rules: Sequence['outputs.MatchingWorkflowRule']):
-        MatchingWorkflowRuleBasedProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_matching_model=attribute_matching_model,
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_matching_model: 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel',
-             rules: Sequence['outputs.MatchingWorkflowRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attribute_matching_model", attribute_matching_model)
-        _setter("rules", rules)
+        pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter(name="attributeMatchingModel")
@@ -816,19 +654,8 @@ class MatchingWorkflowTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        MatchingWorkflowTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -881,31 +708,14 @@ class SchemaMappingSchemaInputAttribute(dict):
         """
         :param str sub_type: The subtype of the Attribute. Would be required only when type is PROVIDER_ID
         """
-        SchemaMappingSchemaInputAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field_name=field_name,
-            type=type,
-            group_name=group_name,
-            match_key=match_key,
-            sub_type=sub_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field_name: str,
-             type: 'SchemaMappingSchemaAttributeType',
-             group_name: Optional[str] = None,
-             match_key: Optional[str] = None,
-             sub_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("field_name", field_name)
-        _setter("type", type)
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "type", type)
         if group_name is not None:
-            _setter("group_name", group_name)
+            pulumi.set(__self__, "group_name", group_name)
         if match_key is not None:
-            _setter("match_key", match_key)
+            pulumi.set(__self__, "match_key", match_key)
         if sub_type is not None:
-            _setter("sub_type", sub_type)
+            pulumi.set(__self__, "sub_type", sub_type)
 
     @property
     @pulumi.getter(name="fieldName")
@@ -949,19 +759,8 @@ class SchemaMappingTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        SchemaMappingTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

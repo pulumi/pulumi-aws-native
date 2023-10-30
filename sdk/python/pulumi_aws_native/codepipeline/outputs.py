@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -62,19 +62,8 @@ class CustomActionTypeArtifactDetails(dict):
         :param int maximum_count: The maximum number of artifacts allowed for the action type.
         :param int minimum_count: The minimum number of artifacts allowed for the action type.
         """
-        CustomActionTypeArtifactDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum_count=maximum_count,
-            minimum_count=minimum_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum_count: int,
-             minimum_count: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("maximum_count", maximum_count)
-        _setter("minimum_count", minimum_count)
+        pulumi.set(__self__, "maximum_count", maximum_count)
+        pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
@@ -116,37 +105,16 @@ class CustomActionTypeConfigurationProperties(dict):
         :param bool queryable: Indicates that the property is used with PollForJobs. When creating a custom action, an action can have up to one queryable property. If it has one, that property must be both required and not secret.If you create a pipeline with a custom action type, and that custom action contains a queryable property, the value for that configuration property is subject to other restrictions. The value must be less than or equal to twenty (20) characters. The value can contain only alphanumeric characters, underscores, and hyphens. 
         :param str type: The type of the configuration property.
         """
-        CustomActionTypeConfigurationProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            name=name,
-            required=required,
-            secret=secret,
-            description=description,
-            queryable=queryable,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: bool,
-             name: str,
-             required: bool,
-             secret: bool,
-             description: Optional[str] = None,
-             queryable: Optional[bool] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("name", name)
-        _setter("required", required)
-        _setter("secret", secret)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "required", required)
+        pulumi.set(__self__, "secret", secret)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if queryable is not None:
-            _setter("queryable", queryable)
+            pulumi.set(__self__, "queryable", queryable)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -245,29 +213,14 @@ class CustomActionTypeSettings(dict):
         :param str revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action. 
         :param str third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
         """
-        CustomActionTypeSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_url_template=entity_url_template,
-            execution_url_template=execution_url_template,
-            revision_url_template=revision_url_template,
-            third_party_configuration_url=third_party_configuration_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_url_template: Optional[str] = None,
-             execution_url_template: Optional[str] = None,
-             revision_url_template: Optional[str] = None,
-             third_party_configuration_url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if entity_url_template is not None:
-            _setter("entity_url_template", entity_url_template)
+            pulumi.set(__self__, "entity_url_template", entity_url_template)
         if execution_url_template is not None:
-            _setter("execution_url_template", execution_url_template)
+            pulumi.set(__self__, "execution_url_template", execution_url_template)
         if revision_url_template is not None:
-            _setter("revision_url_template", revision_url_template)
+            pulumi.set(__self__, "revision_url_template", revision_url_template)
         if third_party_configuration_url is not None:
-            _setter("third_party_configuration_url", third_party_configuration_url)
+            pulumi.set(__self__, "third_party_configuration_url", third_party_configuration_url)
 
     @property
     @pulumi.getter(name="entityUrlTemplate")
@@ -307,19 +260,8 @@ class CustomActionTypeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        CustomActionTypeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -369,47 +311,22 @@ class PipelineActionDeclaration(dict):
                  region: Optional[str] = None,
                  role_arn: Optional[str] = None,
                  run_order: Optional[int] = None):
-        PipelineActionDeclaration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_type_id=action_type_id,
-            name=name,
-            configuration=configuration,
-            input_artifacts=input_artifacts,
-            namespace=namespace,
-            output_artifacts=output_artifacts,
-            region=region,
-            role_arn=role_arn,
-            run_order=run_order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_type_id: 'outputs.PipelineActionTypeId',
-             name: str,
-             configuration: Optional[Any] = None,
-             input_artifacts: Optional[Sequence['outputs.PipelineInputArtifact']] = None,
-             namespace: Optional[str] = None,
-             output_artifacts: Optional[Sequence['outputs.PipelineOutputArtifact']] = None,
-             region: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             run_order: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action_type_id", action_type_id)
-        _setter("name", name)
+        pulumi.set(__self__, "action_type_id", action_type_id)
+        pulumi.set(__self__, "name", name)
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if input_artifacts is not None:
-            _setter("input_artifacts", input_artifacts)
+            pulumi.set(__self__, "input_artifacts", input_artifacts)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if output_artifacts is not None:
-            _setter("output_artifacts", output_artifacts)
+            pulumi.set(__self__, "output_artifacts", output_artifacts)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if run_order is not None:
-            _setter("run_order", run_order)
+            pulumi.set(__self__, "run_order", run_order)
 
     @property
     @pulumi.getter(name="actionTypeId")
@@ -464,25 +381,10 @@ class PipelineActionTypeId(dict):
                  owner: str,
                  provider: str,
                  version: str):
-        PipelineActionTypeId._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            category=category,
-            owner=owner,
-            provider=provider,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             category: str,
-             owner: str,
-             provider: str,
-             version: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("category", category)
-        _setter("owner", owner)
-        _setter("provider", provider)
-        _setter("version", version)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "provider", provider)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -528,23 +430,10 @@ class PipelineArtifactStore(dict):
                  location: str,
                  type: str,
                  encryption_key: Optional['outputs.PipelineEncryptionKey'] = None):
-        PipelineArtifactStore._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            location=location,
-            type=type,
-            encryption_key=encryption_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             location: str,
-             type: str,
-             encryption_key: Optional['outputs.PipelineEncryptionKey'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("location", location)
-        _setter("type", type)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "type", type)
         if encryption_key is not None:
-            _setter("encryption_key", encryption_key)
+            pulumi.set(__self__, "encryption_key", encryption_key)
 
     @property
     @pulumi.getter
@@ -584,19 +473,8 @@ class PipelineArtifactStoreMap(dict):
     def __init__(__self__, *,
                  artifact_store: 'outputs.PipelineArtifactStore',
                  region: str):
-        PipelineArtifactStoreMap._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            artifact_store=artifact_store,
-            region=region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             artifact_store: 'outputs.PipelineArtifactStore',
-             region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("artifact_store", artifact_store)
-        _setter("region", region)
+        pulumi.set(__self__, "artifact_store", artifact_store)
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="artifactStore")
@@ -614,19 +492,8 @@ class PipelineBlockerDeclaration(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
-        PipelineBlockerDeclaration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -644,19 +511,8 @@ class PipelineEncryptionKey(dict):
     def __init__(__self__, *,
                  id: str,
                  type: str):
-        PipelineEncryptionKey._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("type", type)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -673,16 +529,7 @@ class PipelineEncryptionKey(dict):
 class PipelineInputArtifact(dict):
     def __init__(__self__, *,
                  name: str):
-        PipelineInputArtifact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -694,16 +541,7 @@ class PipelineInputArtifact(dict):
 class PipelineOutputArtifact(dict):
     def __init__(__self__, *,
                  name: str):
-        PipelineOutputArtifact._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -717,23 +555,10 @@ class PipelineStageDeclaration(dict):
                  actions: Sequence['outputs.PipelineActionDeclaration'],
                  name: str,
                  blockers: Optional[Sequence['outputs.PipelineBlockerDeclaration']] = None):
-        PipelineStageDeclaration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            name=name,
-            blockers=blockers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Sequence['outputs.PipelineActionDeclaration'],
-             name: str,
-             blockers: Optional[Sequence['outputs.PipelineBlockerDeclaration']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("actions", actions)
-        _setter("name", name)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "name", name)
         if blockers is not None:
-            _setter("blockers", blockers)
+            pulumi.set(__self__, "blockers", blockers)
 
     @property
     @pulumi.getter
@@ -773,19 +598,8 @@ class PipelineStageTransition(dict):
     def __init__(__self__, *,
                  reason: str,
                  stage_name: str):
-        PipelineStageTransition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            reason=reason,
-            stage_name=stage_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             reason: str,
-             stage_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("reason", reason)
-        _setter("stage_name", stage_name)
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "stage_name", stage_name)
 
     @property
     @pulumi.getter
@@ -803,19 +617,8 @@ class PipelineTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PipelineTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -852,21 +655,10 @@ class WebhookAuthConfiguration(dict):
     def __init__(__self__, *,
                  allowed_ip_range: Optional[str] = None,
                  secret_token: Optional[str] = None):
-        WebhookAuthConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_ip_range=allowed_ip_range,
-            secret_token=secret_token,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_ip_range: Optional[str] = None,
-             secret_token: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_ip_range is not None:
-            _setter("allowed_ip_range", allowed_ip_range)
+            pulumi.set(__self__, "allowed_ip_range", allowed_ip_range)
         if secret_token is not None:
-            _setter("secret_token", secret_token)
+            pulumi.set(__self__, "secret_token", secret_token)
 
     @property
     @pulumi.getter(name="allowedIpRange")
@@ -903,20 +695,9 @@ class WebhookFilterRule(dict):
     def __init__(__self__, *,
                  json_path: str,
                  match_equals: Optional[str] = None):
-        WebhookFilterRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            json_path=json_path,
-            match_equals=match_equals,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             json_path: str,
-             match_equals: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("json_path", json_path)
+        pulumi.set(__self__, "json_path", json_path)
         if match_equals is not None:
-            _setter("match_equals", match_equals)
+            pulumi.set(__self__, "match_equals", match_equals)
 
     @property
     @pulumi.getter(name="jsonPath")

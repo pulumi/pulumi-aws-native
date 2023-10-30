@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,63 +47,28 @@ class VerifiedAccessEndpointArgs:
         :param pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs'] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        VerifiedAccessEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_domain=application_domain,
-            attachment_type=attachment_type,
-            domain_certificate_arn=domain_certificate_arn,
-            endpoint_domain_prefix=endpoint_domain_prefix,
-            endpoint_type=endpoint_type,
-            verified_access_group_id=verified_access_group_id,
-            description=description,
-            load_balancer_options=load_balancer_options,
-            network_interface_options=network_interface_options,
-            policy_document=policy_document,
-            policy_enabled=policy_enabled,
-            security_group_ids=security_group_ids,
-            sse_specification=sse_specification,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_domain: pulumi.Input[str],
-             attachment_type: pulumi.Input[str],
-             domain_certificate_arn: pulumi.Input[str],
-             endpoint_domain_prefix: pulumi.Input[str],
-             endpoint_type: pulumi.Input[str],
-             verified_access_group_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             load_balancer_options: Optional[pulumi.Input['VerifiedAccessEndpointLoadBalancerOptionsArgs']] = None,
-             network_interface_options: Optional[pulumi.Input['VerifiedAccessEndpointNetworkInterfaceOptionsArgs']] = None,
-             policy_document: Optional[pulumi.Input[str]] = None,
-             policy_enabled: Optional[pulumi.Input[bool]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sse_specification: Optional[pulumi.Input['VerifiedAccessEndpointSseSpecificationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_domain", application_domain)
-        _setter("attachment_type", attachment_type)
-        _setter("domain_certificate_arn", domain_certificate_arn)
-        _setter("endpoint_domain_prefix", endpoint_domain_prefix)
-        _setter("endpoint_type", endpoint_type)
-        _setter("verified_access_group_id", verified_access_group_id)
+        pulumi.set(__self__, "application_domain", application_domain)
+        pulumi.set(__self__, "attachment_type", attachment_type)
+        pulumi.set(__self__, "domain_certificate_arn", domain_certificate_arn)
+        pulumi.set(__self__, "endpoint_domain_prefix", endpoint_domain_prefix)
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        pulumi.set(__self__, "verified_access_group_id", verified_access_group_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if load_balancer_options is not None:
-            _setter("load_balancer_options", load_balancer_options)
+            pulumi.set(__self__, "load_balancer_options", load_balancer_options)
         if network_interface_options is not None:
-            _setter("network_interface_options", network_interface_options)
+            pulumi.set(__self__, "network_interface_options", network_interface_options)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if policy_enabled is not None:
-            _setter("policy_enabled", policy_enabled)
+            pulumi.set(__self__, "policy_enabled", policy_enabled)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if sse_specification is not None:
-            _setter("sse_specification", sse_specification)
+            pulumi.set(__self__, "sse_specification", sse_specification)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="applicationDomain")
@@ -333,10 +298,6 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VerifiedAccessEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -381,26 +342,11 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
             if endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_type'")
             __props__.__dict__["endpoint_type"] = endpoint_type
-            if load_balancer_options is not None and not isinstance(load_balancer_options, VerifiedAccessEndpointLoadBalancerOptionsArgs):
-                load_balancer_options = load_balancer_options or {}
-                def _setter(key, value):
-                    load_balancer_options[key] = value
-                VerifiedAccessEndpointLoadBalancerOptionsArgs._configure(_setter, **load_balancer_options)
             __props__.__dict__["load_balancer_options"] = load_balancer_options
-            if network_interface_options is not None and not isinstance(network_interface_options, VerifiedAccessEndpointNetworkInterfaceOptionsArgs):
-                network_interface_options = network_interface_options or {}
-                def _setter(key, value):
-                    network_interface_options[key] = value
-                VerifiedAccessEndpointNetworkInterfaceOptionsArgs._configure(_setter, **network_interface_options)
             __props__.__dict__["network_interface_options"] = network_interface_options
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_enabled"] = policy_enabled
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if sse_specification is not None and not isinstance(sse_specification, VerifiedAccessEndpointSseSpecificationArgs):
-                sse_specification = sse_specification or {}
-                def _setter(key, value):
-                    sse_specification[key] = value
-                VerifiedAccessEndpointSseSpecificationArgs._configure(_setter, **sse_specification)
             __props__.__dict__["sse_specification"] = sse_specification
             __props__.__dict__["tags"] = tags
             if verified_access_group_id is None and not opts.urn:

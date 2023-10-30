@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServicePrincipalNameArgs', 'ServicePrincipalName']
@@ -19,21 +19,10 @@ class ServicePrincipalNameArgs:
         """
         The set of arguments for constructing a ServicePrincipalName resource.
         """
-        ServicePrincipalNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connector_arn=connector_arn,
-            directory_registration_arn=directory_registration_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connector_arn: Optional[pulumi.Input[str]] = None,
-             directory_registration_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if connector_arn is not None:
-            _setter("connector_arn", connector_arn)
+            pulumi.set(__self__, "connector_arn", connector_arn)
         if directory_registration_arn is not None:
-            _setter("directory_registration_arn", directory_registration_arn)
+            pulumi.set(__self__, "directory_registration_arn", directory_registration_arn)
 
     @property
     @pulumi.getter(name="connectorArn")
@@ -87,10 +76,6 @@ class ServicePrincipalName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServicePrincipalNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

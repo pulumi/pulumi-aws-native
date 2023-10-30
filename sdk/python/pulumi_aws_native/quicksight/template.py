@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -29,47 +29,22 @@ class TemplateArgs:
         """
         The set of arguments for constructing a Template resource.
         """
-        TemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_account_id=aws_account_id,
-            template_id=template_id,
-            definition=definition,
-            name=name,
-            permissions=permissions,
-            source_entity=source_entity,
-            tags=tags,
-            validation_strategy=validation_strategy,
-            version_description=version_description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_account_id: pulumi.Input[str],
-             template_id: pulumi.Input[str],
-             definition: Optional[pulumi.Input['TemplateVersionDefinitionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]] = None,
-             source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTagArgs']]]] = None,
-             validation_strategy: Optional[pulumi.Input['TemplateValidationStrategyArgs']] = None,
-             version_description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aws_account_id", aws_account_id)
-        _setter("template_id", template_id)
+        pulumi.set(__self__, "aws_account_id", aws_account_id)
+        pulumi.set(__self__, "template_id", template_id)
         if definition is not None:
-            _setter("definition", definition)
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if source_entity is not None:
-            _setter("source_entity", source_entity)
+            pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if validation_strategy is not None:
-            _setter("validation_strategy", validation_strategy)
+            pulumi.set(__self__, "validation_strategy", validation_strategy)
         if version_description is not None:
-            _setter("version_description", version_description)
+            pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -193,10 +168,6 @@ class Template(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -223,29 +194,14 @@ class Template(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
-            if definition is not None and not isinstance(definition, TemplateVersionDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                TemplateVersionDefinitionArgs._configure(_setter, **definition)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
-            if source_entity is not None and not isinstance(source_entity, TemplateSourceEntityArgs):
-                source_entity = source_entity or {}
-                def _setter(key, value):
-                    source_entity[key] = value
-                TemplateSourceEntityArgs._configure(_setter, **source_entity)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             if template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'template_id'")
             __props__.__dict__["template_id"] = template_id
-            if validation_strategy is not None and not isinstance(validation_strategy, TemplateValidationStrategyArgs):
-                validation_strategy = validation_strategy or {}
-                def _setter(key, value):
-                    validation_strategy[key] = value
-                TemplateValidationStrategyArgs._configure(_setter, **validation_strategy)
             __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["version_description"] = version_description
             __props__.__dict__["arn"] = None

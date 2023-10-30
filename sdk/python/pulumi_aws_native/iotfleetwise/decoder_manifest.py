@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,40 +27,19 @@ class DecoderManifestArgs:
         """
         The set of arguments for constructing a DecoderManifest resource.
         """
-        DecoderManifestArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            model_manifest_arn=model_manifest_arn,
-            description=description,
-            name=name,
-            network_interfaces=network_interfaces,
-            signal_decoders=signal_decoders,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             model_manifest_arn: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanNetworkInterfaceArgs', 'DecoderManifestObdNetworkInterfaceArgs']]]]] = None,
-             signal_decoders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DecoderManifestCanSignalDecoderArgs', 'DecoderManifestObdSignalDecoderArgs']]]]] = None,
-             status: Optional[pulumi.Input['DecoderManifestManifestStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DecoderManifestTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("model_manifest_arn", model_manifest_arn)
+        pulumi.set(__self__, "model_manifest_arn", model_manifest_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
-            _setter("network_interfaces", network_interfaces)
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
         if signal_decoders is not None:
-            _setter("signal_decoders", signal_decoders)
+            pulumi.set(__self__, "signal_decoders", signal_decoders)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="modelManifestArn")
@@ -169,10 +148,6 @@ class DecoderManifest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DecoderManifestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

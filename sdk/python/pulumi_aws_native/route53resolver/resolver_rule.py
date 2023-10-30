@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,35 +32,16 @@ class ResolverRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]] target_ips: An array that contains the IP addresses and ports that an outbound endpoint forwards DNS queries to. Typically, these are the IP addresses of DNS resolvers on your network. Specify IPv4 addresses. IPv6 is not supported.
         """
-        ResolverRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            rule_type=rule_type,
-            name=name,
-            resolver_endpoint_id=resolver_endpoint_id,
-            tags=tags,
-            target_ips=target_ips,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             rule_type: pulumi.Input['ResolverRuleRuleType'],
-             name: Optional[pulumi.Input[str]] = None,
-             resolver_endpoint_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTagArgs']]]] = None,
-             target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetAddressArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_name", domain_name)
-        _setter("rule_type", rule_type)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "rule_type", rule_type)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resolver_endpoint_id is not None:
-            _setter("resolver_endpoint_id", resolver_endpoint_id)
+            pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if target_ips is not None:
-            _setter("target_ips", target_ips)
+            pulumi.set(__self__, "target_ips", target_ips)
 
     @property
     @pulumi.getter(name="domainName")
@@ -178,10 +159,6 @@ class ResolverRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResolverRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

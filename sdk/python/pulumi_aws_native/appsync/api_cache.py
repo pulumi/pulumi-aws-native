@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiCacheArgs', 'ApiCache']
@@ -23,33 +23,14 @@ class ApiCacheArgs:
         """
         The set of arguments for constructing a ApiCache resource.
         """
-        ApiCacheArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_caching_behavior=api_caching_behavior,
-            api_id=api_id,
-            ttl=ttl,
-            type=type,
-            at_rest_encryption_enabled=at_rest_encryption_enabled,
-            transit_encryption_enabled=transit_encryption_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_caching_behavior: pulumi.Input[str],
-             api_id: pulumi.Input[str],
-             ttl: pulumi.Input[float],
-             type: pulumi.Input[str],
-             at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_caching_behavior", api_caching_behavior)
-        _setter("api_id", api_id)
-        _setter("ttl", ttl)
-        _setter("type", type)
+        pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "type", type)
         if at_rest_encryption_enabled is not None:
-            _setter("at_rest_encryption_enabled", at_rest_encryption_enabled)
+            pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
         if transit_encryption_enabled is not None:
-            _setter("transit_encryption_enabled", transit_encryption_enabled)
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="apiCachingBehavior")
@@ -148,10 +129,6 @@ class ApiCache(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApiCacheArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

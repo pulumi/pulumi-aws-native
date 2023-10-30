@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StackFleetAssociationArgs', 'StackFleetAssociation']
@@ -19,19 +19,8 @@ class StackFleetAssociationArgs:
         """
         The set of arguments for constructing a StackFleetAssociation resource.
         """
-        StackFleetAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fleet_name=fleet_name,
-            stack_name=stack_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fleet_name: pulumi.Input[str],
-             stack_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fleet_name", fleet_name)
-        _setter("stack_name", stack_name)
+        pulumi.set(__self__, "fleet_name", fleet_name)
+        pulumi.set(__self__, "stack_name", stack_name)
 
     @property
     @pulumi.getter(name="fleetName")
@@ -90,10 +79,6 @@ class StackFleetAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StackFleetAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

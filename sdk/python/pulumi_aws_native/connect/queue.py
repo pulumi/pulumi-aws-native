@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,47 +38,22 @@ class QueueArgs:
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        QueueArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hours_of_operation_arn=hours_of_operation_arn,
-            instance_arn=instance_arn,
-            description=description,
-            max_contacts=max_contacts,
-            name=name,
-            outbound_caller_config=outbound_caller_config,
-            quick_connect_arns=quick_connect_arns,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hours_of_operation_arn: pulumi.Input[str],
-             instance_arn: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             max_contacts: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             outbound_caller_config: Optional[pulumi.Input['QueueOutboundCallerConfigArgs']] = None,
-             quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             status: Optional[pulumi.Input['QueueStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['QueueTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hours_of_operation_arn", hours_of_operation_arn)
-        _setter("instance_arn", instance_arn)
+        pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
+        pulumi.set(__self__, "instance_arn", instance_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max_contacts is not None:
-            _setter("max_contacts", max_contacts)
+            pulumi.set(__self__, "max_contacts", max_contacts)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if outbound_caller_config is not None:
-            _setter("outbound_caller_config", outbound_caller_config)
+            pulumi.set(__self__, "outbound_caller_config", outbound_caller_config)
         if quick_connect_arns is not None:
-            _setter("quick_connect_arns", quick_connect_arns)
+            pulumi.set(__self__, "quick_connect_arns", quick_connect_arns)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="hoursOfOperationArn")
@@ -238,10 +213,6 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -274,11 +245,6 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["max_contacts"] = max_contacts
             __props__.__dict__["name"] = name
-            if outbound_caller_config is not None and not isinstance(outbound_caller_config, QueueOutboundCallerConfigArgs):
-                outbound_caller_config = outbound_caller_config or {}
-                def _setter(key, value):
-                    outbound_caller_config[key] = value
-                QueueOutboundCallerConfigArgs._configure(_setter, **outbound_caller_config)
             __props__.__dict__["outbound_caller_config"] = outbound_caller_config
             __props__.__dict__["quick_connect_arns"] = quick_connect_arns
             __props__.__dict__["status"] = status

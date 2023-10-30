@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,39 +26,18 @@ class ListenerArgs:
         """
         The set of arguments for constructing a Listener resource.
         """
-        ListenerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_actions=default_actions,
-            load_balancer_arn=load_balancer_arn,
-            alpn_policy=alpn_policy,
-            certificates=certificates,
-            port=port,
-            protocol=protocol,
-            ssl_policy=ssl_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_actions: pulumi.Input[Sequence[pulumi.Input['ListenerActionArgs']]],
-             load_balancer_arn: pulumi.Input[str],
-             alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             ssl_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_actions", default_actions)
-        _setter("load_balancer_arn", load_balancer_arn)
+        pulumi.set(__self__, "default_actions", default_actions)
+        pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if alpn_policy is not None:
-            _setter("alpn_policy", alpn_policy)
+            pulumi.set(__self__, "alpn_policy", alpn_policy)
         if certificates is not None:
-            _setter("certificates", certificates)
+            pulumi.set(__self__, "certificates", certificates)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if ssl_policy is not None:
-            _setter("ssl_policy", ssl_policy)
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
 
     @property
     @pulumi.getter(name="defaultActions")
@@ -162,10 +141,6 @@ class Listener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

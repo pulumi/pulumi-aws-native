@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,20 +23,9 @@ class TransitGatewayRouteTableArgs:
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]] tags: Tags are composed of a Key/Value pair. You can use tags to categorize and track each parameter group. The tag value null is permitted.
         """
-        TransitGatewayRouteTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            transit_gateway_id=transit_gateway_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             transit_gateway_id: pulumi.Input[str],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayRouteTableTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("transit_gateway_id", transit_gateway_id)
+        pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -98,10 +87,6 @@ class TransitGatewayRouteTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TransitGatewayRouteTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

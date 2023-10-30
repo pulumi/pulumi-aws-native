@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BasePathMappingArgs', 'BasePathMapping']
@@ -25,28 +25,13 @@ class BasePathMappingArgs:
         :param pulumi.Input[str] rest_api_id: The ID of the API.
         :param pulumi.Input[str] stage: The name of the API's stage.
         """
-        BasePathMappingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            base_path=base_path,
-            rest_api_id=rest_api_id,
-            stage=stage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             base_path: Optional[pulumi.Input[str]] = None,
-             rest_api_id: Optional[pulumi.Input[str]] = None,
-             stage: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "domain_name", domain_name)
         if base_path is not None:
-            _setter("base_path", base_path)
+            pulumi.set(__self__, "base_path", base_path)
         if rest_api_id is not None:
-            _setter("rest_api_id", rest_api_id)
+            pulumi.set(__self__, "rest_api_id", rest_api_id)
         if stage is not None:
-            _setter("stage", stage)
+            pulumi.set(__self__, "stage", stage)
 
     @property
     @pulumi.getter(name="domainName")
@@ -136,10 +121,6 @@ class BasePathMapping(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BasePathMappingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

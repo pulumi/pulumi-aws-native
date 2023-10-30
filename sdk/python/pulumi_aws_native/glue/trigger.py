@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,51 +29,24 @@ class TriggerArgs:
         """
         The set of arguments for constructing a Trigger resource.
         """
-        TriggerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            type=type,
-            description=description,
-            event_batching_condition=event_batching_condition,
-            name=name,
-            predicate=predicate,
-            schedule=schedule,
-            start_on_creation=start_on_creation,
-            tags=tags,
-            workflow_name=workflow_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input['TriggerActionArgs']]],
-             type: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             event_batching_condition: Optional[pulumi.Input['TriggerEventBatchingConditionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
-             schedule: Optional[pulumi.Input[str]] = None,
-             start_on_creation: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[Any] = None,
-             workflow_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("actions", actions)
-        _setter("type", type)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "type", type)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if event_batching_condition is not None:
-            _setter("event_batching_condition", event_batching_condition)
+            pulumi.set(__self__, "event_batching_condition", event_batching_condition)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if predicate is not None:
-            _setter("predicate", predicate)
+            pulumi.set(__self__, "predicate", predicate)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if start_on_creation is not None:
-            _setter("start_on_creation", start_on_creation)
+            pulumi.set(__self__, "start_on_creation", start_on_creation)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if workflow_name is not None:
-            _setter("workflow_name", workflow_name)
+            pulumi.set(__self__, "workflow_name", workflow_name)
 
     @property
     @pulumi.getter
@@ -212,10 +185,6 @@ class Trigger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TriggerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -245,18 +214,8 @@ class Trigger(pulumi.CustomResource):
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
             __props__.__dict__["description"] = description
-            if event_batching_condition is not None and not isinstance(event_batching_condition, TriggerEventBatchingConditionArgs):
-                event_batching_condition = event_batching_condition or {}
-                def _setter(key, value):
-                    event_batching_condition[key] = value
-                TriggerEventBatchingConditionArgs._configure(_setter, **event_batching_condition)
             __props__.__dict__["event_batching_condition"] = event_batching_condition
             __props__.__dict__["name"] = name
-            if predicate is not None and not isinstance(predicate, TriggerPredicateArgs):
-                predicate = predicate or {}
-                def _setter(key, value):
-                    predicate[key] = value
-                TriggerPredicateArgs._configure(_setter, **predicate)
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_on_creation"] = start_on_creation

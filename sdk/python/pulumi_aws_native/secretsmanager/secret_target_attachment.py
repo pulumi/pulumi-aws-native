@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecretTargetAttachmentArgs', 'SecretTargetAttachment']
@@ -20,22 +20,9 @@ class SecretTargetAttachmentArgs:
         """
         The set of arguments for constructing a SecretTargetAttachment resource.
         """
-        SecretTargetAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            secret_id=secret_id,
-            target_id=target_id,
-            target_type=target_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             secret_id: pulumi.Input[str],
-             target_id: pulumi.Input[str],
-             target_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("secret_id", secret_id)
-        _setter("target_id", target_id)
-        _setter("target_type", target_type)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
 
     @property
     @pulumi.getter(name="secretId")
@@ -104,10 +91,6 @@ class SecretTargetAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecretTargetAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

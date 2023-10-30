@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,24 +25,11 @@ class LoggingConfigurationArgs:
         :param pulumi.Input[str] name: The name of the logging configuration. The value does not need to be unique.
         :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        LoggingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_configuration=destination_configuration,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_configuration: pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'],
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_configuration", destination_configuration)
+        pulumi.set(__self__, "destination_configuration", destination_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="destinationConfiguration")
@@ -114,10 +101,6 @@ class LoggingConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LoggingConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -135,11 +118,6 @@ class LoggingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
 
-            if destination_configuration is not None and not isinstance(destination_configuration, LoggingConfigurationDestinationConfigurationArgs):
-                destination_configuration = destination_configuration or {}
-                def _setter(key, value):
-                    destination_configuration[key] = value
-                LoggingConfigurationDestinationConfigurationArgs._configure(_setter, **destination_configuration)
             if destination_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_configuration'")
             __props__.__dict__["destination_configuration"] = destination_configuration

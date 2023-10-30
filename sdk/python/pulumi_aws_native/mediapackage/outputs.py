@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -82,19 +82,8 @@ class AssetEgressEndpoint(dict):
         :param str packaging_configuration_id: The ID of the PackagingConfiguration being applied to the Asset.
         :param str url: The URL of the parent manifest for the repackaged Asset.
         """
-        AssetEgressEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            packaging_configuration_id=packaging_configuration_id,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             packaging_configuration_id: str,
-             url: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("packaging_configuration_id", packaging_configuration_id)
-        _setter("url", url)
+        pulumi.set(__self__, "packaging_configuration_id", packaging_configuration_id)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="packagingConfigurationId")
@@ -118,19 +107,8 @@ class AssetTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        AssetTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -171,17 +149,8 @@ class ChannelHlsIngest(dict):
         An HTTP Live Streaming (HLS) ingest resource configuration.
         :param Sequence['ChannelIngestEndpoint'] ingest_endpoints: A list of endpoints to which the source stream should be sent.
         """
-        ChannelHlsIngest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ingest_endpoints=ingest_endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ingest_endpoints: Optional[Sequence['outputs.ChannelIngestEndpoint']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ingest_endpoints is not None:
-            _setter("ingest_endpoints", ingest_endpoints)
+            pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @property
     @pulumi.getter(name="ingestEndpoints")
@@ -209,25 +178,10 @@ class ChannelIngestEndpoint(dict):
         :param str url: The ingest URL to which the source stream should be sent.
         :param str username: The system generated username for ingest authentication.
         """
-        ChannelIngestEndpoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            password=password,
-            url=url,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: str,
-             password: str,
-             url: str,
-             username: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("password", password)
-        _setter("url", url)
-        _setter("username", username)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -286,17 +240,8 @@ class ChannelLogConfiguration(dict):
         """
         :param str log_group_name: Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
         """
-        ChannelLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_name=log_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -312,19 +257,8 @@ class ChannelTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ChannelTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -369,19 +303,8 @@ class OriginEndpointAuthorization(dict):
         :param str cdn_identifier_secret: The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
         :param str secrets_role_arn: The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
-        OriginEndpointAuthorization._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_identifier_secret=cdn_identifier_secret,
-            secrets_role_arn=secrets_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_identifier_secret: str,
-             secrets_role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cdn_identifier_secret", cdn_identifier_secret)
-        _setter("secrets_role_arn", secrets_role_arn)
+        pulumi.set(__self__, "cdn_identifier_secret", cdn_identifier_secret)
+        pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
     @pulumi.getter(name="cdnIdentifierSecret")
@@ -439,28 +362,13 @@ class OriginEndpointCmafEncryption(dict):
         :param 'OriginEndpointCmafEncryptionEncryptionMethod' encryption_method: The encryption method used
         :param int key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
-        OriginEndpointCmafEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-            constant_initialization_vector=constant_initialization_vector,
-            encryption_method=encryption_method,
-            key_rotation_interval_seconds=key_rotation_interval_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
-             constant_initialization_vector: Optional[str] = None,
-             encryption_method: Optional['OriginEndpointCmafEncryptionEncryptionMethod'] = None,
-             key_rotation_interval_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if encryption_method is not None:
-            _setter("encryption_method", encryption_method)
+            pulumi.set(__self__, "encryption_method", encryption_method)
         if key_rotation_interval_seconds is not None:
-            _setter("key_rotation_interval_seconds", key_rotation_interval_seconds)
+            pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -532,33 +440,16 @@ class OriginEndpointCmafPackage(dict):
         :param int segment_duration_seconds: Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
         :param str segment_prefix: An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
         """
-        OriginEndpointCmafPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption=encryption,
-            hls_manifests=hls_manifests,
-            segment_duration_seconds=segment_duration_seconds,
-            segment_prefix=segment_prefix,
-            stream_selection=stream_selection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption: Optional['outputs.OriginEndpointCmafEncryption'] = None,
-             hls_manifests: Optional[Sequence['outputs.OriginEndpointHlsManifest']] = None,
-             segment_duration_seconds: Optional[int] = None,
-             segment_prefix: Optional[str] = None,
-             stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if hls_manifests is not None:
-            _setter("hls_manifests", hls_manifests)
+            pulumi.set(__self__, "hls_manifests", hls_manifests)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if segment_prefix is not None:
-            _setter("segment_prefix", segment_prefix)
+            pulumi.set(__self__, "segment_prefix", segment_prefix)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
     @pulumi.getter
@@ -626,20 +517,9 @@ class OriginEndpointDashEncryption(dict):
         A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
         :param int key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
-        OriginEndpointDashEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-            key_rotation_interval_seconds=key_rotation_interval_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
-             key_rotation_interval_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if key_rotation_interval_seconds is not None:
-            _setter("key_rotation_interval_seconds", key_rotation_interval_seconds)
+            pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -736,77 +616,38 @@ class OriginEndpointDashPackage(dict):
         :param 'OriginEndpointDashPackageUtcTiming' utc_timing: Determines the type of UTCTiming included in the Media Presentation Description (MPD)
         :param str utc_timing_uri: Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
         """
-        OriginEndpointDashPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_triggers=ad_triggers,
-            ads_on_delivery_restrictions=ads_on_delivery_restrictions,
-            encryption=encryption,
-            include_iframe_only_stream=include_iframe_only_stream,
-            manifest_layout=manifest_layout,
-            manifest_window_seconds=manifest_window_seconds,
-            min_buffer_time_seconds=min_buffer_time_seconds,
-            min_update_period_seconds=min_update_period_seconds,
-            period_triggers=period_triggers,
-            profile=profile,
-            segment_duration_seconds=segment_duration_seconds,
-            segment_template_format=segment_template_format,
-            stream_selection=stream_selection,
-            suggested_presentation_delay_seconds=suggested_presentation_delay_seconds,
-            utc_timing=utc_timing,
-            utc_timing_uri=utc_timing_uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_triggers: Optional[Sequence['OriginEndpointDashPackageAdTriggersItem']] = None,
-             ads_on_delivery_restrictions: Optional['OriginEndpointAdsOnDeliveryRestrictions'] = None,
-             encryption: Optional['outputs.OriginEndpointDashEncryption'] = None,
-             include_iframe_only_stream: Optional[bool] = None,
-             manifest_layout: Optional['OriginEndpointDashPackageManifestLayout'] = None,
-             manifest_window_seconds: Optional[int] = None,
-             min_buffer_time_seconds: Optional[int] = None,
-             min_update_period_seconds: Optional[int] = None,
-             period_triggers: Optional[Sequence['OriginEndpointDashPackagePeriodTriggersItem']] = None,
-             profile: Optional['OriginEndpointDashPackageProfile'] = None,
-             segment_duration_seconds: Optional[int] = None,
-             segment_template_format: Optional['OriginEndpointDashPackageSegmentTemplateFormat'] = None,
-             stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-             suggested_presentation_delay_seconds: Optional[int] = None,
-             utc_timing: Optional['OriginEndpointDashPackageUtcTiming'] = None,
-             utc_timing_uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_triggers is not None:
-            _setter("ad_triggers", ad_triggers)
+            pulumi.set(__self__, "ad_triggers", ad_triggers)
         if ads_on_delivery_restrictions is not None:
-            _setter("ads_on_delivery_restrictions", ads_on_delivery_restrictions)
+            pulumi.set(__self__, "ads_on_delivery_restrictions", ads_on_delivery_restrictions)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if include_iframe_only_stream is not None:
-            _setter("include_iframe_only_stream", include_iframe_only_stream)
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if manifest_layout is not None:
-            _setter("manifest_layout", manifest_layout)
+            pulumi.set(__self__, "manifest_layout", manifest_layout)
         if manifest_window_seconds is not None:
-            _setter("manifest_window_seconds", manifest_window_seconds)
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if min_buffer_time_seconds is not None:
-            _setter("min_buffer_time_seconds", min_buffer_time_seconds)
+            pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
         if min_update_period_seconds is not None:
-            _setter("min_update_period_seconds", min_update_period_seconds)
+            pulumi.set(__self__, "min_update_period_seconds", min_update_period_seconds)
         if period_triggers is not None:
-            _setter("period_triggers", period_triggers)
+            pulumi.set(__self__, "period_triggers", period_triggers)
         if profile is not None:
-            _setter("profile", profile)
+            pulumi.set(__self__, "profile", profile)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if segment_template_format is not None:
-            _setter("segment_template_format", segment_template_format)
+            pulumi.set(__self__, "segment_template_format", segment_template_format)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
         if suggested_presentation_delay_seconds is not None:
-            _setter("suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
+            pulumi.set(__self__, "suggested_presentation_delay_seconds", suggested_presentation_delay_seconds)
         if utc_timing is not None:
-            _setter("utc_timing", utc_timing)
+            pulumi.set(__self__, "utc_timing", utc_timing)
         if utc_timing_uri is not None:
-            _setter("utc_timing_uri", utc_timing_uri)
+            pulumi.set(__self__, "utc_timing_uri", utc_timing_uri)
 
     @property
     @pulumi.getter(name="adTriggers")
@@ -960,19 +801,8 @@ class OriginEndpointEncryptionContractConfiguration(dict):
         :param 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio' preset_speke20_audio: A collection of audio encryption presets.
         :param 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Video' preset_speke20_video: A collection of video encryption presets.
         """
-        OriginEndpointEncryptionContractConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            preset_speke20_audio=preset_speke20_audio,
-            preset_speke20_video=preset_speke20_video,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             preset_speke20_audio: 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Audio',
-             preset_speke20_video: 'OriginEndpointEncryptionContractConfigurationPresetSpeke20Video',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("preset_speke20_audio", preset_speke20_audio)
-        _setter("preset_speke20_video", preset_speke20_video)
+        pulumi.set(__self__, "preset_speke20_audio", preset_speke20_audio)
+        pulumi.set(__self__, "preset_speke20_video", preset_speke20_video)
 
     @property
     @pulumi.getter(name="presetSpeke20Audio")
@@ -1034,32 +864,15 @@ class OriginEndpointHlsEncryption(dict):
         :param int key_rotation_interval_seconds: Interval (in seconds) between each encryption key rotation.
         :param bool repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
-        OriginEndpointHlsEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-            constant_initialization_vector=constant_initialization_vector,
-            encryption_method=encryption_method,
-            key_rotation_interval_seconds=key_rotation_interval_seconds,
-            repeat_ext_x_key=repeat_ext_x_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
-             constant_initialization_vector: Optional[str] = None,
-             encryption_method: Optional['OriginEndpointHlsEncryptionEncryptionMethod'] = None,
-             key_rotation_interval_seconds: Optional[int] = None,
-             repeat_ext_x_key: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if encryption_method is not None:
-            _setter("encryption_method", encryption_method)
+            pulumi.set(__self__, "encryption_method", encryption_method)
         if key_rotation_interval_seconds is not None:
-            _setter("key_rotation_interval_seconds", key_rotation_interval_seconds)
+            pulumi.set(__self__, "key_rotation_interval_seconds", key_rotation_interval_seconds)
         if repeat_ext_x_key is not None:
-            _setter("repeat_ext_x_key", repeat_ext_x_key)
+            pulumi.set(__self__, "repeat_ext_x_key", repeat_ext_x_key)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -1158,52 +971,25 @@ class OriginEndpointHlsManifest(dict):
         :param int program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         :param str url: The URL of the packaged OriginEndpoint for consumption.
         """
-        OriginEndpointHlsManifest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            ad_markers=ad_markers,
-            ad_triggers=ad_triggers,
-            ads_on_delivery_restrictions=ads_on_delivery_restrictions,
-            include_iframe_only_stream=include_iframe_only_stream,
-            manifest_name=manifest_name,
-            playlist_type=playlist_type,
-            playlist_window_seconds=playlist_window_seconds,
-            program_date_time_interval_seconds=program_date_time_interval_seconds,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: str,
-             ad_markers: Optional['OriginEndpointHlsManifestAdMarkers'] = None,
-             ad_triggers: Optional[Sequence['OriginEndpointHlsManifestAdTriggersItem']] = None,
-             ads_on_delivery_restrictions: Optional['OriginEndpointAdsOnDeliveryRestrictions'] = None,
-             include_iframe_only_stream: Optional[bool] = None,
-             manifest_name: Optional[str] = None,
-             playlist_type: Optional['OriginEndpointHlsManifestPlaylistType'] = None,
-             playlist_window_seconds: Optional[int] = None,
-             program_date_time_interval_seconds: Optional[int] = None,
-             url: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if ad_markers is not None:
-            _setter("ad_markers", ad_markers)
+            pulumi.set(__self__, "ad_markers", ad_markers)
         if ad_triggers is not None:
-            _setter("ad_triggers", ad_triggers)
+            pulumi.set(__self__, "ad_triggers", ad_triggers)
         if ads_on_delivery_restrictions is not None:
-            _setter("ads_on_delivery_restrictions", ads_on_delivery_restrictions)
+            pulumi.set(__self__, "ads_on_delivery_restrictions", ads_on_delivery_restrictions)
         if include_iframe_only_stream is not None:
-            _setter("include_iframe_only_stream", include_iframe_only_stream)
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if manifest_name is not None:
-            _setter("manifest_name", manifest_name)
+            pulumi.set(__self__, "manifest_name", manifest_name)
         if playlist_type is not None:
-            _setter("playlist_type", playlist_type)
+            pulumi.set(__self__, "playlist_type", playlist_type)
         if playlist_window_seconds is not None:
-            _setter("playlist_window_seconds", playlist_window_seconds)
+            pulumi.set(__self__, "playlist_window_seconds", playlist_window_seconds)
         if program_date_time_interval_seconds is not None:
-            _setter("program_date_time_interval_seconds", program_date_time_interval_seconds)
+            pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -1350,61 +1136,30 @@ class OriginEndpointHlsPackage(dict):
         :param int segment_duration_seconds: Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
         :param bool use_audio_rendition_group: When enabled, audio streams will be placed in rendition groups in the output.
         """
-        OriginEndpointHlsPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_markers=ad_markers,
-            ad_triggers=ad_triggers,
-            ads_on_delivery_restrictions=ads_on_delivery_restrictions,
-            encryption=encryption,
-            include_dvb_subtitles=include_dvb_subtitles,
-            include_iframe_only_stream=include_iframe_only_stream,
-            playlist_type=playlist_type,
-            playlist_window_seconds=playlist_window_seconds,
-            program_date_time_interval_seconds=program_date_time_interval_seconds,
-            segment_duration_seconds=segment_duration_seconds,
-            stream_selection=stream_selection,
-            use_audio_rendition_group=use_audio_rendition_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_markers: Optional['OriginEndpointHlsPackageAdMarkers'] = None,
-             ad_triggers: Optional[Sequence['OriginEndpointHlsPackageAdTriggersItem']] = None,
-             ads_on_delivery_restrictions: Optional['OriginEndpointAdsOnDeliveryRestrictions'] = None,
-             encryption: Optional['outputs.OriginEndpointHlsEncryption'] = None,
-             include_dvb_subtitles: Optional[bool] = None,
-             include_iframe_only_stream: Optional[bool] = None,
-             playlist_type: Optional['OriginEndpointHlsPackagePlaylistType'] = None,
-             playlist_window_seconds: Optional[int] = None,
-             program_date_time_interval_seconds: Optional[int] = None,
-             segment_duration_seconds: Optional[int] = None,
-             stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-             use_audio_rendition_group: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_markers is not None:
-            _setter("ad_markers", ad_markers)
+            pulumi.set(__self__, "ad_markers", ad_markers)
         if ad_triggers is not None:
-            _setter("ad_triggers", ad_triggers)
+            pulumi.set(__self__, "ad_triggers", ad_triggers)
         if ads_on_delivery_restrictions is not None:
-            _setter("ads_on_delivery_restrictions", ads_on_delivery_restrictions)
+            pulumi.set(__self__, "ads_on_delivery_restrictions", ads_on_delivery_restrictions)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if include_dvb_subtitles is not None:
-            _setter("include_dvb_subtitles", include_dvb_subtitles)
+            pulumi.set(__self__, "include_dvb_subtitles", include_dvb_subtitles)
         if include_iframe_only_stream is not None:
-            _setter("include_iframe_only_stream", include_iframe_only_stream)
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if playlist_type is not None:
-            _setter("playlist_type", playlist_type)
+            pulumi.set(__self__, "playlist_type", playlist_type)
         if playlist_window_seconds is not None:
-            _setter("playlist_window_seconds", playlist_window_seconds)
+            pulumi.set(__self__, "playlist_window_seconds", playlist_window_seconds)
         if program_date_time_interval_seconds is not None:
-            _setter("program_date_time_interval_seconds", program_date_time_interval_seconds)
+            pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
         if use_audio_rendition_group is not None:
-            _setter("use_audio_rendition_group", use_audio_rendition_group)
+            pulumi.set(__self__, "use_audio_rendition_group", use_audio_rendition_group)
 
     @property
     @pulumi.getter(name="adMarkers")
@@ -1521,16 +1276,7 @@ class OriginEndpointMssEncryption(dict):
         """
         A Microsoft Smooth Streaming (MSS) encryption configuration.
         """
-        OriginEndpointMssEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.OriginEndpointSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -1574,29 +1320,14 @@ class OriginEndpointMssPackage(dict):
         :param int manifest_window_seconds: The time window (in seconds) contained in each manifest.
         :param int segment_duration_seconds: The duration (in seconds) of each segment.
         """
-        OriginEndpointMssPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption=encryption,
-            manifest_window_seconds=manifest_window_seconds,
-            segment_duration_seconds=segment_duration_seconds,
-            stream_selection=stream_selection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption: Optional['outputs.OriginEndpointMssEncryption'] = None,
-             manifest_window_seconds: Optional[int] = None,
-             segment_duration_seconds: Optional[int] = None,
-             stream_selection: Optional['outputs.OriginEndpointStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if manifest_window_seconds is not None:
-            _setter("manifest_window_seconds", manifest_window_seconds)
+            pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
     @pulumi.getter
@@ -1670,33 +1401,14 @@ class OriginEndpointSpekeKeyProvider(dict):
         :param str url: The URL of the external key provider service.
         :param str certificate_arn: An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
         """
-        OriginEndpointSpekeKeyProvider._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_id=resource_id,
-            role_arn=role_arn,
-            system_ids=system_ids,
-            url=url,
-            certificate_arn=certificate_arn,
-            encryption_contract_configuration=encryption_contract_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_id: str,
-             role_arn: str,
-             system_ids: Sequence[str],
-             url: str,
-             certificate_arn: Optional[str] = None,
-             encryption_contract_configuration: Optional['outputs.OriginEndpointEncryptionContractConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_id", resource_id)
-        _setter("role_arn", role_arn)
-        _setter("system_ids", system_ids)
-        _setter("url", url)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "system_ids", system_ids)
+        pulumi.set(__self__, "url", url)
         if certificate_arn is not None:
-            _setter("certificate_arn", certificate_arn)
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
         if encryption_contract_configuration is not None:
-            _setter("encryption_contract_configuration", encryption_contract_configuration)
+            pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -1780,25 +1492,12 @@ class OriginEndpointStreamSelection(dict):
         :param int min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
         :param 'OriginEndpointStreamSelectionStreamOrder' stream_order: A directive that determines the order of streams in the output.
         """
-        OriginEndpointStreamSelection._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_video_bits_per_second=max_video_bits_per_second,
-            min_video_bits_per_second=min_video_bits_per_second,
-            stream_order=stream_order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_video_bits_per_second: Optional[int] = None,
-             min_video_bits_per_second: Optional[int] = None,
-             stream_order: Optional['OriginEndpointStreamSelectionStreamOrder'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_video_bits_per_second is not None:
-            _setter("max_video_bits_per_second", max_video_bits_per_second)
+            pulumi.set(__self__, "max_video_bits_per_second", max_video_bits_per_second)
         if min_video_bits_per_second is not None:
-            _setter("min_video_bits_per_second", min_video_bits_per_second)
+            pulumi.set(__self__, "min_video_bits_per_second", min_video_bits_per_second)
         if stream_order is not None:
-            _setter("stream_order", stream_order)
+            pulumi.set(__self__, "stream_order", stream_order)
 
     @property
     @pulumi.getter(name="maxVideoBitsPerSecond")
@@ -1830,19 +1529,8 @@ class OriginEndpointTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        OriginEndpointTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1882,16 +1570,7 @@ class PackagingConfigurationCmafEncryption(dict):
         """
         A CMAF encryption configuration.
         """
-        PackagingConfigurationCmafEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -1935,28 +1614,13 @@ class PackagingConfigurationCmafPackage(dict):
         :param Sequence['PackagingConfigurationHlsManifest'] hls_manifests: A list of HLS manifest configurations.
         :param bool include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         """
-        PackagingConfigurationCmafPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hls_manifests=hls_manifests,
-            encryption=encryption,
-            include_encoder_configuration_in_segments=include_encoder_configuration_in_segments,
-            segment_duration_seconds=segment_duration_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
-             encryption: Optional['outputs.PackagingConfigurationCmafEncryption'] = None,
-             include_encoder_configuration_in_segments: Optional[bool] = None,
-             segment_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hls_manifests", hls_manifests)
+        pulumi.set(__self__, "hls_manifests", hls_manifests)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if include_encoder_configuration_in_segments is not None:
-            _setter("include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
+            pulumi.set(__self__, "include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
 
     @property
     @pulumi.getter(name="hlsManifests")
@@ -2012,16 +1676,7 @@ class PackagingConfigurationDashEncryption(dict):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
         """
-        PackagingConfigurationDashEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -2073,37 +1728,18 @@ class PackagingConfigurationDashManifest(dict):
         :param 'PackagingConfigurationDashManifestProfile' profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         :param 'PackagingConfigurationDashManifestScteMarkersSource' scte_markers_source: The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
         """
-        PackagingConfigurationDashManifest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_layout=manifest_layout,
-            manifest_name=manifest_name,
-            min_buffer_time_seconds=min_buffer_time_seconds,
-            profile=profile,
-            scte_markers_source=scte_markers_source,
-            stream_selection=stream_selection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_layout: Optional['PackagingConfigurationDashManifestManifestLayout'] = None,
-             manifest_name: Optional[str] = None,
-             min_buffer_time_seconds: Optional[int] = None,
-             profile: Optional['PackagingConfigurationDashManifestProfile'] = None,
-             scte_markers_source: Optional['PackagingConfigurationDashManifestScteMarkersSource'] = None,
-             stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if manifest_layout is not None:
-            _setter("manifest_layout", manifest_layout)
+            pulumi.set(__self__, "manifest_layout", manifest_layout)
         if manifest_name is not None:
-            _setter("manifest_name", manifest_name)
+            pulumi.set(__self__, "manifest_name", manifest_name)
         if min_buffer_time_seconds is not None:
-            _setter("min_buffer_time_seconds", min_buffer_time_seconds)
+            pulumi.set(__self__, "min_buffer_time_seconds", min_buffer_time_seconds)
         if profile is not None:
-            _setter("profile", profile)
+            pulumi.set(__self__, "profile", profile)
         if scte_markers_source is not None:
-            _setter("scte_markers_source", scte_markers_source)
+            pulumi.set(__self__, "scte_markers_source", scte_markers_source)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
     @pulumi.getter(name="manifestLayout")
@@ -2196,40 +1832,19 @@ class PackagingConfigurationDashPackage(dict):
         :param Sequence['PackagingConfigurationDashPackagePeriodTriggersItem'] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         :param 'PackagingConfigurationDashPackageSegmentTemplateFormat' segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
-        PackagingConfigurationDashPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dash_manifests=dash_manifests,
-            encryption=encryption,
-            include_encoder_configuration_in_segments=include_encoder_configuration_in_segments,
-            include_iframe_only_stream=include_iframe_only_stream,
-            period_triggers=period_triggers,
-            segment_duration_seconds=segment_duration_seconds,
-            segment_template_format=segment_template_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dash_manifests: Sequence['outputs.PackagingConfigurationDashManifest'],
-             encryption: Optional['outputs.PackagingConfigurationDashEncryption'] = None,
-             include_encoder_configuration_in_segments: Optional[bool] = None,
-             include_iframe_only_stream: Optional[bool] = None,
-             period_triggers: Optional[Sequence['PackagingConfigurationDashPackagePeriodTriggersItem']] = None,
-             segment_duration_seconds: Optional[int] = None,
-             segment_template_format: Optional['PackagingConfigurationDashPackageSegmentTemplateFormat'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dash_manifests", dash_manifests)
+        pulumi.set(__self__, "dash_manifests", dash_manifests)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if include_encoder_configuration_in_segments is not None:
-            _setter("include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
+            pulumi.set(__self__, "include_encoder_configuration_in_segments", include_encoder_configuration_in_segments)
         if include_iframe_only_stream is not None:
-            _setter("include_iframe_only_stream", include_iframe_only_stream)
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if period_triggers is not None:
-            _setter("period_triggers", period_triggers)
+            pulumi.set(__self__, "period_triggers", period_triggers)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if segment_template_format is not None:
-            _setter("segment_template_format", segment_template_format)
+            pulumi.set(__self__, "segment_template_format", segment_template_format)
 
     @property
     @pulumi.getter(name="dashManifests")
@@ -2314,19 +1929,8 @@ class PackagingConfigurationEncryptionContractConfiguration(dict):
         :param 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio' preset_speke20_audio: A collection of audio encryption presets.
         :param 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video' preset_speke20_video: A collection of video encryption presets.
         """
-        PackagingConfigurationEncryptionContractConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            preset_speke20_audio=preset_speke20_audio,
-            preset_speke20_video=preset_speke20_video,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             preset_speke20_audio: 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Audio',
-             preset_speke20_video: 'PackagingConfigurationEncryptionContractConfigurationPresetSpeke20Video',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("preset_speke20_audio", preset_speke20_audio)
-        _setter("preset_speke20_video", preset_speke20_video)
+        pulumi.set(__self__, "preset_speke20_audio", preset_speke20_audio)
+        pulumi.set(__self__, "preset_speke20_video", preset_speke20_video)
 
     @property
     @pulumi.getter(name="presetSpeke20Audio")
@@ -2380,24 +1984,11 @@ class PackagingConfigurationHlsEncryption(dict):
         :param str constant_initialization_vector: An HTTP Live Streaming (HLS) encryption configuration.
         :param 'PackagingConfigurationHlsEncryptionEncryptionMethod' encryption_method: The encryption method to use.
         """
-        PackagingConfigurationHlsEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-            constant_initialization_vector=constant_initialization_vector,
-            encryption_method=encryption_method,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             constant_initialization_vector: Optional[str] = None,
-             encryption_method: Optional['PackagingConfigurationHlsEncryptionEncryptionMethod'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
-            _setter("constant_initialization_vector", constant_initialization_vector)
+            pulumi.set(__self__, "constant_initialization_vector", constant_initialization_vector)
         if encryption_method is not None:
-            _setter("encryption_method", encryption_method)
+            pulumi.set(__self__, "encryption_method", encryption_method)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -2467,37 +2058,18 @@ class PackagingConfigurationHlsManifest(dict):
         :param int program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         :param bool repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
-        PackagingConfigurationHlsManifest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ad_markers=ad_markers,
-            include_iframe_only_stream=include_iframe_only_stream,
-            manifest_name=manifest_name,
-            program_date_time_interval_seconds=program_date_time_interval_seconds,
-            repeat_ext_x_key=repeat_ext_x_key,
-            stream_selection=stream_selection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ad_markers: Optional['PackagingConfigurationHlsManifestAdMarkers'] = None,
-             include_iframe_only_stream: Optional[bool] = None,
-             manifest_name: Optional[str] = None,
-             program_date_time_interval_seconds: Optional[int] = None,
-             repeat_ext_x_key: Optional[bool] = None,
-             stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ad_markers is not None:
-            _setter("ad_markers", ad_markers)
+            pulumi.set(__self__, "ad_markers", ad_markers)
         if include_iframe_only_stream is not None:
-            _setter("include_iframe_only_stream", include_iframe_only_stream)
+            pulumi.set(__self__, "include_iframe_only_stream", include_iframe_only_stream)
         if manifest_name is not None:
-            _setter("manifest_name", manifest_name)
+            pulumi.set(__self__, "manifest_name", manifest_name)
         if program_date_time_interval_seconds is not None:
-            _setter("program_date_time_interval_seconds", program_date_time_interval_seconds)
+            pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if repeat_ext_x_key is not None:
-            _setter("repeat_ext_x_key", repeat_ext_x_key)
+            pulumi.set(__self__, "repeat_ext_x_key", repeat_ext_x_key)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
     @pulumi.getter(name="adMarkers")
@@ -2582,32 +2154,15 @@ class PackagingConfigurationHlsPackage(dict):
         :param bool include_dvb_subtitles: When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
         :param bool use_audio_rendition_group: When enabled, audio streams will be placed in rendition groups in the output.
         """
-        PackagingConfigurationHlsPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hls_manifests=hls_manifests,
-            encryption=encryption,
-            include_dvb_subtitles=include_dvb_subtitles,
-            segment_duration_seconds=segment_duration_seconds,
-            use_audio_rendition_group=use_audio_rendition_group,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hls_manifests: Sequence['outputs.PackagingConfigurationHlsManifest'],
-             encryption: Optional['outputs.PackagingConfigurationHlsEncryption'] = None,
-             include_dvb_subtitles: Optional[bool] = None,
-             segment_duration_seconds: Optional[int] = None,
-             use_audio_rendition_group: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hls_manifests", hls_manifests)
+        pulumi.set(__self__, "hls_manifests", hls_manifests)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if include_dvb_subtitles is not None:
-            _setter("include_dvb_subtitles", include_dvb_subtitles)
+            pulumi.set(__self__, "include_dvb_subtitles", include_dvb_subtitles)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
         if use_audio_rendition_group is not None:
-            _setter("use_audio_rendition_group", use_audio_rendition_group)
+            pulumi.set(__self__, "use_audio_rendition_group", use_audio_rendition_group)
 
     @property
     @pulumi.getter(name="hlsManifests")
@@ -2671,16 +2226,7 @@ class PackagingConfigurationMssEncryption(dict):
         """
         A CMAF encryption configuration.
         """
-        PackagingConfigurationMssEncryption._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            speke_key_provider=speke_key_provider,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             speke_key_provider: 'outputs.PackagingConfigurationSpekeKeyProvider',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("speke_key_provider", speke_key_provider)
+        pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
@@ -2718,21 +2264,10 @@ class PackagingConfigurationMssManifest(dict):
         """
         A Microsoft Smooth Streaming (MSS) manifest configuration.
         """
-        PackagingConfigurationMssManifest._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            manifest_name=manifest_name,
-            stream_selection=stream_selection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             manifest_name: Optional[str] = None,
-             stream_selection: Optional['outputs.PackagingConfigurationStreamSelection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if manifest_name is not None:
-            _setter("manifest_name", manifest_name)
+            pulumi.set(__self__, "manifest_name", manifest_name)
         if stream_selection is not None:
-            _setter("stream_selection", stream_selection)
+            pulumi.set(__self__, "stream_selection", stream_selection)
 
     @property
     @pulumi.getter(name="manifestName")
@@ -2777,24 +2312,11 @@ class PackagingConfigurationMssPackage(dict):
         A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         :param Sequence['PackagingConfigurationMssManifest'] mss_manifests: A list of MSS manifest configurations.
         """
-        PackagingConfigurationMssPackage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mss_manifests=mss_manifests,
-            encryption=encryption,
-            segment_duration_seconds=segment_duration_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mss_manifests: Sequence['outputs.PackagingConfigurationMssManifest'],
-             encryption: Optional['outputs.PackagingConfigurationMssEncryption'] = None,
-             segment_duration_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mss_manifests", mss_manifests)
+        pulumi.set(__self__, "mss_manifests", mss_manifests)
         if encryption is not None:
-            _setter("encryption", encryption)
+            pulumi.set(__self__, "encryption", encryption)
         if segment_duration_seconds is not None:
-            _setter("segment_duration_seconds", segment_duration_seconds)
+            pulumi.set(__self__, "segment_duration_seconds", segment_duration_seconds)
 
     @property
     @pulumi.getter(name="mssManifests")
@@ -2851,26 +2373,11 @@ class PackagingConfigurationSpekeKeyProvider(dict):
         :param Sequence[str] system_ids: The system IDs to include in key requests.
         :param str url: The URL of the external key provider service.
         """
-        PackagingConfigurationSpekeKeyProvider._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            system_ids=system_ids,
-            url=url,
-            encryption_contract_configuration=encryption_contract_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: str,
-             system_ids: Sequence[str],
-             url: str,
-             encryption_contract_configuration: Optional['outputs.PackagingConfigurationEncryptionContractConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
-        _setter("system_ids", system_ids)
-        _setter("url", url)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "system_ids", system_ids)
+        pulumi.set(__self__, "url", url)
         if encryption_contract_configuration is not None:
-            _setter("encryption_contract_configuration", encryption_contract_configuration)
+            pulumi.set(__self__, "encryption_contract_configuration", encryption_contract_configuration)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -2935,25 +2442,12 @@ class PackagingConfigurationStreamSelection(dict):
         :param int min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
         :param 'PackagingConfigurationStreamSelectionStreamOrder' stream_order: A directive that determines the order of streams in the output.
         """
-        PackagingConfigurationStreamSelection._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_video_bits_per_second=max_video_bits_per_second,
-            min_video_bits_per_second=min_video_bits_per_second,
-            stream_order=stream_order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_video_bits_per_second: Optional[int] = None,
-             min_video_bits_per_second: Optional[int] = None,
-             stream_order: Optional['PackagingConfigurationStreamSelectionStreamOrder'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_video_bits_per_second is not None:
-            _setter("max_video_bits_per_second", max_video_bits_per_second)
+            pulumi.set(__self__, "max_video_bits_per_second", max_video_bits_per_second)
         if min_video_bits_per_second is not None:
-            _setter("min_video_bits_per_second", min_video_bits_per_second)
+            pulumi.set(__self__, "min_video_bits_per_second", min_video_bits_per_second)
         if stream_order is not None:
-            _setter("stream_order", stream_order)
+            pulumi.set(__self__, "stream_order", stream_order)
 
     @property
     @pulumi.getter(name="maxVideoBitsPerSecond")
@@ -2985,19 +2479,8 @@ class PackagingConfigurationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PackagingConfigurationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3038,19 +2521,8 @@ class PackagingGroupAuthorization(dict):
         :param str cdn_identifier_secret: The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
         :param str secrets_role_arn: The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
-        PackagingGroupAuthorization._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cdn_identifier_secret=cdn_identifier_secret,
-            secrets_role_arn=secrets_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cdn_identifier_secret: str,
-             secrets_role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cdn_identifier_secret", cdn_identifier_secret)
-        _setter("secrets_role_arn", secrets_role_arn)
+        pulumi.set(__self__, "cdn_identifier_secret", cdn_identifier_secret)
+        pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
 
     @property
     @pulumi.getter(name="cdnIdentifierSecret")
@@ -3093,17 +2565,8 @@ class PackagingGroupLogConfiguration(dict):
         """
         :param str log_group_name: Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
         """
-        PackagingGroupLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group_name=log_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -3119,19 +2582,8 @@ class PackagingGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PackagingGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,31 +25,14 @@ class TemplateArgs:
         """
         The set of arguments for constructing a Template resource.
         """
-        TemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connector_arn=connector_arn,
-            definition=definition,
-            name=name,
-            reenroll_all_certificate_holders=reenroll_all_certificate_holders,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connector_arn: pulumi.Input[str],
-             definition: pulumi.Input[Union['TemplateDefinition0PropertiesArgs', 'TemplateDefinition1PropertiesArgs', 'TemplateDefinition2PropertiesArgs']],
-             name: Optional[pulumi.Input[str]] = None,
-             reenroll_all_certificate_holders: Optional[pulumi.Input[bool]] = None,
-             tags: Optional[pulumi.Input['TemplateTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("connector_arn", connector_arn)
-        _setter("definition", definition)
+        pulumi.set(__self__, "connector_arn", connector_arn)
+        pulumi.set(__self__, "definition", definition)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if reenroll_all_certificate_holders is not None:
-            _setter("reenroll_all_certificate_holders", reenroll_all_certificate_holders)
+            pulumi.set(__self__, "reenroll_all_certificate_holders", reenroll_all_certificate_holders)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="connectorArn")
@@ -133,10 +116,6 @@ class Template(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,11 +143,6 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
             __props__.__dict__["reenroll_all_certificate_holders"] = reenroll_all_certificate_holders
-            if tags is not None and not isinstance(tags, TemplateTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                TemplateTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connector_arn", "name"])

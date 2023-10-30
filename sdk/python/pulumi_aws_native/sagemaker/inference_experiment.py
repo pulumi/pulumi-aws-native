@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,61 +42,28 @@ class InferenceExperimentArgs:
         :param pulumi.Input[str] status_reason: The error message or client-specified reason from the StopInferenceExperiment API, that explains the status of the inference experiment.
         :param pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        InferenceExperimentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint_name=endpoint_name,
-            model_variants=model_variants,
-            role_arn=role_arn,
-            type=type,
-            data_storage_config=data_storage_config,
-            description=description,
-            desired_state=desired_state,
-            kms_key=kms_key,
-            name=name,
-            schedule=schedule,
-            shadow_mode_config=shadow_mode_config,
-            status_reason=status_reason,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint_name: pulumi.Input[str],
-             model_variants: pulumi.Input[Sequence[pulumi.Input['InferenceExperimentModelVariantConfigArgs']]],
-             role_arn: pulumi.Input[str],
-             type: pulumi.Input['InferenceExperimentType'],
-             data_storage_config: Optional[pulumi.Input['InferenceExperimentDataStorageConfigArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             desired_state: Optional[pulumi.Input['InferenceExperimentDesiredState']] = None,
-             kms_key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schedule: Optional[pulumi.Input['InferenceExperimentScheduleArgs']] = None,
-             shadow_mode_config: Optional[pulumi.Input['InferenceExperimentShadowModeConfigArgs']] = None,
-             status_reason: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceExperimentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("endpoint_name", endpoint_name)
-        _setter("model_variants", model_variants)
-        _setter("role_arn", role_arn)
-        _setter("type", type)
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "model_variants", model_variants)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "type", type)
         if data_storage_config is not None:
-            _setter("data_storage_config", data_storage_config)
+            pulumi.set(__self__, "data_storage_config", data_storage_config)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if desired_state is not None:
-            _setter("desired_state", desired_state)
+            pulumi.set(__self__, "desired_state", desired_state)
         if kms_key is not None:
-            _setter("kms_key", kms_key)
+            pulumi.set(__self__, "kms_key", kms_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schedule is not None:
-            _setter("schedule", schedule)
+            pulumi.set(__self__, "schedule", schedule)
         if shadow_mode_config is not None:
-            _setter("shadow_mode_config", shadow_mode_config)
+            pulumi.set(__self__, "shadow_mode_config", shadow_mode_config)
         if status_reason is not None:
-            _setter("status_reason", status_reason)
+            pulumi.set(__self__, "status_reason", status_reason)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -296,10 +263,6 @@ class InferenceExperiment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InferenceExperimentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -327,11 +290,6 @@ class InferenceExperiment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InferenceExperimentArgs.__new__(InferenceExperimentArgs)
 
-            if data_storage_config is not None and not isinstance(data_storage_config, InferenceExperimentDataStorageConfigArgs):
-                data_storage_config = data_storage_config or {}
-                def _setter(key, value):
-                    data_storage_config[key] = value
-                InferenceExperimentDataStorageConfigArgs._configure(_setter, **data_storage_config)
             __props__.__dict__["data_storage_config"] = data_storage_config
             __props__.__dict__["description"] = description
             __props__.__dict__["desired_state"] = desired_state
@@ -346,17 +304,7 @@ class InferenceExperiment(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if schedule is not None and not isinstance(schedule, InferenceExperimentScheduleArgs):
-                schedule = schedule or {}
-                def _setter(key, value):
-                    schedule[key] = value
-                InferenceExperimentScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
-            if shadow_mode_config is not None and not isinstance(shadow_mode_config, InferenceExperimentShadowModeConfigArgs):
-                shadow_mode_config = shadow_mode_config or {}
-                def _setter(key, value):
-                    shadow_mode_config[key] = value
-                InferenceExperimentShadowModeConfigArgs._configure(_setter, **shadow_mode_config)
             __props__.__dict__["shadow_mode_config"] = shadow_mode_config
             __props__.__dict__["status_reason"] = status_reason
             __props__.__dict__["tags"] = tags

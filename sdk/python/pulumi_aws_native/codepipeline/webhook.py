@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,39 +27,16 @@ class WebhookArgs:
         """
         The set of arguments for constructing a Webhook resource.
         """
-        WebhookArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication=authentication,
-            authentication_configuration=authentication_configuration,
-            filters=filters,
-            target_action=target_action,
-            target_pipeline=target_pipeline,
-            target_pipeline_version=target_pipeline_version,
-            name=name,
-            register_with_third_party=register_with_third_party,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication: pulumi.Input[str],
-             authentication_configuration: pulumi.Input['WebhookAuthConfigurationArgs'],
-             filters: pulumi.Input[Sequence[pulumi.Input['WebhookFilterRuleArgs']]],
-             target_action: pulumi.Input[str],
-             target_pipeline: pulumi.Input[str],
-             target_pipeline_version: pulumi.Input[int],
-             name: Optional[pulumi.Input[str]] = None,
-             register_with_third_party: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("authentication", authentication)
-        _setter("authentication_configuration", authentication_configuration)
-        _setter("filters", filters)
-        _setter("target_action", target_action)
-        _setter("target_pipeline", target_pipeline)
-        _setter("target_pipeline_version", target_pipeline_version)
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "target_action", target_action)
+        pulumi.set(__self__, "target_pipeline", target_pipeline)
+        pulumi.set(__self__, "target_pipeline_version", target_pipeline_version)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if register_with_third_party is not None:
-            _setter("register_with_third_party", register_with_third_party)
+            pulumi.set(__self__, "register_with_third_party", register_with_third_party)
 
     @property
     @pulumi.getter
@@ -178,10 +155,6 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,11 +181,6 @@ class Webhook(pulumi.CustomResource):
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
-            if authentication_configuration is not None and not isinstance(authentication_configuration, WebhookAuthConfigurationArgs):
-                authentication_configuration = authentication_configuration or {}
-                def _setter(key, value):
-                    authentication_configuration[key] = value
-                WebhookAuthConfigurationArgs._configure(_setter, **authentication_configuration)
             if authentication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_configuration'")
             __props__.__dict__["authentication_configuration"] = authentication_configuration

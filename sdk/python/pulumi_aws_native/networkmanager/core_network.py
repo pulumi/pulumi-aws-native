@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,28 +27,13 @@ class CoreNetworkArgs:
         :param Any policy_document: Live policy document for the core network, you must provide PolicyDocument in Json Format
         :param pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]] tags: The tags for the global network.
         """
-        CoreNetworkArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            global_network_id=global_network_id,
-            description=description,
-            policy_document=policy_document,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             global_network_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             policy_document: Optional[Any] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("global_network_id", global_network_id)
+        pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="globalNetworkId")
@@ -138,10 +123,6 @@ class CoreNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CoreNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

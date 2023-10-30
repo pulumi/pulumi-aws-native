@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,61 +32,30 @@ class CloudFormationProvisionedProductArgs:
         """
         The set of arguments for constructing a CloudFormationProvisionedProduct resource.
         """
-        CloudFormationProvisionedProductArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accept_language=accept_language,
-            notification_arns=notification_arns,
-            path_id=path_id,
-            path_name=path_name,
-            product_id=product_id,
-            product_name=product_name,
-            provisioned_product_name=provisioned_product_name,
-            provisioning_artifact_id=provisioning_artifact_id,
-            provisioning_artifact_name=provisioning_artifact_name,
-            provisioning_parameters=provisioning_parameters,
-            provisioning_preferences=provisioning_preferences,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accept_language: Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']] = None,
-             notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             path_id: Optional[pulumi.Input[str]] = None,
-             path_name: Optional[pulumi.Input[str]] = None,
-             product_id: Optional[pulumi.Input[str]] = None,
-             product_name: Optional[pulumi.Input[str]] = None,
-             provisioned_product_name: Optional[pulumi.Input[str]] = None,
-             provisioning_artifact_id: Optional[pulumi.Input[str]] = None,
-             provisioning_artifact_name: Optional[pulumi.Input[str]] = None,
-             provisioning_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]]] = None,
-             provisioning_preferences: Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if accept_language is not None:
-            _setter("accept_language", accept_language)
+            pulumi.set(__self__, "accept_language", accept_language)
         if notification_arns is not None:
-            _setter("notification_arns", notification_arns)
+            pulumi.set(__self__, "notification_arns", notification_arns)
         if path_id is not None:
-            _setter("path_id", path_id)
+            pulumi.set(__self__, "path_id", path_id)
         if path_name is not None:
-            _setter("path_name", path_name)
+            pulumi.set(__self__, "path_name", path_name)
         if product_id is not None:
-            _setter("product_id", product_id)
+            pulumi.set(__self__, "product_id", product_id)
         if product_name is not None:
-            _setter("product_name", product_name)
+            pulumi.set(__self__, "product_name", product_name)
         if provisioned_product_name is not None:
-            _setter("provisioned_product_name", provisioned_product_name)
+            pulumi.set(__self__, "provisioned_product_name", provisioned_product_name)
         if provisioning_artifact_id is not None:
-            _setter("provisioning_artifact_id", provisioning_artifact_id)
+            pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
         if provisioning_artifact_name is not None:
-            _setter("provisioning_artifact_name", provisioning_artifact_name)
+            pulumi.set(__self__, "provisioning_artifact_name", provisioning_artifact_name)
         if provisioning_parameters is not None:
-            _setter("provisioning_parameters", provisioning_parameters)
+            pulumi.set(__self__, "provisioning_parameters", provisioning_parameters)
         if provisioning_preferences is not None:
-            _setter("provisioning_preferences", provisioning_preferences)
+            pulumi.set(__self__, "provisioning_preferences", provisioning_preferences)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -240,10 +209,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CloudFormationProvisionedProductArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -280,11 +245,6 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
             __props__.__dict__["provisioning_artifact_id"] = provisioning_artifact_id
             __props__.__dict__["provisioning_artifact_name"] = provisioning_artifact_name
             __props__.__dict__["provisioning_parameters"] = provisioning_parameters
-            if provisioning_preferences is not None and not isinstance(provisioning_preferences, CloudFormationProvisionedProductProvisioningPreferencesArgs):
-                provisioning_preferences = provisioning_preferences or {}
-                def _setter(key, value):
-                    provisioning_preferences[key] = value
-                CloudFormationProvisionedProductProvisioningPreferencesArgs._configure(_setter, **provisioning_preferences)
             __props__.__dict__["provisioning_preferences"] = provisioning_preferences
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloudformation_stack_arn"] = None

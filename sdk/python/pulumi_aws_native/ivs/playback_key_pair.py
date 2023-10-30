@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,25 +25,12 @@ class PlaybackKeyPairArgs:
         :param pulumi.Input[str] public_key_material: The public portion of a customer-generated key pair.
         :param pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
-        PlaybackKeyPairArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            public_key_material=public_key_material,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             public_key_material: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaybackKeyPairTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if public_key_material is not None:
-            _setter("public_key_material", public_key_material)
+            pulumi.set(__self__, "public_key_material", public_key_material)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -119,10 +106,6 @@ class PlaybackKeyPair(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlaybackKeyPairArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

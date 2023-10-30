@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,36 +25,17 @@ class EventBusPolicyArgs:
         """
         The set of arguments for constructing a EventBusPolicy resource.
         """
-        EventBusPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            statement_id=statement_id,
-            action=action,
-            condition=condition,
-            event_bus_name=event_bus_name,
-            principal=principal,
-            statement=statement,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             statement_id: pulumi.Input[str],
-             action: Optional[pulumi.Input[str]] = None,
-             condition: Optional[pulumi.Input['EventBusPolicyConditionArgs']] = None,
-             event_bus_name: Optional[pulumi.Input[str]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             statement: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("statement_id", statement_id)
+        pulumi.set(__self__, "statement_id", statement_id)
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if event_bus_name is not None:
-            _setter("event_bus_name", event_bus_name)
+            pulumi.set(__self__, "event_bus_name", event_bus_name)
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if statement is not None:
-            _setter("statement", statement)
+            pulumi.set(__self__, "statement", statement)
 
     @property
     @pulumi.getter(name="statementId")
@@ -153,10 +134,6 @@ class EventBusPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            EventBusPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -179,11 +156,6 @@ class EventBusPolicy(pulumi.CustomResource):
             __props__ = EventBusPolicyArgs.__new__(EventBusPolicyArgs)
 
             __props__.__dict__["action"] = action
-            if condition is not None and not isinstance(condition, EventBusPolicyConditionArgs):
-                condition = condition or {}
-                def _setter(key, value):
-                    condition[key] = value
-                EventBusPolicyConditionArgs._configure(_setter, **condition)
             __props__.__dict__["condition"] = condition
             __props__.__dict__["event_bus_name"] = event_bus_name
             __props__.__dict__["principal"] = principal

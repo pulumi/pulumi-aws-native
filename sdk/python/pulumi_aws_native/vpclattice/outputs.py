@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -47,19 +47,8 @@ class AccessLogSubscriptionTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        AccessLogSubscriptionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -94,21 +83,10 @@ class ListenerDefaultAction(dict):
     def __init__(__self__, *,
                  fixed_response: Optional['outputs.ListenerFixedResponse'] = None,
                  forward: Optional['outputs.ListenerForward'] = None):
-        ListenerDefaultAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fixed_response=fixed_response,
-            forward=forward,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fixed_response: Optional['outputs.ListenerFixedResponse'] = None,
-             forward: Optional['outputs.ListenerForward'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if fixed_response is not None:
-            _setter("fixed_response", fixed_response)
+            pulumi.set(__self__, "fixed_response", fixed_response)
         if forward is not None:
-            _setter("forward", forward)
+            pulumi.set(__self__, "forward", forward)
 
     @property
     @pulumi.getter(name="fixedResponse")
@@ -142,16 +120,7 @@ class ListenerFixedResponse(dict):
 
     def __init__(__self__, *,
                  status_code: int):
-        ListenerFixedResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -180,16 +149,7 @@ class ListenerForward(dict):
 
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.ListenerWeightedTargetGroup']):
-        ListenerForward._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_groups=target_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_groups: Sequence['outputs.ListenerWeightedTargetGroup'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_groups", target_groups)
+        pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -202,19 +162,8 @@ class ListenerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ListenerTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -249,20 +198,9 @@ class ListenerWeightedTargetGroup(dict):
     def __init__(__self__, *,
                  target_group_identifier: str,
                  weight: Optional[int] = None):
-        ListenerWeightedTargetGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_identifier=target_group_identifier,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_identifier: str,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_group_identifier", target_group_identifier)
+        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupIdentifier")
@@ -297,21 +235,10 @@ class RuleAction(dict):
     def __init__(__self__, *,
                  fixed_response: Optional['outputs.RuleFixedResponse'] = None,
                  forward: Optional['outputs.RuleForward'] = None):
-        RuleAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fixed_response=fixed_response,
-            forward=forward,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fixed_response: Optional['outputs.RuleFixedResponse'] = None,
-             forward: Optional['outputs.RuleForward'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if fixed_response is not None:
-            _setter("fixed_response", fixed_response)
+            pulumi.set(__self__, "fixed_response", fixed_response)
         if forward is not None:
-            _setter("forward", forward)
+            pulumi.set(__self__, "forward", forward)
 
     @property
     @pulumi.getter(name="fixedResponse")
@@ -345,16 +272,7 @@ class RuleFixedResponse(dict):
 
     def __init__(__self__, *,
                  status_code: int):
-        RuleFixedResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -383,16 +301,7 @@ class RuleForward(dict):
 
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.RuleWeightedTargetGroup']):
-        RuleForward._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_groups=target_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_groups: Sequence['outputs.RuleWeightedTargetGroup'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_groups", target_groups)
+        pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
@@ -423,23 +332,10 @@ class RuleHeaderMatch(dict):
                  match: 'outputs.RuleHeaderMatchType',
                  name: str,
                  case_sensitive: Optional[bool] = None):
-        RuleHeaderMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-            name=name,
-            case_sensitive=case_sensitive,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: 'outputs.RuleHeaderMatchType',
-             name: str,
-             case_sensitive: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match", match)
-        _setter("name", name)
+        pulumi.set(__self__, "match", match)
+        pulumi.set(__self__, "name", name)
         if case_sensitive is not None:
-            _setter("case_sensitive", case_sensitive)
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter
@@ -463,25 +359,12 @@ class RuleHeaderMatchType(dict):
                  contains: Optional[str] = None,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None):
-        RuleHeaderMatchType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contains=contains,
-            exact=exact,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contains: Optional[str] = None,
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if contains is not None:
-            _setter("contains", contains)
+            pulumi.set(__self__, "contains", contains)
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -524,25 +407,12 @@ class RuleHttpMatch(dict):
                  header_matches: Optional[Sequence['outputs.RuleHeaderMatch']] = None,
                  method: Optional['RuleHttpMatchMethod'] = None,
                  path_match: Optional['outputs.RulePathMatch'] = None):
-        RuleHttpMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header_matches=header_matches,
-            method=method,
-            path_match=path_match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header_matches: Optional[Sequence['outputs.RuleHeaderMatch']] = None,
-             method: Optional['RuleHttpMatchMethod'] = None,
-             path_match: Optional['outputs.RulePathMatch'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if header_matches is not None:
-            _setter("header_matches", header_matches)
+            pulumi.set(__self__, "header_matches", header_matches)
         if method is not None:
-            _setter("method", method)
+            pulumi.set(__self__, "method", method)
         if path_match is not None:
-            _setter("path_match", path_match)
+            pulumi.set(__self__, "path_match", path_match)
 
     @property
     @pulumi.getter(name="headerMatches")
@@ -581,16 +451,7 @@ class RuleMatch(dict):
 
     def __init__(__self__, *,
                  http_match: 'outputs.RuleHttpMatch'):
-        RuleMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_match=http_match,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_match: 'outputs.RuleHttpMatch',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("http_match", http_match)
+        pulumi.set(__self__, "http_match", http_match)
 
     @property
     @pulumi.getter(name="httpMatch")
@@ -620,20 +481,9 @@ class RulePathMatch(dict):
     def __init__(__self__, *,
                  match: 'outputs.RulePathMatchType',
                  case_sensitive: Optional[bool] = None):
-        RulePathMatch._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            match=match,
-            case_sensitive=case_sensitive,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             match: 'outputs.RulePathMatchType',
-             case_sensitive: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("match", match)
+        pulumi.set(__self__, "match", match)
         if case_sensitive is not None:
-            _setter("case_sensitive", case_sensitive)
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
 
     @property
     @pulumi.getter
@@ -651,21 +501,10 @@ class RulePathMatchType(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None):
-        RulePathMatchType._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exact=exact,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exact: Optional[str] = None,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if exact is not None:
-            _setter("exact", exact)
+            pulumi.set(__self__, "exact", exact)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -683,19 +522,8 @@ class RuleTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        RuleTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -730,20 +558,9 @@ class RuleWeightedTargetGroup(dict):
     def __init__(__self__, *,
                  target_group_identifier: str,
                  weight: Optional[int] = None):
-        RuleWeightedTargetGroup._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_identifier=target_group_identifier,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_identifier: str,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("target_group_identifier", target_group_identifier)
+        pulumi.set(__self__, "target_group_identifier", target_group_identifier)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupIdentifier")
@@ -780,21 +597,10 @@ class ServiceDnsEntry(dict):
     def __init__(__self__, *,
                  domain_name: Optional[str] = None,
                  hosted_zone_id: Optional[str] = None):
-        ServiceDnsEntry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            hosted_zone_id=hosted_zone_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[str] = None,
-             hosted_zone_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
-            _setter("hosted_zone_id", hosted_zone_id)
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -831,21 +637,10 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
     def __init__(__self__, *,
                  domain_name: Optional[str] = None,
                  hosted_zone_id: Optional[str] = None):
-        ServiceNetworkServiceAssociationDnsEntry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            hosted_zone_id=hosted_zone_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[str] = None,
-             hosted_zone_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
-            _setter("hosted_zone_id", hosted_zone_id)
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -863,19 +658,8 @@ class ServiceNetworkServiceAssociationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ServiceNetworkServiceAssociationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -893,19 +677,8 @@ class ServiceNetworkTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ServiceNetworkTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -923,19 +696,8 @@ class ServiceNetworkVpcAssociationTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ServiceNetworkVpcAssociationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -953,19 +715,8 @@ class ServiceTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ServiceTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1013,41 +764,20 @@ class TargetGroupConfig(dict):
                  protocol: Optional['TargetGroupConfigProtocol'] = None,
                  protocol_version: Optional['TargetGroupConfigProtocolVersion'] = None,
                  vpc_identifier: Optional[str] = None):
-        TargetGroupConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            health_check=health_check,
-            ip_address_type=ip_address_type,
-            lambda_event_structure_version=lambda_event_structure_version,
-            port=port,
-            protocol=protocol,
-            protocol_version=protocol_version,
-            vpc_identifier=vpc_identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             health_check: Optional['outputs.TargetGroupHealthCheckConfig'] = None,
-             ip_address_type: Optional['TargetGroupConfigIpAddressType'] = None,
-             lambda_event_structure_version: Optional['TargetGroupConfigLambdaEventStructureVersion'] = None,
-             port: Optional[int] = None,
-             protocol: Optional['TargetGroupConfigProtocol'] = None,
-             protocol_version: Optional['TargetGroupConfigProtocolVersion'] = None,
-             vpc_identifier: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if lambda_event_structure_version is not None:
-            _setter("lambda_event_structure_version", lambda_event_structure_version)
+            pulumi.set(__self__, "lambda_event_structure_version", lambda_event_structure_version)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
-            _setter("protocol_version", protocol_version)
+            pulumi.set(__self__, "protocol_version", protocol_version)
         if vpc_identifier is not None:
-            _setter("vpc_identifier", vpc_identifier)
+            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -1123,53 +853,26 @@ class TargetGroupHealthCheckConfig(dict):
                  protocol: Optional['TargetGroupHealthCheckConfigProtocol'] = None,
                  protocol_version: Optional['TargetGroupHealthCheckConfigProtocolVersion'] = None,
                  unhealthy_threshold_count: Optional[int] = None):
-        TargetGroupHealthCheckConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            health_check_interval_seconds=health_check_interval_seconds,
-            health_check_timeout_seconds=health_check_timeout_seconds,
-            healthy_threshold_count=healthy_threshold_count,
-            matcher=matcher,
-            path=path,
-            port=port,
-            protocol=protocol,
-            protocol_version=protocol_version,
-            unhealthy_threshold_count=unhealthy_threshold_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             health_check_interval_seconds: Optional[int] = None,
-             health_check_timeout_seconds: Optional[int] = None,
-             healthy_threshold_count: Optional[int] = None,
-             matcher: Optional['outputs.TargetGroupMatcher'] = None,
-             path: Optional[str] = None,
-             port: Optional[int] = None,
-             protocol: Optional['TargetGroupHealthCheckConfigProtocol'] = None,
-             protocol_version: Optional['TargetGroupHealthCheckConfigProtocolVersion'] = None,
-             unhealthy_threshold_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if health_check_interval_seconds is not None:
-            _setter("health_check_interval_seconds", health_check_interval_seconds)
+            pulumi.set(__self__, "health_check_interval_seconds", health_check_interval_seconds)
         if health_check_timeout_seconds is not None:
-            _setter("health_check_timeout_seconds", health_check_timeout_seconds)
+            pulumi.set(__self__, "health_check_timeout_seconds", health_check_timeout_seconds)
         if healthy_threshold_count is not None:
-            _setter("healthy_threshold_count", healthy_threshold_count)
+            pulumi.set(__self__, "healthy_threshold_count", healthy_threshold_count)
         if matcher is not None:
-            _setter("matcher", matcher)
+            pulumi.set(__self__, "matcher", matcher)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if protocol_version is not None:
-            _setter("protocol_version", protocol_version)
+            pulumi.set(__self__, "protocol_version", protocol_version)
         if unhealthy_threshold_count is not None:
-            _setter("unhealthy_threshold_count", unhealthy_threshold_count)
+            pulumi.set(__self__, "unhealthy_threshold_count", unhealthy_threshold_count)
 
     @property
     @pulumi.getter
@@ -1243,16 +946,7 @@ class TargetGroupMatcher(dict):
 
     def __init__(__self__, *,
                  http_code: str):
-        TargetGroupMatcher._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_code=http_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_code: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("http_code", http_code)
+        pulumi.set(__self__, "http_code", http_code)
 
     @property
     @pulumi.getter(name="httpCode")
@@ -1265,19 +959,8 @@ class TargetGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        TargetGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1295,20 +978,9 @@ class TargetGroupTarget(dict):
     def __init__(__self__, *,
                  id: str,
                  port: Optional[int] = None):
-        TargetGroupTarget._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: str,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter

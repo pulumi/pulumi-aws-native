@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,39 +31,18 @@ class BridgeArgs:
         :param pulumi.Input[str] name: The name of the bridge.
         :param pulumi.Input[Sequence[pulumi.Input['BridgeOutputArgs']]] outputs: The outputs on this bridge.
         """
-        BridgeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            placement_arn=placement_arn,
-            sources=sources,
-            egress_gateway_bridge=egress_gateway_bridge,
-            ingress_gateway_bridge=ingress_gateway_bridge,
-            name=name,
-            outputs=outputs,
-            source_failover_config=source_failover_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             placement_arn: pulumi.Input[str],
-             sources: pulumi.Input[Sequence[pulumi.Input['BridgeSourceArgs']]],
-             egress_gateway_bridge: Optional[pulumi.Input['BridgeEgressGatewayBridgeArgs']] = None,
-             ingress_gateway_bridge: Optional[pulumi.Input['BridgeIngressGatewayBridgeArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['BridgeOutputArgs']]]] = None,
-             source_failover_config: Optional[pulumi.Input['BridgeFailoverConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("placement_arn", placement_arn)
-        _setter("sources", sources)
+        pulumi.set(__self__, "placement_arn", placement_arn)
+        pulumi.set(__self__, "sources", sources)
         if egress_gateway_bridge is not None:
-            _setter("egress_gateway_bridge", egress_gateway_bridge)
+            pulumi.set(__self__, "egress_gateway_bridge", egress_gateway_bridge)
         if ingress_gateway_bridge is not None:
-            _setter("ingress_gateway_bridge", ingress_gateway_bridge)
+            pulumi.set(__self__, "ingress_gateway_bridge", ingress_gateway_bridge)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if outputs is not None:
-            _setter("outputs", outputs)
+            pulumi.set(__self__, "outputs", outputs)
         if source_failover_config is not None:
-            _setter("source_failover_config", source_failover_config)
+            pulumi.set(__self__, "source_failover_config", source_failover_config)
 
     @property
     @pulumi.getter(name="placementArn")
@@ -183,10 +162,6 @@ class Bridge(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BridgeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,28 +183,13 @@ class Bridge(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BridgeArgs.__new__(BridgeArgs)
 
-            if egress_gateway_bridge is not None and not isinstance(egress_gateway_bridge, BridgeEgressGatewayBridgeArgs):
-                egress_gateway_bridge = egress_gateway_bridge or {}
-                def _setter(key, value):
-                    egress_gateway_bridge[key] = value
-                BridgeEgressGatewayBridgeArgs._configure(_setter, **egress_gateway_bridge)
             __props__.__dict__["egress_gateway_bridge"] = egress_gateway_bridge
-            if ingress_gateway_bridge is not None and not isinstance(ingress_gateway_bridge, BridgeIngressGatewayBridgeArgs):
-                ingress_gateway_bridge = ingress_gateway_bridge or {}
-                def _setter(key, value):
-                    ingress_gateway_bridge[key] = value
-                BridgeIngressGatewayBridgeArgs._configure(_setter, **ingress_gateway_bridge)
             __props__.__dict__["ingress_gateway_bridge"] = ingress_gateway_bridge
             __props__.__dict__["name"] = name
             __props__.__dict__["outputs"] = outputs
             if placement_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'placement_arn'")
             __props__.__dict__["placement_arn"] = placement_arn
-            if source_failover_config is not None and not isinstance(source_failover_config, BridgeFailoverConfigArgs):
-                source_failover_config = source_failover_config or {}
-                def _setter(key, value):
-                    source_failover_config[key] = value
-                BridgeFailoverConfigArgs._configure(_setter, **source_failover_config)
             __props__.__dict__["source_failover_config"] = source_failover_config
             if sources is None and not opts.urn:
                 raise TypeError("Missing required property 'sources'")

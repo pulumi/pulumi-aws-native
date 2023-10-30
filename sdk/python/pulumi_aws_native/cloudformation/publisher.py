@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -22,20 +22,9 @@ class PublisherArgs:
         :param pulumi.Input[bool] accept_terms_and_conditions: Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
         :param pulumi.Input[str] connection_arn: If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
         """
-        PublisherArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            accept_terms_and_conditions=accept_terms_and_conditions,
-            connection_arn=connection_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             accept_terms_and_conditions: pulumi.Input[bool],
-             connection_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("accept_terms_and_conditions", accept_terms_and_conditions)
+        pulumi.set(__self__, "accept_terms_and_conditions", accept_terms_and_conditions)
         if connection_arn is not None:
-            _setter("connection_arn", connection_arn)
+            pulumi.set(__self__, "connection_arn", connection_arn)
 
     @property
     @pulumi.getter(name="acceptTermsAndConditions")
@@ -97,10 +86,6 @@ class Publisher(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PublisherArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

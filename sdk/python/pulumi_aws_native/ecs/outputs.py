@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -105,24 +105,11 @@ class CapacityProviderAutoScalingGroupProvider(dict):
                  auto_scaling_group_arn: str,
                  managed_scaling: Optional['outputs.CapacityProviderManagedScaling'] = None,
                  managed_termination_protection: Optional['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection'] = None):
-        CapacityProviderAutoScalingGroupProvider._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_scaling_group_arn=auto_scaling_group_arn,
-            managed_scaling=managed_scaling,
-            managed_termination_protection=managed_termination_protection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_scaling_group_arn: str,
-             managed_scaling: Optional['outputs.CapacityProviderManagedScaling'] = None,
-             managed_termination_protection: Optional['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_scaling_group_arn", auto_scaling_group_arn)
+        pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
         if managed_scaling is not None:
-            _setter("managed_scaling", managed_scaling)
+            pulumi.set(__self__, "managed_scaling", managed_scaling)
         if managed_termination_protection is not None:
-            _setter("managed_termination_protection", managed_termination_protection)
+            pulumi.set(__self__, "managed_termination_protection", managed_termination_protection)
 
     @property
     @pulumi.getter(name="autoScalingGroupArn")
@@ -177,33 +164,16 @@ class CapacityProviderManagedScaling(dict):
         """
         The managed scaling settings for the Auto Scaling group capacity provider.
         """
-        CapacityProviderManagedScaling._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_warmup_period=instance_warmup_period,
-            maximum_scaling_step_size=maximum_scaling_step_size,
-            minimum_scaling_step_size=minimum_scaling_step_size,
-            status=status,
-            target_capacity=target_capacity,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_warmup_period: Optional[int] = None,
-             maximum_scaling_step_size: Optional[int] = None,
-             minimum_scaling_step_size: Optional[int] = None,
-             status: Optional['CapacityProviderManagedScalingStatus'] = None,
-             target_capacity: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if instance_warmup_period is not None:
-            _setter("instance_warmup_period", instance_warmup_period)
+            pulumi.set(__self__, "instance_warmup_period", instance_warmup_period)
         if maximum_scaling_step_size is not None:
-            _setter("maximum_scaling_step_size", maximum_scaling_step_size)
+            pulumi.set(__self__, "maximum_scaling_step_size", maximum_scaling_step_size)
         if minimum_scaling_step_size is not None:
-            _setter("minimum_scaling_step_size", minimum_scaling_step_size)
+            pulumi.set(__self__, "minimum_scaling_step_size", minimum_scaling_step_size)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if target_capacity is not None:
-            _setter("target_capacity", target_capacity)
+            pulumi.set(__self__, "target_capacity", target_capacity)
 
     @property
     @pulumi.getter(name="instanceWarmupPeriod")
@@ -236,21 +206,10 @@ class CapacityProviderTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        CapacityProviderTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -286,24 +245,11 @@ class ClusterCapacityProviderAssociationsCapacityProviderStrategy(dict):
                  capacity_provider: str,
                  base: Optional[int] = None,
                  weight: Optional[int] = None):
-        ClusterCapacityProviderAssociationsCapacityProviderStrategy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity_provider=capacity_provider,
-            base=base,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity_provider: str,
-             base: Optional[int] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("capacity_provider", capacity_provider)
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
-            _setter("base", base)
+            pulumi.set(__self__, "base", base)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -350,25 +296,12 @@ class ClusterCapacityProviderStrategyItem(dict):
         """
         A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
         """
-        ClusterCapacityProviderStrategyItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base=base,
-            capacity_provider=capacity_provider,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base: Optional[int] = None,
-             capacity_provider: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base is not None:
-            _setter("base", base)
+            pulumi.set(__self__, "base", base)
         if capacity_provider is not None:
-            _setter("capacity_provider", capacity_provider)
+            pulumi.set(__self__, "capacity_provider", capacity_provider)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -413,17 +346,8 @@ class ClusterConfiguration(dict):
         """
         The configurations to be set at cluster level.
         """
-        ClusterConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            execute_command_configuration=execute_command_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             execute_command_configuration: Optional['outputs.ClusterExecuteCommandConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if execute_command_configuration is not None:
-            _setter("execute_command_configuration", execute_command_configuration)
+            pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
@@ -462,25 +386,12 @@ class ClusterExecuteCommandConfiguration(dict):
         """
         The configuration for ExecuteCommand.
         """
-        ClusterExecuteCommandConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_key_id=kms_key_id,
-            log_configuration=log_configuration,
-            logging=logging,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_key_id: Optional[str] = None,
-             log_configuration: Optional['outputs.ClusterExecuteCommandLogConfiguration'] = None,
-             logging: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if logging is not None:
-            _setter("logging", logging)
+            pulumi.set(__self__, "logging", logging)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -537,33 +448,16 @@ class ClusterExecuteCommandLogConfiguration(dict):
         """
         The session logging configuration for ExecuteCommand.
         """
-        ClusterExecuteCommandLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_encryption_enabled=cloud_watch_encryption_enabled,
-            cloud_watch_log_group_name=cloud_watch_log_group_name,
-            s3_bucket_name=s3_bucket_name,
-            s3_encryption_enabled=s3_encryption_enabled,
-            s3_key_prefix=s3_key_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_encryption_enabled: Optional[bool] = None,
-             cloud_watch_log_group_name: Optional[str] = None,
-             s3_bucket_name: Optional[str] = None,
-             s3_encryption_enabled: Optional[bool] = None,
-             s3_key_prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_encryption_enabled is not None:
-            _setter("cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
+            pulumi.set(__self__, "cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
         if cloud_watch_log_group_name is not None:
-            _setter("cloud_watch_log_group_name", cloud_watch_log_group_name)
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
         if s3_bucket_name is not None:
-            _setter("s3_bucket_name", s3_bucket_name)
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_encryption_enabled is not None:
-            _setter("s3_encryption_enabled", s3_encryption_enabled)
+            pulumi.set(__self__, "s3_encryption_enabled", s3_encryption_enabled)
         if s3_key_prefix is not None:
-            _setter("s3_key_prefix", s3_key_prefix)
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="cloudWatchEncryptionEnabled")
@@ -602,17 +496,8 @@ class ClusterServiceConnectDefaults(dict):
         Service Connect Configuration default for all services or tasks within this cluster
         :param str namespace: Service Connect Namespace Name or ARN default for all services or tasks within this cluster
         """
-        ClusterServiceConnectDefaults._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace=namespace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
@@ -634,21 +519,10 @@ class ClusterSettings(dict):
         """
         The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
         """
-        ClusterSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -672,21 +546,10 @@ class ClusterTag(dict):
         """
         The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
         """
-        ClusterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -724,25 +587,12 @@ class ServiceAwsVpcConfiguration(dict):
                  assign_public_ip: Optional['ServiceAwsVpcConfigurationAssignPublicIp'] = None,
                  security_groups: Optional[Sequence[str]] = None,
                  subnets: Optional[Sequence[str]] = None):
-        ServiceAwsVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assign_public_ip=assign_public_ip,
-            security_groups=security_groups,
-            subnets=subnets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assign_public_ip: Optional['ServiceAwsVpcConfigurationAssignPublicIp'] = None,
-             security_groups: Optional[Sequence[str]] = None,
-             subnets: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if assign_public_ip is not None:
-            _setter("assign_public_ip", assign_public_ip)
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="assignPublicIp")
@@ -783,25 +633,12 @@ class ServiceCapacityProviderStrategyItem(dict):
                  base: Optional[int] = None,
                  capacity_provider: Optional[str] = None,
                  weight: Optional[int] = None):
-        ServiceCapacityProviderStrategyItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base=base,
-            capacity_provider=capacity_provider,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base: Optional[int] = None,
-             capacity_provider: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if base is not None:
-            _setter("base", base)
+            pulumi.set(__self__, "base", base)
         if capacity_provider is not None:
-            _setter("capacity_provider", capacity_provider)
+            pulumi.set(__self__, "capacity_provider", capacity_provider)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter
@@ -841,20 +678,9 @@ class ServiceConnectClientAlias(dict):
     def __init__(__self__, *,
                  port: int,
                  dns_name: Optional[str] = None):
-        ServiceConnectClientAlias._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port=port,
-            dns_name=dns_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port: int,
-             dns_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("port", port)
+        pulumi.set(__self__, "port", port)
         if dns_name is not None:
-            _setter("dns_name", dns_name)
+            pulumi.set(__self__, "dns_name", dns_name)
 
     @property
     @pulumi.getter
@@ -891,28 +717,13 @@ class ServiceConnectConfiguration(dict):
                  log_configuration: Optional['outputs.ServiceLogConfiguration'] = None,
                  namespace: Optional[str] = None,
                  services: Optional[Sequence['outputs.ServiceConnectService']] = None):
-        ServiceConnectConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            log_configuration=log_configuration,
-            namespace=namespace,
-            services=services,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: bool,
-             log_configuration: Optional['outputs.ServiceLogConfiguration'] = None,
-             namespace: Optional[str] = None,
-             services: Optional[Sequence['outputs.ServiceConnectService']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enabled", enabled)
+        pulumi.set(__self__, "enabled", enabled)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if services is not None:
-            _setter("services", services)
+            pulumi.set(__self__, "services", services)
 
     @property
     @pulumi.getter
@@ -965,28 +776,13 @@ class ServiceConnectService(dict):
                  client_aliases: Optional[Sequence['outputs.ServiceConnectClientAlias']] = None,
                  discovery_name: Optional[str] = None,
                  ingress_port_override: Optional[int] = None):
-        ServiceConnectService._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            port_name=port_name,
-            client_aliases=client_aliases,
-            discovery_name=discovery_name,
-            ingress_port_override=ingress_port_override,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             port_name: str,
-             client_aliases: Optional[Sequence['outputs.ServiceConnectClientAlias']] = None,
-             discovery_name: Optional[str] = None,
-             ingress_port_override: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("port_name", port_name)
+        pulumi.set(__self__, "port_name", port_name)
         if client_aliases is not None:
-            _setter("client_aliases", client_aliases)
+            pulumi.set(__self__, "client_aliases", client_aliases)
         if discovery_name is not None:
-            _setter("discovery_name", discovery_name)
+            pulumi.set(__self__, "discovery_name", discovery_name)
         if ingress_port_override is not None:
-            _setter("ingress_port_override", ingress_port_override)
+            pulumi.set(__self__, "ingress_port_override", ingress_port_override)
 
     @property
     @pulumi.getter(name="portName")
@@ -1032,22 +828,9 @@ class ServiceDeploymentAlarms(dict):
                  alarm_names: Sequence[str],
                  enable: bool,
                  rollback: bool):
-        ServiceDeploymentAlarms._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_names=alarm_names,
-            enable=enable,
-            rollback=rollback,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_names: Sequence[str],
-             enable: bool,
-             rollback: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("alarm_names", alarm_names)
-        _setter("enable", enable)
-        _setter("rollback", rollback)
+        pulumi.set(__self__, "alarm_names", alarm_names)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
 
     @property
     @pulumi.getter(name="alarmNames")
@@ -1070,19 +853,8 @@ class ServiceDeploymentCircuitBreaker(dict):
     def __init__(__self__, *,
                  enable: bool,
                  rollback: bool):
-        ServiceDeploymentCircuitBreaker._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-            rollback=rollback,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: bool,
-             rollback: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("enable", enable)
-        _setter("rollback", rollback)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "rollback", rollback)
 
     @property
     @pulumi.getter
@@ -1123,29 +895,14 @@ class ServiceDeploymentConfiguration(dict):
                  deployment_circuit_breaker: Optional['outputs.ServiceDeploymentCircuitBreaker'] = None,
                  maximum_percent: Optional[int] = None,
                  minimum_healthy_percent: Optional[int] = None):
-        ServiceDeploymentConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarms=alarms,
-            deployment_circuit_breaker=deployment_circuit_breaker,
-            maximum_percent=maximum_percent,
-            minimum_healthy_percent=minimum_healthy_percent,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarms: Optional['outputs.ServiceDeploymentAlarms'] = None,
-             deployment_circuit_breaker: Optional['outputs.ServiceDeploymentCircuitBreaker'] = None,
-             maximum_percent: Optional[int] = None,
-             minimum_healthy_percent: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if alarms is not None:
-            _setter("alarms", alarms)
+            pulumi.set(__self__, "alarms", alarms)
         if deployment_circuit_breaker is not None:
-            _setter("deployment_circuit_breaker", deployment_circuit_breaker)
+            pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
         if maximum_percent is not None:
-            _setter("maximum_percent", maximum_percent)
+            pulumi.set(__self__, "maximum_percent", maximum_percent)
         if minimum_healthy_percent is not None:
-            _setter("minimum_healthy_percent", minimum_healthy_percent)
+            pulumi.set(__self__, "minimum_healthy_percent", minimum_healthy_percent)
 
     @property
     @pulumi.getter
@@ -1172,17 +929,8 @@ class ServiceDeploymentConfiguration(dict):
 class ServiceDeploymentController(dict):
     def __init__(__self__, *,
                  type: Optional['ServiceDeploymentControllerType'] = None):
-        ServiceDeploymentController._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional['ServiceDeploymentControllerType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1220,29 +968,14 @@ class ServiceLoadBalancer(dict):
                  container_port: Optional[int] = None,
                  load_balancer_name: Optional[str] = None,
                  target_group_arn: Optional[str] = None):
-        ServiceLoadBalancer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            container_port=container_port,
-            load_balancer_name=load_balancer_name,
-            target_group_arn=target_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             container_port: Optional[int] = None,
-             load_balancer_name: Optional[str] = None,
-             target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if container_port is not None:
-            _setter("container_port", container_port)
+            pulumi.set(__self__, "container_port", container_port)
         if load_balancer_name is not None:
-            _setter("load_balancer_name", load_balancer_name)
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter(name="containerName")
@@ -1290,25 +1023,12 @@ class ServiceLogConfiguration(dict):
                  log_driver: Optional[str] = None,
                  options: Optional[Any] = None,
                  secret_options: Optional[Sequence['outputs.ServiceSecret']] = None):
-        ServiceLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_driver=log_driver,
-            options=options,
-            secret_options=secret_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_driver: Optional[str] = None,
-             options: Optional[Any] = None,
-             secret_options: Optional[Sequence['outputs.ServiceSecret']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_driver is not None:
-            _setter("log_driver", log_driver)
+            pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if secret_options is not None:
-            _setter("secret_options", secret_options)
+            pulumi.set(__self__, "secret_options", secret_options)
 
     @property
     @pulumi.getter(name="logDriver")
@@ -1347,17 +1067,8 @@ class ServiceNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  awsvpc_configuration: Optional['outputs.ServiceAwsVpcConfiguration'] = None):
-        ServiceNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            awsvpc_configuration=awsvpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             awsvpc_configuration: Optional['outputs.ServiceAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if awsvpc_configuration is not None:
-            _setter("awsvpc_configuration", awsvpc_configuration)
+            pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
 
     @property
     @pulumi.getter(name="awsvpcConfiguration")
@@ -1370,20 +1081,9 @@ class ServicePlacementConstraint(dict):
     def __init__(__self__, *,
                  type: 'ServicePlacementConstraintType',
                  expression: Optional[str] = None):
-        ServicePlacementConstraint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            expression=expression,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'ServicePlacementConstraintType',
-             expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
 
     @property
     @pulumi.getter
@@ -1401,20 +1101,9 @@ class ServicePlacementStrategy(dict):
     def __init__(__self__, *,
                  type: 'ServicePlacementStrategyType',
                  field: Optional[str] = None):
-        ServicePlacementStrategy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            field=field,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'ServicePlacementStrategyType',
-             field: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if field is not None:
-            _setter("field", field)
+            pulumi.set(__self__, "field", field)
 
     @property
     @pulumi.getter
@@ -1455,29 +1144,14 @@ class ServiceRegistry(dict):
                  container_port: Optional[int] = None,
                  port: Optional[int] = None,
                  registry_arn: Optional[str] = None):
-        ServiceRegistry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            container_port=container_port,
-            port=port,
-            registry_arn=registry_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             container_port: Optional[int] = None,
-             port: Optional[int] = None,
-             registry_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if container_port is not None:
-            _setter("container_port", container_port)
+            pulumi.set(__self__, "container_port", container_port)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if registry_arn is not None:
-            _setter("registry_arn", registry_arn)
+            pulumi.set(__self__, "registry_arn", registry_arn)
 
     @property
     @pulumi.getter(name="containerName")
@@ -1522,19 +1196,8 @@ class ServiceSecret(dict):
     def __init__(__self__, *,
                  name: str,
                  value_from: str):
-        ServiceSecret._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value_from=value_from,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value_from: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value_from", value_from)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -1552,21 +1215,10 @@ class ServiceTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        ServiceTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1601,21 +1253,10 @@ class TaskDefinitionAuthorizationConfig(dict):
     def __init__(__self__, *,
                  access_point_id: Optional[str] = None,
                  iam: Optional['TaskDefinitionAuthorizationConfigIam'] = None):
-        TaskDefinitionAuthorizationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_point_id=access_point_id,
-            iam=iam,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_point_id: Optional[str] = None,
-             iam: Optional['TaskDefinitionAuthorizationConfigIam'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if access_point_id is not None:
-            _setter("access_point_id", access_point_id)
+            pulumi.set(__self__, "access_point_id", access_point_id)
         if iam is not None:
-            _setter("iam", iam)
+            pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter(name="accessPointId")
@@ -1747,167 +1388,82 @@ class TaskDefinitionContainerDefinition(dict):
         :param int memory: The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
         :param Sequence['TaskDefinitionPortMapping'] port_mappings: Port mappings allow containers to access ports on the host container instance to send or receive traffic.
         """
-        TaskDefinitionContainerDefinition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image=image,
-            name=name,
-            command=command,
-            cpu=cpu,
-            depends_on=depends_on,
-            disable_networking=disable_networking,
-            dns_search_domains=dns_search_domains,
-            dns_servers=dns_servers,
-            docker_labels=docker_labels,
-            docker_security_options=docker_security_options,
-            entry_point=entry_point,
-            environment=environment,
-            environment_files=environment_files,
-            essential=essential,
-            extra_hosts=extra_hosts,
-            firelens_configuration=firelens_configuration,
-            health_check=health_check,
-            hostname=hostname,
-            interactive=interactive,
-            links=links,
-            linux_parameters=linux_parameters,
-            log_configuration=log_configuration,
-            memory=memory,
-            memory_reservation=memory_reservation,
-            mount_points=mount_points,
-            port_mappings=port_mappings,
-            privileged=privileged,
-            pseudo_terminal=pseudo_terminal,
-            readonly_root_filesystem=readonly_root_filesystem,
-            repository_credentials=repository_credentials,
-            resource_requirements=resource_requirements,
-            secrets=secrets,
-            start_timeout=start_timeout,
-            stop_timeout=stop_timeout,
-            system_controls=system_controls,
-            ulimits=ulimits,
-            user=user,
-            volumes_from=volumes_from,
-            working_directory=working_directory,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image: str,
-             name: str,
-             command: Optional[Sequence[str]] = None,
-             cpu: Optional[int] = None,
-             depends_on: Optional[Sequence['outputs.TaskDefinitionContainerDependency']] = None,
-             disable_networking: Optional[bool] = None,
-             dns_search_domains: Optional[Sequence[str]] = None,
-             dns_servers: Optional[Sequence[str]] = None,
-             docker_labels: Optional[Any] = None,
-             docker_security_options: Optional[Sequence[str]] = None,
-             entry_point: Optional[Sequence[str]] = None,
-             environment: Optional[Sequence['outputs.TaskDefinitionKeyValuePair']] = None,
-             environment_files: Optional[Sequence['outputs.TaskDefinitionEnvironmentFile']] = None,
-             essential: Optional[bool] = None,
-             extra_hosts: Optional[Sequence['outputs.TaskDefinitionHostEntry']] = None,
-             firelens_configuration: Optional['outputs.TaskDefinitionFirelensConfiguration'] = None,
-             health_check: Optional['outputs.TaskDefinitionHealthCheck'] = None,
-             hostname: Optional[str] = None,
-             interactive: Optional[bool] = None,
-             links: Optional[Sequence[str]] = None,
-             linux_parameters: Optional['outputs.TaskDefinitionLinuxParameters'] = None,
-             log_configuration: Optional['outputs.TaskDefinitionLogConfiguration'] = None,
-             memory: Optional[int] = None,
-             memory_reservation: Optional[int] = None,
-             mount_points: Optional[Sequence['outputs.TaskDefinitionMountPoint']] = None,
-             port_mappings: Optional[Sequence['outputs.TaskDefinitionPortMapping']] = None,
-             privileged: Optional[bool] = None,
-             pseudo_terminal: Optional[bool] = None,
-             readonly_root_filesystem: Optional[bool] = None,
-             repository_credentials: Optional['outputs.TaskDefinitionRepositoryCredentials'] = None,
-             resource_requirements: Optional[Sequence['outputs.TaskDefinitionResourceRequirement']] = None,
-             secrets: Optional[Sequence['outputs.TaskDefinitionSecret']] = None,
-             start_timeout: Optional[int] = None,
-             stop_timeout: Optional[int] = None,
-             system_controls: Optional[Sequence['outputs.TaskDefinitionSystemControl']] = None,
-             ulimits: Optional[Sequence['outputs.TaskDefinitionUlimit']] = None,
-             user: Optional[str] = None,
-             volumes_from: Optional[Sequence['outputs.TaskDefinitionVolumeFrom']] = None,
-             working_directory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("image", image)
-        _setter("name", name)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if cpu is not None:
-            _setter("cpu", cpu)
+            pulumi.set(__self__, "cpu", cpu)
         if depends_on is not None:
-            _setter("depends_on", depends_on)
+            pulumi.set(__self__, "depends_on", depends_on)
         if disable_networking is not None:
-            _setter("disable_networking", disable_networking)
+            pulumi.set(__self__, "disable_networking", disable_networking)
         if dns_search_domains is not None:
-            _setter("dns_search_domains", dns_search_domains)
+            pulumi.set(__self__, "dns_search_domains", dns_search_domains)
         if dns_servers is not None:
-            _setter("dns_servers", dns_servers)
+            pulumi.set(__self__, "dns_servers", dns_servers)
         if docker_labels is not None:
-            _setter("docker_labels", docker_labels)
+            pulumi.set(__self__, "docker_labels", docker_labels)
         if docker_security_options is not None:
-            _setter("docker_security_options", docker_security_options)
+            pulumi.set(__self__, "docker_security_options", docker_security_options)
         if entry_point is not None:
-            _setter("entry_point", entry_point)
+            pulumi.set(__self__, "entry_point", entry_point)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if environment_files is not None:
-            _setter("environment_files", environment_files)
+            pulumi.set(__self__, "environment_files", environment_files)
         if essential is not None:
-            _setter("essential", essential)
+            pulumi.set(__self__, "essential", essential)
         if extra_hosts is not None:
-            _setter("extra_hosts", extra_hosts)
+            pulumi.set(__self__, "extra_hosts", extra_hosts)
         if firelens_configuration is not None:
-            _setter("firelens_configuration", firelens_configuration)
+            pulumi.set(__self__, "firelens_configuration", firelens_configuration)
         if health_check is not None:
-            _setter("health_check", health_check)
+            pulumi.set(__self__, "health_check", health_check)
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if interactive is not None:
-            _setter("interactive", interactive)
+            pulumi.set(__self__, "interactive", interactive)
         if links is not None:
-            _setter("links", links)
+            pulumi.set(__self__, "links", links)
         if linux_parameters is not None:
-            _setter("linux_parameters", linux_parameters)
+            pulumi.set(__self__, "linux_parameters", linux_parameters)
         if log_configuration is not None:
-            _setter("log_configuration", log_configuration)
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if memory is not None:
-            _setter("memory", memory)
+            pulumi.set(__self__, "memory", memory)
         if memory_reservation is not None:
-            _setter("memory_reservation", memory_reservation)
+            pulumi.set(__self__, "memory_reservation", memory_reservation)
         if mount_points is not None:
-            _setter("mount_points", mount_points)
+            pulumi.set(__self__, "mount_points", mount_points)
         if port_mappings is not None:
-            _setter("port_mappings", port_mappings)
+            pulumi.set(__self__, "port_mappings", port_mappings)
         if privileged is not None:
-            _setter("privileged", privileged)
+            pulumi.set(__self__, "privileged", privileged)
         if pseudo_terminal is not None:
-            _setter("pseudo_terminal", pseudo_terminal)
+            pulumi.set(__self__, "pseudo_terminal", pseudo_terminal)
         if readonly_root_filesystem is not None:
-            _setter("readonly_root_filesystem", readonly_root_filesystem)
+            pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
         if repository_credentials is not None:
-            _setter("repository_credentials", repository_credentials)
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
         if resource_requirements is not None:
-            _setter("resource_requirements", resource_requirements)
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
         if secrets is not None:
-            _setter("secrets", secrets)
+            pulumi.set(__self__, "secrets", secrets)
         if start_timeout is not None:
-            _setter("start_timeout", start_timeout)
+            pulumi.set(__self__, "start_timeout", start_timeout)
         if stop_timeout is not None:
-            _setter("stop_timeout", stop_timeout)
+            pulumi.set(__self__, "stop_timeout", stop_timeout)
         if system_controls is not None:
-            _setter("system_controls", system_controls)
+            pulumi.set(__self__, "system_controls", system_controls)
         if ulimits is not None:
-            _setter("ulimits", ulimits)
+            pulumi.set(__self__, "ulimits", ulimits)
         if user is not None:
-            _setter("user", user)
+            pulumi.set(__self__, "user", user)
         if volumes_from is not None:
-            _setter("volumes_from", volumes_from)
+            pulumi.set(__self__, "volumes_from", volumes_from)
         if working_directory is not None:
-            _setter("working_directory", working_directory)
+            pulumi.set(__self__, "working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -2145,21 +1701,10 @@ class TaskDefinitionContainerDependency(dict):
     def __init__(__self__, *,
                  condition: Optional[str] = None,
                  container_name: Optional[str] = None):
-        TaskDefinitionContainerDependency._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition=condition,
-            container_name=container_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition: Optional[str] = None,
-             container_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if condition is not None:
-            _setter("condition", condition)
+            pulumi.set(__self__, "condition", condition)
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
 
     @property
     @pulumi.getter
@@ -2197,25 +1742,12 @@ class TaskDefinitionDevice(dict):
                  container_path: Optional[str] = None,
                  host_path: Optional[str] = None,
                  permissions: Optional[Sequence[str]] = None):
-        TaskDefinitionDevice._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_path=container_path,
-            host_path=host_path,
-            permissions=permissions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_path: Optional[str] = None,
-             host_path: Optional[str] = None,
-             permissions: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_path is not None:
-            _setter("container_path", container_path)
+            pulumi.set(__self__, "container_path", container_path)
         if host_path is not None:
-            _setter("host_path", host_path)
+            pulumi.set(__self__, "host_path", host_path)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter(name="containerPath")
@@ -2258,33 +1790,16 @@ class TaskDefinitionDockerVolumeConfiguration(dict):
                  driver_opts: Optional[Any] = None,
                  labels: Optional[Any] = None,
                  scope: Optional[str] = None):
-        TaskDefinitionDockerVolumeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autoprovision=autoprovision,
-            driver=driver,
-            driver_opts=driver_opts,
-            labels=labels,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autoprovision: Optional[bool] = None,
-             driver: Optional[str] = None,
-             driver_opts: Optional[Any] = None,
-             labels: Optional[Any] = None,
-             scope: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if autoprovision is not None:
-            _setter("autoprovision", autoprovision)
+            pulumi.set(__self__, "autoprovision", autoprovision)
         if driver is not None:
-            _setter("driver", driver)
+            pulumi.set(__self__, "driver", driver)
         if driver_opts is not None:
-            _setter("driver_opts", driver_opts)
+            pulumi.set(__self__, "driver_opts", driver_opts)
         if labels is not None:
-            _setter("labels", labels)
+            pulumi.set(__self__, "labels", labels)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter
@@ -2345,32 +1860,15 @@ class TaskDefinitionEfsVolumeConfiguration(dict):
                  root_directory: Optional[str] = None,
                  transit_encryption: Optional['TaskDefinitionEfsVolumeConfigurationTransitEncryption'] = None,
                  transit_encryption_port: Optional[int] = None):
-        TaskDefinitionEfsVolumeConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filesystem_id=filesystem_id,
-            authorization_config=authorization_config,
-            root_directory=root_directory,
-            transit_encryption=transit_encryption,
-            transit_encryption_port=transit_encryption_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filesystem_id: str,
-             authorization_config: Optional['outputs.TaskDefinitionAuthorizationConfig'] = None,
-             root_directory: Optional[str] = None,
-             transit_encryption: Optional['TaskDefinitionEfsVolumeConfigurationTransitEncryption'] = None,
-             transit_encryption_port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("filesystem_id", filesystem_id)
+        pulumi.set(__self__, "filesystem_id", filesystem_id)
         if authorization_config is not None:
-            _setter("authorization_config", authorization_config)
+            pulumi.set(__self__, "authorization_config", authorization_config)
         if root_directory is not None:
-            _setter("root_directory", root_directory)
+            pulumi.set(__self__, "root_directory", root_directory)
         if transit_encryption is not None:
-            _setter("transit_encryption", transit_encryption)
+            pulumi.set(__self__, "transit_encryption", transit_encryption)
         if transit_encryption_port is not None:
-            _setter("transit_encryption_port", transit_encryption_port)
+            pulumi.set(__self__, "transit_encryption_port", transit_encryption_port)
 
     @property
     @pulumi.getter(name="filesystemId")
@@ -2403,21 +1901,10 @@ class TaskDefinitionEnvironmentFile(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[str] = None):
-        TaskDefinitionEnvironmentFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2451,17 +1938,8 @@ class TaskDefinitionEphemeralStorage(dict):
 
     def __init__(__self__, *,
                  size_in_gi_b: Optional[int] = None):
-        TaskDefinitionEphemeralStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gi_b=size_in_gi_b,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gi_b: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if size_in_gi_b is not None:
-            _setter("size_in_gi_b", size_in_gi_b)
+            pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
 
     @property
     @pulumi.getter(name="sizeInGiB")
@@ -2474,21 +1952,10 @@ class TaskDefinitionFirelensConfiguration(dict):
     def __init__(__self__, *,
                  options: Optional[Any] = None,
                  type: Optional[str] = None):
-        TaskDefinitionFirelensConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            options=options,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             options: Optional[Any] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -2537,33 +2004,16 @@ class TaskDefinitionHealthCheck(dict):
         :param int start_period: The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
         :param int timeout: The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
         """
-        TaskDefinitionHealthCheck._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            command=command,
-            interval=interval,
-            retries=retries,
-            start_period=start_period,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             command: Optional[Sequence[str]] = None,
-             interval: Optional[int] = None,
-             retries: Optional[int] = None,
-             start_period: Optional[int] = None,
-             timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if retries is not None:
-            _setter("retries", retries)
+            pulumi.set(__self__, "retries", retries)
         if start_period is not None:
-            _setter("start_period", start_period)
+            pulumi.set(__self__, "start_period", start_period)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter
@@ -2628,21 +2078,10 @@ class TaskDefinitionHostEntry(dict):
     def __init__(__self__, *,
                  hostname: Optional[str] = None,
                  ip_address: Optional[str] = None):
-        TaskDefinitionHostEntry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostname=hostname,
-            ip_address=ip_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostname: Optional[str] = None,
-             ip_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if hostname is not None:
-            _setter("hostname", hostname)
+            pulumi.set(__self__, "hostname", hostname)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
 
     @property
     @pulumi.getter
@@ -2676,17 +2115,8 @@ class TaskDefinitionHostVolumeProperties(dict):
 
     def __init__(__self__, *,
                  source_path: Optional[str] = None):
-        TaskDefinitionHostVolumeProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_path=source_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if source_path is not None:
-            _setter("source_path", source_path)
+            pulumi.set(__self__, "source_path", source_path)
 
     @property
     @pulumi.getter(name="sourcePath")
@@ -2718,21 +2148,10 @@ class TaskDefinitionInferenceAccelerator(dict):
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  device_type: Optional[str] = None):
-        TaskDefinitionInferenceAccelerator._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_name=device_name,
-            device_type=device_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_name: Optional[str] = None,
-             device_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if device_name is not None:
-            _setter("device_name", device_name)
+            pulumi.set(__self__, "device_name", device_name)
         if device_type is not None:
-            _setter("device_type", device_type)
+            pulumi.set(__self__, "device_type", device_type)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -2750,21 +2169,10 @@ class TaskDefinitionKernelCapabilities(dict):
     def __init__(__self__, *,
                  add: Optional[Sequence[str]] = None,
                  drop: Optional[Sequence[str]] = None):
-        TaskDefinitionKernelCapabilities._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            add=add,
-            drop=drop,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             add: Optional[Sequence[str]] = None,
-             drop: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if add is not None:
-            _setter("add", add)
+            pulumi.set(__self__, "add", add)
         if drop is not None:
-            _setter("drop", drop)
+            pulumi.set(__self__, "drop", drop)
 
     @property
     @pulumi.getter
@@ -2782,21 +2190,10 @@ class TaskDefinitionKeyValuePair(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
-        TaskDefinitionKeyValuePair._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2840,41 +2237,20 @@ class TaskDefinitionLinuxParameters(dict):
                  shared_memory_size: Optional[int] = None,
                  swappiness: Optional[int] = None,
                  tmpfs: Optional[Sequence['outputs.TaskDefinitionTmpfs']] = None):
-        TaskDefinitionLinuxParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capabilities=capabilities,
-            devices=devices,
-            init_process_enabled=init_process_enabled,
-            max_swap=max_swap,
-            shared_memory_size=shared_memory_size,
-            swappiness=swappiness,
-            tmpfs=tmpfs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capabilities: Optional['outputs.TaskDefinitionKernelCapabilities'] = None,
-             devices: Optional[Sequence['outputs.TaskDefinitionDevice']] = None,
-             init_process_enabled: Optional[bool] = None,
-             max_swap: Optional[int] = None,
-             shared_memory_size: Optional[int] = None,
-             swappiness: Optional[int] = None,
-             tmpfs: Optional[Sequence['outputs.TaskDefinitionTmpfs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if capabilities is not None:
-            _setter("capabilities", capabilities)
+            pulumi.set(__self__, "capabilities", capabilities)
         if devices is not None:
-            _setter("devices", devices)
+            pulumi.set(__self__, "devices", devices)
         if init_process_enabled is not None:
-            _setter("init_process_enabled", init_process_enabled)
+            pulumi.set(__self__, "init_process_enabled", init_process_enabled)
         if max_swap is not None:
-            _setter("max_swap", max_swap)
+            pulumi.set(__self__, "max_swap", max_swap)
         if shared_memory_size is not None:
-            _setter("shared_memory_size", shared_memory_size)
+            pulumi.set(__self__, "shared_memory_size", shared_memory_size)
         if swappiness is not None:
-            _setter("swappiness", swappiness)
+            pulumi.set(__self__, "swappiness", swappiness)
         if tmpfs is not None:
-            _setter("tmpfs", tmpfs)
+            pulumi.set(__self__, "tmpfs", tmpfs)
 
     @property
     @pulumi.getter
@@ -2937,24 +2313,11 @@ class TaskDefinitionLogConfiguration(dict):
                  log_driver: str,
                  options: Optional[Any] = None,
                  secret_options: Optional[Sequence['outputs.TaskDefinitionSecret']] = None):
-        TaskDefinitionLogConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_driver=log_driver,
-            options=options,
-            secret_options=secret_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_driver: str,
-             options: Optional[Any] = None,
-             secret_options: Optional[Sequence['outputs.TaskDefinitionSecret']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_driver", log_driver)
+        pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
-            _setter("options", options)
+            pulumi.set(__self__, "options", options)
         if secret_options is not None:
-            _setter("secret_options", secret_options)
+            pulumi.set(__self__, "secret_options", secret_options)
 
     @property
     @pulumi.getter(name="logDriver")
@@ -2999,25 +2362,12 @@ class TaskDefinitionMountPoint(dict):
                  container_path: Optional[str] = None,
                  read_only: Optional[bool] = None,
                  source_volume: Optional[str] = None):
-        TaskDefinitionMountPoint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_path=container_path,
-            read_only=read_only,
-            source_volume=source_volume,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_path: Optional[str] = None,
-             read_only: Optional[bool] = None,
-             source_volume: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_path is not None:
-            _setter("container_path", container_path)
+            pulumi.set(__self__, "container_path", container_path)
         if read_only is not None:
-            _setter("read_only", read_only)
+            pulumi.set(__self__, "read_only", read_only)
         if source_volume is not None:
-            _setter("source_volume", source_volume)
+            pulumi.set(__self__, "source_volume", source_volume)
 
     @property
     @pulumi.getter(name="containerPath")
@@ -3040,20 +2390,9 @@ class TaskDefinitionPlacementConstraint(dict):
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
-        TaskDefinitionPlacementConstraint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            expression=expression,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             expression: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
 
     @property
     @pulumi.getter
@@ -3098,37 +2437,18 @@ class TaskDefinitionPortMapping(dict):
                  host_port: Optional[int] = None,
                  name: Optional[str] = None,
                  protocol: Optional[str] = None):
-        TaskDefinitionPortMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_protocol=app_protocol,
-            container_port=container_port,
-            container_port_range=container_port_range,
-            host_port=host_port,
-            name=name,
-            protocol=protocol,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_protocol: Optional['TaskDefinitionPortMappingAppProtocol'] = None,
-             container_port: Optional[int] = None,
-             container_port_range: Optional[str] = None,
-             host_port: Optional[int] = None,
-             name: Optional[str] = None,
-             protocol: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if app_protocol is not None:
-            _setter("app_protocol", app_protocol)
+            pulumi.set(__self__, "app_protocol", app_protocol)
         if container_port is not None:
-            _setter("container_port", container_port)
+            pulumi.set(__self__, "container_port", container_port)
         if container_port_range is not None:
-            _setter("container_port_range", container_port_range)
+            pulumi.set(__self__, "container_port_range", container_port_range)
         if host_port is not None:
-            _setter("host_port", host_port)
+            pulumi.set(__self__, "host_port", host_port)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter(name="appProtocol")
@@ -3186,24 +2506,11 @@ class TaskDefinitionProxyConfiguration(dict):
                  container_name: str,
                  proxy_configuration_properties: Optional[Sequence['outputs.TaskDefinitionKeyValuePair']] = None,
                  type: Optional[str] = None):
-        TaskDefinitionProxyConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            proxy_configuration_properties=proxy_configuration_properties,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: str,
-             proxy_configuration_properties: Optional[Sequence['outputs.TaskDefinitionKeyValuePair']] = None,
-             type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("container_name", container_name)
+        pulumi.set(__self__, "container_name", container_name)
         if proxy_configuration_properties is not None:
-            _setter("proxy_configuration_properties", proxy_configuration_properties)
+            pulumi.set(__self__, "proxy_configuration_properties", proxy_configuration_properties)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="containerName")
@@ -3242,17 +2549,8 @@ class TaskDefinitionRepositoryCredentials(dict):
 
     def __init__(__self__, *,
                  credentials_parameter: Optional[str] = None):
-        TaskDefinitionRepositoryCredentials._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credentials_parameter=credentials_parameter,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credentials_parameter: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if credentials_parameter is not None:
-            _setter("credentials_parameter", credentials_parameter)
+            pulumi.set(__self__, "credentials_parameter", credentials_parameter)
 
     @property
     @pulumi.getter(name="credentialsParameter")
@@ -3265,19 +2563,8 @@ class TaskDefinitionResourceRequirement(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
-        TaskDefinitionResourceRequirement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3314,21 +2601,10 @@ class TaskDefinitionRuntimePlatform(dict):
     def __init__(__self__, *,
                  cpu_architecture: Optional[str] = None,
                  operating_system_family: Optional[str] = None):
-        TaskDefinitionRuntimePlatform._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cpu_architecture=cpu_architecture,
-            operating_system_family=operating_system_family,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cpu_architecture: Optional[str] = None,
-             operating_system_family: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cpu_architecture is not None:
-            _setter("cpu_architecture", cpu_architecture)
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
         if operating_system_family is not None:
-            _setter("operating_system_family", operating_system_family)
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
 
     @property
     @pulumi.getter(name="cpuArchitecture")
@@ -3363,19 +2639,8 @@ class TaskDefinitionSecret(dict):
     def __init__(__self__, *,
                  name: str,
                  value_from: str):
-        TaskDefinitionSecret._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value_from=value_from,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value_from: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value_from", value_from)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
 
     @property
     @pulumi.getter
@@ -3393,21 +2658,10 @@ class TaskDefinitionSystemControl(dict):
     def __init__(__self__, *,
                  namespace: Optional[str] = None,
                  value: Optional[str] = None):
-        TaskDefinitionSystemControl._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            namespace=namespace,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             namespace: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3425,21 +2679,10 @@ class TaskDefinitionTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        TaskDefinitionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3477,24 +2720,11 @@ class TaskDefinitionTmpfs(dict):
                  size: int,
                  container_path: Optional[str] = None,
                  mount_options: Optional[Sequence[str]] = None):
-        TaskDefinitionTmpfs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-            container_path=container_path,
-            mount_options=mount_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: int,
-             container_path: Optional[str] = None,
-             mount_options: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size", size)
+        pulumi.set(__self__, "size", size)
         if container_path is not None:
-            _setter("container_path", container_path)
+            pulumi.set(__self__, "container_path", container_path)
         if mount_options is not None:
-            _setter("mount_options", mount_options)
+            pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter
@@ -3537,22 +2767,9 @@ class TaskDefinitionUlimit(dict):
                  hard_limit: int,
                  name: str,
                  soft_limit: int):
-        TaskDefinitionUlimit._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hard_limit=hard_limit,
-            name=name,
-            soft_limit=soft_limit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hard_limit: int,
-             name: str,
-             soft_limit: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hard_limit", hard_limit)
-        _setter("name", name)
-        _setter("soft_limit", soft_limit)
+        pulumi.set(__self__, "hard_limit", hard_limit)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "soft_limit", soft_limit)
 
     @property
     @pulumi.getter(name="hardLimit")
@@ -3596,29 +2813,14 @@ class TaskDefinitionVolume(dict):
                  efs_volume_configuration: Optional['outputs.TaskDefinitionEfsVolumeConfiguration'] = None,
                  host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
                  name: Optional[str] = None):
-        TaskDefinitionVolume._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            docker_volume_configuration=docker_volume_configuration,
-            efs_volume_configuration=efs_volume_configuration,
-            host=host,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             docker_volume_configuration: Optional['outputs.TaskDefinitionDockerVolumeConfiguration'] = None,
-             efs_volume_configuration: Optional['outputs.TaskDefinitionEfsVolumeConfiguration'] = None,
-             host: Optional['outputs.TaskDefinitionHostVolumeProperties'] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if docker_volume_configuration is not None:
-            _setter("docker_volume_configuration", docker_volume_configuration)
+            pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
-            _setter("efs_volume_configuration", efs_volume_configuration)
+            pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="dockerVolumeConfiguration")
@@ -3665,21 +2867,10 @@ class TaskDefinitionVolumeFrom(dict):
     def __init__(__self__, *,
                  read_only: Optional[bool] = None,
                  source_container: Optional[str] = None):
-        TaskDefinitionVolumeFrom._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            read_only=read_only,
-            source_container=source_container,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             read_only: Optional[bool] = None,
-             source_container: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if read_only is not None:
-            _setter("read_only", read_only)
+            pulumi.set(__self__, "read_only", read_only)
         if source_container is not None:
-            _setter("source_container", source_container)
+            pulumi.set(__self__, "source_container", source_container)
 
     @property
     @pulumi.getter(name="readOnly")
@@ -3726,24 +2917,11 @@ class TaskSetAwsVpcConfiguration(dict):
         :param 'TaskSetAwsVpcConfigurationAssignPublicIp' assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
         """
-        TaskSetAwsVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnets=subnets,
-            assign_public_ip=assign_public_ip,
-            security_groups=security_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnets: Sequence[str],
-             assign_public_ip: Optional['TaskSetAwsVpcConfigurationAssignPublicIp'] = None,
-             security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnets", subnets)
+        pulumi.set(__self__, "subnets", subnets)
         if assign_public_ip is not None:
-            _setter("assign_public_ip", assign_public_ip)
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -3806,25 +2984,12 @@ class TaskSetLoadBalancer(dict):
         :param int container_port: The port on the container to associate with the load balancer. This port must correspond to a containerPort in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the hostPort of the port mapping.
         :param str target_group_arn: The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
         """
-        TaskSetLoadBalancer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            container_port=container_port,
-            target_group_arn=target_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             container_port: Optional[int] = None,
-             target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if container_port is not None:
-            _setter("container_port", container_port)
+            pulumi.set(__self__, "container_port", container_port)
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter(name="containerName")
@@ -3878,17 +3043,8 @@ class TaskSetNetworkConfiguration(dict):
         """
         An object representing the network configuration for a task or service.
         """
-        TaskSetNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aws_vpc_configuration=aws_vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aws_vpc_configuration: Optional['outputs.TaskSetAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if aws_vpc_configuration is not None:
-            _setter("aws_vpc_configuration", aws_vpc_configuration)
+            pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
 
     @property
     @pulumi.getter(name="awsVpcConfiguration")
@@ -3905,21 +3061,10 @@ class TaskSetScale(dict):
         :param 'TaskSetScaleUnit' unit: The unit of measure for the scale value.
         :param float value: The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
         """
-        TaskSetScale._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            unit=unit,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             unit: Optional['TaskSetScaleUnit'] = None,
-             value: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3972,29 +3117,14 @@ class TaskSetServiceRegistry(dict):
         :param int port: The port value used if your service discovery service specified an SRV record. This field may be used if both the awsvpc network mode and SRV records are used.
         :param str registry_arn: The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html
         """
-        TaskSetServiceRegistry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_name=container_name,
-            container_port=container_port,
-            port=port,
-            registry_arn=registry_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_name: Optional[str] = None,
-             container_port: Optional[int] = None,
-             port: Optional[int] = None,
-             registry_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_name is not None:
-            _setter("container_name", container_name)
+            pulumi.set(__self__, "container_name", container_name)
         if container_port is not None:
-            _setter("container_port", container_port)
+            pulumi.set(__self__, "container_port", container_port)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if registry_arn is not None:
-            _setter("registry_arn", registry_arn)
+            pulumi.set(__self__, "registry_arn", registry_arn)
 
     @property
     @pulumi.getter(name="containerName")

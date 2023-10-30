@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,25 +25,12 @@ class PlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rotation_ids: Rotation Ids to associate with Oncall Contact for engagement.
         :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
-        PlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            contact_id=contact_id,
-            rotation_ids=rotation_ids,
-            stages=stages,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             contact_id: Optional[pulumi.Input[str]] = None,
-             rotation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             stages: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if contact_id is not None:
-            _setter("contact_id", contact_id)
+            pulumi.set(__self__, "contact_id", contact_id)
         if rotation_ids is not None:
-            _setter("rotation_ids", rotation_ids)
+            pulumi.set(__self__, "rotation_ids", rotation_ids)
         if stages is not None:
-            _setter("stages", stages)
+            pulumi.set(__self__, "stages", stages)
 
     @property
     @pulumi.getter(name="contactId")
@@ -119,10 +106,6 @@ class Plan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

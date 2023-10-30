@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,64 +33,29 @@ class ComponentArgs:
         """
         The set of arguments for constructing a Component resource.
         """
-        ComponentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            binding_properties=binding_properties,
-            component_type=component_type,
-            overrides=overrides,
-            properties=properties,
-            variants=variants,
-            app_id=app_id,
-            children=children,
-            collection_properties=collection_properties,
-            environment_name=environment_name,
-            events=events,
-            name=name,
-            schema_version=schema_version,
-            source_id=source_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             binding_properties: pulumi.Input['ComponentBindingPropertiesArgs'],
-             component_type: pulumi.Input[str],
-             overrides: pulumi.Input['ComponentOverridesArgs'],
-             properties: pulumi.Input['ComponentPropertiesArgs'],
-             variants: pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]],
-             app_id: Optional[pulumi.Input[str]] = None,
-             children: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]] = None,
-             collection_properties: Optional[pulumi.Input['ComponentCollectionPropertiesArgs']] = None,
-             environment_name: Optional[pulumi.Input[str]] = None,
-             events: Optional[pulumi.Input['ComponentEventsArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             schema_version: Optional[pulumi.Input[str]] = None,
-             source_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input['ComponentTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("binding_properties", binding_properties)
-        _setter("component_type", component_type)
-        _setter("overrides", overrides)
-        _setter("properties", properties)
-        _setter("variants", variants)
+        pulumi.set(__self__, "binding_properties", binding_properties)
+        pulumi.set(__self__, "component_type", component_type)
+        pulumi.set(__self__, "overrides", overrides)
+        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "variants", variants)
         if app_id is not None:
-            _setter("app_id", app_id)
+            pulumi.set(__self__, "app_id", app_id)
         if children is not None:
-            _setter("children", children)
+            pulumi.set(__self__, "children", children)
         if collection_properties is not None:
-            _setter("collection_properties", collection_properties)
+            pulumi.set(__self__, "collection_properties", collection_properties)
         if environment_name is not None:
-            _setter("environment_name", environment_name)
+            pulumi.set(__self__, "environment_name", environment_name)
         if events is not None:
-            _setter("events", events)
+            pulumi.set(__self__, "events", events)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if schema_version is not None:
-            _setter("schema_version", schema_version)
+            pulumi.set(__self__, "schema_version", schema_version)
         if source_id is not None:
-            _setter("source_id", source_id)
+            pulumi.set(__self__, "source_id", source_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bindingProperties")
@@ -264,10 +229,6 @@ class Component(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ComponentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,55 +258,25 @@ class Component(pulumi.CustomResource):
             __props__ = ComponentArgs.__new__(ComponentArgs)
 
             __props__.__dict__["app_id"] = app_id
-            if binding_properties is not None and not isinstance(binding_properties, ComponentBindingPropertiesArgs):
-                binding_properties = binding_properties or {}
-                def _setter(key, value):
-                    binding_properties[key] = value
-                ComponentBindingPropertiesArgs._configure(_setter, **binding_properties)
             if binding_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'binding_properties'")
             __props__.__dict__["binding_properties"] = binding_properties
             __props__.__dict__["children"] = children
-            if collection_properties is not None and not isinstance(collection_properties, ComponentCollectionPropertiesArgs):
-                collection_properties = collection_properties or {}
-                def _setter(key, value):
-                    collection_properties[key] = value
-                ComponentCollectionPropertiesArgs._configure(_setter, **collection_properties)
             __props__.__dict__["collection_properties"] = collection_properties
             if component_type is None and not opts.urn:
                 raise TypeError("Missing required property 'component_type'")
             __props__.__dict__["component_type"] = component_type
             __props__.__dict__["environment_name"] = environment_name
-            if events is not None and not isinstance(events, ComponentEventsArgs):
-                events = events or {}
-                def _setter(key, value):
-                    events[key] = value
-                ComponentEventsArgs._configure(_setter, **events)
             __props__.__dict__["events"] = events
             __props__.__dict__["name"] = name
-            if overrides is not None and not isinstance(overrides, ComponentOverridesArgs):
-                overrides = overrides or {}
-                def _setter(key, value):
-                    overrides[key] = value
-                ComponentOverridesArgs._configure(_setter, **overrides)
             if overrides is None and not opts.urn:
                 raise TypeError("Missing required property 'overrides'")
             __props__.__dict__["overrides"] = overrides
-            if properties is not None and not isinstance(properties, ComponentPropertiesArgs):
-                properties = properties or {}
-                def _setter(key, value):
-                    properties[key] = value
-                ComponentPropertiesArgs._configure(_setter, **properties)
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["schema_version"] = schema_version
             __props__.__dict__["source_id"] = source_id
-            if tags is not None and not isinstance(tags, ComponentTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ComponentTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if variants is None and not opts.urn:
                 raise TypeError("Missing required property 'variants'")

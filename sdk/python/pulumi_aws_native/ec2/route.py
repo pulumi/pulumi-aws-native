@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -45,68 +45,33 @@ class RouteArgs:
         :param pulumi.Input[str] vpc_endpoint_id: The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.
         :param pulumi.Input[str] vpc_peering_connection_id: The ID of a VPC peering connection.
         """
-        RouteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            route_table_id=route_table_id,
-            carrier_gateway_id=carrier_gateway_id,
-            destination_cidr_block=destination_cidr_block,
-            destination_ipv6_cidr_block=destination_ipv6_cidr_block,
-            destination_prefix_list_id=destination_prefix_list_id,
-            egress_only_internet_gateway_id=egress_only_internet_gateway_id,
-            gateway_id=gateway_id,
-            instance_id=instance_id,
-            local_gateway_id=local_gateway_id,
-            nat_gateway_id=nat_gateway_id,
-            network_interface_id=network_interface_id,
-            transit_gateway_id=transit_gateway_id,
-            vpc_endpoint_id=vpc_endpoint_id,
-            vpc_peering_connection_id=vpc_peering_connection_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             route_table_id: pulumi.Input[str],
-             carrier_gateway_id: Optional[pulumi.Input[str]] = None,
-             destination_cidr_block: Optional[pulumi.Input[str]] = None,
-             destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
-             destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
-             egress_only_internet_gateway_id: Optional[pulumi.Input[str]] = None,
-             gateway_id: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             local_gateway_id: Optional[pulumi.Input[str]] = None,
-             nat_gateway_id: Optional[pulumi.Input[str]] = None,
-             network_interface_id: Optional[pulumi.Input[str]] = None,
-             transit_gateway_id: Optional[pulumi.Input[str]] = None,
-             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("route_table_id", route_table_id)
+        pulumi.set(__self__, "route_table_id", route_table_id)
         if carrier_gateway_id is not None:
-            _setter("carrier_gateway_id", carrier_gateway_id)
+            pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         if destination_cidr_block is not None:
-            _setter("destination_cidr_block", destination_cidr_block)
+            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if destination_ipv6_cidr_block is not None:
-            _setter("destination_ipv6_cidr_block", destination_ipv6_cidr_block)
+            pulumi.set(__self__, "destination_ipv6_cidr_block", destination_ipv6_cidr_block)
         if destination_prefix_list_id is not None:
-            _setter("destination_prefix_list_id", destination_prefix_list_id)
+            pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_internet_gateway_id is not None:
-            _setter("egress_only_internet_gateway_id", egress_only_internet_gateway_id)
+            pulumi.set(__self__, "egress_only_internet_gateway_id", egress_only_internet_gateway_id)
         if gateway_id is not None:
-            _setter("gateway_id", gateway_id)
+            pulumi.set(__self__, "gateway_id", gateway_id)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if local_gateway_id is not None:
-            _setter("local_gateway_id", local_gateway_id)
+            pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         if nat_gateway_id is not None:
-            _setter("nat_gateway_id", nat_gateway_id)
+            pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
-            _setter("network_interface_id", network_interface_id)
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
         if transit_gateway_id is not None:
-            _setter("transit_gateway_id", transit_gateway_id)
+            pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if vpc_endpoint_id is not None:
-            _setter("vpc_endpoint_id", vpc_endpoint_id)
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if vpc_peering_connection_id is not None:
-            _setter("vpc_peering_connection_id", vpc_peering_connection_id)
+            pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
 
     @property
     @pulumi.getter(name="routeTableId")
@@ -336,10 +301,6 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,44 +27,21 @@ class AppBlockArgs:
         """
         The set of arguments for constructing a AppBlock resource.
         """
-        AppBlockArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            source_s3_location=source_s3_location,
-            description=description,
-            display_name=display_name,
-            name=name,
-            packaging_type=packaging_type,
-            post_setup_script_details=post_setup_script_details,
-            setup_script_details=setup_script_details,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             source_s3_location: pulumi.Input['AppBlockS3LocationArgs'],
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             packaging_type: Optional[pulumi.Input[str]] = None,
-             post_setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
-             setup_script_details: Optional[pulumi.Input['AppBlockScriptDetailsArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppBlockTag0PropertiesArgs', 'AppBlockTag1PropertiesArgs']]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("source_s3_location", source_s3_location)
+        pulumi.set(__self__, "source_s3_location", source_s3_location)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if packaging_type is not None:
-            _setter("packaging_type", packaging_type)
+            pulumi.set(__self__, "packaging_type", packaging_type)
         if post_setup_script_details is not None:
-            _setter("post_setup_script_details", post_setup_script_details)
+            pulumi.set(__self__, "post_setup_script_details", post_setup_script_details)
         if setup_script_details is not None:
-            _setter("setup_script_details", setup_script_details)
+            pulumi.set(__self__, "setup_script_details", setup_script_details)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="sourceS3Location")
@@ -178,10 +155,6 @@ class AppBlock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AppBlockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -208,23 +181,8 @@ class AppBlock(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["name"] = name
             __props__.__dict__["packaging_type"] = packaging_type
-            if post_setup_script_details is not None and not isinstance(post_setup_script_details, AppBlockScriptDetailsArgs):
-                post_setup_script_details = post_setup_script_details or {}
-                def _setter(key, value):
-                    post_setup_script_details[key] = value
-                AppBlockScriptDetailsArgs._configure(_setter, **post_setup_script_details)
             __props__.__dict__["post_setup_script_details"] = post_setup_script_details
-            if setup_script_details is not None and not isinstance(setup_script_details, AppBlockScriptDetailsArgs):
-                setup_script_details = setup_script_details or {}
-                def _setter(key, value):
-                    setup_script_details[key] = value
-                AppBlockScriptDetailsArgs._configure(_setter, **setup_script_details)
             __props__.__dict__["setup_script_details"] = setup_script_details
-            if source_s3_location is not None and not isinstance(source_s3_location, AppBlockS3LocationArgs):
-                source_s3_location = source_s3_location or {}
-                def _setter(key, value):
-                    source_s3_location[key] = value
-                AppBlockS3LocationArgs._configure(_setter, **source_s3_location)
             if source_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'source_s3_location'")
             __props__.__dict__["source_s3_location"] = source_s3_location

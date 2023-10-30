@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserProfileArgs', 'UserProfile']
@@ -21,28 +21,13 @@ class UserProfileArgs:
         """
         The set of arguments for constructing a UserProfile resource.
         """
-        UserProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            iam_user_arn=iam_user_arn,
-            allow_self_management=allow_self_management,
-            ssh_public_key=ssh_public_key,
-            ssh_username=ssh_username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             iam_user_arn: pulumi.Input[str],
-             allow_self_management: Optional[pulumi.Input[bool]] = None,
-             ssh_public_key: Optional[pulumi.Input[str]] = None,
-             ssh_username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("iam_user_arn", iam_user_arn)
+        pulumi.set(__self__, "iam_user_arn", iam_user_arn)
         if allow_self_management is not None:
-            _setter("allow_self_management", allow_self_management)
+            pulumi.set(__self__, "allow_self_management", allow_self_management)
         if ssh_public_key is not None:
-            _setter("ssh_public_key", ssh_public_key)
+            pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if ssh_username is not None:
-            _setter("ssh_username", ssh_username)
+            pulumi.set(__self__, "ssh_username", ssh_username)
 
     @property
     @pulumi.getter(name="iamUserArn")
@@ -121,10 +106,6 @@ class UserProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

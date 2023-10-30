@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,44 +38,19 @@ class InferenceSchedulerArgs:
         :param pulumi.Input[str] server_side_kms_key_id: Provides the identifier of the AWS KMS customer master key (CMK) used to encrypt inference scheduler data by Amazon Lookout for Equipment.
         :param pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]] tags: Any tags associated with the inference scheduler.
         """
-        InferenceSchedulerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_input_configuration=data_input_configuration,
-            data_output_configuration=data_output_configuration,
-            data_upload_frequency=data_upload_frequency,
-            model_name=model_name,
-            role_arn=role_arn,
-            data_delay_offset_in_minutes=data_delay_offset_in_minutes,
-            inference_scheduler_name=inference_scheduler_name,
-            server_side_kms_key_id=server_side_kms_key_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_input_configuration: pulumi.Input['DataInputConfigurationPropertiesArgs'],
-             data_output_configuration: pulumi.Input['DataOutputConfigurationPropertiesArgs'],
-             data_upload_frequency: pulumi.Input['InferenceSchedulerDataUploadFrequency'],
-             model_name: pulumi.Input[str],
-             role_arn: pulumi.Input[str],
-             data_delay_offset_in_minutes: Optional[pulumi.Input[int]] = None,
-             inference_scheduler_name: Optional[pulumi.Input[str]] = None,
-             server_side_kms_key_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceSchedulerTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_input_configuration", data_input_configuration)
-        _setter("data_output_configuration", data_output_configuration)
-        _setter("data_upload_frequency", data_upload_frequency)
-        _setter("model_name", model_name)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "data_input_configuration", data_input_configuration)
+        pulumi.set(__self__, "data_output_configuration", data_output_configuration)
+        pulumi.set(__self__, "data_upload_frequency", data_upload_frequency)
+        pulumi.set(__self__, "model_name", model_name)
+        pulumi.set(__self__, "role_arn", role_arn)
         if data_delay_offset_in_minutes is not None:
-            _setter("data_delay_offset_in_minutes", data_delay_offset_in_minutes)
+            pulumi.set(__self__, "data_delay_offset_in_minutes", data_delay_offset_in_minutes)
         if inference_scheduler_name is not None:
-            _setter("inference_scheduler_name", inference_scheduler_name)
+            pulumi.set(__self__, "inference_scheduler_name", inference_scheduler_name)
         if server_side_kms_key_id is not None:
-            _setter("server_side_kms_key_id", server_side_kms_key_id)
+            pulumi.set(__self__, "server_side_kms_key_id", server_side_kms_key_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataInputConfiguration")
@@ -240,10 +215,6 @@ class InferenceScheduler(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InferenceSchedulerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -269,19 +240,9 @@ class InferenceScheduler(pulumi.CustomResource):
             __props__ = InferenceSchedulerArgs.__new__(InferenceSchedulerArgs)
 
             __props__.__dict__["data_delay_offset_in_minutes"] = data_delay_offset_in_minutes
-            if data_input_configuration is not None and not isinstance(data_input_configuration, DataInputConfigurationPropertiesArgs):
-                data_input_configuration = data_input_configuration or {}
-                def _setter(key, value):
-                    data_input_configuration[key] = value
-                DataInputConfigurationPropertiesArgs._configure(_setter, **data_input_configuration)
             if data_input_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_input_configuration'")
             __props__.__dict__["data_input_configuration"] = data_input_configuration
-            if data_output_configuration is not None and not isinstance(data_output_configuration, DataOutputConfigurationPropertiesArgs):
-                data_output_configuration = data_output_configuration or {}
-                def _setter(key, value):
-                    data_output_configuration[key] = value
-                DataOutputConfigurationPropertiesArgs._configure(_setter, **data_output_configuration)
             if data_output_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'data_output_configuration'")
             __props__.__dict__["data_output_configuration"] = data_output_configuration

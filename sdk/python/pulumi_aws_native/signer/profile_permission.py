@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfilePermissionArgs', 'ProfilePermission']
@@ -22,29 +22,12 @@ class ProfilePermissionArgs:
         """
         The set of arguments for constructing a ProfilePermission resource.
         """
-        ProfilePermissionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            principal=principal,
-            profile_name=profile_name,
-            statement_id=statement_id,
-            profile_version=profile_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: pulumi.Input[str],
-             principal: pulumi.Input[str],
-             profile_name: pulumi.Input[str],
-             statement_id: pulumi.Input[str],
-             profile_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("principal", principal)
-        _setter("profile_name", profile_name)
-        _setter("statement_id", statement_id)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "profile_name", profile_name)
+        pulumi.set(__self__, "statement_id", statement_id)
         if profile_version is not None:
-            _setter("profile_version", profile_version)
+            pulumi.set(__self__, "profile_version", profile_version)
 
     @property
     @pulumi.getter
@@ -128,10 +111,6 @@ class ProfilePermission(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProfilePermissionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

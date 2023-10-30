@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -18,19 +18,8 @@ class FlowTemplateDefinitionDocumentArgs:
     def __init__(__self__, *,
                  language: pulumi.Input[str],
                  text: pulumi.Input[str]):
-        FlowTemplateDefinitionDocumentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            language=language,
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             language: pulumi.Input[str],
-             text: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("language", language)
-        _setter("text", text)
+        pulumi.set(__self__, "language", language)
+        pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter

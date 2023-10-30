@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
@@ -22,33 +22,16 @@ class VpcEndpointServiceArgs:
         """
         The set of arguments for constructing a VpcEndpointService resource.
         """
-        VpcEndpointServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            acceptance_required=acceptance_required,
-            contributor_insights_enabled=contributor_insights_enabled,
-            gateway_load_balancer_arns=gateway_load_balancer_arns,
-            network_load_balancer_arns=network_load_balancer_arns,
-            payer_responsibility=payer_responsibility,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             acceptance_required: Optional[pulumi.Input[bool]] = None,
-             contributor_insights_enabled: Optional[pulumi.Input[bool]] = None,
-             gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             payer_responsibility: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if acceptance_required is not None:
-            _setter("acceptance_required", acceptance_required)
+            pulumi.set(__self__, "acceptance_required", acceptance_required)
         if contributor_insights_enabled is not None:
-            _setter("contributor_insights_enabled", contributor_insights_enabled)
+            pulumi.set(__self__, "contributor_insights_enabled", contributor_insights_enabled)
         if gateway_load_balancer_arns is not None:
-            _setter("gateway_load_balancer_arns", gateway_load_balancer_arns)
+            pulumi.set(__self__, "gateway_load_balancer_arns", gateway_load_balancer_arns)
         if network_load_balancer_arns is not None:
-            _setter("network_load_balancer_arns", network_load_balancer_arns)
+            pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
         if payer_responsibility is not None:
-            _setter("payer_responsibility", payer_responsibility)
+            pulumi.set(__self__, "payer_responsibility", payer_responsibility)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -132,10 +115,6 @@ class VpcEndpointService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcEndpointServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

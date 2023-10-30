@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,52 +29,25 @@ class JobTemplateArgs:
         """
         The set of arguments for constructing a JobTemplate resource.
         """
-        JobTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            settings_json=settings_json,
-            acceleration_settings=acceleration_settings,
-            category=category,
-            description=description,
-            hop_destinations=hop_destinations,
-            name=name,
-            priority=priority,
-            queue=queue,
-            status_update_interval=status_update_interval,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             settings_json: Any,
-             acceleration_settings: Optional[pulumi.Input['JobTemplateAccelerationSettingsArgs']] = None,
-             category: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             hop_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateHopDestinationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             queue: Optional[pulumi.Input[str]] = None,
-             status_update_interval: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("settings_json", settings_json)
+        pulumi.set(__self__, "settings_json", settings_json)
         if acceleration_settings is not None:
-            _setter("acceleration_settings", acceleration_settings)
+            pulumi.set(__self__, "acceleration_settings", acceleration_settings)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if hop_destinations is not None:
-            _setter("hop_destinations", hop_destinations)
+            pulumi.set(__self__, "hop_destinations", hop_destinations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if queue is not None:
-            _setter("queue", queue)
+            pulumi.set(__self__, "queue", queue)
         if status_update_interval is not None:
-            _setter("status_update_interval", status_update_interval)
+            pulumi.set(__self__, "status_update_interval", status_update_interval)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="settingsJson")
@@ -213,10 +186,6 @@ class JobTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            JobTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,11 +211,6 @@ class JobTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobTemplateArgs.__new__(JobTemplateArgs)
 
-            if acceleration_settings is not None and not isinstance(acceleration_settings, JobTemplateAccelerationSettingsArgs):
-                acceleration_settings = acceleration_settings or {}
-                def _setter(key, value):
-                    acceleration_settings[key] = value
-                JobTemplateAccelerationSettingsArgs._configure(_setter, **acceleration_settings)
             __props__.__dict__["acceleration_settings"] = acceleration_settings
             __props__.__dict__["category"] = category
             __props__.__dict__["description"] = description

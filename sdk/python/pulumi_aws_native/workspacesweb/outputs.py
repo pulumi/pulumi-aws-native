@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,11 +33,6 @@ __all__ = [
 class BrowserSettingsEncryptionContextMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -45,19 +40,8 @@ class BrowserSettingsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        BrowserSettingsTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -74,21 +58,11 @@ class BrowserSettingsTag(dict):
 class IdentityProviderDetails(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
 class IpAccessSettingsEncryptionContextMap(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -117,20 +91,9 @@ class IpAccessSettingsIpRule(dict):
         """
         :param str ip_range: A single IP address or an IP address range in CIDR notation
         """
-        IpAccessSettingsIpRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_range=ip_range,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_range: str,
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ip_range", ip_range)
+        pulumi.set(__self__, "ip_range", ip_range)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="ipRange")
@@ -151,19 +114,8 @@ class IpAccessSettingsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        IpAccessSettingsTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -181,19 +133,8 @@ class NetworkSettingsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        NetworkSettingsTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -210,11 +151,6 @@ class NetworkSettingsTag(dict):
 class PortalEncryptionContextMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -222,19 +158,8 @@ class PortalTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PortalTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -252,19 +177,8 @@ class TrustStoreTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        TrustStoreTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -282,19 +196,8 @@ class UserAccessLoggingSettingsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        UserAccessLoggingSettingsTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -313,24 +216,11 @@ class UserSettingsCookieSpecification(dict):
                  domain: str,
                  name: Optional[str] = None,
                  path: Optional[str] = None):
-        UserSettingsCookieSpecification._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain=domain,
-            name=name,
-            path=path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain: str,
-             name: Optional[str] = None,
-             path: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain", domain)
+        pulumi.set(__self__, "domain", domain)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter
@@ -353,20 +243,9 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
     def __init__(__self__, *,
                  allowlist: Sequence['outputs.UserSettingsCookieSpecification'],
                  blocklist: Optional[Sequence['outputs.UserSettingsCookieSpecification']] = None):
-        UserSettingsCookieSynchronizationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowlist=allowlist,
-            blocklist=blocklist,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowlist: Sequence['outputs.UserSettingsCookieSpecification'],
-             blocklist: Optional[Sequence['outputs.UserSettingsCookieSpecification']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allowlist", allowlist)
+        pulumi.set(__self__, "allowlist", allowlist)
         if blocklist is not None:
-            _setter("blocklist", blocklist)
+            pulumi.set(__self__, "blocklist", blocklist)
 
     @property
     @pulumi.getter
@@ -383,11 +262,6 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
 class UserSettingsEncryptionContextMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -395,19 +269,8 @@ class UserSettingsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        UserSettingsTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

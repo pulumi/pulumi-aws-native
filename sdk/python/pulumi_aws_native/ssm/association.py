@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -44,81 +44,40 @@ class AssociationArgs:
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: The targets that the SSM document sends commands to.
         """
-        AssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_only_at_cron_interval=apply_only_at_cron_interval,
-            association_name=association_name,
-            automation_target_parameter_name=automation_target_parameter_name,
-            calendar_names=calendar_names,
-            compliance_severity=compliance_severity,
-            document_version=document_version,
-            instance_id=instance_id,
-            max_concurrency=max_concurrency,
-            max_errors=max_errors,
-            name=name,
-            output_location=output_location,
-            parameters=parameters,
-            schedule_expression=schedule_expression,
-            schedule_offset=schedule_offset,
-            sync_compliance=sync_compliance,
-            targets=targets,
-            wait_for_success_timeout_seconds=wait_for_success_timeout_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
-             association_name: Optional[pulumi.Input[str]] = None,
-             automation_target_parameter_name: Optional[pulumi.Input[str]] = None,
-             calendar_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             compliance_severity: Optional[pulumi.Input['AssociationComplianceSeverity']] = None,
-             document_version: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             max_concurrency: Optional[pulumi.Input[str]] = None,
-             max_errors: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             output_location: Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']] = None,
-             parameters: Optional[Any] = None,
-             schedule_expression: Optional[pulumi.Input[str]] = None,
-             schedule_offset: Optional[pulumi.Input[int]] = None,
-             sync_compliance: Optional[pulumi.Input['AssociationSyncCompliance']] = None,
-             targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
-             wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if apply_only_at_cron_interval is not None:
-            _setter("apply_only_at_cron_interval", apply_only_at_cron_interval)
+            pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
         if association_name is not None:
-            _setter("association_name", association_name)
+            pulumi.set(__self__, "association_name", association_name)
         if automation_target_parameter_name is not None:
-            _setter("automation_target_parameter_name", automation_target_parameter_name)
+            pulumi.set(__self__, "automation_target_parameter_name", automation_target_parameter_name)
         if calendar_names is not None:
-            _setter("calendar_names", calendar_names)
+            pulumi.set(__self__, "calendar_names", calendar_names)
         if compliance_severity is not None:
-            _setter("compliance_severity", compliance_severity)
+            pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
-            _setter("document_version", document_version)
+            pulumi.set(__self__, "document_version", document_version)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if max_concurrency is not None:
-            _setter("max_concurrency", max_concurrency)
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
         if max_errors is not None:
-            _setter("max_errors", max_errors)
+            pulumi.set(__self__, "max_errors", max_errors)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if output_location is not None:
-            _setter("output_location", output_location)
+            pulumi.set(__self__, "output_location", output_location)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if schedule_expression is not None:
-            _setter("schedule_expression", schedule_expression)
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
         if schedule_offset is not None:
-            _setter("schedule_offset", schedule_offset)
+            pulumi.set(__self__, "schedule_offset", schedule_offset)
         if sync_compliance is not None:
-            _setter("sync_compliance", sync_compliance)
+            pulumi.set(__self__, "sync_compliance", sync_compliance)
         if targets is not None:
-            _setter("targets", targets)
+            pulumi.set(__self__, "targets", targets)
         if wait_for_success_timeout_seconds is not None:
-            _setter("wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
+            pulumi.set(__self__, "wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
 
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
@@ -350,10 +309,6 @@ class Association(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -395,11 +350,6 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
-            if output_location is not None and not isinstance(output_location, AssociationInstanceAssociationOutputLocationArgs):
-                output_location = output_location or {}
-                def _setter(key, value):
-                    output_location[key] = value
-                AssociationInstanceAssociationOutputLocationArgs._configure(_setter, **output_location)
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["schedule_expression"] = schedule_expression

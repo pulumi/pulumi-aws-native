@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,83 +37,40 @@ class IntegrationArgs:
         """
         The set of arguments for constructing a Integration resource.
         """
-        IntegrationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_id=api_id,
-            integration_type=integration_type,
-            connection_id=connection_id,
-            connection_type=connection_type,
-            content_handling_strategy=content_handling_strategy,
-            credentials_arn=credentials_arn,
-            description=description,
-            integration_method=integration_method,
-            integration_subtype=integration_subtype,
-            integration_uri=integration_uri,
-            passthrough_behavior=passthrough_behavior,
-            payload_format_version=payload_format_version,
-            request_parameters=request_parameters,
-            request_templates=request_templates,
-            response_parameters=response_parameters,
-            template_selection_expression=template_selection_expression,
-            timeout_in_millis=timeout_in_millis,
-            tls_config=tls_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_id: pulumi.Input[str],
-             integration_type: pulumi.Input[str],
-             connection_id: Optional[pulumi.Input[str]] = None,
-             connection_type: Optional[pulumi.Input[str]] = None,
-             content_handling_strategy: Optional[pulumi.Input[str]] = None,
-             credentials_arn: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             integration_method: Optional[pulumi.Input[str]] = None,
-             integration_subtype: Optional[pulumi.Input[str]] = None,
-             integration_uri: Optional[pulumi.Input[str]] = None,
-             passthrough_behavior: Optional[pulumi.Input[str]] = None,
-             payload_format_version: Optional[pulumi.Input[str]] = None,
-             request_parameters: Optional[Any] = None,
-             request_templates: Optional[Any] = None,
-             response_parameters: Optional[Any] = None,
-             template_selection_expression: Optional[pulumi.Input[str]] = None,
-             timeout_in_millis: Optional[pulumi.Input[int]] = None,
-             tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("api_id", api_id)
-        _setter("integration_type", integration_type)
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "integration_type", integration_type)
         if connection_id is not None:
-            _setter("connection_id", connection_id)
+            pulumi.set(__self__, "connection_id", connection_id)
         if connection_type is not None:
-            _setter("connection_type", connection_type)
+            pulumi.set(__self__, "connection_type", connection_type)
         if content_handling_strategy is not None:
-            _setter("content_handling_strategy", content_handling_strategy)
+            pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
         if credentials_arn is not None:
-            _setter("credentials_arn", credentials_arn)
+            pulumi.set(__self__, "credentials_arn", credentials_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_method is not None:
-            _setter("integration_method", integration_method)
+            pulumi.set(__self__, "integration_method", integration_method)
         if integration_subtype is not None:
-            _setter("integration_subtype", integration_subtype)
+            pulumi.set(__self__, "integration_subtype", integration_subtype)
         if integration_uri is not None:
-            _setter("integration_uri", integration_uri)
+            pulumi.set(__self__, "integration_uri", integration_uri)
         if passthrough_behavior is not None:
-            _setter("passthrough_behavior", passthrough_behavior)
+            pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
         if payload_format_version is not None:
-            _setter("payload_format_version", payload_format_version)
+            pulumi.set(__self__, "payload_format_version", payload_format_version)
         if request_parameters is not None:
-            _setter("request_parameters", request_parameters)
+            pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
-            _setter("request_templates", request_templates)
+            pulumi.set(__self__, "request_templates", request_templates)
         if response_parameters is not None:
-            _setter("response_parameters", response_parameters)
+            pulumi.set(__self__, "response_parameters", response_parameters)
         if template_selection_expression is not None:
-            _setter("template_selection_expression", template_selection_expression)
+            pulumi.set(__self__, "template_selection_expression", template_selection_expression)
         if timeout_in_millis is not None:
-            _setter("timeout_in_millis", timeout_in_millis)
+            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
         if tls_config is not None:
-            _setter("tls_config", tls_config)
+            pulumi.set(__self__, "tls_config", tls_config)
 
     @property
     @pulumi.getter(name="apiId")
@@ -332,10 +289,6 @@ class Integration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IntegrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -390,11 +343,6 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["response_parameters"] = response_parameters
             __props__.__dict__["template_selection_expression"] = template_selection_expression
             __props__.__dict__["timeout_in_millis"] = timeout_in_millis
-            if tls_config is not None and not isinstance(tls_config, IntegrationTlsConfigArgs):
-                tls_config = tls_config or {}
-                def _setter(key, value):
-                    tls_config[key] = value
-                IntegrationTlsConfigArgs._configure(_setter, **tls_config)
             __props__.__dict__["tls_config"] = tls_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["api_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

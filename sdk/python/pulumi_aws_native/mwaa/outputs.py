@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -56,33 +56,16 @@ class EnvironmentLoggingConfiguration(dict):
         """
         Logging configuration for the environment.
         """
-        EnvironmentLoggingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dag_processing_logs=dag_processing_logs,
-            scheduler_logs=scheduler_logs,
-            task_logs=task_logs,
-            webserver_logs=webserver_logs,
-            worker_logs=worker_logs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dag_processing_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
-             scheduler_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
-             task_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
-             webserver_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
-             worker_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dag_processing_logs is not None:
-            _setter("dag_processing_logs", dag_processing_logs)
+            pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
         if scheduler_logs is not None:
-            _setter("scheduler_logs", scheduler_logs)
+            pulumi.set(__self__, "scheduler_logs", scheduler_logs)
         if task_logs is not None:
-            _setter("task_logs", task_logs)
+            pulumi.set(__self__, "task_logs", task_logs)
         if webserver_logs is not None:
-            _setter("webserver_logs", webserver_logs)
+            pulumi.set(__self__, "webserver_logs", webserver_logs)
         if worker_logs is not None:
-            _setter("worker_logs", worker_logs)
+            pulumi.set(__self__, "worker_logs", worker_logs)
 
     @property
     @pulumi.getter(name="dagProcessingLogs")
@@ -141,25 +124,12 @@ class EnvironmentModuleLoggingConfiguration(dict):
         """
         Logging configuration for a specific airflow component.
         """
-        EnvironmentModuleLoggingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cloud_watch_log_group_arn=cloud_watch_log_group_arn,
-            enabled=enabled,
-            log_level=log_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cloud_watch_log_group_arn: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             log_level: Optional['EnvironmentLoggingLevel'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cloud_watch_log_group_arn is not None:
-            _setter("cloud_watch_log_group_arn", cloud_watch_log_group_arn)
+            pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
 
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
@@ -209,21 +179,10 @@ class EnvironmentNetworkConfiguration(dict):
         :param Sequence[str] security_group_ids: A list of security groups to use for the environment.
         :param Sequence[str] subnet_ids: A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """
-        EnvironmentNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")

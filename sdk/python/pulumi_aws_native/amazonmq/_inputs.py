@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,19 +26,8 @@ class BrokerConfigurationIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  revision: pulumi.Input[int]):
-        BrokerConfigurationIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            revision=revision,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("revision", revision)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
@@ -64,20 +53,9 @@ class BrokerEncryptionOptionsArgs:
     def __init__(__self__, *,
                  use_aws_owned_key: pulumi.Input[bool],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
-        BrokerEncryptionOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            use_aws_owned_key=use_aws_owned_key,
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             use_aws_owned_key: pulumi.Input[bool],
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("use_aws_owned_key", use_aws_owned_key)
+        pulumi.set(__self__, "use_aws_owned_key", use_aws_owned_key)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter(name="useAwsOwnedKey")
@@ -112,50 +90,21 @@ class BrokerLdapServerMetadataArgs:
                  role_search_subtree: Optional[pulumi.Input[bool]] = None,
                  user_role_name: Optional[pulumi.Input[str]] = None,
                  user_search_subtree: Optional[pulumi.Input[bool]] = None):
-        BrokerLdapServerMetadataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hosts=hosts,
-            role_base=role_base,
-            role_search_matching=role_search_matching,
-            service_account_password=service_account_password,
-            service_account_username=service_account_username,
-            user_base=user_base,
-            user_search_matching=user_search_matching,
-            role_name=role_name,
-            role_search_subtree=role_search_subtree,
-            user_role_name=user_role_name,
-            user_search_subtree=user_search_subtree,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hosts: pulumi.Input[Sequence[pulumi.Input[str]]],
-             role_base: pulumi.Input[str],
-             role_search_matching: pulumi.Input[str],
-             service_account_password: pulumi.Input[str],
-             service_account_username: pulumi.Input[str],
-             user_base: pulumi.Input[str],
-             user_search_matching: pulumi.Input[str],
-             role_name: Optional[pulumi.Input[str]] = None,
-             role_search_subtree: Optional[pulumi.Input[bool]] = None,
-             user_role_name: Optional[pulumi.Input[str]] = None,
-             user_search_subtree: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hosts", hosts)
-        _setter("role_base", role_base)
-        _setter("role_search_matching", role_search_matching)
-        _setter("service_account_password", service_account_password)
-        _setter("service_account_username", service_account_username)
-        _setter("user_base", user_base)
-        _setter("user_search_matching", user_search_matching)
+        pulumi.set(__self__, "hosts", hosts)
+        pulumi.set(__self__, "role_base", role_base)
+        pulumi.set(__self__, "role_search_matching", role_search_matching)
+        pulumi.set(__self__, "service_account_password", service_account_password)
+        pulumi.set(__self__, "service_account_username", service_account_username)
+        pulumi.set(__self__, "user_base", user_base)
+        pulumi.set(__self__, "user_search_matching", user_search_matching)
         if role_name is not None:
-            _setter("role_name", role_name)
+            pulumi.set(__self__, "role_name", role_name)
         if role_search_subtree is not None:
-            _setter("role_search_subtree", role_search_subtree)
+            pulumi.set(__self__, "role_search_subtree", role_search_subtree)
         if user_role_name is not None:
-            _setter("user_role_name", user_role_name)
+            pulumi.set(__self__, "user_role_name", user_role_name)
         if user_search_subtree is not None:
-            _setter("user_search_subtree", user_search_subtree)
+            pulumi.set(__self__, "user_search_subtree", user_search_subtree)
 
     @property
     @pulumi.getter
@@ -262,21 +211,10 @@ class BrokerLogListArgs:
     def __init__(__self__, *,
                  audit: Optional[pulumi.Input[bool]] = None,
                  general: Optional[pulumi.Input[bool]] = None):
-        BrokerLogListArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audit=audit,
-            general=general,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audit: Optional[pulumi.Input[bool]] = None,
-             general: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if audit is not None:
-            _setter("audit", audit)
+            pulumi.set(__self__, "audit", audit)
         if general is not None:
-            _setter("general", general)
+            pulumi.set(__self__, "general", general)
 
     @property
     @pulumi.getter
@@ -303,22 +241,9 @@ class BrokerMaintenanceWindowArgs:
                  day_of_week: pulumi.Input[str],
                  time_of_day: pulumi.Input[str],
                  time_zone: pulumi.Input[str]):
-        BrokerMaintenanceWindowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            day_of_week=day_of_week,
-            time_of_day=time_of_day,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             day_of_week: pulumi.Input[str],
-             time_of_day: pulumi.Input[str],
-             time_zone: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("day_of_week", day_of_week)
-        _setter("time_of_day", time_of_day)
-        _setter("time_zone", time_zone)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "time_of_day", time_of_day)
+        pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -353,19 +278,8 @@ class BrokerTagsEntryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        BrokerTagsEntryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -393,27 +307,12 @@ class BrokerUserArgs:
                  username: pulumi.Input[str],
                  console_access: Optional[pulumi.Input[bool]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        BrokerUserArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password=password,
-            username=username,
-            console_access=console_access,
-            groups=groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             console_access: Optional[pulumi.Input[bool]] = None,
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("password", password)
-        _setter("username", username)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
         if console_access is not None:
-            _setter("console_access", console_access)
+            pulumi.set(__self__, "console_access", console_access)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
 
     @property
     @pulumi.getter
@@ -457,19 +356,8 @@ class ConfigurationAssociationConfigurationIdArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  revision: pulumi.Input[int]):
-        ConfigurationAssociationConfigurationIdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            revision=revision,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: pulumi.Input[str],
-             revision: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
-        _setter("revision", revision)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
@@ -495,19 +383,8 @@ class ConfigurationTagsEntryArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ConfigurationTagsEntryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

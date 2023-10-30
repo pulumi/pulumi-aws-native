@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -20,16 +20,7 @@ class OriginAccessControlArgs:
         """
         The set of arguments for constructing a OriginAccessControl resource.
         """
-        OriginAccessControlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            origin_access_control_config=origin_access_control_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             origin_access_control_config: pulumi.Input['OriginAccessControlConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("origin_access_control_config", origin_access_control_config)
+        pulumi.set(__self__, "origin_access_control_config", origin_access_control_config)
 
     @property
     @pulumi.getter(name="originAccessControlConfig")
@@ -73,10 +64,6 @@ class OriginAccessControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            OriginAccessControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -92,11 +79,6 @@ class OriginAccessControl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OriginAccessControlArgs.__new__(OriginAccessControlArgs)
 
-            if origin_access_control_config is not None and not isinstance(origin_access_control_config, OriginAccessControlConfigArgs):
-                origin_access_control_config = origin_access_control_config or {}
-                def _setter(key, value):
-                    origin_access_control_config[key] = value
-                OriginAccessControlConfigArgs._configure(_setter, **origin_access_control_config)
             if origin_access_control_config is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_access_control_config'")
             __props__.__dict__["origin_access_control_config"] = origin_access_control_config

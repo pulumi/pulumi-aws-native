@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,32 +26,15 @@ class SoftwarePackageVersionArgs:
         The set of arguments for constructing a SoftwarePackageVersion resource.
         :param pulumi.Input[Sequence[pulumi.Input['SoftwarePackageVersionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        SoftwarePackageVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            package_name=package_name,
-            attributes=attributes,
-            description=description,
-            tags=tags,
-            version_name=version_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             package_name: pulumi.Input[str],
-             attributes: Optional[pulumi.Input['SoftwarePackageVersionResourceAttributesArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwarePackageVersionTagArgs']]]] = None,
-             version_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("package_name", package_name)
+        pulumi.set(__self__, "package_name", package_name)
         if attributes is not None:
-            _setter("attributes", attributes)
+            pulumi.set(__self__, "attributes", attributes)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if version_name is not None:
-            _setter("version_name", version_name)
+            pulumi.set(__self__, "version_name", version_name)
 
     @property
     @pulumi.getter(name="packageName")
@@ -139,10 +122,6 @@ class SoftwarePackageVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SoftwarePackageVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,11 +141,6 @@ class SoftwarePackageVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SoftwarePackageVersionArgs.__new__(SoftwarePackageVersionArgs)
 
-            if attributes is not None and not isinstance(attributes, SoftwarePackageVersionResourceAttributesArgs):
-                attributes = attributes or {}
-                def _setter(key, value):
-                    attributes[key] = value
-                SoftwarePackageVersionResourceAttributesArgs._configure(_setter, **attributes)
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["description"] = description
             if package_name is None and not opts.urn:

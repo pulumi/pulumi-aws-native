@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,29 +23,14 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         """
-        GroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            initial_version=initial_version,
-            name=name,
-            role_arn=role_arn,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             initial_version: Optional[pulumi.Input['GroupVersionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if initial_version is not None:
-            _setter("initial_version", initial_version)
+            pulumi.set(__self__, "initial_version", initial_version)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="initialVersion")
@@ -124,10 +109,6 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -147,11 +128,6 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupArgs.__new__(GroupArgs)
 
-            if initial_version is not None and not isinstance(initial_version, GroupVersionArgs):
-                initial_version = initial_version or {}
-                def _setter(key, value):
-                    initial_version[key] = value
-                GroupVersionArgs._configure(_setter, **initial_version)
             __props__.__dict__["initial_version"] = initial_version
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn

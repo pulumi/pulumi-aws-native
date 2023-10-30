@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -84,44 +84,21 @@ class ListenerAction(dict):
                  order: Optional[int] = None,
                  redirect_config: Optional['outputs.ListenerRedirectConfig'] = None,
                  target_group_arn: Optional[str] = None):
-        ListenerAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            authenticate_cognito_config=authenticate_cognito_config,
-            authenticate_oidc_config=authenticate_oidc_config,
-            fixed_response_config=fixed_response_config,
-            forward_config=forward_config,
-            order=order,
-            redirect_config=redirect_config,
-            target_group_arn=target_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             authenticate_cognito_config: Optional['outputs.ListenerAuthenticateCognitoConfig'] = None,
-             authenticate_oidc_config: Optional['outputs.ListenerAuthenticateOidcConfig'] = None,
-             fixed_response_config: Optional['outputs.ListenerFixedResponseConfig'] = None,
-             forward_config: Optional['outputs.ListenerForwardConfig'] = None,
-             order: Optional[int] = None,
-             redirect_config: Optional['outputs.ListenerRedirectConfig'] = None,
-             target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if authenticate_cognito_config is not None:
-            _setter("authenticate_cognito_config", authenticate_cognito_config)
+            pulumi.set(__self__, "authenticate_cognito_config", authenticate_cognito_config)
         if authenticate_oidc_config is not None:
-            _setter("authenticate_oidc_config", authenticate_oidc_config)
+            pulumi.set(__self__, "authenticate_oidc_config", authenticate_oidc_config)
         if fixed_response_config is not None:
-            _setter("fixed_response_config", fixed_response_config)
+            pulumi.set(__self__, "fixed_response_config", fixed_response_config)
         if forward_config is not None:
-            _setter("forward_config", forward_config)
+            pulumi.set(__self__, "forward_config", forward_config)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if redirect_config is not None:
-            _setter("redirect_config", redirect_config)
+            pulumi.set(__self__, "redirect_config", redirect_config)
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter
@@ -204,42 +181,19 @@ class ListenerAuthenticateCognitoConfig(dict):
                  scope: Optional[str] = None,
                  session_cookie_name: Optional[str] = None,
                  session_timeout: Optional[str] = None):
-        ListenerAuthenticateCognitoConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_pool_arn=user_pool_arn,
-            user_pool_client_id=user_pool_client_id,
-            user_pool_domain=user_pool_domain,
-            authentication_request_extra_params=authentication_request_extra_params,
-            on_unauthenticated_request=on_unauthenticated_request,
-            scope=scope,
-            session_cookie_name=session_cookie_name,
-            session_timeout=session_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_pool_arn: str,
-             user_pool_client_id: str,
-             user_pool_domain: str,
-             authentication_request_extra_params: Optional[Any] = None,
-             on_unauthenticated_request: Optional[str] = None,
-             scope: Optional[str] = None,
-             session_cookie_name: Optional[str] = None,
-             session_timeout: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("user_pool_arn", user_pool_arn)
-        _setter("user_pool_client_id", user_pool_client_id)
-        _setter("user_pool_domain", user_pool_domain)
+        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
+        pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
+        pulumi.set(__self__, "user_pool_domain", user_pool_domain)
         if authentication_request_extra_params is not None:
-            _setter("authentication_request_extra_params", authentication_request_extra_params)
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
         if on_unauthenticated_request is not None:
-            _setter("on_unauthenticated_request", on_unauthenticated_request)
+            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if session_cookie_name is not None:
-            _setter("session_cookie_name", session_cookie_name)
+            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            _setter("session_timeout", session_timeout)
+            pulumi.set(__self__, "session_timeout", session_timeout)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -332,56 +286,25 @@ class ListenerAuthenticateOidcConfig(dict):
                  session_cookie_name: Optional[str] = None,
                  session_timeout: Optional[str] = None,
                  use_existing_client_secret: Optional[bool] = None):
-        ListenerAuthenticateOidcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization_endpoint=authorization_endpoint,
-            client_id=client_id,
-            issuer=issuer,
-            token_endpoint=token_endpoint,
-            user_info_endpoint=user_info_endpoint,
-            authentication_request_extra_params=authentication_request_extra_params,
-            client_secret=client_secret,
-            on_unauthenticated_request=on_unauthenticated_request,
-            scope=scope,
-            session_cookie_name=session_cookie_name,
-            session_timeout=session_timeout,
-            use_existing_client_secret=use_existing_client_secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization_endpoint: str,
-             client_id: str,
-             issuer: str,
-             token_endpoint: str,
-             user_info_endpoint: str,
-             authentication_request_extra_params: Optional[Any] = None,
-             client_secret: Optional[str] = None,
-             on_unauthenticated_request: Optional[str] = None,
-             scope: Optional[str] = None,
-             session_cookie_name: Optional[str] = None,
-             session_timeout: Optional[str] = None,
-             use_existing_client_secret: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("authorization_endpoint", authorization_endpoint)
-        _setter("client_id", client_id)
-        _setter("issuer", issuer)
-        _setter("token_endpoint", token_endpoint)
-        _setter("user_info_endpoint", user_info_endpoint)
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
         if authentication_request_extra_params is not None:
-            _setter("authentication_request_extra_params", authentication_request_extra_params)
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if on_unauthenticated_request is not None:
-            _setter("on_unauthenticated_request", on_unauthenticated_request)
+            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if session_cookie_name is not None:
-            _setter("session_cookie_name", session_cookie_name)
+            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            _setter("session_timeout", session_timeout)
+            pulumi.set(__self__, "session_timeout", session_timeout)
         if use_existing_client_secret is not None:
-            _setter("use_existing_client_secret", use_existing_client_secret)
+            pulumi.set(__self__, "use_existing_client_secret", use_existing_client_secret)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -465,17 +388,8 @@ class ListenerCertificate(dict):
 
     def __init__(__self__, *,
                  certificate_arn: Optional[str] = None):
-        ListenerCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            _setter("certificate_arn", certificate_arn)
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -504,17 +418,8 @@ class ListenerCertificateCertificate(dict):
 
     def __init__(__self__, *,
                  certificate_arn: Optional[str] = None):
-        ListenerCertificateCertificate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            _setter("certificate_arn", certificate_arn)
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -549,24 +454,11 @@ class ListenerFixedResponseConfig(dict):
                  status_code: str,
                  content_type: Optional[str] = None,
                  message_body: Optional[str] = None):
-        ListenerFixedResponseConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-            content_type=content_type,
-            message_body=message_body,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: str,
-             content_type: Optional[str] = None,
-             message_body: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if message_body is not None:
-            _setter("message_body", message_body)
+            pulumi.set(__self__, "message_body", message_body)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -608,21 +500,10 @@ class ListenerForwardConfig(dict):
     def __init__(__self__, *,
                  target_group_stickiness_config: Optional['outputs.ListenerTargetGroupStickinessConfig'] = None,
                  target_groups: Optional[Sequence['outputs.ListenerTargetGroupTuple']] = None):
-        ListenerForwardConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_stickiness_config=target_group_stickiness_config,
-            target_groups=target_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_stickiness_config: Optional['outputs.ListenerTargetGroupStickinessConfig'] = None,
-             target_groups: Optional[Sequence['outputs.ListenerTargetGroupTuple']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if target_group_stickiness_config is not None:
-            _setter("target_group_stickiness_config", target_group_stickiness_config)
+            pulumi.set(__self__, "target_group_stickiness_config", target_group_stickiness_config)
         if target_groups is not None:
-            _setter("target_groups", target_groups)
+            pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroupStickinessConfig")
@@ -661,36 +542,17 @@ class ListenerRedirectConfig(dict):
                  port: Optional[str] = None,
                  protocol: Optional[str] = None,
                  query: Optional[str] = None):
-        ListenerRedirectConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-            host=host,
-            path=path,
-            port=port,
-            protocol=protocol,
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: str,
-             host: Optional[str] = None,
-             path: Optional[str] = None,
-             port: Optional[str] = None,
-             protocol: Optional[str] = None,
-             query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -761,44 +623,21 @@ class ListenerRuleAction(dict):
                  order: Optional[int] = None,
                  redirect_config: Optional['outputs.ListenerRuleRedirectConfig'] = None,
                  target_group_arn: Optional[str] = None):
-        ListenerRuleAction._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            authenticate_cognito_config=authenticate_cognito_config,
-            authenticate_oidc_config=authenticate_oidc_config,
-            fixed_response_config=fixed_response_config,
-            forward_config=forward_config,
-            order=order,
-            redirect_config=redirect_config,
-            target_group_arn=target_group_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: str,
-             authenticate_cognito_config: Optional['outputs.ListenerRuleAuthenticateCognitoConfig'] = None,
-             authenticate_oidc_config: Optional['outputs.ListenerRuleAuthenticateOidcConfig'] = None,
-             fixed_response_config: Optional['outputs.ListenerRuleFixedResponseConfig'] = None,
-             forward_config: Optional['outputs.ListenerRuleForwardConfig'] = None,
-             order: Optional[int] = None,
-             redirect_config: Optional['outputs.ListenerRuleRedirectConfig'] = None,
-             target_group_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if authenticate_cognito_config is not None:
-            _setter("authenticate_cognito_config", authenticate_cognito_config)
+            pulumi.set(__self__, "authenticate_cognito_config", authenticate_cognito_config)
         if authenticate_oidc_config is not None:
-            _setter("authenticate_oidc_config", authenticate_oidc_config)
+            pulumi.set(__self__, "authenticate_oidc_config", authenticate_oidc_config)
         if fixed_response_config is not None:
-            _setter("fixed_response_config", fixed_response_config)
+            pulumi.set(__self__, "fixed_response_config", fixed_response_config)
         if forward_config is not None:
-            _setter("forward_config", forward_config)
+            pulumi.set(__self__, "forward_config", forward_config)
         if order is not None:
-            _setter("order", order)
+            pulumi.set(__self__, "order", order)
         if redirect_config is not None:
-            _setter("redirect_config", redirect_config)
+            pulumi.set(__self__, "redirect_config", redirect_config)
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
 
     @property
     @pulumi.getter
@@ -881,42 +720,19 @@ class ListenerRuleAuthenticateCognitoConfig(dict):
                  scope: Optional[str] = None,
                  session_cookie_name: Optional[str] = None,
                  session_timeout: Optional[int] = None):
-        ListenerRuleAuthenticateCognitoConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_pool_arn=user_pool_arn,
-            user_pool_client_id=user_pool_client_id,
-            user_pool_domain=user_pool_domain,
-            authentication_request_extra_params=authentication_request_extra_params,
-            on_unauthenticated_request=on_unauthenticated_request,
-            scope=scope,
-            session_cookie_name=session_cookie_name,
-            session_timeout=session_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_pool_arn: str,
-             user_pool_client_id: str,
-             user_pool_domain: str,
-             authentication_request_extra_params: Optional[Any] = None,
-             on_unauthenticated_request: Optional[str] = None,
-             scope: Optional[str] = None,
-             session_cookie_name: Optional[str] = None,
-             session_timeout: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("user_pool_arn", user_pool_arn)
-        _setter("user_pool_client_id", user_pool_client_id)
-        _setter("user_pool_domain", user_pool_domain)
+        pulumi.set(__self__, "user_pool_arn", user_pool_arn)
+        pulumi.set(__self__, "user_pool_client_id", user_pool_client_id)
+        pulumi.set(__self__, "user_pool_domain", user_pool_domain)
         if authentication_request_extra_params is not None:
-            _setter("authentication_request_extra_params", authentication_request_extra_params)
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
         if on_unauthenticated_request is not None:
-            _setter("on_unauthenticated_request", on_unauthenticated_request)
+            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if session_cookie_name is not None:
-            _setter("session_cookie_name", session_cookie_name)
+            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            _setter("session_timeout", session_timeout)
+            pulumi.set(__self__, "session_timeout", session_timeout)
 
     @property
     @pulumi.getter(name="userPoolArn")
@@ -1009,56 +825,25 @@ class ListenerRuleAuthenticateOidcConfig(dict):
                  session_cookie_name: Optional[str] = None,
                  session_timeout: Optional[int] = None,
                  use_existing_client_secret: Optional[bool] = None):
-        ListenerRuleAuthenticateOidcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization_endpoint=authorization_endpoint,
-            client_id=client_id,
-            issuer=issuer,
-            token_endpoint=token_endpoint,
-            user_info_endpoint=user_info_endpoint,
-            authentication_request_extra_params=authentication_request_extra_params,
-            client_secret=client_secret,
-            on_unauthenticated_request=on_unauthenticated_request,
-            scope=scope,
-            session_cookie_name=session_cookie_name,
-            session_timeout=session_timeout,
-            use_existing_client_secret=use_existing_client_secret,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization_endpoint: str,
-             client_id: str,
-             issuer: str,
-             token_endpoint: str,
-             user_info_endpoint: str,
-             authentication_request_extra_params: Optional[Any] = None,
-             client_secret: Optional[str] = None,
-             on_unauthenticated_request: Optional[str] = None,
-             scope: Optional[str] = None,
-             session_cookie_name: Optional[str] = None,
-             session_timeout: Optional[int] = None,
-             use_existing_client_secret: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("authorization_endpoint", authorization_endpoint)
-        _setter("client_id", client_id)
-        _setter("issuer", issuer)
-        _setter("token_endpoint", token_endpoint)
-        _setter("user_info_endpoint", user_info_endpoint)
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
         if authentication_request_extra_params is not None:
-            _setter("authentication_request_extra_params", authentication_request_extra_params)
+            pulumi.set(__self__, "authentication_request_extra_params", authentication_request_extra_params)
         if client_secret is not None:
-            _setter("client_secret", client_secret)
+            pulumi.set(__self__, "client_secret", client_secret)
         if on_unauthenticated_request is not None:
-            _setter("on_unauthenticated_request", on_unauthenticated_request)
+            pulumi.set(__self__, "on_unauthenticated_request", on_unauthenticated_request)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if session_cookie_name is not None:
-            _setter("session_cookie_name", session_cookie_name)
+            pulumi.set(__self__, "session_cookie_name", session_cookie_name)
         if session_timeout is not None:
-            _setter("session_timeout", session_timeout)
+            pulumi.set(__self__, "session_timeout", session_timeout)
         if use_existing_client_secret is not None:
-            _setter("use_existing_client_secret", use_existing_client_secret)
+            pulumi.set(__self__, "use_existing_client_secret", use_existing_client_secret)
 
     @property
     @pulumi.getter(name="authorizationEndpoint")
@@ -1148,24 +933,11 @@ class ListenerRuleFixedResponseConfig(dict):
                  status_code: str,
                  content_type: Optional[str] = None,
                  message_body: Optional[str] = None):
-        ListenerRuleFixedResponseConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-            content_type=content_type,
-            message_body=message_body,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: str,
-             content_type: Optional[str] = None,
-             message_body: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if message_body is not None:
-            _setter("message_body", message_body)
+            pulumi.set(__self__, "message_body", message_body)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -1207,21 +979,10 @@ class ListenerRuleForwardConfig(dict):
     def __init__(__self__, *,
                  target_group_stickiness_config: Optional['outputs.ListenerRuleTargetGroupStickinessConfig'] = None,
                  target_groups: Optional[Sequence['outputs.ListenerRuleTargetGroupTuple']] = None):
-        ListenerRuleForwardConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_stickiness_config=target_group_stickiness_config,
-            target_groups=target_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_stickiness_config: Optional['outputs.ListenerRuleTargetGroupStickinessConfig'] = None,
-             target_groups: Optional[Sequence['outputs.ListenerRuleTargetGroupTuple']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if target_group_stickiness_config is not None:
-            _setter("target_group_stickiness_config", target_group_stickiness_config)
+            pulumi.set(__self__, "target_group_stickiness_config", target_group_stickiness_config)
         if target_groups is not None:
-            _setter("target_groups", target_groups)
+            pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroupStickinessConfig")
@@ -1238,17 +999,8 @@ class ListenerRuleForwardConfig(dict):
 class ListenerRuleHostHeaderConfig(dict):
     def __init__(__self__, *,
                  values: Optional[Sequence[str]] = None):
-        ListenerRuleHostHeaderConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1278,21 +1030,10 @@ class ListenerRuleHttpHeaderConfig(dict):
     def __init__(__self__, *,
                  http_header_name: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        ListenerRuleHttpHeaderConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_header_name=http_header_name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_header_name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if http_header_name is not None:
-            _setter("http_header_name", http_header_name)
+            pulumi.set(__self__, "http_header_name", http_header_name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter(name="httpHeaderName")
@@ -1309,17 +1050,8 @@ class ListenerRuleHttpHeaderConfig(dict):
 class ListenerRuleHttpRequestMethodConfig(dict):
     def __init__(__self__, *,
                  values: Optional[Sequence[str]] = None):
-        ListenerRuleHttpRequestMethodConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1331,17 +1063,8 @@ class ListenerRuleHttpRequestMethodConfig(dict):
 class ListenerRulePathPatternConfig(dict):
     def __init__(__self__, *,
                  values: Optional[Sequence[str]] = None):
-        ListenerRulePathPatternConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1353,17 +1076,8 @@ class ListenerRulePathPatternConfig(dict):
 class ListenerRuleQueryStringConfig(dict):
     def __init__(__self__, *,
                  values: Optional[Sequence['outputs.ListenerRuleQueryStringKeyValue']] = None):
-        ListenerRuleQueryStringConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             values: Optional[Sequence['outputs.ListenerRuleQueryStringKeyValue']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1376,21 +1090,10 @@ class ListenerRuleQueryStringKeyValue(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        ListenerRuleQueryStringKeyValue._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1429,36 +1132,17 @@ class ListenerRuleRedirectConfig(dict):
                  port: Optional[str] = None,
                  protocol: Optional[str] = None,
                  query: Optional[str] = None):
-        ListenerRuleRedirectConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status_code=status_code,
-            host=host,
-            path=path,
-            port=port,
-            protocol=protocol,
-            query=query,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status_code: str,
-             host: Optional[str] = None,
-             path: Optional[str] = None,
-             port: Optional[str] = None,
-             protocol: Optional[str] = None,
-             query: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status_code", status_code)
+        pulumi.set(__self__, "status_code", status_code)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if query is not None:
-            _setter("query", query)
+            pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="statusCode")
@@ -1529,45 +1213,22 @@ class ListenerRuleRuleCondition(dict):
                  query_string_config: Optional['outputs.ListenerRuleQueryStringConfig'] = None,
                  source_ip_config: Optional['outputs.ListenerRuleSourceIpConfig'] = None,
                  values: Optional[Sequence[str]] = None):
-        ListenerRuleRuleCondition._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            host_header_config=host_header_config,
-            http_header_config=http_header_config,
-            http_request_method_config=http_request_method_config,
-            path_pattern_config=path_pattern_config,
-            query_string_config=query_string_config,
-            source_ip_config=source_ip_config,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             host_header_config: Optional['outputs.ListenerRuleHostHeaderConfig'] = None,
-             http_header_config: Optional['outputs.ListenerRuleHttpHeaderConfig'] = None,
-             http_request_method_config: Optional['outputs.ListenerRuleHttpRequestMethodConfig'] = None,
-             path_pattern_config: Optional['outputs.ListenerRulePathPatternConfig'] = None,
-             query_string_config: Optional['outputs.ListenerRuleQueryStringConfig'] = None,
-             source_ip_config: Optional['outputs.ListenerRuleSourceIpConfig'] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if field is not None:
-            _setter("field", field)
+            pulumi.set(__self__, "field", field)
         if host_header_config is not None:
-            _setter("host_header_config", host_header_config)
+            pulumi.set(__self__, "host_header_config", host_header_config)
         if http_header_config is not None:
-            _setter("http_header_config", http_header_config)
+            pulumi.set(__self__, "http_header_config", http_header_config)
         if http_request_method_config is not None:
-            _setter("http_request_method_config", http_request_method_config)
+            pulumi.set(__self__, "http_request_method_config", http_request_method_config)
         if path_pattern_config is not None:
-            _setter("path_pattern_config", path_pattern_config)
+            pulumi.set(__self__, "path_pattern_config", path_pattern_config)
         if query_string_config is not None:
-            _setter("query_string_config", query_string_config)
+            pulumi.set(__self__, "query_string_config", query_string_config)
         if source_ip_config is not None:
-            _setter("source_ip_config", source_ip_config)
+            pulumi.set(__self__, "source_ip_config", source_ip_config)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1614,17 +1275,8 @@ class ListenerRuleRuleCondition(dict):
 class ListenerRuleSourceIpConfig(dict):
     def __init__(__self__, *,
                  values: Optional[Sequence[str]] = None):
-        ListenerRuleSourceIpConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -1654,21 +1306,10 @@ class ListenerRuleTargetGroupStickinessConfig(dict):
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  enabled: Optional[bool] = None):
-        ListenerRuleTargetGroupStickinessConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_seconds=duration_seconds,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_seconds: Optional[int] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_seconds is not None:
-            _setter("duration_seconds", duration_seconds)
+            pulumi.set(__self__, "duration_seconds", duration_seconds)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="durationSeconds")
@@ -1703,21 +1344,10 @@ class ListenerRuleTargetGroupTuple(dict):
     def __init__(__self__, *,
                  target_group_arn: Optional[str] = None,
                  weight: Optional[int] = None):
-        ListenerRuleTargetGroupTuple._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_arn=target_group_arn,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_arn: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -1752,21 +1382,10 @@ class ListenerTargetGroupStickinessConfig(dict):
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  enabled: Optional[bool] = None):
-        ListenerTargetGroupStickinessConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_seconds=duration_seconds,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_seconds: Optional[int] = None,
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_seconds is not None:
-            _setter("duration_seconds", duration_seconds)
+            pulumi.set(__self__, "duration_seconds", duration_seconds)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="durationSeconds")
@@ -1801,21 +1420,10 @@ class ListenerTargetGroupTuple(dict):
     def __init__(__self__, *,
                  target_group_arn: Optional[str] = None,
                  weight: Optional[int] = None):
-        ListenerTargetGroupTuple._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_group_arn=target_group_arn,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_group_arn: Optional[str] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if target_group_arn is not None:
-            _setter("target_group_arn", target_group_arn)
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -1833,21 +1441,10 @@ class LoadBalancerAttribute(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        LoadBalancerAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1890,28 +1487,13 @@ class LoadBalancerSubnetMapping(dict):
                  allocation_id: Optional[str] = None,
                  i_pv6_address: Optional[str] = None,
                  private_i_pv4_address: Optional[str] = None):
-        LoadBalancerSubnetMapping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            allocation_id=allocation_id,
-            i_pv6_address=i_pv6_address,
-            private_i_pv4_address=private_i_pv4_address,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: str,
-             allocation_id: Optional[str] = None,
-             i_pv6_address: Optional[str] = None,
-             private_i_pv4_address: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
-            _setter("allocation_id", allocation_id)
+            pulumi.set(__self__, "allocation_id", allocation_id)
         if i_pv6_address is not None:
-            _setter("i_pv6_address", i_pv6_address)
+            pulumi.set(__self__, "i_pv6_address", i_pv6_address)
         if private_i_pv4_address is not None:
-            _setter("private_i_pv4_address", private_i_pv4_address)
+            pulumi.set(__self__, "private_i_pv4_address", private_i_pv4_address)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -1939,20 +1521,9 @@ class LoadBalancerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: Optional[str] = None):
-        LoadBalancerTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1974,21 +1545,10 @@ class TargetGroupAttribute(dict):
         :param str key: The value of the attribute.
         :param str value: The name of the attribute.
         """
-        TargetGroupAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2035,21 +1595,10 @@ class TargetGroupMatcher(dict):
         :param str grpc_code: You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
         :param str http_code: For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values or a range of values. 
         """
-        TargetGroupMatcher._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            grpc_code=grpc_code,
-            http_code=http_code,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             grpc_code: Optional[str] = None,
-             http_code: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if grpc_code is not None:
-            _setter("grpc_code", grpc_code)
+            pulumi.set(__self__, "grpc_code", grpc_code)
         if http_code is not None:
-            _setter("http_code", http_code)
+            pulumi.set(__self__, "http_code", http_code)
 
     @property
     @pulumi.getter(name="grpcCode")
@@ -2077,19 +1626,8 @@ class TargetGroupTag(dict):
         :param str key: The value for the tag. 
         :param str value: The key name of the tag. 
         """
-        TargetGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2136,24 +1674,11 @@ class TargetGroupTargetDescription(dict):
         :param str availability_zone: An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
         :param int port: The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
         """
-        TargetGroupTargetDescription._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            availability_zone=availability_zone,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: str,
-             availability_zone: Optional[str] = None,
-             port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("id", id)
+        pulumi.set(__self__, "id", id)
         if availability_zone is not None:
-            _setter("availability_zone", availability_zone)
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter

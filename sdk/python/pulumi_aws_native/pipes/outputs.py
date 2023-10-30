@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -96,24 +96,11 @@ class PipeAwsVpcConfiguration(dict):
                  subnets: Sequence[str],
                  assign_public_ip: Optional['PipeAssignPublicIp'] = None,
                  security_groups: Optional[Sequence[str]] = None):
-        PipeAwsVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnets=subnets,
-            assign_public_ip=assign_public_ip,
-            security_groups=security_groups,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnets: Sequence[str],
-             assign_public_ip: Optional['PipeAssignPublicIp'] = None,
-             security_groups: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnets", subnets)
+        pulumi.set(__self__, "subnets", subnets)
         if assign_public_ip is not None:
-            _setter("assign_public_ip", assign_public_ip)
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
 
     @property
     @pulumi.getter
@@ -135,17 +122,8 @@ class PipeAwsVpcConfiguration(dict):
 class PipeBatchArrayProperties(dict):
     def __init__(__self__, *,
                  size: Optional[int] = None):
-        PipeBatchArrayProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
@@ -179,29 +157,14 @@ class PipeBatchContainerOverrides(dict):
                  environment: Optional[Sequence['outputs.PipeBatchEnvironmentVariable']] = None,
                  instance_type: Optional[str] = None,
                  resource_requirements: Optional[Sequence['outputs.PipeBatchResourceRequirement']] = None):
-        PipeBatchContainerOverrides._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            command=command,
-            environment=environment,
-            instance_type=instance_type,
-            resource_requirements=resource_requirements,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             command: Optional[Sequence[str]] = None,
-             environment: Optional[Sequence['outputs.PipeBatchEnvironmentVariable']] = None,
-             instance_type: Optional[str] = None,
-             resource_requirements: Optional[Sequence['outputs.PipeBatchResourceRequirement']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if resource_requirements is not None:
-            _setter("resource_requirements", resource_requirements)
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
 
     @property
     @pulumi.getter
@@ -229,21 +192,10 @@ class PipeBatchEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
-        PipeBatchEnvironmentVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -278,21 +230,10 @@ class PipeBatchJobDependency(dict):
     def __init__(__self__, *,
                  job_id: Optional[str] = None,
                  type: Optional['PipeBatchJobDependencyType'] = None):
-        PipeBatchJobDependency._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            job_id=job_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             job_id: Optional[str] = None,
-             type: Optional['PipeBatchJobDependencyType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if job_id is not None:
-            _setter("job_id", job_id)
+            pulumi.set(__self__, "job_id", job_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="jobId")
@@ -309,11 +250,6 @@ class PipeBatchJobDependency(dict):
 class PipeBatchParametersMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -321,19 +257,8 @@ class PipeBatchResourceRequirement(dict):
     def __init__(__self__, *,
                  type: 'PipeBatchResourceRequirementType',
                  value: str):
-        PipeBatchResourceRequirement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'PipeBatchResourceRequirementType',
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -350,17 +275,8 @@ class PipeBatchResourceRequirement(dict):
 class PipeBatchRetryStrategy(dict):
     def __init__(__self__, *,
                  attempts: Optional[int] = None):
-        PipeBatchRetryStrategy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attempts=attempts,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attempts: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attempts is not None:
-            _setter("attempts", attempts)
+            pulumi.set(__self__, "attempts", attempts)
 
     @property
     @pulumi.getter
@@ -391,24 +307,11 @@ class PipeCapacityProviderStrategyItem(dict):
                  capacity_provider: str,
                  base: Optional[int] = None,
                  weight: Optional[int] = None):
-        PipeCapacityProviderStrategyItem._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            capacity_provider=capacity_provider,
-            base=base,
-            weight=weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             capacity_provider: str,
-             base: Optional[int] = None,
-             weight: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("capacity_provider", capacity_provider)
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
-            _setter("base", base)
+            pulumi.set(__self__, "base", base)
         if weight is not None:
-            _setter("weight", weight)
+            pulumi.set(__self__, "weight", weight)
 
     @property
     @pulumi.getter(name="capacityProvider")
@@ -430,17 +333,8 @@ class PipeCapacityProviderStrategyItem(dict):
 class PipeDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None):
-        PipeDeadLetterConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -480,45 +374,22 @@ class PipeEcsContainerOverride(dict):
                  memory_reservation: Optional[int] = None,
                  name: Optional[str] = None,
                  resource_requirements: Optional[Sequence['outputs.PipeEcsResourceRequirement']] = None):
-        PipeEcsContainerOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            command=command,
-            cpu=cpu,
-            environment=environment,
-            environment_files=environment_files,
-            memory=memory,
-            memory_reservation=memory_reservation,
-            name=name,
-            resource_requirements=resource_requirements,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             command: Optional[Sequence[str]] = None,
-             cpu: Optional[int] = None,
-             environment: Optional[Sequence['outputs.PipeEcsEnvironmentVariable']] = None,
-             environment_files: Optional[Sequence['outputs.PipeEcsEnvironmentFile']] = None,
-             memory: Optional[int] = None,
-             memory_reservation: Optional[int] = None,
-             name: Optional[str] = None,
-             resource_requirements: Optional[Sequence['outputs.PipeEcsResourceRequirement']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if cpu is not None:
-            _setter("cpu", cpu)
+            pulumi.set(__self__, "cpu", cpu)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if environment_files is not None:
-            _setter("environment_files", environment_files)
+            pulumi.set(__self__, "environment_files", environment_files)
         if memory is not None:
-            _setter("memory", memory)
+            pulumi.set(__self__, "memory", memory)
         if memory_reservation is not None:
-            _setter("memory_reservation", memory_reservation)
+            pulumi.set(__self__, "memory_reservation", memory_reservation)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_requirements is not None:
-            _setter("resource_requirements", resource_requirements)
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
 
     @property
     @pulumi.getter
@@ -566,19 +437,8 @@ class PipeEcsEnvironmentFile(dict):
     def __init__(__self__, *,
                  type: 'PipeEcsEnvironmentFileType',
                  value: str):
-        PipeEcsEnvironmentFile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'PipeEcsEnvironmentFileType',
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -596,21 +456,10 @@ class PipeEcsEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
-        PipeEcsEnvironmentVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -644,16 +493,7 @@ class PipeEcsEphemeralStorage(dict):
 
     def __init__(__self__, *,
                  size_in_gi_b: int):
-        PipeEcsEphemeralStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size_in_gi_b=size_in_gi_b,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size_in_gi_b: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size_in_gi_b", size_in_gi_b)
+        pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
 
     @property
     @pulumi.getter(name="sizeInGiB")
@@ -685,21 +525,10 @@ class PipeEcsInferenceAcceleratorOverride(dict):
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  device_type: Optional[str] = None):
-        PipeEcsInferenceAcceleratorOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_name=device_name,
-            device_type=device_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_name: Optional[str] = None,
-             device_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if device_name is not None:
-            _setter("device_name", device_name)
+            pulumi.set(__self__, "device_name", device_name)
         if device_type is not None:
-            _setter("device_type", device_type)
+            pulumi.set(__self__, "device_type", device_type)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -717,19 +546,8 @@ class PipeEcsResourceRequirement(dict):
     def __init__(__self__, *,
                  type: 'PipeEcsResourceRequirementType',
                  value: str):
-        PipeEcsResourceRequirement._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'PipeEcsResourceRequirementType',
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -777,41 +595,20 @@ class PipeEcsTaskOverride(dict):
                  inference_accelerator_overrides: Optional[Sequence['outputs.PipeEcsInferenceAcceleratorOverride']] = None,
                  memory: Optional[str] = None,
                  task_role_arn: Optional[str] = None):
-        PipeEcsTaskOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_overrides=container_overrides,
-            cpu=cpu,
-            ephemeral_storage=ephemeral_storage,
-            execution_role_arn=execution_role_arn,
-            inference_accelerator_overrides=inference_accelerator_overrides,
-            memory=memory,
-            task_role_arn=task_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_overrides: Optional[Sequence['outputs.PipeEcsContainerOverride']] = None,
-             cpu: Optional[str] = None,
-             ephemeral_storage: Optional['outputs.PipeEcsEphemeralStorage'] = None,
-             execution_role_arn: Optional[str] = None,
-             inference_accelerator_overrides: Optional[Sequence['outputs.PipeEcsInferenceAcceleratorOverride']] = None,
-             memory: Optional[str] = None,
-             task_role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if container_overrides is not None:
-            _setter("container_overrides", container_overrides)
+            pulumi.set(__self__, "container_overrides", container_overrides)
         if cpu is not None:
-            _setter("cpu", cpu)
+            pulumi.set(__self__, "cpu", cpu)
         if ephemeral_storage is not None:
-            _setter("ephemeral_storage", ephemeral_storage)
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
-            _setter("execution_role_arn", execution_role_arn)
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if inference_accelerator_overrides is not None:
-            _setter("inference_accelerator_overrides", inference_accelerator_overrides)
+            pulumi.set(__self__, "inference_accelerator_overrides", inference_accelerator_overrides)
         if memory is not None:
-            _setter("memory", memory)
+            pulumi.set(__self__, "memory", memory)
         if task_role_arn is not None:
-            _setter("task_role_arn", task_role_arn)
+            pulumi.set(__self__, "task_role_arn", task_role_arn)
 
     @property
     @pulumi.getter(name="containerOverrides")
@@ -876,25 +673,12 @@ class PipeEnrichmentHttpParameters(dict):
                  header_parameters: Optional['outputs.PipeHeaderParametersMap'] = None,
                  path_parameter_values: Optional[Sequence[str]] = None,
                  query_string_parameters: Optional['outputs.PipeQueryStringParametersMap'] = None):
-        PipeEnrichmentHttpParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header_parameters=header_parameters,
-            path_parameter_values=path_parameter_values,
-            query_string_parameters=query_string_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header_parameters: Optional['outputs.PipeHeaderParametersMap'] = None,
-             path_parameter_values: Optional[Sequence[str]] = None,
-             query_string_parameters: Optional['outputs.PipeQueryStringParametersMap'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if header_parameters is not None:
-            _setter("header_parameters", header_parameters)
+            pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
-            _setter("path_parameter_values", path_parameter_values)
+            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
         if query_string_parameters is not None:
-            _setter("query_string_parameters", query_string_parameters)
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="headerParameters")
@@ -936,21 +720,10 @@ class PipeEnrichmentParameters(dict):
     def __init__(__self__, *,
                  http_parameters: Optional['outputs.PipeEnrichmentHttpParameters'] = None,
                  input_template: Optional[str] = None):
-        PipeEnrichmentParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            http_parameters=http_parameters,
-            input_template=input_template,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             http_parameters: Optional['outputs.PipeEnrichmentHttpParameters'] = None,
-             input_template: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if http_parameters is not None:
-            _setter("http_parameters", http_parameters)
+            pulumi.set(__self__, "http_parameters", http_parameters)
         if input_template is not None:
-            _setter("input_template", input_template)
+            pulumi.set(__self__, "input_template", input_template)
 
     @property
     @pulumi.getter(name="httpParameters")
@@ -967,17 +740,8 @@ class PipeEnrichmentParameters(dict):
 class PipeFilter(dict):
     def __init__(__self__, *,
                  pattern: Optional[str] = None):
-        PipeFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pattern=pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if pattern is not None:
-            _setter("pattern", pattern)
+            pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
@@ -989,17 +753,8 @@ class PipeFilter(dict):
 class PipeFilterCriteria(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.PipeFilter']] = None):
-        PipeFilterCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filters=filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filters: Optional[Sequence['outputs.PipeFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
@@ -1010,11 +765,6 @@ class PipeFilterCriteria(dict):
 @pulumi.output_type
 class PipeHeaderParametersMap(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -1042,16 +792,7 @@ class PipeMqBrokerAccessCredentialsProperties(dict):
         """
         :param str basic_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeMqBrokerAccessCredentialsProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            basic_auth=basic_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             basic_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("basic_auth", basic_auth)
+        pulumi.set(__self__, "basic_auth", basic_auth)
 
     @property
     @pulumi.getter(name="basicAuth")
@@ -1086,16 +827,7 @@ class PipeMskAccessCredentials0Properties(dict):
         """
         :param str sasl_scram512_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeMskAccessCredentials0Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sasl_scram512_auth=sasl_scram512_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sasl_scram512_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sasl_scram512_auth", sasl_scram512_auth)
+        pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
 
     @property
     @pulumi.getter(name="saslScram512Auth")
@@ -1130,16 +862,7 @@ class PipeMskAccessCredentials1Properties(dict):
         """
         :param str client_certificate_tls_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeMskAccessCredentials1Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_certificate_tls_auth=client_certificate_tls_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_certificate_tls_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("client_certificate_tls_auth", client_certificate_tls_auth)
+        pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
 
     @property
     @pulumi.getter(name="clientCertificateTlsAuth")
@@ -1171,17 +894,8 @@ class PipeNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  awsvpc_configuration: Optional['outputs.PipeAwsVpcConfiguration'] = None):
-        PipeNetworkConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            awsvpc_configuration=awsvpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             awsvpc_configuration: Optional['outputs.PipeAwsVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if awsvpc_configuration is not None:
-            _setter("awsvpc_configuration", awsvpc_configuration)
+            pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
 
     @property
     @pulumi.getter(name="awsvpcConfiguration")
@@ -1194,21 +908,10 @@ class PipePlacementConstraint(dict):
     def __init__(__self__, *,
                  expression: Optional[str] = None,
                  type: Optional['PipePlacementConstraintType'] = None):
-        PipePlacementConstraint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression=expression,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression: Optional[str] = None,
-             type: Optional['PipePlacementConstraintType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1226,21 +929,10 @@ class PipePlacementStrategy(dict):
     def __init__(__self__, *,
                  field: Optional[str] = None,
                  type: Optional['PipePlacementStrategyType'] = None):
-        PipePlacementStrategy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            field=field,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             field: Optional[str] = None,
-             type: Optional['PipePlacementStrategyType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if field is not None:
-            _setter("field", field)
+            pulumi.set(__self__, "field", field)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1257,11 +949,6 @@ class PipePlacementStrategy(dict):
 class PipeQueryStringParametersMap(dict):
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.output_type
@@ -1269,19 +956,8 @@ class PipeSageMakerPipelineParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        PipeSageMakerPipelineParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("value", value)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1318,16 +994,7 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials0Properties(dict):
         """
         :param str basic_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeSelfManagedKafkaAccessConfigurationCredentials0Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            basic_auth=basic_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             basic_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("basic_auth", basic_auth)
+        pulumi.set(__self__, "basic_auth", basic_auth)
 
     @property
     @pulumi.getter(name="basicAuth")
@@ -1362,16 +1029,7 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials1Properties(dict):
         """
         :param str sasl_scram512_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeSelfManagedKafkaAccessConfigurationCredentials1Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sasl_scram512_auth=sasl_scram512_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sasl_scram512_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sasl_scram512_auth", sasl_scram512_auth)
+        pulumi.set(__self__, "sasl_scram512_auth", sasl_scram512_auth)
 
     @property
     @pulumi.getter(name="saslScram512Auth")
@@ -1406,16 +1064,7 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials2Properties(dict):
         """
         :param str sasl_scram256_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeSelfManagedKafkaAccessConfigurationCredentials2Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sasl_scram256_auth=sasl_scram256_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sasl_scram256_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("sasl_scram256_auth", sasl_scram256_auth)
+        pulumi.set(__self__, "sasl_scram256_auth", sasl_scram256_auth)
 
     @property
     @pulumi.getter(name="saslScram256Auth")
@@ -1450,16 +1099,7 @@ class PipeSelfManagedKafkaAccessConfigurationCredentials3Properties(dict):
         """
         :param str client_certificate_tls_auth: Optional SecretManager ARN which stores the database credentials
         """
-        PipeSelfManagedKafkaAccessConfigurationCredentials3Properties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_certificate_tls_auth=client_certificate_tls_auth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_certificate_tls_auth: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("client_certificate_tls_auth", client_certificate_tls_auth)
+        pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
 
     @property
     @pulumi.getter(name="clientCertificateTlsAuth")
@@ -1496,21 +1136,10 @@ class PipeSelfManagedKafkaAccessConfigurationVpc(dict):
         :param Sequence[str] security_group: List of SecurityGroupId.
         :param Sequence[str] subnets: List of SubnetId.
         """
-        PipeSelfManagedKafkaAccessConfigurationVpc._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group=security_group,
-            subnets=subnets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group: Optional[Sequence[str]] = None,
-             subnets: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group is not None:
-            _setter("security_group", security_group)
+            pulumi.set(__self__, "security_group", security_group)
         if subnets is not None:
-            _setter("subnets", subnets)
+            pulumi.set(__self__, "subnets", subnets)
 
     @property
     @pulumi.getter(name="securityGroup")
@@ -1557,27 +1186,12 @@ class PipeSourceActiveMqBrokerParameters(dict):
                  queue_name: str,
                  batch_size: Optional[int] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None):
-        PipeSourceActiveMqBrokerParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credentials=credentials,
-            queue_name=queue_name,
-            batch_size=batch_size,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credentials: 'outputs.PipeMqBrokerAccessCredentialsProperties',
-             queue_name: str,
-             batch_size: Optional[int] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("credentials", credentials)
-        _setter("queue_name", queue_name)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "queue_name", queue_name)
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
 
     @property
     @pulumi.getter
@@ -1642,44 +1256,21 @@ class PipeSourceDynamoDbStreamParameters(dict):
                  maximum_retry_attempts: Optional[int] = None,
                  on_partial_batch_item_failure: Optional['PipeOnPartialBatchItemFailureStreams'] = None,
                  parallelization_factor: Optional[int] = None):
-        PipeSourceDynamoDbStreamParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            starting_position=starting_position,
-            batch_size=batch_size,
-            dead_letter_config=dead_letter_config,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-            maximum_record_age_in_seconds=maximum_record_age_in_seconds,
-            maximum_retry_attempts=maximum_retry_attempts,
-            on_partial_batch_item_failure=on_partial_batch_item_failure,
-            parallelization_factor=parallelization_factor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             starting_position: 'PipeDynamoDbStreamStartPosition',
-             batch_size: Optional[int] = None,
-             dead_letter_config: Optional['outputs.PipeDeadLetterConfig'] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             maximum_record_age_in_seconds: Optional[int] = None,
-             maximum_retry_attempts: Optional[int] = None,
-             on_partial_batch_item_failure: Optional['PipeOnPartialBatchItemFailureStreams'] = None,
-             parallelization_factor: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("starting_position", starting_position)
+        pulumi.set(__self__, "starting_position", starting_position)
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if dead_letter_config is not None:
-            _setter("dead_letter_config", dead_letter_config)
+            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
-            _setter("maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
-            _setter("maximum_retry_attempts", maximum_retry_attempts)
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
         if on_partial_batch_item_failure is not None:
-            _setter("on_partial_batch_item_failure", on_partial_batch_item_failure)
+            pulumi.set(__self__, "on_partial_batch_item_failure", on_partial_batch_item_failure)
         if parallelization_factor is not None:
-            _setter("parallelization_factor", parallelization_factor)
+            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
 
     @property
     @pulumi.getter(name="startingPosition")
@@ -1767,48 +1358,23 @@ class PipeSourceKinesisStreamParameters(dict):
                  on_partial_batch_item_failure: Optional['PipeOnPartialBatchItemFailureStreams'] = None,
                  parallelization_factor: Optional[int] = None,
                  starting_position_timestamp: Optional[str] = None):
-        PipeSourceKinesisStreamParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            starting_position=starting_position,
-            batch_size=batch_size,
-            dead_letter_config=dead_letter_config,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-            maximum_record_age_in_seconds=maximum_record_age_in_seconds,
-            maximum_retry_attempts=maximum_retry_attempts,
-            on_partial_batch_item_failure=on_partial_batch_item_failure,
-            parallelization_factor=parallelization_factor,
-            starting_position_timestamp=starting_position_timestamp,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             starting_position: 'PipeKinesisStreamStartPosition',
-             batch_size: Optional[int] = None,
-             dead_letter_config: Optional['outputs.PipeDeadLetterConfig'] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             maximum_record_age_in_seconds: Optional[int] = None,
-             maximum_retry_attempts: Optional[int] = None,
-             on_partial_batch_item_failure: Optional['PipeOnPartialBatchItemFailureStreams'] = None,
-             parallelization_factor: Optional[int] = None,
-             starting_position_timestamp: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("starting_position", starting_position)
+        pulumi.set(__self__, "starting_position", starting_position)
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if dead_letter_config is not None:
-            _setter("dead_letter_config", dead_letter_config)
+            pulumi.set(__self__, "dead_letter_config", dead_letter_config)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if maximum_record_age_in_seconds is not None:
-            _setter("maximum_record_age_in_seconds", maximum_record_age_in_seconds)
+            pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
-            _setter("maximum_retry_attempts", maximum_retry_attempts)
+            pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
         if on_partial_batch_item_failure is not None:
-            _setter("on_partial_batch_item_failure", on_partial_batch_item_failure)
+            pulumi.set(__self__, "on_partial_batch_item_failure", on_partial_batch_item_failure)
         if parallelization_factor is not None:
-            _setter("parallelization_factor", parallelization_factor)
+            pulumi.set(__self__, "parallelization_factor", parallelization_factor)
         if starting_position_timestamp is not None:
-            _setter("starting_position_timestamp", starting_position_timestamp)
+            pulumi.set(__self__, "starting_position_timestamp", starting_position_timestamp)
 
     @property
     @pulumi.getter(name="startingPosition")
@@ -1890,36 +1456,17 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
                  credentials: Optional[Any] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None,
                  starting_position: Optional['PipeMskStartPosition'] = None):
-        PipeSourceManagedStreamingKafkaParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            topic_name=topic_name,
-            batch_size=batch_size,
-            consumer_group_id=consumer_group_id,
-            credentials=credentials,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-            starting_position=starting_position,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             topic_name: str,
-             batch_size: Optional[int] = None,
-             consumer_group_id: Optional[str] = None,
-             credentials: Optional[Any] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             starting_position: Optional['PipeMskStartPosition'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("topic_name", topic_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if consumer_group_id is not None:
-            _setter("consumer_group_id", consumer_group_id)
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if starting_position is not None:
-            _setter("starting_position", starting_position)
+            pulumi.set(__self__, "starting_position", starting_position)
 
     @property
     @pulumi.getter(name="topicName")
@@ -1994,45 +1541,22 @@ class PipeSourceParameters(dict):
                  rabbit_mq_broker_parameters: Optional['outputs.PipeSourceRabbitMqBrokerParameters'] = None,
                  self_managed_kafka_parameters: Optional['outputs.PipeSourceSelfManagedKafkaParameters'] = None,
                  sqs_queue_parameters: Optional['outputs.PipeSourceSqsQueueParameters'] = None):
-        PipeSourceParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            active_mq_broker_parameters=active_mq_broker_parameters,
-            dynamo_db_stream_parameters=dynamo_db_stream_parameters,
-            filter_criteria=filter_criteria,
-            kinesis_stream_parameters=kinesis_stream_parameters,
-            managed_streaming_kafka_parameters=managed_streaming_kafka_parameters,
-            rabbit_mq_broker_parameters=rabbit_mq_broker_parameters,
-            self_managed_kafka_parameters=self_managed_kafka_parameters,
-            sqs_queue_parameters=sqs_queue_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             active_mq_broker_parameters: Optional['outputs.PipeSourceActiveMqBrokerParameters'] = None,
-             dynamo_db_stream_parameters: Optional['outputs.PipeSourceDynamoDbStreamParameters'] = None,
-             filter_criteria: Optional['outputs.PipeFilterCriteria'] = None,
-             kinesis_stream_parameters: Optional['outputs.PipeSourceKinesisStreamParameters'] = None,
-             managed_streaming_kafka_parameters: Optional['outputs.PipeSourceManagedStreamingKafkaParameters'] = None,
-             rabbit_mq_broker_parameters: Optional['outputs.PipeSourceRabbitMqBrokerParameters'] = None,
-             self_managed_kafka_parameters: Optional['outputs.PipeSourceSelfManagedKafkaParameters'] = None,
-             sqs_queue_parameters: Optional['outputs.PipeSourceSqsQueueParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if active_mq_broker_parameters is not None:
-            _setter("active_mq_broker_parameters", active_mq_broker_parameters)
+            pulumi.set(__self__, "active_mq_broker_parameters", active_mq_broker_parameters)
         if dynamo_db_stream_parameters is not None:
-            _setter("dynamo_db_stream_parameters", dynamo_db_stream_parameters)
+            pulumi.set(__self__, "dynamo_db_stream_parameters", dynamo_db_stream_parameters)
         if filter_criteria is not None:
-            _setter("filter_criteria", filter_criteria)
+            pulumi.set(__self__, "filter_criteria", filter_criteria)
         if kinesis_stream_parameters is not None:
-            _setter("kinesis_stream_parameters", kinesis_stream_parameters)
+            pulumi.set(__self__, "kinesis_stream_parameters", kinesis_stream_parameters)
         if managed_streaming_kafka_parameters is not None:
-            _setter("managed_streaming_kafka_parameters", managed_streaming_kafka_parameters)
+            pulumi.set(__self__, "managed_streaming_kafka_parameters", managed_streaming_kafka_parameters)
         if rabbit_mq_broker_parameters is not None:
-            _setter("rabbit_mq_broker_parameters", rabbit_mq_broker_parameters)
+            pulumi.set(__self__, "rabbit_mq_broker_parameters", rabbit_mq_broker_parameters)
         if self_managed_kafka_parameters is not None:
-            _setter("self_managed_kafka_parameters", self_managed_kafka_parameters)
+            pulumi.set(__self__, "self_managed_kafka_parameters", self_managed_kafka_parameters)
         if sqs_queue_parameters is not None:
-            _setter("sqs_queue_parameters", sqs_queue_parameters)
+            pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
 
     @property
     @pulumi.getter(name="activeMqBrokerParameters")
@@ -2106,31 +1630,14 @@ class PipeSourceRabbitMqBrokerParameters(dict):
                  batch_size: Optional[int] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None,
                  virtual_host: Optional[str] = None):
-        PipeSourceRabbitMqBrokerParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            credentials=credentials,
-            queue_name=queue_name,
-            batch_size=batch_size,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-            virtual_host=virtual_host,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             credentials: 'outputs.PipeMqBrokerAccessCredentialsProperties',
-             queue_name: str,
-             batch_size: Optional[int] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             virtual_host: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("credentials", credentials)
-        _setter("queue_name", queue_name)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "queue_name", queue_name)
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if virtual_host is not None:
-            _setter("virtual_host", virtual_host)
+            pulumi.set(__self__, "virtual_host", virtual_host)
 
     @property
     @pulumi.getter
@@ -2202,48 +1709,23 @@ class PipeSourceSelfManagedKafkaParameters(dict):
         """
         :param str server_root_ca_certificate: Optional SecretManager ARN which stores the database credentials
         """
-        PipeSourceSelfManagedKafkaParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            topic_name=topic_name,
-            additional_bootstrap_servers=additional_bootstrap_servers,
-            batch_size=batch_size,
-            consumer_group_id=consumer_group_id,
-            credentials=credentials,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-            server_root_ca_certificate=server_root_ca_certificate,
-            starting_position=starting_position,
-            vpc=vpc,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             topic_name: str,
-             additional_bootstrap_servers: Optional[Sequence[str]] = None,
-             batch_size: Optional[int] = None,
-             consumer_group_id: Optional[str] = None,
-             credentials: Optional[Any] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             server_root_ca_certificate: Optional[str] = None,
-             starting_position: Optional['PipeSelfManagedKafkaStartPosition'] = None,
-             vpc: Optional['outputs.PipeSelfManagedKafkaAccessConfigurationVpc'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("topic_name", topic_name)
+        pulumi.set(__self__, "topic_name", topic_name)
         if additional_bootstrap_servers is not None:
-            _setter("additional_bootstrap_servers", additional_bootstrap_servers)
+            pulumi.set(__self__, "additional_bootstrap_servers", additional_bootstrap_servers)
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if consumer_group_id is not None:
-            _setter("consumer_group_id", consumer_group_id)
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if credentials is not None:
-            _setter("credentials", credentials)
+            pulumi.set(__self__, "credentials", credentials)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
         if server_root_ca_certificate is not None:
-            _setter("server_root_ca_certificate", server_root_ca_certificate)
+            pulumi.set(__self__, "server_root_ca_certificate", server_root_ca_certificate)
         if starting_position is not None:
-            _setter("starting_position", starting_position)
+            pulumi.set(__self__, "starting_position", starting_position)
         if vpc is not None:
-            _setter("vpc", vpc)
+            pulumi.set(__self__, "vpc", vpc)
 
     @property
     @pulumi.getter(name="topicName")
@@ -2318,21 +1800,10 @@ class PipeSourceSqsQueueParameters(dict):
     def __init__(__self__, *,
                  batch_size: Optional[int] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None):
-        PipeSourceSqsQueueParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            batch_size=batch_size,
-            maximum_batching_window_in_seconds=maximum_batching_window_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             batch_size: Optional[int] = None,
-             maximum_batching_window_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if batch_size is not None:
-            _setter("batch_size", batch_size)
+            pulumi.set(__self__, "batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
-            _setter("maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
+            pulumi.set(__self__, "maximum_batching_window_in_seconds", maximum_batching_window_in_seconds)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -2350,19 +1821,8 @@ class PipeTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PipeTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2378,11 +1838,6 @@ class PipeTag(dict):
 @pulumi.output_type
 class PipeTagMap(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -2423,39 +1878,18 @@ class PipeTargetBatchJobParameters(dict):
                  depends_on: Optional[Sequence['outputs.PipeBatchJobDependency']] = None,
                  parameters: Optional['outputs.PipeBatchParametersMap'] = None,
                  retry_strategy: Optional['outputs.PipeBatchRetryStrategy'] = None):
-        PipeTargetBatchJobParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            job_definition=job_definition,
-            job_name=job_name,
-            array_properties=array_properties,
-            container_overrides=container_overrides,
-            depends_on=depends_on,
-            parameters=parameters,
-            retry_strategy=retry_strategy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             job_definition: str,
-             job_name: str,
-             array_properties: Optional['outputs.PipeBatchArrayProperties'] = None,
-             container_overrides: Optional['outputs.PipeBatchContainerOverrides'] = None,
-             depends_on: Optional[Sequence['outputs.PipeBatchJobDependency']] = None,
-             parameters: Optional['outputs.PipeBatchParametersMap'] = None,
-             retry_strategy: Optional['outputs.PipeBatchRetryStrategy'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("job_definition", job_definition)
-        _setter("job_name", job_name)
+        pulumi.set(__self__, "job_definition", job_definition)
+        pulumi.set(__self__, "job_name", job_name)
         if array_properties is not None:
-            _setter("array_properties", array_properties)
+            pulumi.set(__self__, "array_properties", array_properties)
         if container_overrides is not None:
-            _setter("container_overrides", container_overrides)
+            pulumi.set(__self__, "container_overrides", container_overrides)
         if depends_on is not None:
-            _setter("depends_on", depends_on)
+            pulumi.set(__self__, "depends_on", depends_on)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if retry_strategy is not None:
-            _setter("retry_strategy", retry_strategy)
+            pulumi.set(__self__, "retry_strategy", retry_strategy)
 
     @property
     @pulumi.getter(name="jobDefinition")
@@ -2515,21 +1949,10 @@ class PipeTargetCloudWatchLogsParameters(dict):
     def __init__(__self__, *,
                  log_stream_name: Optional[str] = None,
                  timestamp: Optional[str] = None):
-        PipeTargetCloudWatchLogsParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_stream_name=log_stream_name,
-            timestamp=timestamp,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_stream_name: Optional[str] = None,
-             timestamp: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_stream_name is not None:
-            _setter("log_stream_name", log_stream_name)
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
         if timestamp is not None:
-            _setter("timestamp", timestamp)
+            pulumi.set(__self__, "timestamp", timestamp)
 
     @property
     @pulumi.getter(name="logStreamName")
@@ -2599,72 +2022,35 @@ class PipeTargetEcsTaskParameters(dict):
                  reference_id: Optional[str] = None,
                  tags: Optional[Sequence['outputs.PipeTag']] = None,
                  task_count: Optional[int] = None):
-        PipeTargetEcsTaskParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            task_definition_arn=task_definition_arn,
-            capacity_provider_strategy=capacity_provider_strategy,
-            enable_ecs_managed_tags=enable_ecs_managed_tags,
-            enable_execute_command=enable_execute_command,
-            group=group,
-            launch_type=launch_type,
-            network_configuration=network_configuration,
-            overrides=overrides,
-            placement_constraints=placement_constraints,
-            placement_strategy=placement_strategy,
-            platform_version=platform_version,
-            propagate_tags=propagate_tags,
-            reference_id=reference_id,
-            tags=tags,
-            task_count=task_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             task_definition_arn: str,
-             capacity_provider_strategy: Optional[Sequence['outputs.PipeCapacityProviderStrategyItem']] = None,
-             enable_ecs_managed_tags: Optional[bool] = None,
-             enable_execute_command: Optional[bool] = None,
-             group: Optional[str] = None,
-             launch_type: Optional['PipeLaunchType'] = None,
-             network_configuration: Optional['outputs.PipeNetworkConfiguration'] = None,
-             overrides: Optional['outputs.PipeEcsTaskOverride'] = None,
-             placement_constraints: Optional[Sequence['outputs.PipePlacementConstraint']] = None,
-             placement_strategy: Optional[Sequence['outputs.PipePlacementStrategy']] = None,
-             platform_version: Optional[str] = None,
-             propagate_tags: Optional['PipePropagateTags'] = None,
-             reference_id: Optional[str] = None,
-             tags: Optional[Sequence['outputs.PipeTag']] = None,
-             task_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("task_definition_arn", task_definition_arn)
+        pulumi.set(__self__, "task_definition_arn", task_definition_arn)
         if capacity_provider_strategy is not None:
-            _setter("capacity_provider_strategy", capacity_provider_strategy)
+            pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
         if enable_ecs_managed_tags is not None:
-            _setter("enable_ecs_managed_tags", enable_ecs_managed_tags)
+            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
         if enable_execute_command is not None:
-            _setter("enable_execute_command", enable_execute_command)
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if group is not None:
-            _setter("group", group)
+            pulumi.set(__self__, "group", group)
         if launch_type is not None:
-            _setter("launch_type", launch_type)
+            pulumi.set(__self__, "launch_type", launch_type)
         if network_configuration is not None:
-            _setter("network_configuration", network_configuration)
+            pulumi.set(__self__, "network_configuration", network_configuration)
         if overrides is not None:
-            _setter("overrides", overrides)
+            pulumi.set(__self__, "overrides", overrides)
         if placement_constraints is not None:
-            _setter("placement_constraints", placement_constraints)
+            pulumi.set(__self__, "placement_constraints", placement_constraints)
         if placement_strategy is not None:
-            _setter("placement_strategy", placement_strategy)
+            pulumi.set(__self__, "placement_strategy", placement_strategy)
         if platform_version is not None:
-            _setter("platform_version", platform_version)
+            pulumi.set(__self__, "platform_version", platform_version)
         if propagate_tags is not None:
-            _setter("propagate_tags", propagate_tags)
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
         if reference_id is not None:
-            _setter("reference_id", reference_id)
+            pulumi.set(__self__, "reference_id", reference_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if task_count is not None:
-            _setter("task_count", task_count)
+            pulumi.set(__self__, "task_count", task_count)
 
     @property
     @pulumi.getter(name="taskDefinitionArn")
@@ -2769,33 +2155,16 @@ class PipeTargetEventBridgeEventBusParameters(dict):
                  resources: Optional[Sequence[str]] = None,
                  source: Optional[str] = None,
                  time: Optional[str] = None):
-        PipeTargetEventBridgeEventBusParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detail_type=detail_type,
-            endpoint_id=endpoint_id,
-            resources=resources,
-            source=source,
-            time=time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detail_type: Optional[str] = None,
-             endpoint_id: Optional[str] = None,
-             resources: Optional[Sequence[str]] = None,
-             source: Optional[str] = None,
-             time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if detail_type is not None:
-            _setter("detail_type", detail_type)
+            pulumi.set(__self__, "detail_type", detail_type)
         if endpoint_id is not None:
-            _setter("endpoint_id", endpoint_id)
+            pulumi.set(__self__, "endpoint_id", endpoint_id)
         if resources is not None:
-            _setter("resources", resources)
+            pulumi.set(__self__, "resources", resources)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if time is not None:
-            _setter("time", time)
+            pulumi.set(__self__, "time", time)
 
     @property
     @pulumi.getter(name="detailType")
@@ -2850,25 +2219,12 @@ class PipeTargetHttpParameters(dict):
                  header_parameters: Optional['outputs.PipeHeaderParametersMap'] = None,
                  path_parameter_values: Optional[Sequence[str]] = None,
                  query_string_parameters: Optional['outputs.PipeQueryStringParametersMap'] = None):
-        PipeTargetHttpParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            header_parameters=header_parameters,
-            path_parameter_values=path_parameter_values,
-            query_string_parameters=query_string_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             header_parameters: Optional['outputs.PipeHeaderParametersMap'] = None,
-             path_parameter_values: Optional[Sequence[str]] = None,
-             query_string_parameters: Optional['outputs.PipeQueryStringParametersMap'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if header_parameters is not None:
-            _setter("header_parameters", header_parameters)
+            pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
-            _setter("path_parameter_values", path_parameter_values)
+            pulumi.set(__self__, "path_parameter_values", path_parameter_values)
         if query_string_parameters is not None:
-            _setter("query_string_parameters", query_string_parameters)
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
 
     @property
     @pulumi.getter(name="headerParameters")
@@ -2907,16 +2263,7 @@ class PipeTargetKinesisStreamParameters(dict):
 
     def __init__(__self__, *,
                  partition_key: str):
-        PipeTargetKinesisStreamParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            partition_key=partition_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             partition_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("partition_key", partition_key)
+        pulumi.set(__self__, "partition_key", partition_key)
 
     @property
     @pulumi.getter(name="partitionKey")
@@ -2945,17 +2292,8 @@ class PipeTargetLambdaFunctionParameters(dict):
 
     def __init__(__self__, *,
                  invocation_type: Optional['PipeTargetInvocationType'] = None):
-        PipeTargetLambdaFunctionParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invocation_type=invocation_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invocation_type: Optional['PipeTargetInvocationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if invocation_type is not None:
-            _setter("invocation_type", invocation_type)
+            pulumi.set(__self__, "invocation_type", invocation_type)
 
     @property
     @pulumi.getter(name="invocationType")
@@ -3017,61 +2355,30 @@ class PipeTargetParameters(dict):
                  sage_maker_pipeline_parameters: Optional['outputs.PipeTargetSageMakerPipelineParameters'] = None,
                  sqs_queue_parameters: Optional['outputs.PipeTargetSqsQueueParameters'] = None,
                  step_function_state_machine_parameters: Optional['outputs.PipeTargetStateMachineParameters'] = None):
-        PipeTargetParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            batch_job_parameters=batch_job_parameters,
-            cloud_watch_logs_parameters=cloud_watch_logs_parameters,
-            ecs_task_parameters=ecs_task_parameters,
-            event_bridge_event_bus_parameters=event_bridge_event_bus_parameters,
-            http_parameters=http_parameters,
-            input_template=input_template,
-            kinesis_stream_parameters=kinesis_stream_parameters,
-            lambda_function_parameters=lambda_function_parameters,
-            redshift_data_parameters=redshift_data_parameters,
-            sage_maker_pipeline_parameters=sage_maker_pipeline_parameters,
-            sqs_queue_parameters=sqs_queue_parameters,
-            step_function_state_machine_parameters=step_function_state_machine_parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             batch_job_parameters: Optional['outputs.PipeTargetBatchJobParameters'] = None,
-             cloud_watch_logs_parameters: Optional['outputs.PipeTargetCloudWatchLogsParameters'] = None,
-             ecs_task_parameters: Optional['outputs.PipeTargetEcsTaskParameters'] = None,
-             event_bridge_event_bus_parameters: Optional['outputs.PipeTargetEventBridgeEventBusParameters'] = None,
-             http_parameters: Optional['outputs.PipeTargetHttpParameters'] = None,
-             input_template: Optional[str] = None,
-             kinesis_stream_parameters: Optional['outputs.PipeTargetKinesisStreamParameters'] = None,
-             lambda_function_parameters: Optional['outputs.PipeTargetLambdaFunctionParameters'] = None,
-             redshift_data_parameters: Optional['outputs.PipeTargetRedshiftDataParameters'] = None,
-             sage_maker_pipeline_parameters: Optional['outputs.PipeTargetSageMakerPipelineParameters'] = None,
-             sqs_queue_parameters: Optional['outputs.PipeTargetSqsQueueParameters'] = None,
-             step_function_state_machine_parameters: Optional['outputs.PipeTargetStateMachineParameters'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if batch_job_parameters is not None:
-            _setter("batch_job_parameters", batch_job_parameters)
+            pulumi.set(__self__, "batch_job_parameters", batch_job_parameters)
         if cloud_watch_logs_parameters is not None:
-            _setter("cloud_watch_logs_parameters", cloud_watch_logs_parameters)
+            pulumi.set(__self__, "cloud_watch_logs_parameters", cloud_watch_logs_parameters)
         if ecs_task_parameters is not None:
-            _setter("ecs_task_parameters", ecs_task_parameters)
+            pulumi.set(__self__, "ecs_task_parameters", ecs_task_parameters)
         if event_bridge_event_bus_parameters is not None:
-            _setter("event_bridge_event_bus_parameters", event_bridge_event_bus_parameters)
+            pulumi.set(__self__, "event_bridge_event_bus_parameters", event_bridge_event_bus_parameters)
         if http_parameters is not None:
-            _setter("http_parameters", http_parameters)
+            pulumi.set(__self__, "http_parameters", http_parameters)
         if input_template is not None:
-            _setter("input_template", input_template)
+            pulumi.set(__self__, "input_template", input_template)
         if kinesis_stream_parameters is not None:
-            _setter("kinesis_stream_parameters", kinesis_stream_parameters)
+            pulumi.set(__self__, "kinesis_stream_parameters", kinesis_stream_parameters)
         if lambda_function_parameters is not None:
-            _setter("lambda_function_parameters", lambda_function_parameters)
+            pulumi.set(__self__, "lambda_function_parameters", lambda_function_parameters)
         if redshift_data_parameters is not None:
-            _setter("redshift_data_parameters", redshift_data_parameters)
+            pulumi.set(__self__, "redshift_data_parameters", redshift_data_parameters)
         if sage_maker_pipeline_parameters is not None:
-            _setter("sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
+            pulumi.set(__self__, "sage_maker_pipeline_parameters", sage_maker_pipeline_parameters)
         if sqs_queue_parameters is not None:
-            _setter("sqs_queue_parameters", sqs_queue_parameters)
+            pulumi.set(__self__, "sqs_queue_parameters", sqs_queue_parameters)
         if step_function_state_machine_parameters is not None:
-            _setter("step_function_state_machine_parameters", step_function_state_machine_parameters)
+            pulumi.set(__self__, "step_function_state_machine_parameters", step_function_state_machine_parameters)
 
     @property
     @pulumi.getter(name="batchJobParameters")
@@ -3173,35 +2480,16 @@ class PipeTargetRedshiftDataParameters(dict):
         :param str secret_manager_arn: Optional SecretManager ARN which stores the database credentials
         :param str statement_name: A name for Redshift DataAPI statement which can be used as filter of ListStatement.
         """
-        PipeTargetRedshiftDataParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database=database,
-            sqls=sqls,
-            db_user=db_user,
-            secret_manager_arn=secret_manager_arn,
-            statement_name=statement_name,
-            with_event=with_event,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database: str,
-             sqls: Sequence[str],
-             db_user: Optional[str] = None,
-             secret_manager_arn: Optional[str] = None,
-             statement_name: Optional[str] = None,
-             with_event: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("database", database)
-        _setter("sqls", sqls)
+        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "sqls", sqls)
         if db_user is not None:
-            _setter("db_user", db_user)
+            pulumi.set(__self__, "db_user", db_user)
         if secret_manager_arn is not None:
-            _setter("secret_manager_arn", secret_manager_arn)
+            pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
         if statement_name is not None:
-            _setter("statement_name", statement_name)
+            pulumi.set(__self__, "statement_name", statement_name)
         if with_event is not None:
-            _setter("with_event", with_event)
+            pulumi.set(__self__, "with_event", with_event)
 
     @property
     @pulumi.getter
@@ -3270,17 +2558,8 @@ class PipeTargetSageMakerPipelineParameters(dict):
 
     def __init__(__self__, *,
                  pipeline_parameter_list: Optional[Sequence['outputs.PipeSageMakerPipelineParameter']] = None):
-        PipeTargetSageMakerPipelineParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pipeline_parameter_list=pipeline_parameter_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pipeline_parameter_list: Optional[Sequence['outputs.PipeSageMakerPipelineParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if pipeline_parameter_list is not None:
-            _setter("pipeline_parameter_list", pipeline_parameter_list)
+            pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
 
     @property
     @pulumi.getter(name="pipelineParameterList")
@@ -3312,21 +2591,10 @@ class PipeTargetSqsQueueParameters(dict):
     def __init__(__self__, *,
                  message_deduplication_id: Optional[str] = None,
                  message_group_id: Optional[str] = None):
-        PipeTargetSqsQueueParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message_deduplication_id=message_deduplication_id,
-            message_group_id=message_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message_deduplication_id: Optional[str] = None,
-             message_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if message_deduplication_id is not None:
-            _setter("message_deduplication_id", message_deduplication_id)
+            pulumi.set(__self__, "message_deduplication_id", message_deduplication_id)
         if message_group_id is not None:
-            _setter("message_group_id", message_group_id)
+            pulumi.set(__self__, "message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageDeduplicationId")
@@ -3360,17 +2628,8 @@ class PipeTargetStateMachineParameters(dict):
 
     def __init__(__self__, *,
                  invocation_type: Optional['PipeTargetInvocationType'] = None):
-        PipeTargetStateMachineParameters._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            invocation_type=invocation_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             invocation_type: Optional['PipeTargetInvocationType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if invocation_type is not None:
-            _setter("invocation_type", invocation_type)
+            pulumi.set(__self__, "invocation_type", invocation_type)
 
     @property
     @pulumi.getter(name="invocationType")

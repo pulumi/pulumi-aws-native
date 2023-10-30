@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CompositeAlarmArgs', 'CompositeAlarm']
@@ -37,52 +37,25 @@ class CompositeAlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ok_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
-        CompositeAlarmArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            alarm_rule=alarm_rule,
-            actions_enabled=actions_enabled,
-            actions_suppressor=actions_suppressor,
-            actions_suppressor_extension_period=actions_suppressor_extension_period,
-            actions_suppressor_wait_period=actions_suppressor_wait_period,
-            alarm_actions=alarm_actions,
-            alarm_description=alarm_description,
-            alarm_name=alarm_name,
-            insufficient_data_actions=insufficient_data_actions,
-            ok_actions=ok_actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             alarm_rule: pulumi.Input[str],
-             actions_enabled: Optional[pulumi.Input[bool]] = None,
-             actions_suppressor: Optional[pulumi.Input[str]] = None,
-             actions_suppressor_extension_period: Optional[pulumi.Input[int]] = None,
-             actions_suppressor_wait_period: Optional[pulumi.Input[int]] = None,
-             alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             alarm_description: Optional[pulumi.Input[str]] = None,
-             alarm_name: Optional[pulumi.Input[str]] = None,
-             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("alarm_rule", alarm_rule)
+        pulumi.set(__self__, "alarm_rule", alarm_rule)
         if actions_enabled is not None:
-            _setter("actions_enabled", actions_enabled)
+            pulumi.set(__self__, "actions_enabled", actions_enabled)
         if actions_suppressor is not None:
-            _setter("actions_suppressor", actions_suppressor)
+            pulumi.set(__self__, "actions_suppressor", actions_suppressor)
         if actions_suppressor_extension_period is not None:
-            _setter("actions_suppressor_extension_period", actions_suppressor_extension_period)
+            pulumi.set(__self__, "actions_suppressor_extension_period", actions_suppressor_extension_period)
         if actions_suppressor_wait_period is not None:
-            _setter("actions_suppressor_wait_period", actions_suppressor_wait_period)
+            pulumi.set(__self__, "actions_suppressor_wait_period", actions_suppressor_wait_period)
         if alarm_actions is not None:
-            _setter("alarm_actions", alarm_actions)
+            pulumi.set(__self__, "alarm_actions", alarm_actions)
         if alarm_description is not None:
-            _setter("alarm_description", alarm_description)
+            pulumi.set(__self__, "alarm_description", alarm_description)
         if alarm_name is not None:
-            _setter("alarm_name", alarm_name)
+            pulumi.set(__self__, "alarm_name", alarm_name)
         if insufficient_data_actions is not None:
-            _setter("insufficient_data_actions", insufficient_data_actions)
+            pulumi.set(__self__, "insufficient_data_actions", insufficient_data_actions)
         if ok_actions is not None:
-            _setter("ok_actions", ok_actions)
+            pulumi.set(__self__, "ok_actions", ok_actions)
 
     @property
     @pulumi.getter(name="alarmRule")
@@ -256,10 +229,6 @@ class CompositeAlarm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CompositeAlarmArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,29 +24,14 @@ class ServiceNetworkVpcAssociationArgs:
         """
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
         """
-        ServiceNetworkVpcAssociationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            service_network_identifier=service_network_identifier,
-            tags=tags,
-            vpc_identifier=vpc_identifier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             service_network_identifier: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkVpcAssociationTagArgs']]]] = None,
-             vpc_identifier: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if service_network_identifier is not None:
-            _setter("service_network_identifier", service_network_identifier)
+            pulumi.set(__self__, "service_network_identifier", service_network_identifier)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc_identifier is not None:
-            _setter("vpc_identifier", vpc_identifier)
+            pulumi.set(__self__, "vpc_identifier", vpc_identifier)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -120,10 +105,6 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceNetworkVpcAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

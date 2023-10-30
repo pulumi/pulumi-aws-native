@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,29 +27,14 @@ class PublicRepositoryArgs:
         :param Any repository_policy_text: The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         :param pulumi.Input[Sequence[pulumi.Input['PublicRepositoryTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        PublicRepositoryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository_catalog_data=repository_catalog_data,
-            repository_name=repository_name,
-            repository_policy_text=repository_policy_text,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository_catalog_data: Optional[pulumi.Input['RepositoryCatalogDataPropertiesArgs']] = None,
-             repository_name: Optional[pulumi.Input[str]] = None,
-             repository_policy_text: Optional[Any] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PublicRepositoryTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if repository_catalog_data is not None:
-            _setter("repository_catalog_data", repository_catalog_data)
+            pulumi.set(__self__, "repository_catalog_data", repository_catalog_data)
         if repository_name is not None:
-            _setter("repository_name", repository_name)
+            pulumi.set(__self__, "repository_name", repository_name)
         if repository_policy_text is not None:
-            _setter("repository_policy_text", repository_policy_text)
+            pulumi.set(__self__, "repository_policy_text", repository_policy_text)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="repositoryCatalogData")
@@ -144,10 +129,6 @@ class PublicRepository(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PublicRepositoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -167,11 +148,6 @@ class PublicRepository(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PublicRepositoryArgs.__new__(PublicRepositoryArgs)
 
-            if repository_catalog_data is not None and not isinstance(repository_catalog_data, RepositoryCatalogDataPropertiesArgs):
-                repository_catalog_data = repository_catalog_data or {}
-                def _setter(key, value):
-                    repository_catalog_data[key] = value
-                RepositoryCatalogDataPropertiesArgs._configure(_setter, **repository_catalog_data)
             __props__.__dict__["repository_catalog_data"] = repository_catalog_data
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["repository_policy_text"] = repository_policy_text

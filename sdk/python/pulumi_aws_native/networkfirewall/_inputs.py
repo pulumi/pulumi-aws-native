@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -54,17 +54,8 @@ __all__ = [
 class FirewallPolicyActionDefinitionArgs:
     def __init__(__self__, *,
                  publish_metric_action: Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']] = None):
-        FirewallPolicyActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            publish_metric_action=publish_metric_action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             publish_metric_action: Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if publish_metric_action is not None:
-            _setter("publish_metric_action", publish_metric_action)
+            pulumi.set(__self__, "publish_metric_action", publish_metric_action)
 
     @property
     @pulumi.getter(name="publishMetricAction")
@@ -81,19 +72,8 @@ class FirewallPolicyCustomActionArgs:
     def __init__(__self__, *,
                  action_definition: pulumi.Input['FirewallPolicyActionDefinitionArgs'],
                  action_name: pulumi.Input[str]):
-        FirewallPolicyCustomActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_definition=action_definition,
-            action_name=action_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_definition: pulumi.Input['FirewallPolicyActionDefinitionArgs'],
-             action_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action_definition", action_definition)
-        _setter("action_name", action_name)
+        pulumi.set(__self__, "action_definition", action_definition)
+        pulumi.set(__self__, "action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinition")
@@ -118,16 +98,7 @@ class FirewallPolicyCustomActionArgs:
 class FirewallPolicyDimensionArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
-        FirewallPolicyDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -143,17 +114,8 @@ class FirewallPolicyDimensionArgs:
 class FirewallPolicyPolicyVariablesPropertiesArgs:
     def __init__(__self__, *,
                  rule_variables: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']] = None):
-        FirewallPolicyPolicyVariablesPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_variables=rule_variables,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_variables: Optional[pulumi.Input['FirewallPolicyRuleVariablesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if rule_variables is not None:
-            _setter("rule_variables", rule_variables)
+            pulumi.set(__self__, "rule_variables", rule_variables)
 
     @property
     @pulumi.getter(name="ruleVariables")
@@ -169,16 +131,7 @@ class FirewallPolicyPolicyVariablesPropertiesArgs:
 class FirewallPolicyPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]):
-        FirewallPolicyPublishMetricActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimensions=dimensions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dimensions", dimensions)
+        pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
@@ -194,11 +147,6 @@ class FirewallPolicyPublishMetricActionArgs:
 class FirewallPolicyRuleVariablesArgs:
     def __init__(__self__):
         pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        pass
 
 
 @pulumi.input_type
@@ -206,21 +154,10 @@ class FirewallPolicyStatefulEngineOptionsArgs:
     def __init__(__self__, *,
                  rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None,
                  stream_exception_policy: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']] = None):
-        FirewallPolicyStatefulEngineOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_order=rule_order,
-            stream_exception_policy=stream_exception_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None,
-             stream_exception_policy: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if rule_order is not None:
-            _setter("rule_order", rule_order)
+            pulumi.set(__self__, "rule_order", rule_order)
         if stream_exception_policy is not None:
-            _setter("stream_exception_policy", stream_exception_policy)
+            pulumi.set(__self__, "stream_exception_policy", stream_exception_policy)
 
     @property
     @pulumi.getter(name="ruleOrder")
@@ -245,17 +182,8 @@ class FirewallPolicyStatefulEngineOptionsArgs:
 class FirewallPolicyStatefulRuleGroupOverrideArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input['FirewallPolicyOverrideAction']] = None):
-        FirewallPolicyStatefulRuleGroupOverrideArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: Optional[pulumi.Input['FirewallPolicyOverrideAction']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if action is not None:
-            _setter("action", action)
+            pulumi.set(__self__, "action", action)
 
     @property
     @pulumi.getter
@@ -273,24 +201,11 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
                  resource_arn: pulumi.Input[str],
                  override: Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']] = None,
                  priority: Optional[pulumi.Input[int]] = None):
-        FirewallPolicyStatefulRuleGroupReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            override=override,
-            priority=priority,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             override: Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']] = None,
-             priority: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "resource_arn", resource_arn)
         if override is not None:
-            _setter("override", override)
+            pulumi.set(__self__, "override", override)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -325,19 +240,8 @@ class FirewallPolicyStatelessRuleGroupReferenceArgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[int],
                  resource_arn: pulumi.Input[str]):
-        FirewallPolicyStatelessRuleGroupReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            priority=priority,
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             priority: pulumi.Input[int],
-             resource_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("priority", priority)
-        _setter("resource_arn", resource_arn)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter
@@ -363,19 +267,8 @@ class FirewallPolicyTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        FirewallPolicyTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -407,43 +300,20 @@ class FirewallPolicyArgs:
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
                  stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None,
                  stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
-        FirewallPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stateless_default_actions=stateless_default_actions,
-            stateless_fragment_default_actions=stateless_fragment_default_actions,
-            policy_variables=policy_variables,
-            stateful_default_actions=stateful_default_actions,
-            stateful_engine_options=stateful_engine_options,
-            stateful_rule_group_references=stateful_rule_group_references,
-            stateless_custom_actions=stateless_custom_actions,
-            stateless_rule_group_references=stateless_rule_group_references,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             policy_variables: Optional[pulumi.Input['FirewallPolicyPolicyVariablesPropertiesArgs']] = None,
-             stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             stateful_engine_options: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs']] = None,
-             stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
-             stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None,
-             stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("stateless_default_actions", stateless_default_actions)
-        _setter("stateless_fragment_default_actions", stateless_fragment_default_actions)
+        pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
+        pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
-            _setter("policy_variables", policy_variables)
+            pulumi.set(__self__, "policy_variables", policy_variables)
         if stateful_default_actions is not None:
-            _setter("stateful_default_actions", stateful_default_actions)
+            pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
         if stateful_engine_options is not None:
-            _setter("stateful_engine_options", stateful_engine_options)
+            pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
         if stateful_rule_group_references is not None:
-            _setter("stateful_rule_group_references", stateful_rule_group_references)
+            pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
         if stateless_custom_actions is not None:
-            _setter("stateless_custom_actions", stateless_custom_actions)
+            pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
         if stateless_rule_group_references is not None:
-            _setter("stateless_rule_group_references", stateless_rule_group_references)
+            pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
@@ -527,20 +397,9 @@ class FirewallSubnetMappingArgs:
         :param pulumi.Input[str] subnet_id: A SubnetId.
         :param pulumi.Input[str] ip_address_type: A IPAddressType
         """
-        FirewallSubnetMappingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            subnet_id=subnet_id,
-            ip_address_type=ip_address_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             subnet_id: pulumi.Input[str],
-             ip_address_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("subnet_id", subnet_id)
+        pulumi.set(__self__, "subnet_id", subnet_id)
         if ip_address_type is not None:
-            _setter("ip_address_type", ip_address_type)
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -572,19 +431,8 @@ class FirewallTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        FirewallTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -614,22 +462,9 @@ class LoggingConfigurationLogDestinationConfigArgs:
         """
         :param Any log_destination: A key-value pair to configure the logDestinations.
         """
-        LoggingConfigurationLogDestinationConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_destination=log_destination,
-            log_destination_type=log_destination_type,
-            log_type=log_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_destination: Any,
-             log_destination_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType'],
-             log_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_destination", log_destination)
-        _setter("log_destination_type", log_destination_type)
-        _setter("log_type", log_type)
+        pulumi.set(__self__, "log_destination", log_destination)
+        pulumi.set(__self__, "log_destination_type", log_destination_type)
+        pulumi.set(__self__, "log_type", log_type)
 
     @property
     @pulumi.getter(name="logDestination")
@@ -666,16 +501,7 @@ class LoggingConfigurationLogDestinationConfigArgs:
 class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]):
-        LoggingConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_destination_configs=log_destination_configs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("log_destination_configs", log_destination_configs)
+        pulumi.set(__self__, "log_destination_configs", log_destination_configs)
 
     @property
     @pulumi.getter(name="logDestinationConfigs")
@@ -691,17 +517,8 @@ class LoggingConfigurationArgs:
 class RuleGroupActionDefinitionArgs:
     def __init__(__self__, *,
                  publish_metric_action: Optional[pulumi.Input['RuleGroupPublishMetricActionArgs']] = None):
-        RuleGroupActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            publish_metric_action=publish_metric_action,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             publish_metric_action: Optional[pulumi.Input['RuleGroupPublishMetricActionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if publish_metric_action is not None:
-            _setter("publish_metric_action", publish_metric_action)
+            pulumi.set(__self__, "publish_metric_action", publish_metric_action)
 
     @property
     @pulumi.getter(name="publishMetricAction")
@@ -717,16 +534,7 @@ class RuleGroupActionDefinitionArgs:
 class RuleGroupAddressArgs:
     def __init__(__self__, *,
                  address_definition: pulumi.Input[str]):
-        RuleGroupAddressArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_definition=address_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_definition: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("address_definition", address_definition)
+        pulumi.set(__self__, "address_definition", address_definition)
 
     @property
     @pulumi.getter(name="addressDefinition")
@@ -743,19 +551,8 @@ class RuleGroupCustomActionArgs:
     def __init__(__self__, *,
                  action_definition: pulumi.Input['RuleGroupActionDefinitionArgs'],
                  action_name: pulumi.Input[str]):
-        RuleGroupCustomActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action_definition=action_definition,
-            action_name=action_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action_definition: pulumi.Input['RuleGroupActionDefinitionArgs'],
-             action_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action_definition", action_definition)
-        _setter("action_name", action_name)
+        pulumi.set(__self__, "action_definition", action_definition)
+        pulumi.set(__self__, "action_name", action_name)
 
     @property
     @pulumi.getter(name="actionDefinition")
@@ -780,16 +577,7 @@ class RuleGroupCustomActionArgs:
 class RuleGroupDimensionArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
-        RuleGroupDimensionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("value", value)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -810,31 +598,12 @@ class RuleGroupHeaderArgs:
                  protocol: pulumi.Input['RuleGroupHeaderProtocol'],
                  source: pulumi.Input[str],
                  source_port: pulumi.Input[str]):
-        RuleGroupHeaderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            destination_port=destination_port,
-            direction=direction,
-            protocol=protocol,
-            source=source,
-            source_port=source_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input[str],
-             destination_port: pulumi.Input[str],
-             direction: pulumi.Input['RuleGroupHeaderDirection'],
-             protocol: pulumi.Input['RuleGroupHeaderProtocol'],
-             source: pulumi.Input[str],
-             source_port: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("destination_port", destination_port)
-        _setter("direction", direction)
-        _setter("protocol", protocol)
-        _setter("source", source)
-        _setter("source_port", source_port)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_port", destination_port)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "source_port", source_port)
 
     @property
     @pulumi.getter
@@ -900,37 +669,18 @@ class RuleGroupMatchAttributesArgs:
                  source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
                  tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]] = None):
-        RuleGroupMatchAttributesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_ports=destination_ports,
-            destinations=destinations,
-            protocols=protocols,
-            source_ports=source_ports,
-            sources=sources,
-            tcp_flags=tcp_flags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
-             destinations: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
-             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-             source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
-             tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_ports is not None:
-            _setter("destination_ports", destination_ports)
+            pulumi.set(__self__, "destination_ports", destination_ports)
         if destinations is not None:
-            _setter("destinations", destinations)
+            pulumi.set(__self__, "destinations", destinations)
         if protocols is not None:
-            _setter("protocols", protocols)
+            pulumi.set(__self__, "protocols", protocols)
         if source_ports is not None:
-            _setter("source_ports", source_ports)
+            pulumi.set(__self__, "source_ports", source_ports)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if tcp_flags is not None:
-            _setter("tcp_flags", tcp_flags)
+            pulumi.set(__self__, "tcp_flags", tcp_flags)
 
     @property
     @pulumi.getter(name="destinationPorts")
@@ -992,19 +742,8 @@ class RuleGroupPortRangeArgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  to_port: pulumi.Input[int]):
-        RuleGroupPortRangeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            from_port=from_port,
-            to_port=to_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             from_port: pulumi.Input[int],
-             to_port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("from_port", from_port)
-        _setter("to_port", to_port)
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
 
     @property
     @pulumi.getter(name="fromPort")
@@ -1029,16 +768,7 @@ class RuleGroupPortRangeArgs:
 class RuleGroupPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]):
-        RuleGroupPublishMetricActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dimensions=dimensions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dimensions", dimensions)
+        pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
@@ -1054,17 +784,8 @@ class RuleGroupPublishMetricActionArgs:
 class RuleGroupReferenceSetsArgs:
     def __init__(__self__, *,
                  ip_set_references: Optional[Any] = None):
-        RuleGroupReferenceSetsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_set_references=ip_set_references,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_set_references: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_set_references is not None:
-            _setter("ip_set_references", ip_set_references)
+            pulumi.set(__self__, "ip_set_references", ip_set_references)
 
     @property
     @pulumi.getter(name="ipSetReferences")
@@ -1081,19 +802,8 @@ class RuleGroupRuleDefinitionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  match_attributes: pulumi.Input['RuleGroupMatchAttributesArgs']):
-        RuleGroupRuleDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            match_attributes=match_attributes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: pulumi.Input[Sequence[pulumi.Input[str]]],
-             match_attributes: pulumi.Input['RuleGroupMatchAttributesArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("actions", actions)
-        _setter("match_attributes", match_attributes)
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "match_attributes", match_attributes)
 
     @property
     @pulumi.getter
@@ -1119,20 +829,9 @@ class RuleGroupRuleOptionArgs:
     def __init__(__self__, *,
                  keyword: pulumi.Input[str],
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        RuleGroupRuleOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            keyword=keyword,
-            settings=settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             keyword: pulumi.Input[str],
-             settings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("keyword", keyword)
+        pulumi.set(__self__, "keyword", keyword)
         if settings is not None:
-            _setter("settings", settings)
+            pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
@@ -1158,21 +857,10 @@ class RuleGroupRuleVariablesArgs:
     def __init__(__self__, *,
                  ip_sets: Optional[Any] = None,
                  port_sets: Optional[Any] = None):
-        RuleGroupRuleVariablesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_sets=ip_sets,
-            port_sets=port_sets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_sets: Optional[Any] = None,
-             port_sets: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ip_sets is not None:
-            _setter("ip_sets", ip_sets)
+            pulumi.set(__self__, "ip_sets", ip_sets)
         if port_sets is not None:
-            _setter("port_sets", port_sets)
+            pulumi.set(__self__, "port_sets", port_sets)
 
     @property
     @pulumi.getter(name="ipSets")
@@ -1199,22 +887,9 @@ class RuleGroupRulesSourceListArgs:
                  generated_rules_type: pulumi.Input['RuleGroupGeneratedRulesType'],
                  target_types: pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]],
                  targets: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        RuleGroupRulesSourceListArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            generated_rules_type=generated_rules_type,
-            target_types=target_types,
-            targets=targets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             generated_rules_type: pulumi.Input['RuleGroupGeneratedRulesType'],
-             target_types: pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]],
-             targets: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("generated_rules_type", generated_rules_type)
-        _setter("target_types", target_types)
-        _setter("targets", targets)
+        pulumi.set(__self__, "generated_rules_type", generated_rules_type)
+        pulumi.set(__self__, "target_types", target_types)
+        pulumi.set(__self__, "targets", targets)
 
     @property
     @pulumi.getter(name="generatedRulesType")
@@ -1251,29 +926,14 @@ class RuleGroupRulesSourceArgs:
                  rules_string: Optional[pulumi.Input[str]] = None,
                  stateful_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]] = None,
                  stateless_rules_and_custom_actions: Optional[pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs']] = None):
-        RuleGroupRulesSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules_source_list=rules_source_list,
-            rules_string=rules_string,
-            stateful_rules=stateful_rules,
-            stateless_rules_and_custom_actions=stateless_rules_and_custom_actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules_source_list: Optional[pulumi.Input['RuleGroupRulesSourceListArgs']] = None,
-             rules_string: Optional[pulumi.Input[str]] = None,
-             stateful_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]] = None,
-             stateless_rules_and_custom_actions: Optional[pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if rules_source_list is not None:
-            _setter("rules_source_list", rules_source_list)
+            pulumi.set(__self__, "rules_source_list", rules_source_list)
         if rules_string is not None:
-            _setter("rules_string", rules_string)
+            pulumi.set(__self__, "rules_string", rules_string)
         if stateful_rules is not None:
-            _setter("stateful_rules", stateful_rules)
+            pulumi.set(__self__, "stateful_rules", stateful_rules)
         if stateless_rules_and_custom_actions is not None:
-            _setter("stateless_rules_and_custom_actions", stateless_rules_and_custom_actions)
+            pulumi.set(__self__, "stateless_rules_and_custom_actions", stateless_rules_and_custom_actions)
 
     @property
     @pulumi.getter(name="rulesSourceList")
@@ -1316,17 +976,8 @@ class RuleGroupRulesSourceArgs:
 class RuleGroupStatefulRuleOptionsArgs:
     def __init__(__self__, *,
                  rule_order: Optional[pulumi.Input['RuleGroupRuleOrder']] = None):
-        RuleGroupStatefulRuleOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rule_order=rule_order,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rule_order: Optional[pulumi.Input['RuleGroupRuleOrder']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if rule_order is not None:
-            _setter("rule_order", rule_order)
+            pulumi.set(__self__, "rule_order", rule_order)
 
     @property
     @pulumi.getter(name="ruleOrder")
@@ -1344,22 +995,9 @@ class RuleGroupStatefulRuleArgs:
                  action: pulumi.Input['RuleGroupStatefulRuleAction'],
                  header: pulumi.Input['RuleGroupHeaderArgs'],
                  rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]):
-        RuleGroupStatefulRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            action=action,
-            header=header,
-            rule_options=rule_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             action: pulumi.Input['RuleGroupStatefulRuleAction'],
-             header: pulumi.Input['RuleGroupHeaderArgs'],
-             rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("action", action)
-        _setter("header", header)
-        _setter("rule_options", rule_options)
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "rule_options", rule_options)
 
     @property
     @pulumi.getter
@@ -1394,20 +1032,9 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
     def __init__(__self__, *,
                  stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]],
                  custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None):
-        RuleGroupStatelessRulesAndCustomActionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            stateless_rules=stateless_rules,
-            custom_actions=custom_actions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]],
-             custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("stateless_rules", stateless_rules)
+        pulumi.set(__self__, "stateless_rules", stateless_rules)
         if custom_actions is not None:
-            _setter("custom_actions", custom_actions)
+            pulumi.set(__self__, "custom_actions", custom_actions)
 
     @property
     @pulumi.getter(name="statelessRules")
@@ -1433,19 +1060,8 @@ class RuleGroupStatelessRuleArgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[int],
                  rule_definition: pulumi.Input['RuleGroupRuleDefinitionArgs']):
-        RuleGroupStatelessRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            priority=priority,
-            rule_definition=rule_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             priority: pulumi.Input[int],
-             rule_definition: pulumi.Input['RuleGroupRuleDefinitionArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("priority", priority)
-        _setter("rule_definition", rule_definition)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rule_definition", rule_definition)
 
     @property
     @pulumi.getter
@@ -1471,19 +1087,8 @@ class RuleGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        RuleGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1509,20 +1114,9 @@ class RuleGroupTcpFlagFieldArgs:
     def __init__(__self__, *,
                  flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]],
                  masks: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]] = None):
-        RuleGroupTcpFlagFieldArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            flags=flags,
-            masks=masks,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]],
-             masks: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlag']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("flags", flags)
+        pulumi.set(__self__, "flags", flags)
         if masks is not None:
-            _setter("masks", masks)
+            pulumi.set(__self__, "masks", masks)
 
     @property
     @pulumi.getter
@@ -1550,28 +1144,13 @@ class RuleGroupArgs:
                  reference_sets: Optional[pulumi.Input['RuleGroupReferenceSetsArgs']] = None,
                  rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None,
                  stateful_rule_options: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']] = None):
-        RuleGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules_source=rules_source,
-            reference_sets=reference_sets,
-            rule_variables=rule_variables,
-            stateful_rule_options=stateful_rule_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules_source: pulumi.Input['RuleGroupRulesSourceArgs'],
-             reference_sets: Optional[pulumi.Input['RuleGroupReferenceSetsArgs']] = None,
-             rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None,
-             stateful_rule_options: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rules_source", rules_source)
+        pulumi.set(__self__, "rules_source", rules_source)
         if reference_sets is not None:
-            _setter("reference_sets", reference_sets)
+            pulumi.set(__self__, "reference_sets", reference_sets)
         if rule_variables is not None:
-            _setter("rule_variables", rule_variables)
+            pulumi.set(__self__, "rule_variables", rule_variables)
         if stateful_rule_options is not None:
-            _setter("stateful_rule_options", stateful_rule_options)
+            pulumi.set(__self__, "stateful_rule_options", stateful_rule_options)
 
     @property
     @pulumi.getter(name="rulesSource")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -27,31 +27,14 @@ class DbProxyTargetGroupArgs:
         :param pulumi.Input[str] db_proxy_name: The identifier for the proxy.
         :param pulumi.Input['DbProxyTargetGroupTargetGroupName'] target_group_name: The identifier for the DBProxyTargetGroup
         """
-        DbProxyTargetGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            db_proxy_name=db_proxy_name,
-            target_group_name=target_group_name,
-            connection_pool_configuration_info=connection_pool_configuration_info,
-            db_cluster_identifiers=db_cluster_identifiers,
-            db_instance_identifiers=db_instance_identifiers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             db_proxy_name: pulumi.Input[str],
-             target_group_name: pulumi.Input['DbProxyTargetGroupTargetGroupName'],
-             connection_pool_configuration_info: Optional[pulumi.Input['DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs']] = None,
-             db_cluster_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             db_instance_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("db_proxy_name", db_proxy_name)
-        _setter("target_group_name", target_group_name)
+        pulumi.set(__self__, "db_proxy_name", db_proxy_name)
+        pulumi.set(__self__, "target_group_name", target_group_name)
         if connection_pool_configuration_info is not None:
-            _setter("connection_pool_configuration_info", connection_pool_configuration_info)
+            pulumi.set(__self__, "connection_pool_configuration_info", connection_pool_configuration_info)
         if db_cluster_identifiers is not None:
-            _setter("db_cluster_identifiers", db_cluster_identifiers)
+            pulumi.set(__self__, "db_cluster_identifiers", db_cluster_identifiers)
         if db_instance_identifiers is not None:
-            _setter("db_instance_identifiers", db_instance_identifiers)
+            pulumi.set(__self__, "db_instance_identifiers", db_instance_identifiers)
 
     @property
     @pulumi.getter(name="dbProxyName")
@@ -143,10 +126,6 @@ class DbProxyTargetGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DbProxyTargetGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -166,11 +145,6 @@ class DbProxyTargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DbProxyTargetGroupArgs.__new__(DbProxyTargetGroupArgs)
 
-            if connection_pool_configuration_info is not None and not isinstance(connection_pool_configuration_info, DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs):
-                connection_pool_configuration_info = connection_pool_configuration_info or {}
-                def _setter(key, value):
-                    connection_pool_configuration_info[key] = value
-                DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs._configure(_setter, **connection_pool_configuration_info)
             __props__.__dict__["connection_pool_configuration_info"] = connection_pool_configuration_info
             __props__.__dict__["db_cluster_identifiers"] = db_cluster_identifiers
             __props__.__dict__["db_instance_identifiers"] = db_instance_identifiers

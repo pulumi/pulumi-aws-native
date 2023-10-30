@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,31 +30,14 @@ class AnomalyDetectorArgs:
         :param pulumi.Input[str] anomaly_detector_name: Name for the Amazon Lookout for Metrics Anomaly Detector
         :param pulumi.Input[str] kms_key_arn: KMS key used to encrypt the AnomalyDetector data
         """
-        AnomalyDetectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            anomaly_detector_config=anomaly_detector_config,
-            metric_set_list=metric_set_list,
-            anomaly_detector_description=anomaly_detector_description,
-            anomaly_detector_name=anomaly_detector_name,
-            kms_key_arn=kms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             anomaly_detector_config: pulumi.Input['AnomalyDetectorConfigArgs'],
-             metric_set_list: pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricSetArgs']]],
-             anomaly_detector_description: Optional[pulumi.Input[str]] = None,
-             anomaly_detector_name: Optional[pulumi.Input[str]] = None,
-             kms_key_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("anomaly_detector_config", anomaly_detector_config)
-        _setter("metric_set_list", metric_set_list)
+        pulumi.set(__self__, "anomaly_detector_config", anomaly_detector_config)
+        pulumi.set(__self__, "metric_set_list", metric_set_list)
         if anomaly_detector_description is not None:
-            _setter("anomaly_detector_description", anomaly_detector_description)
+            pulumi.set(__self__, "anomaly_detector_description", anomaly_detector_description)
         if anomaly_detector_name is not None:
-            _setter("anomaly_detector_name", anomaly_detector_name)
+            pulumi.set(__self__, "anomaly_detector_name", anomaly_detector_name)
         if kms_key_arn is not None:
-            _setter("kms_key_arn", kms_key_arn)
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
 
     @property
     @pulumi.getter(name="anomalyDetectorConfig")
@@ -158,10 +141,6 @@ class AnomalyDetector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AnomalyDetectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -181,11 +160,6 @@ class AnomalyDetector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnomalyDetectorArgs.__new__(AnomalyDetectorArgs)
 
-            if anomaly_detector_config is not None and not isinstance(anomaly_detector_config, AnomalyDetectorConfigArgs):
-                anomaly_detector_config = anomaly_detector_config or {}
-                def _setter(key, value):
-                    anomaly_detector_config[key] = value
-                AnomalyDetectorConfigArgs._configure(_setter, **anomaly_detector_config)
             if anomaly_detector_config is None and not opts.urn:
                 raise TypeError("Missing required property 'anomaly_detector_config'")
             __props__.__dict__["anomaly_detector_config"] = anomaly_detector_config

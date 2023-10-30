@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DedicatedIpPoolArgs', 'DedicatedIpPool']
@@ -21,21 +21,10 @@ class DedicatedIpPoolArgs:
         :param pulumi.Input[str] pool_name: The name of the dedicated IP pool.
         :param pulumi.Input[str] scaling_mode: Specifies whether the dedicated IP pool is managed or not. The default value is STANDARD.
         """
-        DedicatedIpPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pool_name=pool_name,
-            scaling_mode=scaling_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pool_name: Optional[pulumi.Input[str]] = None,
-             scaling_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if pool_name is not None:
-            _setter("pool_name", pool_name)
+            pulumi.set(__self__, "pool_name", pool_name)
         if scaling_mode is not None:
-            _setter("scaling_mode", scaling_mode)
+            pulumi.set(__self__, "scaling_mode", scaling_mode)
 
     @property
     @pulumi.getter(name="poolName")
@@ -97,10 +86,6 @@ class DedicatedIpPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DedicatedIpPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

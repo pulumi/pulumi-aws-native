@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,25 +22,12 @@ class CoreDefinitionArgs:
         """
         The set of arguments for constructing a CoreDefinition resource.
         """
-        CoreDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            initial_version=initial_version,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             initial_version: Optional[pulumi.Input['CoreDefinitionVersionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if initial_version is not None:
-            _setter("initial_version", initial_version)
+            pulumi.set(__self__, "initial_version", initial_version)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="initialVersion")
@@ -109,10 +96,6 @@ class CoreDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CoreDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -131,11 +114,6 @@ class CoreDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CoreDefinitionArgs.__new__(CoreDefinitionArgs)
 
-            if initial_version is not None and not isinstance(initial_version, CoreDefinitionVersionArgs):
-                initial_version = initial_version or {}
-                def _setter(key, value):
-                    initial_version[key] = value
-                CoreDefinitionVersionArgs._configure(_setter, **initial_version)
             __props__.__dict__["initial_version"] = initial_version
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

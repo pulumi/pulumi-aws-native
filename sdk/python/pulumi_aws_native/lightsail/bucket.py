@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,40 +32,19 @@ class BucketArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources_receiving_access: The names of the Lightsail resources for which to set bucket access.
         :param pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        BucketArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bundle_id=bundle_id,
-            access_rules=access_rules,
-            bucket_name=bucket_name,
-            object_versioning=object_versioning,
-            read_only_access_accounts=read_only_access_accounts,
-            resources_receiving_access=resources_receiving_access,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bundle_id: pulumi.Input[str],
-             access_rules: Optional[pulumi.Input['BucketAccessRulesArgs']] = None,
-             bucket_name: Optional[pulumi.Input[str]] = None,
-             object_versioning: Optional[pulumi.Input[bool]] = None,
-             read_only_access_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resources_receiving_access: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BucketTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bundle_id", bundle_id)
+        pulumi.set(__self__, "bundle_id", bundle_id)
         if access_rules is not None:
-            _setter("access_rules", access_rules)
+            pulumi.set(__self__, "access_rules", access_rules)
         if bucket_name is not None:
-            _setter("bucket_name", bucket_name)
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if object_versioning is not None:
-            _setter("object_versioning", object_versioning)
+            pulumi.set(__self__, "object_versioning", object_versioning)
         if read_only_access_accounts is not None:
-            _setter("read_only_access_accounts", read_only_access_accounts)
+            pulumi.set(__self__, "read_only_access_accounts", read_only_access_accounts)
         if resources_receiving_access is not None:
-            _setter("resources_receiving_access", resources_receiving_access)
+            pulumi.set(__self__, "resources_receiving_access", resources_receiving_access)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bundleId")
@@ -193,10 +172,6 @@ class Bucket(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BucketArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -218,11 +193,6 @@ class Bucket(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketArgs.__new__(BucketArgs)
 
-            if access_rules is not None and not isinstance(access_rules, BucketAccessRulesArgs):
-                access_rules = access_rules or {}
-                def _setter(key, value):
-                    access_rules[key] = value
-                BucketAccessRulesArgs._configure(_setter, **access_rules)
             __props__.__dict__["access_rules"] = access_rules
             __props__.__dict__["bucket_name"] = bucket_name
             if bundle_id is None and not opts.urn:

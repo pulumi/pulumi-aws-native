@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,43 +33,20 @@ class VpcEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
         """
-        VpcEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_name=service_name,
-            vpc_id=vpc_id,
-            policy_document=policy_document,
-            private_dns_enabled=private_dns_enabled,
-            route_table_ids=route_table_ids,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-            vpc_endpoint_type=vpc_endpoint_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_name: pulumi.Input[str],
-             vpc_id: pulumi.Input[str],
-             policy_document: Optional[pulumi.Input[str]] = None,
-             private_dns_enabled: Optional[pulumi.Input[bool]] = None,
-             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("service_name", service_name)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "service_name", service_name)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if policy_document is not None:
-            _setter("policy_document", policy_document)
+            pulumi.set(__self__, "policy_document", policy_document)
         if private_dns_enabled is not None:
-            _setter("private_dns_enabled", private_dns_enabled)
+            pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
         if route_table_ids is not None:
-            _setter("route_table_ids", route_table_ids)
+            pulumi.set(__self__, "route_table_ids", route_table_ids)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_endpoint_type is not None:
-            _setter("vpc_endpoint_type", vpc_endpoint_type)
+            pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
 
     @property
     @pulumi.getter(name="serviceName")
@@ -211,10 +188,6 @@ class VpcEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

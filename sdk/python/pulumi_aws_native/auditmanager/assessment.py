@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,53 +33,26 @@ class AssessmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: The list of roles for the specified assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]] tags: The tags associated with the assessment.
         """
-        AssessmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            assessment_reports_destination=assessment_reports_destination,
-            aws_account=aws_account,
-            delegations=delegations,
-            description=description,
-            framework_id=framework_id,
-            name=name,
-            roles=roles,
-            scope=scope,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             assessment_reports_destination: Optional[pulumi.Input['AssessmentReportsDestinationArgs']] = None,
-             aws_account: Optional[pulumi.Input['AssessmentAwsAccountArgs']] = None,
-             delegations: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             framework_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
-             scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
-             status: Optional[pulumi.Input['AssessmentStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if assessment_reports_destination is not None:
-            _setter("assessment_reports_destination", assessment_reports_destination)
+            pulumi.set(__self__, "assessment_reports_destination", assessment_reports_destination)
         if aws_account is not None:
-            _setter("aws_account", aws_account)
+            pulumi.set(__self__, "aws_account", aws_account)
         if delegations is not None:
-            _setter("delegations", delegations)
+            pulumi.set(__self__, "delegations", delegations)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if framework_id is not None:
-            _setter("framework_id", framework_id)
+            pulumi.set(__self__, "framework_id", framework_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="assessmentReportsDestination")
@@ -225,10 +198,6 @@ class Assessment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AssessmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -253,28 +222,13 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-            if assessment_reports_destination is not None and not isinstance(assessment_reports_destination, AssessmentReportsDestinationArgs):
-                assessment_reports_destination = assessment_reports_destination or {}
-                def _setter(key, value):
-                    assessment_reports_destination[key] = value
-                AssessmentReportsDestinationArgs._configure(_setter, **assessment_reports_destination)
             __props__.__dict__["assessment_reports_destination"] = assessment_reports_destination
-            if aws_account is not None and not isinstance(aws_account, AssessmentAwsAccountArgs):
-                aws_account = aws_account or {}
-                def _setter(key, value):
-                    aws_account[key] = value
-                AssessmentAwsAccountArgs._configure(_setter, **aws_account)
             __props__.__dict__["aws_account"] = aws_account
             __props__.__dict__["delegations"] = delegations
             __props__.__dict__["description"] = description
             __props__.__dict__["framework_id"] = framework_id
             __props__.__dict__["name"] = name
             __props__.__dict__["roles"] = roles
-            if scope is not None and not isinstance(scope, AssessmentScopeArgs):
-                scope = scope or {}
-                def _setter(key, value):
-                    scope[key] = value
-                AssessmentScopeArgs._configure(_setter, **scope)
             __props__.__dict__["scope"] = scope
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags

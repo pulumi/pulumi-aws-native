@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,44 +28,21 @@ class AuthorizerArgs:
         """
         The set of arguments for constructing a Authorizer resource.
         """
-        AuthorizerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorizer_function_arn=authorizer_function_arn,
-            authorizer_name=authorizer_name,
-            enable_caching_for_http=enable_caching_for_http,
-            signing_disabled=signing_disabled,
-            status=status,
-            tags=tags,
-            token_key_name=token_key_name,
-            token_signing_public_keys=token_signing_public_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorizer_function_arn: pulumi.Input[str],
-             authorizer_name: Optional[pulumi.Input[str]] = None,
-             enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
-             signing_disabled: Optional[pulumi.Input[bool]] = None,
-             status: Optional[pulumi.Input['AuthorizerStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
-             token_key_name: Optional[pulumi.Input[str]] = None,
-             token_signing_public_keys: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("authorizer_function_arn", authorizer_function_arn)
+        pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
         if authorizer_name is not None:
-            _setter("authorizer_name", authorizer_name)
+            pulumi.set(__self__, "authorizer_name", authorizer_name)
         if enable_caching_for_http is not None:
-            _setter("enable_caching_for_http", enable_caching_for_http)
+            pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if signing_disabled is not None:
-            _setter("signing_disabled", signing_disabled)
+            pulumi.set(__self__, "signing_disabled", signing_disabled)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if token_key_name is not None:
-            _setter("token_key_name", token_key_name)
+            pulumi.set(__self__, "token_key_name", token_key_name)
         if token_signing_public_keys is not None:
-            _setter("token_signing_public_keys", token_signing_public_keys)
+            pulumi.set(__self__, "token_signing_public_keys", token_signing_public_keys)
 
     @property
     @pulumi.getter(name="authorizerFunctionArn")
@@ -179,10 +156,6 @@ class Authorizer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AuthorizerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

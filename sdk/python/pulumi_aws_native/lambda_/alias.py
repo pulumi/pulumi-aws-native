@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,35 +25,16 @@ class AliasArgs:
         """
         The set of arguments for constructing a Alias resource.
         """
-        AliasArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_name=function_name,
-            function_version=function_version,
-            description=description,
-            name=name,
-            provisioned_concurrency_config=provisioned_concurrency_config,
-            routing_config=routing_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_name: pulumi.Input[str],
-             function_version: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             provisioned_concurrency_config: Optional[pulumi.Input['AliasProvisionedConcurrencyConfigurationArgs']] = None,
-             routing_config: Optional[pulumi.Input['AliasRoutingConfigurationArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_name", function_name)
-        _setter("function_version", function_version)
+        pulumi.set(__self__, "function_name", function_name)
+        pulumi.set(__self__, "function_version", function_version)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if provisioned_concurrency_config is not None:
-            _setter("provisioned_concurrency_config", provisioned_concurrency_config)
+            pulumi.set(__self__, "provisioned_concurrency_config", provisioned_concurrency_config)
         if routing_config is not None:
-            _setter("routing_config", routing_config)
+            pulumi.set(__self__, "routing_config", routing_config)
 
     @property
     @pulumi.getter(name="functionName")
@@ -152,10 +133,6 @@ class Alias(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AliasArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -185,17 +162,7 @@ class Alias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_version'")
             __props__.__dict__["function_version"] = function_version
             __props__.__dict__["name"] = name
-            if provisioned_concurrency_config is not None and not isinstance(provisioned_concurrency_config, AliasProvisionedConcurrencyConfigurationArgs):
-                provisioned_concurrency_config = provisioned_concurrency_config or {}
-                def _setter(key, value):
-                    provisioned_concurrency_config[key] = value
-                AliasProvisionedConcurrencyConfigurationArgs._configure(_setter, **provisioned_concurrency_config)
             __props__.__dict__["provisioned_concurrency_config"] = provisioned_concurrency_config
-            if routing_config is not None and not isinstance(routing_config, AliasRoutingConfigurationArgs):
-                routing_config = routing_config or {}
-                def _setter(key, value):
-                    routing_config[key] = value
-                AliasRoutingConfigurationArgs._configure(_setter, **routing_config)
             __props__.__dict__["routing_config"] = routing_config
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["function_name", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

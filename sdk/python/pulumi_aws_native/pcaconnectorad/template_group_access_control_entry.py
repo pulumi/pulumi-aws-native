@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -24,27 +24,12 @@ class TemplateGroupAccessControlEntryArgs:
         """
         The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
         """
-        TemplateGroupAccessControlEntryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_rights=access_rights,
-            group_display_name=group_display_name,
-            group_security_identifier=group_security_identifier,
-            template_arn=template_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_rights: pulumi.Input['TemplateGroupAccessControlEntryAccessRightsArgs'],
-             group_display_name: pulumi.Input[str],
-             group_security_identifier: Optional[pulumi.Input[str]] = None,
-             template_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("access_rights", access_rights)
-        _setter("group_display_name", group_display_name)
+        pulumi.set(__self__, "access_rights", access_rights)
+        pulumi.set(__self__, "group_display_name", group_display_name)
         if group_security_identifier is not None:
-            _setter("group_security_identifier", group_security_identifier)
+            pulumi.set(__self__, "group_security_identifier", group_security_identifier)
         if template_arn is not None:
-            _setter("template_arn", template_arn)
+            pulumi.set(__self__, "template_arn", template_arn)
 
     @property
     @pulumi.getter(name="accessRights")
@@ -118,10 +103,6 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TemplateGroupAccessControlEntryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -140,11 +121,6 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateGroupAccessControlEntryArgs.__new__(TemplateGroupAccessControlEntryArgs)
 
-            if access_rights is not None and not isinstance(access_rights, TemplateGroupAccessControlEntryAccessRightsArgs):
-                access_rights = access_rights or {}
-                def _setter(key, value):
-                    access_rights[key] = value
-                TemplateGroupAccessControlEntryAccessRightsArgs._configure(_setter, **access_rights)
             if access_rights is None and not opts.urn:
                 raise TypeError("Missing required property 'access_rights'")
             __props__.__dict__["access_rights"] = access_rights

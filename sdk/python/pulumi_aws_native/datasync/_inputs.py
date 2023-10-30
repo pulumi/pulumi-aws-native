@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -66,19 +66,8 @@ class AgentTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        AgentTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -113,16 +102,7 @@ class LocationAzureBlobAzureBlobSasConfigurationArgs:
         Specifies the shared access signature (SAS) that DataSync uses to access your Azure Blob Storage container.
         :param pulumi.Input[str] azure_blob_sas_token: Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
         """
-        LocationAzureBlobAzureBlobSasConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            azure_blob_sas_token=azure_blob_sas_token,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             azure_blob_sas_token: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("azure_blob_sas_token", azure_blob_sas_token)
+        pulumi.set(__self__, "azure_blob_sas_token", azure_blob_sas_token)
 
     @property
     @pulumi.getter(name="azureBlobSasToken")
@@ -147,19 +127,8 @@ class LocationAzureBlobTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationAzureBlobTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -196,19 +165,8 @@ class LocationEfsEc2ConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
         :param pulumi.Input[str] subnet_arn: The ARN of the subnet that DataSync uses to access the target EFS file system.
         """
-        LocationEfsEc2ConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_arns=security_group_arns,
-            subnet_arn=subnet_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             subnet_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("security_group_arns", security_group_arns)
-        _setter("subnet_arn", subnet_arn)
+        pulumi.set(__self__, "security_group_arns", security_group_arns)
+        pulumi.set(__self__, "subnet_arn", subnet_arn)
 
     @property
     @pulumi.getter(name="securityGroupArns")
@@ -245,19 +203,8 @@ class LocationEfsTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationEfsTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -294,19 +241,8 @@ class LocationFSxLustreTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationFSxLustreTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -341,17 +277,8 @@ class LocationFSxOntapNfsMountOptionsArgs:
         The NFS mount options that DataSync can use to mount your NFS share.
         :param pulumi.Input['LocationFSxOntapNfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
-        LocationFSxOntapNfsMountOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[pulumi.Input['LocationFSxOntapNfsMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -373,16 +300,7 @@ class LocationFSxOntapNfsArgs:
         """
         NFS protocol configuration for FSx ONTAP file system.
         """
-        LocationFSxOntapNfsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mount_options=mount_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mount_options: pulumi.Input['LocationFSxOntapNfsMountOptionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mount_options", mount_options)
+        pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -402,21 +320,10 @@ class LocationFSxOntapProtocolArgs:
         """
         Configuration settings for NFS or SMB protocol.
         """
-        LocationFSxOntapProtocolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nfs=nfs,
-            smb=smb,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nfs: Optional[pulumi.Input['LocationFSxOntapNfsArgs']] = None,
-             smb: Optional[pulumi.Input['LocationFSxOntapSmbArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if nfs is not None:
-            _setter("nfs", nfs)
+            pulumi.set(__self__, "nfs", nfs)
         if smb is not None:
-            _setter("smb", smb)
+            pulumi.set(__self__, "smb", smb)
 
     @property
     @pulumi.getter
@@ -445,17 +352,8 @@ class LocationFSxOntapSmbMountOptionsArgs:
         The mount options used by DataSync to access the SMB server.
         :param pulumi.Input['LocationFSxOntapSmbMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
-        LocationFSxOntapSmbMountOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[pulumi.Input['LocationFSxOntapSmbMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -483,26 +381,11 @@ class LocationFSxOntapSmbArgs:
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
         """
-        LocationFSxOntapSmbArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mount_options=mount_options,
-            password=password,
-            user=user,
-            domain=domain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mount_options: pulumi.Input['LocationFSxOntapSmbMountOptionsArgs'],
-             password: pulumi.Input[str],
-             user: pulumi.Input[str],
-             domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mount_options", mount_options)
-        _setter("password", password)
-        _setter("user", user)
+        pulumi.set(__self__, "mount_options", mount_options)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "user", user)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -560,19 +443,8 @@ class LocationFSxOntapTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationFSxOntapTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -607,17 +479,8 @@ class LocationFSxOpenZfsMountOptionsArgs:
         The NFS mount options that DataSync can use to mount your NFS share.
         :param pulumi.Input['LocationFSxOpenZfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
-        LocationFSxOpenZfsMountOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[pulumi.Input['LocationFSxOpenZfsMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -639,16 +502,7 @@ class LocationFSxOpenZfsNfsArgs:
         """
         FSx OpenZFS file system NFS protocol information
         """
-        LocationFSxOpenZfsNfsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mount_options=mount_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mount_options: pulumi.Input['LocationFSxOpenZfsMountOptionsArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("mount_options", mount_options)
+        pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
@@ -667,17 +521,8 @@ class LocationFSxOpenZfsProtocolArgs:
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
         """
-        LocationFSxOpenZfsProtocolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nfs=nfs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nfs: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if nfs is not None:
-            _setter("nfs", nfs)
+            pulumi.set(__self__, "nfs", nfs)
 
     @property
     @pulumi.getter
@@ -699,19 +544,8 @@ class LocationFSxOpenZfsTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationFSxOpenZfsTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -748,19 +582,8 @@ class LocationFSxWindowsTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationFSxWindowsTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -797,19 +620,8 @@ class LocationHdfsNameNodeArgs:
         :param pulumi.Input[str] hostname: The DNS name or IP address of the Name Node in the customer's on premises HDFS cluster.
         :param pulumi.Input[int] port: The port on which the Name Node is listening on for client requests.
         """
-        LocationHdfsNameNodeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hostname=hostname,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hostname: pulumi.Input[str],
-             port: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hostname", hostname)
-        _setter("port", port)
+        pulumi.set(__self__, "hostname", hostname)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -846,21 +658,10 @@ class LocationHdfsQopConfigurationArgs:
         :param pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection'] data_transfer_protection: Configuration for Data Transfer Protection.
         :param pulumi.Input['LocationHdfsQopConfigurationRpcProtection'] rpc_protection: Configuration for RPC Protection.
         """
-        LocationHdfsQopConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_transfer_protection=data_transfer_protection,
-            rpc_protection=rpc_protection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_transfer_protection: Optional[pulumi.Input['LocationHdfsQopConfigurationDataTransferProtection']] = None,
-             rpc_protection: Optional[pulumi.Input['LocationHdfsQopConfigurationRpcProtection']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_transfer_protection is not None:
-            _setter("data_transfer_protection", data_transfer_protection)
+            pulumi.set(__self__, "data_transfer_protection", data_transfer_protection)
         if rpc_protection is not None:
-            _setter("rpc_protection", rpc_protection)
+            pulumi.set(__self__, "rpc_protection", rpc_protection)
 
     @property
     @pulumi.getter(name="dataTransferProtection")
@@ -897,19 +698,8 @@ class LocationHdfsTagArgs:
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        LocationHdfsTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -944,17 +734,8 @@ class LocationNfsMountOptionsArgs:
         The NFS mount options that DataSync can use to mount your NFS share.
         :param pulumi.Input['LocationNfsMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
-        LocationNfsMountOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[pulumi.Input['LocationNfsMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -977,16 +758,7 @@ class LocationNfsOnPremConfigArgs:
         Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: ARN(s) of the agent(s) to use for an NFS location.
         """
-        LocationNfsOnPremConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            agent_arns=agent_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("agent_arns", agent_arns)
+        pulumi.set(__self__, "agent_arns", agent_arns)
 
     @property
     @pulumi.getter(name="agentArns")
@@ -1011,19 +783,8 @@ class LocationNfsTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationNfsTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1060,19 +821,8 @@ class LocationObjectStorageTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationObjectStorageTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1109,19 +859,8 @@ class LocationS3TagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationS3TagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1156,16 +895,7 @@ class LocationS3s3ConfigArgs:
         The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
         :param pulumi.Input[str] bucket_access_role_arn: The ARN of the IAM role of the Amazon S3 bucket.
         """
-        LocationS3s3ConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_access_role_arn=bucket_access_role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_access_role_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_access_role_arn", bucket_access_role_arn)
+        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
 
     @property
     @pulumi.getter(name="bucketAccessRoleArn")
@@ -1188,17 +918,8 @@ class LocationSmbMountOptionsArgs:
         The mount options used by DataSync to access the SMB server.
         :param pulumi.Input['LocationSmbMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
-        LocationSmbMountOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             version: Optional[pulumi.Input['LocationSmbMountOptionsVersion']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -1223,19 +944,8 @@ class LocationSmbTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        LocationSmbTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1272,20 +982,9 @@ class StorageSystemServerConfigurationArgs:
         :param pulumi.Input[str] server_hostname: The domain name or IP address of the storage system's management interface.
         :param pulumi.Input[int] server_port: The network port needed to access the system's management interface
         """
-        StorageSystemServerConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_hostname=server_hostname,
-            server_port=server_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_hostname: pulumi.Input[str],
-             server_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("server_hostname", server_hostname)
+        pulumi.set(__self__, "server_hostname", server_hostname)
         if server_port is not None:
-            _setter("server_port", server_port)
+            pulumi.set(__self__, "server_port", server_port)
 
     @property
     @pulumi.getter(name="serverHostname")
@@ -1322,19 +1021,8 @@ class StorageSystemServerCredentialsArgs:
         :param pulumi.Input[str] password: The password for your storage system's management interface
         :param pulumi.Input[str] username: The username for your storage system's management interface.
         """
-        StorageSystemServerCredentialsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            password=password,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             password: pulumi.Input[str],
-             username: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("password", password)
-        _setter("username", username)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -1371,19 +1059,8 @@ class StorageSystemTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        StorageSystemTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1420,21 +1097,10 @@ class TaskFilterRuleArgs:
         :param pulumi.Input['TaskFilterRuleFilterType'] filter_type: The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
         :param pulumi.Input[str] value: A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
         """
-        TaskFilterRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filter_type=filter_type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filter_type: Optional[pulumi.Input['TaskFilterRuleFilterType']] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if filter_type is not None:
-            _setter("filter_type", filter_type)
+            pulumi.set(__self__, "filter_type", filter_type)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="filterType")
@@ -1497,73 +1163,36 @@ class TaskOptionsArgs:
         :param pulumi.Input['TaskOptionsUid'] uid: The user ID (UID) of the file's owner.
         :param pulumi.Input['TaskOptionsVerifyMode'] verify_mode: A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         """
-        TaskOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            atime=atime,
-            bytes_per_second=bytes_per_second,
-            gid=gid,
-            log_level=log_level,
-            mtime=mtime,
-            object_tags=object_tags,
-            overwrite_mode=overwrite_mode,
-            posix_permissions=posix_permissions,
-            preserve_deleted_files=preserve_deleted_files,
-            preserve_devices=preserve_devices,
-            security_descriptor_copy_flags=security_descriptor_copy_flags,
-            task_queueing=task_queueing,
-            transfer_mode=transfer_mode,
-            uid=uid,
-            verify_mode=verify_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             atime: Optional[pulumi.Input['TaskOptionsAtime']] = None,
-             bytes_per_second: Optional[pulumi.Input[int]] = None,
-             gid: Optional[pulumi.Input['TaskOptionsGid']] = None,
-             log_level: Optional[pulumi.Input['TaskOptionsLogLevel']] = None,
-             mtime: Optional[pulumi.Input['TaskOptionsMtime']] = None,
-             object_tags: Optional[pulumi.Input['TaskOptionsObjectTags']] = None,
-             overwrite_mode: Optional[pulumi.Input['TaskOptionsOverwriteMode']] = None,
-             posix_permissions: Optional[pulumi.Input['TaskOptionsPosixPermissions']] = None,
-             preserve_deleted_files: Optional[pulumi.Input['TaskOptionsPreserveDeletedFiles']] = None,
-             preserve_devices: Optional[pulumi.Input['TaskOptionsPreserveDevices']] = None,
-             security_descriptor_copy_flags: Optional[pulumi.Input['TaskOptionsSecurityDescriptorCopyFlags']] = None,
-             task_queueing: Optional[pulumi.Input['TaskOptionsTaskQueueing']] = None,
-             transfer_mode: Optional[pulumi.Input['TaskOptionsTransferMode']] = None,
-             uid: Optional[pulumi.Input['TaskOptionsUid']] = None,
-             verify_mode: Optional[pulumi.Input['TaskOptionsVerifyMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if atime is not None:
-            _setter("atime", atime)
+            pulumi.set(__self__, "atime", atime)
         if bytes_per_second is not None:
-            _setter("bytes_per_second", bytes_per_second)
+            pulumi.set(__self__, "bytes_per_second", bytes_per_second)
         if gid is not None:
-            _setter("gid", gid)
+            pulumi.set(__self__, "gid", gid)
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
-            _setter("mtime", mtime)
+            pulumi.set(__self__, "mtime", mtime)
         if object_tags is not None:
-            _setter("object_tags", object_tags)
+            pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
-            _setter("overwrite_mode", overwrite_mode)
+            pulumi.set(__self__, "overwrite_mode", overwrite_mode)
         if posix_permissions is not None:
-            _setter("posix_permissions", posix_permissions)
+            pulumi.set(__self__, "posix_permissions", posix_permissions)
         if preserve_deleted_files is not None:
-            _setter("preserve_deleted_files", preserve_deleted_files)
+            pulumi.set(__self__, "preserve_deleted_files", preserve_deleted_files)
         if preserve_devices is not None:
-            _setter("preserve_devices", preserve_devices)
+            pulumi.set(__self__, "preserve_devices", preserve_devices)
         if security_descriptor_copy_flags is not None:
-            _setter("security_descriptor_copy_flags", security_descriptor_copy_flags)
+            pulumi.set(__self__, "security_descriptor_copy_flags", security_descriptor_copy_flags)
         if task_queueing is not None:
-            _setter("task_queueing", task_queueing)
+            pulumi.set(__self__, "task_queueing", task_queueing)
         if transfer_mode is not None:
-            _setter("transfer_mode", transfer_mode)
+            pulumi.set(__self__, "transfer_mode", transfer_mode)
         if uid is not None:
-            _setter("uid", uid)
+            pulumi.set(__self__, "uid", uid)
         if verify_mode is not None:
-            _setter("verify_mode", verify_mode)
+            pulumi.set(__self__, "verify_mode", verify_mode)
 
     @property
     @pulumi.getter
@@ -1758,25 +1387,12 @@ class TaskReportConfigDestinationPropertiesS3PropertiesArgs:
         :param pulumi.Input[str] s3_bucket_arn: Specifies the ARN of the S3 bucket where Datasync uploads your report.
         :param pulumi.Input[str] subdirectory: Specifies a bucket prefix for your report.
         """
-        TaskReportConfigDestinationPropertiesS3PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_access_role_arn=bucket_access_role_arn,
-            s3_bucket_arn=s3_bucket_arn,
-            subdirectory=subdirectory,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_access_role_arn: Optional[pulumi.Input[str]] = None,
-             s3_bucket_arn: Optional[pulumi.Input[str]] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket_access_role_arn is not None:
-            _setter("bucket_access_role_arn", bucket_access_role_arn)
+            pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
         if s3_bucket_arn is not None:
-            _setter("s3_bucket_arn", s3_bucket_arn)
+            pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
 
     @property
     @pulumi.getter(name="bucketAccessRoleArn")
@@ -1823,17 +1439,8 @@ class TaskReportConfigDestinationPropertiesArgs:
         Specifies where DataSync uploads your task report.
         :param pulumi.Input['TaskReportConfigDestinationPropertiesS3PropertiesArgs'] s3: Specifies the Amazon S3 bucket where DataSync uploads your task report.
         """
-        TaskReportConfigDestinationPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3=s3,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3: Optional[pulumi.Input['TaskReportConfigDestinationPropertiesS3PropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
@@ -1856,17 +1463,8 @@ class TaskReportConfigOverridesPropertiesDeletedPropertiesArgs:
         Specifies the level of reporting for the files, objects, and directories that Datasync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source.
         :param pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel'] report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
         """
-        TaskReportConfigOverridesPropertiesDeletedPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            report_level=report_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if report_level is not None:
-            _setter("report_level", report_level)
+            pulumi.set(__self__, "report_level", report_level)
 
     @property
     @pulumi.getter(name="reportLevel")
@@ -1889,17 +1487,8 @@ class TaskReportConfigOverridesPropertiesSkippedPropertiesArgs:
         Specifies the level of reporting for the files, objects, and directories that Datasync attempted to skip during your transfer.
         :param pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel'] report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
         """
-        TaskReportConfigOverridesPropertiesSkippedPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            report_level=report_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if report_level is not None:
-            _setter("report_level", report_level)
+            pulumi.set(__self__, "report_level", report_level)
 
     @property
     @pulumi.getter(name="reportLevel")
@@ -1922,17 +1511,8 @@ class TaskReportConfigOverridesPropertiesTransferredPropertiesArgs:
         Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
         :param pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel'] report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
         """
-        TaskReportConfigOverridesPropertiesTransferredPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            report_level=report_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if report_level is not None:
-            _setter("report_level", report_level)
+            pulumi.set(__self__, "report_level", report_level)
 
     @property
     @pulumi.getter(name="reportLevel")
@@ -1955,17 +1535,8 @@ class TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs:
         Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
         :param pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel'] report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
         """
-        TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            report_level=report_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             report_level: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if report_level is not None:
-            _setter("report_level", report_level)
+            pulumi.set(__self__, "report_level", report_level)
 
     @property
     @pulumi.getter(name="reportLevel")
@@ -1994,29 +1565,14 @@ class TaskReportConfigOverridesPropertiesArgs:
         :param pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesArgs'] transferred: Specifies the level of reporting for the files, objects, and directories that Datasync attempted to transfer.
         :param pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs'] verified: Specifies the level of reporting for the files, objects, and directories that Datasync attempted to verify at the end of your transfer. This only applies if you configure your task to verify data during and after the transfer (which Datasync does by default)
         """
-        TaskReportConfigOverridesPropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deleted=deleted,
-            skipped=skipped,
-            transferred=transferred,
-            verified=verified,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deleted: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesDeletedPropertiesArgs']] = None,
-             skipped: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesSkippedPropertiesArgs']] = None,
-             transferred: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesTransferredPropertiesArgs']] = None,
-             verified: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesVerifiedPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if deleted is not None:
-            _setter("deleted", deleted)
+            pulumi.set(__self__, "deleted", deleted)
         if skipped is not None:
-            _setter("skipped", skipped)
+            pulumi.set(__self__, "skipped", skipped)
         if transferred is not None:
-            _setter("transferred", transferred)
+            pulumi.set(__self__, "transferred", transferred)
         if verified is not None:
-            _setter("verified", verified)
+            pulumi.set(__self__, "verified", verified)
 
     @property
     @pulumi.getter
@@ -2083,31 +1639,14 @@ class TaskReportConfigArgs:
         :param pulumi.Input['TaskReportConfigOverridesPropertiesArgs'] overrides: Customizes the reporting level for aspects of your task report. For example, your report might generally only include errors, but you could specify that you want a list of successes and errors just for the files that Datasync attempted to delete in your destination location.
         :param pulumi.Input['TaskReportConfigReportLevel'] report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't.
         """
-        TaskReportConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-            output_type=output_type,
-            object_version_ids=object_version_ids,
-            overrides=overrides,
-            report_level=report_level,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: pulumi.Input['TaskReportConfigDestinationPropertiesArgs'],
-             output_type: pulumi.Input['TaskReportConfigOutputType'],
-             object_version_ids: Optional[pulumi.Input['TaskReportConfigObjectVersionIds']] = None,
-             overrides: Optional[pulumi.Input['TaskReportConfigOverridesPropertiesArgs']] = None,
-             report_level: Optional[pulumi.Input['TaskReportConfigReportLevel']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
-        _setter("output_type", output_type)
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "output_type", output_type)
         if object_version_ids is not None:
-            _setter("object_version_ids", object_version_ids)
+            pulumi.set(__self__, "object_version_ids", object_version_ids)
         if overrides is not None:
-            _setter("overrides", overrides)
+            pulumi.set(__self__, "overrides", overrides)
         if report_level is not None:
-            _setter("report_level", report_level)
+            pulumi.set(__self__, "report_level", report_level)
 
     @property
     @pulumi.getter
@@ -2178,16 +1717,7 @@ class TaskScheduleArgs:
         Specifies the schedule you want your task to use for repeated executions.
         :param pulumi.Input[str] schedule_expression: A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         """
-        TaskScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            schedule_expression=schedule_expression,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             schedule_expression: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("schedule_expression", schedule_expression)
+        pulumi.set(__self__, "schedule_expression", schedule_expression)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -2212,19 +1742,8 @@ class TaskTagArgs:
         :param pulumi.Input[str] key: The key for an AWS resource tag.
         :param pulumi.Input[str] value: The value for an AWS resource tag.
         """
-        TaskTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

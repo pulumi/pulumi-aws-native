@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,32 +30,15 @@ class KeyPairArgs:
         :param pulumi.Input[str] public_key_material: Plain text public key to import
         :param pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        KeyPairArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_name=key_name,
-            key_format=key_format,
-            key_type=key_type,
-            public_key_material=public_key_material,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_name: pulumi.Input[str],
-             key_format: Optional[pulumi.Input['KeyPairKeyFormat']] = None,
-             key_type: Optional[pulumi.Input['KeyPairKeyType']] = None,
-             public_key_material: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyPairTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key_name", key_name)
+        pulumi.set(__self__, "key_name", key_name)
         if key_format is not None:
-            _setter("key_format", key_format)
+            pulumi.set(__self__, "key_format", key_format)
         if key_type is not None:
-            _setter("key_type", key_type)
+            pulumi.set(__self__, "key_type", key_type)
         if public_key_material is not None:
-            _setter("public_key_material", public_key_material)
+            pulumi.set(__self__, "public_key_material", public_key_material)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="keyName")
@@ -159,10 +142,6 @@ class KeyPair(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KeyPairArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

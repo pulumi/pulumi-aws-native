@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,29 +28,14 @@ class SignalingChannelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SignalingChannelTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['SignalingChannelType'] type: The type of the Kinesis Video Signaling Channel to create. Currently, SINGLE_MASTER is the only supported channel type.
         """
-        SignalingChannelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            message_ttl_seconds=message_ttl_seconds,
-            name=name,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             message_ttl_seconds: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SignalingChannelTagArgs']]]] = None,
-             type: Optional[pulumi.Input['SignalingChannelType']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if message_ttl_seconds is not None:
-            _setter("message_ttl_seconds", message_ttl_seconds)
+            pulumi.set(__self__, "message_ttl_seconds", message_ttl_seconds)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="messageTtlSeconds")
@@ -140,10 +125,6 @@ class SignalingChannel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SignalingChannelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

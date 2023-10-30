@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,39 +30,18 @@ class PipelineArgs:
         :param pulumi.Input[str] pipeline_display_name: The display name of the Pipeline.
         :param pulumi.Input[str] pipeline_name: The name of the Pipeline.
         """
-        PipelineArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pipeline_definition=pipeline_definition,
-            role_arn=role_arn,
-            parallelism_configuration=parallelism_configuration,
-            pipeline_description=pipeline_description,
-            pipeline_display_name=pipeline_display_name,
-            pipeline_name=pipeline_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pipeline_definition: pulumi.Input[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition1PropertiesArgs']],
-             role_arn: pulumi.Input[str],
-             parallelism_configuration: Optional[pulumi.Input['ParallelismConfigurationPropertiesArgs']] = None,
-             pipeline_description: Optional[pulumi.Input[str]] = None,
-             pipeline_display_name: Optional[pulumi.Input[str]] = None,
-             pipeline_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("pipeline_definition", pipeline_definition)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "pipeline_definition", pipeline_definition)
+        pulumi.set(__self__, "role_arn", role_arn)
         if parallelism_configuration is not None:
-            _setter("parallelism_configuration", parallelism_configuration)
+            pulumi.set(__self__, "parallelism_configuration", parallelism_configuration)
         if pipeline_description is not None:
-            _setter("pipeline_description", pipeline_description)
+            pulumi.set(__self__, "pipeline_description", pipeline_description)
         if pipeline_display_name is not None:
-            _setter("pipeline_display_name", pipeline_display_name)
+            pulumi.set(__self__, "pipeline_display_name", pipeline_display_name)
         if pipeline_name is not None:
-            _setter("pipeline_name", pipeline_name)
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="pipelineDefinition")
@@ -182,10 +161,6 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -207,11 +182,6 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
-            if parallelism_configuration is not None and not isinstance(parallelism_configuration, ParallelismConfigurationPropertiesArgs):
-                parallelism_configuration = parallelism_configuration or {}
-                def _setter(key, value):
-                    parallelism_configuration[key] = value
-                ParallelismConfigurationPropertiesArgs._configure(_setter, **parallelism_configuration)
             __props__.__dict__["parallelism_configuration"] = parallelism_configuration
             if pipeline_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_definition'")

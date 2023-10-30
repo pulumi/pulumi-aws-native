@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,50 +29,23 @@ class RemediationConfigurationArgs:
         """
         The set of arguments for constructing a RemediationConfiguration resource.
         """
-        RemediationConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            config_rule_name=config_rule_name,
-            target_id=target_id,
-            target_type=target_type,
-            automatic=automatic,
-            execution_controls=execution_controls,
-            maximum_automatic_attempts=maximum_automatic_attempts,
-            parameters=parameters,
-            resource_type=resource_type,
-            retry_attempt_seconds=retry_attempt_seconds,
-            target_version=target_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             config_rule_name: pulumi.Input[str],
-             target_id: pulumi.Input[str],
-             target_type: pulumi.Input[str],
-             automatic: Optional[pulumi.Input[bool]] = None,
-             execution_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']] = None,
-             maximum_automatic_attempts: Optional[pulumi.Input[int]] = None,
-             parameters: Optional[Any] = None,
-             resource_type: Optional[pulumi.Input[str]] = None,
-             retry_attempt_seconds: Optional[pulumi.Input[int]] = None,
-             target_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("config_rule_name", config_rule_name)
-        _setter("target_id", target_id)
-        _setter("target_type", target_type)
+        pulumi.set(__self__, "config_rule_name", config_rule_name)
+        pulumi.set(__self__, "target_id", target_id)
+        pulumi.set(__self__, "target_type", target_type)
         if automatic is not None:
-            _setter("automatic", automatic)
+            pulumi.set(__self__, "automatic", automatic)
         if execution_controls is not None:
-            _setter("execution_controls", execution_controls)
+            pulumi.set(__self__, "execution_controls", execution_controls)
         if maximum_automatic_attempts is not None:
-            _setter("maximum_automatic_attempts", maximum_automatic_attempts)
+            pulumi.set(__self__, "maximum_automatic_attempts", maximum_automatic_attempts)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
         if retry_attempt_seconds is not None:
-            _setter("retry_attempt_seconds", retry_attempt_seconds)
+            pulumi.set(__self__, "retry_attempt_seconds", retry_attempt_seconds)
         if target_version is not None:
-            _setter("target_version", target_version)
+            pulumi.set(__self__, "target_version", target_version)
 
     @property
     @pulumi.getter(name="configRuleName")
@@ -211,10 +184,6 @@ class RemediationConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RemediationConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -244,11 +213,6 @@ class RemediationConfiguration(pulumi.CustomResource):
             if config_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'config_rule_name'")
             __props__.__dict__["config_rule_name"] = config_rule_name
-            if execution_controls is not None and not isinstance(execution_controls, RemediationConfigurationExecutionControlsArgs):
-                execution_controls = execution_controls or {}
-                def _setter(key, value):
-                    execution_controls[key] = value
-                RemediationConfigurationExecutionControlsArgs._configure(_setter, **execution_controls)
             __props__.__dict__["execution_controls"] = execution_controls
             __props__.__dict__["maximum_automatic_attempts"] = maximum_automatic_attempts
             __props__.__dict__["parameters"] = parameters

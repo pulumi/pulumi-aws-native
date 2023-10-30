@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -26,19 +26,8 @@ class AnomalyMonitorResourceTagArgs:
         :param pulumi.Input[str] key: The key name for the tag.
         :param pulumi.Input[str] value: The value for the tag.
         """
-        AnomalyMonitorResourceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -75,19 +64,8 @@ class AnomalySubscriptionResourceTagArgs:
         :param pulumi.Input[str] key: The key name for the tag.
         :param pulumi.Input[str] value: The value for the tag.
         """
-        AnomalySubscriptionResourceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -120,23 +98,10 @@ class AnomalySubscriptionSubscriberArgs:
                  address: pulumi.Input[str],
                  type: pulumi.Input['AnomalySubscriptionSubscriberType'],
                  status: Optional[pulumi.Input['AnomalySubscriptionSubscriberStatus']] = None):
-        AnomalySubscriptionSubscriberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            type=type,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: pulumi.Input[str],
-             type: pulumi.Input['AnomalySubscriptionSubscriberType'],
-             status: Optional[pulumi.Input['AnomalySubscriptionSubscriberStatus']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("address", address)
-        _setter("type", type)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "type", type)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter

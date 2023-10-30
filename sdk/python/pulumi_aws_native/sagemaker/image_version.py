@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -29,55 +29,26 @@ class ImageVersionArgs:
         """
         The set of arguments for constructing a ImageVersion resource.
         """
-        ImageVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            base_image=base_image,
-            image_name=image_name,
-            alias=alias,
-            aliases=aliases,
-            horovod=horovod,
-            job_type=job_type,
-            ml_framework=ml_framework,
-            processor=processor,
-            programming_lang=programming_lang,
-            release_notes=release_notes,
-            vendor_guidance=vendor_guidance,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             base_image: pulumi.Input[str],
-             image_name: pulumi.Input[str],
-             alias: Optional[pulumi.Input[str]] = None,
-             aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             horovod: Optional[pulumi.Input[bool]] = None,
-             job_type: Optional[pulumi.Input['ImageVersionJobType']] = None,
-             ml_framework: Optional[pulumi.Input[str]] = None,
-             processor: Optional[pulumi.Input['ImageVersionProcessor']] = None,
-             programming_lang: Optional[pulumi.Input[str]] = None,
-             release_notes: Optional[pulumi.Input[str]] = None,
-             vendor_guidance: Optional[pulumi.Input['ImageVersionVendorGuidance']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("base_image", base_image)
-        _setter("image_name", image_name)
+        pulumi.set(__self__, "base_image", base_image)
+        pulumi.set(__self__, "image_name", image_name)
         if alias is not None:
-            _setter("alias", alias)
+            pulumi.set(__self__, "alias", alias)
         if aliases is not None:
-            _setter("aliases", aliases)
+            pulumi.set(__self__, "aliases", aliases)
         if horovod is not None:
-            _setter("horovod", horovod)
+            pulumi.set(__self__, "horovod", horovod)
         if job_type is not None:
-            _setter("job_type", job_type)
+            pulumi.set(__self__, "job_type", job_type)
         if ml_framework is not None:
-            _setter("ml_framework", ml_framework)
+            pulumi.set(__self__, "ml_framework", ml_framework)
         if processor is not None:
-            _setter("processor", processor)
+            pulumi.set(__self__, "processor", processor)
         if programming_lang is not None:
-            _setter("programming_lang", programming_lang)
+            pulumi.set(__self__, "programming_lang", programming_lang)
         if release_notes is not None:
-            _setter("release_notes", release_notes)
+            pulumi.set(__self__, "release_notes", release_notes)
         if vendor_guidance is not None:
-            _setter("vendor_guidance", vendor_guidance)
+            pulumi.set(__self__, "vendor_guidance", vendor_guidance)
 
     @property
     @pulumi.getter(name="baseImage")
@@ -221,10 +192,6 @@ class ImageVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ImageVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

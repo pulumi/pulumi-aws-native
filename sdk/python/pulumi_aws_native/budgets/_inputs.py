@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -33,20 +33,9 @@ class BudgetAutoAdjustDataArgs:
     def __init__(__self__, *,
                  auto_adjust_type: pulumi.Input[str],
                  historical_options: Optional[pulumi.Input['BudgetHistoricalOptionsArgs']] = None):
-        BudgetAutoAdjustDataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_adjust_type=auto_adjust_type,
-            historical_options=historical_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_adjust_type: pulumi.Input[str],
-             historical_options: Optional[pulumi.Input['BudgetHistoricalOptionsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_adjust_type", auto_adjust_type)
+        pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
         if historical_options is not None:
-            _setter("historical_options", historical_options)
+            pulumi.set(__self__, "historical_options", historical_options)
 
     @property
     @pulumi.getter(name="autoAdjustType")
@@ -81,57 +70,28 @@ class BudgetCostTypesArgs:
                  include_upfront: Optional[pulumi.Input[bool]] = None,
                  use_amortized: Optional[pulumi.Input[bool]] = None,
                  use_blended: Optional[pulumi.Input[bool]] = None):
-        BudgetCostTypesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            include_credit=include_credit,
-            include_discount=include_discount,
-            include_other_subscription=include_other_subscription,
-            include_recurring=include_recurring,
-            include_refund=include_refund,
-            include_subscription=include_subscription,
-            include_support=include_support,
-            include_tax=include_tax,
-            include_upfront=include_upfront,
-            use_amortized=use_amortized,
-            use_blended=use_blended,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             include_credit: Optional[pulumi.Input[bool]] = None,
-             include_discount: Optional[pulumi.Input[bool]] = None,
-             include_other_subscription: Optional[pulumi.Input[bool]] = None,
-             include_recurring: Optional[pulumi.Input[bool]] = None,
-             include_refund: Optional[pulumi.Input[bool]] = None,
-             include_subscription: Optional[pulumi.Input[bool]] = None,
-             include_support: Optional[pulumi.Input[bool]] = None,
-             include_tax: Optional[pulumi.Input[bool]] = None,
-             include_upfront: Optional[pulumi.Input[bool]] = None,
-             use_amortized: Optional[pulumi.Input[bool]] = None,
-             use_blended: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if include_credit is not None:
-            _setter("include_credit", include_credit)
+            pulumi.set(__self__, "include_credit", include_credit)
         if include_discount is not None:
-            _setter("include_discount", include_discount)
+            pulumi.set(__self__, "include_discount", include_discount)
         if include_other_subscription is not None:
-            _setter("include_other_subscription", include_other_subscription)
+            pulumi.set(__self__, "include_other_subscription", include_other_subscription)
         if include_recurring is not None:
-            _setter("include_recurring", include_recurring)
+            pulumi.set(__self__, "include_recurring", include_recurring)
         if include_refund is not None:
-            _setter("include_refund", include_refund)
+            pulumi.set(__self__, "include_refund", include_refund)
         if include_subscription is not None:
-            _setter("include_subscription", include_subscription)
+            pulumi.set(__self__, "include_subscription", include_subscription)
         if include_support is not None:
-            _setter("include_support", include_support)
+            pulumi.set(__self__, "include_support", include_support)
         if include_tax is not None:
-            _setter("include_tax", include_tax)
+            pulumi.set(__self__, "include_tax", include_tax)
         if include_upfront is not None:
-            _setter("include_upfront", include_upfront)
+            pulumi.set(__self__, "include_upfront", include_upfront)
         if use_amortized is not None:
-            _setter("use_amortized", use_amortized)
+            pulumi.set(__self__, "use_amortized", use_amortized)
         if use_blended is not None:
-            _setter("use_blended", use_blended)
+            pulumi.set(__self__, "use_blended", use_blended)
 
     @property
     @pulumi.getter(name="includeCredit")
@@ -245,47 +205,22 @@ class BudgetDataArgs:
                  cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
                  planned_budget_limits: Optional[Any] = None,
                  time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None):
-        BudgetDataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            budget_type=budget_type,
-            time_unit=time_unit,
-            auto_adjust_data=auto_adjust_data,
-            budget_limit=budget_limit,
-            budget_name=budget_name,
-            cost_filters=cost_filters,
-            cost_types=cost_types,
-            planned_budget_limits=planned_budget_limits,
-            time_period=time_period,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             budget_type: pulumi.Input[str],
-             time_unit: pulumi.Input[str],
-             auto_adjust_data: Optional[pulumi.Input['BudgetAutoAdjustDataArgs']] = None,
-             budget_limit: Optional[pulumi.Input['BudgetSpendArgs']] = None,
-             budget_name: Optional[pulumi.Input[str]] = None,
-             cost_filters: Optional[Any] = None,
-             cost_types: Optional[pulumi.Input['BudgetCostTypesArgs']] = None,
-             planned_budget_limits: Optional[Any] = None,
-             time_period: Optional[pulumi.Input['BudgetTimePeriodArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("budget_type", budget_type)
-        _setter("time_unit", time_unit)
+        pulumi.set(__self__, "budget_type", budget_type)
+        pulumi.set(__self__, "time_unit", time_unit)
         if auto_adjust_data is not None:
-            _setter("auto_adjust_data", auto_adjust_data)
+            pulumi.set(__self__, "auto_adjust_data", auto_adjust_data)
         if budget_limit is not None:
-            _setter("budget_limit", budget_limit)
+            pulumi.set(__self__, "budget_limit", budget_limit)
         if budget_name is not None:
-            _setter("budget_name", budget_name)
+            pulumi.set(__self__, "budget_name", budget_name)
         if cost_filters is not None:
-            _setter("cost_filters", cost_filters)
+            pulumi.set(__self__, "cost_filters", cost_filters)
         if cost_types is not None:
-            _setter("cost_types", cost_types)
+            pulumi.set(__self__, "cost_types", cost_types)
         if planned_budget_limits is not None:
-            _setter("planned_budget_limits", planned_budget_limits)
+            pulumi.set(__self__, "planned_budget_limits", planned_budget_limits)
         if time_period is not None:
-            _setter("time_period", time_period)
+            pulumi.set(__self__, "time_period", time_period)
 
     @property
     @pulumi.getter(name="budgetType")
@@ -373,16 +308,7 @@ class BudgetDataArgs:
 class BudgetHistoricalOptionsArgs:
     def __init__(__self__, *,
                  budget_adjustment_period: pulumi.Input[int]):
-        BudgetHistoricalOptionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            budget_adjustment_period=budget_adjustment_period,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             budget_adjustment_period: pulumi.Input[int],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("budget_adjustment_period", budget_adjustment_period)
+        pulumi.set(__self__, "budget_adjustment_period", budget_adjustment_period)
 
     @property
     @pulumi.getter(name="budgetAdjustmentPeriod")
@@ -399,19 +325,8 @@ class BudgetNotificationWithSubscribersArgs:
     def __init__(__self__, *,
                  notification: pulumi.Input['BudgetNotificationArgs'],
                  subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriberArgs']]]):
-        BudgetNotificationWithSubscribersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            notification=notification,
-            subscribers=subscribers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             notification: pulumi.Input['BudgetNotificationArgs'],
-             subscribers: pulumi.Input[Sequence[pulumi.Input['BudgetSubscriberArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("notification", notification)
-        _setter("subscribers", subscribers)
+        pulumi.set(__self__, "notification", notification)
+        pulumi.set(__self__, "subscribers", subscribers)
 
     @property
     @pulumi.getter
@@ -439,26 +354,11 @@ class BudgetNotificationArgs:
                  notification_type: pulumi.Input[str],
                  threshold: pulumi.Input[float],
                  threshold_type: Optional[pulumi.Input[str]] = None):
-        BudgetNotificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            notification_type=notification_type,
-            threshold=threshold,
-            threshold_type=threshold_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             notification_type: pulumi.Input[str],
-             threshold: pulumi.Input[float],
-             threshold_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("notification_type", notification_type)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "notification_type", notification_type)
+        pulumi.set(__self__, "threshold", threshold)
         if threshold_type is not None:
-            _setter("threshold_type", threshold_type)
+            pulumi.set(__self__, "threshold_type", threshold_type)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -502,19 +402,8 @@ class BudgetSpendArgs:
     def __init__(__self__, *,
                  amount: pulumi.Input[float],
                  unit: pulumi.Input[str]):
-        BudgetSpendArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amount=amount,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amount: pulumi.Input[float],
-             unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("amount", amount)
-        _setter("unit", unit)
+        pulumi.set(__self__, "amount", amount)
+        pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter
@@ -540,19 +429,8 @@ class BudgetSubscriberArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  subscription_type: pulumi.Input[str]):
-        BudgetSubscriberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            subscription_type=subscription_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: pulumi.Input[str],
-             subscription_type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("address", address)
-        _setter("subscription_type", subscription_type)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "subscription_type", subscription_type)
 
     @property
     @pulumi.getter
@@ -578,21 +456,10 @@ class BudgetTimePeriodArgs:
     def __init__(__self__, *,
                  end: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None):
-        BudgetTimePeriodArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            end=end,
-            start=start,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             end: Optional[pulumi.Input[str]] = None,
-             start: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if end is not None:
-            _setter("end", end)
+            pulumi.set(__self__, "end", end)
         if start is not None:
-            _setter("start", start)
+            pulumi.set(__self__, "start", start)
 
     @property
     @pulumi.getter
@@ -618,19 +485,8 @@ class BudgetsActionActionThresholdArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['BudgetsActionActionThresholdType'],
                  value: pulumi.Input[float]):
-        BudgetsActionActionThresholdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input['BudgetsActionActionThresholdType'],
-             value: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
-        _setter("value", value)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -657,25 +513,12 @@ class BudgetsActionDefinitionArgs:
                  iam_action_definition: Optional[pulumi.Input['BudgetsActionIamActionDefinitionArgs']] = None,
                  scp_action_definition: Optional[pulumi.Input['BudgetsActionScpActionDefinitionArgs']] = None,
                  ssm_action_definition: Optional[pulumi.Input['BudgetsActionSsmActionDefinitionArgs']] = None):
-        BudgetsActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            iam_action_definition=iam_action_definition,
-            scp_action_definition=scp_action_definition,
-            ssm_action_definition=ssm_action_definition,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             iam_action_definition: Optional[pulumi.Input['BudgetsActionIamActionDefinitionArgs']] = None,
-             scp_action_definition: Optional[pulumi.Input['BudgetsActionScpActionDefinitionArgs']] = None,
-             ssm_action_definition: Optional[pulumi.Input['BudgetsActionSsmActionDefinitionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if iam_action_definition is not None:
-            _setter("iam_action_definition", iam_action_definition)
+            pulumi.set(__self__, "iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
-            _setter("scp_action_definition", scp_action_definition)
+            pulumi.set(__self__, "scp_action_definition", scp_action_definition)
         if ssm_action_definition is not None:
-            _setter("ssm_action_definition", ssm_action_definition)
+            pulumi.set(__self__, "ssm_action_definition", ssm_action_definition)
 
     @property
     @pulumi.getter(name="iamActionDefinition")
@@ -712,28 +555,13 @@ class BudgetsActionIamActionDefinitionArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        BudgetsActionIamActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_arn=policy_arn,
-            groups=groups,
-            roles=roles,
-            users=users,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_arn: pulumi.Input[str],
-             groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy_arn", policy_arn)
+        pulumi.set(__self__, "policy_arn", policy_arn)
         if groups is not None:
-            _setter("groups", groups)
+            pulumi.set(__self__, "groups", groups)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
         if users is not None:
-            _setter("users", users)
+            pulumi.set(__self__, "users", users)
 
     @property
     @pulumi.getter(name="policyArn")
@@ -777,19 +605,8 @@ class BudgetsActionScpActionDefinitionArgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[str],
                  target_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        BudgetsActionScpActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy_id=policy_id,
-            target_ids=target_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy_id: pulumi.Input[str],
-             target_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy_id", policy_id)
-        _setter("target_ids", target_ids)
+        pulumi.set(__self__, "policy_id", policy_id)
+        pulumi.set(__self__, "target_ids", target_ids)
 
     @property
     @pulumi.getter(name="policyId")
@@ -816,22 +633,9 @@ class BudgetsActionSsmActionDefinitionArgs:
                  instance_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  region: pulumi.Input[str],
                  subtype: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype']):
-        BudgetsActionSsmActionDefinitionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_ids=instance_ids,
-            region=region,
-            subtype=subtype,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             region: pulumi.Input[str],
-             subtype: pulumi.Input['BudgetsActionSsmActionDefinitionSubtype'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_ids", instance_ids)
-        _setter("region", region)
-        _setter("subtype", subtype)
+        pulumi.set(__self__, "instance_ids", instance_ids)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "subtype", subtype)
 
     @property
     @pulumi.getter(name="instanceIds")
@@ -866,19 +670,8 @@ class BudgetsActionSubscriberArgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  type: pulumi.Input['BudgetsActionSubscriberType']):
-        BudgetsActionSubscriberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: pulumi.Input[str],
-             type: pulumi.Input['BudgetsActionSubscriberType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("address", address)
-        _setter("type", type)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter

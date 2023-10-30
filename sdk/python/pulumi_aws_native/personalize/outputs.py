@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -69,33 +69,16 @@ class DatasetImportJob(dict):
         :param str job_name: The name for the dataset import job.
         :param str role_arn: The ARN of the IAM role that has permissions to read from the Amazon S3 data source.
         """
-        DatasetImportJob._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_source=data_source,
-            dataset_arn=dataset_arn,
-            dataset_import_job_arn=dataset_import_job_arn,
-            job_name=job_name,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_source: Optional['outputs.DatasetImportJobDataSourceProperties'] = None,
-             dataset_arn: Optional[str] = None,
-             dataset_import_job_arn: Optional[str] = None,
-             job_name: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_source is not None:
-            _setter("data_source", data_source)
+            pulumi.set(__self__, "data_source", data_source)
         if dataset_arn is not None:
-            _setter("dataset_arn", dataset_arn)
+            pulumi.set(__self__, "dataset_arn", dataset_arn)
         if dataset_import_job_arn is not None:
-            _setter("dataset_import_job_arn", dataset_import_job_arn)
+            pulumi.set(__self__, "dataset_import_job_arn", dataset_import_job_arn)
         if job_name is not None:
-            _setter("job_name", job_name)
+            pulumi.set(__self__, "job_name", job_name)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -166,17 +149,8 @@ class DatasetImportJobDataSourceProperties(dict):
         The Amazon S3 bucket that contains the training data to import.
         :param str data_location: The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
         """
-        DatasetImportJobDataSourceProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_location=data_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_location: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_location is not None:
-            _setter("data_location", data_location)
+            pulumi.set(__self__, "data_location", data_location)
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -200,21 +174,10 @@ class SolutionCategoricalHyperParameterRange(dict):
         :param str name: The name of the hyperparameter.
         :param Sequence[str] values: A list of the categories for the hyperparameter.
         """
-        SolutionCategoricalHyperParameterRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             values: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -277,33 +240,16 @@ class SolutionConfig(dict):
         :param Any feature_transformation_parameters: Lists the feature transformation parameters.
         :param 'SolutionConfigHpoConfigProperties' hpo_config: Describes the properties for hyperparameter optimization (HPO)
         """
-        SolutionConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            algorithm_hyper_parameters=algorithm_hyper_parameters,
-            auto_ml_config=auto_ml_config,
-            event_value_threshold=event_value_threshold,
-            feature_transformation_parameters=feature_transformation_parameters,
-            hpo_config=hpo_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             algorithm_hyper_parameters: Optional[Any] = None,
-             auto_ml_config: Optional['outputs.SolutionConfigAutoMlConfigProperties'] = None,
-             event_value_threshold: Optional[str] = None,
-             feature_transformation_parameters: Optional[Any] = None,
-             hpo_config: Optional['outputs.SolutionConfigHpoConfigProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if algorithm_hyper_parameters is not None:
-            _setter("algorithm_hyper_parameters", algorithm_hyper_parameters)
+            pulumi.set(__self__, "algorithm_hyper_parameters", algorithm_hyper_parameters)
         if auto_ml_config is not None:
-            _setter("auto_ml_config", auto_ml_config)
+            pulumi.set(__self__, "auto_ml_config", auto_ml_config)
         if event_value_threshold is not None:
-            _setter("event_value_threshold", event_value_threshold)
+            pulumi.set(__self__, "event_value_threshold", event_value_threshold)
         if feature_transformation_parameters is not None:
-            _setter("feature_transformation_parameters", feature_transformation_parameters)
+            pulumi.set(__self__, "feature_transformation_parameters", feature_transformation_parameters)
         if hpo_config is not None:
-            _setter("hpo_config", hpo_config)
+            pulumi.set(__self__, "hpo_config", hpo_config)
 
     @property
     @pulumi.getter(name="algorithmHyperParameters")
@@ -378,21 +324,10 @@ class SolutionConfigAutoMlConfigProperties(dict):
         :param str metric_name: The metric to optimize.
         :param Sequence[str] recipe_list: The list of candidate recipes.
         """
-        SolutionConfigAutoMlConfigProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            recipe_list=recipe_list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: Optional[str] = None,
-             recipe_list: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if metric_name is not None:
-            _setter("metric_name", metric_name)
+            pulumi.set(__self__, "metric_name", metric_name)
         if recipe_list is not None:
-            _setter("recipe_list", recipe_list)
+            pulumi.set(__self__, "recipe_list", recipe_list)
 
     @property
     @pulumi.getter(name="metricName")
@@ -447,25 +382,12 @@ class SolutionConfigHpoConfigProperties(dict):
         :param 'SolutionConfigHpoConfigPropertiesHpoObjectiveProperties' hpo_objective: The metric to optimize during HPO.
         :param 'SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties' hpo_resource_config: Describes the resource configuration for hyperparameter optimization (HPO).
         """
-        SolutionConfigHpoConfigProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            algorithm_hyper_parameter_ranges=algorithm_hyper_parameter_ranges,
-            hpo_objective=hpo_objective,
-            hpo_resource_config=hpo_resource_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             algorithm_hyper_parameter_ranges: Optional['outputs.SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties'] = None,
-             hpo_objective: Optional['outputs.SolutionConfigHpoConfigPropertiesHpoObjectiveProperties'] = None,
-             hpo_resource_config: Optional['outputs.SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if algorithm_hyper_parameter_ranges is not None:
-            _setter("algorithm_hyper_parameter_ranges", algorithm_hyper_parameter_ranges)
+            pulumi.set(__self__, "algorithm_hyper_parameter_ranges", algorithm_hyper_parameter_ranges)
         if hpo_objective is not None:
-            _setter("hpo_objective", hpo_objective)
+            pulumi.set(__self__, "hpo_objective", hpo_objective)
         if hpo_resource_config is not None:
-            _setter("hpo_resource_config", hpo_resource_config)
+            pulumi.set(__self__, "hpo_resource_config", hpo_resource_config)
 
     @property
     @pulumi.getter(name="algorithmHyperParameterRanges")
@@ -528,25 +450,12 @@ class SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties(d
         :param Sequence['SolutionContinuousHyperParameterRange'] continuous_hyper_parameter_ranges: The continuous hyperparameters and their ranges.
         :param Sequence['SolutionIntegerHyperParameterRange'] integer_hyper_parameter_ranges: The integer hyperparameters and their ranges.
         """
-        SolutionConfigHpoConfigPropertiesAlgorithmHyperParameterRangesProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            categorical_hyper_parameter_ranges=categorical_hyper_parameter_ranges,
-            continuous_hyper_parameter_ranges=continuous_hyper_parameter_ranges,
-            integer_hyper_parameter_ranges=integer_hyper_parameter_ranges,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             categorical_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionCategoricalHyperParameterRange']] = None,
-             continuous_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionContinuousHyperParameterRange']] = None,
-             integer_hyper_parameter_ranges: Optional[Sequence['outputs.SolutionIntegerHyperParameterRange']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if categorical_hyper_parameter_ranges is not None:
-            _setter("categorical_hyper_parameter_ranges", categorical_hyper_parameter_ranges)
+            pulumi.set(__self__, "categorical_hyper_parameter_ranges", categorical_hyper_parameter_ranges)
         if continuous_hyper_parameter_ranges is not None:
-            _setter("continuous_hyper_parameter_ranges", continuous_hyper_parameter_ranges)
+            pulumi.set(__self__, "continuous_hyper_parameter_ranges", continuous_hyper_parameter_ranges)
         if integer_hyper_parameter_ranges is not None:
-            _setter("integer_hyper_parameter_ranges", integer_hyper_parameter_ranges)
+            pulumi.set(__self__, "integer_hyper_parameter_ranges", integer_hyper_parameter_ranges)
 
     @property
     @pulumi.getter(name="categoricalHyperParameterRanges")
@@ -607,25 +516,12 @@ class SolutionConfigHpoConfigPropertiesHpoObjectiveProperties(dict):
         :param str metric_regex: A regular expression for finding the metric in the training job logs.
         :param 'SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType' type: The type of the metric. Valid values are Maximize and Minimize.
         """
-        SolutionConfigHpoConfigPropertiesHpoObjectiveProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            metric_regex=metric_regex,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: Optional[str] = None,
-             metric_regex: Optional[str] = None,
-             type: Optional['SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if metric_name is not None:
-            _setter("metric_name", metric_name)
+            pulumi.set(__self__, "metric_name", metric_name)
         if metric_regex is not None:
-            _setter("metric_regex", metric_regex)
+            pulumi.set(__self__, "metric_regex", metric_regex)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="metricName")
@@ -684,21 +580,10 @@ class SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties(dict):
         :param str max_number_of_training_jobs: The maximum number of training jobs when you create a solution version. The maximum value for maxNumberOfTrainingJobs is 40.
         :param str max_parallel_training_jobs: The maximum number of parallel training jobs when you create a solution version. The maximum value for maxParallelTrainingJobs is 10.
         """
-        SolutionConfigHpoConfigPropertiesHpoResourceConfigProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_number_of_training_jobs=max_number_of_training_jobs,
-            max_parallel_training_jobs=max_parallel_training_jobs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_number_of_training_jobs: Optional[str] = None,
-             max_parallel_training_jobs: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_number_of_training_jobs is not None:
-            _setter("max_number_of_training_jobs", max_number_of_training_jobs)
+            pulumi.set(__self__, "max_number_of_training_jobs", max_number_of_training_jobs)
         if max_parallel_training_jobs is not None:
-            _setter("max_parallel_training_jobs", max_parallel_training_jobs)
+            pulumi.set(__self__, "max_parallel_training_jobs", max_parallel_training_jobs)
 
     @property
     @pulumi.getter(name="maxNumberOfTrainingJobs")
@@ -751,25 +636,12 @@ class SolutionContinuousHyperParameterRange(dict):
         :param float min_value: The minimum allowable value for the hyperparameter.
         :param str name: The name of the hyperparameter.
         """
-        SolutionContinuousHyperParameterRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_value=max_value,
-            min_value=min_value,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_value: Optional[float] = None,
-             min_value: Optional[float] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_value is not None:
-            _setter("max_value", max_value)
+            pulumi.set(__self__, "max_value", max_value)
         if min_value is not None:
-            _setter("min_value", min_value)
+            pulumi.set(__self__, "min_value", min_value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="maxValue")
@@ -830,25 +702,12 @@ class SolutionIntegerHyperParameterRange(dict):
         :param int min_value: The minimum allowable value for the hyperparameter.
         :param str name: The name of the hyperparameter.
         """
-        SolutionIntegerHyperParameterRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_value=max_value,
-            min_value=min_value,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_value: Optional[int] = None,
-             min_value: Optional[int] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if max_value is not None:
-            _setter("max_value", max_value)
+            pulumi.set(__self__, "max_value", max_value)
         if min_value is not None:
-            _setter("min_value", min_value)
+            pulumi.set(__self__, "min_value", min_value)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="maxValue")

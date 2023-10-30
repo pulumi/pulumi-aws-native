@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,39 +32,18 @@ class ModelCardArgs:
         :param pulumi.Input[str] model_card_name: The unique name of the model card.
         :param pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]] tags: Key-value pairs used to manage metadata for model cards.
         """
-        ModelCardArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            model_card_status=model_card_status,
-            created_by=created_by,
-            last_modified_by=last_modified_by,
-            model_card_name=model_card_name,
-            security_config=security_config,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: pulumi.Input['ModelCardContentArgs'],
-             model_card_status: pulumi.Input['ModelCardStatus'],
-             created_by: Optional[pulumi.Input['ModelCardUserContextArgs']] = None,
-             last_modified_by: Optional[pulumi.Input['ModelCardUserContextArgs']] = None,
-             model_card_name: Optional[pulumi.Input[str]] = None,
-             security_config: Optional[pulumi.Input['ModelCardSecurityConfigArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelCardTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("content", content)
-        _setter("model_card_status", model_card_status)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "model_card_status", model_card_status)
         if created_by is not None:
-            _setter("created_by", created_by)
+            pulumi.set(__self__, "created_by", created_by)
         if last_modified_by is not None:
-            _setter("last_modified_by", last_modified_by)
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
         if model_card_name is not None:
-            _setter("model_card_name", model_card_name)
+            pulumi.set(__self__, "model_card_name", model_card_name)
         if security_config is not None:
-            _setter("security_config", security_config)
+            pulumi.set(__self__, "security_config", security_config)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -188,10 +167,6 @@ class ModelCard(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ModelCardArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -213,35 +188,15 @@ class ModelCard(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ModelCardArgs.__new__(ModelCardArgs)
 
-            if content is not None and not isinstance(content, ModelCardContentArgs):
-                content = content or {}
-                def _setter(key, value):
-                    content[key] = value
-                ModelCardContentArgs._configure(_setter, **content)
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
-            if created_by is not None and not isinstance(created_by, ModelCardUserContextArgs):
-                created_by = created_by or {}
-                def _setter(key, value):
-                    created_by[key] = value
-                ModelCardUserContextArgs._configure(_setter, **created_by)
             __props__.__dict__["created_by"] = created_by
-            if last_modified_by is not None and not isinstance(last_modified_by, ModelCardUserContextArgs):
-                last_modified_by = last_modified_by or {}
-                def _setter(key, value):
-                    last_modified_by[key] = value
-                ModelCardUserContextArgs._configure(_setter, **last_modified_by)
             __props__.__dict__["last_modified_by"] = last_modified_by
             __props__.__dict__["model_card_name"] = model_card_name
             if model_card_status is None and not opts.urn:
                 raise TypeError("Missing required property 'model_card_status'")
             __props__.__dict__["model_card_status"] = model_card_status
-            if security_config is not None and not isinstance(security_config, ModelCardSecurityConfigArgs):
-                security_config = security_config or {}
-                def _setter(key, value):
-                    security_config[key] = value
-                ModelCardSecurityConfigArgs._configure(_setter, **security_config)
             __props__.__dict__["security_config"] = security_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["creation_time"] = None

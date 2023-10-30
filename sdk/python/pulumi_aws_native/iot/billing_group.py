@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,25 +23,12 @@ class BillingGroupArgs:
         The set of arguments for constructing a BillingGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        BillingGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            billing_group_name=billing_group_name,
-            billing_group_properties=billing_group_properties,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             billing_group_name: Optional[pulumi.Input[str]] = None,
-             billing_group_properties: Optional[pulumi.Input['BillingGroupPropertiesPropertiesArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if billing_group_name is not None:
-            _setter("billing_group_name", billing_group_name)
+            pulumi.set(__self__, "billing_group_name", billing_group_name)
         if billing_group_properties is not None:
-            _setter("billing_group_properties", billing_group_properties)
+            pulumi.set(__self__, "billing_group_properties", billing_group_properties)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="billingGroupName")
@@ -109,10 +96,6 @@ class BillingGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BillingGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -131,11 +114,6 @@ class BillingGroup(pulumi.CustomResource):
             __props__ = BillingGroupArgs.__new__(BillingGroupArgs)
 
             __props__.__dict__["billing_group_name"] = billing_group_name
-            if billing_group_properties is not None and not isinstance(billing_group_properties, BillingGroupPropertiesPropertiesArgs):
-                billing_group_properties = billing_group_properties or {}
-                def _setter(key, value):
-                    billing_group_properties[key] = value
-                BillingGroupPropertiesPropertiesArgs._configure(_setter, **billing_group_properties)
             __props__.__dict__["billing_group_properties"] = billing_group_properties
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None

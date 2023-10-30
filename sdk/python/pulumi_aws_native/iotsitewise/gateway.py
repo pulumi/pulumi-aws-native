@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,28 +27,13 @@ class GatewayArgs:
         :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
         :param pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
-        GatewayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gateway_platform=gateway_platform,
-            gateway_capability_summaries=gateway_capability_summaries,
-            gateway_name=gateway_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gateway_platform: pulumi.Input['GatewayPlatformArgs'],
-             gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayCapabilitySummaryArgs']]]] = None,
-             gateway_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("gateway_platform", gateway_platform)
+        pulumi.set(__self__, "gateway_platform", gateway_platform)
         if gateway_capability_summaries is not None:
-            _setter("gateway_capability_summaries", gateway_capability_summaries)
+            pulumi.set(__self__, "gateway_capability_summaries", gateway_capability_summaries)
         if gateway_name is not None:
-            _setter("gateway_name", gateway_name)
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="gatewayPlatform")
@@ -138,10 +123,6 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -162,11 +143,6 @@ class Gateway(pulumi.CustomResource):
 
             __props__.__dict__["gateway_capability_summaries"] = gateway_capability_summaries
             __props__.__dict__["gateway_name"] = gateway_name
-            if gateway_platform is not None and not isinstance(gateway_platform, GatewayPlatformArgs):
-                gateway_platform = gateway_platform or {}
-                def _setter(key, value):
-                    gateway_platform[key] = value
-                GatewayPlatformArgs._configure(_setter, **gateway_platform)
             if gateway_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_platform'")
             __props__.__dict__["gateway_platform"] = gateway_platform

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -23,32 +23,15 @@ class GeofenceCollectionArgs:
         """
         The set of arguments for constructing a GeofenceCollection resource.
         """
-        GeofenceCollectionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            collection_name=collection_name,
-            description=description,
-            kms_key_id=kms_key_id,
-            pricing_plan=pricing_plan,
-            pricing_plan_data_source=pricing_plan_data_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             collection_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
-             pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("collection_name", collection_name)
+        pulumi.set(__self__, "collection_name", collection_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if pricing_plan is not None:
-            _setter("pricing_plan", pricing_plan)
+            pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source is not None:
-            _setter("pricing_plan_data_source", pricing_plan_data_source)
+            pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
 
     @property
     @pulumi.getter(name="collectionName")
@@ -132,10 +115,6 @@ class GeofenceCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GeofenceCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

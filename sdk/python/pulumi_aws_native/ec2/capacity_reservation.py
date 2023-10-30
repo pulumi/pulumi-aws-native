@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -32,61 +32,28 @@ class CapacityReservationArgs:
         """
         The set of arguments for constructing a CapacityReservation resource.
         """
-        CapacityReservationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone=availability_zone,
-            instance_count=instance_count,
-            instance_platform=instance_platform,
-            instance_type=instance_type,
-            ebs_optimized=ebs_optimized,
-            end_date=end_date,
-            end_date_type=end_date_type,
-            ephemeral_storage=ephemeral_storage,
-            instance_match_criteria=instance_match_criteria,
-            out_post_arn=out_post_arn,
-            placement_group_arn=placement_group_arn,
-            tag_specifications=tag_specifications,
-            tenancy=tenancy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone: pulumi.Input[str],
-             instance_count: pulumi.Input[int],
-             instance_platform: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
-             ebs_optimized: Optional[pulumi.Input[bool]] = None,
-             end_date: Optional[pulumi.Input[str]] = None,
-             end_date_type: Optional[pulumi.Input[str]] = None,
-             ephemeral_storage: Optional[pulumi.Input[bool]] = None,
-             instance_match_criteria: Optional[pulumi.Input[str]] = None,
-             out_post_arn: Optional[pulumi.Input[str]] = None,
-             placement_group_arn: Optional[pulumi.Input[str]] = None,
-             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
-             tenancy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("availability_zone", availability_zone)
-        _setter("instance_count", instance_count)
-        _setter("instance_platform", instance_platform)
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_platform", instance_platform)
+        pulumi.set(__self__, "instance_type", instance_type)
         if ebs_optimized is not None:
-            _setter("ebs_optimized", ebs_optimized)
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
         if end_date is not None:
-            _setter("end_date", end_date)
+            pulumi.set(__self__, "end_date", end_date)
         if end_date_type is not None:
-            _setter("end_date_type", end_date_type)
+            pulumi.set(__self__, "end_date_type", end_date_type)
         if ephemeral_storage is not None:
-            _setter("ephemeral_storage", ephemeral_storage)
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if instance_match_criteria is not None:
-            _setter("instance_match_criteria", instance_match_criteria)
+            pulumi.set(__self__, "instance_match_criteria", instance_match_criteria)
         if out_post_arn is not None:
-            _setter("out_post_arn", out_post_arn)
+            pulumi.set(__self__, "out_post_arn", out_post_arn)
         if placement_group_arn is not None:
-            _setter("placement_group_arn", placement_group_arn)
+            pulumi.set(__self__, "placement_group_arn", placement_group_arn)
         if tag_specifications is not None:
-            _setter("tag_specifications", tag_specifications)
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
         if tenancy is not None:
-            _setter("tenancy", tenancy)
+            pulumi.set(__self__, "tenancy", tenancy)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -250,10 +217,6 @@ class CapacityReservation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CapacityReservationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

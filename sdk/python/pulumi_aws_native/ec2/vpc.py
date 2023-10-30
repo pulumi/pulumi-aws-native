@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,41 +39,20 @@ class VpcArgs:
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC from an Amazon VPC IP Address Manager (IPAM) pool
         :param pulumi.Input[Sequence[pulumi.Input['VpcTagArgs']]] tags: The tags for the VPC.
         """
-        VpcArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cidr_block=cidr_block,
-            enable_dns_hostnames=enable_dns_hostnames,
-            enable_dns_support=enable_dns_support,
-            instance_tenancy=instance_tenancy,
-            ipv4_ipam_pool_id=ipv4_ipam_pool_id,
-            ipv4_netmask_length=ipv4_netmask_length,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cidr_block: Optional[pulumi.Input[str]] = None,
-             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
-             enable_dns_support: Optional[pulumi.Input[bool]] = None,
-             instance_tenancy: Optional[pulumi.Input[str]] = None,
-             ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
-             ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpcTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cidr_block is not None:
-            _setter("cidr_block", cidr_block)
+            pulumi.set(__self__, "cidr_block", cidr_block)
         if enable_dns_hostnames is not None:
-            _setter("enable_dns_hostnames", enable_dns_hostnames)
+            pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
-            _setter("enable_dns_support", enable_dns_support)
+            pulumi.set(__self__, "enable_dns_support", enable_dns_support)
         if instance_tenancy is not None:
-            _setter("instance_tenancy", instance_tenancy)
+            pulumi.set(__self__, "instance_tenancy", instance_tenancy)
         if ipv4_ipam_pool_id is not None:
-            _setter("ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
         if ipv4_netmask_length is not None:
-            _setter("ipv4_netmask_length", ipv4_netmask_length)
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -217,10 +196,6 @@ class Vpc(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpcArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class ApplicationReferenceDataSourceArgs:
         """
         The set of arguments for constructing a ApplicationReferenceDataSource resource.
         """
-        ApplicationReferenceDataSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_name=application_name,
-            reference_data_source=reference_data_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_name: pulumi.Input[str],
-             reference_data_source: pulumi.Input['ApplicationReferenceDataSourceReferenceDataSourceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_name", application_name)
-        _setter("reference_data_source", reference_data_source)
+        pulumi.set(__self__, "application_name", application_name)
+        pulumi.set(__self__, "reference_data_source", reference_data_source)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -92,10 +81,6 @@ class ApplicationReferenceDataSource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ApplicationReferenceDataSourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -116,11 +101,6 @@ class ApplicationReferenceDataSource(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
-            if reference_data_source is not None and not isinstance(reference_data_source, ApplicationReferenceDataSourceReferenceDataSourceArgs):
-                reference_data_source = reference_data_source or {}
-                def _setter(key, value):
-                    reference_data_source[key] = value
-                ApplicationReferenceDataSourceReferenceDataSourceArgs._configure(_setter, **reference_data_source)
             if reference_data_source is None and not opts.urn:
                 raise TypeError("Missing required property 'reference_data_source'")
             __props__.__dict__["reference_data_source"] = reference_data_source

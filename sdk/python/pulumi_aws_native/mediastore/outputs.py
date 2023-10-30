@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -50,33 +50,16 @@ class ContainerCorsRule(dict):
                  allowed_origins: Optional[Sequence[str]] = None,
                  expose_headers: Optional[Sequence[str]] = None,
                  max_age_seconds: Optional[int] = None):
-        ContainerCorsRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_headers=allowed_headers,
-            allowed_methods=allowed_methods,
-            allowed_origins=allowed_origins,
-            expose_headers=expose_headers,
-            max_age_seconds=max_age_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_headers: Optional[Sequence[str]] = None,
-             allowed_methods: Optional[Sequence[str]] = None,
-             allowed_origins: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allowed_headers is not None:
-            _setter("allowed_headers", allowed_headers)
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            _setter("allowed_methods", allowed_methods)
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
         if allowed_origins is not None:
-            _setter("allowed_origins", allowed_origins)
+            pulumi.set(__self__, "allowed_origins", allowed_origins)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if max_age_seconds is not None:
-            _setter("max_age_seconds", max_age_seconds)
+            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -128,20 +111,9 @@ class ContainerMetricPolicy(dict):
     def __init__(__self__, *,
                  container_level_metrics: str,
                  metric_policy_rules: Optional[Sequence['outputs.ContainerMetricPolicyRule']] = None):
-        ContainerMetricPolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            container_level_metrics=container_level_metrics,
-            metric_policy_rules=metric_policy_rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             container_level_metrics: str,
-             metric_policy_rules: Optional[Sequence['outputs.ContainerMetricPolicyRule']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("container_level_metrics", container_level_metrics)
+        pulumi.set(__self__, "container_level_metrics", container_level_metrics)
         if metric_policy_rules is not None:
-            _setter("metric_policy_rules", metric_policy_rules)
+            pulumi.set(__self__, "metric_policy_rules", metric_policy_rules)
 
     @property
     @pulumi.getter(name="containerLevelMetrics")
@@ -178,19 +150,8 @@ class ContainerMetricPolicyRule(dict):
     def __init__(__self__, *,
                  object_group: str,
                  object_group_name: str):
-        ContainerMetricPolicyRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            object_group=object_group,
-            object_group_name=object_group_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             object_group: str,
-             object_group_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("object_group", object_group)
-        _setter("object_group_name", object_group_name)
+        pulumi.set(__self__, "object_group", object_group)
+        pulumi.set(__self__, "object_group_name", object_group_name)
 
     @property
     @pulumi.getter(name="objectGroup")
@@ -208,19 +169,8 @@ class ContainerTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        ContainerTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

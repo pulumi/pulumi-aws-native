@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MemberArgs', 'Member']
@@ -23,34 +23,15 @@ class MemberArgs:
         """
         The set of arguments for constructing a Member resource.
         """
-        MemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            detector_id=detector_id,
-            email=email,
-            member_id=member_id,
-            disable_email_notification=disable_email_notification,
-            message=message,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             detector_id: pulumi.Input[str],
-             email: pulumi.Input[str],
-             member_id: pulumi.Input[str],
-             disable_email_notification: Optional[pulumi.Input[bool]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("detector_id", detector_id)
-        _setter("email", email)
-        _setter("member_id", member_id)
+        pulumi.set(__self__, "detector_id", detector_id)
+        pulumi.set(__self__, "email", email)
+        pulumi.set(__self__, "member_id", member_id)
         if disable_email_notification is not None:
-            _setter("disable_email_notification", disable_email_notification)
+            pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -149,10 +130,6 @@ class Member(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MemberArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

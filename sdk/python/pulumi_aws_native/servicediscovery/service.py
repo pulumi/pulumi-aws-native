@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,45 +27,22 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
         """
-        ServiceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            dns_config=dns_config,
-            health_check_config=health_check_config,
-            health_check_custom_config=health_check_custom_config,
-            name=name,
-            namespace_id=namespace_id,
-            tags=tags,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             dns_config: Optional[pulumi.Input['ServiceDnsConfigArgs']] = None,
-             health_check_config: Optional[pulumi.Input['ServiceHealthCheckConfigArgs']] = None,
-             health_check_custom_config: Optional[pulumi.Input['ServiceHealthCheckCustomConfigArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             namespace_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dns_config is not None:
-            _setter("dns_config", dns_config)
+            pulumi.set(__self__, "dns_config", dns_config)
         if health_check_config is not None:
-            _setter("health_check_config", health_check_config)
+            pulumi.set(__self__, "health_check_config", health_check_config)
         if health_check_custom_config is not None:
-            _setter("health_check_custom_config", health_check_custom_config)
+            pulumi.set(__self__, "health_check_custom_config", health_check_custom_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if namespace_id is not None:
-            _setter("namespace_id", namespace_id)
+            pulumi.set(__self__, "namespace_id", namespace_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -184,10 +161,6 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -212,23 +185,8 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["description"] = description
-            if dns_config is not None and not isinstance(dns_config, ServiceDnsConfigArgs):
-                dns_config = dns_config or {}
-                def _setter(key, value):
-                    dns_config[key] = value
-                ServiceDnsConfigArgs._configure(_setter, **dns_config)
             __props__.__dict__["dns_config"] = dns_config
-            if health_check_config is not None and not isinstance(health_check_config, ServiceHealthCheckConfigArgs):
-                health_check_config = health_check_config or {}
-                def _setter(key, value):
-                    health_check_config[key] = value
-                ServiceHealthCheckConfigArgs._configure(_setter, **health_check_config)
             __props__.__dict__["health_check_config"] = health_check_config
-            if health_check_custom_config is not None and not isinstance(health_check_custom_config, ServiceHealthCheckCustomConfigArgs):
-                health_check_custom_config = health_check_custom_config or {}
-                def _setter(key, value):
-                    health_check_custom_config[key] = value
-                ServiceHealthCheckCustomConfigArgs._configure(_setter, **health_check_custom_config)
             __props__.__dict__["health_check_custom_config"] = health_check_custom_config
             __props__.__dict__["name"] = name
             __props__.__dict__["namespace_id"] = namespace_id

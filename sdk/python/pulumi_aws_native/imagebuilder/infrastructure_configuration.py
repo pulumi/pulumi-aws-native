@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -46,64 +46,31 @@ class InfrastructureConfigurationArgs:
         :param Any tags: The tags associated with the component.
         :param pulumi.Input[bool] terminate_instance_on_failure: The terminate instance on failure configuration of the infrastructure configuration.
         """
-        InfrastructureConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_profile_name=instance_profile_name,
-            description=description,
-            instance_metadata_options=instance_metadata_options,
-            instance_types=instance_types,
-            key_pair=key_pair,
-            logging=logging,
-            name=name,
-            resource_tags=resource_tags,
-            security_group_ids=security_group_ids,
-            sns_topic_arn=sns_topic_arn,
-            subnet_id=subnet_id,
-            tags=tags,
-            terminate_instance_on_failure=terminate_instance_on_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_profile_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
-             instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             key_pair: Optional[pulumi.Input[str]] = None,
-             logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             resource_tags: Optional[Any] = None,
-             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sns_topic_arn: Optional[pulumi.Input[str]] = None,
-             subnet_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[Any] = None,
-             terminate_instance_on_failure: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_profile_name", instance_profile_name)
+        pulumi.set(__self__, "instance_profile_name", instance_profile_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if instance_metadata_options is not None:
-            _setter("instance_metadata_options", instance_metadata_options)
+            pulumi.set(__self__, "instance_metadata_options", instance_metadata_options)
         if instance_types is not None:
-            _setter("instance_types", instance_types)
+            pulumi.set(__self__, "instance_types", instance_types)
         if key_pair is not None:
-            _setter("key_pair", key_pair)
+            pulumi.set(__self__, "key_pair", key_pair)
         if logging is not None:
-            _setter("logging", logging)
+            pulumi.set(__self__, "logging", logging)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if resource_tags is not None:
-            _setter("resource_tags", resource_tags)
+            pulumi.set(__self__, "resource_tags", resource_tags)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if sns_topic_arn is not None:
-            _setter("sns_topic_arn", sns_topic_arn)
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
         if subnet_id is not None:
-            _setter("subnet_id", subnet_id)
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if terminate_instance_on_failure is not None:
-            _setter("terminate_instance_on_failure", terminate_instance_on_failure)
+            pulumi.set(__self__, "terminate_instance_on_failure", terminate_instance_on_failure)
 
     @property
     @pulumi.getter(name="instanceProfileName")
@@ -319,10 +286,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            InfrastructureConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -351,22 +314,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__ = InfrastructureConfigurationArgs.__new__(InfrastructureConfigurationArgs)
 
             __props__.__dict__["description"] = description
-            if instance_metadata_options is not None and not isinstance(instance_metadata_options, InfrastructureConfigurationInstanceMetadataOptionsArgs):
-                instance_metadata_options = instance_metadata_options or {}
-                def _setter(key, value):
-                    instance_metadata_options[key] = value
-                InfrastructureConfigurationInstanceMetadataOptionsArgs._configure(_setter, **instance_metadata_options)
             __props__.__dict__["instance_metadata_options"] = instance_metadata_options
             if instance_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_profile_name'")
             __props__.__dict__["instance_profile_name"] = instance_profile_name
             __props__.__dict__["instance_types"] = instance_types
             __props__.__dict__["key_pair"] = key_pair
-            if logging is not None and not isinstance(logging, InfrastructureConfigurationLoggingArgs):
-                logging = logging or {}
-                def _setter(key, value):
-                    logging[key] = value
-                InfrastructureConfigurationLoggingArgs._configure(_setter, **logging)
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
             __props__.__dict__["resource_tags"] = resource_tags

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -50,16 +50,7 @@ __all__ = [
 class CampaignCollectionScheme0PropertiesArgs:
     def __init__(__self__, *,
                  time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs']):
-        CampaignCollectionScheme0PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            time_based_collection_scheme=time_based_collection_scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             time_based_collection_scheme: pulumi.Input['CampaignTimeBasedCollectionSchemeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("time_based_collection_scheme", time_based_collection_scheme)
+        pulumi.set(__self__, "time_based_collection_scheme", time_based_collection_scheme)
 
     @property
     @pulumi.getter(name="timeBasedCollectionScheme")
@@ -75,16 +66,7 @@ class CampaignCollectionScheme0PropertiesArgs:
 class CampaignCollectionScheme1PropertiesArgs:
     def __init__(__self__, *,
                  condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs']):
-        CampaignCollectionScheme1PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            condition_based_collection_scheme=condition_based_collection_scheme,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             condition_based_collection_scheme: pulumi.Input['CampaignConditionBasedCollectionSchemeArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("condition_based_collection_scheme", condition_based_collection_scheme)
+        pulumi.set(__self__, "condition_based_collection_scheme", condition_based_collection_scheme)
 
     @property
     @pulumi.getter(name="conditionBasedCollectionScheme")
@@ -103,28 +85,13 @@ class CampaignConditionBasedCollectionSchemeArgs:
                  condition_language_version: Optional[pulumi.Input[int]] = None,
                  minimum_trigger_interval_ms: Optional[pulumi.Input[float]] = None,
                  trigger_mode: Optional[pulumi.Input['CampaignTriggerMode']] = None):
-        CampaignConditionBasedCollectionSchemeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expression=expression,
-            condition_language_version=condition_language_version,
-            minimum_trigger_interval_ms=minimum_trigger_interval_ms,
-            trigger_mode=trigger_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expression: pulumi.Input[str],
-             condition_language_version: Optional[pulumi.Input[int]] = None,
-             minimum_trigger_interval_ms: Optional[pulumi.Input[float]] = None,
-             trigger_mode: Optional[pulumi.Input['CampaignTriggerMode']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("expression", expression)
+        pulumi.set(__self__, "expression", expression)
         if condition_language_version is not None:
-            _setter("condition_language_version", condition_language_version)
+            pulumi.set(__self__, "condition_language_version", condition_language_version)
         if minimum_trigger_interval_ms is not None:
-            _setter("minimum_trigger_interval_ms", minimum_trigger_interval_ms)
+            pulumi.set(__self__, "minimum_trigger_interval_ms", minimum_trigger_interval_ms)
         if trigger_mode is not None:
-            _setter("trigger_mode", trigger_mode)
+            pulumi.set(__self__, "trigger_mode", trigger_mode)
 
     @property
     @pulumi.getter
@@ -167,16 +134,7 @@ class CampaignConditionBasedCollectionSchemeArgs:
 class CampaignDataDestinationConfig0PropertiesArgs:
     def __init__(__self__, *,
                  s3_config: pulumi.Input['CampaignS3ConfigArgs']):
-        CampaignDataDestinationConfig0PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_config=s3_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_config: pulumi.Input['CampaignS3ConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_config", s3_config)
+        pulumi.set(__self__, "s3_config", s3_config)
 
     @property
     @pulumi.getter(name="s3Config")
@@ -192,16 +150,7 @@ class CampaignDataDestinationConfig0PropertiesArgs:
 class CampaignDataDestinationConfig1PropertiesArgs:
     def __init__(__self__, *,
                  timestream_config: pulumi.Input['CampaignTimestreamConfigArgs']):
-        CampaignDataDestinationConfig1PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timestream_config=timestream_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timestream_config: pulumi.Input['CampaignTimestreamConfigArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("timestream_config", timestream_config)
+        pulumi.set(__self__, "timestream_config", timestream_config)
 
     @property
     @pulumi.getter(name="timestreamConfig")
@@ -220,28 +169,13 @@ class CampaignS3ConfigArgs:
                  data_format: Optional[pulumi.Input['CampaignDataFormat']] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  storage_compression_format: Optional[pulumi.Input['CampaignStorageCompressionFormat']] = None):
-        CampaignS3ConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            data_format=data_format,
-            prefix=prefix,
-            storage_compression_format=storage_compression_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: pulumi.Input[str],
-             data_format: Optional[pulumi.Input['CampaignDataFormat']] = None,
-             prefix: Optional[pulumi.Input[str]] = None,
-             storage_compression_format: Optional[pulumi.Input['CampaignStorageCompressionFormat']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
         if data_format is not None:
-            _setter("data_format", data_format)
+            pulumi.set(__self__, "data_format", data_format)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if storage_compression_format is not None:
-            _setter("storage_compression_format", storage_compression_format)
+            pulumi.set(__self__, "storage_compression_format", storage_compression_format)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -286,24 +220,11 @@ class CampaignSignalInformationArgs:
                  name: pulumi.Input[str],
                  max_sample_count: Optional[pulumi.Input[float]] = None,
                  minimum_sampling_interval_ms: Optional[pulumi.Input[float]] = None):
-        CampaignSignalInformationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            max_sample_count=max_sample_count,
-            minimum_sampling_interval_ms=minimum_sampling_interval_ms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             max_sample_count: Optional[pulumi.Input[float]] = None,
-             minimum_sampling_interval_ms: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if max_sample_count is not None:
-            _setter("max_sample_count", max_sample_count)
+            pulumi.set(__self__, "max_sample_count", max_sample_count)
         if minimum_sampling_interval_ms is not None:
-            _setter("minimum_sampling_interval_ms", minimum_sampling_interval_ms)
+            pulumi.set(__self__, "minimum_sampling_interval_ms", minimum_sampling_interval_ms)
 
     @property
     @pulumi.getter
@@ -338,19 +259,8 @@ class CampaignTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        CampaignTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -375,16 +285,7 @@ class CampaignTagArgs:
 class CampaignTimeBasedCollectionSchemeArgs:
     def __init__(__self__, *,
                  period_ms: pulumi.Input[float]):
-        CampaignTimeBasedCollectionSchemeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            period_ms=period_ms,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             period_ms: pulumi.Input[float],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("period_ms", period_ms)
+        pulumi.set(__self__, "period_ms", period_ms)
 
     @property
     @pulumi.getter(name="periodMs")
@@ -401,19 +302,8 @@ class CampaignTimestreamConfigArgs:
     def __init__(__self__, *,
                  execution_role_arn: pulumi.Input[str],
                  timestream_table_arn: pulumi.Input[str]):
-        CampaignTimestreamConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            execution_role_arn=execution_role_arn,
-            timestream_table_arn=timestream_table_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             execution_role_arn: pulumi.Input[str],
-             timestream_table_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("execution_role_arn", execution_role_arn)
-        _setter("timestream_table_arn", timestream_table_arn)
+        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        pulumi.set(__self__, "timestream_table_arn", timestream_table_arn)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -440,24 +330,11 @@ class DecoderManifestCanInterfaceArgs:
                  name: pulumi.Input[str],
                  protocol_name: Optional[pulumi.Input[str]] = None,
                  protocol_version: Optional[pulumi.Input[str]] = None):
-        DecoderManifestCanInterfaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            protocol_name=protocol_name,
-            protocol_version=protocol_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             protocol_name: Optional[pulumi.Input[str]] = None,
-             protocol_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if protocol_name is not None:
-            _setter("protocol_name", protocol_name)
+            pulumi.set(__self__, "protocol_name", protocol_name)
         if protocol_version is not None:
-            _setter("protocol_version", protocol_version)
+            pulumi.set(__self__, "protocol_version", protocol_version)
 
     @property
     @pulumi.getter
@@ -493,22 +370,9 @@ class DecoderManifestCanNetworkInterfaceArgs:
                  can_interface: pulumi.Input['DecoderManifestCanInterfaceArgs'],
                  interface_id: pulumi.Input[str],
                  type: pulumi.Input['DecoderManifestCanNetworkInterfaceType']):
-        DecoderManifestCanNetworkInterfaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            can_interface=can_interface,
-            interface_id=interface_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             can_interface: pulumi.Input['DecoderManifestCanInterfaceArgs'],
-             interface_id: pulumi.Input[str],
-             type: pulumi.Input['DecoderManifestCanNetworkInterfaceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("can_interface", can_interface)
-        _setter("interface_id", interface_id)
-        _setter("type", type)
+        pulumi.set(__self__, "can_interface", can_interface)
+        pulumi.set(__self__, "interface_id", interface_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="canInterface")
@@ -545,25 +409,10 @@ class DecoderManifestCanSignalDecoderArgs:
                  fully_qualified_name: pulumi.Input[str],
                  interface_id: pulumi.Input[str],
                  type: pulumi.Input['DecoderManifestCanSignalDecoderType']):
-        DecoderManifestCanSignalDecoderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            can_signal=can_signal,
-            fully_qualified_name=fully_qualified_name,
-            interface_id=interface_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             can_signal: pulumi.Input['DecoderManifestCanSignalArgs'],
-             fully_qualified_name: pulumi.Input[str],
-             interface_id: pulumi.Input[str],
-             type: pulumi.Input['DecoderManifestCanSignalDecoderType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("can_signal", can_signal)
-        _setter("fully_qualified_name", fully_qualified_name)
-        _setter("interface_id", interface_id)
-        _setter("type", type)
+        pulumi.set(__self__, "can_signal", can_signal)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "interface_id", interface_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="canSignal")
@@ -613,38 +462,15 @@ class DecoderManifestCanSignalArgs:
                  offset: pulumi.Input[float],
                  start_bit: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None):
-        DecoderManifestCanSignalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            factor=factor,
-            is_big_endian=is_big_endian,
-            is_signed=is_signed,
-            length=length,
-            message_id=message_id,
-            offset=offset,
-            start_bit=start_bit,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             factor: pulumi.Input[float],
-             is_big_endian: pulumi.Input[bool],
-             is_signed: pulumi.Input[bool],
-             length: pulumi.Input[int],
-             message_id: pulumi.Input[int],
-             offset: pulumi.Input[float],
-             start_bit: pulumi.Input[int],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("factor", factor)
-        _setter("is_big_endian", is_big_endian)
-        _setter("is_signed", is_signed)
-        _setter("length", length)
-        _setter("message_id", message_id)
-        _setter("offset", offset)
-        _setter("start_bit", start_bit)
+        pulumi.set(__self__, "factor", factor)
+        pulumi.set(__self__, "is_big_endian", is_big_endian)
+        pulumi.set(__self__, "is_signed", is_signed)
+        pulumi.set(__self__, "length", length)
+        pulumi.set(__self__, "message_id", message_id)
+        pulumi.set(__self__, "offset", offset)
+        pulumi.set(__self__, "start_bit", start_bit)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -729,39 +555,18 @@ class DecoderManifestObdInterfaceArgs:
                  obd_standard: Optional[pulumi.Input[str]] = None,
                  pid_request_interval_seconds: Optional[pulumi.Input[int]] = None,
                  use_extended_ids: Optional[pulumi.Input[bool]] = None):
-        DecoderManifestObdInterfaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            request_message_id=request_message_id,
-            dtc_request_interval_seconds=dtc_request_interval_seconds,
-            has_transmission_ecu=has_transmission_ecu,
-            obd_standard=obd_standard,
-            pid_request_interval_seconds=pid_request_interval_seconds,
-            use_extended_ids=use_extended_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             request_message_id: pulumi.Input[int],
-             dtc_request_interval_seconds: Optional[pulumi.Input[int]] = None,
-             has_transmission_ecu: Optional[pulumi.Input[bool]] = None,
-             obd_standard: Optional[pulumi.Input[str]] = None,
-             pid_request_interval_seconds: Optional[pulumi.Input[int]] = None,
-             use_extended_ids: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("request_message_id", request_message_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "request_message_id", request_message_id)
         if dtc_request_interval_seconds is not None:
-            _setter("dtc_request_interval_seconds", dtc_request_interval_seconds)
+            pulumi.set(__self__, "dtc_request_interval_seconds", dtc_request_interval_seconds)
         if has_transmission_ecu is not None:
-            _setter("has_transmission_ecu", has_transmission_ecu)
+            pulumi.set(__self__, "has_transmission_ecu", has_transmission_ecu)
         if obd_standard is not None:
-            _setter("obd_standard", obd_standard)
+            pulumi.set(__self__, "obd_standard", obd_standard)
         if pid_request_interval_seconds is not None:
-            _setter("pid_request_interval_seconds", pid_request_interval_seconds)
+            pulumi.set(__self__, "pid_request_interval_seconds", pid_request_interval_seconds)
         if use_extended_ids is not None:
-            _setter("use_extended_ids", use_extended_ids)
+            pulumi.set(__self__, "use_extended_ids", use_extended_ids)
 
     @property
     @pulumi.getter
@@ -833,22 +638,9 @@ class DecoderManifestObdNetworkInterfaceArgs:
                  interface_id: pulumi.Input[str],
                  obd_interface: pulumi.Input['DecoderManifestObdInterfaceArgs'],
                  type: pulumi.Input['DecoderManifestObdNetworkInterfaceType']):
-        DecoderManifestObdNetworkInterfaceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interface_id=interface_id,
-            obd_interface=obd_interface,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interface_id: pulumi.Input[str],
-             obd_interface: pulumi.Input['DecoderManifestObdInterfaceArgs'],
-             type: pulumi.Input['DecoderManifestObdNetworkInterfaceType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("interface_id", interface_id)
-        _setter("obd_interface", obd_interface)
-        _setter("type", type)
+        pulumi.set(__self__, "interface_id", interface_id)
+        pulumi.set(__self__, "obd_interface", obd_interface)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="interfaceId")
@@ -885,25 +677,10 @@ class DecoderManifestObdSignalDecoderArgs:
                  interface_id: pulumi.Input[str],
                  obd_signal: pulumi.Input['DecoderManifestObdSignalArgs'],
                  type: pulumi.Input['DecoderManifestObdSignalDecoderType']):
-        DecoderManifestObdSignalDecoderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fully_qualified_name=fully_qualified_name,
-            interface_id=interface_id,
-            obd_signal=obd_signal,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fully_qualified_name: pulumi.Input[str],
-             interface_id: pulumi.Input[str],
-             obd_signal: pulumi.Input['DecoderManifestObdSignalArgs'],
-             type: pulumi.Input['DecoderManifestObdSignalDecoderType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fully_qualified_name", fully_qualified_name)
-        _setter("interface_id", interface_id)
-        _setter("obd_signal", obd_signal)
-        _setter("type", type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "interface_id", interface_id)
+        pulumi.set(__self__, "obd_signal", obd_signal)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
@@ -954,42 +731,17 @@ class DecoderManifestObdSignalArgs:
                  start_byte: pulumi.Input[int],
                  bit_mask_length: Optional[pulumi.Input[int]] = None,
                  bit_right_shift: Optional[pulumi.Input[int]] = None):
-        DecoderManifestObdSignalArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            byte_length=byte_length,
-            offset=offset,
-            pid=pid,
-            pid_response_length=pid_response_length,
-            scaling=scaling,
-            service_mode=service_mode,
-            start_byte=start_byte,
-            bit_mask_length=bit_mask_length,
-            bit_right_shift=bit_right_shift,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             byte_length: pulumi.Input[int],
-             offset: pulumi.Input[float],
-             pid: pulumi.Input[int],
-             pid_response_length: pulumi.Input[int],
-             scaling: pulumi.Input[float],
-             service_mode: pulumi.Input[int],
-             start_byte: pulumi.Input[int],
-             bit_mask_length: Optional[pulumi.Input[int]] = None,
-             bit_right_shift: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("byte_length", byte_length)
-        _setter("offset", offset)
-        _setter("pid", pid)
-        _setter("pid_response_length", pid_response_length)
-        _setter("scaling", scaling)
-        _setter("service_mode", service_mode)
-        _setter("start_byte", start_byte)
+        pulumi.set(__self__, "byte_length", byte_length)
+        pulumi.set(__self__, "offset", offset)
+        pulumi.set(__self__, "pid", pid)
+        pulumi.set(__self__, "pid_response_length", pid_response_length)
+        pulumi.set(__self__, "scaling", scaling)
+        pulumi.set(__self__, "service_mode", service_mode)
+        pulumi.set(__self__, "start_byte", start_byte)
         if bit_mask_length is not None:
-            _setter("bit_mask_length", bit_mask_length)
+            pulumi.set(__self__, "bit_mask_length", bit_mask_length)
         if bit_right_shift is not None:
-            _setter("bit_right_shift", bit_right_shift)
+            pulumi.set(__self__, "bit_right_shift", bit_right_shift)
 
     @property
     @pulumi.getter(name="byteLength")
@@ -1078,19 +830,8 @@ class DecoderManifestTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        DecoderManifestTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1116,19 +857,8 @@ class FleetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        FleetTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1154,19 +884,8 @@ class ModelManifestTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ModelManifestTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1198,43 +917,20 @@ class SignalCatalogActuatorArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        SignalCatalogActuatorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_type=data_type,
-            fully_qualified_name=fully_qualified_name,
-            allowed_values=allowed_values,
-            assigned_value=assigned_value,
-            description=description,
-            max=max,
-            min=min,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['SignalCatalogNodeDataType'],
-             fully_qualified_name: pulumi.Input[str],
-             allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             assigned_value: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             max: Optional[pulumi.Input[float]] = None,
-             min: Optional[pulumi.Input[float]] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_type", data_type)
-        _setter("fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
-            _setter("allowed_values", allowed_values)
+            pulumi.set(__self__, "allowed_values", allowed_values)
         if assigned_value is not None:
-            _setter("assigned_value", assigned_value)
+            pulumi.set(__self__, "assigned_value", assigned_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max is not None:
-            _setter("max", max)
+            pulumi.set(__self__, "max", max)
         if min is not None:
-            _setter("min", min)
+            pulumi.set(__self__, "min", min)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="dataType")
@@ -1321,47 +1017,22 @@ class SignalCatalogAttributeArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        SignalCatalogAttributeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_type=data_type,
-            fully_qualified_name=fully_qualified_name,
-            allowed_values=allowed_values,
-            assigned_value=assigned_value,
-            default_value=default_value,
-            description=description,
-            max=max,
-            min=min,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['SignalCatalogNodeDataType'],
-             fully_qualified_name: pulumi.Input[str],
-             allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             assigned_value: Optional[pulumi.Input[str]] = None,
-             default_value: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             max: Optional[pulumi.Input[float]] = None,
-             min: Optional[pulumi.Input[float]] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_type", data_type)
-        _setter("fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
-            _setter("allowed_values", allowed_values)
+            pulumi.set(__self__, "allowed_values", allowed_values)
         if assigned_value is not None:
-            _setter("assigned_value", assigned_value)
+            pulumi.set(__self__, "assigned_value", assigned_value)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max is not None:
-            _setter("max", max)
+            pulumi.set(__self__, "max", max)
         if min is not None:
-            _setter("min", min)
+            pulumi.set(__self__, "min", min)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="dataType")
@@ -1450,20 +1121,9 @@ class SignalCatalogBranchArgs:
     def __init__(__self__, *,
                  fully_qualified_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
-        SignalCatalogBranchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            fully_qualified_name=fully_qualified_name,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             fully_qualified_name: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
@@ -1488,17 +1148,8 @@ class SignalCatalogBranchArgs:
 class SignalCatalogNode0PropertiesArgs:
     def __init__(__self__, *,
                  branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None):
-        SignalCatalogNode0PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch=branch,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch: Optional[pulumi.Input['SignalCatalogBranchArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if branch is not None:
-            _setter("branch", branch)
+            pulumi.set(__self__, "branch", branch)
 
     @property
     @pulumi.getter
@@ -1514,17 +1165,8 @@ class SignalCatalogNode0PropertiesArgs:
 class SignalCatalogNode1PropertiesArgs:
     def __init__(__self__, *,
                  sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None):
-        SignalCatalogNode1PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            sensor=sensor,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             sensor: Optional[pulumi.Input['SignalCatalogSensorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if sensor is not None:
-            _setter("sensor", sensor)
+            pulumi.set(__self__, "sensor", sensor)
 
     @property
     @pulumi.getter
@@ -1540,17 +1182,8 @@ class SignalCatalogNode1PropertiesArgs:
 class SignalCatalogNode2PropertiesArgs:
     def __init__(__self__, *,
                  actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None):
-        SignalCatalogNode2PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actuator=actuator,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actuator: Optional[pulumi.Input['SignalCatalogActuatorArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if actuator is not None:
-            _setter("actuator", actuator)
+            pulumi.set(__self__, "actuator", actuator)
 
     @property
     @pulumi.getter
@@ -1566,17 +1199,8 @@ class SignalCatalogNode2PropertiesArgs:
 class SignalCatalogNode3PropertiesArgs:
     def __init__(__self__, *,
                  attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None):
-        SignalCatalogNode3PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute=attribute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute: Optional[pulumi.Input['SignalCatalogAttributeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if attribute is not None:
-            _setter("attribute", attribute)
+            pulumi.set(__self__, "attribute", attribute)
 
     @property
     @pulumi.getter
@@ -1596,33 +1220,16 @@ class SignalCatalogNodeCountsArgs:
                  total_branches: Optional[pulumi.Input[float]] = None,
                  total_nodes: Optional[pulumi.Input[float]] = None,
                  total_sensors: Optional[pulumi.Input[float]] = None):
-        SignalCatalogNodeCountsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            total_actuators=total_actuators,
-            total_attributes=total_attributes,
-            total_branches=total_branches,
-            total_nodes=total_nodes,
-            total_sensors=total_sensors,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             total_actuators: Optional[pulumi.Input[float]] = None,
-             total_attributes: Optional[pulumi.Input[float]] = None,
-             total_branches: Optional[pulumi.Input[float]] = None,
-             total_nodes: Optional[pulumi.Input[float]] = None,
-             total_sensors: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if total_actuators is not None:
-            _setter("total_actuators", total_actuators)
+            pulumi.set(__self__, "total_actuators", total_actuators)
         if total_attributes is not None:
-            _setter("total_attributes", total_attributes)
+            pulumi.set(__self__, "total_attributes", total_attributes)
         if total_branches is not None:
-            _setter("total_branches", total_branches)
+            pulumi.set(__self__, "total_branches", total_branches)
         if total_nodes is not None:
-            _setter("total_nodes", total_nodes)
+            pulumi.set(__self__, "total_nodes", total_nodes)
         if total_sensors is not None:
-            _setter("total_sensors", total_sensors)
+            pulumi.set(__self__, "total_sensors", total_sensors)
 
     @property
     @pulumi.getter(name="totalActuators")
@@ -1680,39 +1287,18 @@ class SignalCatalogSensorArgs:
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        SignalCatalogSensorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_type=data_type,
-            fully_qualified_name=fully_qualified_name,
-            allowed_values=allowed_values,
-            description=description,
-            max=max,
-            min=min,
-            unit=unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_type: pulumi.Input['SignalCatalogNodeDataType'],
-             fully_qualified_name: pulumi.Input[str],
-             allowed_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             max: Optional[pulumi.Input[float]] = None,
-             min: Optional[pulumi.Input[float]] = None,
-             unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_type", data_type)
-        _setter("fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "data_type", data_type)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if allowed_values is not None:
-            _setter("allowed_values", allowed_values)
+            pulumi.set(__self__, "allowed_values", allowed_values)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if max is not None:
-            _setter("max", max)
+            pulumi.set(__self__, "max", max)
         if min is not None:
-            _setter("min", min)
+            pulumi.set(__self__, "min", min)
         if unit is not None:
-            _setter("unit", unit)
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter(name="dataType")
@@ -1783,19 +1369,8 @@ class SignalCatalogTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        SignalCatalogTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1821,19 +1396,8 @@ class VehicleTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        VehicleTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1857,11 +1421,6 @@ class VehicleTagArgs:
 @pulumi.input_type
 class VehicleattributesMapArgs:
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 

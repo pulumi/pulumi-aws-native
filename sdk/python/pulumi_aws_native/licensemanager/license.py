@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,51 +35,22 @@ class LicenseArgs:
         :param pulumi.Input[str] license_name: Name for the created license.
         :param pulumi.Input[str] product_sku: ProductSKU of the license.
         """
-        LicenseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumption_configuration=consumption_configuration,
-            entitlements=entitlements,
-            home_region=home_region,
-            issuer=issuer,
-            product_name=product_name,
-            validity=validity,
-            beneficiary=beneficiary,
-            license_metadata=license_metadata,
-            license_name=license_name,
-            product_sku=product_sku,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumption_configuration: pulumi.Input['LicenseConsumptionConfigurationArgs'],
-             entitlements: pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]],
-             home_region: pulumi.Input[str],
-             issuer: pulumi.Input['LicenseIssuerDataArgs'],
-             product_name: pulumi.Input[str],
-             validity: pulumi.Input['LicenseValidityDateFormatArgs'],
-             beneficiary: Optional[pulumi.Input[str]] = None,
-             license_metadata: Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]] = None,
-             license_name: Optional[pulumi.Input[str]] = None,
-             product_sku: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("consumption_configuration", consumption_configuration)
-        _setter("entitlements", entitlements)
-        _setter("home_region", home_region)
-        _setter("issuer", issuer)
-        _setter("product_name", product_name)
-        _setter("validity", validity)
+        pulumi.set(__self__, "consumption_configuration", consumption_configuration)
+        pulumi.set(__self__, "entitlements", entitlements)
+        pulumi.set(__self__, "home_region", home_region)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "product_name", product_name)
+        pulumi.set(__self__, "validity", validity)
         if beneficiary is not None:
-            _setter("beneficiary", beneficiary)
+            pulumi.set(__self__, "beneficiary", beneficiary)
         if license_metadata is not None:
-            _setter("license_metadata", license_metadata)
+            pulumi.set(__self__, "license_metadata", license_metadata)
         if license_name is not None:
-            _setter("license_name", license_name)
+            pulumi.set(__self__, "license_name", license_name)
         if product_sku is not None:
-            _setter("product_sku", product_sku)
+            pulumi.set(__self__, "product_sku", product_sku)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="consumptionConfiguration")
@@ -243,10 +214,6 @@ class License(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LicenseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -273,11 +240,6 @@ class License(pulumi.CustomResource):
             __props__ = LicenseArgs.__new__(LicenseArgs)
 
             __props__.__dict__["beneficiary"] = beneficiary
-            if consumption_configuration is not None and not isinstance(consumption_configuration, LicenseConsumptionConfigurationArgs):
-                consumption_configuration = consumption_configuration or {}
-                def _setter(key, value):
-                    consumption_configuration[key] = value
-                LicenseConsumptionConfigurationArgs._configure(_setter, **consumption_configuration)
             if consumption_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'consumption_configuration'")
             __props__.__dict__["consumption_configuration"] = consumption_configuration
@@ -287,11 +249,6 @@ class License(pulumi.CustomResource):
             if home_region is None and not opts.urn:
                 raise TypeError("Missing required property 'home_region'")
             __props__.__dict__["home_region"] = home_region
-            if issuer is not None and not isinstance(issuer, LicenseIssuerDataArgs):
-                issuer = issuer or {}
-                def _setter(key, value):
-                    issuer[key] = value
-                LicenseIssuerDataArgs._configure(_setter, **issuer)
             if issuer is None and not opts.urn:
                 raise TypeError("Missing required property 'issuer'")
             __props__.__dict__["issuer"] = issuer
@@ -302,11 +259,6 @@ class License(pulumi.CustomResource):
             __props__.__dict__["product_name"] = product_name
             __props__.__dict__["product_sku"] = product_sku
             __props__.__dict__["status"] = status
-            if validity is not None and not isinstance(validity, LicenseValidityDateFormatArgs):
-                validity = validity or {}
-                def _setter(key, value):
-                    validity[key] = value
-                LicenseValidityDateFormatArgs._configure(_setter, **validity)
             if validity is None and not opts.urn:
                 raise TypeError("Missing required property 'validity'")
             __props__.__dict__["validity"] = validity

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,32 +28,15 @@ class ProjectArgs:
         :param pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs'] service_catalog_provisioned_product_details: Provisioned ServiceCatalog  Details
         :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        ProjectArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_catalog_provisioning_details=service_catalog_provisioning_details,
-            project_description=project_description,
-            project_name=project_name,
-            service_catalog_provisioned_product_details=service_catalog_provisioned_product_details,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_catalog_provisioning_details: pulumi.Input['ServiceCatalogProvisioningDetailsPropertiesArgs'],
-             project_description: Optional[pulumi.Input[str]] = None,
-             project_name: Optional[pulumi.Input[str]] = None,
-             service_catalog_provisioned_product_details: Optional[pulumi.Input['ServiceCatalogProvisionedProductDetailsPropertiesArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("service_catalog_provisioning_details", service_catalog_provisioning_details)
+        pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
         if project_description is not None:
-            _setter("project_description", project_description)
+            pulumi.set(__self__, "project_description", project_description)
         if project_name is not None:
-            _setter("project_name", project_name)
+            pulumi.set(__self__, "project_name", project_name)
         if service_catalog_provisioned_product_details is not None:
-            _setter("service_catalog_provisioned_product_details", service_catalog_provisioned_product_details)
+            pulumi.set(__self__, "service_catalog_provisioned_product_details", service_catalog_provisioned_product_details)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
@@ -149,10 +132,6 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -174,17 +153,7 @@ class Project(pulumi.CustomResource):
 
             __props__.__dict__["project_description"] = project_description
             __props__.__dict__["project_name"] = project_name
-            if service_catalog_provisioned_product_details is not None and not isinstance(service_catalog_provisioned_product_details, ServiceCatalogProvisionedProductDetailsPropertiesArgs):
-                service_catalog_provisioned_product_details = service_catalog_provisioned_product_details or {}
-                def _setter(key, value):
-                    service_catalog_provisioned_product_details[key] = value
-                ServiceCatalogProvisionedProductDetailsPropertiesArgs._configure(_setter, **service_catalog_provisioned_product_details)
             __props__.__dict__["service_catalog_provisioned_product_details"] = service_catalog_provisioned_product_details
-            if service_catalog_provisioning_details is not None and not isinstance(service_catalog_provisioning_details, ServiceCatalogProvisioningDetailsPropertiesArgs):
-                service_catalog_provisioning_details = service_catalog_provisioning_details or {}
-                def _setter(key, value):
-                    service_catalog_provisioning_details[key] = value
-                ServiceCatalogProvisioningDetailsPropertiesArgs._configure(_setter, **service_catalog_provisioning_details)
             if service_catalog_provisioning_details is None and not opts.urn:
                 raise TypeError("Missing required property 'service_catalog_provisioning_details'")
             __props__.__dict__["service_catalog_provisioning_details"] = service_catalog_provisioning_details

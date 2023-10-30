@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,20 +21,9 @@ class RepositoryCodeArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['RepositoryS3Args'],
                  branch_name: Optional[pulumi.Input[str]] = None):
-        RepositoryCodeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3=s3,
-            branch_name=branch_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3: pulumi.Input['RepositoryS3Args'],
-             branch_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3", s3)
+        pulumi.set(__self__, "s3", s3)
         if branch_name is not None:
-            _setter("branch_name", branch_name)
+            pulumi.set(__self__, "branch_name", branch_name)
 
     @property
     @pulumi.getter
@@ -61,23 +50,10 @@ class RepositoryS3Args:
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str],
                  object_version: Optional[pulumi.Input[str]] = None):
-        RepositoryS3Args._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            key=key,
-            object_version=object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             key: pulumi.Input[str],
-             object_version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("key", key)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
         if object_version is not None:
-            _setter("object_version", object_version)
+            pulumi.set(__self__, "object_version", object_version)
 
     @property
     @pulumi.getter
@@ -112,19 +88,8 @@ class RepositoryTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        RepositoryTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -153,30 +118,13 @@ class RepositoryTriggerArgs:
                  name: pulumi.Input[str],
                  branches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_data: Optional[pulumi.Input[str]] = None):
-        RepositoryTriggerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_arn=destination_arn,
-            events=events,
-            name=name,
-            branches=branches,
-            custom_data=custom_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_arn: pulumi.Input[str],
-             events: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             branches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             custom_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_arn", destination_arn)
-        _setter("events", events)
-        _setter("name", name)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "name", name)
         if branches is not None:
-            _setter("branches", branches)
+            pulumi.set(__self__, "branches", branches)
         if custom_data is not None:
-            _setter("custom_data", custom_data)
+            pulumi.set(__self__, "custom_data", custom_data)
 
     @property
     @pulumi.getter(name="destinationArn")

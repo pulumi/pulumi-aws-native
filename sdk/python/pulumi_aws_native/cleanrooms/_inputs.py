@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -43,23 +43,10 @@ class AnalysisTemplateAnalysisParameterArgs:
                  name: pulumi.Input[str],
                  type: pulumi.Input['AnalysisTemplateAnalysisParameterType'],
                  default_value: Optional[pulumi.Input[str]] = None):
-        AnalysisTemplateAnalysisParameterArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            type=type,
-            default_value=default_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input['AnalysisTemplateAnalysisParameterType'],
-             default_value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("name", name)
-        _setter("type", type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
         if default_value is not None:
-            _setter("default_value", default_value)
+            pulumi.set(__self__, "default_value", default_value)
 
     @property
     @pulumi.getter
@@ -93,16 +80,7 @@ class AnalysisTemplateAnalysisParameterArgs:
 class AnalysisTemplateAnalysisSourceArgs:
     def __init__(__self__, *,
                  text: pulumi.Input[str]):
-        AnalysisTemplateAnalysisSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            text=text,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             text: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("text", text)
+        pulumi.set(__self__, "text", text)
 
     @property
     @pulumi.getter
@@ -119,19 +97,8 @@ class AnalysisTemplateTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        AnalysisTemplateTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -159,25 +126,10 @@ class CollaborationDataEncryptionMetadataArgs:
                  allow_duplicates: pulumi.Input[bool],
                  allow_joins_on_columns_with_different_names: pulumi.Input[bool],
                  preserve_nulls: pulumi.Input[bool]):
-        CollaborationDataEncryptionMetadataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_cleartext=allow_cleartext,
-            allow_duplicates=allow_duplicates,
-            allow_joins_on_columns_with_different_names=allow_joins_on_columns_with_different_names,
-            preserve_nulls=preserve_nulls,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_cleartext: pulumi.Input[bool],
-             allow_duplicates: pulumi.Input[bool],
-             allow_joins_on_columns_with_different_names: pulumi.Input[bool],
-             preserve_nulls: pulumi.Input[bool],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allow_cleartext", allow_cleartext)
-        _setter("allow_duplicates", allow_duplicates)
-        _setter("allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
-        _setter("preserve_nulls", preserve_nulls)
+        pulumi.set(__self__, "allow_cleartext", allow_cleartext)
+        pulumi.set(__self__, "allow_duplicates", allow_duplicates)
+        pulumi.set(__self__, "allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
+        pulumi.set(__self__, "preserve_nulls", preserve_nulls)
 
     @property
     @pulumi.getter(name="allowCleartext")
@@ -222,22 +174,9 @@ class CollaborationMemberSpecificationArgs:
                  account_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]):
-        CollaborationMemberSpecificationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            display_name=display_name,
-            member_abilities=member_abilities,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             display_name: pulumi.Input[str],
-             member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("account_id", account_id)
-        _setter("display_name", display_name)
-        _setter("member_abilities", member_abilities)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "member_abilities", member_abilities)
 
     @property
     @pulumi.getter(name="accountId")
@@ -272,19 +211,8 @@ class CollaborationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        CollaborationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -310,19 +238,8 @@ class ConfiguredTableAggregateColumnArgs:
     def __init__(__self__, *,
                  column_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  function: pulumi.Input['ConfiguredTableAggregateFunctionName']):
-        ConfiguredTableAggregateColumnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            column_names=column_names,
-            function=function,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             column_names: pulumi.Input[Sequence[pulumi.Input[str]]],
-             function: pulumi.Input['ConfiguredTableAggregateFunctionName'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("column_names", column_names)
-        _setter("function", function)
+        pulumi.set(__self__, "column_names", column_names)
+        pulumi.set(__self__, "function", function)
 
     @property
     @pulumi.getter(name="columnNames")
@@ -349,22 +266,9 @@ class ConfiguredTableAggregationConstraintArgs:
                  column_name: pulumi.Input[str],
                  minimum: pulumi.Input[float],
                  type: pulumi.Input['ConfiguredTableAggregationType']):
-        ConfiguredTableAggregationConstraintArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            column_name=column_name,
-            minimum=minimum,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             column_name: pulumi.Input[str],
-             minimum: pulumi.Input[float],
-             type: pulumi.Input['ConfiguredTableAggregationType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("column_name", column_name)
-        _setter("minimum", minimum)
-        _setter("type", type)
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="columnName")
@@ -404,36 +308,15 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
                  scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]],
                  allowed_join_operators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None,
                  join_required: Optional[pulumi.Input['ConfiguredTableJoinRequiredOption']] = None):
-        ConfiguredTableAnalysisRuleAggregationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aggregate_columns=aggregate_columns,
-            dimension_columns=dimension_columns,
-            join_columns=join_columns,
-            output_constraints=output_constraints,
-            scalar_functions=scalar_functions,
-            allowed_join_operators=allowed_join_operators,
-            join_required=join_required,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aggregate_columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregateColumnArgs']]],
-             dimension_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             join_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             output_constraints: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAggregationConstraintArgs']]],
-             scalar_functions: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableScalarFunctions']]],
-             allowed_join_operators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None,
-             join_required: Optional[pulumi.Input['ConfiguredTableJoinRequiredOption']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aggregate_columns", aggregate_columns)
-        _setter("dimension_columns", dimension_columns)
-        _setter("join_columns", join_columns)
-        _setter("output_constraints", output_constraints)
-        _setter("scalar_functions", scalar_functions)
+        pulumi.set(__self__, "aggregate_columns", aggregate_columns)
+        pulumi.set(__self__, "dimension_columns", dimension_columns)
+        pulumi.set(__self__, "join_columns", join_columns)
+        pulumi.set(__self__, "output_constraints", output_constraints)
+        pulumi.set(__self__, "scalar_functions", scalar_functions)
         if allowed_join_operators is not None:
-            _setter("allowed_join_operators", allowed_join_operators)
+            pulumi.set(__self__, "allowed_join_operators", allowed_join_operators)
         if join_required is not None:
-            _setter("join_required", join_required)
+            pulumi.set(__self__, "join_required", join_required)
 
     @property
     @pulumi.getter(name="aggregateColumns")
@@ -504,20 +387,9 @@ class ConfiguredTableAnalysisRuleCustomArgs:
     def __init__(__self__, *,
                  allowed_analyses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_analysis_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        ConfiguredTableAnalysisRuleCustomArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_analyses=allowed_analyses,
-            allowed_analysis_providers=allowed_analysis_providers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_analyses: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_analysis_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("allowed_analyses", allowed_analyses)
+        pulumi.set(__self__, "allowed_analyses", allowed_analyses)
         if allowed_analysis_providers is not None:
-            _setter("allowed_analysis_providers", allowed_analysis_providers)
+            pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
 
     @property
     @pulumi.getter(name="allowedAnalyses")
@@ -544,23 +416,10 @@ class ConfiguredTableAnalysisRuleListArgs:
                  join_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  list_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  allowed_join_operators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None):
-        ConfiguredTableAnalysisRuleListArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            join_columns=join_columns,
-            list_columns=list_columns,
-            allowed_join_operators=allowed_join_operators,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             join_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             list_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
-             allowed_join_operators: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableJoinOperator']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("join_columns", join_columns)
-        _setter("list_columns", list_columns)
+        pulumi.set(__self__, "join_columns", join_columns)
+        pulumi.set(__self__, "list_columns", list_columns)
         if allowed_join_operators is not None:
-            _setter("allowed_join_operators", allowed_join_operators)
+            pulumi.set(__self__, "allowed_join_operators", allowed_join_operators)
 
     @property
     @pulumi.getter(name="joinColumns")
@@ -594,16 +453,7 @@ class ConfiguredTableAnalysisRuleListArgs:
 class ConfiguredTableAnalysisRulePolicyV10PropertiesArgs:
     def __init__(__self__, *,
                  list: pulumi.Input['ConfiguredTableAnalysisRuleListArgs']):
-        ConfiguredTableAnalysisRulePolicyV10PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            list=list,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             list: pulumi.Input['ConfiguredTableAnalysisRuleListArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("list", list)
+        pulumi.set(__self__, "list", list)
 
     @property
     @pulumi.getter
@@ -619,16 +469,7 @@ class ConfiguredTableAnalysisRulePolicyV10PropertiesArgs:
 class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input['ConfiguredTableAnalysisRuleAggregationArgs']):
-        ConfiguredTableAnalysisRulePolicyV11PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aggregation=aggregation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aggregation: pulumi.Input['ConfiguredTableAnalysisRuleAggregationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aggregation", aggregation)
+        pulumi.set(__self__, "aggregation", aggregation)
 
     @property
     @pulumi.getter
@@ -644,16 +485,7 @@ class ConfiguredTableAnalysisRulePolicyV11PropertiesArgs:
 class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
     def __init__(__self__, *,
                  custom: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgs']):
-        ConfiguredTableAnalysisRulePolicyV12PropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom=custom,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom: pulumi.Input['ConfiguredTableAnalysisRuleCustomArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("custom", custom)
+        pulumi.set(__self__, "custom", custom)
 
     @property
     @pulumi.getter
@@ -669,16 +501,7 @@ class ConfiguredTableAnalysisRulePolicyV12PropertiesArgs:
 class ConfiguredTableAnalysisRulePolicyArgs:
     def __init__(__self__, *,
                  v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']]):
-        ConfiguredTableAnalysisRulePolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            v1=v1,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             v1: pulumi.Input[Union['ConfiguredTableAnalysisRulePolicyV10PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV11PropertiesArgs', 'ConfiguredTableAnalysisRulePolicyV12PropertiesArgs']],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("v1", v1)
+        pulumi.set(__self__, "v1", v1)
 
     @property
     @pulumi.getter
@@ -695,19 +518,8 @@ class ConfiguredTableAnalysisRuleArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'],
                  type: pulumi.Input['ConfiguredTableAnalysisRuleType']):
-        ConfiguredTableAnalysisRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy=policy,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'],
-             type: pulumi.Input['ConfiguredTableAnalysisRuleType'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy", policy)
-        _setter("type", type)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -733,19 +545,8 @@ class ConfiguredTableAssociationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ConfiguredTableAssociationTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -771,19 +572,8 @@ class ConfiguredTableGlueTableReferenceArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
-        ConfiguredTableGlueTableReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_name=database_name,
-            table_name=table_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_name: pulumi.Input[str],
-             table_name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("database_name", database_name)
-        _setter("table_name", table_name)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -808,16 +598,7 @@ class ConfiguredTableGlueTableReferenceArgs:
 class ConfiguredTableTableReferenceArgs:
     def __init__(__self__, *,
                  glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
-        ConfiguredTableTableReferenceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            glue=glue,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("glue", glue)
+        pulumi.set(__self__, "glue", glue)
 
     @property
     @pulumi.getter
@@ -834,19 +615,8 @@ class ConfiguredTableTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ConfiguredTableTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -871,16 +641,7 @@ class ConfiguredTableTagArgs:
 class MembershipProtectedQueryOutputConfigurationArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
-        MembershipProtectedQueryOutputConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3=s3,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3", s3)
+        pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
@@ -897,20 +658,9 @@ class MembershipProtectedQueryResultConfigurationArgs:
     def __init__(__self__, *,
                  output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'],
                  role_arn: Optional[pulumi.Input[str]] = None):
-        MembershipProtectedQueryResultConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            output_configuration=output_configuration,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'],
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("output_configuration", output_configuration)
+        pulumi.set(__self__, "output_configuration", output_configuration)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="outputConfiguration")
@@ -937,23 +687,10 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
                  bucket: pulumi.Input[str],
                  result_format: pulumi.Input['MembershipResultFormat'],
                  key_prefix: Optional[pulumi.Input[str]] = None):
-        MembershipProtectedQueryS3OutputConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            result_format=result_format,
-            key_prefix=key_prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             result_format: pulumi.Input['MembershipResultFormat'],
-             key_prefix: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("result_format", result_format)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "result_format", result_format)
         if key_prefix is not None:
-            _setter("key_prefix", key_prefix)
+            pulumi.set(__self__, "key_prefix", key_prefix)
 
     @property
     @pulumi.getter
@@ -988,19 +725,8 @@ class MembershipTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        MembershipTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

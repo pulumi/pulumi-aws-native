@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TransitGatewayRouteTablePropagationArgs', 'TransitGatewayRouteTablePropagation']
@@ -19,19 +19,8 @@ class TransitGatewayRouteTablePropagationArgs:
         """
         The set of arguments for constructing a TransitGatewayRouteTablePropagation resource.
         """
-        TransitGatewayRouteTablePropagationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            transit_gateway_attachment_id=transit_gateway_attachment_id,
-            transit_gateway_route_table_id=transit_gateway_route_table_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             transit_gateway_attachment_id: pulumi.Input[str],
-             transit_gateway_route_table_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("transit_gateway_attachment_id", transit_gateway_attachment_id)
-        _setter("transit_gateway_route_table_id", transit_gateway_route_table_id)
+        pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -90,10 +79,6 @@ class TransitGatewayRouteTablePropagation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TransitGatewayRouteTablePropagationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

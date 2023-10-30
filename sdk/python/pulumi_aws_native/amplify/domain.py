@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,35 +25,16 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         """
-        DomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_id=app_id,
-            sub_domain_settings=sub_domain_settings,
-            auto_sub_domain_creation_patterns=auto_sub_domain_creation_patterns,
-            auto_sub_domain_iam_role=auto_sub_domain_iam_role,
-            domain_name=domain_name,
-            enable_auto_sub_domain=enable_auto_sub_domain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_id: pulumi.Input[str],
-             sub_domain_settings: pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]],
-             auto_sub_domain_creation_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             auto_sub_domain_iam_role: Optional[pulumi.Input[str]] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_id", app_id)
-        _setter("sub_domain_settings", sub_domain_settings)
+        pulumi.set(__self__, "app_id", app_id)
+        pulumi.set(__self__, "sub_domain_settings", sub_domain_settings)
         if auto_sub_domain_creation_patterns is not None:
-            _setter("auto_sub_domain_creation_patterns", auto_sub_domain_creation_patterns)
+            pulumi.set(__self__, "auto_sub_domain_creation_patterns", auto_sub_domain_creation_patterns)
         if auto_sub_domain_iam_role is not None:
-            _setter("auto_sub_domain_iam_role", auto_sub_domain_iam_role)
+            pulumi.set(__self__, "auto_sub_domain_iam_role", auto_sub_domain_iam_role)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if enable_auto_sub_domain is not None:
-            _setter("enable_auto_sub_domain", enable_auto_sub_domain)
+            pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
 
     @property
     @pulumi.getter(name="appId")
@@ -147,10 +128,6 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

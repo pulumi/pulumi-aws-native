@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,19 +26,8 @@ class CellTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        CellTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -64,19 +53,8 @@ class ReadinessCheckTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ReadinessCheckTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -102,19 +80,8 @@ class RecoveryGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        RecoveryGroupTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -150,33 +117,16 @@ class ResourceSetDnsTargetResourceArgs:
         :param pulumi.Input[str] record_set_id: The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
         :param pulumi.Input[str] record_type: The type of DNS record of the target resource.
         """
-        ResourceSetDnsTargetResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            hosted_zone_arn=hosted_zone_arn,
-            record_set_id=record_set_id,
-            record_type=record_type,
-            target_resource=target_resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             hosted_zone_arn: Optional[pulumi.Input[str]] = None,
-             record_set_id: Optional[pulumi.Input[str]] = None,
-             record_type: Optional[pulumi.Input[str]] = None,
-             target_resource: Optional[pulumi.Input['ResourceSetTargetResourceArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_arn is not None:
-            _setter("hosted_zone_arn", hosted_zone_arn)
+            pulumi.set(__self__, "hosted_zone_arn", hosted_zone_arn)
         if record_set_id is not None:
-            _setter("record_set_id", record_set_id)
+            pulumi.set(__self__, "record_set_id", record_set_id)
         if record_type is not None:
-            _setter("record_type", record_type)
+            pulumi.set(__self__, "record_type", record_type)
         if target_resource is not None:
-            _setter("target_resource", target_resource)
+            pulumi.set(__self__, "target_resource", target_resource)
 
     @property
     @pulumi.getter(name="domainName")
@@ -244,17 +194,8 @@ class ResourceSetNlbResourceArgs:
         The Network Load Balancer resource that a DNS target resource points to.
         :param pulumi.Input[str] arn: A Network Load Balancer resource Amazon Resource Name (ARN).
         """
-        ResourceSetNlbResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
@@ -279,21 +220,10 @@ class ResourceSetR53ResourceRecordArgs:
         :param pulumi.Input[str] domain_name: The DNS target domain name.
         :param pulumi.Input[str] record_set_id: The Resource Record set id.
         """
-        ResourceSetR53ResourceRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            record_set_id=record_set_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: Optional[pulumi.Input[str]] = None,
-             record_set_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if record_set_id is not None:
-            _setter("record_set_id", record_set_id)
+            pulumi.set(__self__, "record_set_id", record_set_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -333,29 +263,14 @@ class ResourceSetResourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] readiness_scopes: A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the AWS resource.
         """
-        ResourceSetResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            component_id=component_id,
-            dns_target_resource=dns_target_resource,
-            readiness_scopes=readiness_scopes,
-            resource_arn=resource_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             component_id: Optional[pulumi.Input[str]] = None,
-             dns_target_resource: Optional[pulumi.Input['ResourceSetDnsTargetResourceArgs']] = None,
-             readiness_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if component_id is not None:
-            _setter("component_id", component_id)
+            pulumi.set(__self__, "component_id", component_id)
         if dns_target_resource is not None:
-            _setter("dns_target_resource", dns_target_resource)
+            pulumi.set(__self__, "dns_target_resource", dns_target_resource)
         if readiness_scopes is not None:
-            _setter("readiness_scopes", readiness_scopes)
+            pulumi.set(__self__, "readiness_scopes", readiness_scopes)
         if resource_arn is not None:
-            _setter("resource_arn", resource_arn)
+            pulumi.set(__self__, "resource_arn", resource_arn)
 
     @property
     @pulumi.getter(name="componentId")
@@ -408,19 +323,8 @@ class ResourceSetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ResourceSetTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -449,21 +353,10 @@ class ResourceSetTargetResourceArgs:
         """
         The target resource that the Route 53 record points to.
         """
-        ResourceSetTargetResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            nlb_resource=nlb_resource,
-            r53_resource=r53_resource,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             nlb_resource: Optional[pulumi.Input['ResourceSetNlbResourceArgs']] = None,
-             r53_resource: Optional[pulumi.Input['ResourceSetR53ResourceRecordArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if nlb_resource is not None:
-            _setter("nlb_resource", nlb_resource)
+            pulumi.set(__self__, "nlb_resource", nlb_resource)
         if r53_resource is not None:
-            _setter("r53_resource", r53_resource)
+            pulumi.set(__self__, "r53_resource", r53_resource)
 
     @property
     @pulumi.getter(name="nlbResource")

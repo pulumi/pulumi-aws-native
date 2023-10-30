@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -70,16 +70,7 @@ class AliasProvisionedConcurrencyConfiguration(dict):
 
     def __init__(__self__, *,
                  provisioned_concurrent_executions: int):
-        AliasProvisionedConcurrencyConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provisioned_concurrent_executions=provisioned_concurrent_executions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provisioned_concurrent_executions: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("provisioned_concurrent_executions", provisioned_concurrent_executions)
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
 
     @property
     @pulumi.getter(name="provisionedConcurrentExecutions")
@@ -108,16 +99,7 @@ class AliasRoutingConfiguration(dict):
 
     def __init__(__self__, *,
                  additional_version_weights: Sequence['outputs.AliasVersionWeight']):
-        AliasRoutingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            additional_version_weights=additional_version_weights,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             additional_version_weights: Sequence['outputs.AliasVersionWeight'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("additional_version_weights", additional_version_weights)
+        pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
@@ -149,19 +131,8 @@ class AliasVersionWeight(dict):
     def __init__(__self__, *,
                  function_version: str,
                  function_weight: float):
-        AliasVersionWeight._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            function_version=function_version,
-            function_weight=function_weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             function_version: str,
-             function_weight: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("function_version", function_version)
-        _setter("function_weight", function_weight)
+        pulumi.set(__self__, "function_version", function_version)
+        pulumi.set(__self__, "function_weight", function_weight)
 
     @property
     @pulumi.getter(name="functionVersion")
@@ -202,16 +173,7 @@ class CodeSigningConfigAllowedPublishers(dict):
         When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
         :param Sequence[str] signing_profile_version_arns: List of Signing profile version Arns
         """
-        CodeSigningConfigAllowedPublishers._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            signing_profile_version_arns=signing_profile_version_arns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             signing_profile_version_arns: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("signing_profile_version_arns", signing_profile_version_arns)
+        pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @property
     @pulumi.getter(name="signingProfileVersionArns")
@@ -250,16 +212,7 @@ class CodeSigningConfigCodeSigningPolicies(dict):
         Policies to control how to act if a signature is invalid
         :param 'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment' untrusted_artifact_on_deployment: Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
-        CodeSigningConfigCodeSigningPolicies._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            untrusted_artifact_on_deployment=untrusted_artifact_on_deployment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             untrusted_artifact_on_deployment: 'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
+        pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
@@ -294,21 +247,10 @@ class EventInvokeConfigDestinationConfig(dict):
     def __init__(__self__, *,
                  on_failure: Optional['outputs.EventInvokeConfigOnFailure'] = None,
                  on_success: Optional['outputs.EventInvokeConfigOnSuccess'] = None):
-        EventInvokeConfigDestinationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_failure=on_failure,
-            on_success=on_success,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_failure: Optional['outputs.EventInvokeConfigOnFailure'] = None,
-             on_success: Optional['outputs.EventInvokeConfigOnSuccess'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if on_failure is not None:
-            _setter("on_failure", on_failure)
+            pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
-            _setter("on_success", on_success)
+            pulumi.set(__self__, "on_success", on_success)
 
     @property
     @pulumi.getter(name="onFailure")
@@ -325,16 +267,7 @@ class EventInvokeConfigDestinationConfig(dict):
 class EventInvokeConfigOnFailure(dict):
     def __init__(__self__, *,
                  destination: str):
-        EventInvokeConfigOnFailure._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
+        pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
@@ -346,16 +279,7 @@ class EventInvokeConfigOnFailure(dict):
 class EventInvokeConfigOnSuccess(dict):
     def __init__(__self__, *,
                  destination: str):
-        EventInvokeConfigOnSuccess._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination", destination)
+        pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
@@ -391,17 +315,8 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
         Specific configuration settings for an MSK event source.
         :param str consumer_group_id: The identifier for the Kafka Consumer Group to join.
         """
-        EventSourceMappingAmazonManagedKafkaEventSourceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_group_id=consumer_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if consumer_group_id is not None:
-            _setter("consumer_group_id", consumer_group_id)
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
 
     @property
     @pulumi.getter(name="consumerGroupId")
@@ -440,17 +355,8 @@ class EventSourceMappingDestinationConfig(dict):
         (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         :param 'EventSourceMappingOnFailure' on_failure: The destination configuration for failed invocations.
         """
-        EventSourceMappingDestinationConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            on_failure=on_failure,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             on_failure: Optional['outputs.EventSourceMappingOnFailure'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if on_failure is not None:
-            _setter("on_failure", on_failure)
+            pulumi.set(__self__, "on_failure", on_failure)
 
     @property
     @pulumi.getter(name="onFailure")
@@ -497,25 +403,12 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
         :param str database_name: The database name to connect to.
         :param 'EventSourceMappingDocumentDbEventSourceConfigFullDocument' full_document: Include full document in change stream response. The default option will only send the changes made to documents to Lambda. If you want the complete document sent to Lambda, set this to UpdateLookup.
         """
-        EventSourceMappingDocumentDbEventSourceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            collection_name=collection_name,
-            database_name=database_name,
-            full_document=full_document,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             collection_name: Optional[str] = None,
-             database_name: Optional[str] = None,
-             full_document: Optional['EventSourceMappingDocumentDbEventSourceConfigFullDocument'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if collection_name is not None:
-            _setter("collection_name", collection_name)
+            pulumi.set(__self__, "collection_name", collection_name)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if full_document is not None:
-            _setter("full_document", full_document)
+            pulumi.set(__self__, "full_document", full_document)
 
     @property
     @pulumi.getter(name="collectionName")
@@ -570,17 +463,8 @@ class EventSourceMappingEndpoints(dict):
         The endpoints used by AWS Lambda to access a self-managed event source.
         :param Sequence[str] kafka_bootstrap_servers: A list of Kafka server endpoints.
         """
-        EventSourceMappingEndpoints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kafka_bootstrap_servers=kafka_bootstrap_servers,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kafka_bootstrap_servers: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kafka_bootstrap_servers is not None:
-            _setter("kafka_bootstrap_servers", kafka_bootstrap_servers)
+            pulumi.set(__self__, "kafka_bootstrap_servers", kafka_bootstrap_servers)
 
     @property
     @pulumi.getter(name="kafkaBootstrapServers")
@@ -602,17 +486,8 @@ class EventSourceMappingFilter(dict):
         The filter object that defines parameters for ESM filtering.
         :param str pattern: The filter pattern that defines which events should be passed for invocations.
         """
-        EventSourceMappingFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pattern=pattern,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pattern: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if pattern is not None:
-            _setter("pattern", pattern)
+            pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
@@ -634,17 +509,8 @@ class EventSourceMappingFilterCriteria(dict):
         The filter criteria to control event filtering.
         :param Sequence['EventSourceMappingFilter'] filters: List of filters of this FilterCriteria
         """
-        EventSourceMappingFilterCriteria._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            filters=filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             filters: Optional[Sequence['outputs.EventSourceMappingFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if filters is not None:
-            _setter("filters", filters)
+            pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
@@ -666,17 +532,8 @@ class EventSourceMappingOnFailure(dict):
         A destination for events that failed processing.
         :param str destination: The Amazon Resource Name (ARN) of the destination resource.
         """
-        EventSourceMappingOnFailure._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination=destination,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
@@ -715,17 +572,8 @@ class EventSourceMappingScalingConfig(dict):
         The scaling configuration for the event source.
         :param int maximum_concurrency: The maximum number of concurrent functions that the event source can invoke.
         """
-        EventSourceMappingScalingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            maximum_concurrency=maximum_concurrency,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             maximum_concurrency: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if maximum_concurrency is not None:
-            _setter("maximum_concurrency", maximum_concurrency)
+            pulumi.set(__self__, "maximum_concurrency", maximum_concurrency)
 
     @property
     @pulumi.getter(name="maximumConcurrency")
@@ -747,17 +595,8 @@ class EventSourceMappingSelfManagedEventSource(dict):
         The configuration used by AWS Lambda to access a self-managed event source.
         :param 'EventSourceMappingEndpoints' endpoints: The endpoints for a self-managed event source.
         """
-        EventSourceMappingSelfManagedEventSource._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoints=endpoints,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoints: Optional['outputs.EventSourceMappingEndpoints'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if endpoints is not None:
-            _setter("endpoints", endpoints)
+            pulumi.set(__self__, "endpoints", endpoints)
 
     @property
     @pulumi.getter
@@ -796,17 +635,8 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
         Specific configuration settings for a Self-Managed Apache Kafka event source.
         :param str consumer_group_id: The identifier for the Kafka Consumer Group to join.
         """
-        EventSourceMappingSelfManagedKafkaEventSourceConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_group_id=consumer_group_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_group_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if consumer_group_id is not None:
-            _setter("consumer_group_id", consumer_group_id)
+            pulumi.set(__self__, "consumer_group_id", consumer_group_id)
 
     @property
     @pulumi.getter(name="consumerGroupId")
@@ -830,21 +660,10 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         :param 'EventSourceMappingSourceAccessConfigurationType' type: The type of source access configuration.
         :param str uri: The URI for the source access configuration resource.
         """
-        EventSourceMappingSourceAccessConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            uri=uri,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: Optional['EventSourceMappingSourceAccessConfigurationType'] = None,
-             uri: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
         if uri is not None:
-            _setter("uri", uri)
+            pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
@@ -903,33 +722,16 @@ class FunctionCode(dict):
         :param str s3_object_version: For versioned objects, the version of the deployment package object to use.
         :param str zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """
-        FunctionCode._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image_uri=image_uri,
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-            s3_object_version=s3_object_version,
-            zip_file=zip_file,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image_uri: Optional[str] = None,
-             s3_bucket: Optional[str] = None,
-             s3_key: Optional[str] = None,
-             s3_object_version: Optional[str] = None,
-             zip_file: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if image_uri is not None:
-            _setter("image_uri", image_uri)
+            pulumi.set(__self__, "image_uri", image_uri)
         if s3_bucket is not None:
-            _setter("s3_bucket", s3_bucket)
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
         if s3_key is not None:
-            _setter("s3_key", s3_key)
+            pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
         if zip_file is not None:
-            _setter("zip_file", zip_file)
+            pulumi.set(__self__, "zip_file", zip_file)
 
     @property
     @pulumi.getter(name="imageUri")
@@ -1000,17 +802,8 @@ class FunctionDeadLetterConfig(dict):
         The dead-letter queue for failed asynchronous invocations.
         :param str target_arn: The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         """
-        FunctionDeadLetterConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_arn=target_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if target_arn is not None:
-            _setter("target_arn", target_arn)
+            pulumi.set(__self__, "target_arn", target_arn)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -1032,17 +825,8 @@ class FunctionEnvironment(dict):
         A function's environment variable settings.
         :param Any variables: Environment variable key-value pairs.
         """
-        FunctionEnvironment._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            variables=variables,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if variables is not None:
-            _setter("variables", variables)
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
@@ -1064,16 +848,7 @@ class FunctionEphemeralStorage(dict):
         A function's ephemeral storage settings.
         :param int size: The amount of ephemeral storage that your function has access to.
         """
-        FunctionEphemeralStorage._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size", size)
+        pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
@@ -1110,19 +885,8 @@ class FunctionFileSystemConfig(dict):
         :param str arn: The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
         :param str local_mount_path: The path where the function can access the file system, starting with /mnt/.
         """
-        FunctionFileSystemConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            arn=arn,
-            local_mount_path=local_mount_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             arn: str,
-             local_mount_path: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("arn", arn)
-        _setter("local_mount_path", local_mount_path)
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @property
     @pulumi.getter
@@ -1171,25 +935,12 @@ class FunctionImageConfig(dict):
         :param Sequence[str] entry_point: EntryPoint.
         :param str working_directory: WorkingDirectory.
         """
-        FunctionImageConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            command=command,
-            entry_point=entry_point,
-            working_directory=working_directory,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             command: Optional[Sequence[str]] = None,
-             entry_point: Optional[Sequence[str]] = None,
-             working_directory: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            _setter("command", command)
+            pulumi.set(__self__, "command", command)
         if entry_point is not None:
-            _setter("entry_point", entry_point)
+            pulumi.set(__self__, "entry_point", entry_point)
         if working_directory is not None:
-            _setter("working_directory", working_directory)
+            pulumi.set(__self__, "working_directory", working_directory)
 
     @property
     @pulumi.getter
@@ -1244,20 +995,9 @@ class FunctionRuntimeManagementConfig(dict):
         :param 'FunctionRuntimeManagementConfigUpdateRuntimeOn' update_runtime_on: Trigger for runtime update
         :param str runtime_version_arn: Unique identifier for a runtime version arn
         """
-        FunctionRuntimeManagementConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            update_runtime_on=update_runtime_on,
-            runtime_version_arn=runtime_version_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             update_runtime_on: 'FunctionRuntimeManagementConfigUpdateRuntimeOn',
-             runtime_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("update_runtime_on", update_runtime_on)
+        pulumi.set(__self__, "update_runtime_on", update_runtime_on)
         if runtime_version_arn is not None:
-            _setter("runtime_version_arn", runtime_version_arn)
+            pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
 
     @property
     @pulumi.getter(name="updateRuntimeOn")
@@ -1304,16 +1044,7 @@ class FunctionSnapStart(dict):
         The function's SnapStart setting. When set to PublishedVersions, Lambda creates a snapshot of the execution environment when you publish a function version.
         :param 'FunctionSnapStartApplyOn' apply_on: Applying SnapStart setting on function resource type.
         """
-        FunctionSnapStart._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_on=apply_on,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_on: 'FunctionSnapStartApplyOn',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("apply_on", apply_on)
+        pulumi.set(__self__, "apply_on", apply_on)
 
     @property
     @pulumi.getter(name="applyOn")
@@ -1356,21 +1087,10 @@ class FunctionSnapStartResponse(dict):
         :param 'FunctionSnapStartResponseApplyOn' apply_on: Applying SnapStart setting on function resource type.
         :param 'FunctionSnapStartResponseOptimizationStatus' optimization_status: Indicates whether SnapStart is activated for the specified function version.
         """
-        FunctionSnapStartResponse._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            apply_on=apply_on,
-            optimization_status=optimization_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             apply_on: Optional['FunctionSnapStartResponseApplyOn'] = None,
-             optimization_status: Optional['FunctionSnapStartResponseOptimizationStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if apply_on is not None:
-            _setter("apply_on", apply_on)
+            pulumi.set(__self__, "apply_on", apply_on)
         if optimization_status is not None:
-            _setter("optimization_status", optimization_status)
+            pulumi.set(__self__, "optimization_status", optimization_status)
 
     @property
     @pulumi.getter(name="applyOn")
@@ -1398,20 +1118,9 @@ class FunctionTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        FunctionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1441,17 +1150,8 @@ class FunctionTracingConfig(dict):
         The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
         :param 'FunctionTracingConfigMode' mode: The tracing mode.
         """
-        FunctionTracingConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             mode: Optional['FunctionTracingConfigMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -1498,25 +1198,12 @@ class FunctionVpcConfig(dict):
         :param Sequence[str] security_group_ids: A list of VPC security groups IDs.
         :param Sequence[str] subnet_ids: A list of VPC subnet IDs.
         """
-        FunctionVpcConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ipv6_allowed_for_dual_stack=ipv6_allowed_for_dual_stack,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ipv6_allowed_for_dual_stack: Optional[bool] = None,
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ipv6_allowed_for_dual_stack is not None:
-            _setter("ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
+            pulumi.set(__self__, "ipv6_allowed_for_dual_stack", ipv6_allowed_for_dual_stack)
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="ipv6AllowedForDualStack")
@@ -1575,23 +1262,10 @@ class LayerVersionContent(dict):
         :param str s3_key: The Amazon S3 key of the layer archive.
         :param str s3_object_version: For versioned objects, the version of the layer archive object to use.
         """
-        LayerVersionContent._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            s3_bucket=s3_bucket,
-            s3_key=s3_key,
-            s3_object_version=s3_object_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             s3_bucket: str,
-             s3_key: str,
-             s3_object_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("s3_bucket", s3_bucket)
-        _setter("s3_key", s3_key)
+        pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_key", s3_key)
         if s3_object_version is not None:
-            _setter("s3_object_version", s3_object_version)
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
 
     @property
     @pulumi.getter(name="s3Bucket")
@@ -1661,37 +1335,18 @@ class UrlCors(dict):
         :param Sequence[str] allow_origins: Represents a collection of allowed origins.
         :param Sequence[str] expose_headers: Represents a collection of exposed headers.
         """
-        UrlCors._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_credentials=allow_credentials,
-            allow_headers=allow_headers,
-            allow_methods=allow_methods,
-            allow_origins=allow_origins,
-            expose_headers=expose_headers,
-            max_age=max_age,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_credentials: Optional[bool] = None,
-             allow_headers: Optional[Sequence[str]] = None,
-             allow_methods: Optional[Sequence['UrlAllowMethodsItem']] = None,
-             allow_origins: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_credentials is not None:
-            _setter("allow_credentials", allow_credentials)
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
-            _setter("allow_headers", allow_headers)
+            pulumi.set(__self__, "allow_headers", allow_headers)
         if allow_methods is not None:
-            _setter("allow_methods", allow_methods)
+            pulumi.set(__self__, "allow_methods", allow_methods)
         if allow_origins is not None:
-            _setter("allow_origins", allow_origins)
+            pulumi.set(__self__, "allow_origins", allow_origins)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if max_age is not None:
-            _setter("max_age", max_age)
+            pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -1767,16 +1422,7 @@ class VersionProvisionedConcurrencyConfiguration(dict):
         A provisioned concurrency configuration for a function's version.
         :param int provisioned_concurrent_executions: The amount of provisioned concurrency to allocate for the version.
         """
-        VersionProvisionedConcurrencyConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            provisioned_concurrent_executions=provisioned_concurrent_executions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             provisioned_concurrent_executions: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("provisioned_concurrent_executions", provisioned_concurrent_executions)
+        pulumi.set(__self__, "provisioned_concurrent_executions", provisioned_concurrent_executions)
 
     @property
     @pulumi.getter(name="provisionedConcurrentExecutions")
@@ -1819,20 +1465,9 @@ class VersionRuntimePolicy(dict):
         :param str update_runtime_on: The runtime update mode.
         :param str runtime_version_arn: The ARN of the runtime the function is configured to use. If the runtime update mode is manual, the ARN is returned, otherwise null is returned.
         """
-        VersionRuntimePolicy._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            update_runtime_on=update_runtime_on,
-            runtime_version_arn=runtime_version_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             update_runtime_on: str,
-             runtime_version_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("update_runtime_on", update_runtime_on)
+        pulumi.set(__self__, "update_runtime_on", update_runtime_on)
         if runtime_version_arn is not None:
-            _setter("runtime_version_arn", runtime_version_arn)
+            pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
 
     @property
     @pulumi.getter(name="updateRuntimeOn")

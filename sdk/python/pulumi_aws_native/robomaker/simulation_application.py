@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,43 +35,20 @@ class SimulationApplicationArgs:
         :param pulumi.Input['SimulationApplicationRenderingEngineArgs'] rendering_engine: The rendering engine for the simulation application.
         :param pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]] sources: The sources of the simulation application.
         """
-        SimulationApplicationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            robot_software_suite=robot_software_suite,
-            simulation_software_suite=simulation_software_suite,
-            current_revision_id=current_revision_id,
-            environment=environment,
-            name=name,
-            rendering_engine=rendering_engine,
-            sources=sources,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             robot_software_suite: pulumi.Input['SimulationApplicationRobotSoftwareSuiteArgs'],
-             simulation_software_suite: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteArgs'],
-             current_revision_id: Optional[pulumi.Input[str]] = None,
-             environment: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rendering_engine: Optional[pulumi.Input['SimulationApplicationRenderingEngineArgs']] = None,
-             sources: Optional[pulumi.Input[Sequence[pulumi.Input['SimulationApplicationSourceConfigArgs']]]] = None,
-             tags: Optional[pulumi.Input['SimulationApplicationTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("robot_software_suite", robot_software_suite)
-        _setter("simulation_software_suite", simulation_software_suite)
+        pulumi.set(__self__, "robot_software_suite", robot_software_suite)
+        pulumi.set(__self__, "simulation_software_suite", simulation_software_suite)
         if current_revision_id is not None:
-            _setter("current_revision_id", current_revision_id)
+            pulumi.set(__self__, "current_revision_id", current_revision_id)
         if environment is not None:
-            _setter("environment", environment)
+            pulumi.set(__self__, "environment", environment)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rendering_engine is not None:
-            _setter("rendering_engine", rendering_engine)
+            pulumi.set(__self__, "rendering_engine", rendering_engine)
         if sources is not None:
-            _setter("sources", sources)
+            pulumi.set(__self__, "sources", sources)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="robotSoftwareSuite")
@@ -213,10 +190,6 @@ class SimulationApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SimulationApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -242,34 +215,14 @@ class SimulationApplication(pulumi.CustomResource):
             __props__.__dict__["current_revision_id"] = current_revision_id
             __props__.__dict__["environment"] = environment
             __props__.__dict__["name"] = name
-            if rendering_engine is not None and not isinstance(rendering_engine, SimulationApplicationRenderingEngineArgs):
-                rendering_engine = rendering_engine or {}
-                def _setter(key, value):
-                    rendering_engine[key] = value
-                SimulationApplicationRenderingEngineArgs._configure(_setter, **rendering_engine)
             __props__.__dict__["rendering_engine"] = rendering_engine
-            if robot_software_suite is not None and not isinstance(robot_software_suite, SimulationApplicationRobotSoftwareSuiteArgs):
-                robot_software_suite = robot_software_suite or {}
-                def _setter(key, value):
-                    robot_software_suite[key] = value
-                SimulationApplicationRobotSoftwareSuiteArgs._configure(_setter, **robot_software_suite)
             if robot_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'robot_software_suite'")
             __props__.__dict__["robot_software_suite"] = robot_software_suite
-            if simulation_software_suite is not None and not isinstance(simulation_software_suite, SimulationApplicationSimulationSoftwareSuiteArgs):
-                simulation_software_suite = simulation_software_suite or {}
-                def _setter(key, value):
-                    simulation_software_suite[key] = value
-                SimulationApplicationSimulationSoftwareSuiteArgs._configure(_setter, **simulation_software_suite)
             if simulation_software_suite is None and not opts.urn:
                 raise TypeError("Missing required property 'simulation_software_suite'")
             __props__.__dict__["simulation_software_suite"] = simulation_software_suite
             __props__.__dict__["sources"] = sources
-            if tags is not None and not isinstance(tags, SimulationApplicationTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                SimulationApplicationTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])

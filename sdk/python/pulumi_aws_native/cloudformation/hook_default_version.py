@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HookDefaultVersionArgs', 'HookDefaultVersion']
@@ -25,25 +25,12 @@ class HookDefaultVersionArgs:
         :param pulumi.Input[str] type_version_arn: The Amazon Resource Name (ARN) of the type version.
         :param pulumi.Input[str] version_id: The ID of an existing version of the hook to set as the default.
         """
-        HookDefaultVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type_name=type_name,
-            type_version_arn=type_version_arn,
-            version_id=version_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type_name: Optional[pulumi.Input[str]] = None,
-             type_version_arn: Optional[pulumi.Input[str]] = None,
-             version_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if type_version_arn is not None:
-            _setter("type_version_arn", type_version_arn)
+            pulumi.set(__self__, "type_version_arn", type_version_arn)
         if version_id is not None:
-            _setter("version_id", version_id)
+            pulumi.set(__self__, "version_id", version_id)
 
     @property
     @pulumi.getter(name="typeName")
@@ -123,10 +110,6 @@ class HookDefaultVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            HookDefaultVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

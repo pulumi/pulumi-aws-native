@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -23,24 +23,11 @@ class CapacityProviderArgs:
         """
         The set of arguments for constructing a CapacityProvider resource.
         """
-        CapacityProviderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_scaling_group_provider=auto_scaling_group_provider,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_scaling_group_provider: pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'],
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auto_scaling_group_provider", auto_scaling_group_provider)
+        pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
@@ -104,10 +91,6 @@ class CapacityProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CapacityProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -125,11 +108,6 @@ class CapacityProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityProviderArgs.__new__(CapacityProviderArgs)
 
-            if auto_scaling_group_provider is not None and not isinstance(auto_scaling_group_provider, CapacityProviderAutoScalingGroupProviderArgs):
-                auto_scaling_group_provider = auto_scaling_group_provider or {}
-                def _setter(key, value):
-                    auto_scaling_group_provider[key] = value
-                CapacityProviderAutoScalingGroupProviderArgs._configure(_setter, **auto_scaling_group_provider)
             if auto_scaling_group_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_scaling_group_provider'")
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider

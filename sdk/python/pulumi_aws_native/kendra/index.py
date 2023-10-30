@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,51 +35,24 @@ class IndexArgs:
         :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Server side encryption configuration
         :param pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]] tags: Tags for labeling the index
         """
-        IndexArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            edition=edition,
-            role_arn=role_arn,
-            capacity_units=capacity_units,
-            description=description,
-            document_metadata_configurations=document_metadata_configurations,
-            name=name,
-            server_side_encryption_configuration=server_side_encryption_configuration,
-            tags=tags,
-            user_context_policy=user_context_policy,
-            user_token_configurations=user_token_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             edition: pulumi.Input['IndexEdition'],
-             role_arn: pulumi.Input[str],
-             capacity_units: Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]] = None,
-             user_context_policy: Optional[pulumi.Input['IndexUserContextPolicy']] = None,
-             user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("edition", edition)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "edition", edition)
+        pulumi.set(__self__, "role_arn", role_arn)
         if capacity_units is not None:
-            _setter("capacity_units", capacity_units)
+            pulumi.set(__self__, "capacity_units", capacity_units)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if document_metadata_configurations is not None:
-            _setter("document_metadata_configurations", document_metadata_configurations)
+            pulumi.set(__self__, "document_metadata_configurations", document_metadata_configurations)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if server_side_encryption_configuration is not None:
-            _setter("server_side_encryption_configuration", server_side_encryption_configuration)
+            pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if user_context_policy is not None:
-            _setter("user_context_policy", user_context_policy)
+            pulumi.set(__self__, "user_context_policy", user_context_policy)
         if user_token_configurations is not None:
-            _setter("user_token_configurations", user_token_configurations)
+            pulumi.set(__self__, "user_token_configurations", user_token_configurations)
 
     @property
     @pulumi.getter
@@ -233,10 +206,6 @@ class Index(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IndexArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -261,11 +230,6 @@ class Index(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IndexArgs.__new__(IndexArgs)
 
-            if capacity_units is not None and not isinstance(capacity_units, IndexCapacityUnitsConfigurationArgs):
-                capacity_units = capacity_units or {}
-                def _setter(key, value):
-                    capacity_units[key] = value
-                IndexCapacityUnitsConfigurationArgs._configure(_setter, **capacity_units)
             __props__.__dict__["capacity_units"] = capacity_units
             __props__.__dict__["description"] = description
             __props__.__dict__["document_metadata_configurations"] = document_metadata_configurations
@@ -276,11 +240,6 @@ class Index(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if server_side_encryption_configuration is not None and not isinstance(server_side_encryption_configuration, IndexServerSideEncryptionConfigurationArgs):
-                server_side_encryption_configuration = server_side_encryption_configuration or {}
-                def _setter(key, value):
-                    server_side_encryption_configuration[key] = value
-                IndexServerSideEncryptionConfigurationArgs._configure(_setter, **server_side_encryption_configuration)
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_context_policy"] = user_context_policy

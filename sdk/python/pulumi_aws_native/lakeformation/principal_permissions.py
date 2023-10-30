@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -25,29 +25,12 @@ class PrincipalPermissionsArgs:
         """
         The set of arguments for constructing a PrincipalPermissions resource.
         """
-        PrincipalPermissionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            permissions_with_grant_option=permissions_with_grant_option,
-            principal=principal,
-            resource=resource,
-            catalog=catalog,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]],
-             permissions_with_grant_option: pulumi.Input[Sequence[pulumi.Input['PrincipalPermissionsPermission']]],
-             principal: pulumi.Input['PrincipalPermissionsDataLakePrincipalArgs'],
-             resource: pulumi.Input['PrincipalPermissionsResourceArgs'],
-             catalog: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("permissions", permissions)
-        _setter("permissions_with_grant_option", permissions_with_grant_option)
-        _setter("principal", principal)
-        _setter("resource", resource)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "permissions_with_grant_option", permissions_with_grant_option)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "resource", resource)
         if catalog is not None:
-            _setter("catalog", catalog)
+            pulumi.set(__self__, "catalog", catalog)
 
     @property
     @pulumi.getter
@@ -131,10 +114,6 @@ class PrincipalPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PrincipalPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -161,19 +140,9 @@ class PrincipalPermissions(pulumi.CustomResource):
             if permissions_with_grant_option is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions_with_grant_option'")
             __props__.__dict__["permissions_with_grant_option"] = permissions_with_grant_option
-            if principal is not None and not isinstance(principal, PrincipalPermissionsDataLakePrincipalArgs):
-                principal = principal or {}
-                def _setter(key, value):
-                    principal[key] = value
-                PrincipalPermissionsDataLakePrincipalArgs._configure(_setter, **principal)
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
-            if resource is not None and not isinstance(resource, PrincipalPermissionsResourceArgs):
-                resource = resource or {}
-                def _setter(key, value):
-                    resource[key] = value
-                PrincipalPermissionsResourceArgs._configure(_setter, **resource)
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource

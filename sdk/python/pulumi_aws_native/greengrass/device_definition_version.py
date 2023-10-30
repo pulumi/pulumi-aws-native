@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -21,19 +21,8 @@ class DeviceDefinitionVersionInitArgs:
         """
         The set of arguments for constructing a DeviceDefinitionVersion resource.
         """
-        DeviceDefinitionVersionInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_definition_id=device_definition_id,
-            devices=devices,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_definition_id: pulumi.Input[str],
-             devices: pulumi.Input[Sequence[pulumi.Input['DeviceDefinitionVersionDeviceArgs']]],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("device_definition_id", device_definition_id)
-        _setter("devices", devices)
+        pulumi.set(__self__, "device_definition_id", device_definition_id)
+        pulumi.set(__self__, "devices", devices)
 
     @property
     @pulumi.getter(name="deviceDefinitionId")
@@ -92,10 +81,6 @@ class DeviceDefinitionVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeviceDefinitionVersionInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

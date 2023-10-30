@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,47 +29,20 @@ class TrafficMirrorFilterRuleArgs:
         """
         The set of arguments for constructing a TrafficMirrorFilterRule resource.
         """
-        TrafficMirrorFilterRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_cidr_block=destination_cidr_block,
-            rule_action=rule_action,
-            rule_number=rule_number,
-            source_cidr_block=source_cidr_block,
-            traffic_direction=traffic_direction,
-            traffic_mirror_filter_id=traffic_mirror_filter_id,
-            description=description,
-            destination_port_range=destination_port_range,
-            protocol=protocol,
-            source_port_range=source_port_range,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_cidr_block: pulumi.Input[str],
-             rule_action: pulumi.Input[str],
-             rule_number: pulumi.Input[int],
-             source_cidr_block: pulumi.Input[str],
-             traffic_direction: pulumi.Input[str],
-             traffic_mirror_filter_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             destination_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
-             protocol: Optional[pulumi.Input[int]] = None,
-             source_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_cidr_block", destination_cidr_block)
-        _setter("rule_action", rule_action)
-        _setter("rule_number", rule_number)
-        _setter("source_cidr_block", source_cidr_block)
-        _setter("traffic_direction", traffic_direction)
-        _setter("traffic_mirror_filter_id", traffic_mirror_filter_id)
+        pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        pulumi.set(__self__, "rule_action", rule_action)
+        pulumi.set(__self__, "rule_number", rule_number)
+        pulumi.set(__self__, "source_cidr_block", source_cidr_block)
+        pulumi.set(__self__, "traffic_direction", traffic_direction)
+        pulumi.set(__self__, "traffic_mirror_filter_id", traffic_mirror_filter_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if destination_port_range is not None:
-            _setter("destination_port_range", destination_port_range)
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if source_port_range is not None:
-            _setter("source_port_range", source_port_range)
+            pulumi.set(__self__, "source_port_range", source_port_range)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -208,10 +181,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TrafficMirrorFilterRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -241,11 +210,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")
             __props__.__dict__["destination_cidr_block"] = destination_cidr_block
-            if destination_port_range is not None and not isinstance(destination_port_range, TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs):
-                destination_port_range = destination_port_range or {}
-                def _setter(key, value):
-                    destination_port_range[key] = value
-                TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs._configure(_setter, **destination_port_range)
             __props__.__dict__["destination_port_range"] = destination_port_range
             __props__.__dict__["protocol"] = protocol
             if rule_action is None and not opts.urn:
@@ -257,11 +221,6 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             if source_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'source_cidr_block'")
             __props__.__dict__["source_cidr_block"] = source_cidr_block
-            if source_port_range is not None and not isinstance(source_port_range, TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs):
-                source_port_range = source_port_range or {}
-                def _setter(key, value):
-                    source_port_range[key] = value
-                TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs._configure(_setter, **source_port_range)
             __props__.__dict__["source_port_range"] = source_port_range
             if traffic_direction is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_direction'")

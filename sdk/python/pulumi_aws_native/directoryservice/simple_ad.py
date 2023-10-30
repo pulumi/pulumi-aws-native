@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,43 +35,20 @@ class SimpleAdArgs:
         :param pulumi.Input[str] password: The password for the default administrative user named Admin.
         :param pulumi.Input[str] short_name: The NetBIOS name for your domain.
         """
-        SimpleAdArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            size=size,
-            vpc_settings=vpc_settings,
-            create_alias=create_alias,
-            description=description,
-            enable_sso=enable_sso,
-            name=name,
-            password=password,
-            short_name=short_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             size: pulumi.Input[str],
-             vpc_settings: pulumi.Input['SimpleAdVpcSettingsArgs'],
-             create_alias: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enable_sso: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             short_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("size", size)
-        _setter("vpc_settings", vpc_settings)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "vpc_settings", vpc_settings)
         if create_alias is not None:
-            _setter("create_alias", create_alias)
+            pulumi.set(__self__, "create_alias", create_alias)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enable_sso is not None:
-            _setter("enable_sso", enable_sso)
+            pulumi.set(__self__, "enable_sso", enable_sso)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if short_name is not None:
-            _setter("short_name", short_name)
+            pulumi.set(__self__, "short_name", short_name)
 
     @property
     @pulumi.getter
@@ -217,10 +194,6 @@ class SimpleAd(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SimpleAdArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -252,11 +225,6 @@ class SimpleAd(pulumi.CustomResource):
             if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
-            if vpc_settings is not None and not isinstance(vpc_settings, SimpleAdVpcSettingsArgs):
-                vpc_settings = vpc_settings or {}
-                def _setter(key, value):
-                    vpc_settings[key] = value
-                SimpleAdVpcSettingsArgs._configure(_setter, **vpc_settings)
             if vpc_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_settings'")
             __props__.__dict__["vpc_settings"] = vpc_settings

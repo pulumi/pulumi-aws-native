@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -37,19 +37,8 @@ class LifecyclePolicyActionArgs:
     def __init__(__self__, *,
                  cross_region_copy: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyCrossRegionCopyActionArgs']]],
                  name: pulumi.Input[str]):
-        LifecyclePolicyActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cross_region_copy=cross_region_copy,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cross_region_copy: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyCrossRegionCopyActionArgs']]],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cross_region_copy", cross_region_copy)
-        _setter("name", name)
+        pulumi.set(__self__, "cross_region_copy", cross_region_copy)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="crossRegionCopy")
@@ -74,16 +63,7 @@ class LifecyclePolicyActionArgs:
 class LifecyclePolicyArchiveRetainRuleArgs:
     def __init__(__self__, *,
                  retention_archive_tier: pulumi.Input['LifecyclePolicyRetentionArchiveTierArgs']):
-        LifecyclePolicyArchiveRetainRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            retention_archive_tier=retention_archive_tier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             retention_archive_tier: pulumi.Input['LifecyclePolicyRetentionArchiveTierArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("retention_archive_tier", retention_archive_tier)
+        pulumi.set(__self__, "retention_archive_tier", retention_archive_tier)
 
     @property
     @pulumi.getter(name="retentionArchiveTier")
@@ -99,16 +79,7 @@ class LifecyclePolicyArchiveRetainRuleArgs:
 class LifecyclePolicyArchiveRuleArgs:
     def __init__(__self__, *,
                  retain_rule: pulumi.Input['LifecyclePolicyArchiveRetainRuleArgs']):
-        LifecyclePolicyArchiveRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            retain_rule=retain_rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             retain_rule: pulumi.Input['LifecyclePolicyArchiveRetainRuleArgs'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("retain_rule", retain_rule)
+        pulumi.set(__self__, "retain_rule", retain_rule)
 
     @property
     @pulumi.getter(name="retainRule")
@@ -128,33 +99,16 @@ class LifecyclePolicyCreateRuleArgs:
                  interval_unit: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        LifecyclePolicyCreateRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cron_expression=cron_expression,
-            interval=interval,
-            interval_unit=interval_unit,
-            location=location,
-            times=times,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cron_expression: Optional[pulumi.Input[str]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cron_expression is not None:
-            _setter("cron_expression", cron_expression)
+            pulumi.set(__self__, "cron_expression", cron_expression)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
-            _setter("interval_unit", interval_unit)
+            pulumi.set(__self__, "interval_unit", interval_unit)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if times is not None:
-            _setter("times", times)
+            pulumi.set(__self__, "times", times)
 
     @property
     @pulumi.getter(name="cronExpression")
@@ -208,23 +162,10 @@ class LifecyclePolicyCrossRegionCopyActionArgs:
                  encryption_configuration: pulumi.Input['LifecyclePolicyEncryptionConfigurationArgs'],
                  target: pulumi.Input[str],
                  retain_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyRetainRuleArgs']] = None):
-        LifecyclePolicyCrossRegionCopyActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encryption_configuration=encryption_configuration,
-            target=target,
-            retain_rule=retain_rule,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encryption_configuration: pulumi.Input['LifecyclePolicyEncryptionConfigurationArgs'],
-             target: pulumi.Input[str],
-             retain_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyRetainRuleArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encryption_configuration", encryption_configuration)
-        _setter("target", target)
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        pulumi.set(__self__, "target", target)
         if retain_rule is not None:
-            _setter("retain_rule", retain_rule)
+            pulumi.set(__self__, "retain_rule", retain_rule)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
@@ -259,19 +200,8 @@ class LifecyclePolicyCrossRegionCopyDeprecateRuleArgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  interval_unit: pulumi.Input[str]):
-        LifecyclePolicyCrossRegionCopyDeprecateRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-            interval_unit=interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: pulumi.Input[int],
-             interval_unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("interval", interval)
-        _setter("interval_unit", interval_unit)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter
@@ -297,19 +227,8 @@ class LifecyclePolicyCrossRegionCopyRetainRuleArgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  interval_unit: pulumi.Input[str]):
-        LifecyclePolicyCrossRegionCopyRetainRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-            interval_unit=interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: pulumi.Input[int],
-             interval_unit: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("interval", interval)
-        _setter("interval_unit", interval_unit)
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter
@@ -340,40 +259,19 @@ class LifecyclePolicyCrossRegionCopyRuleArgs:
                  retain_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyRetainRuleArgs']] = None,
                  target: Optional[pulumi.Input[str]] = None,
                  target_region: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyCrossRegionCopyRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encrypted=encrypted,
-            cmk_arn=cmk_arn,
-            copy_tags=copy_tags,
-            deprecate_rule=deprecate_rule,
-            retain_rule=retain_rule,
-            target=target,
-            target_region=target_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encrypted: pulumi.Input[bool],
-             cmk_arn: Optional[pulumi.Input[str]] = None,
-             copy_tags: Optional[pulumi.Input[bool]] = None,
-             deprecate_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyDeprecateRuleArgs']] = None,
-             retain_rule: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyRetainRuleArgs']] = None,
-             target: Optional[pulumi.Input[str]] = None,
-             target_region: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encrypted", encrypted)
+        pulumi.set(__self__, "encrypted", encrypted)
         if cmk_arn is not None:
-            _setter("cmk_arn", cmk_arn)
+            pulumi.set(__self__, "cmk_arn", cmk_arn)
         if copy_tags is not None:
-            _setter("copy_tags", copy_tags)
+            pulumi.set(__self__, "copy_tags", copy_tags)
         if deprecate_rule is not None:
-            _setter("deprecate_rule", deprecate_rule)
+            pulumi.set(__self__, "deprecate_rule", deprecate_rule)
         if retain_rule is not None:
-            _setter("retain_rule", retain_rule)
+            pulumi.set(__self__, "retain_rule", retain_rule)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
         if target_region is not None:
-            _setter("target_region", target_region)
+            pulumi.set(__self__, "target_region", target_region)
 
     @property
     @pulumi.getter
@@ -445,25 +343,12 @@ class LifecyclePolicyDeprecateRuleArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  interval_unit: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyDeprecateRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            interval=interval,
-            interval_unit=interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
-            _setter("interval_unit", interval_unit)
+            pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter
@@ -498,20 +383,9 @@ class LifecyclePolicyEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  encrypted: pulumi.Input[bool],
                  cmk_arn: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyEncryptionConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encrypted=encrypted,
-            cmk_arn=cmk_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encrypted: pulumi.Input[bool],
-             cmk_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("encrypted", encrypted)
+        pulumi.set(__self__, "encrypted", encrypted)
         if cmk_arn is not None:
-            _setter("cmk_arn", cmk_arn)
+            pulumi.set(__self__, "cmk_arn", cmk_arn)
 
     @property
     @pulumi.getter
@@ -538,23 +412,10 @@ class LifecyclePolicyEventParametersArgs:
                  event_type: pulumi.Input[str],
                  snapshot_owner: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description_regex: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyEventParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            event_type=event_type,
-            snapshot_owner=snapshot_owner,
-            description_regex=description_regex,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             event_type: pulumi.Input[str],
-             snapshot_owner: pulumi.Input[Sequence[pulumi.Input[str]]],
-             description_regex: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("event_type", event_type)
-        _setter("snapshot_owner", snapshot_owner)
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "snapshot_owner", snapshot_owner)
         if description_regex is not None:
-            _setter("description_regex", description_regex)
+            pulumi.set(__self__, "description_regex", description_regex)
 
     @property
     @pulumi.getter(name="eventType")
@@ -589,20 +450,9 @@ class LifecyclePolicyEventSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  parameters: Optional[pulumi.Input['LifecyclePolicyEventParametersArgs']] = None):
-        LifecyclePolicyEventSourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             parameters: Optional[pulumi.Input['LifecyclePolicyEventParametersArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -630,29 +480,14 @@ class LifecyclePolicyFastRestoreRuleArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  interval_unit: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyFastRestoreRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zones=availability_zones,
-            count=count,
-            interval=interval,
-            interval_unit=interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             count: Optional[pulumi.Input[int]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zones is not None:
-            _setter("availability_zones", availability_zones)
+            pulumi.set(__self__, "availability_zones", availability_zones)
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
-            _setter("interval_unit", interval_unit)
+            pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -697,25 +532,12 @@ class LifecyclePolicyParametersArgs:
                  exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
                  exclude_data_volume_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
                  no_reboot: Optional[pulumi.Input[bool]] = None):
-        LifecyclePolicyParametersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exclude_boot_volume=exclude_boot_volume,
-            exclude_data_volume_tags=exclude_data_volume_tags,
-            no_reboot=no_reboot,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
-             exclude_data_volume_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             no_reboot: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if exclude_boot_volume is not None:
-            _setter("exclude_boot_volume", exclude_boot_volume)
+            pulumi.set(__self__, "exclude_boot_volume", exclude_boot_volume)
         if exclude_data_volume_tags is not None:
-            _setter("exclude_data_volume_tags", exclude_data_volume_tags)
+            pulumi.set(__self__, "exclude_data_volume_tags", exclude_data_volume_tags)
         if no_reboot is not None:
-            _setter("no_reboot", no_reboot)
+            pulumi.set(__self__, "no_reboot", no_reboot)
 
     @property
     @pulumi.getter(name="excludeBootVolume")
@@ -756,45 +578,22 @@ class LifecyclePolicyPolicyDetailsArgs:
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyScheduleArgs']]]] = None,
                  target_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None):
-        LifecyclePolicyPolicyDetailsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            actions=actions,
-            event_source=event_source,
-            parameters=parameters,
-            policy_type=policy_type,
-            resource_locations=resource_locations,
-            resource_types=resource_types,
-            schedules=schedules,
-            target_tags=target_tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyActionArgs']]]] = None,
-             event_source: Optional[pulumi.Input['LifecyclePolicyEventSourceArgs']] = None,
-             parameters: Optional[pulumi.Input['LifecyclePolicyParametersArgs']] = None,
-             policy_type: Optional[pulumi.Input[str]] = None,
-             resource_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyScheduleArgs']]]] = None,
-             target_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if event_source is not None:
-            _setter("event_source", event_source)
+            pulumi.set(__self__, "event_source", event_source)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if policy_type is not None:
-            _setter("policy_type", policy_type)
+            pulumi.set(__self__, "policy_type", policy_type)
         if resource_locations is not None:
-            _setter("resource_locations", resource_locations)
+            pulumi.set(__self__, "resource_locations", resource_locations)
         if resource_types is not None:
-            _setter("resource_types", resource_types)
+            pulumi.set(__self__, "resource_types", resource_types)
         if schedules is not None:
-            _setter("schedules", schedules)
+            pulumi.set(__self__, "schedules", schedules)
         if target_tags is not None:
-            _setter("target_tags", target_tags)
+            pulumi.set(__self__, "target_tags", target_tags)
 
     @property
     @pulumi.getter
@@ -875,25 +674,12 @@ class LifecyclePolicyRetainRuleArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  interval_unit: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyRetainRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            interval=interval,
-            interval_unit=interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
-            _setter("interval_unit", interval_unit)
+            pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter
@@ -929,25 +715,12 @@ class LifecyclePolicyRetentionArchiveTierArgs:
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  interval_unit: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyRetentionArchiveTierArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            count=count,
-            interval=interval,
-            interval_unit=interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             count: Optional[pulumi.Input[int]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if count is not None:
-            _setter("count", count)
+            pulumi.set(__self__, "count", count)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
-            _setter("interval_unit", interval_unit)
+            pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter
@@ -991,57 +764,28 @@ class LifecyclePolicyScheduleArgs:
                  share_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyShareRuleArgs']]]] = None,
                  tags_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
                  variable_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None):
-        LifecyclePolicyScheduleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            archive_rule=archive_rule,
-            copy_tags=copy_tags,
-            create_rule=create_rule,
-            cross_region_copy_rules=cross_region_copy_rules,
-            deprecate_rule=deprecate_rule,
-            fast_restore_rule=fast_restore_rule,
-            name=name,
-            retain_rule=retain_rule,
-            share_rules=share_rules,
-            tags_to_add=tags_to_add,
-            variable_tags=variable_tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             archive_rule: Optional[pulumi.Input['LifecyclePolicyArchiveRuleArgs']] = None,
-             copy_tags: Optional[pulumi.Input[bool]] = None,
-             create_rule: Optional[pulumi.Input['LifecyclePolicyCreateRuleArgs']] = None,
-             cross_region_copy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyCrossRegionCopyRuleArgs']]]] = None,
-             deprecate_rule: Optional[pulumi.Input['LifecyclePolicyDeprecateRuleArgs']] = None,
-             fast_restore_rule: Optional[pulumi.Input['LifecyclePolicyFastRestoreRuleArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             retain_rule: Optional[pulumi.Input['LifecyclePolicyRetainRuleArgs']] = None,
-             share_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyShareRuleArgs']]]] = None,
-             tags_to_add: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             variable_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if archive_rule is not None:
-            _setter("archive_rule", archive_rule)
+            pulumi.set(__self__, "archive_rule", archive_rule)
         if copy_tags is not None:
-            _setter("copy_tags", copy_tags)
+            pulumi.set(__self__, "copy_tags", copy_tags)
         if create_rule is not None:
-            _setter("create_rule", create_rule)
+            pulumi.set(__self__, "create_rule", create_rule)
         if cross_region_copy_rules is not None:
-            _setter("cross_region_copy_rules", cross_region_copy_rules)
+            pulumi.set(__self__, "cross_region_copy_rules", cross_region_copy_rules)
         if deprecate_rule is not None:
-            _setter("deprecate_rule", deprecate_rule)
+            pulumi.set(__self__, "deprecate_rule", deprecate_rule)
         if fast_restore_rule is not None:
-            _setter("fast_restore_rule", fast_restore_rule)
+            pulumi.set(__self__, "fast_restore_rule", fast_restore_rule)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if retain_rule is not None:
-            _setter("retain_rule", retain_rule)
+            pulumi.set(__self__, "retain_rule", retain_rule)
         if share_rules is not None:
-            _setter("share_rules", share_rules)
+            pulumi.set(__self__, "share_rules", share_rules)
         if tags_to_add is not None:
-            _setter("tags_to_add", tags_to_add)
+            pulumi.set(__self__, "tags_to_add", tags_to_add)
         if variable_tags is not None:
-            _setter("variable_tags", variable_tags)
+            pulumi.set(__self__, "variable_tags", variable_tags)
 
     @property
     @pulumi.getter(name="archiveRule")
@@ -1149,25 +893,12 @@ class LifecyclePolicyShareRuleArgs:
                  target_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  unshare_interval: Optional[pulumi.Input[int]] = None,
                  unshare_interval_unit: Optional[pulumi.Input[str]] = None):
-        LifecyclePolicyShareRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            target_accounts=target_accounts,
-            unshare_interval=unshare_interval,
-            unshare_interval_unit=unshare_interval_unit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             target_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             unshare_interval: Optional[pulumi.Input[int]] = None,
-             unshare_interval_unit: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if target_accounts is not None:
-            _setter("target_accounts", target_accounts)
+            pulumi.set(__self__, "target_accounts", target_accounts)
         if unshare_interval is not None:
-            _setter("unshare_interval", unshare_interval)
+            pulumi.set(__self__, "unshare_interval", unshare_interval)
         if unshare_interval_unit is not None:
-            _setter("unshare_interval_unit", unshare_interval_unit)
+            pulumi.set(__self__, "unshare_interval_unit", unshare_interval_unit)
 
     @property
     @pulumi.getter(name="targetAccounts")
@@ -1202,19 +933,8 @@ class LifecyclePolicyTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        LifecyclePolicyTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

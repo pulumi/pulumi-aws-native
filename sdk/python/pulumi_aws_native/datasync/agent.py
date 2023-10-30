@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -32,37 +32,18 @@ class AgentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
-        AgentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activation_key=activation_key,
-            agent_name=agent_name,
-            security_group_arns=security_group_arns,
-            subnet_arns=subnet_arns,
-            tags=tags,
-            vpc_endpoint_id=vpc_endpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activation_key: Optional[pulumi.Input[str]] = None,
-             agent_name: Optional[pulumi.Input[str]] = None,
-             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]] = None,
-             vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if activation_key is not None:
-            _setter("activation_key", activation_key)
+            pulumi.set(__self__, "activation_key", activation_key)
         if agent_name is not None:
-            _setter("agent_name", agent_name)
+            pulumi.set(__self__, "agent_name", agent_name)
         if security_group_arns is not None:
-            _setter("security_group_arns", security_group_arns)
+            pulumi.set(__self__, "security_group_arns", security_group_arns)
         if subnet_arns is not None:
-            _setter("subnet_arns", subnet_arns)
+            pulumi.set(__self__, "subnet_arns", subnet_arns)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpc_endpoint_id is not None:
-            _setter("vpc_endpoint_id", vpc_endpoint_id)
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
 
     @property
     @pulumi.getter(name="activationKey")
@@ -180,10 +161,6 @@ class Agent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AgentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

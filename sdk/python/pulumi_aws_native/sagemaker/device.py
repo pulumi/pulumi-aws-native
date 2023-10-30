@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,24 +25,11 @@ class DeviceInitArgs:
         :param pulumi.Input['DeviceArgs'] device: The Edge Device you want to register against a device fleet
         :param pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]] tags: Associate tags with the resource
         """
-        DeviceInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_fleet_name=device_fleet_name,
-            device=device,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_fleet_name: pulumi.Input[str],
-             device: Optional[pulumi.Input['DeviceArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("device_fleet_name", device_fleet_name)
+        pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         if device is not None:
-            _setter("device", device)
+            pulumi.set(__self__, "device", device)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="deviceFleetName")
@@ -118,10 +105,6 @@ class Device(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeviceInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -139,11 +122,6 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeviceInitArgs.__new__(DeviceInitArgs)
 
-            if device is not None and not isinstance(device, DeviceArgs):
-                device = device or {}
-                def _setter(key, value):
-                    device[key] = value
-                DeviceArgs._configure(_setter, **device)
             __props__.__dict__["device"] = device
             if device_fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_fleet_name'")

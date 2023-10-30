@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -42,57 +42,28 @@ class KeyArgs:
         :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes an AWS KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         :param pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        KeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bypass_policy_lockout_safety_check=bypass_policy_lockout_safety_check,
-            description=description,
-            enable_key_rotation=enable_key_rotation,
-            enabled=enabled,
-            key_policy=key_policy,
-            key_spec=key_spec,
-            key_usage=key_usage,
-            multi_region=multi_region,
-            origin=origin,
-            pending_window_in_days=pending_window_in_days,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             enable_key_rotation: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             key_policy: Optional[Any] = None,
-             key_spec: Optional[pulumi.Input['KeySpec']] = None,
-             key_usage: Optional[pulumi.Input['KeyUsage']] = None,
-             multi_region: Optional[pulumi.Input[bool]] = None,
-             origin: Optional[pulumi.Input['KeyOrigin']] = None,
-             pending_window_in_days: Optional[pulumi.Input[int]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bypass_policy_lockout_safety_check is not None:
-            _setter("bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if enable_key_rotation is not None:
-            _setter("enable_key_rotation", enable_key_rotation)
+            pulumi.set(__self__, "enable_key_rotation", enable_key_rotation)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if key_policy is not None:
-            _setter("key_policy", key_policy)
+            pulumi.set(__self__, "key_policy", key_policy)
         if key_spec is not None:
-            _setter("key_spec", key_spec)
+            pulumi.set(__self__, "key_spec", key_spec)
         if key_usage is not None:
-            _setter("key_usage", key_usage)
+            pulumi.set(__self__, "key_usage", key_usage)
         if multi_region is not None:
-            _setter("multi_region", multi_region)
+            pulumi.set(__self__, "multi_region", multi_region)
         if origin is not None:
-            _setter("origin", origin)
+            pulumi.set(__self__, "origin", origin)
         if pending_window_in_days is not None:
-            _setter("pending_window_in_days", pending_window_in_days)
+            pulumi.set(__self__, "pending_window_in_days", pending_window_in_days)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -280,10 +251,6 @@ class Key(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -51,21 +51,10 @@ class DestinationTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        DestinationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -153,89 +142,44 @@ class DeviceProfileLoRaWanDeviceProfile(dict):
                  supports_class_b: Optional[bool] = None,
                  supports_class_c: Optional[bool] = None,
                  supports_join: Optional[bool] = None):
-        DeviceProfileLoRaWanDeviceProfile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            class_b_timeout=class_b_timeout,
-            class_c_timeout=class_c_timeout,
-            factory_preset_freqs_list=factory_preset_freqs_list,
-            mac_version=mac_version,
-            max_duty_cycle=max_duty_cycle,
-            max_eirp=max_eirp,
-            ping_slot_dr=ping_slot_dr,
-            ping_slot_freq=ping_slot_freq,
-            ping_slot_period=ping_slot_period,
-            reg_params_revision=reg_params_revision,
-            rf_region=rf_region,
-            rx_data_rate2=rx_data_rate2,
-            rx_delay1=rx_delay1,
-            rx_dr_offset1=rx_dr_offset1,
-            rx_freq2=rx_freq2,
-            supports32_bit_f_cnt=supports32_bit_f_cnt,
-            supports_class_b=supports_class_b,
-            supports_class_c=supports_class_c,
-            supports_join=supports_join,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             class_b_timeout: Optional[int] = None,
-             class_c_timeout: Optional[int] = None,
-             factory_preset_freqs_list: Optional[Sequence[int]] = None,
-             mac_version: Optional[str] = None,
-             max_duty_cycle: Optional[int] = None,
-             max_eirp: Optional[int] = None,
-             ping_slot_dr: Optional[int] = None,
-             ping_slot_freq: Optional[int] = None,
-             ping_slot_period: Optional[int] = None,
-             reg_params_revision: Optional[str] = None,
-             rf_region: Optional[str] = None,
-             rx_data_rate2: Optional[int] = None,
-             rx_delay1: Optional[int] = None,
-             rx_dr_offset1: Optional[int] = None,
-             rx_freq2: Optional[int] = None,
-             supports32_bit_f_cnt: Optional[bool] = None,
-             supports_class_b: Optional[bool] = None,
-             supports_class_c: Optional[bool] = None,
-             supports_join: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if class_b_timeout is not None:
-            _setter("class_b_timeout", class_b_timeout)
+            pulumi.set(__self__, "class_b_timeout", class_b_timeout)
         if class_c_timeout is not None:
-            _setter("class_c_timeout", class_c_timeout)
+            pulumi.set(__self__, "class_c_timeout", class_c_timeout)
         if factory_preset_freqs_list is not None:
-            _setter("factory_preset_freqs_list", factory_preset_freqs_list)
+            pulumi.set(__self__, "factory_preset_freqs_list", factory_preset_freqs_list)
         if mac_version is not None:
-            _setter("mac_version", mac_version)
+            pulumi.set(__self__, "mac_version", mac_version)
         if max_duty_cycle is not None:
-            _setter("max_duty_cycle", max_duty_cycle)
+            pulumi.set(__self__, "max_duty_cycle", max_duty_cycle)
         if max_eirp is not None:
-            _setter("max_eirp", max_eirp)
+            pulumi.set(__self__, "max_eirp", max_eirp)
         if ping_slot_dr is not None:
-            _setter("ping_slot_dr", ping_slot_dr)
+            pulumi.set(__self__, "ping_slot_dr", ping_slot_dr)
         if ping_slot_freq is not None:
-            _setter("ping_slot_freq", ping_slot_freq)
+            pulumi.set(__self__, "ping_slot_freq", ping_slot_freq)
         if ping_slot_period is not None:
-            _setter("ping_slot_period", ping_slot_period)
+            pulumi.set(__self__, "ping_slot_period", ping_slot_period)
         if reg_params_revision is not None:
-            _setter("reg_params_revision", reg_params_revision)
+            pulumi.set(__self__, "reg_params_revision", reg_params_revision)
         if rf_region is not None:
-            _setter("rf_region", rf_region)
+            pulumi.set(__self__, "rf_region", rf_region)
         if rx_data_rate2 is not None:
-            _setter("rx_data_rate2", rx_data_rate2)
+            pulumi.set(__self__, "rx_data_rate2", rx_data_rate2)
         if rx_delay1 is not None:
-            _setter("rx_delay1", rx_delay1)
+            pulumi.set(__self__, "rx_delay1", rx_delay1)
         if rx_dr_offset1 is not None:
-            _setter("rx_dr_offset1", rx_dr_offset1)
+            pulumi.set(__self__, "rx_dr_offset1", rx_dr_offset1)
         if rx_freq2 is not None:
-            _setter("rx_freq2", rx_freq2)
+            pulumi.set(__self__, "rx_freq2", rx_freq2)
         if supports32_bit_f_cnt is not None:
-            _setter("supports32_bit_f_cnt", supports32_bit_f_cnt)
+            pulumi.set(__self__, "supports32_bit_f_cnt", supports32_bit_f_cnt)
         if supports_class_b is not None:
-            _setter("supports_class_b", supports_class_b)
+            pulumi.set(__self__, "supports_class_b", supports_class_b)
         if supports_class_c is not None:
-            _setter("supports_class_c", supports_class_c)
+            pulumi.set(__self__, "supports_class_c", supports_class_c)
         if supports_join is not None:
-            _setter("supports_join", supports_join)
+            pulumi.set(__self__, "supports_join", supports_join)
 
     @property
     @pulumi.getter(name="classBTimeout")
@@ -338,21 +282,10 @@ class DeviceProfileTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        DeviceProfileTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -393,20 +326,9 @@ class FuotaTaskLoRaWan(dict):
         :param str rf_region: FUOTA task LoRaWAN RF region
         :param str start_time: FUOTA task LoRaWAN start time
         """
-        FuotaTaskLoRaWan._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rf_region=rf_region,
-            start_time=start_time,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rf_region: str,
-             start_time: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rf_region", rf_region)
+        pulumi.set(__self__, "rf_region", rf_region)
         if start_time is not None:
-            _setter("start_time", start_time)
+            pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter(name="rfRegion")
@@ -430,21 +352,10 @@ class FuotaTaskTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        FuotaTaskTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -493,27 +404,12 @@ class MulticastGroupLoRaWan(dict):
         :param int number_of_devices_in_group: Multicast group number of devices in group. Returned after successful read.
         :param int number_of_devices_requested: Multicast group number of devices requested. Returned after successful read.
         """
-        MulticastGroupLoRaWan._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dl_class=dl_class,
-            rf_region=rf_region,
-            number_of_devices_in_group=number_of_devices_in_group,
-            number_of_devices_requested=number_of_devices_requested,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dl_class: str,
-             rf_region: str,
-             number_of_devices_in_group: Optional[int] = None,
-             number_of_devices_requested: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dl_class", dl_class)
-        _setter("rf_region", rf_region)
+        pulumi.set(__self__, "dl_class", dl_class)
+        pulumi.set(__self__, "rf_region", rf_region)
         if number_of_devices_in_group is not None:
-            _setter("number_of_devices_in_group", number_of_devices_in_group)
+            pulumi.set(__self__, "number_of_devices_in_group", number_of_devices_in_group)
         if number_of_devices_requested is not None:
-            _setter("number_of_devices_requested", number_of_devices_requested)
+            pulumi.set(__self__, "number_of_devices_requested", number_of_devices_requested)
 
     @property
     @pulumi.getter(name="dlClass")
@@ -553,21 +449,10 @@ class MulticastGroupTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        MulticastGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -593,19 +478,8 @@ class NetworkAnalyzerConfigurationTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        NetworkAnalyzerConfigurationTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -645,16 +519,7 @@ class PartnerAccountSidewalkAccountInfo(dict):
 
     def __init__(__self__, *,
                  app_server_private_key: str):
-        PartnerAccountSidewalkAccountInfo._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_server_private_key=app_server_private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_server_private_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_server_private_key", app_server_private_key)
+        pulumi.set(__self__, "app_server_private_key", app_server_private_key)
 
     @property
     @pulumi.getter(name="appServerPrivateKey")
@@ -685,25 +550,12 @@ class PartnerAccountSidewalkAccountInfoWithFingerprint(dict):
                  amazon_id: Optional[str] = None,
                  arn: Optional[str] = None,
                  fingerprint: Optional[str] = None):
-        PartnerAccountSidewalkAccountInfoWithFingerprint._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            amazon_id=amazon_id,
-            arn=arn,
-            fingerprint=fingerprint,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             amazon_id: Optional[str] = None,
-             arn: Optional[str] = None,
-             fingerprint: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if amazon_id is not None:
-            _setter("amazon_id", amazon_id)
+            pulumi.set(__self__, "amazon_id", amazon_id)
         if arn is not None:
-            _setter("arn", arn)
+            pulumi.set(__self__, "arn", arn)
         if fingerprint is not None:
-            _setter("fingerprint", fingerprint)
+            pulumi.set(__self__, "fingerprint", fingerprint)
 
     @property
     @pulumi.getter(name="amazonId")
@@ -742,17 +594,8 @@ class PartnerAccountSidewalkUpdateAccount(dict):
 
     def __init__(__self__, *,
                  app_server_private_key: Optional[str] = None):
-        PartnerAccountSidewalkUpdateAccount._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_server_private_key=app_server_private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_server_private_key: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if app_server_private_key is not None:
-            _setter("app_server_private_key", app_server_private_key)
+            pulumi.set(__self__, "app_server_private_key", app_server_private_key)
 
     @property
     @pulumi.getter(name="appServerPrivateKey")
@@ -765,21 +608,10 @@ class PartnerAccountTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        PartnerAccountTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -867,89 +699,44 @@ class ServiceProfileLoRaWanServiceProfile(dict):
                  ul_bucket_size: Optional[int] = None,
                  ul_rate: Optional[int] = None,
                  ul_rate_policy: Optional[str] = None):
-        ServiceProfileLoRaWanServiceProfile._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            add_gw_metadata=add_gw_metadata,
-            channel_mask=channel_mask,
-            dev_status_req_freq=dev_status_req_freq,
-            dl_bucket_size=dl_bucket_size,
-            dl_rate=dl_rate,
-            dl_rate_policy=dl_rate_policy,
-            dr_max=dr_max,
-            dr_min=dr_min,
-            hr_allowed=hr_allowed,
-            min_gw_diversity=min_gw_diversity,
-            nwk_geo_loc=nwk_geo_loc,
-            pr_allowed=pr_allowed,
-            ra_allowed=ra_allowed,
-            report_dev_status_battery=report_dev_status_battery,
-            report_dev_status_margin=report_dev_status_margin,
-            target_per=target_per,
-            ul_bucket_size=ul_bucket_size,
-            ul_rate=ul_rate,
-            ul_rate_policy=ul_rate_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             add_gw_metadata: Optional[bool] = None,
-             channel_mask: Optional[str] = None,
-             dev_status_req_freq: Optional[int] = None,
-             dl_bucket_size: Optional[int] = None,
-             dl_rate: Optional[int] = None,
-             dl_rate_policy: Optional[str] = None,
-             dr_max: Optional[int] = None,
-             dr_min: Optional[int] = None,
-             hr_allowed: Optional[bool] = None,
-             min_gw_diversity: Optional[int] = None,
-             nwk_geo_loc: Optional[bool] = None,
-             pr_allowed: Optional[bool] = None,
-             ra_allowed: Optional[bool] = None,
-             report_dev_status_battery: Optional[bool] = None,
-             report_dev_status_margin: Optional[bool] = None,
-             target_per: Optional[int] = None,
-             ul_bucket_size: Optional[int] = None,
-             ul_rate: Optional[int] = None,
-             ul_rate_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if add_gw_metadata is not None:
-            _setter("add_gw_metadata", add_gw_metadata)
+            pulumi.set(__self__, "add_gw_metadata", add_gw_metadata)
         if channel_mask is not None:
-            _setter("channel_mask", channel_mask)
+            pulumi.set(__self__, "channel_mask", channel_mask)
         if dev_status_req_freq is not None:
-            _setter("dev_status_req_freq", dev_status_req_freq)
+            pulumi.set(__self__, "dev_status_req_freq", dev_status_req_freq)
         if dl_bucket_size is not None:
-            _setter("dl_bucket_size", dl_bucket_size)
+            pulumi.set(__self__, "dl_bucket_size", dl_bucket_size)
         if dl_rate is not None:
-            _setter("dl_rate", dl_rate)
+            pulumi.set(__self__, "dl_rate", dl_rate)
         if dl_rate_policy is not None:
-            _setter("dl_rate_policy", dl_rate_policy)
+            pulumi.set(__self__, "dl_rate_policy", dl_rate_policy)
         if dr_max is not None:
-            _setter("dr_max", dr_max)
+            pulumi.set(__self__, "dr_max", dr_max)
         if dr_min is not None:
-            _setter("dr_min", dr_min)
+            pulumi.set(__self__, "dr_min", dr_min)
         if hr_allowed is not None:
-            _setter("hr_allowed", hr_allowed)
+            pulumi.set(__self__, "hr_allowed", hr_allowed)
         if min_gw_diversity is not None:
-            _setter("min_gw_diversity", min_gw_diversity)
+            pulumi.set(__self__, "min_gw_diversity", min_gw_diversity)
         if nwk_geo_loc is not None:
-            _setter("nwk_geo_loc", nwk_geo_loc)
+            pulumi.set(__self__, "nwk_geo_loc", nwk_geo_loc)
         if pr_allowed is not None:
-            _setter("pr_allowed", pr_allowed)
+            pulumi.set(__self__, "pr_allowed", pr_allowed)
         if ra_allowed is not None:
-            _setter("ra_allowed", ra_allowed)
+            pulumi.set(__self__, "ra_allowed", ra_allowed)
         if report_dev_status_battery is not None:
-            _setter("report_dev_status_battery", report_dev_status_battery)
+            pulumi.set(__self__, "report_dev_status_battery", report_dev_status_battery)
         if report_dev_status_margin is not None:
-            _setter("report_dev_status_margin", report_dev_status_margin)
+            pulumi.set(__self__, "report_dev_status_margin", report_dev_status_margin)
         if target_per is not None:
-            _setter("target_per", target_per)
+            pulumi.set(__self__, "target_per", target_per)
         if ul_bucket_size is not None:
-            _setter("ul_bucket_size", ul_bucket_size)
+            pulumi.set(__self__, "ul_bucket_size", ul_bucket_size)
         if ul_rate is not None:
-            _setter("ul_rate", ul_rate)
+            pulumi.set(__self__, "ul_rate", ul_rate)
         if ul_rate_policy is not None:
-            _setter("ul_rate_policy", ul_rate_policy)
+            pulumi.set(__self__, "ul_rate_policy", ul_rate_policy)
 
     @property
     @pulumi.getter(name="addGwMetadata")
@@ -1052,21 +839,10 @@ class ServiceProfileTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        ServiceProfileTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1113,29 +889,14 @@ class SidewalkProperties(dict):
         """
         sidewalk contain file for created device and role
         """
-        SidewalkProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            device_creation_file=device_creation_file,
-            device_creation_file_list=device_creation_file_list,
-            role=role,
-            sidewalk_manufacturing_sn=sidewalk_manufacturing_sn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             device_creation_file: Optional[str] = None,
-             device_creation_file_list: Optional[Sequence[str]] = None,
-             role: Optional[str] = None,
-             sidewalk_manufacturing_sn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if device_creation_file is not None:
-            _setter("device_creation_file", device_creation_file)
+            pulumi.set(__self__, "device_creation_file", device_creation_file)
         if device_creation_file_list is not None:
-            _setter("device_creation_file_list", device_creation_file_list)
+            pulumi.set(__self__, "device_creation_file_list", device_creation_file_list)
         if role is not None:
-            _setter("role", role)
+            pulumi.set(__self__, "role", role)
         if sidewalk_manufacturing_sn is not None:
-            _setter("sidewalk_manufacturing_sn", sidewalk_manufacturing_sn)
+            pulumi.set(__self__, "sidewalk_manufacturing_sn", sidewalk_manufacturing_sn)
 
     @property
     @pulumi.getter(name="deviceCreationFile")
@@ -1181,25 +942,12 @@ class TaskDefinitionLoRaWanGatewayVersion(dict):
                  model: Optional[str] = None,
                  package_version: Optional[str] = None,
                  station: Optional[str] = None):
-        TaskDefinitionLoRaWanGatewayVersion._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            model=model,
-            package_version=package_version,
-            station=station,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             model: Optional[str] = None,
-             package_version: Optional[str] = None,
-             station: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if model is not None:
-            _setter("model", model)
+            pulumi.set(__self__, "model", model)
         if package_version is not None:
-            _setter("package_version", package_version)
+            pulumi.set(__self__, "package_version", package_version)
         if station is not None:
-            _setter("station", station)
+            pulumi.set(__self__, "station", station)
 
     @property
     @pulumi.getter
@@ -1247,29 +995,14 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreate(dict):
                  sig_key_crc: Optional[int] = None,
                  update_signature: Optional[str] = None,
                  update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None):
-        TaskDefinitionLoRaWanUpdateGatewayTaskCreate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            current_version=current_version,
-            sig_key_crc=sig_key_crc,
-            update_signature=update_signature,
-            update_version=update_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
-             sig_key_crc: Optional[int] = None,
-             update_signature: Optional[str] = None,
-             update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if current_version is not None:
-            _setter("current_version", current_version)
+            pulumi.set(__self__, "current_version", current_version)
         if sig_key_crc is not None:
-            _setter("sig_key_crc", sig_key_crc)
+            pulumi.set(__self__, "sig_key_crc", sig_key_crc)
         if update_signature is not None:
-            _setter("update_signature", update_signature)
+            pulumi.set(__self__, "update_signature", update_signature)
         if update_version is not None:
-            _setter("update_version", update_version)
+            pulumi.set(__self__, "update_version", update_version)
 
     @property
     @pulumi.getter(name="currentVersion")
@@ -1316,21 +1049,10 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
     def __init__(__self__, *,
                  current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
                  update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None):
-        TaskDefinitionLoRaWanUpdateGatewayTaskEntry._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            current_version=current_version,
-            update_version=update_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
-             update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if current_version is not None:
-            _setter("current_version", current_version)
+            pulumi.set(__self__, "current_version", current_version)
         if update_version is not None:
-            _setter("update_version", update_version)
+            pulumi.set(__self__, "update_version", update_version)
 
     @property
     @pulumi.getter(name="currentVersion")
@@ -1348,21 +1070,10 @@ class TaskDefinitionTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        TaskDefinitionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1402,25 +1113,12 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
                  lo_ra_wan: Optional['outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate'] = None,
                  update_data_role: Optional[str] = None,
                  update_data_source: Optional[str] = None):
-        TaskDefinitionUpdateWirelessGatewayTaskCreate._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            lo_ra_wan=lo_ra_wan,
-            update_data_role=update_data_role,
-            update_data_source=update_data_source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             lo_ra_wan: Optional['outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate'] = None,
-             update_data_role: Optional[str] = None,
-             update_data_source: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if lo_ra_wan is not None:
-            _setter("lo_ra_wan", lo_ra_wan)
+            pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if update_data_role is not None:
-            _setter("update_data_role", update_data_role)
+            pulumi.set(__self__, "update_data_role", update_data_role)
         if update_data_source is not None:
-            _setter("update_data_source", update_data_source)
+            pulumi.set(__self__, "update_data_source", update_data_source)
 
     @property
     @pulumi.getter(name="loRaWan")
@@ -1468,21 +1166,10 @@ class TraceContentProperties(dict):
         """
         Trace content for your wireless gateway and wireless device resources
         """
-        TraceContentProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_level=log_level,
-            wireless_device_frame_info=wireless_device_frame_info,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_level: Optional['NetworkAnalyzerConfigurationLogLevel'] = None,
-             wireless_device_frame_info: Optional['NetworkAnalyzerConfigurationWirelessDeviceFrameInfo'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_level is not None:
-            _setter("log_level", log_level)
+            pulumi.set(__self__, "log_level", log_level)
         if wireless_device_frame_info is not None:
-            _setter("wireless_device_frame_info", wireless_device_frame_info)
+            pulumi.set(__self__, "wireless_device_frame_info", wireless_device_frame_info)
 
     @property
     @pulumi.getter(name="logLevel")
@@ -1519,19 +1206,8 @@ class WirelessDeviceAbpV10x(dict):
     def __init__(__self__, *,
                  dev_addr: str,
                  session_keys: 'outputs.WirelessDeviceSessionKeysAbpV10x'):
-        WirelessDeviceAbpV10x._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dev_addr=dev_addr,
-            session_keys=session_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dev_addr: str,
-             session_keys: 'outputs.WirelessDeviceSessionKeysAbpV10x',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dev_addr", dev_addr)
-        _setter("session_keys", session_keys)
+        pulumi.set(__self__, "dev_addr", dev_addr)
+        pulumi.set(__self__, "session_keys", session_keys)
 
     @property
     @pulumi.getter(name="devAddr")
@@ -1568,19 +1244,8 @@ class WirelessDeviceAbpV11(dict):
     def __init__(__self__, *,
                  dev_addr: str,
                  session_keys: 'outputs.WirelessDeviceSessionKeysAbpV11'):
-        WirelessDeviceAbpV11._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dev_addr=dev_addr,
-            session_keys=session_keys,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dev_addr: str,
-             session_keys: 'outputs.WirelessDeviceSessionKeysAbpV11',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dev_addr", dev_addr)
-        _setter("session_keys", session_keys)
+        pulumi.set(__self__, "dev_addr", dev_addr)
+        pulumi.set(__self__, "session_keys", session_keys)
 
     @property
     @pulumi.getter(name="devAddr")
@@ -1606,19 +1271,8 @@ class WirelessDeviceImportTaskTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        WirelessDeviceImportTaskTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1676,41 +1330,20 @@ class WirelessDeviceLoRaWanDevice(dict):
                  otaa_v10x: Optional['outputs.WirelessDeviceOtaaV10x'] = None,
                  otaa_v11: Optional['outputs.WirelessDeviceOtaaV11'] = None,
                  service_profile_id: Optional[str] = None):
-        WirelessDeviceLoRaWanDevice._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            abp_v10x=abp_v10x,
-            abp_v11=abp_v11,
-            dev_eui=dev_eui,
-            device_profile_id=device_profile_id,
-            otaa_v10x=otaa_v10x,
-            otaa_v11=otaa_v11,
-            service_profile_id=service_profile_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             abp_v10x: Optional['outputs.WirelessDeviceAbpV10x'] = None,
-             abp_v11: Optional['outputs.WirelessDeviceAbpV11'] = None,
-             dev_eui: Optional[str] = None,
-             device_profile_id: Optional[str] = None,
-             otaa_v10x: Optional['outputs.WirelessDeviceOtaaV10x'] = None,
-             otaa_v11: Optional['outputs.WirelessDeviceOtaaV11'] = None,
-             service_profile_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if abp_v10x is not None:
-            _setter("abp_v10x", abp_v10x)
+            pulumi.set(__self__, "abp_v10x", abp_v10x)
         if abp_v11 is not None:
-            _setter("abp_v11", abp_v11)
+            pulumi.set(__self__, "abp_v11", abp_v11)
         if dev_eui is not None:
-            _setter("dev_eui", dev_eui)
+            pulumi.set(__self__, "dev_eui", dev_eui)
         if device_profile_id is not None:
-            _setter("device_profile_id", device_profile_id)
+            pulumi.set(__self__, "device_profile_id", device_profile_id)
         if otaa_v10x is not None:
-            _setter("otaa_v10x", otaa_v10x)
+            pulumi.set(__self__, "otaa_v10x", otaa_v10x)
         if otaa_v11 is not None:
-            _setter("otaa_v11", otaa_v11)
+            pulumi.set(__self__, "otaa_v11", otaa_v11)
         if service_profile_id is not None:
-            _setter("service_profile_id", service_profile_id)
+            pulumi.set(__self__, "service_profile_id", service_profile_id)
 
     @property
     @pulumi.getter(name="abpV10x")
@@ -1772,19 +1405,8 @@ class WirelessDeviceOtaaV10x(dict):
     def __init__(__self__, *,
                  app_eui: str,
                  app_key: str):
-        WirelessDeviceOtaaV10x._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_eui=app_eui,
-            app_key=app_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_eui: str,
-             app_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_eui", app_eui)
-        _setter("app_key", app_key)
+        pulumi.set(__self__, "app_eui", app_eui)
+        pulumi.set(__self__, "app_key", app_key)
 
     @property
     @pulumi.getter(name="appEui")
@@ -1824,22 +1446,9 @@ class WirelessDeviceOtaaV11(dict):
                  app_key: str,
                  join_eui: str,
                  nwk_key: str):
-        WirelessDeviceOtaaV11._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_key=app_key,
-            join_eui=join_eui,
-            nwk_key=nwk_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_key: str,
-             join_eui: str,
-             nwk_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_key", app_key)
-        _setter("join_eui", join_eui)
-        _setter("nwk_key", nwk_key)
+        pulumi.set(__self__, "app_key", app_key)
+        pulumi.set(__self__, "join_eui", join_eui)
+        pulumi.set(__self__, "nwk_key", nwk_key)
 
     @property
     @pulumi.getter(name="appKey")
@@ -1881,19 +1490,8 @@ class WirelessDeviceSessionKeysAbpV10x(dict):
     def __init__(__self__, *,
                  app_s_key: str,
                  nwk_s_key: str):
-        WirelessDeviceSessionKeysAbpV10x._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_s_key=app_s_key,
-            nwk_s_key=nwk_s_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_s_key: str,
-             nwk_s_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_s_key", app_s_key)
-        _setter("nwk_s_key", nwk_s_key)
+        pulumi.set(__self__, "app_s_key", app_s_key)
+        pulumi.set(__self__, "nwk_s_key", nwk_s_key)
 
     @property
     @pulumi.getter(name="appSKey")
@@ -1936,25 +1534,10 @@ class WirelessDeviceSessionKeysAbpV11(dict):
                  f_nwk_s_int_key: str,
                  nwk_s_enc_key: str,
                  s_nwk_s_int_key: str):
-        WirelessDeviceSessionKeysAbpV11._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_s_key=app_s_key,
-            f_nwk_s_int_key=f_nwk_s_int_key,
-            nwk_s_enc_key=nwk_s_enc_key,
-            s_nwk_s_int_key=s_nwk_s_int_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_s_key: str,
-             f_nwk_s_int_key: str,
-             nwk_s_enc_key: str,
-             s_nwk_s_int_key: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("app_s_key", app_s_key)
-        _setter("f_nwk_s_int_key", f_nwk_s_int_key)
-        _setter("nwk_s_enc_key", nwk_s_enc_key)
-        _setter("s_nwk_s_int_key", s_nwk_s_int_key)
+        pulumi.set(__self__, "app_s_key", app_s_key)
+        pulumi.set(__self__, "f_nwk_s_int_key", f_nwk_s_int_key)
+        pulumi.set(__self__, "nwk_s_enc_key", nwk_s_enc_key)
+        pulumi.set(__self__, "s_nwk_s_int_key", s_nwk_s_int_key)
 
     @property
     @pulumi.getter(name="appSKey")
@@ -1982,21 +1565,10 @@ class WirelessDeviceTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        WirelessDeviceTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -2033,19 +1605,8 @@ class WirelessGatewayLoRaWanGateway(dict):
     def __init__(__self__, *,
                  gateway_eui: str,
                  rf_region: str):
-        WirelessGatewayLoRaWanGateway._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gateway_eui=gateway_eui,
-            rf_region=rf_region,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gateway_eui: str,
-             rf_region: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("gateway_eui", gateway_eui)
-        _setter("rf_region", rf_region)
+        pulumi.set(__self__, "gateway_eui", gateway_eui)
+        pulumi.set(__self__, "rf_region", rf_region)
 
     @property
     @pulumi.getter(name="gatewayEui")
@@ -2063,21 +1624,10 @@ class WirelessGatewayTag(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        WirelessGatewayTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

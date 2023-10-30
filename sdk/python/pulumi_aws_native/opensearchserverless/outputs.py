@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
@@ -28,19 +28,8 @@ class CollectionTag(dict):
         :param str key: The key in the key-value pair
         :param str value: The value in the key-value pair
         """
-        CollectionTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -97,28 +86,13 @@ class SecurityConfigSamlConfigOptions(dict):
         :param int session_timeout: Defines the session timeout in minutes
         :param str user_attribute: Custom attribute for this saml integration
         """
-        SecurityConfigSamlConfigOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metadata=metadata,
-            group_attribute=group_attribute,
-            session_timeout=session_timeout,
-            user_attribute=user_attribute,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metadata: str,
-             group_attribute: Optional[str] = None,
-             session_timeout: Optional[int] = None,
-             user_attribute: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("metadata", metadata)
+        pulumi.set(__self__, "metadata", metadata)
         if group_attribute is not None:
-            _setter("group_attribute", group_attribute)
+            pulumi.set(__self__, "group_attribute", group_attribute)
         if session_timeout is not None:
-            _setter("session_timeout", session_timeout)
+            pulumi.set(__self__, "session_timeout", session_timeout)
         if user_attribute is not None:
-            _setter("user_attribute", user_attribute)
+            pulumi.set(__self__, "user_attribute", user_attribute)
 
     @property
     @pulumi.getter

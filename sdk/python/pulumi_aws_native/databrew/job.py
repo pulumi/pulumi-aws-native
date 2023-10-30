@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -55,91 +55,44 @@ class JobArgs:
         :param pulumi.Input[int] timeout: Timeout
         :param pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]] validation_configurations: Data quality rules configuration
         """
-        JobArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            type=type,
-            data_catalog_outputs=data_catalog_outputs,
-            database_outputs=database_outputs,
-            dataset_name=dataset_name,
-            encryption_key_arn=encryption_key_arn,
-            encryption_mode=encryption_mode,
-            job_sample=job_sample,
-            log_subscription=log_subscription,
-            max_capacity=max_capacity,
-            max_retries=max_retries,
-            name=name,
-            output_location=output_location,
-            outputs=outputs,
-            profile_configuration=profile_configuration,
-            project_name=project_name,
-            recipe=recipe,
-            tags=tags,
-            timeout=timeout,
-            validation_configurations=validation_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: pulumi.Input[str],
-             type: pulumi.Input['JobType'],
-             data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]] = None,
-             database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]] = None,
-             dataset_name: Optional[pulumi.Input[str]] = None,
-             encryption_key_arn: Optional[pulumi.Input[str]] = None,
-             encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
-             job_sample: Optional[pulumi.Input['JobSampleArgs']] = None,
-             log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
-             max_capacity: Optional[pulumi.Input[int]] = None,
-             max_retries: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             output_location: Optional[pulumi.Input['JobOutputLocationArgs']] = None,
-             outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputArgs']]]] = None,
-             profile_configuration: Optional[pulumi.Input['JobProfileConfigurationArgs']] = None,
-             project_name: Optional[pulumi.Input[str]] = None,
-             recipe: Optional[pulumi.Input['JobRecipeArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['JobTagArgs']]]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             validation_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobValidationConfigurationArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
-        _setter("type", type)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "type", type)
         if data_catalog_outputs is not None:
-            _setter("data_catalog_outputs", data_catalog_outputs)
+            pulumi.set(__self__, "data_catalog_outputs", data_catalog_outputs)
         if database_outputs is not None:
-            _setter("database_outputs", database_outputs)
+            pulumi.set(__self__, "database_outputs", database_outputs)
         if dataset_name is not None:
-            _setter("dataset_name", dataset_name)
+            pulumi.set(__self__, "dataset_name", dataset_name)
         if encryption_key_arn is not None:
-            _setter("encryption_key_arn", encryption_key_arn)
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if encryption_mode is not None:
-            _setter("encryption_mode", encryption_mode)
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
         if job_sample is not None:
-            _setter("job_sample", job_sample)
+            pulumi.set(__self__, "job_sample", job_sample)
         if log_subscription is not None:
-            _setter("log_subscription", log_subscription)
+            pulumi.set(__self__, "log_subscription", log_subscription)
         if max_capacity is not None:
-            _setter("max_capacity", max_capacity)
+            pulumi.set(__self__, "max_capacity", max_capacity)
         if max_retries is not None:
-            _setter("max_retries", max_retries)
+            pulumi.set(__self__, "max_retries", max_retries)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if output_location is not None:
-            _setter("output_location", output_location)
+            pulumi.set(__self__, "output_location", output_location)
         if outputs is not None:
-            _setter("outputs", outputs)
+            pulumi.set(__self__, "outputs", outputs)
         if profile_configuration is not None:
-            _setter("profile_configuration", profile_configuration)
+            pulumi.set(__self__, "profile_configuration", profile_configuration)
         if project_name is not None:
-            _setter("project_name", project_name)
+            pulumi.set(__self__, "project_name", project_name)
         if recipe is not None:
-            _setter("recipe", recipe)
+            pulumi.set(__self__, "recipe", recipe)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if validation_configurations is not None:
-            _setter("validation_configurations", validation_configurations)
+            pulumi.set(__self__, "validation_configurations", validation_configurations)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -433,10 +386,6 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -476,35 +425,15 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["dataset_name"] = dataset_name
             __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             __props__.__dict__["encryption_mode"] = encryption_mode
-            if job_sample is not None and not isinstance(job_sample, JobSampleArgs):
-                job_sample = job_sample or {}
-                def _setter(key, value):
-                    job_sample[key] = value
-                JobSampleArgs._configure(_setter, **job_sample)
             __props__.__dict__["job_sample"] = job_sample
             __props__.__dict__["log_subscription"] = log_subscription
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["max_retries"] = max_retries
             __props__.__dict__["name"] = name
-            if output_location is not None and not isinstance(output_location, JobOutputLocationArgs):
-                output_location = output_location or {}
-                def _setter(key, value):
-                    output_location[key] = value
-                JobOutputLocationArgs._configure(_setter, **output_location)
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["outputs"] = outputs
-            if profile_configuration is not None and not isinstance(profile_configuration, JobProfileConfigurationArgs):
-                profile_configuration = profile_configuration or {}
-                def _setter(key, value):
-                    profile_configuration[key] = value
-                JobProfileConfigurationArgs._configure(_setter, **profile_configuration)
             __props__.__dict__["profile_configuration"] = profile_configuration
             __props__.__dict__["project_name"] = project_name
-            if recipe is not None and not isinstance(recipe, JobRecipeArgs):
-                recipe = recipe or {}
-                def _setter(key, value):
-                    recipe[key] = value
-                JobRecipeArgs._configure(_setter, **recipe)
             __props__.__dict__["recipe"] = recipe
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

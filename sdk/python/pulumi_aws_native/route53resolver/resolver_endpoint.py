@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,42 +27,19 @@ class ResolverEndpointArgs:
         """
         The set of arguments for constructing a ResolverEndpoint resource.
         """
-        ResolverEndpointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            direction=direction,
-            ip_addresses=ip_addresses,
-            security_group_ids=security_group_ids,
-            name=name,
-            outpost_arn=outpost_arn,
-            preferred_instance_type=preferred_instance_type,
-            resolver_endpoint_type=resolver_endpoint_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             direction: pulumi.Input[str],
-             ip_addresses: pulumi.Input[Sequence[pulumi.Input['ResolverEndpointIpAddressRequestArgs']]],
-             security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: Optional[pulumi.Input[str]] = None,
-             outpost_arn: Optional[pulumi.Input[str]] = None,
-             preferred_instance_type: Optional[pulumi.Input[str]] = None,
-             resolver_endpoint_type: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("direction", direction)
-        _setter("ip_addresses", ip_addresses)
-        _setter("security_group_ids", security_group_ids)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if outpost_arn is not None:
-            _setter("outpost_arn", outpost_arn)
+            pulumi.set(__self__, "outpost_arn", outpost_arn)
         if preferred_instance_type is not None:
-            _setter("preferred_instance_type", preferred_instance_type)
+            pulumi.set(__self__, "preferred_instance_type", preferred_instance_type)
         if resolver_endpoint_type is not None:
-            _setter("resolver_endpoint_type", resolver_endpoint_type)
+            pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -181,10 +158,6 @@ class ResolverEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResolverEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

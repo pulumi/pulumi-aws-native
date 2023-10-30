@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityPoolRoleAttachmentArgs', 'IdentityPoolRoleAttachment']
@@ -20,24 +20,11 @@ class IdentityPoolRoleAttachmentArgs:
         """
         The set of arguments for constructing a IdentityPoolRoleAttachment resource.
         """
-        IdentityPoolRoleAttachmentArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_pool_id=identity_pool_id,
-            role_mappings=role_mappings,
-            roles=roles,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_pool_id: pulumi.Input[str],
-             role_mappings: Optional[Any] = None,
-             roles: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("identity_pool_id", identity_pool_id)
+        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         if role_mappings is not None:
-            _setter("role_mappings", role_mappings)
+            pulumi.set(__self__, "role_mappings", role_mappings)
         if roles is not None:
-            _setter("roles", roles)
+            pulumi.set(__self__, "roles", roles)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -106,10 +93,6 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdentityPoolRoleAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

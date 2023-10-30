@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -41,53 +41,24 @@ class DomainArgs:
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: A list of tags to apply to the user profile.
         """
-        DomainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_mode=auth_mode,
-            default_user_settings=default_user_settings,
-            subnet_ids=subnet_ids,
-            vpc_id=vpc_id,
-            app_network_access_type=app_network_access_type,
-            app_security_group_management=app_security_group_management,
-            default_space_settings=default_space_settings,
-            domain_name=domain_name,
-            domain_settings=domain_settings,
-            kms_key_id=kms_key_id,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_mode: pulumi.Input['DomainAuthMode'],
-             default_user_settings: pulumi.Input['DomainUserSettingsArgs'],
-             subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             vpc_id: pulumi.Input[str],
-             app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
-             app_security_group_management: Optional[pulumi.Input['DomainAppSecurityGroupManagement']] = None,
-             default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
-             domain_name: Optional[pulumi.Input[str]] = None,
-             domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auth_mode", auth_mode)
-        _setter("default_user_settings", default_user_settings)
-        _setter("subnet_ids", subnet_ids)
-        _setter("vpc_id", vpc_id)
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        pulumi.set(__self__, "default_user_settings", default_user_settings)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
         if app_network_access_type is not None:
-            _setter("app_network_access_type", app_network_access_type)
+            pulumi.set(__self__, "app_network_access_type", app_network_access_type)
         if app_security_group_management is not None:
-            _setter("app_security_group_management", app_security_group_management)
+            pulumi.set(__self__, "app_security_group_management", app_security_group_management)
         if default_space_settings is not None:
-            _setter("default_space_settings", default_space_settings)
+            pulumi.set(__self__, "default_space_settings", default_space_settings)
         if domain_name is not None:
-            _setter("domain_name", domain_name)
+            pulumi.set(__self__, "domain_name", domain_name)
         if domain_settings is not None:
-            _setter("domain_settings", domain_settings)
+            pulumi.set(__self__, "domain_settings", domain_settings)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="authMode")
@@ -271,10 +242,6 @@ class Domain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -305,26 +272,11 @@ class Domain(pulumi.CustomResource):
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")
             __props__.__dict__["auth_mode"] = auth_mode
-            if default_space_settings is not None and not isinstance(default_space_settings, DomainDefaultSpaceSettingsArgs):
-                default_space_settings = default_space_settings or {}
-                def _setter(key, value):
-                    default_space_settings[key] = value
-                DomainDefaultSpaceSettingsArgs._configure(_setter, **default_space_settings)
             __props__.__dict__["default_space_settings"] = default_space_settings
-            if default_user_settings is not None and not isinstance(default_user_settings, DomainUserSettingsArgs):
-                default_user_settings = default_user_settings or {}
-                def _setter(key, value):
-                    default_user_settings[key] = value
-                DomainUserSettingsArgs._configure(_setter, **default_user_settings)
             if default_user_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'default_user_settings'")
             __props__.__dict__["default_user_settings"] = default_user_settings
             __props__.__dict__["domain_name"] = domain_name
-            if domain_settings is not None and not isinstance(domain_settings, DomainSettingsArgs):
-                domain_settings = domain_settings or {}
-                def _setter(key, value):
-                    domain_settings[key] = value
-                DomainSettingsArgs._configure(_setter, **domain_settings)
             __props__.__dict__["domain_settings"] = domain_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
             if subnet_ids is None and not opts.urn:

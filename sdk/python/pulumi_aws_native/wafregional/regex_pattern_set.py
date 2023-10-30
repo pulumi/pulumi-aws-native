@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
@@ -19,20 +19,9 @@ class RegexPatternSetArgs:
         """
         The set of arguments for constructing a RegexPatternSet resource.
         """
-        RegexPatternSetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            regex_pattern_strings=regex_pattern_strings,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             regex_pattern_strings: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("regex_pattern_strings", regex_pattern_strings)
+        pulumi.set(__self__, "regex_pattern_strings", regex_pattern_strings)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="regexPatternStrings")
@@ -91,10 +80,6 @@ class RegexPatternSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RegexPatternSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

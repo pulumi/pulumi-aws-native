@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,19 +31,8 @@ class HttpNamespaceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        HttpNamespaceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -68,17 +57,8 @@ class HttpNamespaceTagArgs:
 class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
     def __init__(__self__, *,
                  soa: Optional[pulumi.Input['PrivateDnsNamespaceSoaArgs']] = None):
-        PrivateDnsNamespacePrivateDnsPropertiesMutableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            soa=soa,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             soa: Optional[pulumi.Input['PrivateDnsNamespaceSoaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if soa is not None:
-            _setter("soa", soa)
+            pulumi.set(__self__, "soa", soa)
 
     @property
     @pulumi.getter
@@ -94,17 +74,8 @@ class PrivateDnsNamespacePrivateDnsPropertiesMutableArgs:
 class PrivateDnsNamespacePropertiesArgs:
     def __init__(__self__, *,
                  dns_properties: Optional[pulumi.Input['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs']] = None):
-        PrivateDnsNamespacePropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_properties=dns_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_properties: Optional[pulumi.Input['PrivateDnsNamespacePrivateDnsPropertiesMutableArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_properties is not None:
-            _setter("dns_properties", dns_properties)
+            pulumi.set(__self__, "dns_properties", dns_properties)
 
     @property
     @pulumi.getter(name="dnsProperties")
@@ -120,17 +91,8 @@ class PrivateDnsNamespacePropertiesArgs:
 class PrivateDnsNamespaceSoaArgs:
     def __init__(__self__, *,
                  ttl: Optional[pulumi.Input[float]] = None):
-        PrivateDnsNamespaceSoaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ttl: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ttl is not None:
-            _setter("ttl", ttl)
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter
@@ -147,19 +109,8 @@ class PrivateDnsNamespaceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        PrivateDnsNamespaceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -184,17 +135,8 @@ class PrivateDnsNamespaceTagArgs:
 class PublicDnsNamespacePropertiesArgs:
     def __init__(__self__, *,
                  dns_properties: Optional[pulumi.Input['PublicDnsNamespacePublicDnsPropertiesMutableArgs']] = None):
-        PublicDnsNamespacePropertiesArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_properties=dns_properties,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_properties: Optional[pulumi.Input['PublicDnsNamespacePublicDnsPropertiesMutableArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if dns_properties is not None:
-            _setter("dns_properties", dns_properties)
+            pulumi.set(__self__, "dns_properties", dns_properties)
 
     @property
     @pulumi.getter(name="dnsProperties")
@@ -210,17 +152,8 @@ class PublicDnsNamespacePropertiesArgs:
 class PublicDnsNamespacePublicDnsPropertiesMutableArgs:
     def __init__(__self__, *,
                  soa: Optional[pulumi.Input['PublicDnsNamespaceSoaArgs']] = None):
-        PublicDnsNamespacePublicDnsPropertiesMutableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            soa=soa,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             soa: Optional[pulumi.Input['PublicDnsNamespaceSoaArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if soa is not None:
-            _setter("soa", soa)
+            pulumi.set(__self__, "soa", soa)
 
     @property
     @pulumi.getter
@@ -236,17 +169,8 @@ class PublicDnsNamespacePublicDnsPropertiesMutableArgs:
 class PublicDnsNamespaceSoaArgs:
     def __init__(__self__, *,
                  ttl: Optional[pulumi.Input[float]] = None):
-        PublicDnsNamespaceSoaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ttl=ttl,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ttl: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ttl is not None:
-            _setter("ttl", ttl)
+            pulumi.set(__self__, "ttl", ttl)
 
     @property
     @pulumi.getter
@@ -263,19 +187,8 @@ class PublicDnsNamespaceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        PublicDnsNamespaceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -302,24 +215,11 @@ class ServiceDnsConfigArgs:
                  dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]],
                  namespace_id: Optional[pulumi.Input[str]] = None,
                  routing_policy: Optional[pulumi.Input[str]] = None):
-        ServiceDnsConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dns_records=dns_records,
-            namespace_id=namespace_id,
-            routing_policy=routing_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsRecordArgs']]],
-             namespace_id: Optional[pulumi.Input[str]] = None,
-             routing_policy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dns_records", dns_records)
+        pulumi.set(__self__, "dns_records", dns_records)
         if namespace_id is not None:
-            _setter("namespace_id", namespace_id)
+            pulumi.set(__self__, "namespace_id", namespace_id)
         if routing_policy is not None:
-            _setter("routing_policy", routing_policy)
+            pulumi.set(__self__, "routing_policy", routing_policy)
 
     @property
     @pulumi.getter(name="dnsRecords")
@@ -354,19 +254,8 @@ class ServiceDnsRecordArgs:
     def __init__(__self__, *,
                  ttl: pulumi.Input[float],
                  type: pulumi.Input[str]):
-        ServiceDnsRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ttl=ttl,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ttl: pulumi.Input[float],
-             type: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ttl", ttl)
-        _setter("type", type)
+        pulumi.set(__self__, "ttl", ttl)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -393,24 +282,11 @@ class ServiceHealthCheckConfigArgs:
                  type: pulumi.Input[str],
                  failure_threshold: Optional[pulumi.Input[float]] = None,
                  resource_path: Optional[pulumi.Input[str]] = None):
-        ServiceHealthCheckConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            failure_threshold=failure_threshold,
-            resource_path=resource_path,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: pulumi.Input[str],
-             failure_threshold: Optional[pulumi.Input[float]] = None,
-             resource_path: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if failure_threshold is not None:
-            _setter("failure_threshold", failure_threshold)
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
         if resource_path is not None:
-            _setter("resource_path", resource_path)
+            pulumi.set(__self__, "resource_path", resource_path)
 
     @property
     @pulumi.getter
@@ -444,17 +320,8 @@ class ServiceHealthCheckConfigArgs:
 class ServiceHealthCheckCustomConfigArgs:
     def __init__(__self__, *,
                  failure_threshold: Optional[pulumi.Input[float]] = None):
-        ServiceHealthCheckCustomConfigArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            failure_threshold=failure_threshold,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             failure_threshold: Optional[pulumi.Input[float]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if failure_threshold is not None:
-            _setter("failure_threshold", failure_threshold)
+            pulumi.set(__self__, "failure_threshold", failure_threshold)
 
     @property
     @pulumi.getter(name="failureThreshold")
@@ -471,19 +338,8 @@ class ServiceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        ServiceTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

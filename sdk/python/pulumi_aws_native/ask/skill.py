@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,22 +22,9 @@ class SkillArgs:
         """
         The set of arguments for constructing a Skill resource.
         """
-        SkillArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_configuration=authentication_configuration,
-            skill_package=skill_package,
-            vendor_id=vendor_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_configuration: pulumi.Input['SkillAuthenticationConfigurationArgs'],
-             skill_package: pulumi.Input['SkillPackageArgs'],
-             vendor_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("authentication_configuration", authentication_configuration)
-        _setter("skill_package", skill_package)
-        _setter("vendor_id", vendor_id)
+        pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        pulumi.set(__self__, "skill_package", skill_package)
+        pulumi.set(__self__, "vendor_id", vendor_id)
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
@@ -106,10 +93,6 @@ class Skill(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SkillArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -128,19 +111,9 @@ class Skill(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SkillArgs.__new__(SkillArgs)
 
-            if authentication_configuration is not None and not isinstance(authentication_configuration, SkillAuthenticationConfigurationArgs):
-                authentication_configuration = authentication_configuration or {}
-                def _setter(key, value):
-                    authentication_configuration[key] = value
-                SkillAuthenticationConfigurationArgs._configure(_setter, **authentication_configuration)
             if authentication_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_configuration'")
             __props__.__dict__["authentication_configuration"] = authentication_configuration
-            if skill_package is not None and not isinstance(skill_package, SkillPackageArgs):
-                skill_package = skill_package or {}
-                def _setter(key, value):
-                    skill_package[key] = value
-                SkillPackageArgs._configure(_setter, **skill_package)
             if skill_package is None and not opts.urn:
                 raise TypeError("Missing required property 'skill_package'")
             __props__.__dict__["skill_package"] = skill_package

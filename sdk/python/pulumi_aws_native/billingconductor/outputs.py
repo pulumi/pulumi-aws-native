@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -51,20 +51,9 @@ class BillingGroupAccountGrouping(dict):
     def __init__(__self__, *,
                  linked_account_ids: Sequence[str],
                  auto_associate: Optional[bool] = None):
-        BillingGroupAccountGrouping._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            linked_account_ids=linked_account_ids,
-            auto_associate=auto_associate,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             linked_account_ids: Sequence[str],
-             auto_associate: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("linked_account_ids", linked_account_ids)
+        pulumi.set(__self__, "linked_account_ids", linked_account_ids)
         if auto_associate is not None:
-            _setter("auto_associate", auto_associate)
+            pulumi.set(__self__, "auto_associate", auto_associate)
 
     @property
     @pulumi.getter(name="linkedAccountIds")
@@ -101,16 +90,7 @@ class BillingGroupComputationPreference(dict):
         """
         :param str pricing_plan_arn: ARN of the attached pricing plan
         """
-        BillingGroupComputationPreference._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pricing_plan_arn=pricing_plan_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pricing_plan_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("pricing_plan_arn", pricing_plan_arn)
+        pulumi.set(__self__, "pricing_plan_arn", pricing_plan_arn)
 
     @property
     @pulumi.getter(name="pricingPlanArn")
@@ -126,19 +106,8 @@ class BillingGroupTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        BillingGroupTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -175,21 +144,10 @@ class CustomLineItemBillingPeriodRange(dict):
     def __init__(__self__, *,
                  exclusive_end_billing_period: Optional[str] = None,
                  inclusive_start_billing_period: Optional[str] = None):
-        CustomLineItemBillingPeriodRange._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            exclusive_end_billing_period=exclusive_end_billing_period,
-            inclusive_start_billing_period=inclusive_start_billing_period,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             exclusive_end_billing_period: Optional[str] = None,
-             inclusive_start_billing_period: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if exclusive_end_billing_period is not None:
-            _setter("exclusive_end_billing_period", exclusive_end_billing_period)
+            pulumi.set(__self__, "exclusive_end_billing_period", exclusive_end_billing_period)
         if inclusive_start_billing_period is not None:
-            _setter("inclusive_start_billing_period", inclusive_start_billing_period)
+            pulumi.set(__self__, "inclusive_start_billing_period", inclusive_start_billing_period)
 
     @property
     @pulumi.getter(name="exclusiveEndBillingPeriod")
@@ -226,28 +184,13 @@ class CustomLineItemChargeDetails(dict):
                  flat: Optional['outputs.CustomLineItemFlatChargeDetails'] = None,
                  line_item_filters: Optional[Sequence['outputs.CustomLineItemLineItemFilter']] = None,
                  percentage: Optional['outputs.CustomLineItemPercentageChargeDetails'] = None):
-        CustomLineItemChargeDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            flat=flat,
-            line_item_filters=line_item_filters,
-            percentage=percentage,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'CustomLineItemType',
-             flat: Optional['outputs.CustomLineItemFlatChargeDetails'] = None,
-             line_item_filters: Optional[Sequence['outputs.CustomLineItemLineItemFilter']] = None,
-             percentage: Optional['outputs.CustomLineItemPercentageChargeDetails'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if flat is not None:
-            _setter("flat", flat)
+            pulumi.set(__self__, "flat", flat)
         if line_item_filters is not None:
-            _setter("line_item_filters", line_item_filters)
+            pulumi.set(__self__, "line_item_filters", line_item_filters)
         if percentage is not None:
-            _setter("percentage", percentage)
+            pulumi.set(__self__, "percentage", percentage)
 
     @property
     @pulumi.getter
@@ -291,16 +234,7 @@ class CustomLineItemFlatChargeDetails(dict):
 
     def __init__(__self__, *,
                  charge_value: float):
-        CustomLineItemFlatChargeDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            charge_value=charge_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             charge_value: float,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("charge_value", charge_value)
+        pulumi.set(__self__, "charge_value", charge_value)
 
     @property
     @pulumi.getter(name="chargeValue")
@@ -331,22 +265,9 @@ class CustomLineItemLineItemFilter(dict):
                  attribute: 'CustomLineItemLineItemFilterAttribute',
                  match_option: 'CustomLineItemLineItemFilterMatchOption',
                  values: Sequence['CustomLineItemLineItemFilterValue']):
-        CustomLineItemLineItemFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute=attribute,
-            match_option=match_option,
-            values=values,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute: 'CustomLineItemLineItemFilterAttribute',
-             match_option: 'CustomLineItemLineItemFilterMatchOption',
-             values: Sequence['CustomLineItemLineItemFilterValue'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attribute", attribute)
-        _setter("match_option", match_option)
-        _setter("values", values)
+        pulumi.set(__self__, "attribute", attribute)
+        pulumi.set(__self__, "match_option", match_option)
+        pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
@@ -388,20 +309,9 @@ class CustomLineItemPercentageChargeDetails(dict):
     def __init__(__self__, *,
                  percentage_value: float,
                  child_associated_resources: Optional[Sequence[str]] = None):
-        CustomLineItemPercentageChargeDetails._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            percentage_value=percentage_value,
-            child_associated_resources=child_associated_resources,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             percentage_value: float,
-             child_associated_resources: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("percentage_value", percentage_value)
+        pulumi.set(__self__, "percentage_value", percentage_value)
         if child_associated_resources is not None:
-            _setter("child_associated_resources", child_associated_resources)
+            pulumi.set(__self__, "child_associated_resources", child_associated_resources)
 
     @property
     @pulumi.getter(name="percentageValue")
@@ -419,19 +329,8 @@ class CustomLineItemTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        CustomLineItemTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -449,19 +348,8 @@ class PricingPlanTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PricingPlanTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -484,16 +372,7 @@ class PricingRuleFreeTier(dict):
         """
         The possible customizable free tier configurations.
         """
-        PricingRuleFreeTier._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            activated=activated,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             activated: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("activated", activated)
+        pulumi.set(__self__, "activated", activated)
 
     @property
     @pulumi.getter
@@ -506,19 +385,8 @@ class PricingRuleTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        PricingRuleTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -558,17 +426,8 @@ class TieringProperties(dict):
         """
         The set of tiering configurations for the pricing rule.
         """
-        TieringProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            free_tier=free_tier,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             free_tier: Optional['outputs.PricingRuleFreeTier'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if free_tier is not None:
-            _setter("free_tier", free_tier)
+            pulumi.set(__self__, "free_tier", free_tier)
 
     @property
     @pulumi.getter(name="freeTier")

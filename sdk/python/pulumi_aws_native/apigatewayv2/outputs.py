@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -44,29 +44,14 @@ class ApiBodyS3Location(dict):
         :param str key: The key of the S3 object. Required if you specify a ``BodyS3Location`` for an API.
         :param str version: The version of the S3 object.
         """
-        ApiBodyS3Location._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            etag=etag,
-            key=key,
-            version=version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: Optional[str] = None,
-             etag: Optional[str] = None,
-             key: Optional[str] = None,
-             version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if bucket is not None:
-            _setter("bucket", bucket)
+            pulumi.set(__self__, "bucket", bucket)
         if etag is not None:
-            _setter("etag", etag)
+            pulumi.set(__self__, "etag", etag)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
@@ -149,37 +134,18 @@ class ApiCors(dict):
         :param Sequence[str] expose_headers: Represents a collection of exposed headers. Supported only for HTTP APIs.
         :param int max_age: The number of seconds that the browser should cache preflight request results. Supported only for HTTP APIs.
         """
-        ApiCors._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_credentials=allow_credentials,
-            allow_headers=allow_headers,
-            allow_methods=allow_methods,
-            allow_origins=allow_origins,
-            expose_headers=expose_headers,
-            max_age=max_age,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_credentials: Optional[bool] = None,
-             allow_headers: Optional[Sequence[str]] = None,
-             allow_methods: Optional[Sequence[str]] = None,
-             allow_origins: Optional[Sequence[str]] = None,
-             expose_headers: Optional[Sequence[str]] = None,
-             max_age: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if allow_credentials is not None:
-            _setter("allow_credentials", allow_credentials)
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
-            _setter("allow_headers", allow_headers)
+            pulumi.set(__self__, "allow_headers", allow_headers)
         if allow_methods is not None:
-            _setter("allow_methods", allow_methods)
+            pulumi.set(__self__, "allow_methods", allow_methods)
         if allow_origins is not None:
-            _setter("allow_origins", allow_origins)
+            pulumi.set(__self__, "allow_origins", allow_origins)
         if expose_headers is not None:
-            _setter("expose_headers", expose_headers)
+            pulumi.set(__self__, "expose_headers", expose_headers)
         if max_age is not None:
-            _setter("max_age", max_age)
+            pulumi.set(__self__, "max_age", max_age)
 
     @property
     @pulumi.getter(name="allowCredentials")
@@ -252,21 +218,10 @@ class ApiGatewayManagedOverridesAccessLogSettings(dict):
     def __init__(__self__, *,
                  destination_arn: Optional[str] = None,
                  format: Optional[str] = None):
-        ApiGatewayManagedOverridesAccessLogSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_arn=destination_arn,
-            format=format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_arn: Optional[str] = None,
-             format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_arn is not None:
-            _setter("destination_arn", destination_arn)
+            pulumi.set(__self__, "destination_arn", destination_arn)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -307,29 +262,14 @@ class ApiGatewayManagedOverridesIntegrationOverrides(dict):
                  integration_method: Optional[str] = None,
                  payload_format_version: Optional[str] = None,
                  timeout_in_millis: Optional[int] = None):
-        ApiGatewayManagedOverridesIntegrationOverrides._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            integration_method=integration_method,
-            payload_format_version=payload_format_version,
-            timeout_in_millis=timeout_in_millis,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[str] = None,
-             integration_method: Optional[str] = None,
-             payload_format_version: Optional[str] = None,
-             timeout_in_millis: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if integration_method is not None:
-            _setter("integration_method", integration_method)
+            pulumi.set(__self__, "integration_method", integration_method)
         if payload_format_version is not None:
-            _setter("payload_format_version", payload_format_version)
+            pulumi.set(__self__, "payload_format_version", payload_format_version)
         if timeout_in_millis is not None:
-            _setter("timeout_in_millis", timeout_in_millis)
+            pulumi.set(__self__, "timeout_in_millis", timeout_in_millis)
 
     @property
     @pulumi.getter
@@ -383,33 +323,16 @@ class ApiGatewayManagedOverridesRouteOverrides(dict):
                  authorizer_id: Optional[str] = None,
                  operation_name: Optional[str] = None,
                  target: Optional[str] = None):
-        ApiGatewayManagedOverridesRouteOverrides._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization_scopes=authorization_scopes,
-            authorization_type=authorization_type,
-            authorizer_id=authorizer_id,
-            operation_name=operation_name,
-            target=target,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization_scopes: Optional[Sequence[str]] = None,
-             authorization_type: Optional[str] = None,
-             authorizer_id: Optional[str] = None,
-             operation_name: Optional[str] = None,
-             target: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if authorization_scopes is not None:
-            _setter("authorization_scopes", authorization_scopes)
+            pulumi.set(__self__, "authorization_scopes", authorization_scopes)
         if authorization_type is not None:
-            _setter("authorization_type", authorization_type)
+            pulumi.set(__self__, "authorization_type", authorization_type)
         if authorizer_id is not None:
-            _setter("authorizer_id", authorizer_id)
+            pulumi.set(__self__, "authorizer_id", authorizer_id)
         if operation_name is not None:
-            _setter("operation_name", operation_name)
+            pulumi.set(__self__, "operation_name", operation_name)
         if target is not None:
-            _setter("target", target)
+            pulumi.set(__self__, "target", target)
 
     @property
     @pulumi.getter(name="authorizationScopes")
@@ -470,33 +393,16 @@ class ApiGatewayManagedOverridesRouteSettings(dict):
                  logging_level: Optional[str] = None,
                  throttling_burst_limit: Optional[int] = None,
                  throttling_rate_limit: Optional[float] = None):
-        ApiGatewayManagedOverridesRouteSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_trace_enabled=data_trace_enabled,
-            detailed_metrics_enabled=detailed_metrics_enabled,
-            logging_level=logging_level,
-            throttling_burst_limit=throttling_burst_limit,
-            throttling_rate_limit=throttling_rate_limit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_trace_enabled: Optional[bool] = None,
-             detailed_metrics_enabled: Optional[bool] = None,
-             logging_level: Optional[str] = None,
-             throttling_burst_limit: Optional[int] = None,
-             throttling_rate_limit: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_trace_enabled is not None:
-            _setter("data_trace_enabled", data_trace_enabled)
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
         if detailed_metrics_enabled is not None:
-            _setter("detailed_metrics_enabled", detailed_metrics_enabled)
+            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
         if logging_level is not None:
-            _setter("logging_level", logging_level)
+            pulumi.set(__self__, "logging_level", logging_level)
         if throttling_burst_limit is not None:
-            _setter("throttling_burst_limit", throttling_burst_limit)
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            _setter("throttling_rate_limit", throttling_rate_limit)
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
 
     @property
     @pulumi.getter(name="dataTraceEnabled")
@@ -558,37 +464,18 @@ class ApiGatewayManagedOverridesStageOverrides(dict):
                  description: Optional[str] = None,
                  route_settings: Optional[Any] = None,
                  stage_variables: Optional[Any] = None):
-        ApiGatewayManagedOverridesStageOverrides._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            access_log_settings=access_log_settings,
-            auto_deploy=auto_deploy,
-            default_route_settings=default_route_settings,
-            description=description,
-            route_settings=route_settings,
-            stage_variables=stage_variables,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             access_log_settings: Optional['outputs.ApiGatewayManagedOverridesAccessLogSettings'] = None,
-             auto_deploy: Optional[bool] = None,
-             default_route_settings: Optional['outputs.ApiGatewayManagedOverridesRouteSettings'] = None,
-             description: Optional[str] = None,
-             route_settings: Optional[Any] = None,
-             stage_variables: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if access_log_settings is not None:
-            _setter("access_log_settings", access_log_settings)
+            pulumi.set(__self__, "access_log_settings", access_log_settings)
         if auto_deploy is not None:
-            _setter("auto_deploy", auto_deploy)
+            pulumi.set(__self__, "auto_deploy", auto_deploy)
         if default_route_settings is not None:
-            _setter("default_route_settings", default_route_settings)
+            pulumi.set(__self__, "default_route_settings", default_route_settings)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if route_settings is not None:
-            _setter("route_settings", route_settings)
+            pulumi.set(__self__, "route_settings", route_settings)
         if stage_variables is not None:
-            _setter("stage_variables", stage_variables)
+            pulumi.set(__self__, "stage_variables", stage_variables)
 
     @property
     @pulumi.getter(name="accessLogSettings")
@@ -626,21 +513,10 @@ class AuthorizerJwtConfiguration(dict):
     def __init__(__self__, *,
                  audience: Optional[Sequence[str]] = None,
                  issuer: Optional[str] = None):
-        AuthorizerJwtConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            audience=audience,
-            issuer=issuer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             audience: Optional[Sequence[str]] = None,
-             issuer: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if audience is not None:
-            _setter("audience", audience)
+            pulumi.set(__self__, "audience", audience)
         if issuer is not None:
-            _setter("issuer", issuer)
+            pulumi.set(__self__, "issuer", issuer)
 
     @property
     @pulumi.getter
@@ -699,33 +575,16 @@ class DomainNameConfiguration(dict):
         :param str ownership_verification_certificate_arn: The Amazon resource name (ARN) for the public certificate issued by ACMlong. This ARN is used to validate custom domain ownership. It's required only if you configure mutual TLS and use either an ACM-imported or a private CA certificate ARN as the regionalCertificateArn.
         :param str security_policy: The Transport Layer Security (TLS) version of the security policy for this domain name. The valid values are ``TLS_1_0`` and ``TLS_1_2``.
         """
-        DomainNameConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_arn=certificate_arn,
-            certificate_name=certificate_name,
-            endpoint_type=endpoint_type,
-            ownership_verification_certificate_arn=ownership_verification_certificate_arn,
-            security_policy=security_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_arn: Optional[str] = None,
-             certificate_name: Optional[str] = None,
-             endpoint_type: Optional[str] = None,
-             ownership_verification_certificate_arn: Optional[str] = None,
-             security_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if certificate_arn is not None:
-            _setter("certificate_arn", certificate_arn)
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
         if certificate_name is not None:
-            _setter("certificate_name", certificate_name)
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if endpoint_type is not None:
-            _setter("endpoint_type", endpoint_type)
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if ownership_verification_certificate_arn is not None:
-            _setter("ownership_verification_certificate_arn", ownership_verification_certificate_arn)
+            pulumi.set(__self__, "ownership_verification_certificate_arn", ownership_verification_certificate_arn)
         if security_policy is not None:
-            _setter("security_policy", security_policy)
+            pulumi.set(__self__, "security_policy", security_policy)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -800,21 +659,10 @@ class DomainNameMutualTlsAuthentication(dict):
         :param str truststore_uri: An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, ``s3://bucket-name/key-name``. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version. To update the truststore, you must have permissions to access the S3 object.
         :param str truststore_version: The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
-        DomainNameMutualTlsAuthentication._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            truststore_uri=truststore_uri,
-            truststore_version=truststore_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             truststore_uri: Optional[str] = None,
-             truststore_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if truststore_uri is not None:
-            _setter("truststore_uri", truststore_uri)
+            pulumi.set(__self__, "truststore_uri", truststore_uri)
         if truststore_version is not None:
-            _setter("truststore_version", truststore_version)
+            pulumi.set(__self__, "truststore_version", truststore_version)
 
     @property
     @pulumi.getter(name="truststoreUri")
@@ -854,17 +702,8 @@ class IntegrationTlsConfig(dict):
 
     def __init__(__self__, *,
                  server_name_to_verify: Optional[str] = None):
-        IntegrationTlsConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            server_name_to_verify=server_name_to_verify,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             server_name_to_verify: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if server_name_to_verify is not None:
-            _setter("server_name_to_verify", server_name_to_verify)
+            pulumi.set(__self__, "server_name_to_verify", server_name_to_verify)
 
     @property
     @pulumi.getter(name="serverNameToVerify")
@@ -875,11 +714,6 @@ class IntegrationTlsConfig(dict):
 @pulumi.output_type
 class RouteResponseRouteParameters(dict):
     def __init__(__self__):
-        pass
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             opts: Optional[pulumi.ResourceOptions]=None):
         pass
 
 
@@ -905,21 +739,10 @@ class StageAccessLogSettings(dict):
     def __init__(__self__, *,
                  destination_arn: Optional[str] = None,
                  format: Optional[str] = None):
-        StageAccessLogSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_arn=destination_arn,
-            format=format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_arn: Optional[str] = None,
-             format: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if destination_arn is not None:
-            _setter("destination_arn", destination_arn)
+            pulumi.set(__self__, "destination_arn", destination_arn)
         if format is not None:
-            _setter("format", format)
+            pulumi.set(__self__, "format", format)
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -965,33 +788,16 @@ class StageRouteSettings(dict):
                  logging_level: Optional[str] = None,
                  throttling_burst_limit: Optional[int] = None,
                  throttling_rate_limit: Optional[float] = None):
-        StageRouteSettings._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_trace_enabled=data_trace_enabled,
-            detailed_metrics_enabled=detailed_metrics_enabled,
-            logging_level=logging_level,
-            throttling_burst_limit=throttling_burst_limit,
-            throttling_rate_limit=throttling_rate_limit,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_trace_enabled: Optional[bool] = None,
-             detailed_metrics_enabled: Optional[bool] = None,
-             logging_level: Optional[str] = None,
-             throttling_burst_limit: Optional[int] = None,
-             throttling_rate_limit: Optional[float] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if data_trace_enabled is not None:
-            _setter("data_trace_enabled", data_trace_enabled)
+            pulumi.set(__self__, "data_trace_enabled", data_trace_enabled)
         if detailed_metrics_enabled is not None:
-            _setter("detailed_metrics_enabled", detailed_metrics_enabled)
+            pulumi.set(__self__, "detailed_metrics_enabled", detailed_metrics_enabled)
         if logging_level is not None:
-            _setter("logging_level", logging_level)
+            pulumi.set(__self__, "logging_level", logging_level)
         if throttling_burst_limit is not None:
-            _setter("throttling_burst_limit", throttling_burst_limit)
+            pulumi.set(__self__, "throttling_burst_limit", throttling_burst_limit)
         if throttling_rate_limit is not None:
-            _setter("throttling_rate_limit", throttling_rate_limit)
+            pulumi.set(__self__, "throttling_rate_limit", throttling_rate_limit)
 
     @property
     @pulumi.getter(name="dataTraceEnabled")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SourceCredentialArgs', 'SourceCredential']
@@ -21,26 +21,11 @@ class SourceCredentialArgs:
         """
         The set of arguments for constructing a SourceCredential resource.
         """
-        SourceCredentialArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_type=auth_type,
-            server_type=server_type,
-            token=token,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_type: pulumi.Input[str],
-             server_type: pulumi.Input[str],
-             token: pulumi.Input[str],
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("auth_type", auth_type)
-        _setter("server_type", server_type)
-        _setter("token", token)
+        pulumi.set(__self__, "auth_type", auth_type)
+        pulumi.set(__self__, "server_type", server_type)
+        pulumi.set(__self__, "token", token)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="authType")
@@ -119,10 +104,6 @@ class SourceCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SourceCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

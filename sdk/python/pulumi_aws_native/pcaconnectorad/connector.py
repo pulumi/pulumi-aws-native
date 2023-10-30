@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,26 +23,11 @@ class ConnectorArgs:
         """
         The set of arguments for constructing a Connector resource.
         """
-        ConnectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            certificate_authority_arn=certificate_authority_arn,
-            directory_id=directory_id,
-            vpc_information=vpc_information,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             certificate_authority_arn: pulumi.Input[str],
-             directory_id: pulumi.Input[str],
-             vpc_information: pulumi.Input['ConnectorVpcInformationArgs'],
-             tags: Optional[pulumi.Input['ConnectorTagsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("certificate_authority_arn", certificate_authority_arn)
-        _setter("directory_id", directory_id)
-        _setter("vpc_information", vpc_information)
+        pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        pulumi.set(__self__, "directory_id", directory_id)
+        pulumi.set(__self__, "vpc_information", vpc_information)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -116,10 +101,6 @@ class Connector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConnectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -144,17 +125,7 @@ class Connector(pulumi.CustomResource):
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")
             __props__.__dict__["directory_id"] = directory_id
-            if tags is not None and not isinstance(tags, ConnectorTagsArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ConnectorTagsArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
-            if vpc_information is not None and not isinstance(vpc_information, ConnectorVpcInformationArgs):
-                vpc_information = vpc_information or {}
-                def _setter(key, value):
-                    vpc_information[key] = value
-                ConnectorVpcInformationArgs._configure(_setter, **vpc_information)
             if vpc_information is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_information'")
             __props__.__dict__["vpc_information"] = vpc_information

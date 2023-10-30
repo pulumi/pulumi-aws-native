@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -21,27 +21,12 @@ class ResourceArgs:
         """
         The set of arguments for constructing a Resource resource.
         """
-        ResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            resource_arn=resource_arn,
-            use_service_linked_role=use_service_linked_role,
-            role_arn=role_arn,
-            with_federation=with_federation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             resource_arn: pulumi.Input[str],
-             use_service_linked_role: pulumi.Input[bool],
-             role_arn: Optional[pulumi.Input[str]] = None,
-             with_federation: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("resource_arn", resource_arn)
-        _setter("use_service_linked_role", use_service_linked_role)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "use_service_linked_role", use_service_linked_role)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if with_federation is not None:
-            _setter("with_federation", with_federation)
+            pulumi.set(__self__, "with_federation", with_federation)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -120,10 +105,6 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

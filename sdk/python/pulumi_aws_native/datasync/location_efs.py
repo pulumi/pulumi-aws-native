@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -33,40 +33,19 @@ class LocationEfsArgs:
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
         :param pulumi.Input[Sequence[pulumi.Input['LocationEfsTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        LocationEfsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ec2_config=ec2_config,
-            access_point_arn=access_point_arn,
-            efs_filesystem_arn=efs_filesystem_arn,
-            file_system_access_role_arn=file_system_access_role_arn,
-            in_transit_encryption=in_transit_encryption,
-            subdirectory=subdirectory,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ec2_config: pulumi.Input['LocationEfsEc2ConfigArgs'],
-             access_point_arn: Optional[pulumi.Input[str]] = None,
-             efs_filesystem_arn: Optional[pulumi.Input[str]] = None,
-             file_system_access_role_arn: Optional[pulumi.Input[str]] = None,
-             in_transit_encryption: Optional[pulumi.Input['LocationEfsInTransitEncryption']] = None,
-             subdirectory: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationEfsTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ec2_config", ec2_config)
+        pulumi.set(__self__, "ec2_config", ec2_config)
         if access_point_arn is not None:
-            _setter("access_point_arn", access_point_arn)
+            pulumi.set(__self__, "access_point_arn", access_point_arn)
         if efs_filesystem_arn is not None:
-            _setter("efs_filesystem_arn", efs_filesystem_arn)
+            pulumi.set(__self__, "efs_filesystem_arn", efs_filesystem_arn)
         if file_system_access_role_arn is not None:
-            _setter("file_system_access_role_arn", file_system_access_role_arn)
+            pulumi.set(__self__, "file_system_access_role_arn", file_system_access_role_arn)
         if in_transit_encryption is not None:
-            _setter("in_transit_encryption", in_transit_encryption)
+            pulumi.set(__self__, "in_transit_encryption", in_transit_encryption)
         if subdirectory is not None:
-            _setter("subdirectory", subdirectory)
+            pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="ec2Config")
@@ -194,10 +173,6 @@ class LocationEfs(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LocationEfsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -220,11 +195,6 @@ class LocationEfs(pulumi.CustomResource):
             __props__ = LocationEfsArgs.__new__(LocationEfsArgs)
 
             __props__.__dict__["access_point_arn"] = access_point_arn
-            if ec2_config is not None and not isinstance(ec2_config, LocationEfsEc2ConfigArgs):
-                ec2_config = ec2_config or {}
-                def _setter(key, value):
-                    ec2_config[key] = value
-                LocationEfsEc2ConfigArgs._configure(_setter, **ec2_config)
             if ec2_config is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_config'")
             __props__.__dict__["ec2_config"] = ec2_config

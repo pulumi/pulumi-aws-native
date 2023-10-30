@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,28 +27,13 @@ class DomainNameArgs:
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
         :param Any tags: The collection of tags associated with a domain name.
         """
-        DomainNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            domain_name_configurations=domain_name_configurations,
-            mutual_tls_authentication=mutual_tls_authentication,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             domain_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]]] = None,
-             mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
-             tags: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_configurations is not None:
-            _setter("domain_name_configurations", domain_name_configurations)
+            pulumi.set(__self__, "domain_name_configurations", domain_name_configurations)
         if mutual_tls_authentication is not None:
-            _setter("mutual_tls_authentication", mutual_tls_authentication)
+            pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="domainName")
@@ -140,10 +125,6 @@ class DomainName(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DomainNameArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -166,11 +147,6 @@ class DomainName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_configurations"] = domain_name_configurations
-            if mutual_tls_authentication is not None and not isinstance(mutual_tls_authentication, DomainNameMutualTlsAuthenticationArgs):
-                mutual_tls_authentication = mutual_tls_authentication or {}
-                def _setter(key, value):
-                    mutual_tls_authentication[key] = value
-                DomainNameMutualTlsAuthenticationArgs._configure(_setter, **mutual_tls_authentication)
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["tags"] = tags
             __props__.__dict__["regional_domain_name"] = None

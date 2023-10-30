@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityPoolPrincipalTagArgs', 'IdentityPoolPrincipalTag']
@@ -21,27 +21,12 @@ class IdentityPoolPrincipalTagArgs:
         """
         The set of arguments for constructing a IdentityPoolPrincipalTag resource.
         """
-        IdentityPoolPrincipalTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            identity_pool_id=identity_pool_id,
-            identity_provider_name=identity_provider_name,
-            principal_tags=principal_tags,
-            use_defaults=use_defaults,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             identity_pool_id: pulumi.Input[str],
-             identity_provider_name: pulumi.Input[str],
-             principal_tags: Optional[Any] = None,
-             use_defaults: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("identity_pool_id", identity_pool_id)
-        _setter("identity_provider_name", identity_provider_name)
+        pulumi.set(__self__, "identity_pool_id", identity_pool_id)
+        pulumi.set(__self__, "identity_provider_name", identity_provider_name)
         if principal_tags is not None:
-            _setter("principal_tags", principal_tags)
+            pulumi.set(__self__, "principal_tags", principal_tags)
         if use_defaults is not None:
-            _setter("use_defaults", use_defaults)
+            pulumi.set(__self__, "use_defaults", use_defaults)
 
     @property
     @pulumi.getter(name="identityPoolId")
@@ -115,10 +100,6 @@ class IdentityPoolPrincipalTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IdentityPoolPrincipalTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityGroupIngressInitArgs', 'SecurityGroupIngress']
@@ -29,60 +29,29 @@ class SecurityGroupIngressInitArgs:
         """
         The set of arguments for constructing a SecurityGroupIngress resource.
         """
-        SecurityGroupIngressInitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_protocol=ip_protocol,
-            cidr_ip=cidr_ip,
-            cidr_ipv6=cidr_ipv6,
-            description=description,
-            from_port=from_port,
-            group_id=group_id,
-            group_name=group_name,
-            source_prefix_list_id=source_prefix_list_id,
-            source_security_group_id=source_security_group_id,
-            source_security_group_name=source_security_group_name,
-            source_security_group_owner_id=source_security_group_owner_id,
-            to_port=to_port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_protocol: pulumi.Input[str],
-             cidr_ip: Optional[pulumi.Input[str]] = None,
-             cidr_ipv6: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             from_port: Optional[pulumi.Input[int]] = None,
-             group_id: Optional[pulumi.Input[str]] = None,
-             group_name: Optional[pulumi.Input[str]] = None,
-             source_prefix_list_id: Optional[pulumi.Input[str]] = None,
-             source_security_group_id: Optional[pulumi.Input[str]] = None,
-             source_security_group_name: Optional[pulumi.Input[str]] = None,
-             source_security_group_owner_id: Optional[pulumi.Input[str]] = None,
-             to_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("ip_protocol", ip_protocol)
+        pulumi.set(__self__, "ip_protocol", ip_protocol)
         if cidr_ip is not None:
-            _setter("cidr_ip", cidr_ip)
+            pulumi.set(__self__, "cidr_ip", cidr_ip)
         if cidr_ipv6 is not None:
-            _setter("cidr_ipv6", cidr_ipv6)
+            pulumi.set(__self__, "cidr_ipv6", cidr_ipv6)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if from_port is not None:
-            _setter("from_port", from_port)
+            pulumi.set(__self__, "from_port", from_port)
         if group_id is not None:
-            _setter("group_id", group_id)
+            pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
-            _setter("group_name", group_name)
+            pulumi.set(__self__, "group_name", group_name)
         if source_prefix_list_id is not None:
-            _setter("source_prefix_list_id", source_prefix_list_id)
+            pulumi.set(__self__, "source_prefix_list_id", source_prefix_list_id)
         if source_security_group_id is not None:
-            _setter("source_security_group_id", source_security_group_id)
+            pulumi.set(__self__, "source_security_group_id", source_security_group_id)
         if source_security_group_name is not None:
-            _setter("source_security_group_name", source_security_group_name)
+            pulumi.set(__self__, "source_security_group_name", source_security_group_name)
         if source_security_group_owner_id is not None:
-            _setter("source_security_group_owner_id", source_security_group_owner_id)
+            pulumi.set(__self__, "source_security_group_owner_id", source_security_group_owner_id)
         if to_port is not None:
-            _setter("to_port", to_port)
+            pulumi.set(__self__, "to_port", to_port)
 
     @property
     @pulumi.getter(name="ipProtocol")
@@ -241,10 +210,6 @@ class SecurityGroupIngress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SecurityGroupIngressInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

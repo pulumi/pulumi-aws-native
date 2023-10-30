@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -34,42 +34,19 @@ class SchemaArgs:
         :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]] tags: List of tags to tag the schema
         """
-        SchemaArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compatibility=compatibility,
-            data_format=data_format,
-            schema_definition=schema_definition,
-            checkpoint_version=checkpoint_version,
-            description=description,
-            name=name,
-            registry=registry,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compatibility: pulumi.Input['SchemaCompatibility'],
-             data_format: pulumi.Input['SchemaDataFormat'],
-             schema_definition: pulumi.Input[str],
-             checkpoint_version: Optional[pulumi.Input['SchemaVersionArgs']] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("compatibility", compatibility)
-        _setter("data_format", data_format)
-        _setter("schema_definition", schema_definition)
+        pulumi.set(__self__, "compatibility", compatibility)
+        pulumi.set(__self__, "data_format", data_format)
+        pulumi.set(__self__, "schema_definition", schema_definition)
         if checkpoint_version is not None:
-            _setter("checkpoint_version", checkpoint_version)
+            pulumi.set(__self__, "checkpoint_version", checkpoint_version)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if registry is not None:
-            _setter("registry", registry)
+            pulumi.set(__self__, "registry", registry)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -207,10 +184,6 @@ class Schema(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SchemaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -233,11 +206,6 @@ class Schema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SchemaArgs.__new__(SchemaArgs)
 
-            if checkpoint_version is not None and not isinstance(checkpoint_version, SchemaVersionArgs):
-                checkpoint_version = checkpoint_version or {}
-                def _setter(key, value):
-                    checkpoint_version[key] = value
-                SchemaVersionArgs._configure(_setter, **checkpoint_version)
             __props__.__dict__["checkpoint_version"] = checkpoint_version
             if compatibility is None and not opts.urn:
                 raise TypeError("Missing required property 'compatibility'")
@@ -247,11 +215,6 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["data_format"] = data_format
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if registry is not None and not isinstance(registry, SchemaRegistryArgs):
-                registry = registry or {}
-                def _setter(key, value):
-                    registry[key] = value
-                SchemaRegistryArgs._configure(_setter, **registry)
             __props__.__dict__["registry"] = registry
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")

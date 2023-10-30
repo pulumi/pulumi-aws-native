@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -76,33 +76,14 @@ class ExperimentMetricGoalObject(dict):
         :param str value_key: The JSON path to reference the numerical metric value in the event.
         :param str event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
-        ExperimentMetricGoalObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            desired_change=desired_change,
-            entity_id_key=entity_id_key,
-            metric_name=metric_name,
-            value_key=value_key,
-            event_pattern=event_pattern,
-            unit_label=unit_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             desired_change: 'ExperimentMetricGoalObjectDesiredChange',
-             entity_id_key: str,
-             metric_name: str,
-             value_key: str,
-             event_pattern: Optional[str] = None,
-             unit_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("desired_change", desired_change)
-        _setter("entity_id_key", entity_id_key)
-        _setter("metric_name", metric_name)
-        _setter("value_key", value_key)
+        pulumi.set(__self__, "desired_change", desired_change)
+        pulumi.set(__self__, "entity_id_key", entity_id_key)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "value_key", value_key)
         if event_pattern is not None:
-            _setter("event_pattern", event_pattern)
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if unit_label is not None:
-            _setter("unit_label", unit_label)
+            pulumi.set(__self__, "unit_label", unit_label)
 
     @property
     @pulumi.getter(name="desiredChange")
@@ -168,21 +149,10 @@ class ExperimentOnlineAbConfigObject(dict):
     def __init__(__self__, *,
                  control_treatment_name: Optional[str] = None,
                  treatment_weights: Optional[Sequence['outputs.ExperimentTreatmentToWeight']] = None):
-        ExperimentOnlineAbConfigObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            control_treatment_name=control_treatment_name,
-            treatment_weights=treatment_weights,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             control_treatment_name: Optional[str] = None,
-             treatment_weights: Optional[Sequence['outputs.ExperimentTreatmentToWeight']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if control_treatment_name is not None:
-            _setter("control_treatment_name", control_treatment_name)
+            pulumi.set(__self__, "control_treatment_name", control_treatment_name)
         if treatment_weights is not None:
-            _setter("treatment_weights", treatment_weights)
+            pulumi.set(__self__, "treatment_weights", treatment_weights)
 
     @property
     @pulumi.getter(name="controlTreatmentName")
@@ -227,29 +197,14 @@ class ExperimentRunningStatusObject(dict):
         :param str reason: Reason is a required input for stopping the experiment
         :param str status: Provide START or STOP action to apply on an experiment
         """
-        ExperimentRunningStatusObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            analysis_complete_time=analysis_complete_time,
-            desired_state=desired_state,
-            reason=reason,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             analysis_complete_time: Optional[str] = None,
-             desired_state: Optional[str] = None,
-             reason: Optional[str] = None,
-             status: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if analysis_complete_time is not None:
-            _setter("analysis_complete_time", analysis_complete_time)
+            pulumi.set(__self__, "analysis_complete_time", analysis_complete_time)
         if desired_state is not None:
-            _setter("desired_state", desired_state)
+            pulumi.set(__self__, "desired_state", desired_state)
         if reason is not None:
-            _setter("reason", reason)
+            pulumi.set(__self__, "reason", reason)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="analysisCompleteTime")
@@ -297,19 +252,8 @@ class ExperimentTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ExperimentTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -352,26 +296,11 @@ class ExperimentTreatmentObject(dict):
                  treatment_name: str,
                  variation: str,
                  description: Optional[str] = None):
-        ExperimentTreatmentObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            feature=feature,
-            treatment_name=treatment_name,
-            variation=variation,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             feature: str,
-             treatment_name: str,
-             variation: str,
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("feature", feature)
-        _setter("treatment_name", treatment_name)
-        _setter("variation", variation)
+        pulumi.set(__self__, "feature", feature)
+        pulumi.set(__self__, "treatment_name", treatment_name)
+        pulumi.set(__self__, "variation", variation)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -416,19 +345,8 @@ class ExperimentTreatmentToWeight(dict):
     def __init__(__self__, *,
                  split_weight: int,
                  treatment: str):
-        ExperimentTreatmentToWeight._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            split_weight=split_weight,
-            treatment=treatment,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             split_weight: int,
-             treatment: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("split_weight", split_weight)
-        _setter("treatment", treatment)
+        pulumi.set(__self__, "split_weight", split_weight)
+        pulumi.set(__self__, "treatment", treatment)
 
     @property
     @pulumi.getter(name="splitWeight")
@@ -463,21 +381,10 @@ class FeatureEntityOverride(dict):
     def __init__(__self__, *,
                  entity_id: Optional[str] = None,
                  variation: Optional[str] = None):
-        FeatureEntityOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_id=entity_id,
-            variation=variation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_id: Optional[str] = None,
-             variation: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if entity_id is not None:
-            _setter("entity_id", entity_id)
+            pulumi.set(__self__, "entity_id", entity_id)
         if variation is not None:
-            _setter("variation", variation)
+            pulumi.set(__self__, "variation", variation)
 
     @property
     @pulumi.getter(name="entityId")
@@ -503,19 +410,8 @@ class FeatureTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        FeatureTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -567,33 +463,16 @@ class FeatureVariationObject(dict):
                  long_value: Optional[float] = None,
                  string_value: Optional[str] = None,
                  variation_name: Optional[str] = None):
-        FeatureVariationObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            boolean_value=boolean_value,
-            double_value=double_value,
-            long_value=long_value,
-            string_value=string_value,
-            variation_name=variation_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             boolean_value: Optional[bool] = None,
-             double_value: Optional[float] = None,
-             long_value: Optional[float] = None,
-             string_value: Optional[str] = None,
-             variation_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if boolean_value is not None:
-            _setter("boolean_value", boolean_value)
+            pulumi.set(__self__, "boolean_value", boolean_value)
         if double_value is not None:
-            _setter("double_value", double_value)
+            pulumi.set(__self__, "double_value", double_value)
         if long_value is not None:
-            _setter("long_value", long_value)
+            pulumi.set(__self__, "long_value", long_value)
         if string_value is not None:
-            _setter("string_value", string_value)
+            pulumi.set(__self__, "string_value", string_value)
         if variation_name is not None:
-            _setter("variation_name", variation_name)
+            pulumi.set(__self__, "variation_name", variation_name)
 
     @property
     @pulumi.getter(name="booleanValue")
@@ -649,24 +528,11 @@ class LaunchExecutionStatusObject(dict):
         :param str desired_state: Provide CANCELLED or COMPLETED as the launch desired state. Defaults to Completed if not provided.
         :param str reason: Provide a reason for stopping the launch. Defaults to empty if not provided.
         """
-        LaunchExecutionStatusObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            status=status,
-            desired_state=desired_state,
-            reason=reason,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             status: str,
-             desired_state: Optional[str] = None,
-             reason: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("status", status)
+        pulumi.set(__self__, "status", status)
         if desired_state is not None:
-            _setter("desired_state", desired_state)
+            pulumi.set(__self__, "desired_state", desired_state)
         if reason is not None:
-            _setter("reason", reason)
+            pulumi.set(__self__, "reason", reason)
 
     @property
     @pulumi.getter
@@ -717,26 +583,11 @@ class LaunchGroupObject(dict):
                  group_name: str,
                  variation: str,
                  description: Optional[str] = None):
-        LaunchGroupObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            feature=feature,
-            group_name=group_name,
-            variation=variation,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             feature: str,
-             group_name: str,
-             variation: str,
-             description: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("feature", feature)
-        _setter("group_name", group_name)
-        _setter("variation", variation)
+        pulumi.set(__self__, "feature", feature)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "variation", variation)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -783,19 +634,8 @@ class LaunchGroupToWeight(dict):
     def __init__(__self__, *,
                  group_name: str,
                  split_weight: int):
-        LaunchGroupToWeight._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_name=group_name,
-            split_weight=split_weight,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_name: str,
-             split_weight: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_name", group_name)
-        _setter("split_weight", split_weight)
+        pulumi.set(__self__, "group_name", group_name)
+        pulumi.set(__self__, "split_weight", split_weight)
 
     @property
     @pulumi.getter(name="groupName")
@@ -846,30 +686,13 @@ class LaunchMetricDefinitionObject(dict):
         :param str value_key: The JSON path to reference the numerical metric value in the event.
         :param str event_pattern: Event patterns have the same structure as the events they match. Rules use event patterns to select events. An event pattern either matches an event or it doesn't.
         """
-        LaunchMetricDefinitionObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            entity_id_key=entity_id_key,
-            metric_name=metric_name,
-            value_key=value_key,
-            event_pattern=event_pattern,
-            unit_label=unit_label,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             entity_id_key: str,
-             metric_name: str,
-             value_key: str,
-             event_pattern: Optional[str] = None,
-             unit_label: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("entity_id_key", entity_id_key)
-        _setter("metric_name", metric_name)
-        _setter("value_key", value_key)
+        pulumi.set(__self__, "entity_id_key", entity_id_key)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "value_key", value_key)
         if event_pattern is not None:
-            _setter("event_pattern", event_pattern)
+            pulumi.set(__self__, "event_pattern", event_pattern)
         if unit_label is not None:
-            _setter("unit_label", unit_label)
+            pulumi.set(__self__, "unit_label", unit_label)
 
     @property
     @pulumi.getter(name="entityIdKey")
@@ -929,22 +752,9 @@ class LaunchSegmentOverride(dict):
                  evaluation_order: int,
                  segment: str,
                  weights: Sequence['outputs.LaunchGroupToWeight']):
-        LaunchSegmentOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            evaluation_order=evaluation_order,
-            segment=segment,
-            weights=weights,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             evaluation_order: int,
-             segment: str,
-             weights: Sequence['outputs.LaunchGroupToWeight'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("evaluation_order", evaluation_order)
-        _setter("segment", segment)
-        _setter("weights", weights)
+        pulumi.set(__self__, "evaluation_order", evaluation_order)
+        pulumi.set(__self__, "segment", segment)
+        pulumi.set(__self__, "weights", weights)
 
     @property
     @pulumi.getter(name="evaluationOrder")
@@ -989,23 +799,10 @@ class LaunchStepConfig(dict):
                  group_weights: Sequence['outputs.LaunchGroupToWeight'],
                  start_time: str,
                  segment_overrides: Optional[Sequence['outputs.LaunchSegmentOverride']] = None):
-        LaunchStepConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group_weights=group_weights,
-            start_time=start_time,
-            segment_overrides=segment_overrides,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group_weights: Sequence['outputs.LaunchGroupToWeight'],
-             start_time: str,
-             segment_overrides: Optional[Sequence['outputs.LaunchSegmentOverride']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("group_weights", group_weights)
-        _setter("start_time", start_time)
+        pulumi.set(__self__, "group_weights", group_weights)
+        pulumi.set(__self__, "start_time", start_time)
         if segment_overrides is not None:
-            _setter("segment_overrides", segment_overrides)
+            pulumi.set(__self__, "segment_overrides", segment_overrides)
 
     @property
     @pulumi.getter(name="groupWeights")
@@ -1036,19 +833,8 @@ class LaunchTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        LaunchTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1091,19 +877,8 @@ class ProjectAppConfigResourceObject(dict):
     def __init__(__self__, *,
                  application_id: str,
                  environment_id: str):
-        ProjectAppConfigResourceObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application_id=application_id,
-            environment_id=environment_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application_id: str,
-             environment_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("application_id", application_id)
-        _setter("environment_id", environment_id)
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "environment_id", environment_id)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -1144,21 +919,10 @@ class ProjectDataDeliveryObject(dict):
         """
         Destinations for data.
         """
-        ProjectDataDeliveryObject._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            log_group=log_group,
-            s3=s3,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             log_group: Optional[str] = None,
-             s3: Optional['outputs.ProjectS3Destination'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if log_group is not None:
-            _setter("log_group", log_group)
+            pulumi.set(__self__, "log_group", log_group)
         if s3 is not None:
-            _setter("s3", s3)
+            pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter(name="logGroup")
@@ -1193,20 +957,9 @@ class ProjectS3Destination(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  prefix: Optional[str] = None):
-        ProjectS3Destination._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_name=bucket_name,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_name: str,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_name", bucket_name)
+        pulumi.set(__self__, "bucket_name", bucket_name)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -1232,19 +985,8 @@ class ProjectTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        ProjectTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -1276,19 +1018,8 @@ class SegmentTag(dict):
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
-        SegmentTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

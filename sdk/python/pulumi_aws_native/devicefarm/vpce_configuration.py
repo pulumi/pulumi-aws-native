@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,31 +24,14 @@ class VpceConfigurationArgs:
         """
         The set of arguments for constructing a VpceConfiguration resource.
         """
-        VpceConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            service_dns_name=service_dns_name,
-            vpce_service_name=vpce_service_name,
-            tags=tags,
-            vpce_configuration_description=vpce_configuration_description,
-            vpce_configuration_name=vpce_configuration_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             service_dns_name: pulumi.Input[str],
-             vpce_service_name: pulumi.Input[str],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['VpceConfigurationTagArgs']]]] = None,
-             vpce_configuration_description: Optional[pulumi.Input[str]] = None,
-             vpce_configuration_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("service_dns_name", service_dns_name)
-        _setter("vpce_service_name", vpce_service_name)
+        pulumi.set(__self__, "service_dns_name", service_dns_name)
+        pulumi.set(__self__, "vpce_service_name", vpce_service_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if vpce_configuration_description is not None:
-            _setter("vpce_configuration_description", vpce_configuration_description)
+            pulumi.set(__self__, "vpce_configuration_description", vpce_configuration_description)
         if vpce_configuration_name is not None:
-            _setter("vpce_configuration_name", vpce_configuration_name)
+            pulumi.set(__self__, "vpce_configuration_name", vpce_configuration_name)
 
     @property
     @pulumi.getter(name="serviceDnsName")
@@ -132,10 +115,6 @@ class VpceConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VpceConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AlarmArgs', 'Alarm']
@@ -39,52 +39,23 @@ class AlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] notification_triggers: The alarm states that trigger a notification.
         :param pulumi.Input[str] treat_missing_data: Sets how this alarm will handle missing data points.
         """
-        AlarmArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            comparison_operator=comparison_operator,
-            evaluation_periods=evaluation_periods,
-            metric_name=metric_name,
-            monitored_resource_name=monitored_resource_name,
-            threshold=threshold,
-            alarm_name=alarm_name,
-            contact_protocols=contact_protocols,
-            datapoints_to_alarm=datapoints_to_alarm,
-            notification_enabled=notification_enabled,
-            notification_triggers=notification_triggers,
-            treat_missing_data=treat_missing_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             comparison_operator: pulumi.Input[str],
-             evaluation_periods: pulumi.Input[int],
-             metric_name: pulumi.Input[str],
-             monitored_resource_name: pulumi.Input[str],
-             threshold: pulumi.Input[float],
-             alarm_name: Optional[pulumi.Input[str]] = None,
-             contact_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             datapoints_to_alarm: Optional[pulumi.Input[int]] = None,
-             notification_enabled: Optional[pulumi.Input[bool]] = None,
-             notification_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             treat_missing_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("comparison_operator", comparison_operator)
-        _setter("evaluation_periods", evaluation_periods)
-        _setter("metric_name", metric_name)
-        _setter("monitored_resource_name", monitored_resource_name)
-        _setter("threshold", threshold)
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "monitored_resource_name", monitored_resource_name)
+        pulumi.set(__self__, "threshold", threshold)
         if alarm_name is not None:
-            _setter("alarm_name", alarm_name)
+            pulumi.set(__self__, "alarm_name", alarm_name)
         if contact_protocols is not None:
-            _setter("contact_protocols", contact_protocols)
+            pulumi.set(__self__, "contact_protocols", contact_protocols)
         if datapoints_to_alarm is not None:
-            _setter("datapoints_to_alarm", datapoints_to_alarm)
+            pulumi.set(__self__, "datapoints_to_alarm", datapoints_to_alarm)
         if notification_enabled is not None:
-            _setter("notification_enabled", notification_enabled)
+            pulumi.set(__self__, "notification_enabled", notification_enabled)
         if notification_triggers is not None:
-            _setter("notification_triggers", notification_triggers)
+            pulumi.set(__self__, "notification_triggers", notification_triggers)
         if treat_missing_data is not None:
-            _setter("treat_missing_data", treat_missing_data)
+            pulumi.set(__self__, "treat_missing_data", treat_missing_data)
 
     @property
     @pulumi.getter(name="comparisonOperator")
@@ -272,10 +243,6 @@ class Alarm(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AlarmArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

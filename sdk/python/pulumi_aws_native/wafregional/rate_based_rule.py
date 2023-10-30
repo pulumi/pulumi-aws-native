@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -24,30 +24,13 @@ class RateBasedRuleArgs:
         """
         The set of arguments for constructing a RateBasedRule resource.
         """
-        RateBasedRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            metric_name=metric_name,
-            rate_key=rate_key,
-            rate_limit=rate_limit,
-            match_predicates=match_predicates,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             metric_name: pulumi.Input[str],
-             rate_key: pulumi.Input[str],
-             rate_limit: pulumi.Input[int],
-             match_predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("metric_name", metric_name)
-        _setter("rate_key", rate_key)
-        _setter("rate_limit", rate_limit)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "rate_key", rate_key)
+        pulumi.set(__self__, "rate_limit", rate_limit)
         if match_predicates is not None:
-            _setter("match_predicates", match_predicates)
+            pulumi.set(__self__, "match_predicates", match_predicates)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="metricName")
@@ -136,10 +119,6 @@ class RateBasedRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RateBasedRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,26 +25,11 @@ class AccountAuditConfigurationArgs:
         :param pulumi.Input[str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
         """
-        AccountAuditConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            account_id=account_id,
-            audit_check_configurations=audit_check_configurations,
-            role_arn=role_arn,
-            audit_notification_target_configurations=audit_notification_target_configurations,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             account_id: pulumi.Input[str],
-             audit_check_configurations: pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationsArgs'],
-             role_arn: pulumi.Input[str],
-             audit_notification_target_configurations: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("account_id", account_id)
-        _setter("audit_check_configurations", audit_check_configurations)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "audit_check_configurations", audit_check_configurations)
+        pulumi.set(__self__, "role_arn", role_arn)
         if audit_notification_target_configurations is not None:
-            _setter("audit_notification_target_configurations", audit_notification_target_configurations)
+            pulumi.set(__self__, "audit_notification_target_configurations", audit_notification_target_configurations)
 
     @property
     @pulumi.getter(name="accountId")
@@ -126,10 +111,6 @@ class AccountAuditConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccountAuditConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -151,19 +132,9 @@ class AccountAuditConfiguration(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
-            if audit_check_configurations is not None and not isinstance(audit_check_configurations, AccountAuditConfigurationAuditCheckConfigurationsArgs):
-                audit_check_configurations = audit_check_configurations or {}
-                def _setter(key, value):
-                    audit_check_configurations[key] = value
-                AccountAuditConfigurationAuditCheckConfigurationsArgs._configure(_setter, **audit_check_configurations)
             if audit_check_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'audit_check_configurations'")
             __props__.__dict__["audit_check_configurations"] = audit_check_configurations
-            if audit_notification_target_configurations is not None and not isinstance(audit_notification_target_configurations, AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs):
-                audit_notification_target_configurations = audit_notification_target_configurations or {}
-                def _setter(key, value):
-                    audit_notification_target_configurations[key] = value
-                AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs._configure(_setter, **audit_notification_target_configurations)
             __props__.__dict__["audit_notification_target_configurations"] = audit_notification_target_configurations
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,23 +26,10 @@ class GatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GatewayNetworkArgs']]] networks: The list of networks in the gateway.
         :param pulumi.Input[str] name: The name of the gateway. This name can not be modified after the gateway is created.
         """
-        GatewayArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            egress_cidr_blocks=egress_cidr_blocks,
-            networks=networks,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             egress_cidr_blocks: pulumi.Input[Sequence[pulumi.Input[str]]],
-             networks: pulumi.Input[Sequence[pulumi.Input['GatewayNetworkArgs']]],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("egress_cidr_blocks", egress_cidr_blocks)
-        _setter("networks", networks)
+        pulumi.set(__self__, "egress_cidr_blocks", egress_cidr_blocks)
+        pulumi.set(__self__, "networks", networks)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="egressCidrBlocks")
@@ -118,10 +105,6 @@ class Gateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

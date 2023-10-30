@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,55 +31,26 @@ class AnalysisArgs:
         """
         The set of arguments for constructing a Analysis resource.
         """
-        AnalysisArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            analysis_id=analysis_id,
-            aws_account_id=aws_account_id,
-            definition=definition,
-            name=name,
-            parameters=parameters,
-            permissions=permissions,
-            source_entity=source_entity,
-            status=status,
-            tags=tags,
-            theme_arn=theme_arn,
-            validation_strategy=validation_strategy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             analysis_id: pulumi.Input[str],
-             aws_account_id: pulumi.Input[str],
-             definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
-             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
-             source_entity: Optional[pulumi.Input['AnalysisSourceEntityArgs']] = None,
-             status: Optional[pulumi.Input['AnalysisResourceStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
-             theme_arn: Optional[pulumi.Input[str]] = None,
-             validation_strategy: Optional[pulumi.Input['AnalysisValidationStrategyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("analysis_id", analysis_id)
-        _setter("aws_account_id", aws_account_id)
+        pulumi.set(__self__, "analysis_id", analysis_id)
+        pulumi.set(__self__, "aws_account_id", aws_account_id)
         if definition is not None:
-            _setter("definition", definition)
+            pulumi.set(__self__, "definition", definition)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if source_entity is not None:
-            _setter("source_entity", source_entity)
+            pulumi.set(__self__, "source_entity", source_entity)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if theme_arn is not None:
-            _setter("theme_arn", theme_arn)
+            pulumi.set(__self__, "theme_arn", theme_arn)
         if validation_strategy is not None:
-            _setter("validation_strategy", validation_strategy)
+            pulumi.set(__self__, "validation_strategy", validation_strategy)
 
     @property
     @pulumi.getter(name="analysisId")
@@ -223,10 +194,6 @@ class Analysis(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AnalysisArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -258,34 +225,14 @@ class Analysis(pulumi.CustomResource):
             if aws_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_account_id'")
             __props__.__dict__["aws_account_id"] = aws_account_id
-            if definition is not None and not isinstance(definition, AnalysisDefinitionArgs):
-                definition = definition or {}
-                def _setter(key, value):
-                    definition[key] = value
-                AnalysisDefinitionArgs._configure(_setter, **definition)
             __props__.__dict__["definition"] = definition
             __props__.__dict__["name"] = name
-            if parameters is not None and not isinstance(parameters, AnalysisParametersArgs):
-                parameters = parameters or {}
-                def _setter(key, value):
-                    parameters[key] = value
-                AnalysisParametersArgs._configure(_setter, **parameters)
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
-            if source_entity is not None and not isinstance(source_entity, AnalysisSourceEntityArgs):
-                source_entity = source_entity or {}
-                def _setter(key, value):
-                    source_entity[key] = value
-                AnalysisSourceEntityArgs._configure(_setter, **source_entity)
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["theme_arn"] = theme_arn
-            if validation_strategy is not None and not isinstance(validation_strategy, AnalysisValidationStrategyArgs):
-                validation_strategy = validation_strategy or {}
-                def _setter(key, value):
-                    validation_strategy[key] = value
-                AnalysisValidationStrategyArgs._configure(_setter, **validation_strategy)
             __props__.__dict__["validation_strategy"] = validation_strategy
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None

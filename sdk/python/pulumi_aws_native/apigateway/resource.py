@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ResourceArgs', 'Resource']
@@ -23,22 +23,9 @@ class ResourceArgs:
         :param pulumi.Input[str] path_part: The last path segment for this resource.
         :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
         """
-        ResourceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parent_id=parent_id,
-            path_part=path_part,
-            rest_api_id=rest_api_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parent_id: pulumi.Input[str],
-             path_part: pulumi.Input[str],
-             rest_api_id: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("parent_id", parent_id)
-        _setter("path_part", path_part)
-        _setter("rest_api_id", rest_api_id)
+        pulumi.set(__self__, "parent_id", parent_id)
+        pulumi.set(__self__, "path_part", path_part)
+        pulumi.set(__self__, "rest_api_id", rest_api_id)
 
     @property
     @pulumi.getter(name="parentId")
@@ -114,10 +101,6 @@ class Resource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

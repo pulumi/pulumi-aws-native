@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -26,41 +26,20 @@ class AnomalyDetectorArgs:
         """
         The set of arguments for constructing a AnomalyDetector resource.
         """
-        AnomalyDetectorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            configuration=configuration,
-            dimensions=dimensions,
-            metric_math_anomaly_detector=metric_math_anomaly_detector,
-            metric_name=metric_name,
-            namespace=namespace,
-            single_metric_anomaly_detector=single_metric_anomaly_detector,
-            stat=stat,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             configuration: Optional[pulumi.Input['AnomalyDetectorConfigurationArgs']] = None,
-             dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorDimensionArgs']]]] = None,
-             metric_math_anomaly_detector: Optional[pulumi.Input['AnomalyDetectorMetricMathAnomalyDetectorArgs']] = None,
-             metric_name: Optional[pulumi.Input[str]] = None,
-             namespace: Optional[pulumi.Input[str]] = None,
-             single_metric_anomaly_detector: Optional[pulumi.Input['AnomalyDetectorSingleMetricAnomalyDetectorArgs']] = None,
-             stat: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if configuration is not None:
-            _setter("configuration", configuration)
+            pulumi.set(__self__, "configuration", configuration)
         if dimensions is not None:
-            _setter("dimensions", dimensions)
+            pulumi.set(__self__, "dimensions", dimensions)
         if metric_math_anomaly_detector is not None:
-            _setter("metric_math_anomaly_detector", metric_math_anomaly_detector)
+            pulumi.set(__self__, "metric_math_anomaly_detector", metric_math_anomaly_detector)
         if metric_name is not None:
-            _setter("metric_name", metric_name)
+            pulumi.set(__self__, "metric_name", metric_name)
         if namespace is not None:
-            _setter("namespace", namespace)
+            pulumi.set(__self__, "namespace", namespace)
         if single_metric_anomaly_detector is not None:
-            _setter("single_metric_anomaly_detector", single_metric_anomaly_detector)
+            pulumi.set(__self__, "single_metric_anomaly_detector", single_metric_anomaly_detector)
         if stat is not None:
-            _setter("stat", stat)
+            pulumi.set(__self__, "stat", stat)
 
     @property
     @pulumi.getter
@@ -169,10 +148,6 @@ class AnomalyDetector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AnomalyDetectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -195,26 +170,11 @@ class AnomalyDetector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnomalyDetectorArgs.__new__(AnomalyDetectorArgs)
 
-            if configuration is not None and not isinstance(configuration, AnomalyDetectorConfigurationArgs):
-                configuration = configuration or {}
-                def _setter(key, value):
-                    configuration[key] = value
-                AnomalyDetectorConfigurationArgs._configure(_setter, **configuration)
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["dimensions"] = dimensions
-            if metric_math_anomaly_detector is not None and not isinstance(metric_math_anomaly_detector, AnomalyDetectorMetricMathAnomalyDetectorArgs):
-                metric_math_anomaly_detector = metric_math_anomaly_detector or {}
-                def _setter(key, value):
-                    metric_math_anomaly_detector[key] = value
-                AnomalyDetectorMetricMathAnomalyDetectorArgs._configure(_setter, **metric_math_anomaly_detector)
             __props__.__dict__["metric_math_anomaly_detector"] = metric_math_anomaly_detector
             __props__.__dict__["metric_name"] = metric_name
             __props__.__dict__["namespace"] = namespace
-            if single_metric_anomaly_detector is not None and not isinstance(single_metric_anomaly_detector, AnomalyDetectorSingleMetricAnomalyDetectorArgs):
-                single_metric_anomaly_detector = single_metric_anomaly_detector or {}
-                def _setter(key, value):
-                    single_metric_anomaly_detector[key] = value
-                AnomalyDetectorSingleMetricAnomalyDetectorArgs._configure(_setter, **single_metric_anomaly_detector)
             __props__.__dict__["single_metric_anomaly_detector"] = single_metric_anomaly_detector
             __props__.__dict__["stat"] = stat
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["dimensions[*]", "metric_math_anomaly_detector", "metric_name", "namespace", "single_metric_anomaly_detector", "stat"])

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -84,21 +84,10 @@ class DeliveryStreamAmazonOpenSearchServerlessBufferingHints(dict):
     def __init__(__self__, *,
                  interval_in_seconds: Optional[int] = None,
                  size_in_mbs: Optional[int] = None):
-        DeliveryStreamAmazonOpenSearchServerlessBufferingHints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval_in_seconds=interval_in_seconds,
-            size_in_mbs=size_in_mbs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval_in_seconds: Optional[int] = None,
-             size_in_mbs: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
-            _setter("size_in_mbs", size_in_mbs)
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
 
     @property
     @pulumi.getter(name="intervalInSeconds")
@@ -159,50 +148,23 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
                  retry_options: Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptions'] = None,
                  s3_backup_mode: Optional['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode'] = None,
                  vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None):
-        DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            index_name=index_name,
-            role_arn=role_arn,
-            s3_configuration=s3_configuration,
-            buffering_hints=buffering_hints,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            collection_endpoint=collection_endpoint,
-            processing_configuration=processing_configuration,
-            retry_options=retry_options,
-            s3_backup_mode=s3_backup_mode,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             index_name: str,
-             role_arn: str,
-             s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
-             buffering_hints: Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints'] = None,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             collection_endpoint: Optional[str] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             retry_options: Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptions'] = None,
-             s3_backup_mode: Optional['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode'] = None,
-             vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("index_name", index_name)
-        _setter("role_arn", role_arn)
-        _setter("s3_configuration", s3_configuration)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
-            _setter("buffering_hints", buffering_hints)
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if collection_endpoint is not None:
-            _setter("collection_endpoint", collection_endpoint)
+            pulumi.set(__self__, "collection_endpoint", collection_endpoint)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="indexName")
@@ -276,17 +238,8 @@ class DeliveryStreamAmazonOpenSearchServerlessRetryOptions(dict):
 
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
-        DeliveryStreamAmazonOpenSearchServerlessRetryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_seconds=duration_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter(name="durationInSeconds")
@@ -318,21 +271,10 @@ class DeliveryStreamAmazonopensearchserviceBufferingHints(dict):
     def __init__(__self__, *,
                  interval_in_seconds: Optional[int] = None,
                  size_in_mbs: Optional[int] = None):
-        DeliveryStreamAmazonopensearchserviceBufferingHints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval_in_seconds=interval_in_seconds,
-            size_in_mbs=size_in_mbs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval_in_seconds: Optional[int] = None,
-             size_in_mbs: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
-            _setter("size_in_mbs", size_in_mbs)
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
 
     @property
     @pulumi.getter(name="intervalInSeconds")
@@ -405,66 +347,31 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
                  s3_backup_mode: Optional['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode'] = None,
                  type_name: Optional[str] = None,
                  vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None):
-        DeliveryStreamAmazonopensearchserviceDestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            index_name=index_name,
-            role_arn=role_arn,
-            s3_configuration=s3_configuration,
-            buffering_hints=buffering_hints,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            cluster_endpoint=cluster_endpoint,
-            document_id_options=document_id_options,
-            domain_arn=domain_arn,
-            index_rotation_period=index_rotation_period,
-            processing_configuration=processing_configuration,
-            retry_options=retry_options,
-            s3_backup_mode=s3_backup_mode,
-            type_name=type_name,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             index_name: str,
-             role_arn: str,
-             s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
-             buffering_hints: Optional['outputs.DeliveryStreamAmazonopensearchserviceBufferingHints'] = None,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             cluster_endpoint: Optional[str] = None,
-             document_id_options: Optional['outputs.DeliveryStreamDocumentIdOptions'] = None,
-             domain_arn: Optional[str] = None,
-             index_rotation_period: Optional['DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod'] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             retry_options: Optional['outputs.DeliveryStreamAmazonopensearchserviceRetryOptions'] = None,
-             s3_backup_mode: Optional['DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode'] = None,
-             type_name: Optional[str] = None,
-             vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("index_name", index_name)
-        _setter("role_arn", role_arn)
-        _setter("s3_configuration", s3_configuration)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
-            _setter("buffering_hints", buffering_hints)
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if cluster_endpoint is not None:
-            _setter("cluster_endpoint", cluster_endpoint)
+            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
         if document_id_options is not None:
-            _setter("document_id_options", document_id_options)
+            pulumi.set(__self__, "document_id_options", document_id_options)
         if domain_arn is not None:
-            _setter("domain_arn", domain_arn)
+            pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
-            _setter("index_rotation_period", index_rotation_period)
+            pulumi.set(__self__, "index_rotation_period", index_rotation_period)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="indexName")
@@ -558,17 +465,8 @@ class DeliveryStreamAmazonopensearchserviceRetryOptions(dict):
 
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
-        DeliveryStreamAmazonopensearchserviceRetryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_seconds=duration_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter(name="durationInSeconds")
@@ -598,19 +496,8 @@ class DeliveryStreamAuthenticationConfiguration(dict):
     def __init__(__self__, *,
                  connectivity: 'DeliveryStreamAuthenticationConfigurationConnectivity',
                  role_arn: str):
-        DeliveryStreamAuthenticationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connectivity=connectivity,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connectivity: 'DeliveryStreamAuthenticationConfigurationConnectivity',
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("connectivity", connectivity)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "connectivity", connectivity)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter
@@ -647,21 +534,10 @@ class DeliveryStreamBufferingHints(dict):
     def __init__(__self__, *,
                  interval_in_seconds: Optional[int] = None,
                  size_in_mbs: Optional[int] = None):
-        DeliveryStreamBufferingHints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval_in_seconds=interval_in_seconds,
-            size_in_mbs=size_in_mbs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval_in_seconds: Optional[int] = None,
-             size_in_mbs: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
-            _setter("size_in_mbs", size_in_mbs)
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
 
     @property
     @pulumi.getter(name="intervalInSeconds")
@@ -699,25 +575,12 @@ class DeliveryStreamCloudWatchLoggingOptions(dict):
                  enabled: Optional[bool] = None,
                  log_group_name: Optional[str] = None,
                  log_stream_name: Optional[str] = None):
-        DeliveryStreamCloudWatchLoggingOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            log_group_name=log_group_name,
-            log_stream_name=log_stream_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             log_group_name: Optional[str] = None,
-             log_stream_name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if log_group_name is not None:
-            _setter("log_group_name", log_group_name)
+            pulumi.set(__self__, "log_group_name", log_group_name)
         if log_stream_name is not None:
-            _setter("log_stream_name", log_stream_name)
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
 
     @property
     @pulumi.getter
@@ -762,24 +625,11 @@ class DeliveryStreamCopyCommand(dict):
                  data_table_name: str,
                  copy_options: Optional[str] = None,
                  data_table_columns: Optional[str] = None):
-        DeliveryStreamCopyCommand._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            data_table_name=data_table_name,
-            copy_options=copy_options,
-            data_table_columns=data_table_columns,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             data_table_name: str,
-             copy_options: Optional[str] = None,
-             data_table_columns: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("data_table_name", data_table_name)
+        pulumi.set(__self__, "data_table_name", data_table_name)
         if copy_options is not None:
-            _setter("copy_options", copy_options)
+            pulumi.set(__self__, "copy_options", copy_options)
         if data_table_columns is not None:
-            _setter("data_table_columns", data_table_columns)
+            pulumi.set(__self__, "data_table_columns", data_table_columns)
 
     @property
     @pulumi.getter(name="dataTableName")
@@ -825,29 +675,14 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
                  input_format_configuration: Optional['outputs.DeliveryStreamInputFormatConfiguration'] = None,
                  output_format_configuration: Optional['outputs.DeliveryStreamOutputFormatConfiguration'] = None,
                  schema_configuration: Optional['outputs.DeliveryStreamSchemaConfiguration'] = None):
-        DeliveryStreamDataFormatConversionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            input_format_configuration=input_format_configuration,
-            output_format_configuration=output_format_configuration,
-            schema_configuration=schema_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             input_format_configuration: Optional['outputs.DeliveryStreamInputFormatConfiguration'] = None,
-             output_format_configuration: Optional['outputs.DeliveryStreamOutputFormatConfiguration'] = None,
-             schema_configuration: Optional['outputs.DeliveryStreamSchemaConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if input_format_configuration is not None:
-            _setter("input_format_configuration", input_format_configuration)
+            pulumi.set(__self__, "input_format_configuration", input_format_configuration)
         if output_format_configuration is not None:
-            _setter("output_format_configuration", output_format_configuration)
+            pulumi.set(__self__, "output_format_configuration", output_format_configuration)
         if schema_configuration is not None:
-            _setter("schema_configuration", schema_configuration)
+            pulumi.set(__self__, "schema_configuration", schema_configuration)
 
     @property
     @pulumi.getter
@@ -894,21 +729,10 @@ class DeliveryStreamDeserializer(dict):
     def __init__(__self__, *,
                  hive_json_ser_de: Optional['outputs.DeliveryStreamHiveJsonSerDe'] = None,
                  open_x_json_ser_de: Optional['outputs.DeliveryStreamOpenXJsonSerDe'] = None):
-        DeliveryStreamDeserializer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hive_json_ser_de=hive_json_ser_de,
-            open_x_json_ser_de=open_x_json_ser_de,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hive_json_ser_de: Optional['outputs.DeliveryStreamHiveJsonSerDe'] = None,
-             open_x_json_ser_de: Optional['outputs.DeliveryStreamOpenXJsonSerDe'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if hive_json_ser_de is not None:
-            _setter("hive_json_ser_de", hive_json_ser_de)
+            pulumi.set(__self__, "hive_json_ser_de", hive_json_ser_de)
         if open_x_json_ser_de is not None:
-            _setter("open_x_json_ser_de", open_x_json_ser_de)
+            pulumi.set(__self__, "open_x_json_ser_de", open_x_json_ser_de)
 
     @property
     @pulumi.getter(name="hiveJsonSerDe")
@@ -942,16 +766,7 @@ class DeliveryStreamDocumentIdOptions(dict):
 
     def __init__(__self__, *,
                  default_document_id_format: 'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat'):
-        DeliveryStreamDocumentIdOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_document_id_format=default_document_id_format,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_document_id_format: 'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat',
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("default_document_id_format", default_document_id_format)
+        pulumi.set(__self__, "default_document_id_format", default_document_id_format)
 
     @property
     @pulumi.getter(name="defaultDocumentIdFormat")
@@ -981,21 +796,10 @@ class DeliveryStreamDynamicPartitioningConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  retry_options: Optional['outputs.DeliveryStreamRetryOptions'] = None):
-        DeliveryStreamDynamicPartitioningConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            retry_options=retry_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             retry_options: Optional['outputs.DeliveryStreamRetryOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
 
     @property
     @pulumi.getter
@@ -1032,21 +836,10 @@ class DeliveryStreamElasticsearchBufferingHints(dict):
     def __init__(__self__, *,
                  interval_in_seconds: Optional[int] = None,
                  size_in_mbs: Optional[int] = None):
-        DeliveryStreamElasticsearchBufferingHints._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval_in_seconds=interval_in_seconds,
-            size_in_mbs=size_in_mbs,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval_in_seconds: Optional[int] = None,
-             size_in_mbs: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if interval_in_seconds is not None:
-            _setter("interval_in_seconds", interval_in_seconds)
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
         if size_in_mbs is not None:
-            _setter("size_in_mbs", size_in_mbs)
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
 
     @property
     @pulumi.getter(name="intervalInSeconds")
@@ -1119,66 +912,31 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
                  s3_backup_mode: Optional['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode'] = None,
                  type_name: Optional[str] = None,
                  vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None):
-        DeliveryStreamElasticsearchDestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            index_name=index_name,
-            role_arn=role_arn,
-            s3_configuration=s3_configuration,
-            buffering_hints=buffering_hints,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            cluster_endpoint=cluster_endpoint,
-            document_id_options=document_id_options,
-            domain_arn=domain_arn,
-            index_rotation_period=index_rotation_period,
-            processing_configuration=processing_configuration,
-            retry_options=retry_options,
-            s3_backup_mode=s3_backup_mode,
-            type_name=type_name,
-            vpc_configuration=vpc_configuration,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             index_name: str,
-             role_arn: str,
-             s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
-             buffering_hints: Optional['outputs.DeliveryStreamElasticsearchBufferingHints'] = None,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             cluster_endpoint: Optional[str] = None,
-             document_id_options: Optional['outputs.DeliveryStreamDocumentIdOptions'] = None,
-             domain_arn: Optional[str] = None,
-             index_rotation_period: Optional['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod'] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             retry_options: Optional['outputs.DeliveryStreamElasticsearchRetryOptions'] = None,
-             s3_backup_mode: Optional['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode'] = None,
-             type_name: Optional[str] = None,
-             vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("index_name", index_name)
-        _setter("role_arn", role_arn)
-        _setter("s3_configuration", s3_configuration)
+        pulumi.set(__self__, "index_name", index_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
-            _setter("buffering_hints", buffering_hints)
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if cluster_endpoint is not None:
-            _setter("cluster_endpoint", cluster_endpoint)
+            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
         if document_id_options is not None:
-            _setter("document_id_options", document_id_options)
+            pulumi.set(__self__, "document_id_options", document_id_options)
         if domain_arn is not None:
-            _setter("domain_arn", domain_arn)
+            pulumi.set(__self__, "domain_arn", domain_arn)
         if index_rotation_period is not None:
-            _setter("index_rotation_period", index_rotation_period)
+            pulumi.set(__self__, "index_rotation_period", index_rotation_period)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
         if type_name is not None:
-            _setter("type_name", type_name)
+            pulumi.set(__self__, "type_name", type_name)
         if vpc_configuration is not None:
-            _setter("vpc_configuration", vpc_configuration)
+            pulumi.set(__self__, "vpc_configuration", vpc_configuration)
 
     @property
     @pulumi.getter(name="indexName")
@@ -1272,17 +1030,8 @@ class DeliveryStreamElasticsearchRetryOptions(dict):
 
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
-        DeliveryStreamElasticsearchRetryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_seconds=duration_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter(name="durationInSeconds")
@@ -1314,21 +1063,10 @@ class DeliveryStreamEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  kms_encryption_config: Optional['outputs.DeliveryStreamKmsEncryptionConfig'] = None,
                  no_encryption_config: Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig'] = None):
-        DeliveryStreamEncryptionConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kms_encryption_config=kms_encryption_config,
-            no_encryption_config=no_encryption_config,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kms_encryption_config: Optional['outputs.DeliveryStreamKmsEncryptionConfig'] = None,
-             no_encryption_config: Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if kms_encryption_config is not None:
-            _setter("kms_encryption_config", kms_encryption_config)
+            pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
         if no_encryption_config is not None:
-            _setter("no_encryption_config", no_encryption_config)
+            pulumi.set(__self__, "no_encryption_config", no_encryption_config)
 
     @property
     @pulumi.getter(name="kmsEncryptionConfig")
@@ -1365,20 +1103,9 @@ class DeliveryStreamEncryptionConfigurationInput(dict):
     def __init__(__self__, *,
                  key_type: 'DeliveryStreamEncryptionConfigurationInputKeyType',
                  key_arn: Optional[str] = None):
-        DeliveryStreamEncryptionConfigurationInput._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key_type=key_type,
-            key_arn=key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key_type: 'DeliveryStreamEncryptionConfigurationInputKeyType',
-             key_arn: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key_type", key_type)
+        pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
-            _setter("key_arn", key_arn)
+            pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyType")
@@ -1446,63 +1173,30 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
                  s3_backup_mode: Optional['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode'] = None):
-        DeliveryStreamExtendedS3DestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            role_arn=role_arn,
-            buffering_hints=buffering_hints,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            compression_format=compression_format,
-            data_format_conversion_configuration=data_format_conversion_configuration,
-            dynamic_partitioning_configuration=dynamic_partitioning_configuration,
-            encryption_configuration=encryption_configuration,
-            error_output_prefix=error_output_prefix,
-            prefix=prefix,
-            processing_configuration=processing_configuration,
-            s3_backup_configuration=s3_backup_configuration,
-            s3_backup_mode=s3_backup_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: str,
-             role_arn: str,
-             buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             compression_format: Optional['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat'] = None,
-             data_format_conversion_configuration: Optional['outputs.DeliveryStreamDataFormatConversionConfiguration'] = None,
-             dynamic_partitioning_configuration: Optional['outputs.DeliveryStreamDynamicPartitioningConfiguration'] = None,
-             encryption_configuration: Optional['outputs.DeliveryStreamEncryptionConfiguration'] = None,
-             error_output_prefix: Optional[str] = None,
-             prefix: Optional[str] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
-             s3_backup_mode: Optional['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if buffering_hints is not None:
-            _setter("buffering_hints", buffering_hints)
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if compression_format is not None:
-            _setter("compression_format", compression_format)
+            pulumi.set(__self__, "compression_format", compression_format)
         if data_format_conversion_configuration is not None:
-            _setter("data_format_conversion_configuration", data_format_conversion_configuration)
+            pulumi.set(__self__, "data_format_conversion_configuration", data_format_conversion_configuration)
         if dynamic_partitioning_configuration is not None:
-            _setter("dynamic_partitioning_configuration", dynamic_partitioning_configuration)
+            pulumi.set(__self__, "dynamic_partitioning_configuration", dynamic_partitioning_configuration)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if error_output_prefix is not None:
-            _setter("error_output_prefix", error_output_prefix)
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if s3_backup_configuration is not None:
-            _setter("s3_backup_configuration", s3_backup_configuration)
+            pulumi.set(__self__, "s3_backup_configuration", s3_backup_configuration)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -1591,17 +1285,8 @@ class DeliveryStreamHiveJsonSerDe(dict):
 
     def __init__(__self__, *,
                  timestamp_formats: Optional[Sequence[str]] = None):
-        DeliveryStreamHiveJsonSerDe._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            timestamp_formats=timestamp_formats,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             timestamp_formats: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if timestamp_formats is not None:
-            _setter("timestamp_formats", timestamp_formats)
+            pulumi.set(__self__, "timestamp_formats", timestamp_formats)
 
     @property
     @pulumi.getter(name="timestampFormats")
@@ -1633,19 +1318,8 @@ class DeliveryStreamHttpEndpointCommonAttribute(dict):
     def __init__(__self__, *,
                  attribute_name: str,
                  attribute_value: str):
-        DeliveryStreamHttpEndpointCommonAttribute._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            attribute_name=attribute_name,
-            attribute_value=attribute_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             attribute_name: str,
-             attribute_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("attribute_name", attribute_name)
-        _setter("attribute_value", attribute_value)
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_value", attribute_value)
 
     @property
     @pulumi.getter(name="attributeName")
@@ -1681,24 +1355,11 @@ class DeliveryStreamHttpEndpointConfiguration(dict):
                  url: str,
                  access_key: Optional[str] = None,
                  name: Optional[str] = None):
-        DeliveryStreamHttpEndpointConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            url=url,
-            access_key=access_key,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             url: str,
-             access_key: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("url", url)
+        pulumi.set(__self__, "url", url)
         if access_key is not None:
-            _setter("access_key", access_key)
+            pulumi.set(__self__, "access_key", access_key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1761,47 +1422,22 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
                  retry_options: Optional['outputs.DeliveryStreamRetryOptions'] = None,
                  role_arn: Optional[str] = None,
                  s3_backup_mode: Optional[str] = None):
-        DeliveryStreamHttpEndpointDestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            endpoint_configuration=endpoint_configuration,
-            s3_configuration=s3_configuration,
-            buffering_hints=buffering_hints,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            processing_configuration=processing_configuration,
-            request_configuration=request_configuration,
-            retry_options=retry_options,
-            role_arn=role_arn,
-            s3_backup_mode=s3_backup_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             endpoint_configuration: 'outputs.DeliveryStreamHttpEndpointConfiguration',
-             s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
-             buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             request_configuration: Optional['outputs.DeliveryStreamHttpEndpointRequestConfiguration'] = None,
-             retry_options: Optional['outputs.DeliveryStreamRetryOptions'] = None,
-             role_arn: Optional[str] = None,
-             s3_backup_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("endpoint_configuration", endpoint_configuration)
-        _setter("s3_configuration", s3_configuration)
+        pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if buffering_hints is not None:
-            _setter("buffering_hints", buffering_hints)
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if request_configuration is not None:
-            _setter("request_configuration", request_configuration)
+            pulumi.set(__self__, "request_configuration", request_configuration)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
     @pulumi.getter(name="endpointConfiguration")
@@ -1873,21 +1509,10 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
     def __init__(__self__, *,
                  common_attributes: Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']] = None,
                  content_encoding: Optional['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding'] = None):
-        DeliveryStreamHttpEndpointRequestConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            common_attributes=common_attributes,
-            content_encoding=content_encoding,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             common_attributes: Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']] = None,
-             content_encoding: Optional['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if common_attributes is not None:
-            _setter("common_attributes", common_attributes)
+            pulumi.set(__self__, "common_attributes", common_attributes)
         if content_encoding is not None:
-            _setter("content_encoding", content_encoding)
+            pulumi.set(__self__, "content_encoding", content_encoding)
 
     @property
     @pulumi.getter(name="commonAttributes")
@@ -1904,17 +1529,8 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
 class DeliveryStreamInputFormatConfiguration(dict):
     def __init__(__self__, *,
                  deserializer: Optional['outputs.DeliveryStreamDeserializer'] = None):
-        DeliveryStreamInputFormatConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            deserializer=deserializer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             deserializer: Optional['outputs.DeliveryStreamDeserializer'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if deserializer is not None:
-            _setter("deserializer", deserializer)
+            pulumi.set(__self__, "deserializer", deserializer)
 
     @property
     @pulumi.getter
@@ -1946,19 +1562,8 @@ class DeliveryStreamKinesisStreamSourceConfiguration(dict):
     def __init__(__self__, *,
                  kinesis_stream_arn: str,
                  role_arn: str):
-        DeliveryStreamKinesisStreamSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            kinesis_stream_arn=kinesis_stream_arn,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             kinesis_stream_arn: str,
-             role_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("kinesis_stream_arn", kinesis_stream_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "kinesis_stream_arn", kinesis_stream_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="kinesisStreamArn")
@@ -1992,16 +1597,7 @@ class DeliveryStreamKmsEncryptionConfig(dict):
 
     def __init__(__self__, *,
                  awskms_key_arn: str):
-        DeliveryStreamKmsEncryptionConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            awskms_key_arn=awskms_key_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             awskms_key_arn: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("awskms_key_arn", awskms_key_arn)
+        pulumi.set(__self__, "awskms_key_arn", awskms_key_arn)
 
     @property
     @pulumi.getter(name="awskmsKeyArn")
@@ -2036,22 +1632,9 @@ class DeliveryStreamMskSourceConfiguration(dict):
                  authentication_configuration: 'outputs.DeliveryStreamAuthenticationConfiguration',
                  msk_cluster_arn: str,
                  topic_name: str):
-        DeliveryStreamMskSourceConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authentication_configuration=authentication_configuration,
-            msk_cluster_arn=msk_cluster_arn,
-            topic_name=topic_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authentication_configuration: 'outputs.DeliveryStreamAuthenticationConfiguration',
-             msk_cluster_arn: str,
-             topic_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("authentication_configuration", authentication_configuration)
-        _setter("msk_cluster_arn", msk_cluster_arn)
-        _setter("topic_name", topic_name)
+        pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        pulumi.set(__self__, "msk_cluster_arn", msk_cluster_arn)
+        pulumi.set(__self__, "topic_name", topic_name)
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
@@ -2096,25 +1679,12 @@ class DeliveryStreamOpenXJsonSerDe(dict):
                  case_insensitive: Optional[bool] = None,
                  column_to_json_key_mappings: Optional[Any] = None,
                  convert_dots_in_json_keys_to_underscores: Optional[bool] = None):
-        DeliveryStreamOpenXJsonSerDe._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            case_insensitive=case_insensitive,
-            column_to_json_key_mappings=column_to_json_key_mappings,
-            convert_dots_in_json_keys_to_underscores=convert_dots_in_json_keys_to_underscores,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             case_insensitive: Optional[bool] = None,
-             column_to_json_key_mappings: Optional[Any] = None,
-             convert_dots_in_json_keys_to_underscores: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if case_insensitive is not None:
-            _setter("case_insensitive", case_insensitive)
+            pulumi.set(__self__, "case_insensitive", case_insensitive)
         if column_to_json_key_mappings is not None:
-            _setter("column_to_json_key_mappings", column_to_json_key_mappings)
+            pulumi.set(__self__, "column_to_json_key_mappings", column_to_json_key_mappings)
         if convert_dots_in_json_keys_to_underscores is not None:
-            _setter("convert_dots_in_json_keys_to_underscores", convert_dots_in_json_keys_to_underscores)
+            pulumi.set(__self__, "convert_dots_in_json_keys_to_underscores", convert_dots_in_json_keys_to_underscores)
 
     @property
     @pulumi.getter(name="caseInsensitive")
@@ -2178,53 +1748,26 @@ class DeliveryStreamOrcSerDe(dict):
                  padding_tolerance: Optional[float] = None,
                  row_index_stride: Optional[int] = None,
                  stripe_size_bytes: Optional[int] = None):
-        DeliveryStreamOrcSerDe._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_size_bytes=block_size_bytes,
-            bloom_filter_columns=bloom_filter_columns,
-            bloom_filter_false_positive_probability=bloom_filter_false_positive_probability,
-            compression=compression,
-            dictionary_key_threshold=dictionary_key_threshold,
-            enable_padding=enable_padding,
-            format_version=format_version,
-            padding_tolerance=padding_tolerance,
-            row_index_stride=row_index_stride,
-            stripe_size_bytes=stripe_size_bytes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_size_bytes: Optional[int] = None,
-             bloom_filter_columns: Optional[Sequence[str]] = None,
-             bloom_filter_false_positive_probability: Optional[float] = None,
-             compression: Optional[str] = None,
-             dictionary_key_threshold: Optional[float] = None,
-             enable_padding: Optional[bool] = None,
-             format_version: Optional[str] = None,
-             padding_tolerance: Optional[float] = None,
-             row_index_stride: Optional[int] = None,
-             stripe_size_bytes: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if block_size_bytes is not None:
-            _setter("block_size_bytes", block_size_bytes)
+            pulumi.set(__self__, "block_size_bytes", block_size_bytes)
         if bloom_filter_columns is not None:
-            _setter("bloom_filter_columns", bloom_filter_columns)
+            pulumi.set(__self__, "bloom_filter_columns", bloom_filter_columns)
         if bloom_filter_false_positive_probability is not None:
-            _setter("bloom_filter_false_positive_probability", bloom_filter_false_positive_probability)
+            pulumi.set(__self__, "bloom_filter_false_positive_probability", bloom_filter_false_positive_probability)
         if compression is not None:
-            _setter("compression", compression)
+            pulumi.set(__self__, "compression", compression)
         if dictionary_key_threshold is not None:
-            _setter("dictionary_key_threshold", dictionary_key_threshold)
+            pulumi.set(__self__, "dictionary_key_threshold", dictionary_key_threshold)
         if enable_padding is not None:
-            _setter("enable_padding", enable_padding)
+            pulumi.set(__self__, "enable_padding", enable_padding)
         if format_version is not None:
-            _setter("format_version", format_version)
+            pulumi.set(__self__, "format_version", format_version)
         if padding_tolerance is not None:
-            _setter("padding_tolerance", padding_tolerance)
+            pulumi.set(__self__, "padding_tolerance", padding_tolerance)
         if row_index_stride is not None:
-            _setter("row_index_stride", row_index_stride)
+            pulumi.set(__self__, "row_index_stride", row_index_stride)
         if stripe_size_bytes is not None:
-            _setter("stripe_size_bytes", stripe_size_bytes)
+            pulumi.set(__self__, "stripe_size_bytes", stripe_size_bytes)
 
     @property
     @pulumi.getter(name="blockSizeBytes")
@@ -2281,17 +1824,8 @@ class DeliveryStreamOrcSerDe(dict):
 class DeliveryStreamOutputFormatConfiguration(dict):
     def __init__(__self__, *,
                  serializer: Optional['outputs.DeliveryStreamSerializer'] = None):
-        DeliveryStreamOutputFormatConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            serializer=serializer,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             serializer: Optional['outputs.DeliveryStreamSerializer'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if serializer is not None:
-            _setter("serializer", serializer)
+            pulumi.set(__self__, "serializer", serializer)
 
     @property
     @pulumi.getter
@@ -2333,37 +1867,18 @@ class DeliveryStreamParquetSerDe(dict):
                  max_padding_bytes: Optional[int] = None,
                  page_size_bytes: Optional[int] = None,
                  writer_version: Optional[str] = None):
-        DeliveryStreamParquetSerDe._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            block_size_bytes=block_size_bytes,
-            compression=compression,
-            enable_dictionary_compression=enable_dictionary_compression,
-            max_padding_bytes=max_padding_bytes,
-            page_size_bytes=page_size_bytes,
-            writer_version=writer_version,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             block_size_bytes: Optional[int] = None,
-             compression: Optional[str] = None,
-             enable_dictionary_compression: Optional[bool] = None,
-             max_padding_bytes: Optional[int] = None,
-             page_size_bytes: Optional[int] = None,
-             writer_version: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if block_size_bytes is not None:
-            _setter("block_size_bytes", block_size_bytes)
+            pulumi.set(__self__, "block_size_bytes", block_size_bytes)
         if compression is not None:
-            _setter("compression", compression)
+            pulumi.set(__self__, "compression", compression)
         if enable_dictionary_compression is not None:
-            _setter("enable_dictionary_compression", enable_dictionary_compression)
+            pulumi.set(__self__, "enable_dictionary_compression", enable_dictionary_compression)
         if max_padding_bytes is not None:
-            _setter("max_padding_bytes", max_padding_bytes)
+            pulumi.set(__self__, "max_padding_bytes", max_padding_bytes)
         if page_size_bytes is not None:
-            _setter("page_size_bytes", page_size_bytes)
+            pulumi.set(__self__, "page_size_bytes", page_size_bytes)
         if writer_version is not None:
-            _setter("writer_version", writer_version)
+            pulumi.set(__self__, "writer_version", writer_version)
 
     @property
     @pulumi.getter(name="blockSizeBytes")
@@ -2401,21 +1916,10 @@ class DeliveryStreamProcessingConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  processors: Optional[Sequence['outputs.DeliveryStreamProcessor']] = None):
-        DeliveryStreamProcessingConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            processors=processors,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             processors: Optional[Sequence['outputs.DeliveryStreamProcessor']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if processors is not None:
-            _setter("processors", processors)
+            pulumi.set(__self__, "processors", processors)
 
     @property
     @pulumi.getter
@@ -2433,20 +1937,9 @@ class DeliveryStreamProcessor(dict):
     def __init__(__self__, *,
                  type: 'DeliveryStreamProcessorType',
                  parameters: Optional[Sequence['outputs.DeliveryStreamProcessorParameter']] = None):
-        DeliveryStreamProcessor._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            type=type,
-            parameters=parameters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             type: 'DeliveryStreamProcessorType',
-             parameters: Optional[Sequence['outputs.DeliveryStreamProcessorParameter']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("type", type)
+        pulumi.set(__self__, "type", type)
         if parameters is not None:
-            _setter("parameters", parameters)
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -2483,19 +1976,8 @@ class DeliveryStreamProcessorParameter(dict):
     def __init__(__self__, *,
                  parameter_name: str,
                  parameter_value: str):
-        DeliveryStreamProcessorParameter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            parameter_name=parameter_name,
-            parameter_value=parameter_value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             parameter_name: str,
-             parameter_value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("parameter_name", parameter_name)
-        _setter("parameter_value", parameter_value)
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterName")
@@ -2555,51 +2037,22 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
                  retry_options: Optional['outputs.DeliveryStreamRedshiftRetryOptions'] = None,
                  s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
                  s3_backup_mode: Optional['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode'] = None):
-        DeliveryStreamRedshiftDestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cluster_jdbcurl=cluster_jdbcurl,
-            copy_command=copy_command,
-            password=password,
-            role_arn=role_arn,
-            s3_configuration=s3_configuration,
-            username=username,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            processing_configuration=processing_configuration,
-            retry_options=retry_options,
-            s3_backup_configuration=s3_backup_configuration,
-            s3_backup_mode=s3_backup_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cluster_jdbcurl: str,
-             copy_command: 'outputs.DeliveryStreamCopyCommand',
-             password: str,
-             role_arn: str,
-             s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
-             username: str,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             retry_options: Optional['outputs.DeliveryStreamRedshiftRetryOptions'] = None,
-             s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
-             s3_backup_mode: Optional['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("cluster_jdbcurl", cluster_jdbcurl)
-        _setter("copy_command", copy_command)
-        _setter("password", password)
-        _setter("role_arn", role_arn)
-        _setter("s3_configuration", s3_configuration)
-        _setter("username", username)
+        pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
+        pulumi.set(__self__, "copy_command", copy_command)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
+        pulumi.set(__self__, "username", username)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_configuration is not None:
-            _setter("s3_backup_configuration", s3_backup_configuration)
+            pulumi.set(__self__, "s3_backup_configuration", s3_backup_configuration)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
     @pulumi.getter(name="clusterJdbcurl")
@@ -2678,17 +2131,8 @@ class DeliveryStreamRedshiftRetryOptions(dict):
 
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
-        DeliveryStreamRedshiftRetryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_seconds=duration_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter(name="durationInSeconds")
@@ -2717,17 +2161,8 @@ class DeliveryStreamRetryOptions(dict):
 
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
-        DeliveryStreamRetryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_seconds=duration_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter(name="durationInSeconds")
@@ -2775,43 +2210,20 @@ class DeliveryStreamS3DestinationConfiguration(dict):
                  encryption_configuration: Optional['outputs.DeliveryStreamEncryptionConfiguration'] = None,
                  error_output_prefix: Optional[str] = None,
                  prefix: Optional[str] = None):
-        DeliveryStreamS3DestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket_arn=bucket_arn,
-            role_arn=role_arn,
-            buffering_hints=buffering_hints,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            compression_format=compression_format,
-            encryption_configuration=encryption_configuration,
-            error_output_prefix=error_output_prefix,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket_arn: str,
-             role_arn: str,
-             buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             compression_format: Optional['DeliveryStreamS3DestinationConfigurationCompressionFormat'] = None,
-             encryption_configuration: Optional['outputs.DeliveryStreamEncryptionConfiguration'] = None,
-             error_output_prefix: Optional[str] = None,
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket_arn", bucket_arn)
-        _setter("role_arn", role_arn)
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
         if buffering_hints is not None:
-            _setter("buffering_hints", buffering_hints)
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if compression_format is not None:
-            _setter("compression_format", compression_format)
+            pulumi.set(__self__, "compression_format", compression_format)
         if encryption_configuration is not None:
-            _setter("encryption_configuration", encryption_configuration)
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if error_output_prefix is not None:
-            _setter("error_output_prefix", error_output_prefix)
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="bucketArn")
@@ -2888,37 +2300,18 @@ class DeliveryStreamSchemaConfiguration(dict):
                  role_arn: Optional[str] = None,
                  table_name: Optional[str] = None,
                  version_id: Optional[str] = None):
-        DeliveryStreamSchemaConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            catalog_id=catalog_id,
-            database_name=database_name,
-            region=region,
-            role_arn=role_arn,
-            table_name=table_name,
-            version_id=version_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             catalog_id: Optional[str] = None,
-             database_name: Optional[str] = None,
-             region: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             table_name: Optional[str] = None,
-             version_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if catalog_id is not None:
-            _setter("catalog_id", catalog_id)
+            pulumi.set(__self__, "catalog_id", catalog_id)
         if database_name is not None:
-            _setter("database_name", database_name)
+            pulumi.set(__self__, "database_name", database_name)
         if region is not None:
-            _setter("region", region)
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if table_name is not None:
-            _setter("table_name", table_name)
+            pulumi.set(__self__, "table_name", table_name)
         if version_id is not None:
-            _setter("version_id", version_id)
+            pulumi.set(__self__, "version_id", version_id)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -2975,21 +2368,10 @@ class DeliveryStreamSerializer(dict):
     def __init__(__self__, *,
                  orc_ser_de: Optional['outputs.DeliveryStreamOrcSerDe'] = None,
                  parquet_ser_de: Optional['outputs.DeliveryStreamParquetSerDe'] = None):
-        DeliveryStreamSerializer._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            orc_ser_de=orc_ser_de,
-            parquet_ser_de=parquet_ser_de,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             orc_ser_de: Optional['outputs.DeliveryStreamOrcSerDe'] = None,
-             parquet_ser_de: Optional['outputs.DeliveryStreamParquetSerDe'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if orc_ser_de is not None:
-            _setter("orc_ser_de", orc_ser_de)
+            pulumi.set(__self__, "orc_ser_de", orc_ser_de)
         if parquet_ser_de is not None:
-            _setter("parquet_ser_de", parquet_ser_de)
+            pulumi.set(__self__, "parquet_ser_de", parquet_ser_de)
 
     @property
     @pulumi.getter(name="orcSerDe")
@@ -3047,45 +2429,20 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  retry_options: Optional['outputs.DeliveryStreamSplunkRetryOptions'] = None,
                  s3_backup_mode: Optional[str] = None):
-        DeliveryStreamSplunkDestinationConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            hec_endpoint=hec_endpoint,
-            hec_endpoint_type=hec_endpoint_type,
-            hec_token=hec_token,
-            s3_configuration=s3_configuration,
-            cloud_watch_logging_options=cloud_watch_logging_options,
-            hec_acknowledgment_timeout_in_seconds=hec_acknowledgment_timeout_in_seconds,
-            processing_configuration=processing_configuration,
-            retry_options=retry_options,
-            s3_backup_mode=s3_backup_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             hec_endpoint: str,
-             hec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHecEndpointType',
-             hec_token: str,
-             s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
-             cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-             hec_acknowledgment_timeout_in_seconds: Optional[int] = None,
-             processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
-             retry_options: Optional['outputs.DeliveryStreamSplunkRetryOptions'] = None,
-             s3_backup_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("hec_endpoint", hec_endpoint)
-        _setter("hec_endpoint_type", hec_endpoint_type)
-        _setter("hec_token", hec_token)
-        _setter("s3_configuration", s3_configuration)
+        pulumi.set(__self__, "hec_endpoint", hec_endpoint)
+        pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
+        pulumi.set(__self__, "hec_token", hec_token)
+        pulumi.set(__self__, "s3_configuration", s3_configuration)
         if cloud_watch_logging_options is not None:
-            _setter("cloud_watch_logging_options", cloud_watch_logging_options)
+            pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if hec_acknowledgment_timeout_in_seconds is not None:
-            _setter("hec_acknowledgment_timeout_in_seconds", hec_acknowledgment_timeout_in_seconds)
+            pulumi.set(__self__, "hec_acknowledgment_timeout_in_seconds", hec_acknowledgment_timeout_in_seconds)
         if processing_configuration is not None:
-            _setter("processing_configuration", processing_configuration)
+            pulumi.set(__self__, "processing_configuration", processing_configuration)
         if retry_options is not None:
-            _setter("retry_options", retry_options)
+            pulumi.set(__self__, "retry_options", retry_options)
         if s3_backup_mode is not None:
-            _setter("s3_backup_mode", s3_backup_mode)
+            pulumi.set(__self__, "s3_backup_mode", s3_backup_mode)
 
     @property
     @pulumi.getter(name="hecEndpoint")
@@ -3154,17 +2511,8 @@ class DeliveryStreamSplunkRetryOptions(dict):
 
     def __init__(__self__, *,
                  duration_in_seconds: Optional[int] = None):
-        DeliveryStreamSplunkRetryOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            duration_in_seconds=duration_in_seconds,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             duration_in_seconds: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if duration_in_seconds is not None:
-            _setter("duration_in_seconds", duration_in_seconds)
+            pulumi.set(__self__, "duration_in_seconds", duration_in_seconds)
 
     @property
     @pulumi.getter(name="durationInSeconds")
@@ -3177,20 +2525,9 @@ class DeliveryStreamTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: Optional[str] = None):
-        DeliveryStreamTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
+        pulumi.set(__self__, "key", key)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -3230,22 +2567,9 @@ class DeliveryStreamVpcConfiguration(dict):
                  role_arn: str,
                  security_group_ids: Sequence[str],
                  subnet_ids: Sequence[str]):
-        DeliveryStreamVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            role_arn=role_arn,
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             role_arn: str,
-             security_group_ids: Sequence[str],
-             subnet_ids: Sequence[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("role_arn", role_arn)
-        _setter("security_group_ids", security_group_ids)
-        _setter("subnet_ids", subnet_ids)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="roleArn")

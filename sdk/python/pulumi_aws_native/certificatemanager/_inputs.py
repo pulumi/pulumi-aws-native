@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -19,17 +19,8 @@ __all__ = [
 class AccountExpiryEventsConfigurationArgs:
     def __init__(__self__, *,
                  days_before_expiry: Optional[pulumi.Input[int]] = None):
-        AccountExpiryEventsConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days_before_expiry=days_before_expiry,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days_before_expiry: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if days_before_expiry is not None:
-            _setter("days_before_expiry", days_before_expiry)
+            pulumi.set(__self__, "days_before_expiry", days_before_expiry)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
@@ -47,24 +38,11 @@ class CertificateDomainValidationOptionArgs:
                  domain_name: pulumi.Input[str],
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  validation_domain: Optional[pulumi.Input[str]] = None):
-        CertificateDomainValidationOptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            domain_name=domain_name,
-            hosted_zone_id=hosted_zone_id,
-            validation_domain=validation_domain,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             domain_name: pulumi.Input[str],
-             hosted_zone_id: Optional[pulumi.Input[str]] = None,
-             validation_domain: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("domain_name", domain_name)
+        pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
-            _setter("hosted_zone_id", hosted_zone_id)
+            pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if validation_domain is not None:
-            _setter("validation_domain", validation_domain)
+            pulumi.set(__self__, "validation_domain", validation_domain)
 
     @property
     @pulumi.getter(name="domainName")
@@ -99,19 +77,8 @@ class CertificateTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        CertificateTagArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: pulumi.Input[str],
-             value: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

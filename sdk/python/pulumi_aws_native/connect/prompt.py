@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,32 +29,15 @@ class PromptArgs:
         :param pulumi.Input[str] s3_uri: S3 URI of the customer's audio file for creating prompts resource..
         :param pulumi.Input[Sequence[pulumi.Input['PromptTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        PromptArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            instance_arn=instance_arn,
-            description=description,
-            name=name,
-            s3_uri=s3_uri,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             instance_arn: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             s3_uri: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['PromptTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("instance_arn", instance_arn)
+        pulumi.set(__self__, "instance_arn", instance_arn)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if s3_uri is not None:
-            _setter("s3_uri", s3_uri)
+            pulumi.set(__self__, "s3_uri", s3_uri)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -158,10 +141,6 @@ class Prompt(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PromptArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

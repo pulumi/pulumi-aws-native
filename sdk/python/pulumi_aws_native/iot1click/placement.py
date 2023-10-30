@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PlacementArgs', 'Placement']
@@ -21,28 +21,13 @@ class PlacementArgs:
         """
         The set of arguments for constructing a Placement resource.
         """
-        PlacementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_name=project_name,
-            associated_devices=associated_devices,
-            attributes=attributes,
-            placement_name=placement_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_name: pulumi.Input[str],
-             associated_devices: Optional[Any] = None,
-             attributes: Optional[Any] = None,
-             placement_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("project_name", project_name)
+        pulumi.set(__self__, "project_name", project_name)
         if associated_devices is not None:
-            _setter("associated_devices", associated_devices)
+            pulumi.set(__self__, "associated_devices", associated_devices)
         if attributes is not None:
-            _setter("attributes", attributes)
+            pulumi.set(__self__, "attributes", attributes)
         if placement_name is not None:
-            _setter("placement_name", placement_name)
+            pulumi.set(__self__, "placement_name", placement_name)
 
     @property
     @pulumi.getter(name="projectName")
@@ -121,10 +106,6 @@ class Placement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PlacementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

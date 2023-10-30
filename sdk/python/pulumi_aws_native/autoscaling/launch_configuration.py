@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,87 +57,42 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] spot_price: The maximum hourly price you are willing to pay for any Spot Instances launched to fulfill the request.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to make available to the launched EC2 instances.
         """
-        LaunchConfigurationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            image_id=image_id,
-            instance_type=instance_type,
-            associate_public_ip_address=associate_public_ip_address,
-            block_device_mappings=block_device_mappings,
-            classic_link_vpc_id=classic_link_vpc_id,
-            classic_link_vpc_security_groups=classic_link_vpc_security_groups,
-            ebs_optimized=ebs_optimized,
-            iam_instance_profile=iam_instance_profile,
-            instance_id=instance_id,
-            instance_monitoring=instance_monitoring,
-            kernel_id=kernel_id,
-            key_name=key_name,
-            launch_configuration_name=launch_configuration_name,
-            metadata_options=metadata_options,
-            placement_tenancy=placement_tenancy,
-            ram_disk_id=ram_disk_id,
-            security_groups=security_groups,
-            spot_price=spot_price,
-            user_data=user_data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             image_id: pulumi.Input[str],
-             instance_type: pulumi.Input[str],
-             associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
-             block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationBlockDeviceMappingArgs']]]] = None,
-             classic_link_vpc_id: Optional[pulumi.Input[str]] = None,
-             classic_link_vpc_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             ebs_optimized: Optional[pulumi.Input[bool]] = None,
-             iam_instance_profile: Optional[pulumi.Input[str]] = None,
-             instance_id: Optional[pulumi.Input[str]] = None,
-             instance_monitoring: Optional[pulumi.Input[bool]] = None,
-             kernel_id: Optional[pulumi.Input[str]] = None,
-             key_name: Optional[pulumi.Input[str]] = None,
-             launch_configuration_name: Optional[pulumi.Input[str]] = None,
-             metadata_options: Optional[pulumi.Input['LaunchConfigurationMetadataOptionsArgs']] = None,
-             placement_tenancy: Optional[pulumi.Input[str]] = None,
-             ram_disk_id: Optional[pulumi.Input[str]] = None,
-             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             spot_price: Optional[pulumi.Input[str]] = None,
-             user_data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("image_id", image_id)
-        _setter("instance_type", instance_type)
+        pulumi.set(__self__, "image_id", image_id)
+        pulumi.set(__self__, "instance_type", instance_type)
         if associate_public_ip_address is not None:
-            _setter("associate_public_ip_address", associate_public_ip_address)
+            pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if block_device_mappings is not None:
-            _setter("block_device_mappings", block_device_mappings)
+            pulumi.set(__self__, "block_device_mappings", block_device_mappings)
         if classic_link_vpc_id is not None:
-            _setter("classic_link_vpc_id", classic_link_vpc_id)
+            pulumi.set(__self__, "classic_link_vpc_id", classic_link_vpc_id)
         if classic_link_vpc_security_groups is not None:
-            _setter("classic_link_vpc_security_groups", classic_link_vpc_security_groups)
+            pulumi.set(__self__, "classic_link_vpc_security_groups", classic_link_vpc_security_groups)
         if ebs_optimized is not None:
-            _setter("ebs_optimized", ebs_optimized)
+            pulumi.set(__self__, "ebs_optimized", ebs_optimized)
         if iam_instance_profile is not None:
-            _setter("iam_instance_profile", iam_instance_profile)
+            pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_id is not None:
-            _setter("instance_id", instance_id)
+            pulumi.set(__self__, "instance_id", instance_id)
         if instance_monitoring is not None:
-            _setter("instance_monitoring", instance_monitoring)
+            pulumi.set(__self__, "instance_monitoring", instance_monitoring)
         if kernel_id is not None:
-            _setter("kernel_id", kernel_id)
+            pulumi.set(__self__, "kernel_id", kernel_id)
         if key_name is not None:
-            _setter("key_name", key_name)
+            pulumi.set(__self__, "key_name", key_name)
         if launch_configuration_name is not None:
-            _setter("launch_configuration_name", launch_configuration_name)
+            pulumi.set(__self__, "launch_configuration_name", launch_configuration_name)
         if metadata_options is not None:
-            _setter("metadata_options", metadata_options)
+            pulumi.set(__self__, "metadata_options", metadata_options)
         if placement_tenancy is not None:
-            _setter("placement_tenancy", placement_tenancy)
+            pulumi.set(__self__, "placement_tenancy", placement_tenancy)
         if ram_disk_id is not None:
-            _setter("ram_disk_id", ram_disk_id)
+            pulumi.set(__self__, "ram_disk_id", ram_disk_id)
         if security_groups is not None:
-            _setter("security_groups", security_groups)
+            pulumi.set(__self__, "security_groups", security_groups)
         if spot_price is not None:
-            _setter("spot_price", spot_price)
+            pulumi.set(__self__, "spot_price", spot_price)
         if user_data is not None:
-            _setter("user_data", user_data)
+            pulumi.set(__self__, "user_data", user_data)
 
     @property
     @pulumi.getter(name="imageId")
@@ -437,10 +392,6 @@ class LaunchConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            LaunchConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -491,11 +442,6 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["launch_configuration_name"] = launch_configuration_name
-            if metadata_options is not None and not isinstance(metadata_options, LaunchConfigurationMetadataOptionsArgs):
-                metadata_options = metadata_options or {}
-                def _setter(key, value):
-                    metadata_options[key] = value
-                LaunchConfigurationMetadataOptionsArgs._configure(_setter, **metadata_options)
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["placement_tenancy"] = placement_tenancy
             __props__.__dict__["ram_disk_id"] = ram_disk_id

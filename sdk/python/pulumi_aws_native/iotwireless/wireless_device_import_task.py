@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,23 +26,10 @@ class WirelessDeviceImportTaskArgs:
         :param pulumi.Input['SidewalkPropertiesArgs'] sidewalk: sidewalk contain file for created device and role
         :param pulumi.Input[Sequence[pulumi.Input['WirelessDeviceImportTaskTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        WirelessDeviceImportTaskArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            destination_name=destination_name,
-            sidewalk=sidewalk,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             destination_name: pulumi.Input[str],
-             sidewalk: pulumi.Input['SidewalkPropertiesArgs'],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceImportTaskTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("destination_name", destination_name)
-        _setter("sidewalk", sidewalk)
+        pulumi.set(__self__, "destination_name", destination_name)
+        pulumi.set(__self__, "sidewalk", sidewalk)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="destinationName")
@@ -123,10 +110,6 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WirelessDeviceImportTaskArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -148,11 +131,6 @@ class WirelessDeviceImportTask(pulumi.CustomResource):
             if destination_name is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_name'")
             __props__.__dict__["destination_name"] = destination_name
-            if sidewalk is not None and not isinstance(sidewalk, SidewalkPropertiesArgs):
-                sidewalk = sidewalk or {}
-                def _setter(key, value):
-                    sidewalk[key] = value
-                SidewalkPropertiesArgs._configure(_setter, **sidewalk)
             if sidewalk is None and not opts.urn:
                 raise TypeError("Missing required property 'sidewalk'")
             __props__.__dict__["sidewalk"] = sidewalk

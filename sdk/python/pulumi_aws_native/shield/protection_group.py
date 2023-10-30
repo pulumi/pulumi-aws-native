@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -35,34 +35,15 @@ class ProtectionGroupArgs:
         :param pulumi.Input['ProtectionGroupResourceType'] resource_type: The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group. You must set this when you set `Pattern` to `BY_RESOURCE_TYPE` and you must not set it for any other `Pattern` setting.
         :param pulumi.Input[Sequence[pulumi.Input['ProtectionGroupTagArgs']]] tags: One or more tag key-value pairs for the Protection object.
         """
-        ProtectionGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            aggregation=aggregation,
-            pattern=pattern,
-            protection_group_id=protection_group_id,
-            members=members,
-            resource_type=resource_type,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             aggregation: pulumi.Input['ProtectionGroupAggregation'],
-             pattern: pulumi.Input['ProtectionGroupPattern'],
-             protection_group_id: pulumi.Input[str],
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             resource_type: Optional[pulumi.Input['ProtectionGroupResourceType']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProtectionGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("aggregation", aggregation)
-        _setter("pattern", pattern)
-        _setter("protection_group_id", protection_group_id)
+        pulumi.set(__self__, "aggregation", aggregation)
+        pulumi.set(__self__, "pattern", pattern)
+        pulumi.set(__self__, "protection_group_id", protection_group_id)
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if resource_type is not None:
-            _setter("resource_type", resource_type)
+            pulumi.set(__self__, "resource_type", resource_type)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -186,10 +167,6 @@ class ProtectionGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProtectionGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

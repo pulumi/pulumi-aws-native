@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -30,34 +30,15 @@ class ResiliencyPolicyArgs:
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
         """
-        ResiliencyPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            policy=policy,
-            policy_name=policy_name,
-            tier=tier,
-            data_location_constraint=data_location_constraint,
-            policy_description=policy_description,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             policy: pulumi.Input['ResiliencyPolicyPolicyMapArgs'],
-             policy_name: pulumi.Input[str],
-             tier: pulumi.Input['ResiliencyPolicyTier'],
-             data_location_constraint: Optional[pulumi.Input['ResiliencyPolicyDataLocationConstraint']] = None,
-             policy_description: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input['ResiliencyPolicyTagMapArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("policy", policy)
-        _setter("policy_name", policy_name)
-        _setter("tier", tier)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "policy_name", policy_name)
+        pulumi.set(__self__, "tier", tier)
         if data_location_constraint is not None:
-            _setter("data_location_constraint", data_location_constraint)
+            pulumi.set(__self__, "data_location_constraint", data_location_constraint)
         if policy_description is not None:
-            _setter("policy_description", policy_description)
+            pulumi.set(__self__, "policy_description", policy_description)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -167,10 +148,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ResiliencyPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -192,11 +169,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
             __props__ = ResiliencyPolicyArgs.__new__(ResiliencyPolicyArgs)
 
             __props__.__dict__["data_location_constraint"] = data_location_constraint
-            if policy is not None and not isinstance(policy, ResiliencyPolicyPolicyMapArgs):
-                policy = policy or {}
-                def _setter(key, value):
-                    policy[key] = value
-                ResiliencyPolicyPolicyMapArgs._configure(_setter, **policy)
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
@@ -204,11 +176,6 @@ class ResiliencyPolicy(pulumi.CustomResource):
             if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
-            if tags is not None and not isinstance(tags, ResiliencyPolicyTagMapArgs):
-                tags = tags or {}
-                def _setter(key, value):
-                    tags[key] = value
-                ResiliencyPolicyTagMapArgs._configure(_setter, **tags)
             __props__.__dict__["tags"] = tags
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -48,17 +48,8 @@ class AccessPointVpcConfiguration(dict):
         """
         :param str vpc_id: Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
         """
-        AccessPointVpcConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            vpc_id=vpc_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             vpc_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if vpc_id is not None:
-            _setter("vpc_id", vpc_id)
+            pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -97,16 +88,7 @@ class BucketAbortIncompleteMultipartUpload(dict):
         Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
         :param int days_after_initiation: Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         """
-        BucketAbortIncompleteMultipartUpload._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days_after_initiation=days_after_initiation,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days_after_initiation: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("days_after_initiation", days_after_initiation)
+        pulumi.set(__self__, "days_after_initiation", days_after_initiation)
 
     @property
     @pulumi.getter(name="daysAfterInitiation")
@@ -126,20 +108,9 @@ class BucketFilterAndOperatorProperties(dict):
         :param Sequence['BucketFilterTag'] tags: All of these tags must exist in the object's tag set in order for the rule to apply.
         :param str prefix: Prefix identifies one or more objects to which the rule applies.
         """
-        BucketFilterAndOperatorProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tags=tags,
-            prefix=prefix,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tags: Sequence['outputs.BucketFilterTag'],
-             prefix: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("tags", tags)
+        pulumi.set(__self__, "tags", tags)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter
@@ -169,19 +140,8 @@ class BucketFilterTag(dict):
         """
         Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
         """
-        BucketFilterTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -201,16 +161,7 @@ class BucketLifecycleConfiguration(dict):
         """
         :param Sequence['BucketRule'] rules: A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
         """
-        BucketLifecycleConfiguration._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rules=rules,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rules: Sequence['outputs.BucketRule'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("rules", rules)
+        pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
@@ -262,37 +213,18 @@ class BucketRule(dict):
         :param 'BucketRuleFilterProperties' filter: The container for the filter of the lifecycle rule.
         :param str id: Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         """
-        BucketRule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            abort_incomplete_multipart_upload=abort_incomplete_multipart_upload,
-            expiration_date=expiration_date,
-            expiration_in_days=expiration_in_days,
-            filter=filter,
-            id=id,
-            status=status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             abort_incomplete_multipart_upload: Optional['outputs.BucketAbortIncompleteMultipartUpload'] = None,
-             expiration_date: Optional[str] = None,
-             expiration_in_days: Optional[int] = None,
-             filter: Optional['outputs.BucketRuleFilterProperties'] = None,
-             id: Optional[str] = None,
-             status: Optional['BucketRuleStatus'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if abort_incomplete_multipart_upload is not None:
-            _setter("abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
+            pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
         if expiration_date is not None:
-            _setter("expiration_date", expiration_date)
+            pulumi.set(__self__, "expiration_date", expiration_date)
         if expiration_in_days is not None:
-            _setter("expiration_in_days", expiration_in_days)
+            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if filter is not None:
-            _setter("filter", filter)
+            pulumi.set(__self__, "filter", filter)
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="abortIncompleteMultipartUpload")
@@ -372,25 +304,12 @@ class BucketRuleFilterProperties(dict):
         :param str prefix: Object key prefix that identifies one or more objects to which this rule applies.
         :param 'BucketFilterTag' tag: Specifies a tag used to identify a subset of objects for an Amazon S3Outposts bucket.
         """
-        BucketRuleFilterProperties._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            and_operator=and_operator,
-            prefix=prefix,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             and_operator: Optional['outputs.BucketFilterAndOperatorProperties'] = None,
-             prefix: Optional[str] = None,
-             tag: Optional['outputs.BucketFilterTag'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if and_operator is not None:
-            _setter("and_operator", and_operator)
+            pulumi.set(__self__, "and_operator", and_operator)
         if prefix is not None:
-            _setter("prefix", prefix)
+            pulumi.set(__self__, "prefix", prefix)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter(name="andOperator")
@@ -422,19 +341,8 @@ class BucketTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        BucketTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -473,21 +381,10 @@ class EndpointFailedReason(dict):
         :param str error_code: The failure code, if any, for a create or delete endpoint operation.
         :param str message: Additional error details describing the endpoint failure and recommended action.
         """
-        EndpointFailedReason._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            error_code=error_code,
-            message=message,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             error_code: Optional[str] = None,
-             message: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if error_code is not None:
-            _setter("error_code", error_code)
+            pulumi.set(__self__, "error_code", error_code)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
 
     @property
     @pulumi.getter(name="errorCode")
@@ -533,16 +430,7 @@ class EndpointNetworkInterface(dict):
         """
         The container for the network interface.
         """
-        EndpointNetworkInterface._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            network_interface_id=network_interface_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             network_interface_id: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("network_interface_id", network_interface_id)
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="networkInterfaceId")

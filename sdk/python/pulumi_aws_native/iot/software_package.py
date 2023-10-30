@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -23,25 +23,12 @@ class SoftwarePackageArgs:
         The set of arguments for constructing a SoftwarePackage resource.
         :param pulumi.Input[Sequence[pulumi.Input['SoftwarePackageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        SoftwarePackageArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            package_name=package_name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             package_name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwarePackageTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if package_name is not None:
-            _setter("package_name", package_name)
+            pulumi.set(__self__, "package_name", package_name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -109,10 +96,6 @@ class SoftwarePackage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SoftwarePackageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

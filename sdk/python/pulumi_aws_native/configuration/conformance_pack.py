@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,41 +33,20 @@ class ConformancePackArgs:
         :param pulumi.Input[str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         :param pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs'] template_ssm_document_details: The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
-        ConformancePackArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            conformance_pack_input_parameters=conformance_pack_input_parameters,
-            conformance_pack_name=conformance_pack_name,
-            delivery_s3_bucket=delivery_s3_bucket,
-            delivery_s3_key_prefix=delivery_s3_key_prefix,
-            template_body=template_body,
-            template_s3_uri=template_s3_uri,
-            template_ssm_document_details=template_ssm_document_details,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             conformance_pack_input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]]] = None,
-             conformance_pack_name: Optional[pulumi.Input[str]] = None,
-             delivery_s3_bucket: Optional[pulumi.Input[str]] = None,
-             delivery_s3_key_prefix: Optional[pulumi.Input[str]] = None,
-             template_body: Optional[pulumi.Input[str]] = None,
-             template_s3_uri: Optional[pulumi.Input[str]] = None,
-             template_ssm_document_details: Optional[pulumi.Input['TemplateSsmDocumentDetailsPropertiesArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if conformance_pack_input_parameters is not None:
-            _setter("conformance_pack_input_parameters", conformance_pack_input_parameters)
+            pulumi.set(__self__, "conformance_pack_input_parameters", conformance_pack_input_parameters)
         if conformance_pack_name is not None:
-            _setter("conformance_pack_name", conformance_pack_name)
+            pulumi.set(__self__, "conformance_pack_name", conformance_pack_name)
         if delivery_s3_bucket is not None:
-            _setter("delivery_s3_bucket", delivery_s3_bucket)
+            pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
         if delivery_s3_key_prefix is not None:
-            _setter("delivery_s3_key_prefix", delivery_s3_key_prefix)
+            pulumi.set(__self__, "delivery_s3_key_prefix", delivery_s3_key_prefix)
         if template_body is not None:
-            _setter("template_body", template_body)
+            pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
-            _setter("template_s3_uri", template_s3_uri)
+            pulumi.set(__self__, "template_s3_uri", template_s3_uri)
         if template_ssm_document_details is not None:
-            _setter("template_ssm_document_details", template_ssm_document_details)
+            pulumi.set(__self__, "template_ssm_document_details", template_ssm_document_details)
 
     @property
     @pulumi.getter(name="conformancePackInputParameters")
@@ -199,10 +178,6 @@ class ConformancePack(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ConformancePackArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -230,11 +205,6 @@ class ConformancePack(pulumi.CustomResource):
             __props__.__dict__["delivery_s3_key_prefix"] = delivery_s3_key_prefix
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
-            if template_ssm_document_details is not None and not isinstance(template_ssm_document_details, TemplateSsmDocumentDetailsPropertiesArgs):
-                template_ssm_document_details = template_ssm_document_details or {}
-                def _setter(key, value):
-                    template_ssm_document_details[key] = value
-                TemplateSsmDocumentDetailsPropertiesArgs._configure(_setter, **template_ssm_document_details)
             __props__.__dict__["template_ssm_document_details"] = template_ssm_document_details
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["conformance_pack_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)

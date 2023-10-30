@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -38,46 +38,21 @@ class CustomDbEngineVersionArgs:
         :param pulumi.Input['CustomDbEngineVersionStatus'] status: The availability status to be assigned to the CEV.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
-        CustomDbEngineVersionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            database_installation_files_s3_bucket_name=database_installation_files_s3_bucket_name,
-            engine=engine,
-            engine_version=engine_version,
-            database_installation_files_s3_prefix=database_installation_files_s3_prefix,
-            description=description,
-            kms_key_id=kms_key_id,
-            manifest=manifest,
-            status=status,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             database_installation_files_s3_bucket_name: pulumi.Input[str],
-             engine: pulumi.Input[str],
-             engine_version: pulumi.Input[str],
-             database_installation_files_s3_prefix: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             kms_key_id: Optional[pulumi.Input[str]] = None,
-             manifest: Optional[pulumi.Input[str]] = None,
-             status: Optional[pulumi.Input['CustomDbEngineVersionStatus']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDbEngineVersionTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
-        _setter("engine", engine)
-        _setter("engine_version", engine_version)
+        pulumi.set(__self__, "database_installation_files_s3_bucket_name", database_installation_files_s3_bucket_name)
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "engine_version", engine_version)
         if database_installation_files_s3_prefix is not None:
-            _setter("database_installation_files_s3_prefix", database_installation_files_s3_prefix)
+            pulumi.set(__self__, "database_installation_files_s3_prefix", database_installation_files_s3_prefix)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if manifest is not None:
-            _setter("manifest", manifest)
+            pulumi.set(__self__, "manifest", manifest)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="databaseInstallationFilesS3BucketName")
@@ -237,10 +212,6 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CustomDbEngineVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

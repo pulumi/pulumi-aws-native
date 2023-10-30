@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,27 +27,12 @@ class AccessPointArgs:
         :param pulumi.Input[str] name: A name for the AccessPoint.
         :param Any policy: The access point policy associated with this access point.
         """
-        AccessPointArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            bucket=bucket,
-            vpc_configuration=vpc_configuration,
-            name=name,
-            policy=policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             bucket: pulumi.Input[str],
-             vpc_configuration: pulumi.Input['AccessPointVpcConfigurationArgs'],
-             name: Optional[pulumi.Input[str]] = None,
-             policy: Optional[Any] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("bucket", bucket)
-        _setter("vpc_configuration", vpc_configuration)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "vpc_configuration", vpc_configuration)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
 
     @property
     @pulumi.getter
@@ -137,10 +122,6 @@ class AccessPoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            AccessPointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -164,11 +145,6 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["name"] = name
             __props__.__dict__["policy"] = policy
-            if vpc_configuration is not None and not isinstance(vpc_configuration, AccessPointVpcConfigurationArgs):
-                vpc_configuration = vpc_configuration or {}
-                def _setter(key, value):
-                    vpc_configuration[key] = value
-                AccessPointVpcConfigurationArgs._configure(_setter, **vpc_configuration)
             if vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_configuration'")
             __props__.__dict__["vpc_configuration"] = vpc_configuration

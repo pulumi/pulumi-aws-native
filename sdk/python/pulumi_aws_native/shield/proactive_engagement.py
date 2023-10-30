@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -26,19 +26,8 @@ class ProactiveEngagementArgs:
         :param pulumi.Input['ProactiveEngagementStatus'] proactive_engagement_status: If `ENABLED`, the Shield Response Team (SRT) will use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
                If `DISABLED`, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support.
         """
-        ProactiveEngagementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            emergency_contact_list=emergency_contact_list,
-            proactive_engagement_status=proactive_engagement_status,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             emergency_contact_list: pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]],
-             proactive_engagement_status: pulumi.Input['ProactiveEngagementStatus'],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("emergency_contact_list", emergency_contact_list)
-        _setter("proactive_engagement_status", proactive_engagement_status)
+        pulumi.set(__self__, "emergency_contact_list", emergency_contact_list)
+        pulumi.set(__self__, "proactive_engagement_status", proactive_engagement_status)
 
     @property
     @pulumi.getter(name="emergencyContactList")
@@ -104,10 +93,6 @@ class ProactiveEngagement(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProactiveEngagementArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

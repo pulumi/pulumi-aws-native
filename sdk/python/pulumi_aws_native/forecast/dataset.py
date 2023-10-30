@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -31,38 +31,17 @@ class DatasetArgs:
         :param pulumi.Input[str] data_frequency: Frequency of data collection. This parameter is required for RELATED_TIME_SERIES
         :param pulumi.Input[str] dataset_name: A name for the dataset
         """
-        DatasetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            dataset_type=dataset_type,
-            domain=domain,
-            schema=schema,
-            data_frequency=data_frequency,
-            dataset_name=dataset_name,
-            encryption_config=encryption_config,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             dataset_type: pulumi.Input['DatasetType'],
-             domain: pulumi.Input['DatasetDomain'],
-             schema: pulumi.Input['SchemaPropertiesArgs'],
-             data_frequency: Optional[pulumi.Input[str]] = None,
-             dataset_name: Optional[pulumi.Input[str]] = None,
-             encryption_config: Optional[pulumi.Input['EncryptionConfigPropertiesArgs']] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagsItemPropertiesArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("dataset_type", dataset_type)
-        _setter("domain", domain)
-        _setter("schema", schema)
+        pulumi.set(__self__, "dataset_type", dataset_type)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "schema", schema)
         if data_frequency is not None:
-            _setter("data_frequency", data_frequency)
+            pulumi.set(__self__, "data_frequency", data_frequency)
         if dataset_name is not None:
-            _setter("dataset_name", dataset_name)
+            pulumi.set(__self__, "dataset_name", dataset_name)
         if encryption_config is not None:
-            _setter("encryption_config", encryption_config)
+            pulumi.set(__self__, "encryption_config", encryption_config)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="datasetType")
@@ -182,10 +161,6 @@ class Dataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -215,17 +190,7 @@ class Dataset(pulumi.CustomResource):
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
-            if encryption_config is not None and not isinstance(encryption_config, EncryptionConfigPropertiesArgs):
-                encryption_config = encryption_config or {}
-                def _setter(key, value):
-                    encryption_config[key] = value
-                EncryptionConfigPropertiesArgs._configure(_setter, **encryption_config)
             __props__.__dict__["encryption_config"] = encryption_config
-            if schema is not None and not isinstance(schema, SchemaPropertiesArgs):
-                schema = schema or {}
-                def _setter(key, value):
-                    schema[key] = value
-                SchemaPropertiesArgs._configure(_setter, **schema)
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema

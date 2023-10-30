@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserPoolGroupArgs', 'UserPoolGroup']
@@ -22,32 +22,15 @@ class UserPoolGroupArgs:
         """
         The set of arguments for constructing a UserPoolGroup resource.
         """
-        UserPoolGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            user_pool_id=user_pool_id,
-            description=description,
-            group_name=group_name,
-            precedence=precedence,
-            role_arn=role_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             user_pool_id: pulumi.Input[str],
-             description: Optional[pulumi.Input[str]] = None,
-             group_name: Optional[pulumi.Input[str]] = None,
-             precedence: Optional[pulumi.Input[int]] = None,
-             role_arn: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("user_pool_id", user_pool_id)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if group_name is not None:
-            _setter("group_name", group_name)
+            pulumi.set(__self__, "group_name", group_name)
         if precedence is not None:
-            _setter("precedence", precedence)
+            pulumi.set(__self__, "precedence", precedence)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -131,10 +114,6 @@ class UserPoolGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserPoolGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

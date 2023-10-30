@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StreamConsumerArgs', 'StreamConsumer']
@@ -19,19 +19,8 @@ class StreamConsumerArgs:
         """
         The set of arguments for constructing a StreamConsumer resource.
         """
-        StreamConsumerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            consumer_name=consumer_name,
-            stream_arn=stream_arn,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             consumer_name: pulumi.Input[str],
-             stream_arn: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("consumer_name", consumer_name)
-        _setter("stream_arn", stream_arn)
+        pulumi.set(__self__, "consumer_name", consumer_name)
+        pulumi.set(__self__, "stream_arn", stream_arn)
 
     @property
     @pulumi.getter(name="consumerName")
@@ -90,10 +79,6 @@ class StreamConsumer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            StreamConsumerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -54,29 +54,14 @@ class DomainAdvancedSecurityOptionsInput(dict):
                  enabled: Optional[bool] = None,
                  internal_user_database_enabled: Optional[bool] = None,
                  master_user_options: Optional['outputs.DomainMasterUserOptions'] = None):
-        DomainAdvancedSecurityOptionsInput._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            anonymous_auth_enabled=anonymous_auth_enabled,
-            enabled=enabled,
-            internal_user_database_enabled=internal_user_database_enabled,
-            master_user_options=master_user_options,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             anonymous_auth_enabled: Optional[bool] = None,
-             enabled: Optional[bool] = None,
-             internal_user_database_enabled: Optional[bool] = None,
-             master_user_options: Optional['outputs.DomainMasterUserOptions'] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if anonymous_auth_enabled is not None:
-            _setter("anonymous_auth_enabled", anonymous_auth_enabled)
+            pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
-            _setter("internal_user_database_enabled", internal_user_database_enabled)
+            pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
         if master_user_options is not None:
-            _setter("master_user_options", master_user_options)
+            pulumi.set(__self__, "master_user_options", master_user_options)
 
     @property
     @pulumi.getter(name="anonymousAuthEnabled")
@@ -127,29 +112,14 @@ class DomainCognitoOptions(dict):
                  identity_pool_id: Optional[str] = None,
                  role_arn: Optional[str] = None,
                  user_pool_id: Optional[str] = None):
-        DomainCognitoOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            identity_pool_id=identity_pool_id,
-            role_arn=role_arn,
-            user_pool_id=user_pool_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             identity_pool_id: Optional[str] = None,
-             role_arn: Optional[str] = None,
-             user_pool_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if identity_pool_id is not None:
-            _setter("identity_pool_id", identity_pool_id)
+            pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         if role_arn is not None:
-            _setter("role_arn", role_arn)
+            pulumi.set(__self__, "role_arn", role_arn)
         if user_pool_id is not None:
-            _setter("user_pool_id", user_pool_id)
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
 
     @property
     @pulumi.getter
@@ -176,17 +146,8 @@ class DomainCognitoOptions(dict):
 class DomainColdStorageOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
-        DomainColdStorageOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -222,29 +183,14 @@ class DomainEbsOptions(dict):
                  iops: Optional[int] = None,
                  volume_size: Optional[int] = None,
                  volume_type: Optional[str] = None):
-        DomainEbsOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ebs_enabled=ebs_enabled,
-            iops=iops,
-            volume_size=volume_size,
-            volume_type=volume_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ebs_enabled: Optional[bool] = None,
-             iops: Optional[int] = None,
-             volume_size: Optional[int] = None,
-             volume_type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if ebs_enabled is not None:
-            _setter("ebs_enabled", ebs_enabled)
+            pulumi.set(__self__, "ebs_enabled", ebs_enabled)
         if iops is not None:
-            _setter("iops", iops)
+            pulumi.set(__self__, "iops", iops)
         if volume_size is not None:
-            _setter("volume_size", volume_size)
+            pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
-            _setter("volume_type", volume_type)
+            pulumi.set(__self__, "volume_type", volume_type)
 
     @property
     @pulumi.getter(name="ebsEnabled")
@@ -318,57 +264,28 @@ class DomainElasticsearchClusterConfig(dict):
                  warm_type: Optional[str] = None,
                  zone_awareness_config: Optional['outputs.DomainZoneAwarenessConfig'] = None,
                  zone_awareness_enabled: Optional[bool] = None):
-        DomainElasticsearchClusterConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cold_storage_options=cold_storage_options,
-            dedicated_master_count=dedicated_master_count,
-            dedicated_master_enabled=dedicated_master_enabled,
-            dedicated_master_type=dedicated_master_type,
-            instance_count=instance_count,
-            instance_type=instance_type,
-            warm_count=warm_count,
-            warm_enabled=warm_enabled,
-            warm_type=warm_type,
-            zone_awareness_config=zone_awareness_config,
-            zone_awareness_enabled=zone_awareness_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cold_storage_options: Optional['outputs.DomainColdStorageOptions'] = None,
-             dedicated_master_count: Optional[int] = None,
-             dedicated_master_enabled: Optional[bool] = None,
-             dedicated_master_type: Optional[str] = None,
-             instance_count: Optional[int] = None,
-             instance_type: Optional[str] = None,
-             warm_count: Optional[int] = None,
-             warm_enabled: Optional[bool] = None,
-             warm_type: Optional[str] = None,
-             zone_awareness_config: Optional['outputs.DomainZoneAwarenessConfig'] = None,
-             zone_awareness_enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if cold_storage_options is not None:
-            _setter("cold_storage_options", cold_storage_options)
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
-            _setter("dedicated_master_count", dedicated_master_count)
+            pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         if dedicated_master_enabled is not None:
-            _setter("dedicated_master_enabled", dedicated_master_enabled)
+            pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
         if dedicated_master_type is not None:
-            _setter("dedicated_master_type", dedicated_master_type)
+            pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
         if instance_count is not None:
-            _setter("instance_count", instance_count)
+            pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
-            _setter("instance_type", instance_type)
+            pulumi.set(__self__, "instance_type", instance_type)
         if warm_count is not None:
-            _setter("warm_count", warm_count)
+            pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
-            _setter("warm_enabled", warm_enabled)
+            pulumi.set(__self__, "warm_enabled", warm_enabled)
         if warm_type is not None:
-            _setter("warm_type", warm_type)
+            pulumi.set(__self__, "warm_type", warm_type)
         if zone_awareness_config is not None:
-            _setter("zone_awareness_config", zone_awareness_config)
+            pulumi.set(__self__, "zone_awareness_config", zone_awareness_config)
         if zone_awareness_enabled is not None:
-            _setter("zone_awareness_enabled", zone_awareness_enabled)
+            pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
 
     @property
     @pulumi.getter(name="coldStorageOptions")
@@ -448,21 +365,10 @@ class DomainEncryptionAtRestOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  kms_key_id: Optional[str] = None):
-        DomainEncryptionAtRestOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            kms_key_id=kms_key_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             kms_key_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if kms_key_id is not None:
-            _setter("kms_key_id", kms_key_id)
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
 
     @property
     @pulumi.getter
@@ -508,33 +414,16 @@ class DomainEndpointOptions(dict):
                  custom_endpoint_enabled: Optional[bool] = None,
                  enforce_https: Optional[bool] = None,
                  tls_security_policy: Optional[str] = None):
-        DomainEndpointOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            custom_endpoint=custom_endpoint,
-            custom_endpoint_certificate_arn=custom_endpoint_certificate_arn,
-            custom_endpoint_enabled=custom_endpoint_enabled,
-            enforce_https=enforce_https,
-            tls_security_policy=tls_security_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             custom_endpoint: Optional[str] = None,
-             custom_endpoint_certificate_arn: Optional[str] = None,
-             custom_endpoint_enabled: Optional[bool] = None,
-             enforce_https: Optional[bool] = None,
-             tls_security_policy: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if custom_endpoint is not None:
-            _setter("custom_endpoint", custom_endpoint)
+            pulumi.set(__self__, "custom_endpoint", custom_endpoint)
         if custom_endpoint_certificate_arn is not None:
-            _setter("custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
+            pulumi.set(__self__, "custom_endpoint_certificate_arn", custom_endpoint_certificate_arn)
         if custom_endpoint_enabled is not None:
-            _setter("custom_endpoint_enabled", custom_endpoint_enabled)
+            pulumi.set(__self__, "custom_endpoint_enabled", custom_endpoint_enabled)
         if enforce_https is not None:
-            _setter("enforce_https", enforce_https)
+            pulumi.set(__self__, "enforce_https", enforce_https)
         if tls_security_policy is not None:
-            _setter("tls_security_policy", tls_security_policy)
+            pulumi.set(__self__, "tls_security_policy", tls_security_policy)
 
     @property
     @pulumi.getter(name="customEndpoint")
@@ -589,25 +478,12 @@ class DomainMasterUserOptions(dict):
                  master_user_arn: Optional[str] = None,
                  master_user_name: Optional[str] = None,
                  master_user_password: Optional[str] = None):
-        DomainMasterUserOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            master_user_arn=master_user_arn,
-            master_user_name=master_user_name,
-            master_user_password=master_user_password,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             master_user_arn: Optional[str] = None,
-             master_user_name: Optional[str] = None,
-             master_user_password: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if master_user_arn is not None:
-            _setter("master_user_arn", master_user_arn)
+            pulumi.set(__self__, "master_user_arn", master_user_arn)
         if master_user_name is not None:
-            _setter("master_user_name", master_user_name)
+            pulumi.set(__self__, "master_user_name", master_user_name)
         if master_user_password is not None:
-            _setter("master_user_password", master_user_password)
+            pulumi.set(__self__, "master_user_password", master_user_password)
 
     @property
     @pulumi.getter(name="masterUserArn")
@@ -629,17 +505,8 @@ class DomainMasterUserOptions(dict):
 class DomainNodeToNodeEncryptionOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
-        DomainNodeToNodeEncryptionOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
@@ -668,17 +535,8 @@ class DomainSnapshotOptions(dict):
 
     def __init__(__self__, *,
                  automated_snapshot_start_hour: Optional[int] = None):
-        DomainSnapshotOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            automated_snapshot_start_hour=automated_snapshot_start_hour,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             automated_snapshot_start_hour: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if automated_snapshot_start_hour is not None:
-            _setter("automated_snapshot_start_hour", automated_snapshot_start_hour)
+            pulumi.set(__self__, "automated_snapshot_start_hour", automated_snapshot_start_hour)
 
     @property
     @pulumi.getter(name="automatedSnapshotStartHour")
@@ -691,19 +549,8 @@ class DomainTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
-        DomainTag._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            key=key,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             key: str,
-             value: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("key", key)
-        _setter("value", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -740,21 +587,10 @@ class DomainVpcOptions(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
-        DomainVpcOptions._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            security_group_ids=security_group_ids,
-            subnet_ids=subnet_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             security_group_ids: Optional[Sequence[str]] = None,
-             subnet_ids: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if security_group_ids is not None:
-            _setter("security_group_ids", security_group_ids)
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
-            _setter("subnet_ids", subnet_ids)
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -788,17 +624,8 @@ class DomainZoneAwarenessConfig(dict):
 
     def __init__(__self__, *,
                  availability_zone_count: Optional[int] = None):
-        DomainZoneAwarenessConfig._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            availability_zone_count=availability_zone_count,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             availability_zone_count: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
         if availability_zone_count is not None:
-            _setter("availability_zone_count", availability_zone_count)
+            pulumi.set(__self__, "availability_zone_count", availability_zone_count)
 
     @property
     @pulumi.getter(name="availabilityZoneCount")

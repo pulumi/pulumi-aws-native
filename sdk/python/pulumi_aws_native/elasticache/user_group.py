@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
@@ -28,26 +28,11 @@ class UserGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         :param pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]] tags: An array of key-value pairs to apply to this user.
         """
-        UserGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            engine=engine,
-            user_group_id=user_group_id,
-            user_ids=user_ids,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             engine: pulumi.Input['UserGroupEngine'],
-             user_group_id: pulumi.Input[str],
-             user_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserGroupTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("engine", engine)
-        _setter("user_group_id", user_group_id)
-        _setter("user_ids", user_ids)
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "user_group_id", user_group_id)
+        pulumi.set(__self__, "user_ids", user_ids)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -137,10 +122,6 @@ class UserGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            UserGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

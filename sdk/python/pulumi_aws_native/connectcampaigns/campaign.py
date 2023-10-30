@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,30 +27,13 @@ class CampaignArgs:
         :param pulumi.Input[str] name: Amazon Connect Campaign Name
         :param pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]] tags: One or more tags.
         """
-        CampaignArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            connect_instance_arn=connect_instance_arn,
-            dialer_config=dialer_config,
-            outbound_call_config=outbound_call_config,
-            name=name,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             connect_instance_arn: pulumi.Input[str],
-             dialer_config: pulumi.Input['CampaignDialerConfigArgs'],
-             outbound_call_config: pulumi.Input['CampaignOutboundCallConfigArgs'],
-             name: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input['CampaignTagArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
-        _setter("connect_instance_arn", connect_instance_arn)
-        _setter("dialer_config", dialer_config)
-        _setter("outbound_call_config", outbound_call_config)
+        pulumi.set(__self__, "connect_instance_arn", connect_instance_arn)
+        pulumi.set(__self__, "dialer_config", dialer_config)
+        pulumi.set(__self__, "outbound_call_config", outbound_call_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="connectInstanceArn")
@@ -146,10 +129,6 @@ class Campaign(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CampaignArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -172,20 +151,10 @@ class Campaign(pulumi.CustomResource):
             if connect_instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'connect_instance_arn'")
             __props__.__dict__["connect_instance_arn"] = connect_instance_arn
-            if dialer_config is not None and not isinstance(dialer_config, CampaignDialerConfigArgs):
-                dialer_config = dialer_config or {}
-                def _setter(key, value):
-                    dialer_config[key] = value
-                CampaignDialerConfigArgs._configure(_setter, **dialer_config)
             if dialer_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dialer_config'")
             __props__.__dict__["dialer_config"] = dialer_config
             __props__.__dict__["name"] = name
-            if outbound_call_config is not None and not isinstance(outbound_call_config, CampaignOutboundCallConfigArgs):
-                outbound_call_config = outbound_call_config or {}
-                def _setter(key, value):
-                    outbound_call_config[key] = value
-                CampaignOutboundCallConfigArgs._configure(_setter, **outbound_call_config)
             if outbound_call_config is None and not opts.urn:
                 raise TypeError("Missing required property 'outbound_call_config'")
             __props__.__dict__["outbound_call_config"] = outbound_call_config
