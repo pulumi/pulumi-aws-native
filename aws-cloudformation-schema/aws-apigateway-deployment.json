@@ -265,13 +265,13 @@
   "writeOnlyProperties" : [ "/properties/StageName", "/properties/StageDescription", "/properties/DeploymentCanarySettings" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST" ]
+      "permissions" : [ "apigateway:POST", "apigateway:PATCH", "apigateway:PUT", "apigateway:GET" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT" ]
+      "permissions" : [ "apigateway:PATCH", "apigateway:GET", "apigateway:PUT", "apigateway:DELETE" ]
     },
     "delete" : {
       "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]

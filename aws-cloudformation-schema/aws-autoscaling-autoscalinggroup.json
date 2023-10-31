@@ -1,47 +1,136 @@
 {
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : true
-  },
-  "deprecatedProperties" : [ "/properties/NotificationConfiguration" ],
   "typeName" : "AWS::AutoScaling::AutoScalingGroup",
   "description" : "Resource Type definition for AWS::AutoScaling::AutoScalingGroup",
-  "createOnlyProperties" : [ "/properties/InstanceId", "/properties/AutoScalingGroupName" ],
-  "primaryIdentifier" : [ "/properties/AutoScalingGroupName" ],
-  "required" : [ "MinSize", "MaxSize" ],
-  "conditionalCreateOnlyProperties" : [ "/properties/LaunchConfigurationName", "/properties/VPCZoneIdentifier", "/properties/PlacementGroup", "/properties/LaunchTemplate", "/properties/MixedInstancesPolicy" ],
-  "propertyTransform" : {
-    "/properties/LaunchConfigurationName" : "InstanceId? AutoScalingGroupName : LaunchConfigurationName"
-  },
-  "handlers" : {
-    "read" : {
-      "permissions" : [ "autoscaling:*", "managed-fleets:GetAutoScalingGroup" ]
+  "additionalProperties" : false,
+  "properties" : {
+    "LifecycleHookSpecificationList" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/LifecycleHookSpecification"
+      }
     },
-    "create" : {
-      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeImages", "ec2:DescribeInstanceAttribute", "ec2:DescribeInstances", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:DescribeKeyPairs", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribePlacementGroups", "ec2:DescribeSecurityGroups", "ec2:DescribeSpotInstanceRequests", "ec2:DescribeSubnets", "ec2:DescribeVpcClassicLink", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:CreateAutoScalingGroup", "ssm:GetParameters" ],
-      "timeoutInMinutes" : 120
+    "LoadBalancerNames" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
     },
-    "update" : {
-      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeImages", "ec2:DescribeInstanceAttribute", "ec2:DescribeInstances", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:DescribeKeyPairs", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribePlacementGroups", "ec2:DescribeSecurityGroups", "ec2:DescribeSpotInstanceRequests", "ec2:DescribeSubnets", "ec2:DescribeVpcClassicLink", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:RegisterAutoScalingGroup", "managed-fleets:DeregisterAutoScalingGroup", "managed-fleets:UpdateAutoScalingGroup", "ssm:GetParameters" ],
-      "timeoutInMinutes" : 480
+    "LaunchConfigurationName" : {
+      "type" : "string"
     },
-    "list" : {
-      "permissions" : [ "autoscaling:*" ]
+    "ServiceLinkedRoleARN" : {
+      "type" : "string"
     },
-    "delete" : {
-      "permissions" : [ "autoscaling:*", "managed-fleets:GetAutoScalingGroup", "managed-fleets:DeleteAutoScalingGroup" ],
-      "timeoutInMinutes" : 180
+    "TargetGroupARNs" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "Cooldown" : {
+      "type" : "string"
+    },
+    "NotificationConfigurations" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/NotificationConfiguration"
+      }
+    },
+    "DesiredCapacity" : {
+      "type" : "string"
+    },
+    "HealthCheckGracePeriod" : {
+      "type" : "integer"
+    },
+    "DefaultInstanceWarmup" : {
+      "type" : "integer"
+    },
+    "NewInstancesProtectedFromScaleIn" : {
+      "type" : "boolean"
+    },
+    "LaunchTemplate" : {
+      "$ref" : "#/definitions/LaunchTemplateSpecification"
+    },
+    "MixedInstancesPolicy" : {
+      "$ref" : "#/definitions/MixedInstancesPolicy"
+    },
+    "VPCZoneIdentifier" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "Tags" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/TagProperty"
+      }
+    },
+    "Context" : {
+      "type" : "string"
+    },
+    "CapacityRebalance" : {
+      "type" : "boolean"
+    },
+    "InstanceId" : {
+      "type" : "string"
+    },
+    "AvailabilityZones" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "MetricsCollection" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "$ref" : "#/definitions/MetricsCollection"
+      }
+    },
+    "MaxSize" : {
+      "type" : "string"
+    },
+    "MinSize" : {
+      "type" : "string"
+    },
+    "TerminationPolicies" : {
+      "type" : "array",
+      "uniqueItems" : false,
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "AutoScalingGroupName" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "DesiredCapacityType" : {
+      "type" : "string"
+    },
+    "PlacementGroup" : {
+      "type" : "string"
+    },
+    "HealthCheckType" : {
+      "type" : "string"
+    },
+    "MaxInstanceLifetime" : {
+      "type" : "integer"
     }
   },
-  "writeOnlyProperties" : [ "/properties/InstanceId" ],
-  "additionalProperties" : false,
   "definitions" : {
     "TagProperty" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "Value" : {
           "type" : "string"
@@ -56,24 +145,24 @@
       "required" : [ "Value", "Key", "PropagateAtLaunch" ]
     },
     "LaunchTemplateSpecification" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "LaunchTemplateName" : {
           "type" : "string"
         },
-        "Version" : {
+        "LaunchTemplateId" : {
           "type" : "string"
         },
-        "LaunchTemplateId" : {
+        "Version" : {
           "type" : "string"
         }
       },
       "required" : [ "Version" ]
     },
     "InstancesDistribution" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "OnDemandAllocationStrategy" : {
           "type" : "string"
@@ -96,20 +185,20 @@
       }
     },
     "AcceleratorCountRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "integer"
         },
-        "Max" : {
+        "Min" : {
           "type" : "integer"
         }
       }
     },
     "LifecycleHookSpecification" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "LifecycleHookName" : {
           "type" : "string"
@@ -136,31 +225,31 @@
       "required" : [ "LifecycleHookName", "LifecycleTransition" ]
     },
     "MemoryGiBPerVCpuRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "number"
         },
-        "Max" : {
+        "Min" : {
           "type" : "number"
         }
       }
     },
     "NotificationConfiguration" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "TopicARN" : {
-          "type" : [ "string", "array" ],
+          "type" : "array",
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
         },
         "NotificationTypes" : {
-          "uniqueItems" : false,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
@@ -169,106 +258,104 @@
       "required" : [ "TopicARN" ]
     },
     "MetricsCollection" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
+        "Granularity" : {
+          "type" : "string"
+        },
         "Metrics" : {
-          "uniqueItems" : false,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : false,
           "items" : {
             "type" : "string"
           }
-        },
-        "Granularity" : {
-          "type" : "string"
         }
       },
       "required" : [ "Granularity" ]
     },
     "TotalLocalStorageGBRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "number"
         },
-        "Max" : {
+        "Min" : {
           "type" : "number"
         }
       }
     },
     "MemoryMiBRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "integer"
         },
-        "Max" : {
+        "Min" : {
           "type" : "integer"
         }
       }
     },
     "NetworkBandwidthGbpsRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "number"
         },
-        "Max" : {
+        "Min" : {
           "type" : "number"
         }
       }
     },
     "BaselineEbsBandwidthMbpsRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "integer"
         },
-        "Max" : {
+        "Min" : {
           "type" : "integer"
         }
       }
     },
     "NetworkInterfaceCountRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "integer"
         },
-        "Max" : {
+        "Min" : {
           "type" : "integer"
         }
       }
     },
     "VCpuCountRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "integer"
         },
-        "Max" : {
+        "Min" : {
           "type" : "integer"
         }
       }
     },
     "LaunchTemplate" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "LaunchTemplateSpecification" : {
           "$ref" : "#/definitions/LaunchTemplateSpecification"
         },
         "Overrides" : {
-          "uniqueItems" : false,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/LaunchTemplateOverrides"
           }
@@ -277,8 +364,8 @@
       "required" : [ "LaunchTemplateSpecification" ]
     },
     "LaunchTemplateOverrides" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "LaunchTemplateSpecification" : {
           "$ref" : "#/definitions/LaunchTemplateSpecification"
@@ -295,46 +382,44 @@
       }
     },
     "AcceleratorTotalMemoryMiBRequest" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "Min" : {
+        "Max" : {
           "type" : "integer"
         },
-        "Max" : {
+        "Min" : {
           "type" : "integer"
         }
       }
     },
     "MixedInstancesPolicy" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
-        "InstancesDistribution" : {
-          "$ref" : "#/definitions/InstancesDistribution"
-        },
         "LaunchTemplate" : {
           "$ref" : "#/definitions/LaunchTemplate"
+        },
+        "InstancesDistribution" : {
+          "$ref" : "#/definitions/InstancesDistribution"
         }
       },
       "required" : [ "LaunchTemplate" ]
     },
     "InstanceRequirements" : {
-      "additionalProperties" : false,
       "type" : "object",
+      "additionalProperties" : false,
       "properties" : {
         "LocalStorageTypes" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
         },
         "InstanceGenerations" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -343,9 +428,8 @@
           "$ref" : "#/definitions/NetworkInterfaceCountRequest"
         },
         "AcceleratorTypes" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -354,17 +438,15 @@
           "$ref" : "#/definitions/MemoryGiBPerVCpuRequest"
         },
         "AcceleratorManufacturers" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
         },
         "ExcludedInstanceTypes" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -373,9 +455,8 @@
           "$ref" : "#/definitions/VCpuCountRequest"
         },
         "AllowedInstanceTypes" : {
-          "uniqueItems" : true,
-          "insertionOrder" : true,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -384,9 +465,8 @@
           "type" : "string"
         },
         "CpuManufacturers" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -410,9 +490,8 @@
           "type" : "integer"
         },
         "AcceleratorNames" : {
-          "uniqueItems" : true,
-          "insertionOrder" : false,
           "type" : "array",
+          "uniqueItems" : true,
           "items" : {
             "type" : "string"
           }
@@ -435,140 +514,8 @@
       }
     }
   },
-  "properties" : {
-    "LifecycleHookSpecificationList" : {
-      "uniqueItems" : false,
-      "insertionOrder" : true,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/LifecycleHookSpecification"
-      }
-    },
-    "LoadBalancerNames" : {
-      "uniqueItems" : false,
-      "insertionOrder" : true,
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "LaunchConfigurationName" : {
-      "type" : "string"
-    },
-    "ServiceLinkedRoleARN" : {
-      "type" : "string"
-    },
-    "TargetGroupARNs" : {
-      "uniqueItems" : false,
-      "insertionOrder" : true,
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "Cooldown" : {
-      "type" : "string"
-    },
-    "NotificationConfigurations" : {
-      "uniqueItems" : false,
-      "insertionOrder" : true,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/NotificationConfiguration"
-      }
-    },
-    "DesiredCapacity" : {
-      "pattern" : "^[0-9]+$",
-      "type" : "string"
-    },
-    "HealthCheckGracePeriod" : {
-      "type" : "integer"
-    },
-    "DefaultInstanceWarmup" : {
-      "type" : "integer"
-    },
-    "NewInstancesProtectedFromScaleIn" : {
-      "type" : "boolean"
-    },
-    "LaunchTemplate" : {
-      "$ref" : "#/definitions/LaunchTemplateSpecification"
-    },
-    "MixedInstancesPolicy" : {
-      "$ref" : "#/definitions/MixedInstancesPolicy"
-    },
-    "VPCZoneIdentifier" : {
-      "uniqueItems" : false,
-      "insertionOrder" : false,
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "Tags" : {
-      "insertionOrder" : false,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/TagProperty"
-      }
-    },
-    "Context" : {
-      "type" : "string"
-    },
-    "CapacityRebalance" : {
-      "type" : "boolean"
-    },
-    "InstanceId" : {
-      "type" : "string"
-    },
-    "AvailabilityZones" : {
-      "uniqueItems" : false,
-      "insertionOrder" : false,
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "NotificationConfiguration" : {
-      "$ref" : "#/definitions/NotificationConfiguration"
-    },
-    "MetricsCollection" : {
-      "uniqueItems" : false,
-      "insertionOrder" : true,
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/MetricsCollection"
-      }
-    },
-    "MaxSize" : {
-      "pattern" : "^[0-9]+$",
-      "type" : "string"
-    },
-    "MinSize" : {
-      "pattern" : "^[0-9]+$",
-      "type" : "string"
-    },
-    "TerminationPolicies" : {
-      "uniqueItems" : false,
-      "insertionOrder" : true,
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "AutoScalingGroupName" : {
-      "type" : "string"
-    },
-    "DesiredCapacityType" : {
-      "type" : "string"
-    },
-    "PlacementGroup" : {
-      "type" : "string"
-    },
-    "HealthCheckType" : {
-      "type" : "string"
-    },
-    "MaxInstanceLifetime" : {
-      "type" : "integer"
-    }
-  }
+  "required" : [ "MinSize", "MaxSize" ],
+  "createOnlyProperties" : [ "/properties/InstanceId", "/properties/AutoScalingGroupName" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ]
 }

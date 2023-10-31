@@ -1,6 +1,6 @@
+AWS::AutoScaling::AutoScalingGroup
 AWS::Cognito::IdentityPool
 AWS::EC2::SubnetNetworkAclAssociation
-AWS::Events::Rule
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig
