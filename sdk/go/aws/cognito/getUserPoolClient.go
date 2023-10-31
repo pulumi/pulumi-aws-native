@@ -24,7 +24,8 @@ func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, o
 }
 
 type LookupUserPoolClientArgs struct {
-	Id string `pulumi:"id"`
+	ClientId   string `pulumi:"clientId"`
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolClientResult struct {
@@ -35,13 +36,13 @@ type LookupUserPoolClientResult struct {
 	AnalyticsConfiguration                   *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	AuthSessionValidity                      *int                                  `pulumi:"authSessionValidity"`
 	CallbackUrls                             []string                              `pulumi:"callbackUrls"`
+	ClientId                                 *string                               `pulumi:"clientId"`
 	ClientName                               *string                               `pulumi:"clientName"`
 	ClientSecret                             *string                               `pulumi:"clientSecret"`
 	DefaultRedirectUri                       *string                               `pulumi:"defaultRedirectUri"`
 	EnablePropagateAdditionalUserContextData *bool                                 `pulumi:"enablePropagateAdditionalUserContextData"`
 	EnableTokenRevocation                    *bool                                 `pulumi:"enableTokenRevocation"`
 	ExplicitAuthFlows                        []string                              `pulumi:"explicitAuthFlows"`
-	Id                                       *string                               `pulumi:"id"`
 	IdTokenValidity                          *int                                  `pulumi:"idTokenValidity"`
 	LogoutUrls                               []string                              `pulumi:"logoutUrls"`
 	Name                                     *string                               `pulumi:"name"`
@@ -67,7 +68,8 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 }
 
 type LookupUserPoolClientOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	ClientId   pulumi.StringInput `pulumi:"clientId"`
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolClientOutputArgs) ElementType() reflect.Type {
@@ -124,6 +126,10 @@ func (o LookupUserPoolClientResultOutput) CallbackUrls() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.CallbackUrls }).(pulumi.StringArrayOutput)
 }
 
+func (o LookupUserPoolClientResultOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupUserPoolClientResultOutput) ClientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.ClientName }).(pulumi.StringPtrOutput)
 }
@@ -146,10 +152,6 @@ func (o LookupUserPoolClientResultOutput) EnableTokenRevocation() pulumi.BoolPtr
 
 func (o LookupUserPoolClientResultOutput) ExplicitAuthFlows() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.ExplicitAuthFlows }).(pulumi.StringArrayOutput)
-}
-
-func (o LookupUserPoolClientResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupUserPoolClientResultOutput) IdTokenValidity() pulumi.IntPtrOutput {

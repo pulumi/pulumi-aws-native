@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("parameterName")]
         public Input<string>? ParameterName { get; set; }
 
+        [Input("rollingDate")]
+        public Input<Inputs.DashboardRollingDateConfigurationArgs>? RollingDate { get; set; }
+
         [Input("timeGranularity")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardTimeGranularity>? TimeGranularity { get; set; }
 

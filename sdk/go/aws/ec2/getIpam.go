@@ -50,6 +50,8 @@ type LookupIpamResult struct {
 	ScopeCount *int `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []IpamTag `pulumi:"tags"`
+	// The tier of the IPAM.
+	Tier *IpamTier `pulumi:"tier"`
 }
 
 func LookupIpamOutput(ctx *pulumi.Context, args LookupIpamOutputArgs, opts ...pulumi.InvokeOption) LookupIpamResultOutput {
@@ -146,6 +148,11 @@ func (o LookupIpamResultOutput) ScopeCount() pulumi.IntPtrOutput {
 // An array of key-value pairs to apply to this resource.
 func (o LookupIpamResultOutput) Tags() IpamTagArrayOutput {
 	return o.ApplyT(func(v LookupIpamResult) []IpamTag { return v.Tags }).(IpamTagArrayOutput)
+}
+
+// The tier of the IPAM.
+func (o LookupIpamResultOutput) Tier() IpamTierPtrOutput {
+	return o.ApplyT(func(v LookupIpamResult) *IpamTier { return v.Tier }).(IpamTierPtrOutput)
 }
 
 func init() {

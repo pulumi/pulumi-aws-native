@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetBucketArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        /// </summary>
+        [Input("bucketName", required: true)]
+        public string BucketName { get; set; } = null!;
 
         public GetBucketArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class GetBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        /// </summary>
+        [Input("bucketName", required: true)]
+        public Input<string> BucketName { get; set; } = null!;
 
         public GetBucketInvokeArgs()
         {
@@ -51,36 +57,86 @@ namespace Pulumi.AwsNative.S3
     [OutputType]
     public sealed class GetBucketResult
     {
+        /// <summary>
+        /// Configuration for the transfer acceleration state.
+        /// </summary>
         public readonly Outputs.BucketAccelerateConfiguration? AccelerateConfiguration;
-        public readonly string? AccessControl;
+        /// <summary>
+        /// The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketAnalyticsConfiguration> AnalyticsConfigurations;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified bucket.
+        /// </summary>
         public readonly string? Arn;
         public readonly Outputs.BucketEncryption? BucketEncryption;
+        /// <summary>
+        /// Rules that define cross-origin resource sharing of objects in this bucket.
+        /// </summary>
         public readonly Outputs.BucketCorsConfiguration? CorsConfiguration;
+        /// <summary>
+        /// The IPv4 DNS name of the specified bucket.
+        /// </summary>
         public readonly string? DomainName;
+        /// <summary>
+        /// The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
+        /// </summary>
         public readonly string? DualStackDomainName;
-        public readonly string? Id;
+        /// <summary>
+        /// Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketIntelligentTieringConfiguration> IntelligentTieringConfigurations;
+        /// <summary>
+        /// The inventory configuration for an Amazon S3 bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketInventoryConfiguration> InventoryConfigurations;
+        /// <summary>
+        /// Rules that define how Amazon S3 manages objects during their lifetime.
+        /// </summary>
         public readonly Outputs.BucketLifecycleConfiguration? LifecycleConfiguration;
+        /// <summary>
+        /// Settings that define where logs are stored.
+        /// </summary>
         public readonly Outputs.BucketLoggingConfiguration? LoggingConfiguration;
+        /// <summary>
+        /// Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketMetricsConfiguration> MetricsConfigurations;
+        /// <summary>
+        /// Configuration that defines how Amazon S3 handles bucket notifications.
+        /// </summary>
         public readonly Outputs.BucketNotificationConfiguration? NotificationConfiguration;
+        /// <summary>
+        /// Places an Object Lock configuration on the specified bucket.
+        /// </summary>
         public readonly Outputs.BucketObjectLockConfiguration? ObjectLockConfiguration;
+        /// <summary>
+        /// Specifies the container element for object ownership rules.
+        /// </summary>
         public readonly Outputs.BucketOwnershipControls? OwnershipControls;
         public readonly Outputs.BucketPublicAccessBlockConfiguration? PublicAccessBlockConfiguration;
+        /// <summary>
+        /// Returns the regional domain name of the specified bucket.
+        /// </summary>
         public readonly string? RegionalDomainName;
+        /// <summary>
+        /// Configuration for replicating objects in an S3 bucket.
+        /// </summary>
         public readonly Outputs.BucketReplicationConfiguration? ReplicationConfiguration;
+        /// <summary>
+        /// An arbitrary set of tags (key-value pairs) for this S3 bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketTag> Tags;
         public readonly Outputs.BucketVersioningConfiguration? VersioningConfiguration;
         public readonly Outputs.BucketWebsiteConfiguration? WebsiteConfiguration;
+        /// <summary>
+        /// The Amazon S3 website endpoint for the specified bucket.
+        /// </summary>
         public readonly string? WebsiteUrl;
 
         [OutputConstructor]
         private GetBucketResult(
             Outputs.BucketAccelerateConfiguration? accelerateConfiguration,
-
-            string? accessControl,
 
             ImmutableArray<Outputs.BucketAnalyticsConfiguration> analyticsConfigurations,
 
@@ -93,8 +149,6 @@ namespace Pulumi.AwsNative.S3
             string? domainName,
 
             string? dualStackDomainName,
-
-            string? id,
 
             ImmutableArray<Outputs.BucketIntelligentTieringConfiguration> intelligentTieringConfigurations,
 
@@ -127,14 +181,12 @@ namespace Pulumi.AwsNative.S3
             string? websiteUrl)
         {
             AccelerateConfiguration = accelerateConfiguration;
-            AccessControl = accessControl;
             AnalyticsConfigurations = analyticsConfigurations;
             Arn = arn;
             BucketEncryption = bucketEncryption;
             CorsConfiguration = corsConfiguration;
             DomainName = domainName;
             DualStackDomainName = dualStackDomainName;
-            Id = id;
             IntelligentTieringConfigurations = intelligentTieringConfigurations;
             InventoryConfigurations = inventoryConfigurations;
             LifecycleConfiguration = lifecycleConfiguration;

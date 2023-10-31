@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetApiKey
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::ApiKey
+        /// The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
         /// </summary>
         public static Task<GetApiKeyResult> InvokeAsync(GetApiKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::ApiKey
+        /// The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
@@ -62,23 +62,23 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? ApiKeyId;
         /// <summary>
-        /// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+        /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
         /// </summary>
         public readonly string? CustomerId;
         /// <summary>
-        /// A description of the purpose of the API key.
+        /// The description of the ApiKey.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Indicates whether the API key can be used by clients.
+        /// Specifies whether the ApiKey can be used by callers.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A list of stages to associate with this API key.
+        /// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiKeyStageKey> StageKeys;
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the API key.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiKeyTag> Tags;
 

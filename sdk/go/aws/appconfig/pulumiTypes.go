@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 
 // Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ApplicationTags struct {
-	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	// The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
 	Key string `pulumi:"key"`
 	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
@@ -35,7 +35,7 @@ type ApplicationTagsInput interface {
 
 // Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ApplicationTagsArgs struct {
-	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	// The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The tag value can be up to 256 characters.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -111,7 +111,7 @@ func (o ApplicationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[Appl
 	}
 }
 
-// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+// The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
 func (o ApplicationTagsOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationTags) string { return v.Key }).(pulumi.StringOutput)
 }

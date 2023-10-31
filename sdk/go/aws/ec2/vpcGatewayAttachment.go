@@ -14,14 +14,17 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::VPCGatewayAttachment
-//
-// Deprecated: VpcGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type VpcGatewayAttachment struct {
 	pulumi.CustomResourceState
 
+	// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
+	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
+	// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 	InternetGatewayId pulumi.StringPtrOutput `pulumi:"internetGatewayId"`
-	VpcId             pulumi.StringOutput    `pulumi:"vpcId"`
-	VpnGatewayId      pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
+	// The ID of the VPC.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+	VpnGatewayId pulumi.StringPtrOutput `pulumi:"vpnGatewayId"`
 }
 
 // NewVpcGatewayAttachment registers a new resource with the given unique name, arguments, and options.
@@ -34,6 +37,10 @@ func NewVpcGatewayAttachment(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"vpcId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcGatewayAttachment
 	err := ctx.RegisterResource("aws-native:ec2:VpcGatewayAttachment", name, args, &resource, opts...)
@@ -67,16 +74,22 @@ func (VpcGatewayAttachmentState) ElementType() reflect.Type {
 }
 
 type vpcGatewayAttachmentArgs struct {
+	// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	VpcId             string  `pulumi:"vpcId"`
-	VpnGatewayId      *string `pulumi:"vpnGatewayId"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
+	// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 // The set of arguments for constructing a VpcGatewayAttachment resource.
 type VpcGatewayAttachmentArgs struct {
+	// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 	InternetGatewayId pulumi.StringPtrInput
-	VpcId             pulumi.StringInput
-	VpnGatewayId      pulumi.StringPtrInput
+	// The ID of the VPC.
+	VpcId pulumi.StringInput
+	// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+	VpnGatewayId pulumi.StringPtrInput
 }
 
 func (VpcGatewayAttachmentArgs) ElementType() reflect.Type {
@@ -128,14 +141,22 @@ func (o VpcGatewayAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
+func (o VpcGatewayAttachmentOutput) AttachmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcGatewayAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
+}
+
+// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 func (o VpcGatewayAttachmentOutput) InternetGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcGatewayAttachment) pulumi.StringPtrOutput { return v.InternetGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the VPC.
 func (o VpcGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
+// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 func (o VpcGatewayAttachmentOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcGatewayAttachment) pulumi.StringPtrOutput { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

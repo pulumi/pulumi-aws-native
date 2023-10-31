@@ -12,16 +12,30 @@ namespace Pulumi.AwsNative.Ec2
     /// <summary>
     /// Resource Type definition for AWS::EC2::VPCGatewayAttachment
     /// </summary>
-    [Obsolete(@"VpcGatewayAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ec2:VpcGatewayAttachment")]
     public partial class VpcGatewayAttachment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// </summary>
+        [Output("attachmentType")]
+        public Output<string> AttachmentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+        /// </summary>
         [Output("internetGatewayId")]
         public Output<string?> InternetGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+        /// </summary>
         [Output("vpnGatewayId")]
         public Output<string?> VpnGatewayId { get; private set; } = null!;
 
@@ -48,6 +62,10 @@ namespace Pulumi.AwsNative.Ec2
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                ReplaceOnChanges =
+                {
+                    "vpcId",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -70,12 +88,21 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class VpcGatewayAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+        /// </summary>
         [Input("internetGatewayId")]
         public Input<string>? InternetGatewayId { get; set; }
 
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+        /// </summary>
         [Input("vpnGatewayId")]
         public Input<string>? VpnGatewayId { get; set; }
 

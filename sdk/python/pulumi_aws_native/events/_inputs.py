@@ -1010,6 +1010,7 @@ class RuleRedshiftDataParametersArgs:
                  db_user: Optional[pulumi.Input[str]] = None,
                  secret_manager_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
+                 sqls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None):
         pulumi.set(__self__, "database", database)
@@ -1019,6 +1020,8 @@ class RuleRedshiftDataParametersArgs:
             pulumi.set(__self__, "secret_manager_arn", secret_manager_arn)
         if sql is not None:
             pulumi.set(__self__, "sql", sql)
+        if sqls is not None:
+            pulumi.set(__self__, "sqls", sqls)
         if statement_name is not None:
             pulumi.set(__self__, "statement_name", statement_name)
         if with_event is not None:
@@ -1059,6 +1062,15 @@ class RuleRedshiftDataParametersArgs:
     @sql.setter
     def sql(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sql", value)
+
+    @property
+    @pulumi.getter
+    def sqls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "sqls")
+
+    @sqls.setter
+    def sqls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "sqls", value)
 
     @property
     @pulumi.getter(name="statementName")

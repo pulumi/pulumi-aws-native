@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolClientArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public string ClientId { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolClientArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetUserPoolClientInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
+
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolClientInvokeArgs()
         {
@@ -58,13 +64,13 @@ namespace Pulumi.AwsNative.Cognito
         public readonly Outputs.UserPoolClientAnalyticsConfiguration? AnalyticsConfiguration;
         public readonly int? AuthSessionValidity;
         public readonly ImmutableArray<string> CallbackUrls;
+        public readonly string? ClientId;
         public readonly string? ClientName;
         public readonly string? ClientSecret;
         public readonly string? DefaultRedirectUri;
         public readonly bool? EnablePropagateAdditionalUserContextData;
         public readonly bool? EnableTokenRevocation;
         public readonly ImmutableArray<string> ExplicitAuthFlows;
-        public readonly string? Id;
         public readonly int? IdTokenValidity;
         public readonly ImmutableArray<string> LogoutUrls;
         public readonly string? Name;
@@ -91,6 +97,8 @@ namespace Pulumi.AwsNative.Cognito
 
             ImmutableArray<string> callbackUrls,
 
+            string? clientId,
+
             string? clientName,
 
             string? clientSecret,
@@ -102,8 +110,6 @@ namespace Pulumi.AwsNative.Cognito
             bool? enableTokenRevocation,
 
             ImmutableArray<string> explicitAuthFlows,
-
-            string? id,
 
             int? idTokenValidity,
 
@@ -130,13 +136,13 @@ namespace Pulumi.AwsNative.Cognito
             AnalyticsConfiguration = analyticsConfiguration;
             AuthSessionValidity = authSessionValidity;
             CallbackUrls = callbackUrls;
+            ClientId = clientId;
             ClientName = clientName;
             ClientSecret = clientSecret;
             DefaultRedirectUri = defaultRedirectUri;
             EnablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
             EnableTokenRevocation = enableTokenRevocation;
             ExplicitAuthFlows = explicitAuthFlows;
-            Id = id;
             IdTokenValidity = idTokenValidity;
             LogoutUrls = logoutUrls;
             Name = name;

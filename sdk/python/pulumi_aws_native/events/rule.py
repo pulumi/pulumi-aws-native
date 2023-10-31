@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RuleArgs', 'Rule']
@@ -18,14 +19,23 @@ class RuleArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
-                 event_pattern: Optional[Any] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['RuleState']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
+        :param pulumi.Input[str] description: The description of the rule.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        :param pulumi.Input[str] event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        :param pulumi.Input['RuleState'] state: The state of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+               Targets are the resources that are invoked when a rule is triggered.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -47,6 +57,9 @@ class RuleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,6 +69,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -64,16 +80,22 @@ class RuleArgs:
 
     @property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[Any]:
+    def event_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        """
         return pulumi.get(self, "event_pattern")
 
     @event_pattern.setter
-    def event_pattern(self, value: Optional[Any]):
+    def event_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_pattern", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the rule.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -83,6 +105,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -92,6 +117,9 @@ class RuleArgs:
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -100,16 +128,23 @@ class RuleArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input['RuleState']]:
+        """
+        The state of the rule.
+        """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input['RuleState']]):
         pulumi.set(self, "state", value)
 
     @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleTargetArgs']]]]:
+        """
+        Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        Targets are the resources that are invoked when a rule is triggered.
+        """
         return pulumi.get(self, "targets")
 
     @targets.setter
@@ -124,11 +159,11 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
-                 event_pattern: Optional[Any] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['RuleState']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTargetArgs']]]]] = None,
                  __props__=None):
         """
@@ -136,6 +171,15 @@ class Rule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the rule.
+        :param pulumi.Input[str] event_bus_name: The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        :param pulumi.Input[str] event_pattern: The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        :param pulumi.Input[str] schedule_expression: The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        :param pulumi.Input['RuleState'] state: The state of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTargetArgs']]]] targets: Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+               Targets are the resources that are invoked when a rule is triggered.
         """
         ...
     @overload
@@ -163,11 +207,11 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  event_bus_name: Optional[pulumi.Input[str]] = None,
-                 event_pattern: Optional[Any] = None,
+                 event_pattern: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['RuleState']] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleTargetArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -187,7 +231,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["state"] = state
             __props__.__dict__["targets"] = targets
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["event_bus_name", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
             'aws-native:events:Rule',
@@ -225,45 +269,73 @@ class Rule(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        """
         return pulumi.get(self, "event_bus_name")
 
     @property
     @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> pulumi.Output[Optional[Any]]:
+    def event_pattern(self) -> pulumi.Output[Optional[str]]:
+        """
+        The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        """
         return pulumi.get(self, "event_pattern")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the rule.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[Optional[str]]:
+        """
+        The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional[str]]:
+    def state(self) -> pulumi.Output[Optional['RuleState']]:
+        """
+        The state of the rule.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional[Sequence['outputs.RuleTarget']]]:
+        """
+        Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        Targets are the resources that are invoked when a rule is triggered.
+        """
         return pulumi.get(self, "targets")
 

@@ -24,14 +24,19 @@ func LookupVpcGatewayAttachment(ctx *pulumi.Context, args *LookupVpcGatewayAttac
 }
 
 type LookupVpcGatewayAttachmentArgs struct {
-	Id string `pulumi:"id"`
+	// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
+	AttachmentType string `pulumi:"attachmentType"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 type LookupVpcGatewayAttachmentResult struct {
-	Id                *string `pulumi:"id"`
+	// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
+	AttachmentType *string `pulumi:"attachmentType"`
+	// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
-	VpcId             *string `pulumi:"vpcId"`
-	VpnGatewayId      *string `pulumi:"vpnGatewayId"`
+	// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 func LookupVpcGatewayAttachmentOutput(ctx *pulumi.Context, args LookupVpcGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcGatewayAttachmentResultOutput {
@@ -48,7 +53,10 @@ func LookupVpcGatewayAttachmentOutput(ctx *pulumi.Context, args LookupVpcGateway
 }
 
 type LookupVpcGatewayAttachmentOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
+	AttachmentType pulumi.StringInput `pulumi:"attachmentType"`
+	// The ID of the VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (LookupVpcGatewayAttachmentOutputArgs) ElementType() reflect.Type {
@@ -75,18 +83,17 @@ func (o LookupVpcGatewayAttachmentResultOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-func (o LookupVpcGatewayAttachmentResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVpcGatewayAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment
+func (o LookupVpcGatewayAttachmentResultOutput) AttachmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcGatewayAttachmentResult) *string { return v.AttachmentType }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 func (o LookupVpcGatewayAttachmentResultOutput) InternetGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcGatewayAttachmentResult) *string { return v.InternetGatewayId }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupVpcGatewayAttachmentResultOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVpcGatewayAttachmentResult) *string { return v.VpcId }).(pulumi.StringPtrOutput)
-}
-
+// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
 func (o LookupVpcGatewayAttachmentResultOutput) VpnGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcGatewayAttachmentResult) *string { return v.VpnGatewayId }).(pulumi.StringPtrOutput)
 }

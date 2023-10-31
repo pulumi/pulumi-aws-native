@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppConfig.Inputs
     public sealed class ApplicationTagsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        /// The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

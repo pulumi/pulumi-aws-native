@@ -10,43 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::UsagePlan
+    /// The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+    ///  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:UsagePlan")]
     public partial class UsagePlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The API stages to associate with this usage plan.
+        /// The associated API stages of a usage plan.
         /// </summary>
         [Output("apiStages")]
         public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the usage plan.
+        /// The description of a usage plan.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the number of requests that users can make within a given interval.
+        /// The target maximum number of permitted requests per a given unit time interval.
         /// </summary>
         [Output("quota")]
         public Output<Outputs.UsagePlanQuotaSettings?> Quota { get; private set; } = null!;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.UsagePlanTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the overall request rate (average requests per second) and burst capacity.
+        /// A map containing method level throttling information for API stage in a usage plan.
         /// </summary>
         [Output("throttle")]
         public Output<Outputs.UsagePlanThrottleSettings?> Throttle { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the usage plan.
+        /// The name of a usage plan.
         /// </summary>
         [Output("usagePlanName")]
         public Output<string?> UsagePlanName { get; private set; } = null!;
@@ -100,7 +101,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
 
         /// <summary>
-        /// The API stages to associate with this usage plan.
+        /// The associated API stages of a usage plan.
         /// </summary>
         public InputList<Inputs.UsagePlanApiStageArgs> ApiStages
         {
@@ -109,13 +110,13 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// A description of the usage plan.
+        /// The description of a usage plan.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configures the number of requests that users can make within a given interval.
+        /// The target maximum number of permitted requests per a given unit time interval.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? Quota { get; set; }
@@ -124,7 +125,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.UsagePlanTagArgs>? _tags;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public InputList<Inputs.UsagePlanTagArgs> Tags
         {
@@ -133,13 +134,13 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// Configures the overall request rate (average requests per second) and burst capacity.
+        /// A map containing method level throttling information for API stage in a usage plan.
         /// </summary>
         [Input("throttle")]
         public Input<Inputs.UsagePlanThrottleSettingsArgs>? Throttle { get; set; }
 
         /// <summary>
-        /// A name for the usage plan.
+        /// The name of a usage plan.
         /// </summary>
         [Input("usagePlanName")]
         public Input<string>? UsagePlanName { get; set; }

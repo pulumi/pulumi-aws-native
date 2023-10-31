@@ -42,6 +42,7 @@ export class SchemaMapping extends pulumi.CustomResource {
      * The description of the SchemaMapping
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hasWorkflows!: pulumi.Output<boolean>;
     /**
      * The SchemaMapping attributes input
      */
@@ -76,11 +77,13 @@ export class SchemaMapping extends pulumi.CustomResource {
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["hasWorkflows"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["hasWorkflows"] = undefined /*out*/;
             resourceInputs["mappedInputFields"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
             resourceInputs["schemaName"] = undefined /*out*/;
@@ -88,7 +91,7 @@ export class SchemaMapping extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "mappedInputFields[*]", "schemaName"] };
+        const replaceOnChanges = { replaceOnChanges: ["schemaName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SchemaMapping.__pulumiType, name, resourceInputs, opts);
     }

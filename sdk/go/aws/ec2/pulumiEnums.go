@@ -5469,6 +5469,189 @@ func (o IpamScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The tier of the IPAM.
+type IpamTier string
+
+const (
+	IpamTierFree     = IpamTier("free")
+	IpamTierAdvanced = IpamTier("advanced")
+)
+
+func (IpamTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamTier)(nil)).Elem()
+}
+
+func (e IpamTier) ToIpamTierOutput() IpamTierOutput {
+	return pulumi.ToOutput(e).(IpamTierOutput)
+}
+
+func (e IpamTier) ToIpamTierOutputWithContext(ctx context.Context) IpamTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpamTierOutput)
+}
+
+func (e IpamTier) ToIpamTierPtrOutput() IpamTierPtrOutput {
+	return e.ToIpamTierPtrOutputWithContext(context.Background())
+}
+
+func (e IpamTier) ToIpamTierPtrOutputWithContext(ctx context.Context) IpamTierPtrOutput {
+	return IpamTier(e).ToIpamTierOutputWithContext(ctx).ToIpamTierPtrOutputWithContext(ctx)
+}
+
+func (e IpamTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IpamTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IpamTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IpamTierOutput struct{ *pulumi.OutputState }
+
+func (IpamTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamTier)(nil)).Elem()
+}
+
+func (o IpamTierOutput) ToIpamTierOutput() IpamTierOutput {
+	return o
+}
+
+func (o IpamTierOutput) ToIpamTierOutputWithContext(ctx context.Context) IpamTierOutput {
+	return o
+}
+
+func (o IpamTierOutput) ToIpamTierPtrOutput() IpamTierPtrOutput {
+	return o.ToIpamTierPtrOutputWithContext(context.Background())
+}
+
+func (o IpamTierOutput) ToIpamTierPtrOutputWithContext(ctx context.Context) IpamTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamTier) *IpamTier {
+		return &v
+	}).(IpamTierPtrOutput)
+}
+
+func (o IpamTierOutput) ToOutput(ctx context.Context) pulumix.Output[IpamTier] {
+	return pulumix.Output[IpamTier]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o IpamTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamTierPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamTier)(nil)).Elem()
+}
+
+func (o IpamTierPtrOutput) ToIpamTierPtrOutput() IpamTierPtrOutput {
+	return o
+}
+
+func (o IpamTierPtrOutput) ToIpamTierPtrOutputWithContext(ctx context.Context) IpamTierPtrOutput {
+	return o
+}
+
+func (o IpamTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamTier] {
+	return pulumix.Output[*IpamTier]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o IpamTierPtrOutput) Elem() IpamTierOutput {
+	return o.ApplyT(func(v *IpamTier) IpamTier {
+		if v != nil {
+			return *v
+		}
+		var ret IpamTier
+		return ret
+	}).(IpamTierOutput)
+}
+
+func (o IpamTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IpamTierInput is an input type that accepts IpamTierArgs and IpamTierOutput values.
+// You can construct a concrete instance of `IpamTierInput` via:
+//
+//	IpamTierArgs{...}
+type IpamTierInput interface {
+	pulumi.Input
+
+	ToIpamTierOutput() IpamTierOutput
+	ToIpamTierOutputWithContext(context.Context) IpamTierOutput
+}
+
+var ipamTierPtrType = reflect.TypeOf((**IpamTier)(nil)).Elem()
+
+type IpamTierPtrInput interface {
+	pulumi.Input
+
+	ToIpamTierPtrOutput() IpamTierPtrOutput
+	ToIpamTierPtrOutputWithContext(context.Context) IpamTierPtrOutput
+}
+
+type ipamTierPtr string
+
+func IpamTierPtr(v string) IpamTierPtrInput {
+	return (*ipamTierPtr)(&v)
+}
+
+func (*ipamTierPtr) ElementType() reflect.Type {
+	return ipamTierPtrType
+}
+
+func (in *ipamTierPtr) ToIpamTierPtrOutput() IpamTierPtrOutput {
+	return pulumi.ToOutput(in).(IpamTierPtrOutput)
+}
+
+func (in *ipamTierPtr) ToIpamTierPtrOutputWithContext(ctx context.Context) IpamTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpamTierPtrOutput)
+}
+
+func (in *ipamTierPtr) ToOutput(ctx context.Context) pulumix.Output[*IpamTier] {
+	return pulumix.Output[*IpamTier]{
+		OutputState: in.ToIpamTierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The format of the private key
 type KeyPairKeyFormat string
 
@@ -10861,6 +11044,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolAwsServicePtrInput)(nil)).Elem(), IpamPoolAwsService("ec2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourceInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IpamPoolPublicIpSourcePtrInput)(nil)).Elem(), IpamPoolPublicIpSource("byoip"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamTierInput)(nil)).Elem(), IpamTier("free"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpamTierPtrInput)(nil)).Elem(), IpamTier("free"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyFormatInput)(nil)).Elem(), KeyPairKeyFormat("pem"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyFormatPtrInput)(nil)).Elem(), KeyPairKeyFormat("pem"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyPairKeyTypeInput)(nil)).Elem(), KeyPairKeyType("rsa"))
@@ -10982,6 +11167,8 @@ func init() {
 	pulumi.RegisterOutputType(IpamPoolStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(IpamScopeTypeOutput{})
 	pulumi.RegisterOutputType(IpamScopeTypePtrOutput{})
+	pulumi.RegisterOutputType(IpamTierOutput{})
+	pulumi.RegisterOutputType(IpamTierPtrOutput{})
 	pulumi.RegisterOutputType(KeyPairKeyFormatOutput{})
 	pulumi.RegisterOutputType(KeyPairKeyFormatPtrOutput{})
 	pulumi.RegisterOutputType(KeyPairKeyTypeOutput{})

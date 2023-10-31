@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::RequestValidator
+ * The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
  */
 export class RequestValidator extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class RequestValidator extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the request validator.
+     * The name of this RequestValidator
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
@@ -43,15 +43,15 @@ export class RequestValidator extends pulumi.CustomResource {
      */
     public /*out*/ readonly requestValidatorId!: pulumi.Output<string>;
     /**
-     * The identifier of the targeted API entity.
+     * The string identifier of the associated RestApi.
      */
     public readonly restApiId!: pulumi.Output<string>;
     /**
-     * Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+     * A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
      */
     public readonly validateRequestBody!: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether to validate request parameters.
+     * A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
      */
     public readonly validateRequestParameters!: pulumi.Output<boolean | undefined>;
 
@@ -93,19 +93,19 @@ export class RequestValidator extends pulumi.CustomResource {
  */
 export interface RequestValidatorArgs {
     /**
-     * Name of the request validator.
+     * The name of this RequestValidator
      */
     name?: pulumi.Input<string>;
     /**
-     * The identifier of the targeted API entity.
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
     /**
-     * Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+     * A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
      */
     validateRequestBody?: pulumi.Input<boolean>;
     /**
-     * Indicates whether to validate request parameters.
+     * A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
      */
     validateRequestParameters?: pulumi.Input<boolean>;
 }

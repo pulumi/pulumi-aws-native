@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::RequestValidator
+// The “AWS::ApiGateway::RequestValidator“ resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 func LookupRequestValidator(ctx *pulumi.Context, args *LookupRequestValidatorArgs, opts ...pulumi.InvokeOption) (*LookupRequestValidatorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRequestValidatorResult
@@ -26,16 +26,16 @@ func LookupRequestValidator(ctx *pulumi.Context, args *LookupRequestValidatorArg
 type LookupRequestValidatorArgs struct {
 	// ID of the request validator.
 	RequestValidatorId string `pulumi:"requestValidatorId"`
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupRequestValidatorResult struct {
 	// ID of the request validator.
 	RequestValidatorId *string `pulumi:"requestValidatorId"`
-	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// Indicates whether to validate request parameters.
+	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
 	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
 }
 
@@ -55,7 +55,7 @@ func LookupRequestValidatorOutput(ctx *pulumi.Context, args LookupRequestValidat
 type LookupRequestValidatorOutputArgs struct {
 	// ID of the request validator.
 	RequestValidatorId pulumi.StringInput `pulumi:"requestValidatorId"`
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
 
@@ -88,12 +88,12 @@ func (o LookupRequestValidatorResultOutput) RequestValidatorId() pulumi.StringPt
 	return o.ApplyT(func(v LookupRequestValidatorResult) *string { return v.RequestValidatorId }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 func (o LookupRequestValidatorResultOutput) ValidateRequestBody() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRequestValidatorResult) *bool { return v.ValidateRequestBody }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether to validate request parameters.
+// A Boolean flag to indicate whether to validate request parameters (“true“) or not (“false“).
 func (o LookupRequestValidatorResultOutput) ValidateRequestParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupRequestValidatorResult) *bool { return v.ValidateRequestParameters }).(pulumi.BoolPtrOutput)
 }

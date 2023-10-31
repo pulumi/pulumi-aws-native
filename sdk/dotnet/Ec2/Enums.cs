@@ -914,6 +914,37 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The tier of the IPAM.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamTier : IEquatable<IpamTier>
+    {
+        private readonly string _value;
+
+        private IpamTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamTier Free { get; } = new IpamTier("free");
+        public static IpamTier Advanced { get; } = new IpamTier("advanced");
+
+        public static bool operator ==(IpamTier left, IpamTier right) => left.Equals(right);
+        public static bool operator !=(IpamTier left, IpamTier right) => !left.Equals(right);
+
+        public static explicit operator string(IpamTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamTier other && Equals(other);
+        public bool Equals(IpamTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format of the private key
     /// </summary>
     [EnumType]

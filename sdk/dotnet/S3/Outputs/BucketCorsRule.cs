@@ -10,21 +10,42 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+    /// </summary>
     [OutputType]
     public sealed class BucketCorsRule
     {
+        /// <summary>
+        /// Headers that are specified in the Access-Control-Request-Headers header.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
-        public readonly ImmutableArray<string> AllowedMethods;
+        /// <summary>
+        /// An HTTP method that you allow the origin to execute.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem> AllowedMethods;
+        /// <summary>
+        /// One or more origins you want customers to be able to access the bucket from.
+        /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
+        /// <summary>
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+        /// </summary>
         public readonly ImmutableArray<string> ExposedHeaders;
+        /// <summary>
+        /// A unique identifier for this rule.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The time in seconds that your browser is to cache the preflight response for the specified resource.
+        /// </summary>
         public readonly int? MaxAge;
 
         [OutputConstructor]
         private BucketCorsRule(
             ImmutableArray<string> allowedHeaders,
 
-            ImmutableArray<string> allowedMethods,
+            ImmutableArray<Pulumi.AwsNative.S3.BucketCorsRuleAllowedMethodsItem> allowedMethods,
 
             ImmutableArray<string> allowedOrigins,
 

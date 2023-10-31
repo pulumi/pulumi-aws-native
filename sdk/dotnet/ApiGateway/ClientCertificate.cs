@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::ClientCertificate
+    /// The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:ClientCertificate")]
     public partial class ClientCertificate : global::Pulumi.CustomResource
@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> ClientCertificateId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the client certificate.
+        /// The description of the client certificate.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ClientCertificateTag>> Tags { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class ClientCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the client certificate.
+        /// The description of the client certificate.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.ClientCertificateTagArgs>? _tags;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public InputList<Inputs.ClientCertificateTagArgs> Tags
         {

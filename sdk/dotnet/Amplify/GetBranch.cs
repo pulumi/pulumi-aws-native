@@ -52,6 +52,7 @@ namespace Pulumi.AwsNative.Amplify
     public sealed class GetBranchResult
     {
         public readonly string? Arn;
+        public readonly Outputs.BranchBackend? Backend;
         public readonly string? BuildSpec;
         public readonly string? Description;
         public readonly bool? EnableAutoBuild;
@@ -66,6 +67,8 @@ namespace Pulumi.AwsNative.Amplify
         [OutputConstructor]
         private GetBranchResult(
             string? arn,
+
+            Outputs.BranchBackend? backend,
 
             string? buildSpec,
 
@@ -88,6 +91,7 @@ namespace Pulumi.AwsNative.Amplify
             ImmutableArray<Outputs.BranchTag> tags)
         {
             Arn = arn;
+            Backend = backend;
             BuildSpec = buildSpec;
             Description = description;
             EnableAutoBuild = enableAutoBuild;

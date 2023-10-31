@@ -24,6 +24,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("scrollStatus")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTableTotalsScrollStatus>? ScrollStatus { get; set; }
 
+        [Input("totalAggregationOptions")]
+        private InputList<Inputs.AnalysisTotalAggregationOptionArgs>? _totalAggregationOptions;
+        public InputList<Inputs.AnalysisTotalAggregationOptionArgs> TotalAggregationOptions
+        {
+            get => _totalAggregationOptions ?? (_totalAggregationOptions = new InputList<Inputs.AnalysisTotalAggregationOptionArgs>());
+            set => _totalAggregationOptions = value;
+        }
+
         [Input("totalCellStyle")]
         public Input<Inputs.AnalysisTableCellStyleArgs>? TotalCellStyle { get; set; }
 

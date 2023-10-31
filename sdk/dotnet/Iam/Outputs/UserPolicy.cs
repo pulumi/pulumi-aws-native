@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Iam.Outputs
 {
 
+    /// <summary>
+    /// Contains information about an attached policy.
+    /// </summary>
     [OutputType]
     public sealed class UserPolicy
     {
+        /// <summary>
+        /// The policy document.
+        /// </summary>
         public readonly object PolicyDocument;
+        /// <summary>
+        /// The friendly name (not ARN) identifying the policy.
+        /// </summary>
         public readonly string PolicyName;
 
         [OutputConstructor]

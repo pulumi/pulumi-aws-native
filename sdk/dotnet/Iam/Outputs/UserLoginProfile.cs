@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Iam.Outputs
 {
 
+    /// <summary>
+    /// Contains the user name and password create date for a user.
+    /// </summary>
     [OutputType]
     public sealed class UserLoginProfile
     {
+        /// <summary>
+        /// The user's password.
+        /// </summary>
         public readonly string Password;
+        /// <summary>
+        /// Specifies whether the user is required to set a new password on next sign-in.
+        /// </summary>
         public readonly bool? PasswordResetRequired;
 
         [OutputConstructor]

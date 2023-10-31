@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// The topic to which notifications are sent and the events for which notifications are generated.
+    /// </summary>
     [OutputType]
     public sealed class BucketTopicConfiguration
     {
+        /// <summary>
+        /// The Amazon S3 bucket event about which to send notifications.
+        /// </summary>
         public readonly string Event;
+        /// <summary>
+        /// The filtering rules that determine for which objects to send notifications.
+        /// </summary>
         public readonly Outputs.BucketNotificationFilter? Filter;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
+        /// </summary>
         public readonly string Topic;
 
         [OutputConstructor]

@@ -78,6 +78,10 @@ export class Ipam extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.ec2.IpamTag[] | undefined>;
+    /**
+     * The tier of the IPAM.
+     */
+    public readonly tier!: pulumi.Output<enums.ec2.IpamTier | undefined>;
 
     /**
      * Create a Ipam resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class Ipam extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryAssociationId"] = undefined /*out*/;
             resourceInputs["defaultResourceDiscoveryId"] = undefined /*out*/;
@@ -113,6 +118,7 @@ export class Ipam extends pulumi.CustomResource {
             resourceInputs["resourceDiscoveryAssociationCount"] = undefined /*out*/;
             resourceInputs["scopeCount"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Ipam.__pulumiType, name, resourceInputs, opts);
@@ -132,4 +138,8 @@ export interface IpamArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.ec2.IpamTagArgs>[]>;
+    /**
+     * The tier of the IPAM.
+     */
+    tier?: pulumi.Input<enums.ec2.IpamTier>;
 }

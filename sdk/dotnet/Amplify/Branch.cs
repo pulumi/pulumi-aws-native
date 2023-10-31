@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Amplify
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("backend")]
+        public Output<Outputs.BranchBackend?> Backend { get; private set; } = null!;
+
         [Output("basicAuthConfig")]
         public Output<Outputs.BranchBasicAuthConfig?> BasicAuthConfig { get; private set; } = null!;
 
@@ -109,6 +112,9 @@ namespace Pulumi.AwsNative.Amplify
     {
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
+
+        [Input("backend")]
+        public Input<Inputs.BranchBackendArgs>? Backend { get; set; }
 
         [Input("basicAuthConfig")]
         public Input<Inputs.BranchBasicAuthConfigArgs>? BasicAuthConfig { get; set; }

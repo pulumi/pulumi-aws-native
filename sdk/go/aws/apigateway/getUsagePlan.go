@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::UsagePlan
+// The “AWS::ApiGateway::UsagePlan“ resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+//
+//	In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 func LookupUsagePlan(ctx *pulumi.Context, args *LookupUsagePlanArgs, opts ...pulumi.InvokeOption) (*LookupUsagePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUsagePlanResult
@@ -29,19 +31,19 @@ type LookupUsagePlanArgs struct {
 }
 
 type LookupUsagePlanResult struct {
-	// The API stages to associate with this usage plan.
+	// The associated API stages of a usage plan.
 	ApiStages []UsagePlanApiStage `pulumi:"apiStages"`
-	// A description of the usage plan.
+	// The description of a usage plan.
 	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id *string `pulumi:"id"`
-	// Configures the number of requests that users can make within a given interval.
+	// The target maximum number of permitted requests per a given unit time interval.
 	Quota *UsagePlanQuotaSettings `pulumi:"quota"`
-	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []UsagePlanTag `pulumi:"tags"`
-	// Configures the overall request rate (average requests per second) and burst capacity.
+	// A map containing method level throttling information for API stage in a usage plan.
 	Throttle *UsagePlanThrottleSettings `pulumi:"throttle"`
-	// A name for the usage plan.
+	// The name of a usage plan.
 	UsagePlanName *string `pulumi:"usagePlanName"`
 }
 
@@ -87,12 +89,12 @@ func (o LookupUsagePlanResultOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// The API stages to associate with this usage plan.
+// The associated API stages of a usage plan.
 func (o LookupUsagePlanResultOutput) ApiStages() UsagePlanApiStageArrayOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) []UsagePlanApiStage { return v.ApiStages }).(UsagePlanApiStageArrayOutput)
 }
 
-// A description of the usage plan.
+// The description of a usage plan.
 func (o LookupUsagePlanResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -102,22 +104,22 @@ func (o LookupUsagePlanResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Configures the number of requests that users can make within a given interval.
+// The target maximum number of permitted requests per a given unit time interval.
 func (o LookupUsagePlanResultOutput) Quota() UsagePlanQuotaSettingsPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *UsagePlanQuotaSettings { return v.Quota }).(UsagePlanQuotaSettingsPtrOutput)
 }
 
-// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+// The collection of tags. Each tag element is associated with a given resource.
 func (o LookupUsagePlanResultOutput) Tags() UsagePlanTagArrayOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) []UsagePlanTag { return v.Tags }).(UsagePlanTagArrayOutput)
 }
 
-// Configures the overall request rate (average requests per second) and burst capacity.
+// A map containing method level throttling information for API stage in a usage plan.
 func (o LookupUsagePlanResultOutput) Throttle() UsagePlanThrottleSettingsPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *UsagePlanThrottleSettings { return v.Throttle }).(UsagePlanThrottleSettingsPtrOutput)
 }
 
-// A name for the usage plan.
+// The name of a usage plan.
 func (o LookupUsagePlanResultOutput) UsagePlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *string { return v.UsagePlanName }).(pulumi.StringPtrOutput)
 }

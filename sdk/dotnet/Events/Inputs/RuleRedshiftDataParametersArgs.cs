@@ -24,6 +24,14 @@ namespace Pulumi.AwsNative.Events.Inputs
         [Input("sql")]
         public Input<string>? Sql { get; set; }
 
+        [Input("sqls")]
+        private InputList<string>? _sqls;
+        public InputList<string> Sqls
+        {
+            get => _sqls ?? (_sqls = new InputList<string>());
+            set => _sqls = value;
+        }
+
         [Input("statementName")]
         public Input<string>? StatementName { get; set; }
 

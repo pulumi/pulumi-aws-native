@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisDataPathValue
     {
-        public readonly string FieldId;
-        public readonly string FieldValue;
+        public readonly Outputs.AnalysisDataPathType? DataPathType;
+        public readonly string? FieldId;
+        public readonly string? FieldValue;
 
         [OutputConstructor]
         private AnalysisDataPathValue(
-            string fieldId,
+            Outputs.AnalysisDataPathType? dataPathType,
 
-            string fieldValue)
+            string? fieldId,
+
+            string? fieldValue)
         {
+            DataPathType = dataPathType;
             FieldId = fieldId;
             FieldValue = fieldValue;
         }

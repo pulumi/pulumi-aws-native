@@ -12,11 +12,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisDataPathValueArgs : global::Pulumi.ResourceArgs
     {
-        [Input("fieldId", required: true)]
-        public Input<string> FieldId { get; set; } = null!;
+        [Input("dataPathType")]
+        public Input<Inputs.AnalysisDataPathTypeArgs>? DataPathType { get; set; }
 
-        [Input("fieldValue", required: true)]
-        public Input<string> FieldValue { get; set; } = null!;
+        [Input("fieldId")]
+        public Input<string>? FieldId { get; set; }
+
+        [Input("fieldValue")]
+        public Input<string>? FieldValue { get; set; }
 
         public AnalysisDataPathValueArgs()
         {

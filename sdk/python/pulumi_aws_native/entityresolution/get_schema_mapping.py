@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetSchemaMappingResult',
@@ -19,10 +20,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetSchemaMappingResult:
-    def __init__(__self__, created_at=None, schema_arn=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, has_workflows=None, mapped_input_fields=None, schema_arn=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if has_workflows and not isinstance(has_workflows, bool):
+            raise TypeError("Expected argument 'has_workflows' to be a bool")
+        pulumi.set(__self__, "has_workflows", has_workflows)
+        if mapped_input_fields and not isinstance(mapped_input_fields, list):
+            raise TypeError("Expected argument 'mapped_input_fields' to be a list")
+        pulumi.set(__self__, "mapped_input_fields", mapped_input_fields)
         if schema_arn and not isinstance(schema_arn, str):
             raise TypeError("Expected argument 'schema_arn' to be a str")
         pulumi.set(__self__, "schema_arn", schema_arn)
@@ -37,6 +47,27 @@ class GetSchemaMappingResult:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the SchemaMapping
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="hasWorkflows")
+    def has_workflows(self) -> Optional[bool]:
+        return pulumi.get(self, "has_workflows")
+
+    @property
+    @pulumi.getter(name="mappedInputFields")
+    def mapped_input_fields(self) -> Optional[Sequence['outputs.SchemaMappingSchemaInputAttribute']]:
+        """
+        The SchemaMapping attributes input
+        """
+        return pulumi.get(self, "mapped_input_fields")
 
     @property
     @pulumi.getter(name="schemaArn")
@@ -61,6 +92,9 @@ class AwaitableGetSchemaMappingResult(GetSchemaMappingResult):
             yield self
         return GetSchemaMappingResult(
             created_at=self.created_at,
+            description=self.description,
+            has_workflows=self.has_workflows,
+            mapped_input_fields=self.mapped_input_fields,
             schema_arn=self.schema_arn,
             tags=self.tags,
             updated_at=self.updated_at)
@@ -81,6 +115,9 @@ def get_schema_mapping(schema_name: Optional[str] = None,
 
     return AwaitableGetSchemaMappingResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        description=pulumi.get(__ret__, 'description'),
+        has_workflows=pulumi.get(__ret__, 'has_workflows'),
+        mapped_input_fields=pulumi.get(__ret__, 'mapped_input_fields'),
         schema_arn=pulumi.get(__ret__, 'schema_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))

@@ -15,6 +15,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly Pulumi.AwsNative.QuickSight.AnalysisAxisBinding? AxisBinding;
         public readonly Outputs.AnalysisReferenceLineDynamicDataConfiguration? DynamicConfiguration;
+        public readonly Pulumi.AwsNative.QuickSight.AnalysisReferenceLineSeriesType? SeriesType;
         public readonly Outputs.AnalysisReferenceLineStaticDataConfiguration? StaticConfiguration;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisReferenceLineDynamicDataConfiguration? dynamicConfiguration,
 
+            Pulumi.AwsNative.QuickSight.AnalysisReferenceLineSeriesType? seriesType,
+
             Outputs.AnalysisReferenceLineStaticDataConfiguration? staticConfiguration)
         {
             AxisBinding = axisBinding;
             DynamicConfiguration = dynamicConfiguration;
+            SeriesType = seriesType;
             StaticConfiguration = staticConfiguration;
         }
     }

@@ -19,16 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserResult:
-    def __init__(__self__, arn=None, groups=None, id=None, login_profile=None, managed_policy_arns=None, path=None, permissions_boundary=None, policies=None, tags=None):
+    def __init__(__self__, arn=None, groups=None, login_profile=None, managed_policy_arns=None, path=None, permissions_boundary=None, policies=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if login_profile and not isinstance(login_profile, dict):
             raise TypeError("Expected argument 'login_profile' to be a dict")
         pulumi.set(__self__, "login_profile", login_profile)
@@ -51,46 +48,65 @@ class GetUserResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of group names to which you want to add the user.
+        """
         return pulumi.get(self, "groups")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loginProfile")
     def login_profile(self) -> Optional['outputs.UserLoginProfile']:
+        """
+        Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+        """
         return pulumi.get(self, "login_profile")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter
     def path(self) -> Optional[str]:
+        """
+        The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> Optional[str]:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @property
     @pulumi.getter
     def policies(self) -> Optional[Sequence['outputs.UserPolicy']]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM role.
+        """
         return pulumi.get(self, "policies")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.UserTag']]:
+        """
+        A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -102,7 +118,6 @@ class AwaitableGetUserResult(GetUserResult):
         return GetUserResult(
             arn=self.arn,
             groups=self.groups,
-            id=self.id,
             login_profile=self.login_profile,
             managed_policy_arns=self.managed_policy_arns,
             path=self.path,
@@ -111,20 +126,22 @@ class AwaitableGetUserResult(GetUserResult):
             tags=self.tags)
 
 
-def get_user(id: Optional[str] = None,
+def get_user(user_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Resource Type definition for AWS::IAM::User
+
+
+    :param str user_name: The friendly name identifying the user.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['userName'] = user_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:iam:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
         arn=pulumi.get(__ret__, 'arn'),
         groups=pulumi.get(__ret__, 'groups'),
-        id=pulumi.get(__ret__, 'id'),
         login_profile=pulumi.get(__ret__, 'login_profile'),
         managed_policy_arns=pulumi.get(__ret__, 'managed_policy_arns'),
         path=pulumi.get(__ret__, 'path'),
@@ -134,9 +151,12 @@ def get_user(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user)
-def get_user_output(id: Optional[pulumi.Input[str]] = None,
+def get_user_output(user_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::IAM::User
+
+
+    :param str user_name: The friendly name identifying the user.
     """
     ...

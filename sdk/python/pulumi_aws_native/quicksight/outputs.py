@@ -105,6 +105,7 @@ __all__ = [
     'AnalysisDataPathColor',
     'AnalysisDataPathLabelType',
     'AnalysisDataPathSort',
+    'AnalysisDataPathType',
     'AnalysisDataPathValue',
     'AnalysisDataSetIdentifierDeclaration',
     'AnalysisDataSetReference',
@@ -451,6 +452,8 @@ __all__ = [
     'AnalysisTopBottomMoversComputation',
     'AnalysisTopBottomRankedComputation',
     'AnalysisTotalAggregationComputation',
+    'AnalysisTotalAggregationFunction',
+    'AnalysisTotalAggregationOption',
     'AnalysisTotalOptions',
     'AnalysisTreeMapAggregatedFieldWells',
     'AnalysisTreeMapConfiguration',
@@ -577,6 +580,7 @@ __all__ = [
     'DashboardDataPathColor',
     'DashboardDataPathLabelType',
     'DashboardDataPathSort',
+    'DashboardDataPathType',
     'DashboardDataPathValue',
     'DashboardDataPointDrillUpDownOption',
     'DashboardDataPointMenuLabelOption',
@@ -930,6 +934,8 @@ __all__ = [
     'DashboardTopBottomMoversComputation',
     'DashboardTopBottomRankedComputation',
     'DashboardTotalAggregationComputation',
+    'DashboardTotalAggregationFunction',
+    'DashboardTotalAggregationOption',
     'DashboardTotalOptions',
     'DashboardTreeMapAggregatedFieldWells',
     'DashboardTreeMapConfiguration',
@@ -1120,6 +1126,7 @@ __all__ = [
     'TemplateDataPathColor',
     'TemplateDataPathLabelType',
     'TemplateDataPathSort',
+    'TemplateDataPathType',
     'TemplateDataPathValue',
     'TemplateDataSetConfiguration',
     'TemplateDataSetReference',
@@ -1461,6 +1468,8 @@ __all__ = [
     'TemplateTopBottomMoversComputation',
     'TemplateTopBottomRankedComputation',
     'TemplateTotalAggregationComputation',
+    'TemplateTotalAggregationFunction',
+    'TemplateTotalAggregationOption',
     'TemplateTotalOptions',
     'TemplateTreeMapAggregatedFieldWells',
     'TemplateTreeMapConfiguration',
@@ -5950,11 +5959,43 @@ class AnalysisDataPathSort(dict):
 
 
 @pulumi.output_type
+class AnalysisDataPathType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pivotTableDataPathType":
+            suggest = "pivot_table_data_path_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisDataPathType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisDataPathType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisDataPathType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pivot_table_data_path_type: Optional['AnalysisPivotTableDataPathType'] = None):
+        if pivot_table_data_path_type is not None:
+            pulumi.set(__self__, "pivot_table_data_path_type", pivot_table_data_path_type)
+
+    @property
+    @pulumi.getter(name="pivotTableDataPathType")
+    def pivot_table_data_path_type(self) -> Optional['AnalysisPivotTableDataPathType']:
+        return pulumi.get(self, "pivot_table_data_path_type")
+
+
+@pulumi.output_type
 class AnalysisDataPathValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "fieldId":
+        if key == "dataPathType":
+            suggest = "data_path_type"
+        elif key == "fieldId":
             suggest = "field_id"
         elif key == "fieldValue":
             suggest = "field_value"
@@ -5971,19 +6012,29 @@ class AnalysisDataPathValue(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_id: str,
-                 field_value: str):
-        pulumi.set(__self__, "field_id", field_id)
-        pulumi.set(__self__, "field_value", field_value)
+                 data_path_type: Optional['outputs.AnalysisDataPathType'] = None,
+                 field_id: Optional[str] = None,
+                 field_value: Optional[str] = None):
+        if data_path_type is not None:
+            pulumi.set(__self__, "data_path_type", data_path_type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+
+    @property
+    @pulumi.getter(name="dataPathType")
+    def data_path_type(self) -> Optional['outputs.AnalysisDataPathType']:
+        return pulumi.get(self, "data_path_type")
 
     @property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> str:
+    def field_id(self) -> Optional[str]:
         return pulumi.get(self, "field_id")
 
     @property
     @pulumi.getter(name="fieldValue")
-    def field_value(self) -> str:
+    def field_value(self) -> Optional[str]:
         return pulumi.get(self, "field_value")
 
 
@@ -17171,6 +17222,8 @@ class AnalysisPivotTotalOptions(dict):
             suggest = "metric_header_cell_style"
         elif key == "scrollStatus":
             suggest = "scroll_status"
+        elif key == "totalAggregationOptions":
+            suggest = "total_aggregation_options"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -17194,6 +17247,7 @@ class AnalysisPivotTotalOptions(dict):
                  metric_header_cell_style: Optional['outputs.AnalysisTableCellStyle'] = None,
                  placement: Optional['AnalysisTableTotalsPlacement'] = None,
                  scroll_status: Optional['AnalysisTableTotalsScrollStatus'] = None,
+                 total_aggregation_options: Optional[Sequence['outputs.AnalysisTotalAggregationOption']] = None,
                  total_cell_style: Optional['outputs.AnalysisTableCellStyle'] = None,
                  totals_visibility: Optional['AnalysisVisibility'] = None,
                  value_cell_style: Optional['outputs.AnalysisTableCellStyle'] = None):
@@ -17205,6 +17259,8 @@ class AnalysisPivotTotalOptions(dict):
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -17231,6 +17287,11 @@ class AnalysisPivotTotalOptions(dict):
     @pulumi.getter(name="scrollStatus")
     def scroll_status(self) -> Optional['AnalysisTableTotalsScrollStatus']:
         return pulumi.get(self, "scroll_status")
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[Sequence['outputs.AnalysisTotalAggregationOption']]:
+        return pulumi.get(self, "total_aggregation_options")
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -17816,6 +17877,8 @@ class AnalysisReferenceLineDataConfiguration(dict):
             suggest = "axis_binding"
         elif key == "dynamicConfiguration":
             suggest = "dynamic_configuration"
+        elif key == "seriesType":
+            suggest = "series_type"
         elif key == "staticConfiguration":
             suggest = "static_configuration"
 
@@ -17833,11 +17896,14 @@ class AnalysisReferenceLineDataConfiguration(dict):
     def __init__(__self__, *,
                  axis_binding: Optional['AnalysisAxisBinding'] = None,
                  dynamic_configuration: Optional['outputs.AnalysisReferenceLineDynamicDataConfiguration'] = None,
+                 series_type: Optional['AnalysisReferenceLineSeriesType'] = None,
                  static_configuration: Optional['outputs.AnalysisReferenceLineStaticDataConfiguration'] = None):
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
         if dynamic_configuration is not None:
             pulumi.set(__self__, "dynamic_configuration", dynamic_configuration)
+        if series_type is not None:
+            pulumi.set(__self__, "series_type", series_type)
         if static_configuration is not None:
             pulumi.set(__self__, "static_configuration", static_configuration)
 
@@ -17850,6 +17916,11 @@ class AnalysisReferenceLineDataConfiguration(dict):
     @pulumi.getter(name="dynamicConfiguration")
     def dynamic_configuration(self) -> Optional['outputs.AnalysisReferenceLineDynamicDataConfiguration']:
         return pulumi.get(self, "dynamic_configuration")
+
+    @property
+    @pulumi.getter(name="seriesType")
+    def series_type(self) -> Optional['AnalysisReferenceLineSeriesType']:
+        return pulumi.get(self, "series_type")
 
     @property
     @pulumi.getter(name="staticConfiguration")
@@ -21742,6 +21813,8 @@ class AnalysisTimeEqualityFilter(dict):
             suggest = "filter_id"
         elif key == "parameterName":
             suggest = "parameter_name"
+        elif key == "rollingDate":
+            suggest = "rolling_date"
         elif key == "timeGranularity":
             suggest = "time_granularity"
 
@@ -21760,12 +21833,15 @@ class AnalysisTimeEqualityFilter(dict):
                  column: 'outputs.AnalysisColumnIdentifier',
                  filter_id: str,
                  parameter_name: Optional[str] = None,
+                 rolling_date: Optional['outputs.AnalysisRollingDateConfiguration'] = None,
                  time_granularity: Optional['AnalysisTimeGranularity'] = None,
                  value: Optional[str] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
+        if rolling_date is not None:
+            pulumi.set(__self__, "rolling_date", rolling_date)
         if time_granularity is not None:
             pulumi.set(__self__, "time_granularity", time_granularity)
         if value is not None:
@@ -21785,6 +21861,11 @@ class AnalysisTimeEqualityFilter(dict):
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> Optional[str]:
         return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="rollingDate")
+    def rolling_date(self) -> Optional['outputs.AnalysisRollingDateConfiguration']:
+        return pulumi.get(self, "rolling_date")
 
     @property
     @pulumi.getter(name="timeGranularity")
@@ -22371,6 +22452,74 @@ class AnalysisTotalAggregationComputation(dict):
 
 
 @pulumi.output_type
+class AnalysisTotalAggregationFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleTotalAggregationFunction":
+            suggest = "simple_total_aggregation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTotalAggregationFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTotalAggregationFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTotalAggregationFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_total_aggregation_function: Optional['AnalysisSimpleTotalAggregationFunction'] = None):
+        if simple_total_aggregation_function is not None:
+            pulumi.set(__self__, "simple_total_aggregation_function", simple_total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="simpleTotalAggregationFunction")
+    def simple_total_aggregation_function(self) -> Optional['AnalysisSimpleTotalAggregationFunction']:
+        return pulumi.get(self, "simple_total_aggregation_function")
+
+
+@pulumi.output_type
+class AnalysisTotalAggregationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "totalAggregationFunction":
+            suggest = "total_aggregation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisTotalAggregationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisTotalAggregationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisTotalAggregationOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: str,
+                 total_aggregation_function: 'outputs.AnalysisTotalAggregationFunction'):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "total_aggregation_function", total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> str:
+        return pulumi.get(self, "field_id")
+
+    @property
+    @pulumi.getter(name="totalAggregationFunction")
+    def total_aggregation_function(self) -> 'outputs.AnalysisTotalAggregationFunction':
+        return pulumi.get(self, "total_aggregation_function")
+
+
+@pulumi.output_type
 class AnalysisTotalOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -22379,6 +22528,8 @@ class AnalysisTotalOptions(dict):
             suggest = "custom_label"
         elif key == "scrollStatus":
             suggest = "scroll_status"
+        elif key == "totalAggregationOptions":
+            suggest = "total_aggregation_options"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -22399,6 +22550,7 @@ class AnalysisTotalOptions(dict):
                  custom_label: Optional[str] = None,
                  placement: Optional['AnalysisTableTotalsPlacement'] = None,
                  scroll_status: Optional['AnalysisTableTotalsScrollStatus'] = None,
+                 total_aggregation_options: Optional[Sequence['outputs.AnalysisTotalAggregationOption']] = None,
                  total_cell_style: Optional['outputs.AnalysisTableCellStyle'] = None,
                  totals_visibility: Optional['AnalysisVisibility'] = None):
         if custom_label is not None:
@@ -22407,6 +22559,8 @@ class AnalysisTotalOptions(dict):
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -22426,6 +22580,11 @@ class AnalysisTotalOptions(dict):
     @pulumi.getter(name="scrollStatus")
     def scroll_status(self) -> Optional['AnalysisTableTotalsScrollStatus']:
         return pulumi.get(self, "scroll_status")
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[Sequence['outputs.AnalysisTotalAggregationOption']]:
+        return pulumi.get(self, "total_aggregation_options")
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -28522,11 +28681,43 @@ class DashboardDataPathSort(dict):
 
 
 @pulumi.output_type
+class DashboardDataPathType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pivotTableDataPathType":
+            suggest = "pivot_table_data_path_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardDataPathType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardDataPathType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardDataPathType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pivot_table_data_path_type: Optional['DashboardPivotTableDataPathType'] = None):
+        if pivot_table_data_path_type is not None:
+            pulumi.set(__self__, "pivot_table_data_path_type", pivot_table_data_path_type)
+
+    @property
+    @pulumi.getter(name="pivotTableDataPathType")
+    def pivot_table_data_path_type(self) -> Optional['DashboardPivotTableDataPathType']:
+        return pulumi.get(self, "pivot_table_data_path_type")
+
+
+@pulumi.output_type
 class DashboardDataPathValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "fieldId":
+        if key == "dataPathType":
+            suggest = "data_path_type"
+        elif key == "fieldId":
             suggest = "field_id"
         elif key == "fieldValue":
             suggest = "field_value"
@@ -28543,19 +28734,29 @@ class DashboardDataPathValue(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_id: str,
-                 field_value: str):
-        pulumi.set(__self__, "field_id", field_id)
-        pulumi.set(__self__, "field_value", field_value)
+                 data_path_type: Optional['outputs.DashboardDataPathType'] = None,
+                 field_id: Optional[str] = None,
+                 field_value: Optional[str] = None):
+        if data_path_type is not None:
+            pulumi.set(__self__, "data_path_type", data_path_type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+
+    @property
+    @pulumi.getter(name="dataPathType")
+    def data_path_type(self) -> Optional['outputs.DashboardDataPathType']:
+        return pulumi.get(self, "data_path_type")
 
     @property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> str:
+    def field_id(self) -> Optional[str]:
         return pulumi.get(self, "field_id")
 
     @property
     @pulumi.getter(name="fieldValue")
-    def field_value(self) -> str:
+    def field_value(self) -> Optional[str]:
         return pulumi.get(self, "field_value")
 
 
@@ -39807,6 +40008,8 @@ class DashboardPivotTotalOptions(dict):
             suggest = "metric_header_cell_style"
         elif key == "scrollStatus":
             suggest = "scroll_status"
+        elif key == "totalAggregationOptions":
+            suggest = "total_aggregation_options"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -39830,6 +40033,7 @@ class DashboardPivotTotalOptions(dict):
                  metric_header_cell_style: Optional['outputs.DashboardTableCellStyle'] = None,
                  placement: Optional['DashboardTableTotalsPlacement'] = None,
                  scroll_status: Optional['DashboardTableTotalsScrollStatus'] = None,
+                 total_aggregation_options: Optional[Sequence['outputs.DashboardTotalAggregationOption']] = None,
                  total_cell_style: Optional['outputs.DashboardTableCellStyle'] = None,
                  totals_visibility: Optional['DashboardVisibility'] = None,
                  value_cell_style: Optional['outputs.DashboardTableCellStyle'] = None):
@@ -39841,6 +40045,8 @@ class DashboardPivotTotalOptions(dict):
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -39867,6 +40073,11 @@ class DashboardPivotTotalOptions(dict):
     @pulumi.getter(name="scrollStatus")
     def scroll_status(self) -> Optional['DashboardTableTotalsScrollStatus']:
         return pulumi.get(self, "scroll_status")
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[Sequence['outputs.DashboardTotalAggregationOption']]:
+        return pulumi.get(self, "total_aggregation_options")
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -40582,6 +40793,8 @@ class DashboardReferenceLineDataConfiguration(dict):
             suggest = "axis_binding"
         elif key == "dynamicConfiguration":
             suggest = "dynamic_configuration"
+        elif key == "seriesType":
+            suggest = "series_type"
         elif key == "staticConfiguration":
             suggest = "static_configuration"
 
@@ -40599,11 +40812,14 @@ class DashboardReferenceLineDataConfiguration(dict):
     def __init__(__self__, *,
                  axis_binding: Optional['DashboardAxisBinding'] = None,
                  dynamic_configuration: Optional['outputs.DashboardReferenceLineDynamicDataConfiguration'] = None,
+                 series_type: Optional['DashboardReferenceLineSeriesType'] = None,
                  static_configuration: Optional['outputs.DashboardReferenceLineStaticDataConfiguration'] = None):
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
         if dynamic_configuration is not None:
             pulumi.set(__self__, "dynamic_configuration", dynamic_configuration)
+        if series_type is not None:
+            pulumi.set(__self__, "series_type", series_type)
         if static_configuration is not None:
             pulumi.set(__self__, "static_configuration", static_configuration)
 
@@ -40616,6 +40832,11 @@ class DashboardReferenceLineDataConfiguration(dict):
     @pulumi.getter(name="dynamicConfiguration")
     def dynamic_configuration(self) -> Optional['outputs.DashboardReferenceLineDynamicDataConfiguration']:
         return pulumi.get(self, "dynamic_configuration")
+
+    @property
+    @pulumi.getter(name="seriesType")
+    def series_type(self) -> Optional['DashboardReferenceLineSeriesType']:
+        return pulumi.get(self, "series_type")
 
     @property
     @pulumi.getter(name="staticConfiguration")
@@ -44568,6 +44789,8 @@ class DashboardTimeEqualityFilter(dict):
             suggest = "filter_id"
         elif key == "parameterName":
             suggest = "parameter_name"
+        elif key == "rollingDate":
+            suggest = "rolling_date"
         elif key == "timeGranularity":
             suggest = "time_granularity"
 
@@ -44586,12 +44809,15 @@ class DashboardTimeEqualityFilter(dict):
                  column: 'outputs.DashboardColumnIdentifier',
                  filter_id: str,
                  parameter_name: Optional[str] = None,
+                 rolling_date: Optional['outputs.DashboardRollingDateConfiguration'] = None,
                  time_granularity: Optional['DashboardTimeGranularity'] = None,
                  value: Optional[str] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
+        if rolling_date is not None:
+            pulumi.set(__self__, "rolling_date", rolling_date)
         if time_granularity is not None:
             pulumi.set(__self__, "time_granularity", time_granularity)
         if value is not None:
@@ -44611,6 +44837,11 @@ class DashboardTimeEqualityFilter(dict):
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> Optional[str]:
         return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="rollingDate")
+    def rolling_date(self) -> Optional['outputs.DashboardRollingDateConfiguration']:
+        return pulumi.get(self, "rolling_date")
 
     @property
     @pulumi.getter(name="timeGranularity")
@@ -45197,6 +45428,74 @@ class DashboardTotalAggregationComputation(dict):
 
 
 @pulumi.output_type
+class DashboardTotalAggregationFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleTotalAggregationFunction":
+            suggest = "simple_total_aggregation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTotalAggregationFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTotalAggregationFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTotalAggregationFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_total_aggregation_function: Optional['DashboardSimpleTotalAggregationFunction'] = None):
+        if simple_total_aggregation_function is not None:
+            pulumi.set(__self__, "simple_total_aggregation_function", simple_total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="simpleTotalAggregationFunction")
+    def simple_total_aggregation_function(self) -> Optional['DashboardSimpleTotalAggregationFunction']:
+        return pulumi.get(self, "simple_total_aggregation_function")
+
+
+@pulumi.output_type
+class DashboardTotalAggregationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "totalAggregationFunction":
+            suggest = "total_aggregation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardTotalAggregationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardTotalAggregationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardTotalAggregationOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: str,
+                 total_aggregation_function: 'outputs.DashboardTotalAggregationFunction'):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "total_aggregation_function", total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> str:
+        return pulumi.get(self, "field_id")
+
+    @property
+    @pulumi.getter(name="totalAggregationFunction")
+    def total_aggregation_function(self) -> 'outputs.DashboardTotalAggregationFunction':
+        return pulumi.get(self, "total_aggregation_function")
+
+
+@pulumi.output_type
 class DashboardTotalOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -45205,6 +45504,8 @@ class DashboardTotalOptions(dict):
             suggest = "custom_label"
         elif key == "scrollStatus":
             suggest = "scroll_status"
+        elif key == "totalAggregationOptions":
+            suggest = "total_aggregation_options"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -45225,6 +45526,7 @@ class DashboardTotalOptions(dict):
                  custom_label: Optional[str] = None,
                  placement: Optional['DashboardTableTotalsPlacement'] = None,
                  scroll_status: Optional['DashboardTableTotalsScrollStatus'] = None,
+                 total_aggregation_options: Optional[Sequence['outputs.DashboardTotalAggregationOption']] = None,
                  total_cell_style: Optional['outputs.DashboardTableCellStyle'] = None,
                  totals_visibility: Optional['DashboardVisibility'] = None):
         if custom_label is not None:
@@ -45233,6 +45535,8 @@ class DashboardTotalOptions(dict):
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -45252,6 +45556,11 @@ class DashboardTotalOptions(dict):
     @pulumi.getter(name="scrollStatus")
     def scroll_status(self) -> Optional['DashboardTableTotalsScrollStatus']:
         return pulumi.get(self, "scroll_status")
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[Sequence['outputs.DashboardTotalAggregationOption']]:
+        return pulumi.get(self, "total_aggregation_options")
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -54551,11 +54860,43 @@ class TemplateDataPathSort(dict):
 
 
 @pulumi.output_type
+class TemplateDataPathType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pivotTableDataPathType":
+            suggest = "pivot_table_data_path_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateDataPathType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateDataPathType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateDataPathType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pivot_table_data_path_type: Optional['TemplatePivotTableDataPathType'] = None):
+        if pivot_table_data_path_type is not None:
+            pulumi.set(__self__, "pivot_table_data_path_type", pivot_table_data_path_type)
+
+    @property
+    @pulumi.getter(name="pivotTableDataPathType")
+    def pivot_table_data_path_type(self) -> Optional['TemplatePivotTableDataPathType']:
+        return pulumi.get(self, "pivot_table_data_path_type")
+
+
+@pulumi.output_type
 class TemplateDataPathValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "fieldId":
+        if key == "dataPathType":
+            suggest = "data_path_type"
+        elif key == "fieldId":
             suggest = "field_id"
         elif key == "fieldValue":
             suggest = "field_value"
@@ -54572,19 +54913,29 @@ class TemplateDataPathValue(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 field_id: str,
-                 field_value: str):
-        pulumi.set(__self__, "field_id", field_id)
-        pulumi.set(__self__, "field_value", field_value)
+                 data_path_type: Optional['outputs.TemplateDataPathType'] = None,
+                 field_id: Optional[str] = None,
+                 field_value: Optional[str] = None):
+        if data_path_type is not None:
+            pulumi.set(__self__, "data_path_type", data_path_type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+
+    @property
+    @pulumi.getter(name="dataPathType")
+    def data_path_type(self) -> Optional['outputs.TemplateDataPathType']:
+        return pulumi.get(self, "data_path_type")
 
     @property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> str:
+    def field_id(self) -> Optional[str]:
         return pulumi.get(self, "field_id")
 
     @property
     @pulumi.getter(name="fieldValue")
-    def field_value(self) -> str:
+    def field_value(self) -> Optional[str]:
         return pulumi.get(self, "field_value")
 
 
@@ -65581,6 +65932,8 @@ class TemplatePivotTotalOptions(dict):
             suggest = "metric_header_cell_style"
         elif key == "scrollStatus":
             suggest = "scroll_status"
+        elif key == "totalAggregationOptions":
+            suggest = "total_aggregation_options"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -65604,6 +65957,7 @@ class TemplatePivotTotalOptions(dict):
                  metric_header_cell_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  placement: Optional['TemplateTableTotalsPlacement'] = None,
                  scroll_status: Optional['TemplateTableTotalsScrollStatus'] = None,
+                 total_aggregation_options: Optional[Sequence['outputs.TemplateTotalAggregationOption']] = None,
                  total_cell_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  totals_visibility: Optional['TemplateVisibility'] = None,
                  value_cell_style: Optional['outputs.TemplateTableCellStyle'] = None):
@@ -65615,6 +65969,8 @@ class TemplatePivotTotalOptions(dict):
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -65641,6 +65997,11 @@ class TemplatePivotTotalOptions(dict):
     @pulumi.getter(name="scrollStatus")
     def scroll_status(self) -> Optional['TemplateTableTotalsScrollStatus']:
         return pulumi.get(self, "scroll_status")
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[Sequence['outputs.TemplateTotalAggregationOption']]:
+        return pulumi.get(self, "total_aggregation_options")
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -66226,6 +66587,8 @@ class TemplateReferenceLineDataConfiguration(dict):
             suggest = "axis_binding"
         elif key == "dynamicConfiguration":
             suggest = "dynamic_configuration"
+        elif key == "seriesType":
+            suggest = "series_type"
         elif key == "staticConfiguration":
             suggest = "static_configuration"
 
@@ -66243,11 +66606,14 @@ class TemplateReferenceLineDataConfiguration(dict):
     def __init__(__self__, *,
                  axis_binding: Optional['TemplateAxisBinding'] = None,
                  dynamic_configuration: Optional['outputs.TemplateReferenceLineDynamicDataConfiguration'] = None,
+                 series_type: Optional['TemplateReferenceLineSeriesType'] = None,
                  static_configuration: Optional['outputs.TemplateReferenceLineStaticDataConfiguration'] = None):
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
         if dynamic_configuration is not None:
             pulumi.set(__self__, "dynamic_configuration", dynamic_configuration)
+        if series_type is not None:
+            pulumi.set(__self__, "series_type", series_type)
         if static_configuration is not None:
             pulumi.set(__self__, "static_configuration", static_configuration)
 
@@ -66260,6 +66626,11 @@ class TemplateReferenceLineDataConfiguration(dict):
     @pulumi.getter(name="dynamicConfiguration")
     def dynamic_configuration(self) -> Optional['outputs.TemplateReferenceLineDynamicDataConfiguration']:
         return pulumi.get(self, "dynamic_configuration")
+
+    @property
+    @pulumi.getter(name="seriesType")
+    def series_type(self) -> Optional['TemplateReferenceLineSeriesType']:
+        return pulumi.get(self, "series_type")
 
     @property
     @pulumi.getter(name="staticConfiguration")
@@ -70155,6 +70526,8 @@ class TemplateTimeEqualityFilter(dict):
             suggest = "filter_id"
         elif key == "parameterName":
             suggest = "parameter_name"
+        elif key == "rollingDate":
+            suggest = "rolling_date"
         elif key == "timeGranularity":
             suggest = "time_granularity"
 
@@ -70173,12 +70546,15 @@ class TemplateTimeEqualityFilter(dict):
                  column: 'outputs.TemplateColumnIdentifier',
                  filter_id: str,
                  parameter_name: Optional[str] = None,
+                 rolling_date: Optional['outputs.TemplateRollingDateConfiguration'] = None,
                  time_granularity: Optional['TemplateTimeGranularity'] = None,
                  value: Optional[str] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
+        if rolling_date is not None:
+            pulumi.set(__self__, "rolling_date", rolling_date)
         if time_granularity is not None:
             pulumi.set(__self__, "time_granularity", time_granularity)
         if value is not None:
@@ -70198,6 +70574,11 @@ class TemplateTimeEqualityFilter(dict):
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> Optional[str]:
         return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="rollingDate")
+    def rolling_date(self) -> Optional['outputs.TemplateRollingDateConfiguration']:
+        return pulumi.get(self, "rolling_date")
 
     @property
     @pulumi.getter(name="timeGranularity")
@@ -70784,6 +71165,74 @@ class TemplateTotalAggregationComputation(dict):
 
 
 @pulumi.output_type
+class TemplateTotalAggregationFunction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "simpleTotalAggregationFunction":
+            suggest = "simple_total_aggregation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateTotalAggregationFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateTotalAggregationFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateTotalAggregationFunction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 simple_total_aggregation_function: Optional['TemplateSimpleTotalAggregationFunction'] = None):
+        if simple_total_aggregation_function is not None:
+            pulumi.set(__self__, "simple_total_aggregation_function", simple_total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="simpleTotalAggregationFunction")
+    def simple_total_aggregation_function(self) -> Optional['TemplateSimpleTotalAggregationFunction']:
+        return pulumi.get(self, "simple_total_aggregation_function")
+
+
+@pulumi.output_type
+class TemplateTotalAggregationOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "totalAggregationFunction":
+            suggest = "total_aggregation_function"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateTotalAggregationOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateTotalAggregationOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateTotalAggregationOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: str,
+                 total_aggregation_function: 'outputs.TemplateTotalAggregationFunction'):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "total_aggregation_function", total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> str:
+        return pulumi.get(self, "field_id")
+
+    @property
+    @pulumi.getter(name="totalAggregationFunction")
+    def total_aggregation_function(self) -> 'outputs.TemplateTotalAggregationFunction':
+        return pulumi.get(self, "total_aggregation_function")
+
+
+@pulumi.output_type
 class TemplateTotalOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -70792,6 +71241,8 @@ class TemplateTotalOptions(dict):
             suggest = "custom_label"
         elif key == "scrollStatus":
             suggest = "scroll_status"
+        elif key == "totalAggregationOptions":
+            suggest = "total_aggregation_options"
         elif key == "totalCellStyle":
             suggest = "total_cell_style"
         elif key == "totalsVisibility":
@@ -70812,6 +71263,7 @@ class TemplateTotalOptions(dict):
                  custom_label: Optional[str] = None,
                  placement: Optional['TemplateTableTotalsPlacement'] = None,
                  scroll_status: Optional['TemplateTableTotalsScrollStatus'] = None,
+                 total_aggregation_options: Optional[Sequence['outputs.TemplateTotalAggregationOption']] = None,
                  total_cell_style: Optional['outputs.TemplateTableCellStyle'] = None,
                  totals_visibility: Optional['TemplateVisibility'] = None):
         if custom_label is not None:
@@ -70820,6 +71272,8 @@ class TemplateTotalOptions(dict):
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -70839,6 +71293,11 @@ class TemplateTotalOptions(dict):
     @pulumi.getter(name="scrollStatus")
     def scroll_status(self) -> Optional['TemplateTableTotalsScrollStatus']:
         return pulumi.get(self, "scroll_status")
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[Sequence['outputs.TemplateTotalAggregationOption']]:
+        return pulumi.get(self, "total_aggregation_options")
 
     @property
     @pulumi.getter(name="totalCellStyle")

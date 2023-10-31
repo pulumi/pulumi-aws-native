@@ -256,6 +256,9 @@ class ServerCertificateTag(dict):
 
 @pulumi.output_type
 class UserLoginProfile(dict):
+    """
+    Contains the user name and password create date for a user.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -276,6 +279,11 @@ class UserLoginProfile(dict):
     def __init__(__self__, *,
                  password: str,
                  password_reset_required: Optional[bool] = None):
+        """
+        Contains the user name and password create date for a user.
+        :param str password: The user's password.
+        :param bool password_reset_required: Specifies whether the user is required to set a new password on next sign-in.
+        """
         pulumi.set(__self__, "password", password)
         if password_reset_required is not None:
             pulumi.set(__self__, "password_reset_required", password_reset_required)
@@ -283,16 +291,25 @@ class UserLoginProfile(dict):
     @property
     @pulumi.getter
     def password(self) -> str:
+        """
+        The user's password.
+        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="passwordResetRequired")
     def password_reset_required(self) -> Optional[bool]:
+        """
+        Specifies whether the user is required to set a new password on next sign-in.
+        """
         return pulumi.get(self, "password_reset_required")
 
 
 @pulumi.output_type
 class UserPolicy(dict):
+    """
+    Contains information about an attached policy.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -315,36 +332,61 @@ class UserPolicy(dict):
     def __init__(__self__, *,
                  policy_document: Any,
                  policy_name: str):
+        """
+        Contains information about an attached policy.
+        :param Any policy_document: The policy document.
+        :param str policy_name: The friendly name (not ARN) identifying the policy.
+        """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "policy_name", policy_name)
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Any:
+        """
+        The policy document.
+        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> str:
+        """
+        The friendly name (not ARN) identifying the policy.
+        """
         return pulumi.get(self, "policy_name")
 
 
 @pulumi.output_type
 class UserTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 

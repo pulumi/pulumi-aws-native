@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::BasePathMapping
+ * The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
  */
 export class BasePathMapping extends pulumi.CustomResource {
     /**
@@ -35,19 +35,19 @@ export class BasePathMapping extends pulumi.CustomResource {
     }
 
     /**
-     * The base path name that callers of the API must provide in the URL after the domain name.
+     * The base path name that callers of the API must provide as part of the URL after the domain name.
      */
     public readonly basePath!: pulumi.Output<string | undefined>;
     /**
-     * The DomainName of an AWS::ApiGateway::DomainName resource.
+     * The domain name of the BasePathMapping resource to be described.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The ID of the API.
+     * The string identifier of the associated RestApi.
      */
     public readonly restApiId!: pulumi.Output<string | undefined>;
     /**
-     * The name of the API's stage.
+     * The name of the associated stage.
      */
     public readonly stage!: pulumi.Output<string | undefined>;
 
@@ -87,19 +87,19 @@ export class BasePathMapping extends pulumi.CustomResource {
  */
 export interface BasePathMappingArgs {
     /**
-     * The base path name that callers of the API must provide in the URL after the domain name.
+     * The base path name that callers of the API must provide as part of the URL after the domain name.
      */
     basePath?: pulumi.Input<string>;
     /**
-     * The DomainName of an AWS::ApiGateway::DomainName resource.
+     * The domain name of the BasePathMapping resource to be described.
      */
     domainName: pulumi.Input<string>;
     /**
-     * The ID of the API.
+     * The string identifier of the associated RestApi.
      */
     restApiId?: pulumi.Input<string>;
     /**
-     * The name of the API's stage.
+     * The name of the associated stage.
      */
     stage?: pulumi.Input<string>;
 }

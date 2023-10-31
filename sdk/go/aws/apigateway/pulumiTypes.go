@@ -14,10 +14,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// “StageKey“ is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
 type ApiKeyStageKey struct {
-	// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+	// The string identifier of the associated RestApi.
 	RestApiId *string `pulumi:"restApiId"`
-	// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
+	// The stage name associated with the stage key.
 	StageName *string `pulumi:"stageName"`
 }
 
@@ -32,10 +33,11 @@ type ApiKeyStageKeyInput interface {
 	ToApiKeyStageKeyOutputWithContext(context.Context) ApiKeyStageKeyOutput
 }
 
+// “StageKey“ is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
 type ApiKeyStageKeyArgs struct {
-	// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
-	// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
+	// The stage name associated with the stage key.
 	StageName pulumi.StringPtrInput `pulumi:"stageName"`
 }
 
@@ -88,6 +90,7 @@ func (i ApiKeyStageKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]ApiK
 	}
 }
 
+// “StageKey“ is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
 type ApiKeyStageKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyStageKeyOutput) ElementType() reflect.Type {
@@ -108,12 +111,12 @@ func (o ApiKeyStageKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ApiKe
 	}
 }
 
-// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+// The string identifier of the associated RestApi.
 func (o ApiKeyStageKeyOutput) RestApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyStageKey) *string { return v.RestApiId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
+// The stage name associated with the stage key.
 func (o ApiKeyStageKeyOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyStageKey) *string { return v.StageName }).(pulumi.StringPtrOutput)
 }
@@ -4441,12 +4444,13 @@ func (o StageTagArrayOutput) Index(i pulumi.IntInput) StageTagOutput {
 	}).(StageTagOutput)
 }
 
+// API stage name of the associated API stage in a usage plan.
 type UsagePlanApiStage struct {
-	// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+	// API Id of the associated API stage in a usage plan.
 	ApiId *string `pulumi:"apiId"`
-	// The name of the stage to associate with the usage plan.
+	// API stage name of the associated API stage in a usage plan.
 	Stage *string `pulumi:"stage"`
-	// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+	// Map containing method level throttling information for API stage in a usage plan.
 	Throttle interface{} `pulumi:"throttle"`
 }
 
@@ -4461,12 +4465,13 @@ type UsagePlanApiStageInput interface {
 	ToUsagePlanApiStageOutputWithContext(context.Context) UsagePlanApiStageOutput
 }
 
+// API stage name of the associated API stage in a usage plan.
 type UsagePlanApiStageArgs struct {
-	// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+	// API Id of the associated API stage in a usage plan.
 	ApiId pulumi.StringPtrInput `pulumi:"apiId"`
-	// The name of the stage to associate with the usage plan.
+	// API stage name of the associated API stage in a usage plan.
 	Stage pulumi.StringPtrInput `pulumi:"stage"`
-	// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+	// Map containing method level throttling information for API stage in a usage plan.
 	Throttle pulumi.Input `pulumi:"throttle"`
 }
 
@@ -4519,6 +4524,7 @@ func (i UsagePlanApiStageArray) ToOutput(ctx context.Context) pulumix.Output[[]U
 	}
 }
 
+// API stage name of the associated API stage in a usage plan.
 type UsagePlanApiStageOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanApiStageOutput) ElementType() reflect.Type {
@@ -4539,17 +4545,17 @@ func (o UsagePlanApiStageOutput) ToOutput(ctx context.Context) pulumix.Output[Us
 	}
 }
 
-// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+// API Id of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the stage to associate with the usage plan.
+// API stage name of the associated API stage in a usage plan.
 func (o UsagePlanApiStageOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.Stage }).(pulumi.StringPtrOutput)
 }
 
-// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+// Map containing method level throttling information for API stage in a usage plan.
 func (o UsagePlanApiStageOutput) Throttle() pulumi.AnyOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) interface{} { return v.Throttle }).(pulumi.AnyOutput)
 }
@@ -4580,12 +4586,15 @@ func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStage
 	}).(UsagePlanApiStageOutput)
 }
 
+// “QuotaSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+//
+//	In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 type UsagePlanQuotaSettings struct {
-	// The maximum number of requests that users can make within the specified time period.
+	// The target maximum number of requests that can be made in a given time period.
 	Limit *int `pulumi:"limit"`
-	// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+	// The number of requests subtracted from the given limit in the initial time period.
 	Offset *int `pulumi:"offset"`
-	// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+	// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 	Period *string `pulumi:"period"`
 }
 
@@ -4600,12 +4609,15 @@ type UsagePlanQuotaSettingsInput interface {
 	ToUsagePlanQuotaSettingsOutputWithContext(context.Context) UsagePlanQuotaSettingsOutput
 }
 
+// “QuotaSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+//
+//	In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 type UsagePlanQuotaSettingsArgs struct {
-	// The maximum number of requests that users can make within the specified time period.
+	// The target maximum number of requests that can be made in a given time period.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+	// The number of requests subtracted from the given limit in the initial time period.
 	Offset pulumi.IntPtrInput `pulumi:"offset"`
-	// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+	// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 	Period pulumi.StringPtrInput `pulumi:"period"`
 }
 
@@ -4674,6 +4686,9 @@ func (i *usagePlanQuotaSettingsPtrType) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+// “QuotaSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+//
+//	In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 type UsagePlanQuotaSettingsOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanQuotaSettingsOutput) ElementType() reflect.Type {
@@ -4704,17 +4719,17 @@ func (o UsagePlanQuotaSettingsOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
-// The maximum number of requests that users can make within the specified time period.
+// The target maximum number of requests that can be made in a given time period.
 func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
-// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+// The number of requests subtracted from the given limit in the initial time period.
 func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
-// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *string { return v.Period }).(pulumi.StringPtrOutput)
 }
@@ -4749,7 +4764,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
 	}).(UsagePlanQuotaSettingsOutput)
 }
 
-// The maximum number of requests that users can make within the specified time period.
+// The target maximum number of requests that can be made in a given time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
 		if v == nil {
@@ -4759,7 +4774,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+// The number of requests subtracted from the given limit in the initial time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
 		if v == nil {
@@ -4769,7 +4784,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
 func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *string {
 		if v == nil {
@@ -4909,10 +4924,11 @@ func (o UsagePlanTagArrayOutput) Index(i pulumi.IntInput) UsagePlanTagOutput {
 	}).(UsagePlanTagOutput)
 }
 
+// “ThrottleSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 type UsagePlanThrottleSettings struct {
-	// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+	// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
 	BurstLimit *int `pulumi:"burstLimit"`
-	// The API request steady-state rate limit (average requests per second over an extended period of time).
+	// The API target request rate limit.
 	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
@@ -4927,10 +4943,11 @@ type UsagePlanThrottleSettingsInput interface {
 	ToUsagePlanThrottleSettingsOutputWithContext(context.Context) UsagePlanThrottleSettingsOutput
 }
 
+// “ThrottleSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 type UsagePlanThrottleSettingsArgs struct {
-	// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+	// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
 	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
-	// The API request steady-state rate limit (average requests per second over an extended period of time).
+	// The API target request rate limit.
 	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
@@ -4999,6 +5016,7 @@ func (i *usagePlanThrottleSettingsPtrType) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// “ThrottleSettings“ is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
 type UsagePlanThrottleSettingsOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanThrottleSettingsOutput) ElementType() reflect.Type {
@@ -5029,12 +5047,12 @@ func (o UsagePlanThrottleSettingsOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
 func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
-// The API request steady-state rate limit (average requests per second over an extended period of time).
+// The API target request rate limit.
 func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -5069,7 +5087,7 @@ func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutp
 	}).(UsagePlanThrottleSettingsOutput)
 }
 
-// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
 func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *int {
 		if v == nil {
@@ -5079,7 +5097,7 @@ func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The API request steady-state rate limit (average requests per second over an extended period of time).
+// The API target request rate limit.
 func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *float64 {
 		if v == nil {

@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
+    /// </summary>
     public sealed class UsagePlanThrottleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+        /// The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
         /// </summary>
         [Input("burstLimit")]
         public Input<int>? BurstLimit { get; set; }
 
         /// <summary>
-        /// The API request steady-state rate limit (average requests per second over an extended period of time).
+        /// The API target request rate limit.
         /// </summary>
         [Input("rateLimit")]
         public Input<double>? RateLimit { get; set; }

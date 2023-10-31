@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+    /// </summary>
     [OutputType]
     public sealed class BucketAnalyticsConfiguration
     {
+        /// <summary>
+        /// The ID that identifies the analytics configuration.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The prefix that an object must have to be included in the analytics results.
+        /// </summary>
         public readonly string? Prefix;
         public readonly Outputs.BucketStorageClassAnalysis StorageClassAnalysis;
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;

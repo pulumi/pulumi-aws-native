@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+    /// </summary>
     [OutputType]
     public sealed class BucketRule
     {
@@ -22,10 +25,10 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly int? NoncurrentVersionExpirationInDays;
         public readonly Outputs.BucketNoncurrentVersionTransition? NoncurrentVersionTransition;
         public readonly ImmutableArray<Outputs.BucketNoncurrentVersionTransition> NoncurrentVersionTransitions;
-        public readonly int? ObjectSizeGreaterThan;
-        public readonly int? ObjectSizeLessThan;
+        public readonly string? ObjectSizeGreaterThan;
+        public readonly string? ObjectSizeLessThan;
         public readonly string? Prefix;
-        public readonly string Status;
+        public readonly Pulumi.AwsNative.S3.BucketRuleStatus Status;
         public readonly ImmutableArray<Outputs.BucketTagFilter> TagFilters;
         public readonly Outputs.BucketTransition? Transition;
         public readonly ImmutableArray<Outputs.BucketTransition> Transitions;
@@ -50,13 +53,13 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             ImmutableArray<Outputs.BucketNoncurrentVersionTransition> noncurrentVersionTransitions,
 
-            int? objectSizeGreaterThan,
+            string? objectSizeGreaterThan,
 
-            int? objectSizeLessThan,
+            string? objectSizeLessThan,
 
             string? prefix,
 
-            string status,
+            Pulumi.AwsNative.S3.BucketRuleStatus status,
 
             ImmutableArray<Outputs.BucketTagFilter> tagFilters,
 

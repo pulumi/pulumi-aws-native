@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::ClientCertificate
+ * The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
  */
 export function getClientCertificate(args: GetClientCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetClientCertificateResult> {
 
@@ -31,16 +31,16 @@ export interface GetClientCertificateResult {
      */
     readonly clientCertificateId?: string;
     /**
-     * A description of the client certificate.
+     * The description of the client certificate.
      */
     readonly description?: string;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     readonly tags?: outputs.apigateway.ClientCertificateTag[];
 }
 /**
- * Resource Type definition for AWS::ApiGateway::ClientCertificate
+ * The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
  */
 export function getClientCertificateOutput(args: GetClientCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientCertificateResult> {
     return pulumi.output(args).apply((a: any) => getClientCertificate(a, opts))

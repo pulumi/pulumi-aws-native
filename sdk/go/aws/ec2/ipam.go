@@ -37,6 +37,8 @@ type Ipam struct {
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
 	// An array of key-value pairs to apply to this resource.
 	Tags IpamTagArrayOutput `pulumi:"tags"`
+	// The tier of the IPAM.
+	Tier IpamTierPtrOutput `pulumi:"tier"`
 }
 
 // NewIpam registers a new resource with the given unique name, arguments, and options.
@@ -84,6 +86,8 @@ type ipamArgs struct {
 	OperatingRegions []IpamOperatingRegion `pulumi:"operatingRegions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []IpamTag `pulumi:"tags"`
+	// The tier of the IPAM.
+	Tier *IpamTier `pulumi:"tier"`
 }
 
 // The set of arguments for constructing a Ipam resource.
@@ -93,6 +97,8 @@ type IpamArgs struct {
 	OperatingRegions IpamOperatingRegionArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags IpamTagArrayInput
+	// The tier of the IPAM.
+	Tier IpamTierPtrInput
 }
 
 func (IpamArgs) ElementType() reflect.Type {
@@ -196,6 +202,11 @@ func (o IpamOutput) ScopeCount() pulumi.IntOutput {
 // An array of key-value pairs to apply to this resource.
 func (o IpamOutput) Tags() IpamTagArrayOutput {
 	return o.ApplyT(func(v *Ipam) IpamTagArrayOutput { return v.Tags }).(IpamTagArrayOutput)
+}
+
+// The tier of the IPAM.
+func (o IpamOutput) Tier() IpamTierPtrOutput {
+	return o.ApplyT(func(v *Ipam) IpamTierPtrOutput { return v.Tier }).(IpamTierPtrOutput)
 }
 
 func init() {

@@ -14,23 +14,49 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:iam:getUser", {
-        "id": args.id,
+        "userName": args.userName,
     }, opts);
 }
 
 export interface GetUserArgs {
-    id: string;
+    /**
+     * The friendly name identifying the user.
+     */
+    userName: string;
 }
 
 export interface GetUserResult {
+    /**
+     * The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
+     */
     readonly arn?: string;
+    /**
+     * A list of group names to which you want to add the user.
+     */
     readonly groups?: string[];
-    readonly id?: string;
+    /**
+     * Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+     */
     readonly loginProfile?: outputs.iam.UserLoginProfile;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+     */
     readonly managedPolicyArns?: string[];
+    /**
+     * The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+     */
     readonly path?: string;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
     readonly permissionsBoundary?: string;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM role.
+     */
     readonly policies?: outputs.iam.UserPolicy[];
+    /**
+     * A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+     */
     readonly tags?: outputs.iam.UserTag[];
 }
 /**
@@ -41,5 +67,8 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
 }
 
 export interface GetUserOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The friendly name identifying the user.
+     */
+    userName: pulumi.Input<string>;
 }

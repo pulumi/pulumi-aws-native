@@ -24,19 +24,27 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 }
 
 type LookupUserArgs struct {
-	Id string `pulumi:"id"`
+	// The friendly name identifying the user.
+	UserName string `pulumi:"userName"`
 }
 
 type LookupUserResult struct {
-	Arn                 *string           `pulumi:"arn"`
-	Groups              []string          `pulumi:"groups"`
-	Id                  *string           `pulumi:"id"`
-	LoginProfile        *UserLoginProfile `pulumi:"loginProfile"`
-	ManagedPolicyArns   []string          `pulumi:"managedPolicyArns"`
-	Path                *string           `pulumi:"path"`
-	PermissionsBoundary *string           `pulumi:"permissionsBoundary"`
-	Policies            []UserPolicyType  `pulumi:"policies"`
-	Tags                []UserTag         `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
+	Arn *string `pulumi:"arn"`
+	// A list of group names to which you want to add the user.
+	Groups []string `pulumi:"groups"`
+	// Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+	LoginProfile *UserLoginProfile `pulumi:"loginProfile"`
+	// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+	ManagedPolicyArns []string `pulumi:"managedPolicyArns"`
+	// The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+	Path *string `pulumi:"path"`
+	// The ARN of the policy that is used to set the permissions boundary for the user.
+	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
+	// Adds or updates an inline policy document that is embedded in the specified IAM role.
+	Policies []UserPolicyType `pulumi:"policies"`
+	// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+	Tags []UserTag `pulumi:"tags"`
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
@@ -53,7 +61,8 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 }
 
 type LookupUserOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The friendly name identifying the user.
+	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
 func (LookupUserOutputArgs) ElementType() reflect.Type {
@@ -80,38 +89,42 @@ func (o LookupUserResultOutput) ToOutput(ctx context.Context) pulumix.Output[Loo
 	}
 }
 
+// The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
 func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A list of group names to which you want to add the user.
 func (o LookupUserResultOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupUserResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
 func (o LookupUserResultOutput) LoginProfile() UserLoginProfilePtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *UserLoginProfile { return v.LoginProfile }).(UserLoginProfilePtrOutput)
 }
 
+// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
 func (o LookupUserResultOutput) ManagedPolicyArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.ManagedPolicyArns }).(pulumi.StringArrayOutput)
 }
 
+// The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
 func (o LookupUserResultOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the policy that is used to set the permissions boundary for the user.
 func (o LookupUserResultOutput) PermissionsBoundary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.PermissionsBoundary }).(pulumi.StringPtrOutput)
 }
 
+// Adds or updates an inline policy document that is embedded in the specified IAM role.
 func (o LookupUserResultOutput) Policies() UserPolicyTypeArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []UserPolicyType { return v.Policies }).(UserPolicyTypeArrayOutput)
 }
 
+// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
 func (o LookupUserResultOutput) Tags() UserTagArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []UserTag { return v.Tags }).(UserTagArrayOutput)
 }

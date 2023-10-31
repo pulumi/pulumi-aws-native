@@ -67,6 +67,10 @@ export interface GetIpamResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.ec2.IpamTag[];
+    /**
+     * The tier of the IPAM.
+     */
+    readonly tier?: enums.ec2.IpamTier;
 }
 /**
  * Resource Schema of AWS::EC2::IPAM Type

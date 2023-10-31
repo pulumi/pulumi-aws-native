@@ -26,6 +26,14 @@ class UserArgs:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of group names to which you want to add the user.
+        :param pulumi.Input['UserLoginProfileArgs'] login_profile: Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+        :param pulumi.Input[str] path: The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role.
+        :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        :param pulumi.Input[str] user_name: The friendly name identifying the user.
         """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -47,6 +55,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of group names to which you want to add the user.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -56,6 +67,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="loginProfile")
     def login_profile(self) -> Optional[pulumi.Input['UserLoginProfileArgs']]:
+        """
+        Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+        """
         return pulumi.get(self, "login_profile")
 
     @login_profile.setter
@@ -65,6 +79,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @managed_policy_arns.setter
@@ -74,6 +91,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -83,6 +103,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
@@ -92,6 +115,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPolicyArgs']]]]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM role.
+        """
         return pulumi.get(self, "policies")
 
     @policies.setter
@@ -101,6 +127,9 @@ class UserArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]:
+        """
+        A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -110,6 +139,9 @@ class UserArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The friendly name identifying the user.
+        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -117,12 +149,7 @@ class UserArgs:
         pulumi.set(self, "user_name", value)
 
 
-warnings.warn("""User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class User(pulumi.CustomResource):
-    warnings.warn("""User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -141,6 +168,14 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of group names to which you want to add the user.
+        :param pulumi.Input[pulumi.InputType['UserLoginProfileArgs']] login_profile: Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policy_arns: A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+        :param pulumi.Input[str] path: The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+        :param pulumi.Input[str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPolicyArgs']]]] policies: Adds or updates an inline policy document that is embedded in the specified IAM role.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]] tags: A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        :param pulumi.Input[str] user_name: The friendly name identifying the user.
         """
         ...
     @overload
@@ -175,7 +210,6 @@ class User(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""User is deprecated: User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -231,45 +265,72 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of group names to which you want to add the user.
+        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter(name="loginProfile")
     def login_profile(self) -> pulumi.Output[Optional['outputs.UserLoginProfile']]:
+        """
+        Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+        """
         return pulumi.get(self, "login_profile")
 
     @property
     @pulumi.getter(name="managedPolicyArns")
     def managed_policy_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+        """
         return pulumi.get(self, "managed_policy_arns")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="permissionsBoundary")
     def permissions_boundary(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the policy that is used to set the permissions boundary for the user.
+        """
         return pulumi.get(self, "permissions_boundary")
 
     @property
     @pulumi.getter
     def policies(self) -> pulumi.Output[Optional[Sequence['outputs.UserPolicy']]]:
+        """
+        Adds or updates an inline policy document that is embedded in the specified IAM role.
+        """
         return pulumi.get(self, "policies")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UserTag']]]:
+        """
+        A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The friendly name identifying the user.
+        """
         return pulumi.get(self, "user_name")
 

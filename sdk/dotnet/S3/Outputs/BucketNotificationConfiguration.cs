@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Describes the notification configuration for an Amazon S3 bucket.
+    /// </summary>
     [OutputType]
     public sealed class BucketNotificationConfiguration
     {

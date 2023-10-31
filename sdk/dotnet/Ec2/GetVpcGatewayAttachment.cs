@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcGatewayAttachmentArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// </summary>
+        [Input("attachmentType", required: true)]
+        public string AttachmentType { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
+        [Input("vpcId", required: true)]
+        public string VpcId { get; set; } = null!;
 
         public GetVpcGatewayAttachmentArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetVpcGatewayAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// </summary>
+        [Input("attachmentType", required: true)]
+        public Input<string> AttachmentType { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the VPC.
+        /// </summary>
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
 
         public GetVpcGatewayAttachmentInvokeArgs()
         {
@@ -51,24 +69,29 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetVpcGatewayAttachmentResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+        /// </summary>
+        public readonly string? AttachmentType;
+        /// <summary>
+        /// The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+        /// </summary>
         public readonly string? InternetGatewayId;
-        public readonly string? VpcId;
+        /// <summary>
+        /// The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+        /// </summary>
         public readonly string? VpnGatewayId;
 
         [OutputConstructor]
         private GetVpcGatewayAttachmentResult(
-            string? id,
+            string? attachmentType,
 
             string? internetGatewayId,
 
-            string? vpcId,
-
             string? vpnGatewayId)
         {
-            Id = id;
+            AttachmentType = attachmentType;
             InternetGatewayId = internetGatewayId;
-            VpcId = vpcId;
             VpnGatewayId = vpnGatewayId;
         }
     }

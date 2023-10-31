@@ -24,6 +24,7 @@ export interface GetBranchArgs {
 
 export interface GetBranchResult {
     readonly arn?: string;
+    readonly backend?: outputs.amplify.BranchBackend;
     readonly buildSpec?: string;
     readonly description?: string;
     readonly enableAutoBuild?: boolean;

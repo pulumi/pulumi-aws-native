@@ -24,7 +24,7 @@ func LookupAutoScalingGroup(ctx *pulumi.Context, args *LookupAutoScalingGroupArg
 }
 
 type LookupAutoScalingGroupArgs struct {
-	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
+	Id string `pulumi:"id"`
 }
 
 type LookupAutoScalingGroupResult struct {
@@ -37,6 +37,7 @@ type LookupAutoScalingGroupResult struct {
 	DesiredCapacityType              *string                                      `pulumi:"desiredCapacityType"`
 	HealthCheckGracePeriod           *int                                         `pulumi:"healthCheckGracePeriod"`
 	HealthCheckType                  *string                                      `pulumi:"healthCheckType"`
+	Id                               *string                                      `pulumi:"id"`
 	LaunchConfigurationName          *string                                      `pulumi:"launchConfigurationName"`
 	LaunchTemplate                   *AutoScalingGroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
 	LifecycleHookSpecificationList   []AutoScalingGroupLifecycleHookSpecification `pulumi:"lifecycleHookSpecificationList"`
@@ -47,7 +48,6 @@ type LookupAutoScalingGroupResult struct {
 	MinSize                          *string                                      `pulumi:"minSize"`
 	MixedInstancesPolicy             *AutoScalingGroupMixedInstancesPolicy        `pulumi:"mixedInstancesPolicy"`
 	NewInstancesProtectedFromScaleIn *bool                                        `pulumi:"newInstancesProtectedFromScaleIn"`
-	NotificationConfiguration        *AutoScalingGroupNotificationConfiguration   `pulumi:"notificationConfiguration"`
 	NotificationConfigurations       []AutoScalingGroupNotificationConfiguration  `pulumi:"notificationConfigurations"`
 	PlacementGroup                   *string                                      `pulumi:"placementGroup"`
 	ServiceLinkedRoleArn             *string                                      `pulumi:"serviceLinkedRoleArn"`
@@ -71,7 +71,7 @@ func LookupAutoScalingGroupOutput(ctx *pulumi.Context, args LookupAutoScalingGro
 }
 
 type LookupAutoScalingGroupOutputArgs struct {
-	AutoScalingGroupName pulumi.StringInput `pulumi:"autoScalingGroupName"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupAutoScalingGroupOutputArgs) ElementType() reflect.Type {
@@ -134,6 +134,10 @@ func (o LookupAutoScalingGroupResultOutput) HealthCheckType() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.HealthCheckType }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupAutoScalingGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupAutoScalingGroupResultOutput) LaunchConfigurationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.LaunchConfigurationName }).(pulumi.StringPtrOutput)
 }
@@ -178,12 +182,6 @@ func (o LookupAutoScalingGroupResultOutput) MixedInstancesPolicy() AutoScalingGr
 
 func (o LookupAutoScalingGroupResultOutput) NewInstancesProtectedFromScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *bool { return v.NewInstancesProtectedFromScaleIn }).(pulumi.BoolPtrOutput)
-}
-
-func (o LookupAutoScalingGroupResultOutput) NotificationConfiguration() AutoScalingGroupNotificationConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupNotificationConfiguration {
-		return v.NotificationConfiguration
-	}).(AutoScalingGroupNotificationConfigurationPtrOutput)
 }
 
 func (o LookupAutoScalingGroupResultOutput) NotificationConfigurations() AutoScalingGroupNotificationConfigurationArrayOutput {

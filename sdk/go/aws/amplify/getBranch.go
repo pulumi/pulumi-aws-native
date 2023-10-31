@@ -29,6 +29,7 @@ type LookupBranchArgs struct {
 
 type LookupBranchResult struct {
 	Arn                        *string                     `pulumi:"arn"`
+	Backend                    *BranchBackend              `pulumi:"backend"`
 	BuildSpec                  *string                     `pulumi:"buildSpec"`
 	Description                *string                     `pulumi:"description"`
 	EnableAutoBuild            *bool                       `pulumi:"enableAutoBuild"`
@@ -84,6 +85,10 @@ func (o LookupBranchResultOutput) ToOutput(ctx context.Context) pulumix.Output[L
 
 func (o LookupBranchResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBranchResultOutput) Backend() BranchBackendPtrOutput {
+	return o.ApplyT(func(v LookupBranchResult) *BranchBackend { return v.Backend }).(BranchBackendPtrOutput)
 }
 
 func (o LookupBranchResultOutput) BuildSpec() pulumi.StringPtrOutput {

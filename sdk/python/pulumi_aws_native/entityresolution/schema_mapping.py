@@ -145,9 +145,10 @@ class SchemaMapping(pulumi.CustomResource):
             __props__.__dict__["schema_name"] = schema_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["has_workflows"] = None
             __props__.__dict__["schema_arn"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "mapped_input_fields[*]", "schema_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["schema_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SchemaMapping, __self__).__init__(
             'aws-native:entityresolution:SchemaMapping',
@@ -173,6 +174,7 @@ class SchemaMapping(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["has_workflows"] = None
         __props__.__dict__["mapped_input_fields"] = None
         __props__.__dict__["schema_arn"] = None
         __props__.__dict__["schema_name"] = None
@@ -192,6 +194,11 @@ class SchemaMapping(pulumi.CustomResource):
         The description of the SchemaMapping
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="hasWorkflows")
+    def has_workflows(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "has_workflows")
 
     @property
     @pulumi.getter(name="mappedInputFields")

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::GatewayResponse
+ * The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
  */
 export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResponseResult> {
 
@@ -16,22 +16,40 @@ export function getGatewayResponse(args: GetGatewayResponseArgs, opts?: pulumi.I
 }
 
 export interface GetGatewayResponseArgs {
+    /**
+     * A Cloudformation auto generated ID.
+     */
     id: string;
 }
 
 export interface GetGatewayResponseResult {
+    /**
+     * A Cloudformation auto generated ID.
+     */
     readonly id?: string;
+    /**
+     * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+     */
     readonly responseParameters?: any;
+    /**
+     * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+     */
     readonly responseTemplates?: any;
+    /**
+     * The HTTP status code for this GatewayResponse.
+     */
     readonly statusCode?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::GatewayResponse
+ * The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
  */
 export function getGatewayResponseOutput(args: GetGatewayResponseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResponseResult> {
     return pulumi.output(args).apply((a: any) => getGatewayResponse(a, opts))
 }
 
 export interface GetGatewayResponseOutputArgs {
+    /**
+     * A Cloudformation auto generated ID.
+     */
     id: pulumi.Input<string>;
 }

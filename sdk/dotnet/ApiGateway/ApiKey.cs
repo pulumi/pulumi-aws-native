@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::ApiKey
+    /// The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:ApiKey")]
     public partial class ApiKey : global::Pulumi.CustomResource
@@ -22,49 +22,50 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> ApiKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+        /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
         /// </summary>
         [Output("customerId")]
         public Output<string?> CustomerId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the purpose of the API key.
+        /// The description of the ApiKey.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the API key can be used by clients.
+        /// Specifies whether the ApiKey can be used by callers.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        /// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         /// </summary>
         [Output("generateDistinctId")]
         public Output<bool?> GenerateDistinctId { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
+        /// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+        ///  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of stages to associate with this API key.
+        /// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         /// </summary>
         [Output("stageKeys")]
         public Output<ImmutableArray<Outputs.ApiKeyStageKey>> StageKeys { get; private set; } = null!;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the API key.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ApiKeyTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the API key. Must be at least 20 characters long.
+        /// Specifies a value of the API key.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -121,31 +122,32 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class ApiKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+        /// An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
         /// </summary>
         [Input("customerId")]
         public Input<string>? CustomerId { get; set; }
 
         /// <summary>
-        /// A description of the purpose of the API key.
+        /// The description of the ApiKey.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the API key can be used by clients.
+        /// Specifies whether the ApiKey can be used by callers.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        /// Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         /// </summary>
         [Input("generateDistinctId")]
         public Input<bool>? GenerateDistinctId { get; set; }
 
         /// <summary>
-        /// A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
+        /// A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+        ///  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -154,7 +156,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.ApiKeyStageKeyArgs>? _stageKeys;
 
         /// <summary>
-        /// A list of stages to associate with this API key.
+        /// DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         /// </summary>
         public InputList<Inputs.ApiKeyStageKeyArgs> StageKeys
         {
@@ -166,7 +168,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.ApiKeyTagArgs>? _tags;
 
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the API key.
+        /// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         /// </summary>
         public InputList<Inputs.ApiKeyTagArgs> Tags
         {
@@ -175,7 +177,7 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// The value of the API key. Must be at least 20 characters long.
+        /// Specifies a value of the API key.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

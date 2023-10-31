@@ -34,6 +34,7 @@ __all__ = [
     'IpamPoolPublicIpSource',
     'IpamPoolState',
     'IpamScopeType',
+    'IpamTier',
     'KeyPairKeyFormat',
     'KeyPairKeyType',
     'LaunchTemplateCpuOptionsAmdSevSnp',
@@ -302,6 +303,14 @@ class IpamScopeType(str, Enum):
     """
     PUBLIC = "public"
     PRIVATE = "private"
+
+
+class IpamTier(str, Enum):
+    """
+    The tier of the IPAM.
+    """
+    FREE = "free"
+    ADVANCED = "advanced"
 
 
 class KeyPairKeyFormat(str, Enum):

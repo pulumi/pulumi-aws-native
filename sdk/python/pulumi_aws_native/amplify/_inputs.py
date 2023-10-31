@@ -16,6 +16,7 @@ __all__ = [
     'AppCustomRuleArgs',
     'AppEnvironmentVariableArgs',
     'AppTagArgs',
+    'BranchBackendArgs',
     'BranchBasicAuthConfigArgs',
     'BranchEnvironmentVariableArgs',
     'BranchTagArgs',
@@ -303,6 +304,23 @@ class AppTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class BranchBackendArgs:
+    def __init__(__self__, *,
+                 stack_arn: Optional[pulumi.Input[str]] = None):
+        if stack_arn is not None:
+            pulumi.set(__self__, "stack_arn", stack_arn)
+
+    @property
+    @pulumi.getter(name="stackArn")
+    def stack_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "stack_arn")
+
+    @stack_arn.setter
+    def stack_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stack_arn", value)
 
 
 @pulumi.input_type

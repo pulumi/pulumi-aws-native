@@ -20,8 +20,8 @@ class ClientCertificateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateTagArgs']]]] = None):
         """
         The set of arguments for constructing a ClientCertificate resource.
-        :param pulumi.Input[str] description: A description of the client certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        :param pulumi.Input[str] description: The description of the client certificate.
+        :param pulumi.Input[Sequence[pulumi.Input['ClientCertificateTagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -32,7 +32,7 @@ class ClientCertificateArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the client certificate.
+        The description of the client certificate.
         """
         return pulumi.get(self, "description")
 
@@ -44,7 +44,7 @@ class ClientCertificateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClientCertificateTagArgs']]]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
@@ -62,12 +62,12 @@ class ClientCertificate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::ClientCertificate
+        The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the client certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        :param pulumi.Input[str] description: The description of the client certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientCertificateTagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         """
         ...
     @overload
@@ -76,7 +76,7 @@ class ClientCertificate(pulumi.CustomResource):
                  args: Optional[ClientCertificateArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::ClientCertificate
+        The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
 
         :param str resource_name: The name of the resource.
         :param ClientCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -146,7 +146,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the client certificate.
+        The description of the client certificate.
         """
         return pulumi.get(self, "description")
 
@@ -154,7 +154,7 @@ class ClientCertificate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClientCertificateTag']]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 

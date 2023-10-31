@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetGatewayResponse
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::GatewayResponse
+        /// The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetGatewayResponseResult> InvokeAsync(GetGatewayResponseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::GatewayResponse
+        /// The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetGatewayResponseResult> Invoke(GetGatewayResponseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseInvokeArgs(), options.WithDefaults());
@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetGatewayResponseArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A Cloudformation auto generated ID.
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetGatewayResponseInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A Cloudformation auto generated ID.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,9 +57,21 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetGatewayResponseResult
     {
+        /// <summary>
+        /// A Cloudformation auto generated ID.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+        /// </summary>
         public readonly object? ResponseParameters;
+        /// <summary>
+        /// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+        /// </summary>
         public readonly object? ResponseTemplates;
+        /// <summary>
+        /// The HTTP status code for this GatewayResponse.
+        /// </summary>
         public readonly string? StatusCode;
 
         [OutputConstructor]

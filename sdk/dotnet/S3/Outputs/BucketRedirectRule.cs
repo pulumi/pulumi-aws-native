@@ -10,13 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
+    /// </summary>
     [OutputType]
     public sealed class BucketRedirectRule
     {
+        /// <summary>
+        /// The host name to use in the redirect request.
+        /// </summary>
         public readonly string? HostName;
+        /// <summary>
+        /// The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+        /// </summary>
         public readonly string? HttpRedirectCode;
-        public readonly string? Protocol;
+        /// <summary>
+        /// Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+        /// </summary>
+        public readonly Pulumi.AwsNative.S3.BucketRedirectRuleProtocol? Protocol;
+        /// <summary>
+        /// The object key prefix to use in the redirect request.
+        /// </summary>
         public readonly string? ReplaceKeyPrefixWith;
+        /// <summary>
+        /// The specific object key to use in the redirect request.d
+        /// </summary>
         public readonly string? ReplaceKeyWith;
 
         [OutputConstructor]
@@ -25,7 +43,7 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             string? httpRedirectCode,
 
-            string? protocol,
+            Pulumi.AwsNative.S3.BucketRedirectRuleProtocol? protocol,
 
             string? replaceKeyPrefixWith,
 

@@ -29,10 +29,15 @@ type LookupSchemaMappingArgs struct {
 }
 
 type LookupSchemaMappingResult struct {
-	CreatedAt *string            `pulumi:"createdAt"`
-	SchemaArn *string            `pulumi:"schemaArn"`
-	Tags      []SchemaMappingTag `pulumi:"tags"`
-	UpdatedAt *string            `pulumi:"updatedAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// The description of the SchemaMapping
+	Description  *string `pulumi:"description"`
+	HasWorkflows *bool   `pulumi:"hasWorkflows"`
+	// The SchemaMapping attributes input
+	MappedInputFields []SchemaMappingSchemaInputAttribute `pulumi:"mappedInputFields"`
+	SchemaArn         *string                             `pulumi:"schemaArn"`
+	Tags              []SchemaMappingTag                  `pulumi:"tags"`
+	UpdatedAt         *string                             `pulumi:"updatedAt"`
 }
 
 func LookupSchemaMappingOutput(ctx *pulumi.Context, args LookupSchemaMappingOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaMappingResultOutput {
@@ -79,6 +84,20 @@ func (o LookupSchemaMappingResultOutput) ToOutput(ctx context.Context) pulumix.O
 
 func (o LookupSchemaMappingResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaMappingResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The description of the SchemaMapping
+func (o LookupSchemaMappingResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchemaMappingResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSchemaMappingResultOutput) HasWorkflows() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSchemaMappingResult) *bool { return v.HasWorkflows }).(pulumi.BoolPtrOutput)
+}
+
+// The SchemaMapping attributes input
+func (o LookupSchemaMappingResultOutput) MappedInputFields() SchemaMappingSchemaInputAttributeArrayOutput {
+	return o.ApplyT(func(v LookupSchemaMappingResult) []SchemaMappingSchemaInputAttribute { return v.MappedInputFields }).(SchemaMappingSchemaInputAttributeArrayOutput)
 }
 
 func (o LookupSchemaMappingResultOutput) SchemaArn() pulumi.StringPtrOutput {

@@ -20,10 +20,10 @@ class RequestValidatorArgs:
                  validate_request_parameters: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
-        :param pulumi.Input[str] rest_api_id: The identifier of the targeted API entity.
-        :param pulumi.Input[str] name: Name of the request validator.
-        :param pulumi.Input[bool] validate_request_body: Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
-        :param pulumi.Input[bool] validate_request_parameters: Indicates whether to validate request parameters.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[str] name: The name of this RequestValidator
+        :param pulumi.Input[bool] validate_request_body: A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
+        :param pulumi.Input[bool] validate_request_parameters: A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if name is not None:
@@ -37,7 +37,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        The identifier of the targeted API entity.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -49,7 +49,7 @@ class RequestValidatorArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the request validator.
+        The name of this RequestValidator
         """
         return pulumi.get(self, "name")
 
@@ -61,7 +61,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         """
         return pulumi.get(self, "validate_request_body")
 
@@ -73,7 +73,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether to validate request parameters.
+        A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         """
         return pulumi.get(self, "validate_request_parameters")
 
@@ -93,14 +93,14 @@ class RequestValidator(pulumi.CustomResource):
                  validate_request_parameters: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::RequestValidator
+        The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the request validator.
-        :param pulumi.Input[str] rest_api_id: The identifier of the targeted API entity.
-        :param pulumi.Input[bool] validate_request_body: Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
-        :param pulumi.Input[bool] validate_request_parameters: Indicates whether to validate request parameters.
+        :param pulumi.Input[str] name: The name of this RequestValidator
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[bool] validate_request_body: A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
+        :param pulumi.Input[bool] validate_request_parameters: A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class RequestValidator(pulumi.CustomResource):
                  args: RequestValidatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::RequestValidator
+        The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param RequestValidatorArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the request validator.
+        The name of this RequestValidator
         """
         return pulumi.get(self, "name")
 
@@ -197,7 +197,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        The identifier of the targeted API entity.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -205,7 +205,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         """
         return pulumi.get(self, "validate_request_body")
 
@@ -213,7 +213,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether to validate request parameters.
+        A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         """
         return pulumi.get(self, "validate_request_parameters")
 

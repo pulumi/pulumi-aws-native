@@ -17,6 +17,7 @@ __all__ = [
     'AppCustomRule',
     'AppEnvironmentVariable',
     'AppTag',
+    'BranchBackend',
     'BranchBasicAuthConfig',
     'BranchEnvironmentVariable',
     'BranchTag',
@@ -266,6 +267,36 @@ class AppTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BranchBackend(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stackArn":
+            suggest = "stack_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchBackend. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchBackend.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchBackend.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stack_arn: Optional[str] = None):
+        if stack_arn is not None:
+            pulumi.set(__self__, "stack_arn", stack_arn)
+
+    @property
+    @pulumi.getter(name="stackArn")
+    def stack_arn(self) -> Optional[str]:
+        return pulumi.get(self, "stack_arn")
 
 
 @pulumi.output_type

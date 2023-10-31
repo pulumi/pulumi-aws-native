@@ -24,12 +24,12 @@ class UsagePlanArgs:
                  usage_plan_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UsagePlan resource.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: The API stages to associate with this usage plan.
-        :param pulumi.Input[str] description: A description of the usage plan.
-        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota: Configures the number of requests that users can make within a given interval.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the usage plan.
-        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle: Configures the overall request rate (average requests per second) and burst capacity.
-        :param pulumi.Input[str] usage_plan_name: A name for the usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: The associated API stages of a usage plan.
+        :param pulumi.Input[str] description: The description of a usage plan.
+        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota: The target maximum number of permitted requests per a given unit time interval.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle: A map containing method level throttling information for API stage in a usage plan.
+        :param pulumi.Input[str] usage_plan_name: The name of a usage plan.
         """
         if api_stages is not None:
             pulumi.set(__self__, "api_stages", api_stages)
@@ -48,7 +48,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]]:
         """
-        The API stages to associate with this usage plan.
+        The associated API stages of a usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -60,7 +60,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the usage plan.
+        The description of a usage plan.
         """
         return pulumi.get(self, "description")
 
@@ -72,7 +72,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def quota(self) -> Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']]:
         """
-        Configures the number of requests that users can make within a given interval.
+        The target maximum number of permitted requests per a given unit time interval.
         """
         return pulumi.get(self, "quota")
 
@@ -84,7 +84,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
@@ -96,7 +96,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def throttle(self) -> Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']]:
         """
-        Configures the overall request rate (average requests per second) and burst capacity.
+        A map containing method level throttling information for API stage in a usage plan.
         """
         return pulumi.get(self, "throttle")
 
@@ -108,7 +108,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="usagePlanName")
     def usage_plan_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the usage plan.
+        The name of a usage plan.
         """
         return pulumi.get(self, "usage_plan_name")
 
@@ -130,16 +130,17 @@ class UsagePlan(pulumi.CustomResource):
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::UsagePlan
+        The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+         In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The API stages to associate with this usage plan.
-        :param pulumi.Input[str] description: A description of the usage plan.
-        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota: Configures the number of requests that users can make within a given interval.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the usage plan.
-        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle: Configures the overall request rate (average requests per second) and burst capacity.
-        :param pulumi.Input[str] usage_plan_name: A name for the usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The associated API stages of a usage plan.
+        :param pulumi.Input[str] description: The description of a usage plan.
+        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota: The target maximum number of permitted requests per a given unit time interval.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle: A map containing method level throttling information for API stage in a usage plan.
+        :param pulumi.Input[str] usage_plan_name: The name of a usage plan.
         """
         ...
     @overload
@@ -148,7 +149,8 @@ class UsagePlan(pulumi.CustomResource):
                  args: Optional[UsagePlanArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::UsagePlan
+        The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+         In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
 
         :param str resource_name: The name of the resource.
         :param UsagePlanArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +222,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanApiStage']]]:
         """
-        The API stages to associate with this usage plan.
+        The associated API stages of a usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -228,7 +230,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the usage plan.
+        The description of a usage plan.
         """
         return pulumi.get(self, "description")
 
@@ -236,7 +238,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def quota(self) -> pulumi.Output[Optional['outputs.UsagePlanQuotaSettings']]:
         """
-        Configures the number of requests that users can make within a given interval.
+        The target maximum number of permitted requests per a given unit time interval.
         """
         return pulumi.get(self, "quota")
 
@@ -244,7 +246,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanTag']]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        The collection of tags. Each tag element is associated with a given resource.
         """
         return pulumi.get(self, "tags")
 
@@ -252,7 +254,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def throttle(self) -> pulumi.Output[Optional['outputs.UsagePlanThrottleSettings']]:
         """
-        Configures the overall request rate (average requests per second) and burst capacity.
+        A map containing method level throttling information for API stage in a usage plan.
         """
         return pulumi.get(self, "throttle")
 
@@ -260,7 +262,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="usagePlanName")
     def usage_plan_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A name for the usage plan.
+        The name of a usage plan.
         """
         return pulumi.get(self, "usage_plan_name")
 

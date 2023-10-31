@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::RequestValidator
+    /// The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:RequestValidator")]
     public partial class RequestValidator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the request validator.
+        /// The name of this RequestValidator
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string> RequestValidatorId { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the targeted API entity.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        /// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         /// </summary>
         [Output("validateRequestBody")]
         public Output<bool?> ValidateRequestBody { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to validate request parameters.
+        /// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         /// </summary>
         [Output("validateRequestParameters")]
         public Output<bool?> ValidateRequestParameters { get; private set; } = null!;
@@ -96,25 +96,25 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class RequestValidatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the request validator.
+        /// The name of this RequestValidator
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The identifier of the targeted API entity.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        /// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         /// </summary>
         [Input("validateRequestBody")]
         public Input<bool>? ValidateRequestBody { get; set; }
 
         /// <summary>
-        /// Indicates whether to validate request parameters.
+        /// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         /// </summary>
         [Input("validateRequestParameters")]
         public Input<bool>? ValidateRequestParameters { get; set; }

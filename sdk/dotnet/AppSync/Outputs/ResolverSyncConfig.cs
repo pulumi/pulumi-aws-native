@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class ResolverSyncConfig
     {
+        /// <summary>
+        /// The Conflict Detection strategy to use.
+        /// </summary>
         public readonly string ConflictDetection;
+        /// <summary>
+        /// The Conflict Resolution strategy to perform in the event of a conflict.
+        /// </summary>
         public readonly string? ConflictHandler;
         public readonly Outputs.ResolverLambdaConflictHandlerConfig? LambdaConflictHandlerConfig;
 

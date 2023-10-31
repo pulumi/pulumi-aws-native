@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the resolver.
+        /// </summary>
+        [Input("resolverArn", required: true)]
+        public string ResolverArn { get; set; } = null!;
 
         public GetResolverArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetResolverInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the resolver.
+        /// </summary>
+        [Input("resolverArn", required: true)]
+        public Input<string> ResolverArn { get; set; } = null!;
 
         public GetResolverInvokeArgs()
         {
@@ -51,20 +57,49 @@ namespace Pulumi.AwsNative.AppSync
     [OutputType]
     public sealed class GetResolverResult
     {
+        /// <summary>
+        /// The caching configuration for the resolver.
+        /// </summary>
         public readonly Outputs.ResolverCachingConfig? CachingConfig;
+        /// <summary>
+        /// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+        /// </summary>
         public readonly string? Code;
-        public readonly string? CodeS3Location;
+        /// <summary>
+        /// The resolver data source name.
+        /// </summary>
         public readonly string? DataSourceName;
-        public readonly string? Id;
+        /// <summary>
+        /// The resolver type.
+        /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+        /// </summary>
         public readonly int? MaxBatchSize;
+        /// <summary>
+        /// Functions linked with the pipeline resolver.
+        /// </summary>
         public readonly Outputs.ResolverPipelineConfig? PipelineConfig;
+        /// <summary>
+        /// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+        /// </summary>
         public readonly string? RequestMappingTemplate;
-        public readonly string? RequestMappingTemplateS3Location;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the resolver.
+        /// </summary>
         public readonly string? ResolverArn;
+        /// <summary>
+        /// The response mapping template.
+        /// </summary>
         public readonly string? ResponseMappingTemplate;
-        public readonly string? ResponseMappingTemplateS3Location;
+        /// <summary>
+        /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        /// </summary>
         public readonly Outputs.ResolverAppSyncRuntime? Runtime;
+        /// <summary>
+        /// The SyncConfig for a resolver attached to a versioned data source.
+        /// </summary>
         public readonly Outputs.ResolverSyncConfig? SyncConfig;
 
         [OutputConstructor]
@@ -73,11 +108,7 @@ namespace Pulumi.AwsNative.AppSync
 
             string? code,
 
-            string? codeS3Location,
-
             string? dataSourceName,
-
-            string? id,
 
             string? kind,
 
@@ -87,13 +118,9 @@ namespace Pulumi.AwsNative.AppSync
 
             string? requestMappingTemplate,
 
-            string? requestMappingTemplateS3Location,
-
             string? resolverArn,
 
             string? responseMappingTemplate,
-
-            string? responseMappingTemplateS3Location,
 
             Outputs.ResolverAppSyncRuntime? runtime,
 
@@ -101,17 +128,13 @@ namespace Pulumi.AwsNative.AppSync
         {
             CachingConfig = cachingConfig;
             Code = code;
-            CodeS3Location = codeS3Location;
             DataSourceName = dataSourceName;
-            Id = id;
             Kind = kind;
             MaxBatchSize = maxBatchSize;
             PipelineConfig = pipelineConfig;
             RequestMappingTemplate = requestMappingTemplate;
-            RequestMappingTemplateS3Location = requestMappingTemplateS3Location;
             ResolverArn = resolverArn;
             ResponseMappingTemplate = responseMappingTemplate;
-            ResponseMappingTemplateS3Location = responseMappingTemplateS3Location;
             Runtime = runtime;
             SyncConfig = syncConfig;
         }

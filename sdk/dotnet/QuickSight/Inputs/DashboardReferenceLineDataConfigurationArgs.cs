@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("dynamicConfiguration")]
         public Input<Inputs.DashboardReferenceLineDynamicDataConfigurationArgs>? DynamicConfiguration { get; set; }
 
+        [Input("seriesType")]
+        public Input<Pulumi.AwsNative.QuickSight.DashboardReferenceLineSeriesType>? SeriesType { get; set; }
+
         [Input("staticConfiguration")]
         public Input<Inputs.DashboardReferenceLineStaticDataConfigurationArgs>? StaticConfiguration { get; set; }
 

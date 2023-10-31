@@ -39,6 +39,7 @@ export class Branch extends pulumi.CustomResource {
 
     public readonly appId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly backend!: pulumi.Output<outputs.amplify.BranchBackend | undefined>;
     public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.BranchBasicAuthConfig | undefined>;
     public readonly branchName!: pulumi.Output<string>;
     public readonly buildSpec!: pulumi.Output<string | undefined>;
@@ -67,6 +68,7 @@ export class Branch extends pulumi.CustomResource {
                 throw new Error("Missing required property 'appId'");
             }
             resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["backend"] = args ? args.backend : undefined;
             resourceInputs["basicAuthConfig"] = args ? args.basicAuthConfig : undefined;
             resourceInputs["branchName"] = args ? args.branchName : undefined;
             resourceInputs["buildSpec"] = args ? args.buildSpec : undefined;
@@ -83,6 +85,7 @@ export class Branch extends pulumi.CustomResource {
         } else {
             resourceInputs["appId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["backend"] = undefined /*out*/;
             resourceInputs["basicAuthConfig"] = undefined /*out*/;
             resourceInputs["branchName"] = undefined /*out*/;
             resourceInputs["buildSpec"] = undefined /*out*/;
@@ -108,6 +111,7 @@ export class Branch extends pulumi.CustomResource {
  */
 export interface BranchArgs {
     appId: pulumi.Input<string>;
+    backend?: pulumi.Input<inputs.amplify.BranchBackendArgs>;
     basicAuthConfig?: pulumi.Input<inputs.amplify.BranchBasicAuthConfigArgs>;
     branchName?: pulumi.Input<string>;
     buildSpec?: pulumi.Input<string>;

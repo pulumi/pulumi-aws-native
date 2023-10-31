@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::ApiKey
+ * The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
  */
 export class ApiKey extends pulumi.CustomResource {
     /**
@@ -42,35 +42,36 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiKeyId!: pulumi.Output<string>;
     /**
-     * An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+     * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
      */
     public readonly customerId!: pulumi.Output<string | undefined>;
     /**
-     * A description of the purpose of the API key.
+     * The description of the ApiKey.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Indicates whether the API key can be used by clients.
+     * Specifies whether the ApiKey can be used by callers.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+     * Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
      */
     public readonly generateDistinctId!: pulumi.Output<boolean | undefined>;
     /**
-     * A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
+     * A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+     *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * A list of stages to associate with this API key.
+     * DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
      */
     public readonly stageKeys!: pulumi.Output<outputs.apigateway.ApiKeyStageKey[] | undefined>;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the API key.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
     public readonly tags!: pulumi.Output<outputs.apigateway.ApiKeyTag[] | undefined>;
     /**
-     * The value of the API key. Must be at least 20 characters long.
+     * Specifies a value of the API key.
      */
     public readonly value!: pulumi.Output<string | undefined>;
 
@@ -117,35 +118,36 @@ export class ApiKey extends pulumi.CustomResource {
  */
 export interface ApiKeyArgs {
     /**
-     * An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+     * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
      */
     customerId?: pulumi.Input<string>;
     /**
-     * A description of the purpose of the API key.
+     * The description of the ApiKey.
      */
     description?: pulumi.Input<string>;
     /**
-     * Indicates whether the API key can be used by clients.
+     * Specifies whether the ApiKey can be used by callers.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+     * Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
      */
     generateDistinctId?: pulumi.Input<boolean>;
     /**
-     * A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
+     * A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+     *  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of stages to associate with this API key.
+     * DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
      */
     stageKeys?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyStageKeyArgs>[]>;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the API key.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.ApiKeyTagArgs>[]>;
     /**
-     * The value of the API key. Must be at least 20 characters long.
+     * Specifies a value of the API key.
      */
     value?: pulumi.Input<string>;
 }

@@ -14,6 +14,1715 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ThemeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ThemeTagInput is an input type that accepts ThemeTagArgs and ThemeTagOutput values.
+// You can construct a concrete instance of `ThemeTagInput` via:
+//
+//	ThemeTagArgs{...}
+type ThemeTagInput interface {
+	pulumi.Input
+
+	ToThemeTagOutput() ThemeTagOutput
+	ToThemeTagOutputWithContext(context.Context) ThemeTagOutput
+}
+
+type ThemeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ThemeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTag)(nil)).Elem()
+}
+
+func (i ThemeTagArgs) ToThemeTagOutput() ThemeTagOutput {
+	return i.ToThemeTagOutputWithContext(context.Background())
+}
+
+func (i ThemeTagArgs) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagOutput)
+}
+
+func (i ThemeTagArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTag] {
+	return pulumix.Output[ThemeTag]{
+		OutputState: i.ToThemeTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ThemeTagArrayInput is an input type that accepts ThemeTagArray and ThemeTagArrayOutput values.
+// You can construct a concrete instance of `ThemeTagArrayInput` via:
+//
+//	ThemeTagArray{ ThemeTagArgs{...} }
+type ThemeTagArrayInput interface {
+	pulumi.Input
+
+	ToThemeTagArrayOutput() ThemeTagArrayOutput
+	ToThemeTagArrayOutputWithContext(context.Context) ThemeTagArrayOutput
+}
+
+type ThemeTagArray []ThemeTagInput
+
+func (ThemeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeTag)(nil)).Elem()
+}
+
+func (i ThemeTagArray) ToThemeTagArrayOutput() ThemeTagArrayOutput {
+	return i.ToThemeTagArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeTagArray) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagArrayOutput)
+}
+
+func (i ThemeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeTag] {
+	return pulumix.Output[[]ThemeTag]{
+		OutputState: i.ToThemeTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeTagOutput struct{ *pulumi.OutputState }
+
+func (ThemeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTag)(nil)).Elem()
+}
+
+func (o ThemeTagOutput) ToThemeTagOutput() ThemeTagOutput {
+	return o
+}
+
+func (o ThemeTagOutput) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
+	return o
+}
+
+func (o ThemeTagOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTag] {
+	return pulumix.Output[ThemeTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ThemeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ThemeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ThemeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ThemeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeTag)(nil)).Elem()
+}
+
+func (o ThemeTagArrayOutput) ToThemeTagArrayOutput() ThemeTagArrayOutput {
+	return o
+}
+
+func (o ThemeTagArrayOutput) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
+	return o
+}
+
+func (o ThemeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeTag] {
+	return pulumix.Output[[]ThemeTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTagArrayOutput) Index(i pulumi.IntInput) ThemeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeTag {
+		return vs[0].([]ThemeTag)[vs[1].(int)]
+	}).(ThemeTagOutput)
+}
+
+type ThemeTileLayoutStyle struct {
+	Gutter *ThemeGutterStyle `pulumi:"gutter"`
+	Margin *ThemeMarginStyle `pulumi:"margin"`
+}
+
+// ThemeTileLayoutStyleInput is an input type that accepts ThemeTileLayoutStyleArgs and ThemeTileLayoutStyleOutput values.
+// You can construct a concrete instance of `ThemeTileLayoutStyleInput` via:
+//
+//	ThemeTileLayoutStyleArgs{...}
+type ThemeTileLayoutStyleInput interface {
+	pulumi.Input
+
+	ToThemeTileLayoutStyleOutput() ThemeTileLayoutStyleOutput
+	ToThemeTileLayoutStyleOutputWithContext(context.Context) ThemeTileLayoutStyleOutput
+}
+
+type ThemeTileLayoutStyleArgs struct {
+	Gutter ThemeGutterStylePtrInput `pulumi:"gutter"`
+	Margin ThemeMarginStylePtrInput `pulumi:"margin"`
+}
+
+func (ThemeTileLayoutStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTileLayoutStyle)(nil)).Elem()
+}
+
+func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStyleOutput() ThemeTileLayoutStyleOutput {
+	return i.ToThemeTileLayoutStyleOutputWithContext(context.Background())
+}
+
+func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStyleOutputWithContext(ctx context.Context) ThemeTileLayoutStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileLayoutStyleOutput)
+}
+
+func (i ThemeTileLayoutStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTileLayoutStyle] {
+	return pulumix.Output[ThemeTileLayoutStyle]{
+		OutputState: i.ToThemeTileLayoutStyleOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStylePtrOutput() ThemeTileLayoutStylePtrOutput {
+	return i.ToThemeTileLayoutStylePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStylePtrOutputWithContext(ctx context.Context) ThemeTileLayoutStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileLayoutStyleOutput).ToThemeTileLayoutStylePtrOutputWithContext(ctx)
+}
+
+// ThemeTileLayoutStylePtrInput is an input type that accepts ThemeTileLayoutStyleArgs, ThemeTileLayoutStylePtr and ThemeTileLayoutStylePtrOutput values.
+// You can construct a concrete instance of `ThemeTileLayoutStylePtrInput` via:
+//
+//	        ThemeTileLayoutStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeTileLayoutStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeTileLayoutStylePtrOutput() ThemeTileLayoutStylePtrOutput
+	ToThemeTileLayoutStylePtrOutputWithContext(context.Context) ThemeTileLayoutStylePtrOutput
+}
+
+type themeTileLayoutStylePtrType ThemeTileLayoutStyleArgs
+
+func ThemeTileLayoutStylePtr(v *ThemeTileLayoutStyleArgs) ThemeTileLayoutStylePtrInput {
+	return (*themeTileLayoutStylePtrType)(v)
+}
+
+func (*themeTileLayoutStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTileLayoutStyle)(nil)).Elem()
+}
+
+func (i *themeTileLayoutStylePtrType) ToThemeTileLayoutStylePtrOutput() ThemeTileLayoutStylePtrOutput {
+	return i.ToThemeTileLayoutStylePtrOutputWithContext(context.Background())
+}
+
+func (i *themeTileLayoutStylePtrType) ToThemeTileLayoutStylePtrOutputWithContext(ctx context.Context) ThemeTileLayoutStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileLayoutStylePtrOutput)
+}
+
+func (i *themeTileLayoutStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileLayoutStyle] {
+	return pulumix.Output[*ThemeTileLayoutStyle]{
+		OutputState: i.ToThemeTileLayoutStylePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeTileLayoutStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeTileLayoutStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTileLayoutStyle)(nil)).Elem()
+}
+
+func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStyleOutput() ThemeTileLayoutStyleOutput {
+	return o
+}
+
+func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStyleOutputWithContext(ctx context.Context) ThemeTileLayoutStyleOutput {
+	return o
+}
+
+func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStylePtrOutput() ThemeTileLayoutStylePtrOutput {
+	return o.ToThemeTileLayoutStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStylePtrOutputWithContext(ctx context.Context) ThemeTileLayoutStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeTileLayoutStyle) *ThemeTileLayoutStyle {
+		return &v
+	}).(ThemeTileLayoutStylePtrOutput)
+}
+
+func (o ThemeTileLayoutStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTileLayoutStyle] {
+	return pulumix.Output[ThemeTileLayoutStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTileLayoutStyleOutput) Gutter() ThemeGutterStylePtrOutput {
+	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeGutterStyle { return v.Gutter }).(ThemeGutterStylePtrOutput)
+}
+
+func (o ThemeTileLayoutStyleOutput) Margin() ThemeMarginStylePtrOutput {
+	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeMarginStyle { return v.Margin }).(ThemeMarginStylePtrOutput)
+}
+
+type ThemeTileLayoutStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeTileLayoutStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTileLayoutStyle)(nil)).Elem()
+}
+
+func (o ThemeTileLayoutStylePtrOutput) ToThemeTileLayoutStylePtrOutput() ThemeTileLayoutStylePtrOutput {
+	return o
+}
+
+func (o ThemeTileLayoutStylePtrOutput) ToThemeTileLayoutStylePtrOutputWithContext(ctx context.Context) ThemeTileLayoutStylePtrOutput {
+	return o
+}
+
+func (o ThemeTileLayoutStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileLayoutStyle] {
+	return pulumix.Output[*ThemeTileLayoutStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTileLayoutStylePtrOutput) Elem() ThemeTileLayoutStyleOutput {
+	return o.ApplyT(func(v *ThemeTileLayoutStyle) ThemeTileLayoutStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeTileLayoutStyle
+		return ret
+	}).(ThemeTileLayoutStyleOutput)
+}
+
+func (o ThemeTileLayoutStylePtrOutput) Gutter() ThemeGutterStylePtrOutput {
+	return o.ApplyT(func(v *ThemeTileLayoutStyle) *ThemeGutterStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Gutter
+	}).(ThemeGutterStylePtrOutput)
+}
+
+func (o ThemeTileLayoutStylePtrOutput) Margin() ThemeMarginStylePtrOutput {
+	return o.ApplyT(func(v *ThemeTileLayoutStyle) *ThemeMarginStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Margin
+	}).(ThemeMarginStylePtrOutput)
+}
+
+type ThemeTileStyle struct {
+	Border *ThemeBorderStyle `pulumi:"border"`
+}
+
+// ThemeTileStyleInput is an input type that accepts ThemeTileStyleArgs and ThemeTileStyleOutput values.
+// You can construct a concrete instance of `ThemeTileStyleInput` via:
+//
+//	ThemeTileStyleArgs{...}
+type ThemeTileStyleInput interface {
+	pulumi.Input
+
+	ToThemeTileStyleOutput() ThemeTileStyleOutput
+	ToThemeTileStyleOutputWithContext(context.Context) ThemeTileStyleOutput
+}
+
+type ThemeTileStyleArgs struct {
+	Border ThemeBorderStylePtrInput `pulumi:"border"`
+}
+
+func (ThemeTileStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTileStyle)(nil)).Elem()
+}
+
+func (i ThemeTileStyleArgs) ToThemeTileStyleOutput() ThemeTileStyleOutput {
+	return i.ToThemeTileStyleOutputWithContext(context.Background())
+}
+
+func (i ThemeTileStyleArgs) ToThemeTileStyleOutputWithContext(ctx context.Context) ThemeTileStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileStyleOutput)
+}
+
+func (i ThemeTileStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTileStyle] {
+	return pulumix.Output[ThemeTileStyle]{
+		OutputState: i.ToThemeTileStyleOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeTileStyleArgs) ToThemeTileStylePtrOutput() ThemeTileStylePtrOutput {
+	return i.ToThemeTileStylePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeTileStyleArgs) ToThemeTileStylePtrOutputWithContext(ctx context.Context) ThemeTileStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileStyleOutput).ToThemeTileStylePtrOutputWithContext(ctx)
+}
+
+// ThemeTileStylePtrInput is an input type that accepts ThemeTileStyleArgs, ThemeTileStylePtr and ThemeTileStylePtrOutput values.
+// You can construct a concrete instance of `ThemeTileStylePtrInput` via:
+//
+//	        ThemeTileStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeTileStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeTileStylePtrOutput() ThemeTileStylePtrOutput
+	ToThemeTileStylePtrOutputWithContext(context.Context) ThemeTileStylePtrOutput
+}
+
+type themeTileStylePtrType ThemeTileStyleArgs
+
+func ThemeTileStylePtr(v *ThemeTileStyleArgs) ThemeTileStylePtrInput {
+	return (*themeTileStylePtrType)(v)
+}
+
+func (*themeTileStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTileStyle)(nil)).Elem()
+}
+
+func (i *themeTileStylePtrType) ToThemeTileStylePtrOutput() ThemeTileStylePtrOutput {
+	return i.ToThemeTileStylePtrOutputWithContext(context.Background())
+}
+
+func (i *themeTileStylePtrType) ToThemeTileStylePtrOutputWithContext(ctx context.Context) ThemeTileStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileStylePtrOutput)
+}
+
+func (i *themeTileStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileStyle] {
+	return pulumix.Output[*ThemeTileStyle]{
+		OutputState: i.ToThemeTileStylePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeTileStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeTileStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTileStyle)(nil)).Elem()
+}
+
+func (o ThemeTileStyleOutput) ToThemeTileStyleOutput() ThemeTileStyleOutput {
+	return o
+}
+
+func (o ThemeTileStyleOutput) ToThemeTileStyleOutputWithContext(ctx context.Context) ThemeTileStyleOutput {
+	return o
+}
+
+func (o ThemeTileStyleOutput) ToThemeTileStylePtrOutput() ThemeTileStylePtrOutput {
+	return o.ToThemeTileStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeTileStyleOutput) ToThemeTileStylePtrOutputWithContext(ctx context.Context) ThemeTileStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeTileStyle) *ThemeTileStyle {
+		return &v
+	}).(ThemeTileStylePtrOutput)
+}
+
+func (o ThemeTileStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTileStyle] {
+	return pulumix.Output[ThemeTileStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTileStyleOutput) Border() ThemeBorderStylePtrOutput {
+	return o.ApplyT(func(v ThemeTileStyle) *ThemeBorderStyle { return v.Border }).(ThemeBorderStylePtrOutput)
+}
+
+type ThemeTileStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeTileStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTileStyle)(nil)).Elem()
+}
+
+func (o ThemeTileStylePtrOutput) ToThemeTileStylePtrOutput() ThemeTileStylePtrOutput {
+	return o
+}
+
+func (o ThemeTileStylePtrOutput) ToThemeTileStylePtrOutputWithContext(ctx context.Context) ThemeTileStylePtrOutput {
+	return o
+}
+
+func (o ThemeTileStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileStyle] {
+	return pulumix.Output[*ThemeTileStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTileStylePtrOutput) Elem() ThemeTileStyleOutput {
+	return o.ApplyT(func(v *ThemeTileStyle) ThemeTileStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeTileStyle
+		return ret
+	}).(ThemeTileStyleOutput)
+}
+
+func (o ThemeTileStylePtrOutput) Border() ThemeBorderStylePtrOutput {
+	return o.ApplyT(func(v *ThemeTileStyle) *ThemeBorderStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Border
+	}).(ThemeBorderStylePtrOutput)
+}
+
+type ThemeTypography struct {
+	FontFamilies []ThemeFont `pulumi:"fontFamilies"`
+}
+
+// ThemeTypographyInput is an input type that accepts ThemeTypographyArgs and ThemeTypographyOutput values.
+// You can construct a concrete instance of `ThemeTypographyInput` via:
+//
+//	ThemeTypographyArgs{...}
+type ThemeTypographyInput interface {
+	pulumi.Input
+
+	ToThemeTypographyOutput() ThemeTypographyOutput
+	ToThemeTypographyOutputWithContext(context.Context) ThemeTypographyOutput
+}
+
+type ThemeTypographyArgs struct {
+	FontFamilies ThemeFontArrayInput `pulumi:"fontFamilies"`
+}
+
+func (ThemeTypographyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTypography)(nil)).Elem()
+}
+
+func (i ThemeTypographyArgs) ToThemeTypographyOutput() ThemeTypographyOutput {
+	return i.ToThemeTypographyOutputWithContext(context.Background())
+}
+
+func (i ThemeTypographyArgs) ToThemeTypographyOutputWithContext(ctx context.Context) ThemeTypographyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyOutput)
+}
+
+func (i ThemeTypographyArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTypography] {
+	return pulumix.Output[ThemeTypography]{
+		OutputState: i.ToThemeTypographyOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeTypographyArgs) ToThemeTypographyPtrOutput() ThemeTypographyPtrOutput {
+	return i.ToThemeTypographyPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeTypographyArgs) ToThemeTypographyPtrOutputWithContext(ctx context.Context) ThemeTypographyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyOutput).ToThemeTypographyPtrOutputWithContext(ctx)
+}
+
+// ThemeTypographyPtrInput is an input type that accepts ThemeTypographyArgs, ThemeTypographyPtr and ThemeTypographyPtrOutput values.
+// You can construct a concrete instance of `ThemeTypographyPtrInput` via:
+//
+//	        ThemeTypographyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeTypographyPtrInput interface {
+	pulumi.Input
+
+	ToThemeTypographyPtrOutput() ThemeTypographyPtrOutput
+	ToThemeTypographyPtrOutputWithContext(context.Context) ThemeTypographyPtrOutput
+}
+
+type themeTypographyPtrType ThemeTypographyArgs
+
+func ThemeTypographyPtr(v *ThemeTypographyArgs) ThemeTypographyPtrInput {
+	return (*themeTypographyPtrType)(v)
+}
+
+func (*themeTypographyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTypography)(nil)).Elem()
+}
+
+func (i *themeTypographyPtrType) ToThemeTypographyPtrOutput() ThemeTypographyPtrOutput {
+	return i.ToThemeTypographyPtrOutputWithContext(context.Background())
+}
+
+func (i *themeTypographyPtrType) ToThemeTypographyPtrOutputWithContext(ctx context.Context) ThemeTypographyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyPtrOutput)
+}
+
+func (i *themeTypographyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTypography] {
+	return pulumix.Output[*ThemeTypography]{
+		OutputState: i.ToThemeTypographyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeTypographyOutput struct{ *pulumi.OutputState }
+
+func (ThemeTypographyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTypography)(nil)).Elem()
+}
+
+func (o ThemeTypographyOutput) ToThemeTypographyOutput() ThemeTypographyOutput {
+	return o
+}
+
+func (o ThemeTypographyOutput) ToThemeTypographyOutputWithContext(ctx context.Context) ThemeTypographyOutput {
+	return o
+}
+
+func (o ThemeTypographyOutput) ToThemeTypographyPtrOutput() ThemeTypographyPtrOutput {
+	return o.ToThemeTypographyPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeTypographyOutput) ToThemeTypographyPtrOutputWithContext(ctx context.Context) ThemeTypographyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeTypography) *ThemeTypography {
+		return &v
+	}).(ThemeTypographyPtrOutput)
+}
+
+func (o ThemeTypographyOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTypography] {
+	return pulumix.Output[ThemeTypography]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTypographyOutput) FontFamilies() ThemeFontArrayOutput {
+	return o.ApplyT(func(v ThemeTypography) []ThemeFont { return v.FontFamilies }).(ThemeFontArrayOutput)
+}
+
+type ThemeTypographyPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeTypographyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeTypography)(nil)).Elem()
+}
+
+func (o ThemeTypographyPtrOutput) ToThemeTypographyPtrOutput() ThemeTypographyPtrOutput {
+	return o
+}
+
+func (o ThemeTypographyPtrOutput) ToThemeTypographyPtrOutputWithContext(ctx context.Context) ThemeTypographyPtrOutput {
+	return o
+}
+
+func (o ThemeTypographyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTypography] {
+	return pulumix.Output[*ThemeTypography]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeTypographyPtrOutput) Elem() ThemeTypographyOutput {
+	return o.ApplyT(func(v *ThemeTypography) ThemeTypography {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeTypography
+		return ret
+	}).(ThemeTypographyOutput)
+}
+
+func (o ThemeTypographyPtrOutput) FontFamilies() ThemeFontArrayOutput {
+	return o.ApplyT(func(v *ThemeTypography) []ThemeFont {
+		if v == nil {
+			return nil
+		}
+		return v.FontFamilies
+	}).(ThemeFontArrayOutput)
+}
+
+type ThemeUiColorPalette struct {
+	Accent              *string `pulumi:"accent"`
+	AccentForeground    *string `pulumi:"accentForeground"`
+	Danger              *string `pulumi:"danger"`
+	DangerForeground    *string `pulumi:"dangerForeground"`
+	Dimension           *string `pulumi:"dimension"`
+	DimensionForeground *string `pulumi:"dimensionForeground"`
+	Measure             *string `pulumi:"measure"`
+	MeasureForeground   *string `pulumi:"measureForeground"`
+	PrimaryBackground   *string `pulumi:"primaryBackground"`
+	PrimaryForeground   *string `pulumi:"primaryForeground"`
+	SecondaryBackground *string `pulumi:"secondaryBackground"`
+	SecondaryForeground *string `pulumi:"secondaryForeground"`
+	Success             *string `pulumi:"success"`
+	SuccessForeground   *string `pulumi:"successForeground"`
+	Warning             *string `pulumi:"warning"`
+	WarningForeground   *string `pulumi:"warningForeground"`
+}
+
+// ThemeUiColorPaletteInput is an input type that accepts ThemeUiColorPaletteArgs and ThemeUiColorPaletteOutput values.
+// You can construct a concrete instance of `ThemeUiColorPaletteInput` via:
+//
+//	ThemeUiColorPaletteArgs{...}
+type ThemeUiColorPaletteInput interface {
+	pulumi.Input
+
+	ToThemeUiColorPaletteOutput() ThemeUiColorPaletteOutput
+	ToThemeUiColorPaletteOutputWithContext(context.Context) ThemeUiColorPaletteOutput
+}
+
+type ThemeUiColorPaletteArgs struct {
+	Accent              pulumi.StringPtrInput `pulumi:"accent"`
+	AccentForeground    pulumi.StringPtrInput `pulumi:"accentForeground"`
+	Danger              pulumi.StringPtrInput `pulumi:"danger"`
+	DangerForeground    pulumi.StringPtrInput `pulumi:"dangerForeground"`
+	Dimension           pulumi.StringPtrInput `pulumi:"dimension"`
+	DimensionForeground pulumi.StringPtrInput `pulumi:"dimensionForeground"`
+	Measure             pulumi.StringPtrInput `pulumi:"measure"`
+	MeasureForeground   pulumi.StringPtrInput `pulumi:"measureForeground"`
+	PrimaryBackground   pulumi.StringPtrInput `pulumi:"primaryBackground"`
+	PrimaryForeground   pulumi.StringPtrInput `pulumi:"primaryForeground"`
+	SecondaryBackground pulumi.StringPtrInput `pulumi:"secondaryBackground"`
+	SecondaryForeground pulumi.StringPtrInput `pulumi:"secondaryForeground"`
+	Success             pulumi.StringPtrInput `pulumi:"success"`
+	SuccessForeground   pulumi.StringPtrInput `pulumi:"successForeground"`
+	Warning             pulumi.StringPtrInput `pulumi:"warning"`
+	WarningForeground   pulumi.StringPtrInput `pulumi:"warningForeground"`
+}
+
+func (ThemeUiColorPaletteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeUiColorPalette)(nil)).Elem()
+}
+
+func (i ThemeUiColorPaletteArgs) ToThemeUiColorPaletteOutput() ThemeUiColorPaletteOutput {
+	return i.ToThemeUiColorPaletteOutputWithContext(context.Background())
+}
+
+func (i ThemeUiColorPaletteArgs) ToThemeUiColorPaletteOutputWithContext(ctx context.Context) ThemeUiColorPaletteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeUiColorPaletteOutput)
+}
+
+func (i ThemeUiColorPaletteArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeUiColorPalette] {
+	return pulumix.Output[ThemeUiColorPalette]{
+		OutputState: i.ToThemeUiColorPaletteOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeUiColorPaletteArgs) ToThemeUiColorPalettePtrOutput() ThemeUiColorPalettePtrOutput {
+	return i.ToThemeUiColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeUiColorPaletteArgs) ToThemeUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeUiColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeUiColorPaletteOutput).ToThemeUiColorPalettePtrOutputWithContext(ctx)
+}
+
+// ThemeUiColorPalettePtrInput is an input type that accepts ThemeUiColorPaletteArgs, ThemeUiColorPalettePtr and ThemeUiColorPalettePtrOutput values.
+// You can construct a concrete instance of `ThemeUiColorPalettePtrInput` via:
+//
+//	        ThemeUiColorPaletteArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeUiColorPalettePtrInput interface {
+	pulumi.Input
+
+	ToThemeUiColorPalettePtrOutput() ThemeUiColorPalettePtrOutput
+	ToThemeUiColorPalettePtrOutputWithContext(context.Context) ThemeUiColorPalettePtrOutput
+}
+
+type themeUiColorPalettePtrType ThemeUiColorPaletteArgs
+
+func ThemeUiColorPalettePtr(v *ThemeUiColorPaletteArgs) ThemeUiColorPalettePtrInput {
+	return (*themeUiColorPalettePtrType)(v)
+}
+
+func (*themeUiColorPalettePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeUiColorPalette)(nil)).Elem()
+}
+
+func (i *themeUiColorPalettePtrType) ToThemeUiColorPalettePtrOutput() ThemeUiColorPalettePtrOutput {
+	return i.ToThemeUiColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (i *themeUiColorPalettePtrType) ToThemeUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeUiColorPalettePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeUiColorPalettePtrOutput)
+}
+
+func (i *themeUiColorPalettePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeUiColorPalette] {
+	return pulumix.Output[*ThemeUiColorPalette]{
+		OutputState: i.ToThemeUiColorPalettePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeUiColorPaletteOutput struct{ *pulumi.OutputState }
+
+func (ThemeUiColorPaletteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeUiColorPalette)(nil)).Elem()
+}
+
+func (o ThemeUiColorPaletteOutput) ToThemeUiColorPaletteOutput() ThemeUiColorPaletteOutput {
+	return o
+}
+
+func (o ThemeUiColorPaletteOutput) ToThemeUiColorPaletteOutputWithContext(ctx context.Context) ThemeUiColorPaletteOutput {
+	return o
+}
+
+func (o ThemeUiColorPaletteOutput) ToThemeUiColorPalettePtrOutput() ThemeUiColorPalettePtrOutput {
+	return o.ToThemeUiColorPalettePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeUiColorPaletteOutput) ToThemeUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeUiColorPalettePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeUiColorPalette) *ThemeUiColorPalette {
+		return &v
+	}).(ThemeUiColorPalettePtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeUiColorPalette] {
+	return pulumix.Output[ThemeUiColorPalette]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeUiColorPaletteOutput) Accent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.Accent }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) AccentForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.AccentForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) Danger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.Danger }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) DangerForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.DangerForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) Dimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.Dimension }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) DimensionForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.DimensionForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.Measure }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) MeasureForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.MeasureForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) PrimaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.PrimaryBackground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) PrimaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.PrimaryForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) SecondaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.SecondaryBackground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) SecondaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.SecondaryForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) Success() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.Success }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) SuccessForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.SuccessForeground }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) Warning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.Warning }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPaletteOutput) WarningForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeUiColorPalette) *string { return v.WarningForeground }).(pulumi.StringPtrOutput)
+}
+
+type ThemeUiColorPalettePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeUiColorPalettePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeUiColorPalette)(nil)).Elem()
+}
+
+func (o ThemeUiColorPalettePtrOutput) ToThemeUiColorPalettePtrOutput() ThemeUiColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeUiColorPalettePtrOutput) ToThemeUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeUiColorPalettePtrOutput {
+	return o
+}
+
+func (o ThemeUiColorPalettePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeUiColorPalette] {
+	return pulumix.Output[*ThemeUiColorPalette]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeUiColorPalettePtrOutput) Elem() ThemeUiColorPaletteOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) ThemeUiColorPalette {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeUiColorPalette
+		return ret
+	}).(ThemeUiColorPaletteOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) Accent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Accent
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) AccentForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccentForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) Danger() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Danger
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) DangerForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DangerForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) Dimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Dimension
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) DimensionForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DimensionForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Measure
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) MeasureForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MeasureForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) PrimaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) PrimaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) SecondaryBackground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryBackground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) SecondaryForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) Success() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Success
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) SuccessForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) Warning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Warning
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeUiColorPalettePtrOutput) WarningForeground() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeUiColorPalette) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WarningForeground
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThemeVersion struct {
+	Arn           *string              `pulumi:"arn"`
+	BaseThemeId   *string              `pulumi:"baseThemeId"`
+	Configuration *ThemeConfiguration  `pulumi:"configuration"`
+	CreatedTime   *string              `pulumi:"createdTime"`
+	Description   *string              `pulumi:"description"`
+	Errors        []ThemeError         `pulumi:"errors"`
+	Status        *ThemeResourceStatus `pulumi:"status"`
+	VersionNumber *float64             `pulumi:"versionNumber"`
+}
+
+type ThemeVersionOutput struct{ *pulumi.OutputState }
+
+func (ThemeVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeVersionOutput) ToThemeVersionOutput() ThemeVersionOutput {
+	return o
+}
+
+func (o ThemeVersionOutput) ToThemeVersionOutputWithContext(ctx context.Context) ThemeVersionOutput {
+	return o
+}
+
+func (o ThemeVersionOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeVersion] {
+	return pulumix.Output[ThemeVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *ThemeConfiguration { return v.Configuration }).(ThemeConfigurationPtrOutput)
+}
+
+func (o ThemeVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionOutput) Errors() ThemeErrorArrayOutput {
+	return o.ApplyT(func(v ThemeVersion) []ThemeError { return v.Errors }).(ThemeErrorArrayOutput)
+}
+
+func (o ThemeVersionOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *ThemeResourceStatus { return v.Status }).(ThemeResourceStatusPtrOutput)
+}
+
+func (o ThemeVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ThemeVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+type ThemeVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeVersion] {
+	return pulumix.Output[*ThemeVersion]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeVersionPtrOutput) Elem() ThemeVersionOutput {
+	return o.ApplyT(func(v *ThemeVersion) ThemeVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeVersion
+		return ret
+	}).(ThemeVersionOutput)
+}
+
+func (o ThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseThemeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) Configuration() ThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *ThemeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ThemeConfigurationPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) Errors() ThemeErrorArrayOutput {
+	return o.ApplyT(func(v *ThemeVersion) []ThemeError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(ThemeErrorArrayOutput)
+}
+
+func (o ThemeVersionPtrOutput) Status() ThemeResourceStatusPtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *ThemeResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(ThemeResourceStatusPtrOutput)
+}
+
+func (o ThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ThemeVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TopicAggregationFunctionParameters struct {
+}
+
+// TopicAggregationFunctionParametersInput is an input type that accepts TopicAggregationFunctionParametersArgs and TopicAggregationFunctionParametersOutput values.
+// You can construct a concrete instance of `TopicAggregationFunctionParametersInput` via:
+//
+//	TopicAggregationFunctionParametersArgs{...}
+type TopicAggregationFunctionParametersInput interface {
+	pulumi.Input
+
+	ToTopicAggregationFunctionParametersOutput() TopicAggregationFunctionParametersOutput
+	ToTopicAggregationFunctionParametersOutputWithContext(context.Context) TopicAggregationFunctionParametersOutput
+}
+
+type TopicAggregationFunctionParametersArgs struct {
+}
+
+func (TopicAggregationFunctionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAggregationFunctionParameters)(nil)).Elem()
+}
+
+func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersOutput() TopicAggregationFunctionParametersOutput {
+	return i.ToTopicAggregationFunctionParametersOutputWithContext(context.Background())
+}
+
+func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersOutput)
+}
+
+func (i TopicAggregationFunctionParametersArgs) ToOutput(ctx context.Context) pulumix.Output[TopicAggregationFunctionParameters] {
+	return pulumix.Output[TopicAggregationFunctionParameters]{
+		OutputState: i.ToTopicAggregationFunctionParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
+	return i.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersOutput).ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx)
+}
+
+// TopicAggregationFunctionParametersPtrInput is an input type that accepts TopicAggregationFunctionParametersArgs, TopicAggregationFunctionParametersPtr and TopicAggregationFunctionParametersPtrOutput values.
+// You can construct a concrete instance of `TopicAggregationFunctionParametersPtrInput` via:
+//
+//	        TopicAggregationFunctionParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicAggregationFunctionParametersPtrInput interface {
+	pulumi.Input
+
+	ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput
+	ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Context) TopicAggregationFunctionParametersPtrOutput
+}
+
+type topicAggregationFunctionParametersPtrType TopicAggregationFunctionParametersArgs
+
+func TopicAggregationFunctionParametersPtr(v *TopicAggregationFunctionParametersArgs) TopicAggregationFunctionParametersPtrInput {
+	return (*topicAggregationFunctionParametersPtrType)(v)
+}
+
+func (*topicAggregationFunctionParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicAggregationFunctionParameters)(nil)).Elem()
+}
+
+func (i *topicAggregationFunctionParametersPtrType) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
+	return i.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *topicAggregationFunctionParametersPtrType) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersPtrOutput)
+}
+
+func (i *topicAggregationFunctionParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicAggregationFunctionParameters] {
+	return pulumix.Output[*TopicAggregationFunctionParameters]{
+		OutputState: i.ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicAggregationFunctionParametersOutput struct{ *pulumi.OutputState }
+
+func (TopicAggregationFunctionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicAggregationFunctionParameters)(nil)).Elem()
+}
+
+func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersOutput() TopicAggregationFunctionParametersOutput {
+	return o
+}
+
+func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersOutput {
+	return o
+}
+
+func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
+	return o.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicAggregationFunctionParameters) *TopicAggregationFunctionParameters {
+		return &v
+	}).(TopicAggregationFunctionParametersPtrOutput)
+}
+
+func (o TopicAggregationFunctionParametersOutput) ToOutput(ctx context.Context) pulumix.Output[TopicAggregationFunctionParameters] {
+	return pulumix.Output[TopicAggregationFunctionParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
+type TopicAggregationFunctionParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicAggregationFunctionParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicAggregationFunctionParameters)(nil)).Elem()
+}
+
+func (o TopicAggregationFunctionParametersPtrOutput) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
+	return o
+}
+
+func (o TopicAggregationFunctionParametersPtrOutput) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
+	return o
+}
+
+func (o TopicAggregationFunctionParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicAggregationFunctionParameters] {
+	return pulumix.Output[*TopicAggregationFunctionParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicAggregationFunctionParametersPtrOutput) Elem() TopicAggregationFunctionParametersOutput {
+	return o.ApplyT(func(v *TopicAggregationFunctionParameters) TopicAggregationFunctionParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TopicAggregationFunctionParameters
+		return ret
+	}).(TopicAggregationFunctionParametersOutput)
+}
+
+type TopicCalculatedField struct {
+	Aggregation                *TopicDefaultAggregation          `pulumi:"aggregation"`
+	AllowedAggregations        []TopicAuthorSpecifiedAggregation `pulumi:"allowedAggregations"`
+	CalculatedFieldDescription *string                           `pulumi:"calculatedFieldDescription"`
+	CalculatedFieldName        string                            `pulumi:"calculatedFieldName"`
+	CalculatedFieldSynonyms    []string                          `pulumi:"calculatedFieldSynonyms"`
+	CellValueSynonyms          []TopicCellValueSynonym           `pulumi:"cellValueSynonyms"`
+	ColumnDataRole             *TopicColumnDataRole              `pulumi:"columnDataRole"`
+	ComparativeOrder           *TopicComparativeOrder            `pulumi:"comparativeOrder"`
+	DefaultFormatting          *TopicDefaultFormatting           `pulumi:"defaultFormatting"`
+	Expression                 string                            `pulumi:"expression"`
+	IsIncludedInTopic          *bool                             `pulumi:"isIncludedInTopic"`
+	NeverAggregateInFilter     *bool                             `pulumi:"neverAggregateInFilter"`
+	NonAdditive                *bool                             `pulumi:"nonAdditive"`
+	NotAllowedAggregations     []TopicAuthorSpecifiedAggregation `pulumi:"notAllowedAggregations"`
+	SemanticType               *TopicSemanticType                `pulumi:"semanticType"`
+	TimeGranularity            *TopicTimeGranularity             `pulumi:"timeGranularity"`
+}
+
+// TopicCalculatedFieldInput is an input type that accepts TopicCalculatedFieldArgs and TopicCalculatedFieldOutput values.
+// You can construct a concrete instance of `TopicCalculatedFieldInput` via:
+//
+//	TopicCalculatedFieldArgs{...}
+type TopicCalculatedFieldInput interface {
+	pulumi.Input
+
+	ToTopicCalculatedFieldOutput() TopicCalculatedFieldOutput
+	ToTopicCalculatedFieldOutputWithContext(context.Context) TopicCalculatedFieldOutput
+}
+
+type TopicCalculatedFieldArgs struct {
+	Aggregation                TopicDefaultAggregationPtrInput           `pulumi:"aggregation"`
+	AllowedAggregations        TopicAuthorSpecifiedAggregationArrayInput `pulumi:"allowedAggregations"`
+	CalculatedFieldDescription pulumi.StringPtrInput                     `pulumi:"calculatedFieldDescription"`
+	CalculatedFieldName        pulumi.StringInput                        `pulumi:"calculatedFieldName"`
+	CalculatedFieldSynonyms    pulumi.StringArrayInput                   `pulumi:"calculatedFieldSynonyms"`
+	CellValueSynonyms          TopicCellValueSynonymArrayInput           `pulumi:"cellValueSynonyms"`
+	ColumnDataRole             TopicColumnDataRolePtrInput               `pulumi:"columnDataRole"`
+	ComparativeOrder           TopicComparativeOrderPtrInput             `pulumi:"comparativeOrder"`
+	DefaultFormatting          TopicDefaultFormattingPtrInput            `pulumi:"defaultFormatting"`
+	Expression                 pulumi.StringInput                        `pulumi:"expression"`
+	IsIncludedInTopic          pulumi.BoolPtrInput                       `pulumi:"isIncludedInTopic"`
+	NeverAggregateInFilter     pulumi.BoolPtrInput                       `pulumi:"neverAggregateInFilter"`
+	NonAdditive                pulumi.BoolPtrInput                       `pulumi:"nonAdditive"`
+	NotAllowedAggregations     TopicAuthorSpecifiedAggregationArrayInput `pulumi:"notAllowedAggregations"`
+	SemanticType               TopicSemanticTypePtrInput                 `pulumi:"semanticType"`
+	TimeGranularity            TopicTimeGranularityPtrInput              `pulumi:"timeGranularity"`
+}
+
+func (TopicCalculatedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCalculatedField)(nil)).Elem()
+}
+
+func (i TopicCalculatedFieldArgs) ToTopicCalculatedFieldOutput() TopicCalculatedFieldOutput {
+	return i.ToTopicCalculatedFieldOutputWithContext(context.Background())
+}
+
+func (i TopicCalculatedFieldArgs) ToTopicCalculatedFieldOutputWithContext(ctx context.Context) TopicCalculatedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCalculatedFieldOutput)
+}
+
+func (i TopicCalculatedFieldArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCalculatedField] {
+	return pulumix.Output[TopicCalculatedField]{
+		OutputState: i.ToTopicCalculatedFieldOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TopicCalculatedFieldArrayInput is an input type that accepts TopicCalculatedFieldArray and TopicCalculatedFieldArrayOutput values.
+// You can construct a concrete instance of `TopicCalculatedFieldArrayInput` via:
+//
+//	TopicCalculatedFieldArray{ TopicCalculatedFieldArgs{...} }
+type TopicCalculatedFieldArrayInput interface {
+	pulumi.Input
+
+	ToTopicCalculatedFieldArrayOutput() TopicCalculatedFieldArrayOutput
+	ToTopicCalculatedFieldArrayOutputWithContext(context.Context) TopicCalculatedFieldArrayOutput
+}
+
+type TopicCalculatedFieldArray []TopicCalculatedFieldInput
+
+func (TopicCalculatedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicCalculatedField)(nil)).Elem()
+}
+
+func (i TopicCalculatedFieldArray) ToTopicCalculatedFieldArrayOutput() TopicCalculatedFieldArrayOutput {
+	return i.ToTopicCalculatedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TopicCalculatedFieldArray) ToTopicCalculatedFieldArrayOutputWithContext(ctx context.Context) TopicCalculatedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCalculatedFieldArrayOutput)
+}
+
+func (i TopicCalculatedFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicCalculatedField] {
+	return pulumix.Output[[]TopicCalculatedField]{
+		OutputState: i.ToTopicCalculatedFieldArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicCalculatedFieldOutput struct{ *pulumi.OutputState }
+
+func (TopicCalculatedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCalculatedField)(nil)).Elem()
+}
+
+func (o TopicCalculatedFieldOutput) ToTopicCalculatedFieldOutput() TopicCalculatedFieldOutput {
+	return o
+}
+
+func (o TopicCalculatedFieldOutput) ToTopicCalculatedFieldOutputWithContext(ctx context.Context) TopicCalculatedFieldOutput {
+	return o
+}
+
+func (o TopicCalculatedFieldOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCalculatedField] {
+	return pulumix.Output[TopicCalculatedField]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCalculatedFieldOutput) Aggregation() TopicDefaultAggregationPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *TopicDefaultAggregation { return v.Aggregation }).(TopicDefaultAggregationPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) AllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {
+	return o.ApplyT(func(v TopicCalculatedField) []TopicAuthorSpecifiedAggregation { return v.AllowedAggregations }).(TopicAuthorSpecifiedAggregationArrayOutput)
+}
+
+func (o TopicCalculatedFieldOutput) CalculatedFieldDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *string { return v.CalculatedFieldDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) CalculatedFieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicCalculatedField) string { return v.CalculatedFieldName }).(pulumi.StringOutput)
+}
+
+func (o TopicCalculatedFieldOutput) CalculatedFieldSynonyms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicCalculatedField) []string { return v.CalculatedFieldSynonyms }).(pulumi.StringArrayOutput)
+}
+
+func (o TopicCalculatedFieldOutput) CellValueSynonyms() TopicCellValueSynonymArrayOutput {
+	return o.ApplyT(func(v TopicCalculatedField) []TopicCellValueSynonym { return v.CellValueSynonyms }).(TopicCellValueSynonymArrayOutput)
+}
+
+func (o TopicCalculatedFieldOutput) ColumnDataRole() TopicColumnDataRolePtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *TopicColumnDataRole { return v.ColumnDataRole }).(TopicColumnDataRolePtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) ComparativeOrder() TopicComparativeOrderPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *TopicComparativeOrder { return v.ComparativeOrder }).(TopicComparativeOrderPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) DefaultFormatting() TopicDefaultFormattingPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *TopicDefaultFormatting { return v.DefaultFormatting }).(TopicDefaultFormattingPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicCalculatedField) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o TopicCalculatedFieldOutput) IsIncludedInTopic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.IsIncludedInTopic }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) NeverAggregateInFilter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.NeverAggregateInFilter }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) NonAdditive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *bool { return v.NonAdditive }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) NotAllowedAggregations() TopicAuthorSpecifiedAggregationArrayOutput {
+	return o.ApplyT(func(v TopicCalculatedField) []TopicAuthorSpecifiedAggregation { return v.NotAllowedAggregations }).(TopicAuthorSpecifiedAggregationArrayOutput)
+}
+
+func (o TopicCalculatedFieldOutput) SemanticType() TopicSemanticTypePtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *TopicSemanticType { return v.SemanticType }).(TopicSemanticTypePtrOutput)
+}
+
+func (o TopicCalculatedFieldOutput) TimeGranularity() TopicTimeGranularityPtrOutput {
+	return o.ApplyT(func(v TopicCalculatedField) *TopicTimeGranularity { return v.TimeGranularity }).(TopicTimeGranularityPtrOutput)
+}
+
+type TopicCalculatedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicCalculatedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicCalculatedField)(nil)).Elem()
+}
+
+func (o TopicCalculatedFieldArrayOutput) ToTopicCalculatedFieldArrayOutput() TopicCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o TopicCalculatedFieldArrayOutput) ToTopicCalculatedFieldArrayOutputWithContext(ctx context.Context) TopicCalculatedFieldArrayOutput {
+	return o
+}
+
+func (o TopicCalculatedFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicCalculatedField] {
+	return pulumix.Output[[]TopicCalculatedField]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCalculatedFieldArrayOutput) Index(i pulumi.IntInput) TopicCalculatedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicCalculatedField {
+		return vs[0].([]TopicCalculatedField)[vs[1].(int)]
+	}).(TopicCalculatedFieldOutput)
+}
+
+type TopicCategoryFilter struct {
+	CategoryFilterFunction *TopicCategoryFilterFunction `pulumi:"categoryFilterFunction"`
+	CategoryFilterType     *TopicCategoryFilterType     `pulumi:"categoryFilterType"`
+	Constant               *TopicCategoryFilterConstant `pulumi:"constant"`
+	Inverse                *bool                        `pulumi:"inverse"`
+}
+
+// TopicCategoryFilterInput is an input type that accepts TopicCategoryFilterArgs and TopicCategoryFilterOutput values.
+// You can construct a concrete instance of `TopicCategoryFilterInput` via:
+//
+//	TopicCategoryFilterArgs{...}
+type TopicCategoryFilterInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterOutput() TopicCategoryFilterOutput
+	ToTopicCategoryFilterOutputWithContext(context.Context) TopicCategoryFilterOutput
+}
+
+type TopicCategoryFilterArgs struct {
+	CategoryFilterFunction TopicCategoryFilterFunctionPtrInput `pulumi:"categoryFilterFunction"`
+	CategoryFilterType     TopicCategoryFilterTypePtrInput     `pulumi:"categoryFilterType"`
+	Constant               TopicCategoryFilterConstantPtrInput `pulumi:"constant"`
+	Inverse                pulumi.BoolPtrInput                 `pulumi:"inverse"`
+}
+
+func (TopicCategoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilter)(nil)).Elem()
+}
+
+func (i TopicCategoryFilterArgs) ToTopicCategoryFilterOutput() TopicCategoryFilterOutput {
+	return i.ToTopicCategoryFilterOutputWithContext(context.Background())
+}
+
+func (i TopicCategoryFilterArgs) ToTopicCategoryFilterOutputWithContext(ctx context.Context) TopicCategoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterOutput)
+}
+
+func (i TopicCategoryFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilter] {
+	return pulumix.Output[TopicCategoryFilter]{
+		OutputState: i.ToTopicCategoryFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TopicCategoryFilterArgs) ToTopicCategoryFilterPtrOutput() TopicCategoryFilterPtrOutput {
+	return i.ToTopicCategoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TopicCategoryFilterArgs) ToTopicCategoryFilterPtrOutputWithContext(ctx context.Context) TopicCategoryFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterOutput).ToTopicCategoryFilterPtrOutputWithContext(ctx)
+}
+
+// TopicCategoryFilterPtrInput is an input type that accepts TopicCategoryFilterArgs, TopicCategoryFilterPtr and TopicCategoryFilterPtrOutput values.
+// You can construct a concrete instance of `TopicCategoryFilterPtrInput` via:
+//
+//	        TopicCategoryFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicCategoryFilterPtrInput interface {
+	pulumi.Input
+
+	ToTopicCategoryFilterPtrOutput() TopicCategoryFilterPtrOutput
+	ToTopicCategoryFilterPtrOutputWithContext(context.Context) TopicCategoryFilterPtrOutput
+}
+
+type topicCategoryFilterPtrType TopicCategoryFilterArgs
+
+func TopicCategoryFilterPtr(v *TopicCategoryFilterArgs) TopicCategoryFilterPtrInput {
+	return (*topicCategoryFilterPtrType)(v)
+}
+
+func (*topicCategoryFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCategoryFilter)(nil)).Elem()
+}
+
+func (i *topicCategoryFilterPtrType) ToTopicCategoryFilterPtrOutput() TopicCategoryFilterPtrOutput {
+	return i.ToTopicCategoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *topicCategoryFilterPtrType) ToTopicCategoryFilterPtrOutputWithContext(ctx context.Context) TopicCategoryFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterPtrOutput)
+}
+
+func (i *topicCategoryFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilter] {
+	return pulumix.Output[*TopicCategoryFilter]{
+		OutputState: i.ToTopicCategoryFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicCategoryFilterOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicCategoryFilter)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterOutput) ToTopicCategoryFilterOutput() TopicCategoryFilterOutput {
+	return o
+}
+
+func (o TopicCategoryFilterOutput) ToTopicCategoryFilterOutputWithContext(ctx context.Context) TopicCategoryFilterOutput {
+	return o
+}
+
+func (o TopicCategoryFilterOutput) ToTopicCategoryFilterPtrOutput() TopicCategoryFilterPtrOutput {
+	return o.ToTopicCategoryFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TopicCategoryFilterOutput) ToTopicCategoryFilterPtrOutputWithContext(ctx context.Context) TopicCategoryFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCategoryFilter) *TopicCategoryFilter {
+		return &v
+	}).(TopicCategoryFilterPtrOutput)
+}
+
+func (o TopicCategoryFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilter] {
+	return pulumix.Output[TopicCategoryFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCategoryFilterOutput) CategoryFilterFunction() TopicCategoryFilterFunctionPtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilter) *TopicCategoryFilterFunction { return v.CategoryFilterFunction }).(TopicCategoryFilterFunctionPtrOutput)
+}
+
+func (o TopicCategoryFilterOutput) CategoryFilterType() TopicCategoryFilterTypePtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilter) *TopicCategoryFilterType { return v.CategoryFilterType }).(TopicCategoryFilterTypePtrOutput)
+}
+
+func (o TopicCategoryFilterOutput) Constant() TopicCategoryFilterConstantPtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilter) *TopicCategoryFilterConstant { return v.Constant }).(TopicCategoryFilterConstantPtrOutput)
+}
+
+func (o TopicCategoryFilterOutput) Inverse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicCategoryFilter) *bool { return v.Inverse }).(pulumi.BoolPtrOutput)
+}
+
+type TopicCategoryFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicCategoryFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicCategoryFilter)(nil)).Elem()
+}
+
+func (o TopicCategoryFilterPtrOutput) ToTopicCategoryFilterPtrOutput() TopicCategoryFilterPtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterPtrOutput) ToTopicCategoryFilterPtrOutputWithContext(ctx context.Context) TopicCategoryFilterPtrOutput {
+	return o
+}
+
+func (o TopicCategoryFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilter] {
+	return pulumix.Output[*TopicCategoryFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicCategoryFilterPtrOutput) Elem() TopicCategoryFilterOutput {
+	return o.ApplyT(func(v *TopicCategoryFilter) TopicCategoryFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TopicCategoryFilter
+		return ret
+	}).(TopicCategoryFilterOutput)
+}
+
+func (o TopicCategoryFilterPtrOutput) CategoryFilterFunction() TopicCategoryFilterFunctionPtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilter) *TopicCategoryFilterFunction {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryFilterFunction
+	}).(TopicCategoryFilterFunctionPtrOutput)
+}
+
+func (o TopicCategoryFilterPtrOutput) CategoryFilterType() TopicCategoryFilterTypePtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilter) *TopicCategoryFilterType {
+		if v == nil {
+			return nil
+		}
+		return v.CategoryFilterType
+	}).(TopicCategoryFilterTypePtrOutput)
+}
+
+func (o TopicCategoryFilterPtrOutput) Constant() TopicCategoryFilterConstantPtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilter) *TopicCategoryFilterConstant {
+		if v == nil {
+			return nil
+		}
+		return v.Constant
+	}).(TopicCategoryFilterConstantPtrOutput)
+}
+
+func (o TopicCategoryFilterPtrOutput) Inverse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicCategoryFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Inverse
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TopicCategoryFilterConstant struct {
 	CollectiveConstant *TopicCollectiveConstant `pulumi:"collectiveConstant"`
 	ConstantType       *TopicConstantType       `pulumi:"constantType"`
@@ -4522,6 +6231,22 @@ func (o VpcConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcConnectionTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagInput)(nil)).Elem(), ThemeTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagArrayInput)(nil)).Elem(), ThemeTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileLayoutStyleInput)(nil)).Elem(), ThemeTileLayoutStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileLayoutStylePtrInput)(nil)).Elem(), ThemeTileLayoutStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileStyleInput)(nil)).Elem(), ThemeTileStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileStylePtrInput)(nil)).Elem(), ThemeTileStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypographyInput)(nil)).Elem(), ThemeTypographyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTypographyPtrInput)(nil)).Elem(), ThemeTypographyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUiColorPaletteInput)(nil)).Elem(), ThemeUiColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeUiColorPalettePtrInput)(nil)).Elem(), ThemeUiColorPaletteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAggregationFunctionParametersInput)(nil)).Elem(), TopicAggregationFunctionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicAggregationFunctionParametersPtrInput)(nil)).Elem(), TopicAggregationFunctionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCalculatedFieldInput)(nil)).Elem(), TopicCalculatedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCalculatedFieldArrayInput)(nil)).Elem(), TopicCalculatedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterInput)(nil)).Elem(), TopicCategoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterPtrInput)(nil)).Elem(), TopicCategoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterConstantInput)(nil)).Elem(), TopicCategoryFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicCategoryFilterConstantPtrInput)(nil)).Elem(), TopicCategoryFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicCellValueSynonymInput)(nil)).Elem(), TopicCellValueSynonymArgs{})
@@ -4572,6 +6297,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagInput)(nil)).Elem(), VpcConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagArrayInput)(nil)).Elem(), VpcConnectionTagArray{})
+	pulumi.RegisterOutputType(ThemeTagOutput{})
+	pulumi.RegisterOutputType(ThemeTagArrayOutput{})
+	pulumi.RegisterOutputType(ThemeTileLayoutStyleOutput{})
+	pulumi.RegisterOutputType(ThemeTileLayoutStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeTileStyleOutput{})
+	pulumi.RegisterOutputType(ThemeTileStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeTypographyOutput{})
+	pulumi.RegisterOutputType(ThemeTypographyPtrOutput{})
+	pulumi.RegisterOutputType(ThemeUiColorPaletteOutput{})
+	pulumi.RegisterOutputType(ThemeUiColorPalettePtrOutput{})
+	pulumi.RegisterOutputType(ThemeVersionOutput{})
+	pulumi.RegisterOutputType(ThemeVersionPtrOutput{})
+	pulumi.RegisterOutputType(TopicAggregationFunctionParametersOutput{})
+	pulumi.RegisterOutputType(TopicAggregationFunctionParametersPtrOutput{})
+	pulumi.RegisterOutputType(TopicCalculatedFieldOutput{})
+	pulumi.RegisterOutputType(TopicCalculatedFieldArrayOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterOutput{})
+	pulumi.RegisterOutputType(TopicCategoryFilterPtrOutput{})
 	pulumi.RegisterOutputType(TopicCategoryFilterConstantOutput{})
 	pulumi.RegisterOutputType(TopicCategoryFilterConstantPtrOutput{})
 	pulumi.RegisterOutputType(TopicCellValueSynonymOutput{})

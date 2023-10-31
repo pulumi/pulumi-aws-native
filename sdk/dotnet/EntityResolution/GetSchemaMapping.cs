@@ -58,6 +58,15 @@ namespace Pulumi.AwsNative.EntityResolution
     public sealed class GetSchemaMappingResult
     {
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The description of the SchemaMapping
+        /// </summary>
+        public readonly string? Description;
+        public readonly bool? HasWorkflows;
+        /// <summary>
+        /// The SchemaMapping attributes input
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SchemaMappingSchemaInputAttribute> MappedInputFields;
         public readonly string? SchemaArn;
         public readonly ImmutableArray<Outputs.SchemaMappingTag> Tags;
         public readonly string? UpdatedAt;
@@ -66,6 +75,12 @@ namespace Pulumi.AwsNative.EntityResolution
         private GetSchemaMappingResult(
             string? createdAt,
 
+            string? description,
+
+            bool? hasWorkflows,
+
+            ImmutableArray<Outputs.SchemaMappingSchemaInputAttribute> mappedInputFields,
+
             string? schemaArn,
 
             ImmutableArray<Outputs.SchemaMappingTag> tags,
@@ -73,6 +88,9 @@ namespace Pulumi.AwsNative.EntityResolution
             string? updatedAt)
         {
             CreatedAt = createdAt;
+            Description = description;
+            HasWorkflows = hasWorkflows;
+            MappedInputFields = mappedInputFields;
             SchemaArn = schemaArn;
             Tags = tags;
             UpdatedAt = updatedAt;

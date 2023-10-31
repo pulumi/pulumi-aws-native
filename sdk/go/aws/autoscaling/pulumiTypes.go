@@ -2906,7 +2906,7 @@ func (o AutoScalingGroupNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntP
 
 type AutoScalingGroupNotificationConfiguration struct {
 	NotificationTypes []string `pulumi:"notificationTypes"`
-	TopicArn          string   `pulumi:"topicArn"`
+	TopicArn          []string `pulumi:"topicArn"`
 }
 
 // AutoScalingGroupNotificationConfigurationInput is an input type that accepts AutoScalingGroupNotificationConfigurationArgs and AutoScalingGroupNotificationConfigurationOutput values.
@@ -2922,7 +2922,7 @@ type AutoScalingGroupNotificationConfigurationInput interface {
 
 type AutoScalingGroupNotificationConfigurationArgs struct {
 	NotificationTypes pulumi.StringArrayInput `pulumi:"notificationTypes"`
-	TopicArn          pulumi.StringInput      `pulumi:"topicArn"`
+	TopicArn          pulumi.StringArrayInput `pulumi:"topicArn"`
 }
 
 func (AutoScalingGroupNotificationConfigurationArgs) ElementType() reflect.Type {
@@ -2940,53 +2940,6 @@ func (i AutoScalingGroupNotificationConfigurationArgs) ToAutoScalingGroupNotific
 func (i AutoScalingGroupNotificationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNotificationConfiguration] {
 	return pulumix.Output[AutoScalingGroupNotificationConfiguration]{
 		OutputState: i.ToAutoScalingGroupNotificationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i AutoScalingGroupNotificationConfigurationArgs) ToAutoScalingGroupNotificationConfigurationPtrOutput() AutoScalingGroupNotificationConfigurationPtrOutput {
-	return i.ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i AutoScalingGroupNotificationConfigurationArgs) ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx context.Context) AutoScalingGroupNotificationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNotificationConfigurationOutput).ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx)
-}
-
-// AutoScalingGroupNotificationConfigurationPtrInput is an input type that accepts AutoScalingGroupNotificationConfigurationArgs, AutoScalingGroupNotificationConfigurationPtr and AutoScalingGroupNotificationConfigurationPtrOutput values.
-// You can construct a concrete instance of `AutoScalingGroupNotificationConfigurationPtrInput` via:
-//
-//	        AutoScalingGroupNotificationConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type AutoScalingGroupNotificationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToAutoScalingGroupNotificationConfigurationPtrOutput() AutoScalingGroupNotificationConfigurationPtrOutput
-	ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(context.Context) AutoScalingGroupNotificationConfigurationPtrOutput
-}
-
-type autoScalingGroupNotificationConfigurationPtrType AutoScalingGroupNotificationConfigurationArgs
-
-func AutoScalingGroupNotificationConfigurationPtr(v *AutoScalingGroupNotificationConfigurationArgs) AutoScalingGroupNotificationConfigurationPtrInput {
-	return (*autoScalingGroupNotificationConfigurationPtrType)(v)
-}
-
-func (*autoScalingGroupNotificationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingGroupNotificationConfiguration)(nil)).Elem()
-}
-
-func (i *autoScalingGroupNotificationConfigurationPtrType) ToAutoScalingGroupNotificationConfigurationPtrOutput() AutoScalingGroupNotificationConfigurationPtrOutput {
-	return i.ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *autoScalingGroupNotificationConfigurationPtrType) ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx context.Context) AutoScalingGroupNotificationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupNotificationConfigurationPtrOutput)
-}
-
-func (i *autoScalingGroupNotificationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[*AutoScalingGroupNotificationConfiguration]{
-		OutputState: i.ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -3035,16 +2988,6 @@ func (o AutoScalingGroupNotificationConfigurationOutput) ToAutoScalingGroupNotif
 	return o
 }
 
-func (o AutoScalingGroupNotificationConfigurationOutput) ToAutoScalingGroupNotificationConfigurationPtrOutput() AutoScalingGroupNotificationConfigurationPtrOutput {
-	return o.ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o AutoScalingGroupNotificationConfigurationOutput) ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx context.Context) AutoScalingGroupNotificationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupNotificationConfiguration) *AutoScalingGroupNotificationConfiguration {
-		return &v
-	}).(AutoScalingGroupNotificationConfigurationPtrOutput)
-}
-
 func (o AutoScalingGroupNotificationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AutoScalingGroupNotificationConfiguration] {
 	return pulumix.Output[AutoScalingGroupNotificationConfiguration]{
 		OutputState: o.OutputState,
@@ -3055,56 +2998,8 @@ func (o AutoScalingGroupNotificationConfigurationOutput) NotificationTypes() pul
 	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.NotificationTypes }).(pulumi.StringArrayOutput)
 }
 
-func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) string { return v.TopicArn }).(pulumi.StringOutput)
-}
-
-type AutoScalingGroupNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (AutoScalingGroupNotificationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScalingGroupNotificationConfiguration)(nil)).Elem()
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) ToAutoScalingGroupNotificationConfigurationPtrOutput() AutoScalingGroupNotificationConfigurationPtrOutput {
-	return o
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) ToAutoScalingGroupNotificationConfigurationPtrOutputWithContext(ctx context.Context) AutoScalingGroupNotificationConfigurationPtrOutput {
-	return o
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoScalingGroupNotificationConfiguration] {
-	return pulumix.Output[*AutoScalingGroupNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) Elem() AutoScalingGroupNotificationConfigurationOutput {
-	return o.ApplyT(func(v *AutoScalingGroupNotificationConfiguration) AutoScalingGroupNotificationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret AutoScalingGroupNotificationConfiguration
-		return ret
-	}).(AutoScalingGroupNotificationConfigurationOutput)
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) NotificationTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AutoScalingGroupNotificationConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NotificationTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o AutoScalingGroupNotificationConfigurationPtrOutput) TopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoScalingGroupNotificationConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TopicArn
-	}).(pulumi.StringPtrOutput)
+func (o AutoScalingGroupNotificationConfigurationOutput) TopicArn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupNotificationConfiguration) []string { return v.TopicArn }).(pulumi.StringArrayOutput)
 }
 
 type AutoScalingGroupNotificationConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -7170,7 +7065,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNetworkInterfaceCountRequestInput)(nil)).Elem(), AutoScalingGroupNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), AutoScalingGroupNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationPtrInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationArrayInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyInput)(nil)).Elem(), AutoScalingGroupTagPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyArrayInput)(nil)).Elem(), AutoScalingGroupTagPropertyArray{})
@@ -7249,7 +7143,6 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupNetworkInterfaceCountRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupNetworkInterfaceCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationOutput{})
-	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyArrayOutput{})

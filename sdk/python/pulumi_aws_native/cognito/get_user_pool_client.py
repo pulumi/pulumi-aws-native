@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolClientResult:
-    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, auth_session_validity=None, callback_urls=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
+    def __init__(__self__, access_token_validity=None, allowed_o_auth_flows=None, allowed_o_auth_flows_user_pool_client=None, allowed_o_auth_scopes=None, analytics_configuration=None, auth_session_validity=None, callback_urls=None, client_id=None, client_name=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, write_attributes=None):
         if access_token_validity and not isinstance(access_token_validity, int):
             raise TypeError("Expected argument 'access_token_validity' to be a int")
         pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -41,6 +41,9 @@ class GetUserPoolClientResult:
         if callback_urls and not isinstance(callback_urls, list):
             raise TypeError("Expected argument 'callback_urls' to be a list")
         pulumi.set(__self__, "callback_urls", callback_urls)
+        if client_id and not isinstance(client_id, str):
+            raise TypeError("Expected argument 'client_id' to be a str")
+        pulumi.set(__self__, "client_id", client_id)
         if client_name and not isinstance(client_name, str):
             raise TypeError("Expected argument 'client_name' to be a str")
         pulumi.set(__self__, "client_name", client_name)
@@ -59,9 +62,6 @@ class GetUserPoolClientResult:
         if explicit_auth_flows and not isinstance(explicit_auth_flows, list):
             raise TypeError("Expected argument 'explicit_auth_flows' to be a list")
         pulumi.set(__self__, "explicit_auth_flows", explicit_auth_flows)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if id_token_validity and not isinstance(id_token_validity, int):
             raise TypeError("Expected argument 'id_token_validity' to be a int")
         pulumi.set(__self__, "id_token_validity", id_token_validity)
@@ -126,6 +126,11 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "callback_urls")
 
     @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
     @pulumi.getter(name="clientName")
     def client_name(self) -> Optional[str]:
         return pulumi.get(self, "client_name")
@@ -154,11 +159,6 @@ class GetUserPoolClientResult:
     @pulumi.getter(name="explicitAuthFlows")
     def explicit_auth_flows(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "explicit_auth_flows")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="idTokenValidity")
@@ -219,13 +219,13 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             analytics_configuration=self.analytics_configuration,
             auth_session_validity=self.auth_session_validity,
             callback_urls=self.callback_urls,
+            client_id=self.client_id,
             client_name=self.client_name,
             client_secret=self.client_secret,
             default_redirect_uri=self.default_redirect_uri,
             enable_propagate_additional_user_context_data=self.enable_propagate_additional_user_context_data,
             enable_token_revocation=self.enable_token_revocation,
             explicit_auth_flows=self.explicit_auth_flows,
-            id=self.id,
             id_token_validity=self.id_token_validity,
             logout_urls=self.logout_urls,
             name=self.name,
@@ -237,13 +237,15 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             write_attributes=self.write_attributes)
 
 
-def get_user_pool_client(id: Optional[str] = None,
+def get_user_pool_client(client_id: Optional[str] = None,
+                         user_pool_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolClientResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolClient
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['clientId'] = client_id
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolClient', __args__, opts=opts, typ=GetUserPoolClientResult).value
 
@@ -255,13 +257,13 @@ def get_user_pool_client(id: Optional[str] = None,
         analytics_configuration=pulumi.get(__ret__, 'analytics_configuration'),
         auth_session_validity=pulumi.get(__ret__, 'auth_session_validity'),
         callback_urls=pulumi.get(__ret__, 'callback_urls'),
+        client_id=pulumi.get(__ret__, 'client_id'),
         client_name=pulumi.get(__ret__, 'client_name'),
         client_secret=pulumi.get(__ret__, 'client_secret'),
         default_redirect_uri=pulumi.get(__ret__, 'default_redirect_uri'),
         enable_propagate_additional_user_context_data=pulumi.get(__ret__, 'enable_propagate_additional_user_context_data'),
         enable_token_revocation=pulumi.get(__ret__, 'enable_token_revocation'),
         explicit_auth_flows=pulumi.get(__ret__, 'explicit_auth_flows'),
-        id=pulumi.get(__ret__, 'id'),
         id_token_validity=pulumi.get(__ret__, 'id_token_validity'),
         logout_urls=pulumi.get(__ret__, 'logout_urls'),
         name=pulumi.get(__ret__, 'name'),
@@ -274,7 +276,8 @@ def get_user_pool_client(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_user_pool_client)
-def get_user_pool_client_output(id: Optional[pulumi.Input[str]] = None,
+def get_user_pool_client_output(client_id: Optional[pulumi.Input[str]] = None,
+                                user_pool_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolClient

@@ -10,17 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+    /// </summary>
     [OutputType]
     public sealed class BucketServerSideEncryptionByDefault
     {
+        /// <summary>
+        /// "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
+        /// </summary>
         public readonly string? KmsMasterKeyId;
-        public readonly string SseAlgorithm;
+        public readonly Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSseAlgorithm SseAlgorithm;
 
         [OutputConstructor]
         private BucketServerSideEncryptionByDefault(
             string? kmsMasterKeyId,
 
-            string sseAlgorithm)
+            Pulumi.AwsNative.S3.BucketServerSideEncryptionByDefaultSseAlgorithm sseAlgorithm)
         {
             KmsMasterKeyId = kmsMasterKeyId;
             SseAlgorithm = sseAlgorithm;

@@ -414,6 +414,10 @@ export namespace amplify {
         value: string;
     }
 
+    export interface BranchBackend {
+        stackArn?: string;
+    }
+
     export interface BranchBasicAuthConfig {
         enableBasicAuth?: boolean;
         password: string;
@@ -541,13 +545,16 @@ export namespace amplifyuibuilder {
 }
 
 export namespace apigateway {
+    /**
+     * ``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
+     */
     export interface ApiKeyStageKey {
         /**
-         * The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+         * The string identifier of the associated RestApi.
          */
         restApiId?: string;
         /**
-         * The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
+         * The stage name associated with the stage key.
          */
         stageName?: string;
     }
@@ -1053,32 +1060,39 @@ export namespace apigateway {
         value: string;
     }
 
+    /**
+     * API stage name of the associated API stage in a usage plan.
+     */
     export interface UsagePlanApiStage {
         /**
-         * The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+         * API Id of the associated API stage in a usage plan.
          */
         apiId?: string;
         /**
-         * The name of the stage to associate with the usage plan.
+         * API stage name of the associated API stage in a usage plan.
          */
         stage?: string;
         /**
-         * Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+         * Map containing method level throttling information for API stage in a usage plan.
          */
         throttle?: any;
     }
 
+    /**
+     * ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+     *  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
+     */
     export interface UsagePlanQuotaSettings {
         /**
-         * The maximum number of requests that users can make within the specified time period.
+         * The target maximum number of requests that can be made in a given time period.
          */
         limit?: number;
         /**
-         * For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+         * The number of requests subtracted from the given limit in the initial time period.
          */
         offset?: number;
         /**
-         * The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+         * The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
          */
         period?: string;
     }
@@ -1094,13 +1108,16 @@ export namespace apigateway {
         value: string;
     }
 
+    /**
+     * ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
+     */
     export interface UsagePlanThrottleSettings {
         /**
-         * The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+         * The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
          */
         burstLimit?: number;
         /**
-         * The API request steady-state rate limit (average requests per second over an extended period of time).
+         * The API target request rate limit.
          */
         rateLimit?: number;
     }
@@ -1276,7 +1293,7 @@ export namespace appconfig {
      */
     export interface ApplicationTags {
         /**
-         * The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+         * The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
          */
         key: string;
         /**
@@ -4130,25 +4147,52 @@ export namespace appsync {
     }
 
     export interface ResolverAppSyncRuntime {
+        /**
+         * The name of the runtime to use.
+         */
         name: string;
+        /**
+         * The version of the runtime to use.
+         */
         runtimeVersion: string;
     }
 
     export interface ResolverCachingConfig {
+        /**
+         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         */
         cachingKeys?: string[];
+        /**
+         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+         */
         ttl: number;
     }
 
+    /**
+     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+     */
     export interface ResolverLambdaConflictHandlerConfig {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
         lambdaConflictHandlerArn?: string;
     }
 
     export interface ResolverPipelineConfig {
+        /**
+         * A list of Function objects.
+         */
         functions?: string[];
     }
 
     export interface ResolverSyncConfig {
+        /**
+         * The Conflict Detection strategy to use.
+         */
         conflictDetection: string;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict.
+         */
         conflictHandler?: string;
         lambdaConflictHandlerConfig?: outputs.appsync.ResolverLambdaConflictHandlerConfig;
     }
@@ -4527,7 +4571,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfiguration {
         notificationTypes?: string[];
-        topicArn: string;
+        topicArn: string[];
     }
 
     export interface AutoScalingGroupTagProperty {
@@ -16848,6 +16892,7 @@ export namespace events {
         dbUser?: string;
         secretManagerArn?: string;
         sql?: string;
+        sqls?: string[];
         statementName?: string;
         withEvent?: boolean;
     }
@@ -19647,18 +19692,45 @@ export namespace iam {
         value: string;
     }
 
+    /**
+     * Contains the user name and password create date for a user.
+     */
     export interface UserLoginProfile {
+        /**
+         * The user's password.
+         */
         password: string;
+        /**
+         * Specifies whether the user is required to set a new password on next sign-in.
+         */
         passwordResetRequired?: boolean;
     }
 
+    /**
+     * Contains information about an attached policy.
+     */
     export interface UserPolicy {
+        /**
+         * The policy document.
+         */
         policyDocument: any;
+        /**
+         * The friendly name (not ARN) identifying the policy.
+         */
         policyName: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface UserTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 
@@ -34954,9 +35026,14 @@ export namespace quicksight {
         sortPaths: outputs.quicksight.AnalysisDataPathValue[];
     }
 
+    export interface AnalysisDataPathType {
+        pivotTableDataPathType?: enums.quicksight.AnalysisPivotTableDataPathType;
+    }
+
     export interface AnalysisDataPathValue {
-        fieldId: string;
-        fieldValue: string;
+        dataPathType?: outputs.quicksight.AnalysisDataPathType;
+        fieldId?: string;
+        fieldValue?: string;
     }
 
     export interface AnalysisDataSetIdentifierDeclaration {
@@ -36460,6 +36537,7 @@ export namespace quicksight {
         metricHeaderCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
         placement?: enums.quicksight.AnalysisTableTotalsPlacement;
         scrollStatus?: enums.quicksight.AnalysisTableTotalsScrollStatus;
+        totalAggregationOptions?: outputs.quicksight.AnalysisTotalAggregationOption[];
         totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
         totalsVisibility?: enums.quicksight.AnalysisVisibility;
         valueCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
@@ -36545,6 +36623,7 @@ export namespace quicksight {
     export interface AnalysisReferenceLineDataConfiguration {
         axisBinding?: enums.quicksight.AnalysisAxisBinding;
         dynamicConfiguration?: outputs.quicksight.AnalysisReferenceLineDynamicDataConfiguration;
+        seriesType?: enums.quicksight.AnalysisReferenceLineSeriesType;
         staticConfiguration?: outputs.quicksight.AnalysisReferenceLineStaticDataConfiguration;
     }
 
@@ -37101,6 +37180,7 @@ export namespace quicksight {
         column: outputs.quicksight.AnalysisColumnIdentifier;
         filterId: string;
         parameterName?: string;
+        rollingDate?: outputs.quicksight.AnalysisRollingDateConfiguration;
         timeGranularity?: enums.quicksight.AnalysisTimeGranularity;
         value?: string;
     }
@@ -37176,10 +37256,20 @@ export namespace quicksight {
         value?: outputs.quicksight.AnalysisMeasureField;
     }
 
+    export interface AnalysisTotalAggregationFunction {
+        simpleTotalAggregationFunction?: enums.quicksight.AnalysisSimpleTotalAggregationFunction;
+    }
+
+    export interface AnalysisTotalAggregationOption {
+        fieldId: string;
+        totalAggregationFunction: outputs.quicksight.AnalysisTotalAggregationFunction;
+    }
+
     export interface AnalysisTotalOptions {
         customLabel?: string;
         placement?: enums.quicksight.AnalysisTableTotalsPlacement;
         scrollStatus?: enums.quicksight.AnalysisTableTotalsScrollStatus;
+        totalAggregationOptions?: outputs.quicksight.AnalysisTotalAggregationOption[];
         totalCellStyle?: outputs.quicksight.AnalysisTableCellStyle;
         totalsVisibility?: enums.quicksight.AnalysisVisibility;
     }
@@ -37977,9 +38067,14 @@ export namespace quicksight {
         sortPaths: outputs.quicksight.DashboardDataPathValue[];
     }
 
+    export interface DashboardDataPathType {
+        pivotTableDataPathType?: enums.quicksight.DashboardPivotTableDataPathType;
+    }
+
     export interface DashboardDataPathValue {
-        fieldId: string;
-        fieldValue: string;
+        dataPathType?: outputs.quicksight.DashboardDataPathType;
+        fieldId?: string;
+        fieldValue?: string;
     }
 
     export interface DashboardDataPointDrillUpDownOption {
@@ -39493,6 +39588,7 @@ export namespace quicksight {
         metricHeaderCellStyle?: outputs.quicksight.DashboardTableCellStyle;
         placement?: enums.quicksight.DashboardTableTotalsPlacement;
         scrollStatus?: enums.quicksight.DashboardTableTotalsScrollStatus;
+        totalAggregationOptions?: outputs.quicksight.DashboardTotalAggregationOption[];
         totalCellStyle?: outputs.quicksight.DashboardTableCellStyle;
         totalsVisibility?: enums.quicksight.DashboardVisibility;
         valueCellStyle?: outputs.quicksight.DashboardTableCellStyle;
@@ -39592,6 +39688,7 @@ export namespace quicksight {
     export interface DashboardReferenceLineDataConfiguration {
         axisBinding?: enums.quicksight.DashboardAxisBinding;
         dynamicConfiguration?: outputs.quicksight.DashboardReferenceLineDynamicDataConfiguration;
+        seriesType?: enums.quicksight.DashboardReferenceLineSeriesType;
         staticConfiguration?: outputs.quicksight.DashboardReferenceLineStaticDataConfiguration;
     }
 
@@ -40156,6 +40253,7 @@ export namespace quicksight {
         column: outputs.quicksight.DashboardColumnIdentifier;
         filterId: string;
         parameterName?: string;
+        rollingDate?: outputs.quicksight.DashboardRollingDateConfiguration;
         timeGranularity?: enums.quicksight.DashboardTimeGranularity;
         value?: string;
     }
@@ -40231,10 +40329,20 @@ export namespace quicksight {
         value?: outputs.quicksight.DashboardMeasureField;
     }
 
+    export interface DashboardTotalAggregationFunction {
+        simpleTotalAggregationFunction?: enums.quicksight.DashboardSimpleTotalAggregationFunction;
+    }
+
+    export interface DashboardTotalAggregationOption {
+        fieldId: string;
+        totalAggregationFunction: outputs.quicksight.DashboardTotalAggregationFunction;
+    }
+
     export interface DashboardTotalOptions {
         customLabel?: string;
         placement?: enums.quicksight.DashboardTableTotalsPlacement;
         scrollStatus?: enums.quicksight.DashboardTableTotalsScrollStatus;
+        totalAggregationOptions?: outputs.quicksight.DashboardTotalAggregationOption[];
         totalCellStyle?: outputs.quicksight.DashboardTableCellStyle;
         totalsVisibility?: enums.quicksight.DashboardVisibility;
     }
@@ -41866,9 +41974,14 @@ export namespace quicksight {
         sortPaths: outputs.quicksight.TemplateDataPathValue[];
     }
 
+    export interface TemplateDataPathType {
+        pivotTableDataPathType?: enums.quicksight.TemplatePivotTableDataPathType;
+    }
+
     export interface TemplateDataPathValue {
-        fieldId: string;
-        fieldValue: string;
+        dataPathType?: outputs.quicksight.TemplateDataPathType;
+        fieldId?: string;
+        fieldValue?: string;
     }
 
     export interface TemplateDataSetConfiguration {
@@ -43341,6 +43454,7 @@ export namespace quicksight {
         metricHeaderCellStyle?: outputs.quicksight.TemplateTableCellStyle;
         placement?: enums.quicksight.TemplateTableTotalsPlacement;
         scrollStatus?: enums.quicksight.TemplateTableTotalsScrollStatus;
+        totalAggregationOptions?: outputs.quicksight.TemplateTotalAggregationOption[];
         totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
         totalsVisibility?: enums.quicksight.TemplateVisibility;
         valueCellStyle?: outputs.quicksight.TemplateTableCellStyle;
@@ -43426,6 +43540,7 @@ export namespace quicksight {
     export interface TemplateReferenceLineDataConfiguration {
         axisBinding?: enums.quicksight.TemplateAxisBinding;
         dynamicConfiguration?: outputs.quicksight.TemplateReferenceLineDynamicDataConfiguration;
+        seriesType?: enums.quicksight.TemplateReferenceLineSeriesType;
         staticConfiguration?: outputs.quicksight.TemplateReferenceLineStaticDataConfiguration;
     }
 
@@ -43982,6 +44097,7 @@ export namespace quicksight {
         column: outputs.quicksight.TemplateColumnIdentifier;
         filterId: string;
         parameterName?: string;
+        rollingDate?: outputs.quicksight.TemplateRollingDateConfiguration;
         timeGranularity?: enums.quicksight.TemplateTimeGranularity;
         value?: string;
     }
@@ -44057,10 +44173,20 @@ export namespace quicksight {
         value?: outputs.quicksight.TemplateMeasureField;
     }
 
+    export interface TemplateTotalAggregationFunction {
+        simpleTotalAggregationFunction?: enums.quicksight.TemplateSimpleTotalAggregationFunction;
+    }
+
+    export interface TemplateTotalAggregationOption {
+        fieldId: string;
+        totalAggregationFunction: outputs.quicksight.TemplateTotalAggregationFunction;
+    }
+
     export interface TemplateTotalOptions {
         customLabel?: string;
         placement?: enums.quicksight.TemplateTableTotalsPlacement;
         scrollStatus?: enums.quicksight.TemplateTableTotalsScrollStatus;
+        totalAggregationOptions?: outputs.quicksight.TemplateTotalAggregationOption[];
         totalCellStyle?: outputs.quicksight.TemplateTableCellStyle;
         totalsVisibility?: enums.quicksight.TemplateVisibility;
     }
@@ -46387,20 +46513,41 @@ export namespace s3 {
         vpcId?: string;
     }
 
+    /**
+     * Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+     */
     export interface BucketAbortIncompleteMultipartUpload {
+        /**
+         * Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+         */
         daysAfterInitiation: number;
     }
 
     export interface BucketAccelerateConfiguration {
-        accelerationStatus: string;
+        /**
+         * Configures the transfer acceleration state for an Amazon S3 bucket.
+         */
+        accelerationStatus: enums.s3.BucketAccelerateConfigurationAccelerationStatus;
     }
 
+    /**
+     * Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
+     */
     export interface BucketAccessControlTranslation {
         owner: string;
     }
 
+    /**
+     * Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+     */
     export interface BucketAnalyticsConfiguration {
+        /**
+         * The ID that identifies the analytics configuration.
+         */
         id: string;
+        /**
+         * The prefix that an object must have to be included in the analytics results.
+         */
         prefix?: string;
         storageClassAnalysis: outputs.s3.BucketStorageClassAnalysis;
         tagFilters?: outputs.s3.BucketTagFilter[];
@@ -46410,90 +46557,207 @@ export namespace s3 {
         corsRules: outputs.s3.BucketCorsRule[];
     }
 
+    /**
+     * A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
+     */
     export interface BucketCorsRule {
+        /**
+         * Headers that are specified in the Access-Control-Request-Headers header.
+         */
         allowedHeaders?: string[];
-        allowedMethods: string[];
+        /**
+         * An HTTP method that you allow the origin to execute.
+         */
+        allowedMethods: enums.s3.BucketCorsRuleAllowedMethodsItem[];
+        /**
+         * One or more origins you want customers to be able to access the bucket from.
+         */
         allowedOrigins: string[];
+        /**
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).
+         */
         exposedHeaders?: string[];
+        /**
+         * A unique identifier for this rule.
+         */
         id?: string;
+        /**
+         * The time in seconds that your browser is to cache the preflight response for the specified resource.
+         */
         maxAge?: number;
     }
 
+    /**
+     * Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
+     */
     export interface BucketDataExport {
         destination: outputs.s3.BucketDestination;
+        /**
+         * The version of the output schema to use when exporting data.
+         */
         outputSchemaVersion: string;
     }
 
+    /**
+     * The default retention period that you want to apply to new objects placed in the specified bucket.
+     */
     export interface BucketDefaultRetention {
         days?: number;
-        mode?: string;
+        mode?: enums.s3.BucketDefaultRetentionMode;
         years?: number;
     }
 
     export interface BucketDeleteMarkerReplication {
-        status?: string;
+        status?: enums.s3.BucketDeleteMarkerReplicationStatus;
     }
 
+    /**
+     * Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
+     */
     export interface BucketDestination {
+        /**
+         * The account ID that owns the destination S3 bucket. 
+         */
         bucketAccountId?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the bucket to which data is exported.
+         */
         bucketArn: string;
-        format: string;
+        /**
+         * Specifies the file format used when exporting data to Amazon S3.
+         */
+        format: enums.s3.BucketDestinationFormat;
+        /**
+         * The prefix to use when exporting data. The prefix is prepended to all results.
+         */
         prefix?: string;
     }
 
+    /**
+     * Specifies default encryption for a bucket using server-side encryption with either Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
+     */
     export interface BucketEncryption {
+        /**
+         * Specifies the default server-side-encryption configuration.
+         */
         serverSideEncryptionConfiguration: outputs.s3.BucketServerSideEncryptionRule[];
     }
 
+    /**
+     * Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
+     */
     export interface BucketEncryptionConfiguration {
+        /**
+         * Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
+         */
         replicaKmsKeyId: string;
     }
 
+    /**
+     * Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
+     */
     export interface BucketEventBridgeConfiguration {
-        eventBridgeEnabled?: boolean;
+        /**
+         * Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
+         */
+        eventBridgeEnabled: boolean;
     }
 
+    /**
+     * Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
+     */
     export interface BucketFilterRule {
         name: string;
         value: string;
     }
 
     export interface BucketIntelligentTieringConfiguration {
+        /**
+         * The ID used to identify the S3 Intelligent-Tiering configuration.
+         */
         id: string;
+        /**
+         * An object key name prefix that identifies the subset of objects to which the rule applies.
+         */
         prefix?: string;
-        status: string;
+        /**
+         * Specifies the status of the configuration.
+         */
+        status: enums.s3.BucketIntelligentTieringConfigurationStatus;
+        /**
+         * A container for a key-value pair.
+         */
         tagFilters?: outputs.s3.BucketTagFilter[];
+        /**
+         * Specifies a list of S3 Intelligent-Tiering storage class tiers in the configuration. At least one tier must be defined in the list. At most, you can specify two tiers in the list, one for each available AccessTier: ARCHIVE_ACCESS and DEEP_ARCHIVE_ACCESS.
+         */
         tierings: outputs.s3.BucketTiering[];
     }
 
     export interface BucketInventoryConfiguration {
         destination: outputs.s3.BucketDestination;
+        /**
+         * Specifies whether the inventory is enabled or disabled.
+         */
         enabled: boolean;
+        /**
+         * The ID used to identify the inventory configuration.
+         */
         id: string;
-        includedObjectVersions: string;
-        optionalFields?: string[];
+        /**
+         * Object versions to include in the inventory list.
+         */
+        includedObjectVersions: enums.s3.BucketInventoryConfigurationIncludedObjectVersions;
+        /**
+         * Contains the optional fields that are included in the inventory results.
+         */
+        optionalFields?: enums.s3.BucketInventoryConfigurationOptionalFieldsItem[];
+        /**
+         * The prefix that is prepended to all inventory results.
+         */
         prefix?: string;
-        scheduleFrequency: string;
+        /**
+         * Specifies the schedule for generating inventory results.
+         */
+        scheduleFrequency: enums.s3.BucketInventoryConfigurationScheduleFrequency;
     }
 
+    /**
+     * Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+     */
     export interface BucketLambdaConfiguration {
+        /**
+         * The Amazon S3 bucket event for which to invoke the AWS Lambda function.
+         */
         event: string;
+        /**
+         * The filtering rules that determine which objects invoke the AWS Lambda function.
+         */
         filter?: outputs.s3.BucketNotificationFilter;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon S3 invokes when the specified event type occurs.
+         */
         function: string;
     }
 
     export interface BucketLifecycleConfiguration {
+        /**
+         * A lifecycle rule for individual objects in an Amazon S3 bucket.
+         */
         rules: outputs.s3.BucketRule[];
     }
 
     export interface BucketLoggingConfiguration {
+        /**
+         * The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
+         */
         destinationBucketName?: string;
         logFilePrefix?: string;
     }
 
     export interface BucketMetrics {
         eventThreshold?: outputs.s3.BucketReplicationTimeValue;
-        status: string;
+        status: enums.s3.BucketMetricsStatus;
     }
 
     export interface BucketMetricsConfiguration {
@@ -46503,17 +46767,41 @@ export namespace s3 {
         tagFilters?: outputs.s3.BucketTagFilter[];
     }
 
+    /**
+     * Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
+     */
     export interface BucketNoncurrentVersionExpiration {
+        /**
+         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         */
         newerNoncurrentVersions?: number;
+        /**
+         * Specified the number of days an object is noncurrent before Amazon S3 can perform the associated action
+         */
         noncurrentDays: number;
     }
 
+    /**
+     * Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
+     */
     export interface BucketNoncurrentVersionTransition {
+        /**
+         * Specified the number of newer noncurrent and current versions that must exists before performing the associated action
+         */
         newerNoncurrentVersions?: number;
-        storageClass: string;
+        /**
+         * The class of storage used to store the object.
+         */
+        storageClass: enums.s3.BucketNoncurrentVersionTransitionStorageClass;
+        /**
+         * Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
+         */
         transitionInDays: number;
     }
 
+    /**
+     * Describes the notification configuration for an Amazon S3 bucket.
+     */
     export interface BucketNotificationConfiguration {
         eventBridgeConfiguration?: outputs.s3.BucketEventBridgeConfiguration;
         lambdaConfigurations?: outputs.s3.BucketLambdaConfiguration[];
@@ -46521,6 +46809,9 @@ export namespace s3 {
         topicConfigurations?: outputs.s3.BucketTopicConfiguration[];
     }
 
+    /**
+     * Specifies object key name filtering rules.
+     */
     export interface BucketNotificationFilter {
         s3Key: outputs.s3.BucketS3KeyFilter;
     }
@@ -46530,6 +46821,9 @@ export namespace s3 {
         rule?: outputs.s3.BucketObjectLockRule;
     }
 
+    /**
+     * The Object Lock rule in place for the specified object.
+     */
     export interface BucketObjectLockRule {
         defaultRetention?: outputs.s3.BucketDefaultRetention;
     }
@@ -46539,44 +46833,122 @@ export namespace s3 {
     }
 
     export interface BucketOwnershipControlsRule {
-        objectOwnership?: string;
+        /**
+         * Specifies an object ownership rule.
+         */
+        objectOwnership?: enums.s3.BucketOwnershipControlsRuleObjectOwnership;
     }
 
+    /**
+     * Configuration that defines how Amazon S3 handles public access.
+     */
     export interface BucketPublicAccessBlockConfiguration {
+        /**
+         * Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
+         * - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         *  - PUT Object calls fail if the request includes a public ACL.
+         * Enabling this setting doesn't affect existing policies or ACLs.
+         */
         blockPublicAcls?: boolean;
+        /**
+         * Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         * Enabling this setting doesn't affect existing bucket policies.
+         */
         blockPublicPolicy?: boolean;
+        /**
+         * Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.
+         * Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+         */
         ignorePublicAcls?: boolean;
+        /**
+         * Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+         * Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+         */
         restrictPublicBuckets?: boolean;
     }
 
+    /**
+     * The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+     */
     export interface BucketQueueConfiguration {
+        /**
+         * The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
+         */
         event: string;
+        /**
+         * The filtering rules that determine which objects trigger notifications.
+         */
         filter?: outputs.s3.BucketNotificationFilter;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message when it detects events of the specified type.
+         */
         queue: string;
     }
 
+    /**
+     * Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
+     */
     export interface BucketRedirectAllRequestsTo {
+        /**
+         * Name of the host where requests are redirected.
+         */
         hostName: string;
-        protocol?: string;
+        /**
+         * Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+         */
+        protocol?: enums.s3.BucketRedirectAllRequestsToProtocol;
     }
 
+    /**
+     * Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
+     */
     export interface BucketRedirectRule {
+        /**
+         * The host name to use in the redirect request.
+         */
         hostName?: string;
+        /**
+         * The HTTP redirect code to use on the response. Not required if one of the siblings is present.
+         */
         httpRedirectCode?: string;
-        protocol?: string;
+        /**
+         * Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+         */
+        protocol?: enums.s3.BucketRedirectRuleProtocol;
+        /**
+         * The object key prefix to use in the redirect request.
+         */
         replaceKeyPrefixWith?: string;
+        /**
+         * The specific object key to use in the redirect request.d
+         */
         replaceKeyWith?: string;
     }
 
     export interface BucketReplicaModifications {
-        status: string;
+        /**
+         * Specifies whether Amazon S3 replicates modifications on replicas.
+         */
+        status: enums.s3.BucketReplicaModificationsStatus;
     }
 
+    /**
+     * A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
+     */
     export interface BucketReplicationConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
+         */
         role: string;
+        /**
+         * A container for one or more replication rules.
+         */
         rules: outputs.s3.BucketReplicationRule[];
     }
 
+    /**
+     * Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
+     */
     export interface BucketReplicationDestination {
         accessControlTranslation?: outputs.s3.BucketAccessControlTranslation;
         account?: string;
@@ -46584,18 +46956,33 @@ export namespace s3 {
         encryptionConfiguration?: outputs.s3.BucketEncryptionConfiguration;
         metrics?: outputs.s3.BucketMetrics;
         replicationTime?: outputs.s3.BucketReplicationTime;
-        storageClass?: string;
+        /**
+         * The storage class to use when replicating objects, such as S3 Standard or reduced redundancy.
+         */
+        storageClass?: enums.s3.BucketReplicationDestinationStorageClass;
     }
 
+    /**
+     * Specifies which Amazon S3 objects to replicate and where to store the replicas.
+     */
     export interface BucketReplicationRule {
         deleteMarkerReplication?: outputs.s3.BucketDeleteMarkerReplication;
         destination: outputs.s3.BucketReplicationDestination;
         filter?: outputs.s3.BucketReplicationRuleFilter;
+        /**
+         * A unique identifier for the rule.
+         */
         id?: string;
+        /**
+         * An object key name prefix that identifies the object or objects to which the rule applies.
+         */
         prefix?: string;
         priority?: number;
         sourceSelectionCriteria?: outputs.s3.BucketSourceSelectionCriteria;
-        status: string;
+        /**
+         * Specifies whether the rule is enabled.
+         */
+        status: enums.s3.BucketReplicationRuleStatus;
     }
 
     export interface BucketReplicationRuleAndOperator {
@@ -46610,7 +46997,7 @@ export namespace s3 {
     }
 
     export interface BucketReplicationTime {
-        status: string;
+        status: enums.s3.BucketReplicationTimeStatus;
         time: outputs.s3.BucketReplicationTimeValue;
     }
 
@@ -46618,16 +47005,34 @@ export namespace s3 {
         minutes: number;
     }
 
+    /**
+     * Specifies the redirect behavior and when a redirect is applied.
+     */
     export interface BucketRoutingRule {
+        /**
+         * Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
+         */
         redirectRule: outputs.s3.BucketRedirectRule;
         routingRuleCondition?: outputs.s3.BucketRoutingRuleCondition;
     }
 
+    /**
+     * A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
+     */
     export interface BucketRoutingRuleCondition {
+        /**
+         * The HTTP error code when the redirect is applied. 
+         */
         httpErrorCodeReturnedEquals?: string;
+        /**
+         * The object key name prefix when the redirect is applied.
+         */
         keyPrefixEquals?: string;
     }
 
+    /**
+     * You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
+     */
     export interface BucketRule {
         abortIncompleteMultipartUpload?: outputs.s3.BucketAbortIncompleteMultipartUpload;
         expirationDate?: string;
@@ -46638,38 +47043,71 @@ export namespace s3 {
         noncurrentVersionExpirationInDays?: number;
         noncurrentVersionTransition?: outputs.s3.BucketNoncurrentVersionTransition;
         noncurrentVersionTransitions?: outputs.s3.BucketNoncurrentVersionTransition[];
-        objectSizeGreaterThan?: number;
-        objectSizeLessThan?: number;
+        objectSizeGreaterThan?: string;
+        objectSizeLessThan?: string;
         prefix?: string;
-        status: string;
+        status: enums.s3.BucketRuleStatus;
         tagFilters?: outputs.s3.BucketTagFilter[];
         transition?: outputs.s3.BucketTransition;
         transitions?: outputs.s3.BucketTransition[];
     }
 
+    /**
+     * A container for object key name prefix and suffix filtering rules.
+     */
     export interface BucketS3KeyFilter {
         rules: outputs.s3.BucketFilterRule[];
     }
 
+    /**
+     * Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
+     */
     export interface BucketServerSideEncryptionByDefault {
+        /**
+         * "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
+         */
         kmsMasterKeyId?: string;
-        sseAlgorithm: string;
+        sseAlgorithm: enums.s3.BucketServerSideEncryptionByDefaultSseAlgorithm;
     }
 
+    /**
+     * Specifies the default server-side encryption configuration.
+     */
     export interface BucketServerSideEncryptionRule {
+        /**
+         * Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
+         */
         bucketKeyEnabled?: boolean;
         serverSideEncryptionByDefault?: outputs.s3.BucketServerSideEncryptionByDefault;
     }
 
+    /**
+     * A container that describes additional filters for identifying the source objects that you want to replicate.
+     */
     export interface BucketSourceSelectionCriteria {
+        /**
+         * A filter that you can specify for selection for modifications on replicas.
+         */
         replicaModifications?: outputs.s3.BucketReplicaModifications;
+        /**
+         * A container for filter information for the selection of Amazon S3 objects encrypted with AWS KMS.
+         */
         sseKmsEncryptedObjects?: outputs.s3.BucketSseKmsEncryptedObjects;
     }
 
+    /**
+     * A container for filter information for the selection of S3 objects encrypted with AWS KMS.
+     */
     export interface BucketSseKmsEncryptedObjects {
-        status: string;
+        /**
+         * Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
+         */
+        status: enums.s3.BucketSseKmsEncryptedObjectsStatus;
     }
 
+    /**
+     * Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
+     */
     export interface BucketStorageClassAnalysis {
         dataExport?: outputs.s3.BucketDataExport;
     }
@@ -46679,34 +47117,73 @@ export namespace s3 {
         value: string;
     }
 
+    /**
+     * Tags to use to identify a subset of objects for an Amazon S3 bucket.
+     */
     export interface BucketTagFilter {
         key: string;
         value: string;
     }
 
     export interface BucketTiering {
-        accessTier: string;
+        /**
+         * S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
+         */
+        accessTier: enums.s3.BucketTieringAccessTier;
+        /**
+         * The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier. The minimum number of days specified for Archive Access tier must be at least 90 days and Deep Archive Access tier must be at least 180 days. The maximum can be up to 2 years (730 days).
+         */
         days: number;
     }
 
+    /**
+     * The topic to which notifications are sent and the events for which notifications are generated.
+     */
     export interface BucketTopicConfiguration {
+        /**
+         * The Amazon S3 bucket event about which to send notifications.
+         */
         event: string;
+        /**
+         * The filtering rules that determine for which objects to send notifications.
+         */
         filter?: outputs.s3.BucketNotificationFilter;
+        /**
+         * The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.
+         */
         topic: string;
     }
 
+    /**
+     * You must specify at least one of "TransitionDate" and "TransitionInDays"
+     */
     export interface BucketTransition {
-        storageClass: string;
+        storageClass: enums.s3.BucketTransitionStorageClass;
         transitionDate?: string;
         transitionInDays?: number;
     }
 
+    /**
+     * Describes the versioning state of an Amazon S3 bucket.
+     */
     export interface BucketVersioningConfiguration {
-        status: string;
+        /**
+         * The versioning state of the bucket.
+         */
+        status: enums.s3.BucketVersioningConfigurationStatus;
     }
 
+    /**
+     * Specifies website configuration parameters for an Amazon S3 bucket.
+     */
     export interface BucketWebsiteConfiguration {
+        /**
+         * The name of the error document for the website.
+         */
         errorDocument?: string;
+        /**
+         * The name of the index document for the website.
+         */
         indexDocument?: string;
         redirectAllRequestsTo?: outputs.s3.BucketRedirectAllRequestsTo;
         routingRules?: outputs.s3.BucketRoutingRule[];

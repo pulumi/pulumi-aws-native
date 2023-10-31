@@ -892,6 +892,163 @@ func (o AppTagArrayOutput) Index(i pulumi.IntInput) AppTagOutput {
 	}).(AppTagOutput)
 }
 
+type BranchBackend struct {
+	StackArn *string `pulumi:"stackArn"`
+}
+
+// BranchBackendInput is an input type that accepts BranchBackendArgs and BranchBackendOutput values.
+// You can construct a concrete instance of `BranchBackendInput` via:
+//
+//	BranchBackendArgs{...}
+type BranchBackendInput interface {
+	pulumi.Input
+
+	ToBranchBackendOutput() BranchBackendOutput
+	ToBranchBackendOutputWithContext(context.Context) BranchBackendOutput
+}
+
+type BranchBackendArgs struct {
+	StackArn pulumi.StringPtrInput `pulumi:"stackArn"`
+}
+
+func (BranchBackendArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchBackend)(nil)).Elem()
+}
+
+func (i BranchBackendArgs) ToBranchBackendOutput() BranchBackendOutput {
+	return i.ToBranchBackendOutputWithContext(context.Background())
+}
+
+func (i BranchBackendArgs) ToBranchBackendOutputWithContext(ctx context.Context) BranchBackendOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchBackendOutput)
+}
+
+func (i BranchBackendArgs) ToOutput(ctx context.Context) pulumix.Output[BranchBackend] {
+	return pulumix.Output[BranchBackend]{
+		OutputState: i.ToBranchBackendOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i BranchBackendArgs) ToBranchBackendPtrOutput() BranchBackendPtrOutput {
+	return i.ToBranchBackendPtrOutputWithContext(context.Background())
+}
+
+func (i BranchBackendArgs) ToBranchBackendPtrOutputWithContext(ctx context.Context) BranchBackendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchBackendOutput).ToBranchBackendPtrOutputWithContext(ctx)
+}
+
+// BranchBackendPtrInput is an input type that accepts BranchBackendArgs, BranchBackendPtr and BranchBackendPtrOutput values.
+// You can construct a concrete instance of `BranchBackendPtrInput` via:
+//
+//	        BranchBackendArgs{...}
+//
+//	or:
+//
+//	        nil
+type BranchBackendPtrInput interface {
+	pulumi.Input
+
+	ToBranchBackendPtrOutput() BranchBackendPtrOutput
+	ToBranchBackendPtrOutputWithContext(context.Context) BranchBackendPtrOutput
+}
+
+type branchBackendPtrType BranchBackendArgs
+
+func BranchBackendPtr(v *BranchBackendArgs) BranchBackendPtrInput {
+	return (*branchBackendPtrType)(v)
+}
+
+func (*branchBackendPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchBackend)(nil)).Elem()
+}
+
+func (i *branchBackendPtrType) ToBranchBackendPtrOutput() BranchBackendPtrOutput {
+	return i.ToBranchBackendPtrOutputWithContext(context.Background())
+}
+
+func (i *branchBackendPtrType) ToBranchBackendPtrOutputWithContext(ctx context.Context) BranchBackendPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchBackendPtrOutput)
+}
+
+func (i *branchBackendPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchBackend] {
+	return pulumix.Output[*BranchBackend]{
+		OutputState: i.ToBranchBackendPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type BranchBackendOutput struct{ *pulumi.OutputState }
+
+func (BranchBackendOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchBackend)(nil)).Elem()
+}
+
+func (o BranchBackendOutput) ToBranchBackendOutput() BranchBackendOutput {
+	return o
+}
+
+func (o BranchBackendOutput) ToBranchBackendOutputWithContext(ctx context.Context) BranchBackendOutput {
+	return o
+}
+
+func (o BranchBackendOutput) ToBranchBackendPtrOutput() BranchBackendPtrOutput {
+	return o.ToBranchBackendPtrOutputWithContext(context.Background())
+}
+
+func (o BranchBackendOutput) ToBranchBackendPtrOutputWithContext(ctx context.Context) BranchBackendPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchBackend) *BranchBackend {
+		return &v
+	}).(BranchBackendPtrOutput)
+}
+
+func (o BranchBackendOutput) ToOutput(ctx context.Context) pulumix.Output[BranchBackend] {
+	return pulumix.Output[BranchBackend]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o BranchBackendOutput) StackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchBackend) *string { return v.StackArn }).(pulumi.StringPtrOutput)
+}
+
+type BranchBackendPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchBackendPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchBackend)(nil)).Elem()
+}
+
+func (o BranchBackendPtrOutput) ToBranchBackendPtrOutput() BranchBackendPtrOutput {
+	return o
+}
+
+func (o BranchBackendPtrOutput) ToBranchBackendPtrOutputWithContext(ctx context.Context) BranchBackendPtrOutput {
+	return o
+}
+
+func (o BranchBackendPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchBackend] {
+	return pulumix.Output[*BranchBackend]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o BranchBackendPtrOutput) Elem() BranchBackendOutput {
+	return o.ApplyT(func(v *BranchBackend) BranchBackend {
+		if v != nil {
+			return *v
+		}
+		var ret BranchBackend
+		return ret
+	}).(BranchBackendOutput)
+}
+
+func (o BranchBackendPtrOutput) StackArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BranchBackend) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StackArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type BranchBasicAuthConfig struct {
 	EnableBasicAuth *bool  `pulumi:"enableBasicAuth"`
 	Password        string `pulumi:"password"`
@@ -1462,6 +1619,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppEnvironmentVariableArrayInput)(nil)).Elem(), AppEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTagInput)(nil)).Elem(), AppTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppTagArrayInput)(nil)).Elem(), AppTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchBackendInput)(nil)).Elem(), BranchBackendArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchBackendPtrInput)(nil)).Elem(), BranchBackendArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBasicAuthConfigInput)(nil)).Elem(), BranchBasicAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchBasicAuthConfigPtrInput)(nil)).Elem(), BranchBasicAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchEnvironmentVariableInput)(nil)).Elem(), BranchEnvironmentVariableArgs{})
@@ -1480,6 +1639,8 @@ func init() {
 	pulumi.RegisterOutputType(AppEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(AppTagOutput{})
 	pulumi.RegisterOutputType(AppTagArrayOutput{})
+	pulumi.RegisterOutputType(BranchBackendOutput{})
+	pulumi.RegisterOutputType(BranchBackendPtrOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchEnvironmentVariableOutput{})

@@ -19,6 +19,7 @@ type Branch struct {
 
 	AppId                      pulumi.StringOutput                  `pulumi:"appId"`
 	Arn                        pulumi.StringOutput                  `pulumi:"arn"`
+	Backend                    BranchBackendPtrOutput               `pulumi:"backend"`
 	BasicAuthConfig            BranchBasicAuthConfigPtrOutput       `pulumi:"basicAuthConfig"`
 	BranchName                 pulumi.StringOutput                  `pulumi:"branchName"`
 	BuildSpec                  pulumi.StringPtrOutput               `pulumi:"buildSpec"`
@@ -82,6 +83,7 @@ func (BranchState) ElementType() reflect.Type {
 
 type branchArgs struct {
 	AppId                      string                      `pulumi:"appId"`
+	Backend                    *BranchBackend              `pulumi:"backend"`
 	BasicAuthConfig            *BranchBasicAuthConfig      `pulumi:"basicAuthConfig"`
 	BranchName                 *string                     `pulumi:"branchName"`
 	BuildSpec                  *string                     `pulumi:"buildSpec"`
@@ -99,6 +101,7 @@ type branchArgs struct {
 // The set of arguments for constructing a Branch resource.
 type BranchArgs struct {
 	AppId                      pulumi.StringInput
+	Backend                    BranchBackendPtrInput
 	BasicAuthConfig            BranchBasicAuthConfigPtrInput
 	BranchName                 pulumi.StringPtrInput
 	BuildSpec                  pulumi.StringPtrInput
@@ -168,6 +171,10 @@ func (o BranchOutput) AppId() pulumi.StringOutput {
 
 func (o BranchOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o BranchOutput) Backend() BranchBackendPtrOutput {
+	return o.ApplyT(func(v *Branch) BranchBackendPtrOutput { return v.Backend }).(BranchBackendPtrOutput)
 }
 
 func (o BranchOutput) BasicAuthConfig() BranchBasicAuthConfigPtrOutput {

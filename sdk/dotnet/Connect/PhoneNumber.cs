@@ -89,7 +89,6 @@ namespace Pulumi.AwsNative.Connect
                 ReplaceOnChanges =
                 {
                     "countryCode",
-                    "description",
                     "prefix",
                     "type",
                 },

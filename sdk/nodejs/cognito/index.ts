@@ -65,11 +65,6 @@ export const getUserPoolUiCustomizationAttachment: typeof import("./getUserPoolU
 export const getUserPoolUiCustomizationAttachmentOutput: typeof import("./getUserPoolUiCustomizationAttachment").getUserPoolUiCustomizationAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getUserPoolUiCustomizationAttachment","getUserPoolUiCustomizationAttachmentOutput"], () => require("./getUserPoolUiCustomizationAttachment"));
 
-export { GetUserPoolUserToGroupAttachmentArgs, GetUserPoolUserToGroupAttachmentResult, GetUserPoolUserToGroupAttachmentOutputArgs } from "./getUserPoolUserToGroupAttachment";
-export const getUserPoolUserToGroupAttachment: typeof import("./getUserPoolUserToGroupAttachment").getUserPoolUserToGroupAttachment = null as any;
-export const getUserPoolUserToGroupAttachmentOutput: typeof import("./getUserPoolUserToGroupAttachment").getUserPoolUserToGroupAttachmentOutput = null as any;
-utilities.lazyLoad(exports, ["getUserPoolUserToGroupAttachment","getUserPoolUserToGroupAttachmentOutput"], () => require("./getUserPoolUserToGroupAttachment"));
-
 export { IdentityPoolArgs } from "./identityPool";
 export type IdentityPool = import("./identityPool").IdentityPool;
 export const IdentityPool: typeof import("./identityPool").IdentityPool = null as any;

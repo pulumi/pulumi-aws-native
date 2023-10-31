@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetClientCertificate
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::ClientCertificate
+        /// The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
         /// </summary>
         public static Task<GetClientCertificateResult> InvokeAsync(GetClientCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::ClientCertificate
+        /// The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
         /// </summary>
         public static Output<GetClientCertificateResult> Invoke(GetClientCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateInvokeArgs(), options.WithDefaults());
@@ -62,11 +62,11 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? ClientCertificateId;
         /// <summary>
-        /// A description of the client certificate.
+        /// The description of the client certificate.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClientCertificateTag> Tags;
 

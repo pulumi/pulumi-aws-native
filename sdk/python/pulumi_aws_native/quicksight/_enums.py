@@ -62,6 +62,7 @@ __all__ = [
     'AnalysisPaperSize',
     'AnalysisParameterValueType',
     'AnalysisPivotTableConditionalFormattingScopeRole',
+    'AnalysisPivotTableDataPathType',
     'AnalysisPivotTableFieldCollapseState',
     'AnalysisPivotTableMetricPlacement',
     'AnalysisPivotTableRowsLayout',
@@ -72,6 +73,7 @@ __all__ = [
     'AnalysisReferenceLineLabelHorizontalPosition',
     'AnalysisReferenceLineLabelVerticalPosition',
     'AnalysisReferenceLinePatternType',
+    'AnalysisReferenceLineSeriesType',
     'AnalysisReferenceLineValueLabelRelativePosition',
     'AnalysisRelativeDateType',
     'AnalysisRelativeFontSize',
@@ -87,6 +89,7 @@ __all__ = [
     'AnalysisSheetControlSliderType',
     'AnalysisSimpleAttributeAggregationFunction',
     'AnalysisSimpleNumericalAggregationFunction',
+    'AnalysisSimpleTotalAggregationFunction',
     'AnalysisSmallMultiplesAxisPlacement',
     'AnalysisSmallMultiplesAxisScale',
     'AnalysisSortDirection',
@@ -174,6 +177,7 @@ __all__ = [
     'DashboardPaperSize',
     'DashboardParameterValueType',
     'DashboardPivotTableConditionalFormattingScopeRole',
+    'DashboardPivotTableDataPathType',
     'DashboardPivotTableFieldCollapseState',
     'DashboardPivotTableMetricPlacement',
     'DashboardPivotTableRowsLayout',
@@ -184,6 +188,7 @@ __all__ = [
     'DashboardReferenceLineLabelHorizontalPosition',
     'DashboardReferenceLineLabelVerticalPosition',
     'DashboardReferenceLinePatternType',
+    'DashboardReferenceLineSeriesType',
     'DashboardReferenceLineValueLabelRelativePosition',
     'DashboardRelativeDateType',
     'DashboardRelativeFontSize',
@@ -199,6 +204,7 @@ __all__ = [
     'DashboardSheetControlSliderType',
     'DashboardSimpleAttributeAggregationFunction',
     'DashboardSimpleNumericalAggregationFunction',
+    'DashboardSimpleTotalAggregationFunction',
     'DashboardSmallMultiplesAxisPlacement',
     'DashboardSmallMultiplesAxisScale',
     'DashboardSortDirection',
@@ -301,6 +307,7 @@ __all__ = [
     'TemplatePaperSize',
     'TemplateParameterValueType',
     'TemplatePivotTableConditionalFormattingScopeRole',
+    'TemplatePivotTableDataPathType',
     'TemplatePivotTableFieldCollapseState',
     'TemplatePivotTableMetricPlacement',
     'TemplatePivotTableRowsLayout',
@@ -311,6 +318,7 @@ __all__ = [
     'TemplateReferenceLineLabelHorizontalPosition',
     'TemplateReferenceLineLabelVerticalPosition',
     'TemplateReferenceLinePatternType',
+    'TemplateReferenceLineSeriesType',
     'TemplateReferenceLineValueLabelRelativePosition',
     'TemplateRelativeDateType',
     'TemplateRelativeFontSize',
@@ -326,6 +334,7 @@ __all__ = [
     'TemplateSheetControlSliderType',
     'TemplateSimpleAttributeAggregationFunction',
     'TemplateSimpleNumericalAggregationFunction',
+    'TemplateSimpleTotalAggregationFunction',
     'TemplateSmallMultiplesAxisPlacement',
     'TemplateSmallMultiplesAxisScale',
     'TemplateSortDirection',
@@ -759,6 +768,13 @@ class AnalysisPivotTableConditionalFormattingScopeRole(str, Enum):
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+class AnalysisPivotTableDataPathType(str, Enum):
+    HIERARCHY_ROWS_LAYOUT_COLUMN = "HIERARCHY_ROWS_LAYOUT_COLUMN"
+    MULTIPLE_ROW_METRICS_COLUMN = "MULTIPLE_ROW_METRICS_COLUMN"
+    EMPTY_COLUMN_HEADER = "EMPTY_COLUMN_HEADER"
+    COUNT_METRIC_COLUMN = "COUNT_METRIC_COLUMN"
+
+
 class AnalysisPivotTableFieldCollapseState(str, Enum):
     COLLAPSED = "COLLAPSED"
     EXPANDED = "EXPANDED"
@@ -812,6 +828,11 @@ class AnalysisReferenceLinePatternType(str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
+
+
+class AnalysisReferenceLineSeriesType(str, Enum):
+    BAR = "BAR"
+    LINE = "LINE"
 
 
 class AnalysisReferenceLineValueLabelRelativePosition(str, Enum):
@@ -904,6 +925,15 @@ class AnalysisSimpleNumericalAggregationFunction(str, Enum):
     STDEV = "STDEV"
     STDEVP = "STDEVP"
     MEDIAN = "MEDIAN"
+
+
+class AnalysisSimpleTotalAggregationFunction(str, Enum):
+    DEFAULT = "DEFAULT"
+    SUM = "SUM"
+    AVERAGE = "AVERAGE"
+    MIN = "MIN"
+    MAX = "MAX"
+    NONE = "NONE"
 
 
 class AnalysisSmallMultiplesAxisPlacement(str, Enum):
@@ -1446,6 +1476,13 @@ class DashboardPivotTableConditionalFormattingScopeRole(str, Enum):
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+class DashboardPivotTableDataPathType(str, Enum):
+    HIERARCHY_ROWS_LAYOUT_COLUMN = "HIERARCHY_ROWS_LAYOUT_COLUMN"
+    MULTIPLE_ROW_METRICS_COLUMN = "MULTIPLE_ROW_METRICS_COLUMN"
+    EMPTY_COLUMN_HEADER = "EMPTY_COLUMN_HEADER"
+    COUNT_METRIC_COLUMN = "COUNT_METRIC_COLUMN"
+
+
 class DashboardPivotTableFieldCollapseState(str, Enum):
     COLLAPSED = "COLLAPSED"
     EXPANDED = "EXPANDED"
@@ -1499,6 +1536,11 @@ class DashboardReferenceLinePatternType(str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
+
+
+class DashboardReferenceLineSeriesType(str, Enum):
+    BAR = "BAR"
+    LINE = "LINE"
 
 
 class DashboardReferenceLineValueLabelRelativePosition(str, Enum):
@@ -1591,6 +1633,15 @@ class DashboardSimpleNumericalAggregationFunction(str, Enum):
     STDEV = "STDEV"
     STDEVP = "STDEVP"
     MEDIAN = "MEDIAN"
+
+
+class DashboardSimpleTotalAggregationFunction(str, Enum):
+    DEFAULT = "DEFAULT"
+    SUM = "SUM"
+    AVERAGE = "AVERAGE"
+    MIN = "MIN"
+    MAX = "MAX"
+    NONE = "NONE"
 
 
 class DashboardSmallMultiplesAxisPlacement(str, Enum):
@@ -2257,6 +2308,13 @@ class TemplatePivotTableConditionalFormattingScopeRole(str, Enum):
     GRAND_TOTAL = "GRAND_TOTAL"
 
 
+class TemplatePivotTableDataPathType(str, Enum):
+    HIERARCHY_ROWS_LAYOUT_COLUMN = "HIERARCHY_ROWS_LAYOUT_COLUMN"
+    MULTIPLE_ROW_METRICS_COLUMN = "MULTIPLE_ROW_METRICS_COLUMN"
+    EMPTY_COLUMN_HEADER = "EMPTY_COLUMN_HEADER"
+    COUNT_METRIC_COLUMN = "COUNT_METRIC_COLUMN"
+
+
 class TemplatePivotTableFieldCollapseState(str, Enum):
     COLLAPSED = "COLLAPSED"
     EXPANDED = "EXPANDED"
@@ -2310,6 +2368,11 @@ class TemplateReferenceLinePatternType(str, Enum):
     SOLID = "SOLID"
     DASHED = "DASHED"
     DOTTED = "DOTTED"
+
+
+class TemplateReferenceLineSeriesType(str, Enum):
+    BAR = "BAR"
+    LINE = "LINE"
 
 
 class TemplateReferenceLineValueLabelRelativePosition(str, Enum):
@@ -2402,6 +2465,15 @@ class TemplateSimpleNumericalAggregationFunction(str, Enum):
     STDEV = "STDEV"
     STDEVP = "STDEVP"
     MEDIAN = "MEDIAN"
+
+
+class TemplateSimpleTotalAggregationFunction(str, Enum):
+    DEFAULT = "DEFAULT"
+    SUM = "SUM"
+    AVERAGE = "AVERAGE"
+    MIN = "MIN"
+    MAX = "MAX"
+    NONE = "NONE"
 
 
 class TemplateSmallMultiplesAxisPlacement(str, Enum):

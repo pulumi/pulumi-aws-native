@@ -26,14 +26,15 @@ class ApiKeyArgs:
                  value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input[str] customer_id: An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
-        :param pulumi.Input[str] description: A description of the purpose of the API key.
-        :param pulumi.Input[bool] enabled: Indicates whether the API key can be used by clients.
-        :param pulumi.Input[bool] generate_distinct_id: Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
-        :param pulumi.Input[str] name: A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiKeyStageKeyArgs']]] stage_keys: A list of stages to associate with this API key.
-        :param pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the API key.
-        :param pulumi.Input[str] value: The value of the API key. Must be at least 20 characters long.
+        :param pulumi.Input[str] customer_id: An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+        :param pulumi.Input[str] description: The description of the ApiKey.
+        :param pulumi.Input[bool] enabled: Specifies whether the ApiKey can be used by callers.
+        :param pulumi.Input[bool] generate_distinct_id: Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        :param pulumi.Input[str] name: A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+                If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiKeyStageKeyArgs']]] stage_keys: DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
+        :param pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        :param pulumi.Input[str] value: Specifies a value of the API key.
         """
         if customer_id is not None:
             pulumi.set(__self__, "customer_id", customer_id)
@@ -56,7 +57,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="customerId")
     def customer_id(self) -> Optional[pulumi.Input[str]]:
         """
-        An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+        An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
         """
         return pulumi.get(self, "customer_id")
 
@@ -68,7 +69,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the purpose of the API key.
+        The description of the ApiKey.
         """
         return pulumi.get(self, "description")
 
@@ -80,7 +81,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether the API key can be used by clients.
+        Specifies whether the ApiKey can be used by callers.
         """
         return pulumi.get(self, "enabled")
 
@@ -92,7 +93,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="generateDistinctId")
     def generate_distinct_id(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         """
         return pulumi.get(self, "generate_distinct_id")
 
@@ -104,7 +105,8 @@ class ApiKeyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
+        A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+         If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "name")
 
@@ -116,7 +118,7 @@ class ApiKeyArgs:
     @pulumi.getter(name="stageKeys")
     def stage_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyStageKeyArgs']]]]:
         """
-        A list of stages to associate with this API key.
+        DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         """
         return pulumi.get(self, "stage_keys")
 
@@ -128,7 +130,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiKeyTagArgs']]]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the API key.
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
 
@@ -140,7 +142,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value of the API key. Must be at least 20 characters long.
+        Specifies a value of the API key.
         """
         return pulumi.get(self, "value")
 
@@ -164,18 +166,19 @@ class ApiKey(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::ApiGateway::ApiKey
+        The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] customer_id: An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
-        :param pulumi.Input[str] description: A description of the purpose of the API key.
-        :param pulumi.Input[bool] enabled: Indicates whether the API key can be used by clients.
-        :param pulumi.Input[bool] generate_distinct_id: Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
-        :param pulumi.Input[str] name: A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyStageKeyArgs']]]] stage_keys: A list of stages to associate with this API key.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the API key.
-        :param pulumi.Input[str] value: The value of the API key. Must be at least 20 characters long.
+        :param pulumi.Input[str] customer_id: An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
+        :param pulumi.Input[str] description: The description of the ApiKey.
+        :param pulumi.Input[bool] enabled: Specifies whether the ApiKey can be used by callers.
+        :param pulumi.Input[bool] generate_distinct_id: Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        :param pulumi.Input[str] name: A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+                If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyStageKeyArgs']]]] stage_keys: DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiKeyTagArgs']]]] tags: The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
+        :param pulumi.Input[str] value: Specifies a value of the API key.
         """
         ...
     @overload
@@ -184,7 +187,7 @@ class ApiKey(pulumi.CustomResource):
                  args: Optional[ApiKeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::ApiGateway::ApiKey
+        The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
 
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
@@ -274,7 +277,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="customerId")
     def customer_id(self) -> pulumi.Output[Optional[str]]:
         """
-        An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+        An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
         """
         return pulumi.get(self, "customer_id")
 
@@ -282,7 +285,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the purpose of the API key.
+        The description of the ApiKey.
         """
         return pulumi.get(self, "description")
 
@@ -290,7 +293,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether the API key can be used by clients.
+        Specifies whether the ApiKey can be used by callers.
         """
         return pulumi.get(self, "enabled")
 
@@ -298,7 +301,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="generateDistinctId")
     def generate_distinct_id(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
+        Specifies whether (``true``) or not (``false``) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.
         """
         return pulumi.get(self, "generate_distinct_id")
 
@@ -306,7 +309,8 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        A name for the API key. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
+        A name for the API key. If you don't specify a name, CFN generates a unique physical ID and uses that ID for the API key name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html).
+         If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "name")
 
@@ -314,7 +318,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter(name="stageKeys")
     def stage_keys(self) -> pulumi.Output[Optional[Sequence['outputs.ApiKeyStageKey']]]:
         """
-        A list of stages to associate with this API key.
+        DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
         """
         return pulumi.get(self, "stage_keys")
 
@@ -322,7 +326,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApiKeyTag']]]:
         """
-        An array of arbitrary tags (key-value pairs) to associate with the API key.
+        The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
 
@@ -330,7 +334,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def value(self) -> pulumi.Output[Optional[str]]:
         """
-        The value of the API key. Must be at least 20 characters long.
+        Specifies a value of the API key.
         """
         return pulumi.get(self, "value")
 

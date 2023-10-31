@@ -35,21 +35,33 @@ class GetGatewayResponseResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        A Cloudformation auto generated ID.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[Any]:
+        """
+        Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[Any]:
+        """
+        Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+        """
         return pulumi.get(self, "response_templates")
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[str]:
+        """
+        The HTTP status code for this GatewayResponse.
+        """
         return pulumi.get(self, "status_code")
 
 
@@ -68,7 +80,10 @@ class AwaitableGetGatewayResponseResult(GetGatewayResponseResult):
 def get_gateway_response(id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResponseResult:
     """
-    Resource Type definition for AWS::ApiGateway::GatewayResponse
+    The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
+
+
+    :param str id: A Cloudformation auto generated ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -86,6 +101,9 @@ def get_gateway_response(id: Optional[str] = None,
 def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResponseResult]:
     """
-    Resource Type definition for AWS::ApiGateway::GatewayResponse
+    The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
+
+
+    :param str id: A Cloudformation auto generated ID.
     """
     ...

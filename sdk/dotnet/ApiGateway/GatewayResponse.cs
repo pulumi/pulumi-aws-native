@@ -10,24 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::GatewayResponse
+    /// The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
     /// </summary>
     [Obsolete(@"GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:apigateway:GatewayResponse")]
     public partial class GatewayResponse : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+        /// </summary>
         [Output("responseParameters")]
         public Output<object?> ResponseParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+        /// </summary>
         [Output("responseTemplates")]
         public Output<object?> ResponseTemplates { get; private set; } = null!;
 
+        /// <summary>
+        /// The response type of the associated GatewayResponse.
+        /// </summary>
         [Output("responseType")]
         public Output<string> ResponseType { get; private set; } = null!;
 
+        /// <summary>
+        /// The string identifier of the associated RestApi.
+        /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The HTTP status code for this GatewayResponse.
+        /// </summary>
         [Output("statusCode")]
         public Output<string?> StatusCode { get; private set; } = null!;
 
@@ -81,18 +96,33 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GatewayResponseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+        /// </summary>
         [Input("responseParameters")]
         public Input<object>? ResponseParameters { get; set; }
 
+        /// <summary>
+        /// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+        /// </summary>
         [Input("responseTemplates")]
         public Input<object>? ResponseTemplates { get; set; }
 
+        /// <summary>
+        /// The response type of the associated GatewayResponse.
+        /// </summary>
         [Input("responseType", required: true)]
         public Input<string> ResponseType { get; set; } = null!;
 
+        /// <summary>
+        /// The string identifier of the associated RestApi.
+        /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The HTTP status code for this GatewayResponse.
+        /// </summary>
         [Input("statusCode")]
         public Input<string>? StatusCode { get; set; }
 

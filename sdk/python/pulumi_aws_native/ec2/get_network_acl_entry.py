@@ -45,11 +45,17 @@ class GetNetworkAclEntryResult:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[str]:
+        """
+        The IPv4 CIDR range to allow or deny, in CIDR notation (for example, 172.16.0.0/24). Requirement is conditional: You must specify the CidrBlock or Ipv6CidrBlock property
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter
     def icmp(self) -> Optional['outputs.NetworkAclEntryIcmp']:
+        """
+        The Internet Control Message Protocol (ICMP) code and type. Requirement is conditional: Required if specifying 1 (ICMP) for the protocol parameter
+        """
         return pulumi.get(self, "icmp")
 
     @property
@@ -60,21 +66,33 @@ class GetNetworkAclEntryResult:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[str]:
+        """
+        The IPv6 network range to allow or deny, in CIDR notation (for example 2001:db8:1234:1a00::/64)
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional['outputs.NetworkAclEntryPortRange']:
+        """
+        The IPv4 network range to allow or deny, in CIDR notation (for example 172.16.0.0/24). We modify the specified CIDR block to its canonical form; for example, if you specify 100.68.0.18/18, we modify it to 100.68.0.0/18
+        """
         return pulumi.get(self, "port_range")
 
     @property
     @pulumi.getter
     def protocol(self) -> Optional[int]:
+        """
+        The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code
+        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleAction")
     def rule_action(self) -> Optional[str]:
+        """
+        Indicates whether to allow or deny the traffic that matches the rule
+        """
         return pulumi.get(self, "rule_action")
 
 

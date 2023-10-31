@@ -397,6 +397,7 @@ class UserPoolClient(pulumi.CustomResource):
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
             __props__.__dict__["write_attributes"] = write_attributes
+            __props__.__dict__["client_id"] = None
             __props__.__dict__["client_secret"] = None
             __props__.__dict__["name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["generate_secret", "user_pool_id"])
@@ -430,6 +431,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["analytics_configuration"] = None
         __props__.__dict__["auth_session_validity"] = None
         __props__.__dict__["callback_urls"] = None
+        __props__.__dict__["client_id"] = None
         __props__.__dict__["client_name"] = None
         __props__.__dict__["client_secret"] = None
         __props__.__dict__["default_redirect_uri"] = None
@@ -483,6 +485,11 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="callbackUrls")
     def callback_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "callback_urls")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientName")

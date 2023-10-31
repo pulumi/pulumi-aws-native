@@ -30,7 +30,7 @@ class GetBasePathMappingResult:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[str]:
         """
-        The ID of the API.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -38,7 +38,7 @@ class GetBasePathMappingResult:
     @pulumi.getter
     def stage(self) -> Optional[str]:
         """
-        The name of the API's stage.
+        The name of the associated stage.
         """
         return pulumi.get(self, "stage")
 
@@ -57,11 +57,11 @@ def get_base_path_mapping(base_path: Optional[str] = None,
                           domain_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBasePathMappingResult:
     """
-    Resource Type definition for AWS::ApiGateway::BasePathMapping
+    The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
 
 
-    :param str base_path: The base path name that callers of the API must provide in the URL after the domain name.
-    :param str domain_name: The DomainName of an AWS::ApiGateway::DomainName resource.
+    :param str base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
+    :param str domain_name: The domain name of the BasePathMapping resource to be described.
     """
     __args__ = dict()
     __args__['basePath'] = base_path
@@ -79,10 +79,10 @@ def get_base_path_mapping_output(base_path: Optional[pulumi.Input[str]] = None,
                                  domain_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBasePathMappingResult]:
     """
-    Resource Type definition for AWS::ApiGateway::BasePathMapping
+    The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
 
 
-    :param str base_path: The base path name that callers of the API must provide in the URL after the domain name.
-    :param str domain_name: The DomainName of an AWS::ApiGateway::DomainName resource.
+    :param str base_path: The base path name that callers of the API must provide as part of the URL after the domain name.
+    :param str domain_name: The domain name of the BasePathMapping resource to be described.
     """
     ...

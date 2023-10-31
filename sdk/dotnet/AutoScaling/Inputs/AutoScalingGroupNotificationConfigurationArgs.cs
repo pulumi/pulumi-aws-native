@@ -21,7 +21,12 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         }
 
         [Input("topicArn", required: true)]
-        public Input<string> TopicArn { get; set; } = null!;
+        private InputList<string>? _topicArn;
+        public InputList<string> TopicArn
+        {
+            get => _topicArn ?? (_topicArn = new InputList<string>());
+            set => _topicArn = value;
+        }
 
         public AutoScalingGroupNotificationConfigurationArgs()
         {

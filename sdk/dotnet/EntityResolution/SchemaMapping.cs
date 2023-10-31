@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.EntityResolution
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("hasWorkflows")]
+        public Output<bool> HasWorkflows { get; private set; } = null!;
+
         /// <summary>
         /// The SchemaMapping attributes input
         /// </summary>
@@ -70,8 +73,6 @@ namespace Pulumi.AwsNative.EntityResolution
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "description",
-                    "mappedInputFields[*]",
                     "schemaName",
                 },
             };

@@ -299,6 +299,16 @@ export const IpamScopeType = {
  */
 export type IpamScopeType = (typeof IpamScopeType)[keyof typeof IpamScopeType];
 
+export const IpamTier = {
+    Free: "free",
+    Advanced: "advanced",
+} as const;
+
+/**
+ * The tier of the IPAM.
+ */
+export type IpamTier = (typeof IpamTier)[keyof typeof IpamTier];
+
 export const KeyPairKeyFormat = {
     Pem: "pem",
     Ppk: "ppk",

@@ -2121,6 +2121,15 @@
       "required" : [ "Direction", "SortPaths" ],
       "additionalProperties" : false
     },
+    "DataPathType" : {
+      "type" : "object",
+      "properties" : {
+        "PivotTableDataPathType" : {
+          "$ref" : "#/definitions/PivotTableDataPathType"
+        }
+      },
+      "additionalProperties" : false
+    },
     "DataPathValue" : {
       "type" : "object",
       "properties" : {
@@ -2133,9 +2142,11 @@
           "type" : "string",
           "maxLength" : 2048,
           "minLength" : 0
+        },
+        "DataPathType" : {
+          "$ref" : "#/definitions/DataPathType"
         }
       },
-      "required" : [ "FieldId", "FieldValue" ],
       "additionalProperties" : false
     },
     "DataPointDrillUpDownOption" : {
@@ -6646,6 +6657,10 @@
       "required" : [ "DataPathList" ],
       "additionalProperties" : false
     },
+    "PivotTableDataPathType" : {
+      "type" : "string",
+      "enum" : [ "HIERARCHY_ROWS_LAYOUT_COLUMN", "MULTIPLE_ROW_METRICS_COLUMN", "EMPTY_COLUMN_HEADER", "COUNT_METRIC_COLUMN" ]
+    },
     "PivotTableFieldCollapseState" : {
       "type" : "string",
       "enum" : [ "COLLAPSED", "EXPANDED" ]
@@ -6935,6 +6950,14 @@
         },
         "MetricHeaderCellStyle" : {
           "$ref" : "#/definitions/TableCellStyle"
+        },
+        "TotalAggregationOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TotalAggregationOption"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
         }
       },
       "additionalProperties" : false
@@ -7216,6 +7239,9 @@
         },
         "AxisBinding" : {
           "$ref" : "#/definitions/AxisBinding"
+        },
+        "SeriesType" : {
+          "$ref" : "#/definitions/ReferenceLineSeriesType"
         }
       },
       "additionalProperties" : false
@@ -7272,6 +7298,10 @@
     "ReferenceLinePatternType" : {
       "type" : "string",
       "enum" : [ "SOLID", "DASHED", "DOTTED" ]
+    },
+    "ReferenceLineSeriesType" : {
+      "type" : "string",
+      "enum" : [ "BAR", "LINE" ]
     },
     "ReferenceLineStaticDataConfiguration" : {
       "type" : "object",
@@ -8204,6 +8234,10 @@
       "type" : "string",
       "enum" : [ "SUM", "AVERAGE", "MIN", "MAX", "COUNT", "DISTINCT_COUNT", "VAR", "VARP", "STDEV", "STDEVP", "MEDIAN" ]
     },
+    "SimpleTotalAggregationFunction" : {
+      "type" : "string",
+      "enum" : [ "DEFAULT", "SUM", "AVERAGE", "MIN", "MAX", "NONE" ]
+    },
     "SliderControlDisplayOptions" : {
       "type" : "object",
       "properties" : {
@@ -9050,6 +9084,9 @@
         },
         "TimeGranularity" : {
           "$ref" : "#/definitions/TimeGranularity"
+        },
+        "RollingDate" : {
+          "$ref" : "#/definitions/RollingDateConfiguration"
         }
       },
       "required" : [ "Column", "FilterId" ],
@@ -9301,6 +9338,30 @@
       "required" : [ "ComputationId" ],
       "additionalProperties" : false
     },
+    "TotalAggregationFunction" : {
+      "type" : "object",
+      "properties" : {
+        "SimpleTotalAggregationFunction" : {
+          "$ref" : "#/definitions/SimpleTotalAggregationFunction"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "TotalAggregationOption" : {
+      "type" : "object",
+      "properties" : {
+        "FieldId" : {
+          "type" : "string",
+          "maxLength" : 512,
+          "minLength" : 1
+        },
+        "TotalAggregationFunction" : {
+          "$ref" : "#/definitions/TotalAggregationFunction"
+        }
+      },
+      "required" : [ "FieldId", "TotalAggregationFunction" ],
+      "additionalProperties" : false
+    },
     "TotalOptions" : {
       "type" : "object",
       "properties" : {
@@ -9318,6 +9379,14 @@
         },
         "TotalCellStyle" : {
           "$ref" : "#/definitions/TableCellStyle"
+        },
+        "TotalAggregationOptions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TotalAggregationOption"
+          },
+          "maxItems" : 200,
+          "minItems" : 0
         }
       },
       "additionalProperties" : false

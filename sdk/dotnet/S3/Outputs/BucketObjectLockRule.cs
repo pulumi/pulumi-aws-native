@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// The Object Lock rule in place for the specified object.
+    /// </summary>
     [OutputType]
     public sealed class BucketObjectLockRule
     {

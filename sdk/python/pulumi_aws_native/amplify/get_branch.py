@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetBranchResult:
-    def __init__(__self__, arn=None, build_spec=None, description=None, enable_auto_build=None, enable_performance_mode=None, enable_pull_request_preview=None, environment_variables=None, framework=None, pull_request_environment_name=None, stage=None, tags=None):
+    def __init__(__self__, arn=None, backend=None, build_spec=None, description=None, enable_auto_build=None, enable_performance_mode=None, enable_pull_request_preview=None, environment_variables=None, framework=None, pull_request_environment_name=None, stage=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if backend and not isinstance(backend, dict):
+            raise TypeError("Expected argument 'backend' to be a dict")
+        pulumi.set(__self__, "backend", backend)
         if build_spec and not isinstance(build_spec, str):
             raise TypeError("Expected argument 'build_spec' to be a str")
         pulumi.set(__self__, "build_spec", build_spec)
@@ -59,6 +62,11 @@ class GetBranchResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def backend(self) -> Optional['outputs.BranchBackend']:
+        return pulumi.get(self, "backend")
 
     @property
     @pulumi.getter(name="buildSpec")
@@ -118,6 +126,7 @@ class AwaitableGetBranchResult(GetBranchResult):
             yield self
         return GetBranchResult(
             arn=self.arn,
+            backend=self.backend,
             build_spec=self.build_spec,
             description=self.description,
             enable_auto_build=self.enable_auto_build,
@@ -142,6 +151,7 @@ def get_branch(arn: Optional[str] = None,
 
     return AwaitableGetBranchResult(
         arn=pulumi.get(__ret__, 'arn'),
+        backend=pulumi.get(__ret__, 'backend'),
         build_spec=pulumi.get(__ret__, 'build_spec'),
         description=pulumi.get(__ret__, 'description'),
         enable_auto_build=pulumi.get(__ret__, 'enable_auto_build'),

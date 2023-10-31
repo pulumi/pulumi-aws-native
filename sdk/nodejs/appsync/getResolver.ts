@@ -14,29 +14,61 @@ export function getResolver(args: GetResolverArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getResolver", {
-        "id": args.id,
+        "resolverArn": args.resolverArn,
     }, opts);
 }
 
 export interface GetResolverArgs {
-    id: string;
+    /**
+     * The Amazon Resource Name (ARN) for the resolver.
+     */
+    resolverArn: string;
 }
 
 export interface GetResolverResult {
+    /**
+     * The caching configuration for the resolver.
+     */
     readonly cachingConfig?: outputs.appsync.ResolverCachingConfig;
+    /**
+     * The resolver code that contains the request and response functions. When code is used, the runtime is required.
+     */
     readonly code?: string;
-    readonly codeS3Location?: string;
+    /**
+     * The resolver data source name.
+     */
     readonly dataSourceName?: string;
-    readonly id?: string;
+    /**
+     * The resolver type.
+     */
     readonly kind?: string;
+    /**
+     * The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+     */
     readonly maxBatchSize?: number;
+    /**
+     * Functions linked with the pipeline resolver.
+     */
     readonly pipelineConfig?: outputs.appsync.ResolverPipelineConfig;
+    /**
+     * Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+     */
     readonly requestMappingTemplate?: string;
-    readonly requestMappingTemplateS3Location?: string;
+    /**
+     * The Amazon Resource Name (ARN) for the resolver.
+     */
     readonly resolverArn?: string;
+    /**
+     * The response mapping template.
+     */
     readonly responseMappingTemplate?: string;
-    readonly responseMappingTemplateS3Location?: string;
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+     */
     readonly runtime?: outputs.appsync.ResolverAppSyncRuntime;
+    /**
+     * The SyncConfig for a resolver attached to a versioned data source.
+     */
     readonly syncConfig?: outputs.appsync.ResolverSyncConfig;
 }
 /**
@@ -47,5 +79,8 @@ export function getResolverOutput(args: GetResolverOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetResolverOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the resolver.
+     */
+    resolverArn: pulumi.Input<string>;
 }

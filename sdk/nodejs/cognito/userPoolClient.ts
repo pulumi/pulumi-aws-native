@@ -44,6 +44,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     public readonly authSessionValidity!: pulumi.Output<number | undefined>;
     public readonly callbackUrls!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly clientId!: pulumi.Output<string>;
     public readonly clientName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly clientSecret!: pulumi.Output<string>;
     public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
@@ -98,6 +99,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["writeAttributes"] = args ? args.writeAttributes : undefined;
+            resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {
@@ -108,6 +110,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["analyticsConfiguration"] = undefined /*out*/;
             resourceInputs["authSessionValidity"] = undefined /*out*/;
             resourceInputs["callbackUrls"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["clientName"] = undefined /*out*/;
             resourceInputs["clientSecret"] = undefined /*out*/;
             resourceInputs["defaultRedirectUri"] = undefined /*out*/;

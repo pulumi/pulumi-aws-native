@@ -98,6 +98,10 @@ namespace Pulumi.AwsNative.Ec2
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpamTag> Tags;
+        /// <summary>
+        /// The tier of the IPAM.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Ec2.IpamTier? Tier;
 
         [OutputConstructor]
         private GetIpamResult(
@@ -121,7 +125,9 @@ namespace Pulumi.AwsNative.Ec2
 
             int? scopeCount,
 
-            ImmutableArray<Outputs.IpamTag> tags)
+            ImmutableArray<Outputs.IpamTag> tags,
+
+            Pulumi.AwsNative.Ec2.IpamTier? tier)
         {
             Arn = arn;
             DefaultResourceDiscoveryAssociationId = defaultResourceDiscoveryAssociationId;
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.Ec2
             ResourceDiscoveryAssociationCount = resourceDiscoveryAssociationCount;
             ScopeCount = scopeCount;
             Tags = tags;
+            Tier = tier;
         }
     }
 }

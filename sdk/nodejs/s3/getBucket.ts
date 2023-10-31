@@ -14,38 +14,93 @@ export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Pro
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:s3:getBucket", {
-        "id": args.id,
+        "bucketName": args.bucketName,
     }, opts);
 }
 
 export interface GetBucketArgs {
-    id: string;
+    /**
+     * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     */
+    bucketName: string;
 }
 
 export interface GetBucketResult {
+    /**
+     * Configuration for the transfer acceleration state.
+     */
     readonly accelerateConfiguration?: outputs.s3.BucketAccelerateConfiguration;
-    readonly accessControl?: string;
+    /**
+     * The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
+     */
     readonly analyticsConfigurations?: outputs.s3.BucketAnalyticsConfiguration[];
+    /**
+     * The Amazon Resource Name (ARN) of the specified bucket.
+     */
     readonly arn?: string;
     readonly bucketEncryption?: outputs.s3.BucketEncryption;
+    /**
+     * Rules that define cross-origin resource sharing of objects in this bucket.
+     */
     readonly corsConfiguration?: outputs.s3.BucketCorsConfiguration;
+    /**
+     * The IPv4 DNS name of the specified bucket.
+     */
     readonly domainName?: string;
+    /**
+     * The IPv6 DNS name of the specified bucket. For more information about dual-stack endpoints, see [Using Amazon S3 Dual-Stack Endpoints](https://docs.aws.amazon.com/AmazonS3/latest/dev/dual-stack-endpoints.html).
+     */
     readonly dualStackDomainName?: string;
-    readonly id?: string;
+    /**
+     * Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.
+     */
     readonly intelligentTieringConfigurations?: outputs.s3.BucketIntelligentTieringConfiguration[];
+    /**
+     * The inventory configuration for an Amazon S3 bucket.
+     */
     readonly inventoryConfigurations?: outputs.s3.BucketInventoryConfiguration[];
+    /**
+     * Rules that define how Amazon S3 manages objects during their lifetime.
+     */
     readonly lifecycleConfiguration?: outputs.s3.BucketLifecycleConfiguration;
+    /**
+     * Settings that define where logs are stored.
+     */
     readonly loggingConfiguration?: outputs.s3.BucketLoggingConfiguration;
+    /**
+     * Settings that define a metrics configuration for the CloudWatch request metrics from the bucket.
+     */
     readonly metricsConfigurations?: outputs.s3.BucketMetricsConfiguration[];
+    /**
+     * Configuration that defines how Amazon S3 handles bucket notifications.
+     */
     readonly notificationConfiguration?: outputs.s3.BucketNotificationConfiguration;
+    /**
+     * Places an Object Lock configuration on the specified bucket.
+     */
     readonly objectLockConfiguration?: outputs.s3.BucketObjectLockConfiguration;
+    /**
+     * Specifies the container element for object ownership rules.
+     */
     readonly ownershipControls?: outputs.s3.BucketOwnershipControls;
     readonly publicAccessBlockConfiguration?: outputs.s3.BucketPublicAccessBlockConfiguration;
+    /**
+     * Returns the regional domain name of the specified bucket.
+     */
     readonly regionalDomainName?: string;
+    /**
+     * Configuration for replicating objects in an S3 bucket.
+     */
     readonly replicationConfiguration?: outputs.s3.BucketReplicationConfiguration;
+    /**
+     * An arbitrary set of tags (key-value pairs) for this S3 bucket.
+     */
     readonly tags?: outputs.s3.BucketTag[];
     readonly versioningConfiguration?: outputs.s3.BucketVersioningConfiguration;
     readonly websiteConfiguration?: outputs.s3.BucketWebsiteConfiguration;
+    /**
+     * The Amazon S3 website endpoint for the specified bucket.
+     */
     readonly websiteUrl?: string;
 }
 /**
@@ -56,5 +111,8 @@ export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetBucketOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     */
+    bucketName: pulumi.Input<string>;
 }

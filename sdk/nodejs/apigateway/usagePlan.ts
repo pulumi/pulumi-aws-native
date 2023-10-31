@@ -8,7 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::UsagePlan
+ * The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+ *  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
  */
 export class UsagePlan extends pulumi.CustomResource {
     /**
@@ -38,27 +39,27 @@ export class UsagePlan extends pulumi.CustomResource {
     }
 
     /**
-     * The API stages to associate with this usage plan.
+     * The associated API stages of a usage plan.
      */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
-     * A description of the usage plan.
+     * The description of a usage plan.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Configures the number of requests that users can make within a given interval.
+     * The target maximum number of permitted requests per a given unit time interval.
      */
     public readonly quota!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     public readonly tags!: pulumi.Output<outputs.apigateway.UsagePlanTag[] | undefined>;
     /**
-     * Configures the overall request rate (average requests per second) and burst capacity.
+     * A map containing method level throttling information for API stage in a usage plan.
      */
     public readonly throttle!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
     /**
-     * A name for the usage plan.
+     * The name of a usage plan.
      */
     public readonly usagePlanName!: pulumi.Output<string | undefined>;
 
@@ -97,27 +98,27 @@ export class UsagePlan extends pulumi.CustomResource {
  */
 export interface UsagePlanArgs {
     /**
-     * The API stages to associate with this usage plan.
+     * The associated API stages of a usage plan.
      */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStageArgs>[]>;
     /**
-     * A description of the usage plan.
+     * The description of a usage plan.
      */
     description?: pulumi.Input<string>;
     /**
-     * Configures the number of requests that users can make within a given interval.
+     * The target maximum number of permitted requests per a given unit time interval.
      */
     quota?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettingsArgs>;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanTagArgs>[]>;
     /**
-     * Configures the overall request rate (average requests per second) and burst capacity.
+     * A map containing method level throttling information for API stage in a usage plan.
      */
     throttle?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettingsArgs>;
     /**
-     * A name for the usage plan.
+     * The name of a usage plan.
      */
     usagePlanName?: pulumi.Input<string>;
 }

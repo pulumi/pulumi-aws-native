@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateDataPathValue
     {
-        public readonly string FieldId;
-        public readonly string FieldValue;
+        public readonly Outputs.TemplateDataPathType? DataPathType;
+        public readonly string? FieldId;
+        public readonly string? FieldValue;
 
         [OutputConstructor]
         private TemplateDataPathValue(
-            string fieldId,
+            Outputs.TemplateDataPathType? dataPathType,
 
-            string fieldValue)
+            string? fieldId,
+
+            string? fieldValue)
         {
+            DataPathType = dataPathType;
             FieldId = fieldId;
             FieldValue = fieldValue;
         }

@@ -36,6 +36,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("callbackUrls")]
         public Output<ImmutableArray<string>> CallbackUrls { get; private set; } = null!;
 
+        [Output("clientId")]
+        public Output<string> ClientId { get; private set; } = null!;
+
         [Output("clientName")]
         public Output<string?> ClientName { get; private set; } = null!;
 

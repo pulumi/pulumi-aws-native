@@ -19,7 +19,8 @@ type SchemaMapping struct {
 
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the SchemaMapping
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description  pulumi.StringPtrOutput `pulumi:"description"`
+	HasWorkflows pulumi.BoolOutput      `pulumi:"hasWorkflows"`
 	// The SchemaMapping attributes input
 	MappedInputFields SchemaMappingSchemaInputAttributeArrayOutput `pulumi:"mappedInputFields"`
 	SchemaArn         pulumi.StringOutput                          `pulumi:"schemaArn"`
@@ -43,8 +44,6 @@ func NewSchemaMapping(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'SchemaName'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"description",
-		"mappedInputFields[*]",
 		"schemaName",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -157,6 +156,10 @@ func (o SchemaMappingOutput) CreatedAt() pulumi.StringOutput {
 // The description of the SchemaMapping
 func (o SchemaMappingOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SchemaMapping) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaMappingOutput) HasWorkflows() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SchemaMapping) pulumi.BoolOutput { return v.HasWorkflows }).(pulumi.BoolOutput)
 }
 
 // The SchemaMapping attributes input

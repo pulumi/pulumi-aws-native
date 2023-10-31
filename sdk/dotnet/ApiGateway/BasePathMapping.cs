@@ -10,31 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// Resource Type definition for AWS::ApiGateway::BasePathMapping
+    /// The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:BasePathMapping")]
     public partial class BasePathMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The base path name that callers of the API must provide in the URL after the domain name.
+        /// The base path name that callers of the API must provide as part of the URL after the domain name.
         /// </summary>
         [Output("basePath")]
         public Output<string?> BasePath { get; private set; } = null!;
 
         /// <summary>
-        /// The DomainName of an AWS::ApiGateway::DomainName resource.
+        /// The domain name of the BasePathMapping resource to be described.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the API.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Output("restApiId")]
         public Output<string?> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the API's stage.
+        /// The name of the associated stage.
         /// </summary>
         [Output("stage")]
         public Output<string?> Stage { get; private set; } = null!;
@@ -90,25 +90,25 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class BasePathMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The base path name that callers of the API must provide in the URL after the domain name.
+        /// The base path name that callers of the API must provide as part of the URL after the domain name.
         /// </summary>
         [Input("basePath")]
         public Input<string>? BasePath { get; set; }
 
         /// <summary>
-        /// The DomainName of an AWS::ApiGateway::DomainName resource.
+        /// The domain name of the BasePathMapping resource to be described.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the API.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
         /// <summary>
-        /// The name of the API's stage.
+        /// The name of the associated stage.
         /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }

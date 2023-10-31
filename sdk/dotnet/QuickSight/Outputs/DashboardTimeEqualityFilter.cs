@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DashboardColumnIdentifier Column;
         public readonly string FilterId;
         public readonly string? ParameterName;
+        public readonly Outputs.DashboardRollingDateConfiguration? RollingDate;
         public readonly Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? TimeGranularity;
         public readonly string? Value;
 
@@ -27,6 +28,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? parameterName,
 
+            Outputs.DashboardRollingDateConfiguration? rollingDate,
+
             Pulumi.AwsNative.QuickSight.DashboardTimeGranularity? timeGranularity,
 
             string? value)
@@ -34,6 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Column = column;
             FilterId = filterId;
             ParameterName = parameterName;
+            RollingDate = rollingDate;
             TimeGranularity = timeGranularity;
             Value = value;
         }

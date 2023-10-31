@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.S3.Outputs
     [OutputType]
     public sealed class BucketLifecycleConfiguration
     {
+        /// <summary>
+        /// A lifecycle rule for individual objects in an Amazon S3 bucket.
+        /// </summary>
         public readonly ImmutableArray<Outputs.BucketRule> Rules;
 
         [OutputConstructor]

@@ -10,19 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
+    /// <summary>
+    /// ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+    ///  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
+    /// </summary>
     [OutputType]
     public sealed class UsagePlanQuotaSettings
     {
         /// <summary>
-        /// The maximum number of requests that users can make within the specified time period.
+        /// The target maximum number of requests that can be made in a given time period.
         /// </summary>
         public readonly int? Limit;
         /// <summary>
-        /// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+        /// The number of requests subtracted from the given limit in the initial time period.
         /// </summary>
         public readonly int? Offset;
         /// <summary>
-        /// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+        /// The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
         /// </summary>
         public readonly string? Period;
 

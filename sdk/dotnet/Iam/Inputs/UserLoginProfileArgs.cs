@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Iam.Inputs
 {
 
+    /// <summary>
+    /// Contains the user name and password create date for a user.
+    /// </summary>
     public sealed class UserLoginProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The user's password.
+        /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the user is required to set a new password on next sign-in.
+        /// </summary>
         [Input("passwordResetRequired")]
         public Input<bool>? PasswordResetRequired { get; set; }
 

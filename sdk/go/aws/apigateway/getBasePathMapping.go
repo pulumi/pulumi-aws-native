@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::BasePathMapping
+// The “AWS::ApiGateway::BasePathMapping“ resource creates a base path that clients who call your API must use in the invocation URL.
 func LookupBasePathMapping(ctx *pulumi.Context, args *LookupBasePathMappingArgs, opts ...pulumi.InvokeOption) (*LookupBasePathMappingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBasePathMappingResult
@@ -24,16 +24,16 @@ func LookupBasePathMapping(ctx *pulumi.Context, args *LookupBasePathMappingArgs,
 }
 
 type LookupBasePathMappingArgs struct {
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath string `pulumi:"basePath"`
-	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName string `pulumi:"domainName"`
 }
 
 type LookupBasePathMappingResult struct {
-	// The ID of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId *string `pulumi:"restApiId"`
-	// The name of the API's stage.
+	// The name of the associated stage.
 	Stage *string `pulumi:"stage"`
 }
 
@@ -51,9 +51,9 @@ func LookupBasePathMappingOutput(ctx *pulumi.Context, args LookupBasePathMapping
 }
 
 type LookupBasePathMappingOutputArgs struct {
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath pulumi.StringInput `pulumi:"basePath"`
-	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 
@@ -81,12 +81,12 @@ func (o LookupBasePathMappingResultOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
-// The ID of the API.
+// The string identifier of the associated RestApi.
 func (o LookupBasePathMappingResultOutput) RestApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBasePathMappingResult) *string { return v.RestApiId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the API's stage.
+// The name of the associated stage.
 func (o LookupBasePathMappingResultOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBasePathMappingResult) *string { return v.Stage }).(pulumi.StringPtrOutput)
 }

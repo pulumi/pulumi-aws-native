@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::GatewayResponse
+ * The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
  *
  * @deprecated GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
@@ -37,10 +37,25 @@ export class GatewayResponse extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayResponse.__pulumiType;
     }
 
+    /**
+     * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+     */
     public readonly responseParameters!: pulumi.Output<any | undefined>;
+    /**
+     * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+     */
     public readonly responseTemplates!: pulumi.Output<any | undefined>;
+    /**
+     * The response type of the associated GatewayResponse.
+     */
     public readonly responseType!: pulumi.Output<string>;
+    /**
+     * The string identifier of the associated RestApi.
+     */
     public readonly restApiId!: pulumi.Output<string>;
+    /**
+     * The HTTP status code for this GatewayResponse.
+     */
     public readonly statusCode!: pulumi.Output<string | undefined>;
 
     /**
@@ -85,9 +100,24 @@ export class GatewayResponse extends pulumi.CustomResource {
  * The set of arguments for constructing a GatewayResponse resource.
  */
 export interface GatewayResponseArgs {
+    /**
+     * Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+     */
     responseParameters?: any;
+    /**
+     * Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+     */
     responseTemplates?: any;
+    /**
+     * The response type of the associated GatewayResponse.
+     */
     responseType: pulumi.Input<string>;
+    /**
+     * The string identifier of the associated RestApi.
+     */
     restApiId: pulumi.Input<string>;
+    /**
+     * The HTTP status code for this GatewayResponse.
+     */
     statusCode?: pulumi.Input<string>;
 }

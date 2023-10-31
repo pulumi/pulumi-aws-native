@@ -13,19 +13,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::RequestValidator
+// The “AWS::ApiGateway::RequestValidator“ resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 type RequestValidator struct {
 	pulumi.CustomResourceState
 
-	// Name of the request validator.
+	// The name of this RequestValidator
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// ID of the request validator.
 	RequestValidatorId pulumi.StringOutput `pulumi:"requestValidatorId"`
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody pulumi.BoolPtrOutput `pulumi:"validateRequestBody"`
-	// Indicates whether to validate request parameters.
+	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
 	ValidateRequestParameters pulumi.BoolPtrOutput `pulumi:"validateRequestParameters"`
 }
 
@@ -77,25 +77,25 @@ func (RequestValidatorState) ElementType() reflect.Type {
 }
 
 type requestValidatorArgs struct {
-	// Name of the request validator.
+	// The name of this RequestValidator
 	Name *string `pulumi:"name"`
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
-	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// Indicates whether to validate request parameters.
+	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
 	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
 }
 
 // The set of arguments for constructing a RequestValidator resource.
 type RequestValidatorArgs struct {
-	// Name of the request validator.
+	// The name of this RequestValidator
 	Name pulumi.StringPtrInput
-	// The identifier of the targeted API entity.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput
-	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+	// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 	ValidateRequestBody pulumi.BoolPtrInput
-	// Indicates whether to validate request parameters.
+	// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
 	ValidateRequestParameters pulumi.BoolPtrInput
 }
 
@@ -148,7 +148,7 @@ func (o RequestValidatorOutput) ToOutput(ctx context.Context) pulumix.Output[*Re
 	}
 }
 
-// Name of the request validator.
+// The name of this RequestValidator
 func (o RequestValidatorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -158,17 +158,17 @@ func (o RequestValidatorOutput) RequestValidatorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RequestValidatorId }).(pulumi.StringOutput)
 }
 
-// The identifier of the targeted API entity.
+// The string identifier of the associated RestApi.
 func (o RequestValidatorOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
-// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
+// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
 func (o RequestValidatorOutput) ValidateRequestBody() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestBody }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether to validate request parameters.
+// A Boolean flag to indicate whether to validate request parameters (“true“) or not (“false“).
 func (o RequestValidatorOutput) ValidateRequestParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RequestValidator) pulumi.BoolPtrOutput { return v.ValidateRequestParameters }).(pulumi.BoolPtrOutput)
 }

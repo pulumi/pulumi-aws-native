@@ -104,6 +104,7 @@ __all__ = [
     'AnalysisDataPathColorArgs',
     'AnalysisDataPathLabelTypeArgs',
     'AnalysisDataPathSortArgs',
+    'AnalysisDataPathTypeArgs',
     'AnalysisDataPathValueArgs',
     'AnalysisDataSetIdentifierDeclarationArgs',
     'AnalysisDataSetReferenceArgs',
@@ -447,6 +448,8 @@ __all__ = [
     'AnalysisTopBottomMoversComputationArgs',
     'AnalysisTopBottomRankedComputationArgs',
     'AnalysisTotalAggregationComputationArgs',
+    'AnalysisTotalAggregationFunctionArgs',
+    'AnalysisTotalAggregationOptionArgs',
     'AnalysisTotalOptionsArgs',
     'AnalysisTreeMapAggregatedFieldWellsArgs',
     'AnalysisTreeMapConfigurationArgs',
@@ -573,6 +576,7 @@ __all__ = [
     'DashboardDataPathColorArgs',
     'DashboardDataPathLabelTypeArgs',
     'DashboardDataPathSortArgs',
+    'DashboardDataPathTypeArgs',
     'DashboardDataPathValueArgs',
     'DashboardDataPointDrillUpDownOptionArgs',
     'DashboardDataPointMenuLabelOptionArgs',
@@ -923,6 +927,8 @@ __all__ = [
     'DashboardTopBottomMoversComputationArgs',
     'DashboardTopBottomRankedComputationArgs',
     'DashboardTotalAggregationComputationArgs',
+    'DashboardTotalAggregationFunctionArgs',
+    'DashboardTotalAggregationOptionArgs',
     'DashboardTotalOptionsArgs',
     'DashboardTreeMapAggregatedFieldWellsArgs',
     'DashboardTreeMapConfigurationArgs',
@@ -1111,6 +1117,7 @@ __all__ = [
     'TemplateDataPathColorArgs',
     'TemplateDataPathLabelTypeArgs',
     'TemplateDataPathSortArgs',
+    'TemplateDataPathTypeArgs',
     'TemplateDataPathValueArgs',
     'TemplateDataSetConfigurationArgs',
     'TemplateDataSetReferenceArgs',
@@ -1449,6 +1456,8 @@ __all__ = [
     'TemplateTopBottomMoversComputationArgs',
     'TemplateTopBottomRankedComputationArgs',
     'TemplateTotalAggregationComputationArgs',
+    'TemplateTotalAggregationFunctionArgs',
+    'TemplateTotalAggregationOptionArgs',
     'TemplateTotalOptionsArgs',
     'TemplateTreeMapAggregatedFieldWellsArgs',
     'TemplateTreeMapConfigurationArgs',
@@ -5490,29 +5499,60 @@ class AnalysisDataPathSortArgs:
 
 
 @pulumi.input_type
+class AnalysisDataPathTypeArgs:
+    def __init__(__self__, *,
+                 pivot_table_data_path_type: Optional[pulumi.Input['AnalysisPivotTableDataPathType']] = None):
+        if pivot_table_data_path_type is not None:
+            pulumi.set(__self__, "pivot_table_data_path_type", pivot_table_data_path_type)
+
+    @property
+    @pulumi.getter(name="pivotTableDataPathType")
+    def pivot_table_data_path_type(self) -> Optional[pulumi.Input['AnalysisPivotTableDataPathType']]:
+        return pulumi.get(self, "pivot_table_data_path_type")
+
+    @pivot_table_data_path_type.setter
+    def pivot_table_data_path_type(self, value: Optional[pulumi.Input['AnalysisPivotTableDataPathType']]):
+        pulumi.set(self, "pivot_table_data_path_type", value)
+
+
+@pulumi.input_type
 class AnalysisDataPathValueArgs:
     def __init__(__self__, *,
-                 field_id: pulumi.Input[str],
-                 field_value: pulumi.Input[str]):
-        pulumi.set(__self__, "field_id", field_id)
-        pulumi.set(__self__, "field_value", field_value)
+                 data_path_type: Optional[pulumi.Input['AnalysisDataPathTypeArgs']] = None,
+                 field_id: Optional[pulumi.Input[str]] = None,
+                 field_value: Optional[pulumi.Input[str]] = None):
+        if data_path_type is not None:
+            pulumi.set(__self__, "data_path_type", data_path_type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+
+    @property
+    @pulumi.getter(name="dataPathType")
+    def data_path_type(self) -> Optional[pulumi.Input['AnalysisDataPathTypeArgs']]:
+        return pulumi.get(self, "data_path_type")
+
+    @data_path_type.setter
+    def data_path_type(self, value: Optional[pulumi.Input['AnalysisDataPathTypeArgs']]):
+        pulumi.set(self, "data_path_type", value)
 
     @property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> pulumi.Input[str]:
+    def field_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "field_id")
 
     @field_id.setter
-    def field_id(self, value: pulumi.Input[str]):
+    def field_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_id", value)
 
     @property
     @pulumi.getter(name="fieldValue")
-    def field_value(self) -> pulumi.Input[str]:
+    def field_value(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "field_value")
 
     @field_value.setter
-    def field_value(self, value: pulumi.Input[str]):
+    def field_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_value", value)
 
 
@@ -15695,6 +15735,7 @@ class AnalysisPivotTotalOptionsArgs:
                  metric_header_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  placement: Optional[pulumi.Input['AnalysisTableTotalsPlacement']] = None,
                  scroll_status: Optional[pulumi.Input['AnalysisTableTotalsScrollStatus']] = None,
+                 total_aggregation_options: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTotalAggregationOptionArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None,
                  value_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None):
@@ -15706,6 +15747,8 @@ class AnalysisPivotTotalOptionsArgs:
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -15748,6 +15791,15 @@ class AnalysisPivotTotalOptionsArgs:
     @scroll_status.setter
     def scroll_status(self, value: Optional[pulumi.Input['AnalysisTableTotalsScrollStatus']]):
         pulumi.set(self, "scroll_status", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTotalAggregationOptionArgs']]]]:
+        return pulumi.get(self, "total_aggregation_options")
+
+    @total_aggregation_options.setter
+    def total_aggregation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTotalAggregationOptionArgs']]]]):
+        pulumi.set(self, "total_aggregation_options", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -16277,11 +16329,14 @@ class AnalysisReferenceLineDataConfigurationArgs:
     def __init__(__self__, *,
                  axis_binding: Optional[pulumi.Input['AnalysisAxisBinding']] = None,
                  dynamic_configuration: Optional[pulumi.Input['AnalysisReferenceLineDynamicDataConfigurationArgs']] = None,
+                 series_type: Optional[pulumi.Input['AnalysisReferenceLineSeriesType']] = None,
                  static_configuration: Optional[pulumi.Input['AnalysisReferenceLineStaticDataConfigurationArgs']] = None):
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
         if dynamic_configuration is not None:
             pulumi.set(__self__, "dynamic_configuration", dynamic_configuration)
+        if series_type is not None:
+            pulumi.set(__self__, "series_type", series_type)
         if static_configuration is not None:
             pulumi.set(__self__, "static_configuration", static_configuration)
 
@@ -16302,6 +16357,15 @@ class AnalysisReferenceLineDataConfigurationArgs:
     @dynamic_configuration.setter
     def dynamic_configuration(self, value: Optional[pulumi.Input['AnalysisReferenceLineDynamicDataConfigurationArgs']]):
         pulumi.set(self, "dynamic_configuration", value)
+
+    @property
+    @pulumi.getter(name="seriesType")
+    def series_type(self) -> Optional[pulumi.Input['AnalysisReferenceLineSeriesType']]:
+        return pulumi.get(self, "series_type")
+
+    @series_type.setter
+    def series_type(self, value: Optional[pulumi.Input['AnalysisReferenceLineSeriesType']]):
+        pulumi.set(self, "series_type", value)
 
     @property
     @pulumi.getter(name="staticConfiguration")
@@ -19879,12 +19943,15 @@ class AnalysisTimeEqualityFilterArgs:
                  column: pulumi.Input['AnalysisColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
                  parameter_name: Optional[pulumi.Input[str]] = None,
+                 rolling_date: Optional[pulumi.Input['AnalysisRollingDateConfigurationArgs']] = None,
                  time_granularity: Optional[pulumi.Input['AnalysisTimeGranularity']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
+        if rolling_date is not None:
+            pulumi.set(__self__, "rolling_date", rolling_date)
         if time_granularity is not None:
             pulumi.set(__self__, "time_granularity", time_granularity)
         if value is not None:
@@ -19916,6 +19983,15 @@ class AnalysisTimeEqualityFilterArgs:
     @parameter_name.setter
     def parameter_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="rollingDate")
+    def rolling_date(self) -> Optional[pulumi.Input['AnalysisRollingDateConfigurationArgs']]:
+        return pulumi.get(self, "rolling_date")
+
+    @rolling_date.setter
+    def rolling_date(self, value: Optional[pulumi.Input['AnalysisRollingDateConfigurationArgs']]):
+        pulumi.set(self, "rolling_date", value)
 
     @property
     @pulumi.getter(name="timeGranularity")
@@ -20495,11 +20571,56 @@ class AnalysisTotalAggregationComputationArgs:
 
 
 @pulumi.input_type
+class AnalysisTotalAggregationFunctionArgs:
+    def __init__(__self__, *,
+                 simple_total_aggregation_function: Optional[pulumi.Input['AnalysisSimpleTotalAggregationFunction']] = None):
+        if simple_total_aggregation_function is not None:
+            pulumi.set(__self__, "simple_total_aggregation_function", simple_total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="simpleTotalAggregationFunction")
+    def simple_total_aggregation_function(self) -> Optional[pulumi.Input['AnalysisSimpleTotalAggregationFunction']]:
+        return pulumi.get(self, "simple_total_aggregation_function")
+
+    @simple_total_aggregation_function.setter
+    def simple_total_aggregation_function(self, value: Optional[pulumi.Input['AnalysisSimpleTotalAggregationFunction']]):
+        pulumi.set(self, "simple_total_aggregation_function", value)
+
+
+@pulumi.input_type
+class AnalysisTotalAggregationOptionArgs:
+    def __init__(__self__, *,
+                 field_id: pulumi.Input[str],
+                 total_aggregation_function: pulumi.Input['AnalysisTotalAggregationFunctionArgs']):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "total_aggregation_function", total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field_id", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationFunction")
+    def total_aggregation_function(self) -> pulumi.Input['AnalysisTotalAggregationFunctionArgs']:
+        return pulumi.get(self, "total_aggregation_function")
+
+    @total_aggregation_function.setter
+    def total_aggregation_function(self, value: pulumi.Input['AnalysisTotalAggregationFunctionArgs']):
+        pulumi.set(self, "total_aggregation_function", value)
+
+
+@pulumi.input_type
 class AnalysisTotalOptionsArgs:
     def __init__(__self__, *,
                  custom_label: Optional[pulumi.Input[str]] = None,
                  placement: Optional[pulumi.Input['AnalysisTableTotalsPlacement']] = None,
                  scroll_status: Optional[pulumi.Input['AnalysisTableTotalsScrollStatus']] = None,
+                 total_aggregation_options: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTotalAggregationOptionArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['AnalysisTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['AnalysisVisibility']] = None):
         if custom_label is not None:
@@ -20508,6 +20629,8 @@ class AnalysisTotalOptionsArgs:
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -20539,6 +20662,15 @@ class AnalysisTotalOptionsArgs:
     @scroll_status.setter
     def scroll_status(self, value: Optional[pulumi.Input['AnalysisTableTotalsScrollStatus']]):
         pulumi.set(self, "scroll_status", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTotalAggregationOptionArgs']]]]:
+        return pulumi.get(self, "total_aggregation_options")
+
+    @total_aggregation_options.setter
+    def total_aggregation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTotalAggregationOptionArgs']]]]):
+        pulumi.set(self, "total_aggregation_options", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -26096,29 +26228,60 @@ class DashboardDataPathSortArgs:
 
 
 @pulumi.input_type
+class DashboardDataPathTypeArgs:
+    def __init__(__self__, *,
+                 pivot_table_data_path_type: Optional[pulumi.Input['DashboardPivotTableDataPathType']] = None):
+        if pivot_table_data_path_type is not None:
+            pulumi.set(__self__, "pivot_table_data_path_type", pivot_table_data_path_type)
+
+    @property
+    @pulumi.getter(name="pivotTableDataPathType")
+    def pivot_table_data_path_type(self) -> Optional[pulumi.Input['DashboardPivotTableDataPathType']]:
+        return pulumi.get(self, "pivot_table_data_path_type")
+
+    @pivot_table_data_path_type.setter
+    def pivot_table_data_path_type(self, value: Optional[pulumi.Input['DashboardPivotTableDataPathType']]):
+        pulumi.set(self, "pivot_table_data_path_type", value)
+
+
+@pulumi.input_type
 class DashboardDataPathValueArgs:
     def __init__(__self__, *,
-                 field_id: pulumi.Input[str],
-                 field_value: pulumi.Input[str]):
-        pulumi.set(__self__, "field_id", field_id)
-        pulumi.set(__self__, "field_value", field_value)
+                 data_path_type: Optional[pulumi.Input['DashboardDataPathTypeArgs']] = None,
+                 field_id: Optional[pulumi.Input[str]] = None,
+                 field_value: Optional[pulumi.Input[str]] = None):
+        if data_path_type is not None:
+            pulumi.set(__self__, "data_path_type", data_path_type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+
+    @property
+    @pulumi.getter(name="dataPathType")
+    def data_path_type(self) -> Optional[pulumi.Input['DashboardDataPathTypeArgs']]:
+        return pulumi.get(self, "data_path_type")
+
+    @data_path_type.setter
+    def data_path_type(self, value: Optional[pulumi.Input['DashboardDataPathTypeArgs']]):
+        pulumi.set(self, "data_path_type", value)
 
     @property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> pulumi.Input[str]:
+    def field_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "field_id")
 
     @field_id.setter
-    def field_id(self, value: pulumi.Input[str]):
+    def field_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_id", value)
 
     @property
     @pulumi.getter(name="fieldValue")
-    def field_value(self) -> pulumi.Input[str]:
+    def field_value(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "field_value")
 
     @field_value.setter
-    def field_value(self, value: pulumi.Input[str]):
+    def field_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_value", value)
 
 
@@ -36299,6 +36462,7 @@ class DashboardPivotTotalOptionsArgs:
                  metric_header_cell_style: Optional[pulumi.Input['DashboardTableCellStyleArgs']] = None,
                  placement: Optional[pulumi.Input['DashboardTableTotalsPlacement']] = None,
                  scroll_status: Optional[pulumi.Input['DashboardTableTotalsScrollStatus']] = None,
+                 total_aggregation_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTotalAggregationOptionArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['DashboardTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['DashboardVisibility']] = None,
                  value_cell_style: Optional[pulumi.Input['DashboardTableCellStyleArgs']] = None):
@@ -36310,6 +36474,8 @@ class DashboardPivotTotalOptionsArgs:
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -36352,6 +36518,15 @@ class DashboardPivotTotalOptionsArgs:
     @scroll_status.setter
     def scroll_status(self, value: Optional[pulumi.Input['DashboardTableTotalsScrollStatus']]):
         pulumi.set(self, "scroll_status", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTotalAggregationOptionArgs']]]]:
+        return pulumi.get(self, "total_aggregation_options")
+
+    @total_aggregation_options.setter
+    def total_aggregation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTotalAggregationOptionArgs']]]]):
+        pulumi.set(self, "total_aggregation_options", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -37018,11 +37193,14 @@ class DashboardReferenceLineDataConfigurationArgs:
     def __init__(__self__, *,
                  axis_binding: Optional[pulumi.Input['DashboardAxisBinding']] = None,
                  dynamic_configuration: Optional[pulumi.Input['DashboardReferenceLineDynamicDataConfigurationArgs']] = None,
+                 series_type: Optional[pulumi.Input['DashboardReferenceLineSeriesType']] = None,
                  static_configuration: Optional[pulumi.Input['DashboardReferenceLineStaticDataConfigurationArgs']] = None):
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
         if dynamic_configuration is not None:
             pulumi.set(__self__, "dynamic_configuration", dynamic_configuration)
+        if series_type is not None:
+            pulumi.set(__self__, "series_type", series_type)
         if static_configuration is not None:
             pulumi.set(__self__, "static_configuration", static_configuration)
 
@@ -37043,6 +37221,15 @@ class DashboardReferenceLineDataConfigurationArgs:
     @dynamic_configuration.setter
     def dynamic_configuration(self, value: Optional[pulumi.Input['DashboardReferenceLineDynamicDataConfigurationArgs']]):
         pulumi.set(self, "dynamic_configuration", value)
+
+    @property
+    @pulumi.getter(name="seriesType")
+    def series_type(self) -> Optional[pulumi.Input['DashboardReferenceLineSeriesType']]:
+        return pulumi.get(self, "series_type")
+
+    @series_type.setter
+    def series_type(self, value: Optional[pulumi.Input['DashboardReferenceLineSeriesType']]):
+        pulumi.set(self, "series_type", value)
 
     @property
     @pulumi.getter(name="staticConfiguration")
@@ -40654,12 +40841,15 @@ class DashboardTimeEqualityFilterArgs:
                  column: pulumi.Input['DashboardColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
                  parameter_name: Optional[pulumi.Input[str]] = None,
+                 rolling_date: Optional[pulumi.Input['DashboardRollingDateConfigurationArgs']] = None,
                  time_granularity: Optional[pulumi.Input['DashboardTimeGranularity']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
+        if rolling_date is not None:
+            pulumi.set(__self__, "rolling_date", rolling_date)
         if time_granularity is not None:
             pulumi.set(__self__, "time_granularity", time_granularity)
         if value is not None:
@@ -40691,6 +40881,15 @@ class DashboardTimeEqualityFilterArgs:
     @parameter_name.setter
     def parameter_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="rollingDate")
+    def rolling_date(self) -> Optional[pulumi.Input['DashboardRollingDateConfigurationArgs']]:
+        return pulumi.get(self, "rolling_date")
+
+    @rolling_date.setter
+    def rolling_date(self, value: Optional[pulumi.Input['DashboardRollingDateConfigurationArgs']]):
+        pulumi.set(self, "rolling_date", value)
 
     @property
     @pulumi.getter(name="timeGranularity")
@@ -41270,11 +41469,56 @@ class DashboardTotalAggregationComputationArgs:
 
 
 @pulumi.input_type
+class DashboardTotalAggregationFunctionArgs:
+    def __init__(__self__, *,
+                 simple_total_aggregation_function: Optional[pulumi.Input['DashboardSimpleTotalAggregationFunction']] = None):
+        if simple_total_aggregation_function is not None:
+            pulumi.set(__self__, "simple_total_aggregation_function", simple_total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="simpleTotalAggregationFunction")
+    def simple_total_aggregation_function(self) -> Optional[pulumi.Input['DashboardSimpleTotalAggregationFunction']]:
+        return pulumi.get(self, "simple_total_aggregation_function")
+
+    @simple_total_aggregation_function.setter
+    def simple_total_aggregation_function(self, value: Optional[pulumi.Input['DashboardSimpleTotalAggregationFunction']]):
+        pulumi.set(self, "simple_total_aggregation_function", value)
+
+
+@pulumi.input_type
+class DashboardTotalAggregationOptionArgs:
+    def __init__(__self__, *,
+                 field_id: pulumi.Input[str],
+                 total_aggregation_function: pulumi.Input['DashboardTotalAggregationFunctionArgs']):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "total_aggregation_function", total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field_id", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationFunction")
+    def total_aggregation_function(self) -> pulumi.Input['DashboardTotalAggregationFunctionArgs']:
+        return pulumi.get(self, "total_aggregation_function")
+
+    @total_aggregation_function.setter
+    def total_aggregation_function(self, value: pulumi.Input['DashboardTotalAggregationFunctionArgs']):
+        pulumi.set(self, "total_aggregation_function", value)
+
+
+@pulumi.input_type
 class DashboardTotalOptionsArgs:
     def __init__(__self__, *,
                  custom_label: Optional[pulumi.Input[str]] = None,
                  placement: Optional[pulumi.Input['DashboardTableTotalsPlacement']] = None,
                  scroll_status: Optional[pulumi.Input['DashboardTableTotalsScrollStatus']] = None,
+                 total_aggregation_options: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTotalAggregationOptionArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['DashboardTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['DashboardVisibility']] = None):
         if custom_label is not None:
@@ -41283,6 +41527,8 @@ class DashboardTotalOptionsArgs:
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -41314,6 +41560,15 @@ class DashboardTotalOptionsArgs:
     @scroll_status.setter
     def scroll_status(self, value: Optional[pulumi.Input['DashboardTableTotalsScrollStatus']]):
         pulumi.set(self, "scroll_status", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTotalAggregationOptionArgs']]]]:
+        return pulumi.get(self, "total_aggregation_options")
+
+    @total_aggregation_options.setter
+    def total_aggregation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardTotalAggregationOptionArgs']]]]):
+        pulumi.set(self, "total_aggregation_options", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -49655,29 +49910,60 @@ class TemplateDataPathSortArgs:
 
 
 @pulumi.input_type
+class TemplateDataPathTypeArgs:
+    def __init__(__self__, *,
+                 pivot_table_data_path_type: Optional[pulumi.Input['TemplatePivotTableDataPathType']] = None):
+        if pivot_table_data_path_type is not None:
+            pulumi.set(__self__, "pivot_table_data_path_type", pivot_table_data_path_type)
+
+    @property
+    @pulumi.getter(name="pivotTableDataPathType")
+    def pivot_table_data_path_type(self) -> Optional[pulumi.Input['TemplatePivotTableDataPathType']]:
+        return pulumi.get(self, "pivot_table_data_path_type")
+
+    @pivot_table_data_path_type.setter
+    def pivot_table_data_path_type(self, value: Optional[pulumi.Input['TemplatePivotTableDataPathType']]):
+        pulumi.set(self, "pivot_table_data_path_type", value)
+
+
+@pulumi.input_type
 class TemplateDataPathValueArgs:
     def __init__(__self__, *,
-                 field_id: pulumi.Input[str],
-                 field_value: pulumi.Input[str]):
-        pulumi.set(__self__, "field_id", field_id)
-        pulumi.set(__self__, "field_value", field_value)
+                 data_path_type: Optional[pulumi.Input['TemplateDataPathTypeArgs']] = None,
+                 field_id: Optional[pulumi.Input[str]] = None,
+                 field_value: Optional[pulumi.Input[str]] = None):
+        if data_path_type is not None:
+            pulumi.set(__self__, "data_path_type", data_path_type)
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if field_value is not None:
+            pulumi.set(__self__, "field_value", field_value)
+
+    @property
+    @pulumi.getter(name="dataPathType")
+    def data_path_type(self) -> Optional[pulumi.Input['TemplateDataPathTypeArgs']]:
+        return pulumi.get(self, "data_path_type")
+
+    @data_path_type.setter
+    def data_path_type(self, value: Optional[pulumi.Input['TemplateDataPathTypeArgs']]):
+        pulumi.set(self, "data_path_type", value)
 
     @property
     @pulumi.getter(name="fieldId")
-    def field_id(self) -> pulumi.Input[str]:
+    def field_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "field_id")
 
     @field_id.setter
-    def field_id(self, value: pulumi.Input[str]):
+    def field_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_id", value)
 
     @property
     @pulumi.getter(name="fieldValue")
-    def field_value(self) -> pulumi.Input[str]:
+    def field_value(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "field_value")
 
     @field_value.setter
-    def field_value(self, value: pulumi.Input[str]):
+    def field_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_value", value)
 
 
@@ -59653,6 +59939,7 @@ class TemplatePivotTotalOptionsArgs:
                  metric_header_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  placement: Optional[pulumi.Input['TemplateTableTotalsPlacement']] = None,
                  scroll_status: Optional[pulumi.Input['TemplateTableTotalsScrollStatus']] = None,
+                 total_aggregation_options: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTotalAggregationOptionArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['TemplateVisibility']] = None,
                  value_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None):
@@ -59664,6 +59951,8 @@ class TemplatePivotTotalOptionsArgs:
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -59706,6 +59995,15 @@ class TemplatePivotTotalOptionsArgs:
     @scroll_status.setter
     def scroll_status(self, value: Optional[pulumi.Input['TemplateTableTotalsScrollStatus']]):
         pulumi.set(self, "scroll_status", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTotalAggregationOptionArgs']]]]:
+        return pulumi.get(self, "total_aggregation_options")
+
+    @total_aggregation_options.setter
+    def total_aggregation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTotalAggregationOptionArgs']]]]):
+        pulumi.set(self, "total_aggregation_options", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")
@@ -60235,11 +60533,14 @@ class TemplateReferenceLineDataConfigurationArgs:
     def __init__(__self__, *,
                  axis_binding: Optional[pulumi.Input['TemplateAxisBinding']] = None,
                  dynamic_configuration: Optional[pulumi.Input['TemplateReferenceLineDynamicDataConfigurationArgs']] = None,
+                 series_type: Optional[pulumi.Input['TemplateReferenceLineSeriesType']] = None,
                  static_configuration: Optional[pulumi.Input['TemplateReferenceLineStaticDataConfigurationArgs']] = None):
         if axis_binding is not None:
             pulumi.set(__self__, "axis_binding", axis_binding)
         if dynamic_configuration is not None:
             pulumi.set(__self__, "dynamic_configuration", dynamic_configuration)
+        if series_type is not None:
+            pulumi.set(__self__, "series_type", series_type)
         if static_configuration is not None:
             pulumi.set(__self__, "static_configuration", static_configuration)
 
@@ -60260,6 +60561,15 @@ class TemplateReferenceLineDataConfigurationArgs:
     @dynamic_configuration.setter
     def dynamic_configuration(self, value: Optional[pulumi.Input['TemplateReferenceLineDynamicDataConfigurationArgs']]):
         pulumi.set(self, "dynamic_configuration", value)
+
+    @property
+    @pulumi.getter(name="seriesType")
+    def series_type(self) -> Optional[pulumi.Input['TemplateReferenceLineSeriesType']]:
+        return pulumi.get(self, "series_type")
+
+    @series_type.setter
+    def series_type(self, value: Optional[pulumi.Input['TemplateReferenceLineSeriesType']]):
+        pulumi.set(self, "series_type", value)
 
     @property
     @pulumi.getter(name="staticConfiguration")
@@ -63838,12 +64148,15 @@ class TemplateTimeEqualityFilterArgs:
                  column: pulumi.Input['TemplateColumnIdentifierArgs'],
                  filter_id: pulumi.Input[str],
                  parameter_name: Optional[pulumi.Input[str]] = None,
+                 rolling_date: Optional[pulumi.Input['TemplateRollingDateConfigurationArgs']] = None,
                  time_granularity: Optional[pulumi.Input['TemplateTimeGranularity']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "column", column)
         pulumi.set(__self__, "filter_id", filter_id)
         if parameter_name is not None:
             pulumi.set(__self__, "parameter_name", parameter_name)
+        if rolling_date is not None:
+            pulumi.set(__self__, "rolling_date", rolling_date)
         if time_granularity is not None:
             pulumi.set(__self__, "time_granularity", time_granularity)
         if value is not None:
@@ -63875,6 +64188,15 @@ class TemplateTimeEqualityFilterArgs:
     @parameter_name.setter
     def parameter_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="rollingDate")
+    def rolling_date(self) -> Optional[pulumi.Input['TemplateRollingDateConfigurationArgs']]:
+        return pulumi.get(self, "rolling_date")
+
+    @rolling_date.setter
+    def rolling_date(self, value: Optional[pulumi.Input['TemplateRollingDateConfigurationArgs']]):
+        pulumi.set(self, "rolling_date", value)
 
     @property
     @pulumi.getter(name="timeGranularity")
@@ -64454,11 +64776,56 @@ class TemplateTotalAggregationComputationArgs:
 
 
 @pulumi.input_type
+class TemplateTotalAggregationFunctionArgs:
+    def __init__(__self__, *,
+                 simple_total_aggregation_function: Optional[pulumi.Input['TemplateSimpleTotalAggregationFunction']] = None):
+        if simple_total_aggregation_function is not None:
+            pulumi.set(__self__, "simple_total_aggregation_function", simple_total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="simpleTotalAggregationFunction")
+    def simple_total_aggregation_function(self) -> Optional[pulumi.Input['TemplateSimpleTotalAggregationFunction']]:
+        return pulumi.get(self, "simple_total_aggregation_function")
+
+    @simple_total_aggregation_function.setter
+    def simple_total_aggregation_function(self, value: Optional[pulumi.Input['TemplateSimpleTotalAggregationFunction']]):
+        pulumi.set(self, "simple_total_aggregation_function", value)
+
+
+@pulumi.input_type
+class TemplateTotalAggregationOptionArgs:
+    def __init__(__self__, *,
+                 field_id: pulumi.Input[str],
+                 total_aggregation_function: pulumi.Input['TemplateTotalAggregationFunctionArgs']):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "total_aggregation_function", total_aggregation_function)
+
+    @property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field_id")
+
+    @field_id.setter
+    def field_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field_id", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationFunction")
+    def total_aggregation_function(self) -> pulumi.Input['TemplateTotalAggregationFunctionArgs']:
+        return pulumi.get(self, "total_aggregation_function")
+
+    @total_aggregation_function.setter
+    def total_aggregation_function(self, value: pulumi.Input['TemplateTotalAggregationFunctionArgs']):
+        pulumi.set(self, "total_aggregation_function", value)
+
+
+@pulumi.input_type
 class TemplateTotalOptionsArgs:
     def __init__(__self__, *,
                  custom_label: Optional[pulumi.Input[str]] = None,
                  placement: Optional[pulumi.Input['TemplateTableTotalsPlacement']] = None,
                  scroll_status: Optional[pulumi.Input['TemplateTableTotalsScrollStatus']] = None,
+                 total_aggregation_options: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTotalAggregationOptionArgs']]]] = None,
                  total_cell_style: Optional[pulumi.Input['TemplateTableCellStyleArgs']] = None,
                  totals_visibility: Optional[pulumi.Input['TemplateVisibility']] = None):
         if custom_label is not None:
@@ -64467,6 +64834,8 @@ class TemplateTotalOptionsArgs:
             pulumi.set(__self__, "placement", placement)
         if scroll_status is not None:
             pulumi.set(__self__, "scroll_status", scroll_status)
+        if total_aggregation_options is not None:
+            pulumi.set(__self__, "total_aggregation_options", total_aggregation_options)
         if total_cell_style is not None:
             pulumi.set(__self__, "total_cell_style", total_cell_style)
         if totals_visibility is not None:
@@ -64498,6 +64867,15 @@ class TemplateTotalOptionsArgs:
     @scroll_status.setter
     def scroll_status(self, value: Optional[pulumi.Input['TemplateTableTotalsScrollStatus']]):
         pulumi.set(self, "scroll_status", value)
+
+    @property
+    @pulumi.getter(name="totalAggregationOptions")
+    def total_aggregation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTotalAggregationOptionArgs']]]]:
+        return pulumi.get(self, "total_aggregation_options")
+
+    @total_aggregation_options.setter
+    def total_aggregation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateTotalAggregationOptionArgs']]]]):
+        pulumi.set(self, "total_aggregation_options", value)
 
     @property
     @pulumi.getter(name="totalCellStyle")

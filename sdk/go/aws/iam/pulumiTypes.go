@@ -809,9 +809,12 @@ func (o ServerCertificateTagArrayOutput) Index(i pulumi.IntInput) ServerCertific
 	}).(ServerCertificateTagOutput)
 }
 
+// Contains the user name and password create date for a user.
 type UserLoginProfile struct {
-	Password              string `pulumi:"password"`
-	PasswordResetRequired *bool  `pulumi:"passwordResetRequired"`
+	// The user's password.
+	Password string `pulumi:"password"`
+	// Specifies whether the user is required to set a new password on next sign-in.
+	PasswordResetRequired *bool `pulumi:"passwordResetRequired"`
 }
 
 // UserLoginProfileInput is an input type that accepts UserLoginProfileArgs and UserLoginProfileOutput values.
@@ -825,8 +828,11 @@ type UserLoginProfileInput interface {
 	ToUserLoginProfileOutputWithContext(context.Context) UserLoginProfileOutput
 }
 
+// Contains the user name and password create date for a user.
 type UserLoginProfileArgs struct {
-	Password              pulumi.StringInput  `pulumi:"password"`
+	// The user's password.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Specifies whether the user is required to set a new password on next sign-in.
 	PasswordResetRequired pulumi.BoolPtrInput `pulumi:"passwordResetRequired"`
 }
 
@@ -895,6 +901,7 @@ func (i *userLoginProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
+// Contains the user name and password create date for a user.
 type UserLoginProfileOutput struct{ *pulumi.OutputState }
 
 func (UserLoginProfileOutput) ElementType() reflect.Type {
@@ -925,10 +932,12 @@ func (o UserLoginProfileOutput) ToOutput(ctx context.Context) pulumix.Output[Use
 	}
 }
 
+// The user's password.
 func (o UserLoginProfileOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v UserLoginProfile) string { return v.Password }).(pulumi.StringOutput)
 }
 
+// Specifies whether the user is required to set a new password on next sign-in.
 func (o UserLoginProfileOutput) PasswordResetRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserLoginProfile) *bool { return v.PasswordResetRequired }).(pulumi.BoolPtrOutput)
 }
@@ -963,6 +972,7 @@ func (o UserLoginProfilePtrOutput) Elem() UserLoginProfileOutput {
 	}).(UserLoginProfileOutput)
 }
 
+// The user's password.
 func (o UserLoginProfilePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserLoginProfile) *string {
 		if v == nil {
@@ -972,6 +982,7 @@ func (o UserLoginProfilePtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies whether the user is required to set a new password on next sign-in.
 func (o UserLoginProfilePtrOutput) PasswordResetRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserLoginProfile) *bool {
 		if v == nil {
@@ -981,9 +992,12 @@ func (o UserLoginProfilePtrOutput) PasswordResetRequired() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Contains information about an attached policy.
 type UserPolicyType struct {
+	// The policy document.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
-	PolicyName     string      `pulumi:"policyName"`
+	// The friendly name (not ARN) identifying the policy.
+	PolicyName string `pulumi:"policyName"`
 }
 
 // UserPolicyTypeInput is an input type that accepts UserPolicyTypeArgs and UserPolicyTypeOutput values.
@@ -997,9 +1011,12 @@ type UserPolicyTypeInput interface {
 	ToUserPolicyTypeOutputWithContext(context.Context) UserPolicyTypeOutput
 }
 
+// Contains information about an attached policy.
 type UserPolicyTypeArgs struct {
-	PolicyDocument pulumi.Input       `pulumi:"policyDocument"`
-	PolicyName     pulumi.StringInput `pulumi:"policyName"`
+	// The policy document.
+	PolicyDocument pulumi.Input `pulumi:"policyDocument"`
+	// The friendly name (not ARN) identifying the policy.
+	PolicyName pulumi.StringInput `pulumi:"policyName"`
 }
 
 func (UserPolicyTypeArgs) ElementType() reflect.Type {
@@ -1051,6 +1068,7 @@ func (i UserPolicyTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]User
 	}
 }
 
+// Contains information about an attached policy.
 type UserPolicyTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyTypeOutput) ElementType() reflect.Type {
@@ -1071,10 +1089,12 @@ func (o UserPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserP
 	}
 }
 
+// The policy document.
 func (o UserPolicyTypeOutput) PolicyDocument() pulumi.AnyOutput {
 	return o.ApplyT(func(v UserPolicyType) interface{} { return v.PolicyDocument }).(pulumi.AnyOutput)
 }
 
+// The friendly name (not ARN) identifying the policy.
 func (o UserPolicyTypeOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPolicyType) string { return v.PolicyName }).(pulumi.StringOutput)
 }
@@ -1105,8 +1125,11 @@ func (o UserPolicyTypeArrayOutput) Index(i pulumi.IntInput) UserPolicyTypeOutput
 	}).(UserPolicyTypeOutput)
 }
 
+// A key-value pair to associate with a resource.
 type UserTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
 }
 
@@ -1121,8 +1144,11 @@ type UserTagInput interface {
 	ToUserTagOutputWithContext(context.Context) UserTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type UserTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1175,6 +1201,7 @@ func (i UserTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
 	}
 }
 
+// A key-value pair to associate with a resource.
 type UserTagOutput struct{ *pulumi.OutputState }
 
 func (UserTagOutput) ElementType() reflect.Type {
@@ -1195,10 +1222,12 @@ func (o UserTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
 	}
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o UserTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v UserTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 func (o UserTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v UserTag) string { return v.Value }).(pulumi.StringOutput)
 }

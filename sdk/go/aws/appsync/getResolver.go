@@ -24,25 +24,33 @@ func LookupResolver(ctx *pulumi.Context, args *LookupResolverArgs, opts ...pulum
 }
 
 type LookupResolverArgs struct {
-	Id string `pulumi:"id"`
+	// The Amazon Resource Name (ARN) for the resolver.
+	ResolverArn string `pulumi:"resolverArn"`
 }
 
 type LookupResolverResult struct {
-	CachingConfig                     *ResolverCachingConfig  `pulumi:"cachingConfig"`
-	Code                              *string                 `pulumi:"code"`
-	CodeS3Location                    *string                 `pulumi:"codeS3Location"`
-	DataSourceName                    *string                 `pulumi:"dataSourceName"`
-	Id                                *string                 `pulumi:"id"`
-	Kind                              *string                 `pulumi:"kind"`
-	MaxBatchSize                      *int                    `pulumi:"maxBatchSize"`
-	PipelineConfig                    *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	RequestMappingTemplate            *string                 `pulumi:"requestMappingTemplate"`
-	RequestMappingTemplateS3Location  *string                 `pulumi:"requestMappingTemplateS3Location"`
-	ResolverArn                       *string                 `pulumi:"resolverArn"`
-	ResponseMappingTemplate           *string                 `pulumi:"responseMappingTemplate"`
-	ResponseMappingTemplateS3Location *string                 `pulumi:"responseMappingTemplateS3Location"`
-	Runtime                           *ResolverAppSyncRuntime `pulumi:"runtime"`
-	SyncConfig                        *ResolverSyncConfig     `pulumi:"syncConfig"`
+	// The caching configuration for the resolver.
+	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
+	// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+	Code *string `pulumi:"code"`
+	// The resolver data source name.
+	DataSourceName *string `pulumi:"dataSourceName"`
+	// The resolver type.
+	Kind *string `pulumi:"kind"`
+	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+	MaxBatchSize *int `pulumi:"maxBatchSize"`
+	// Functions linked with the pipeline resolver.
+	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
+	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
+	// The Amazon Resource Name (ARN) for the resolver.
+	ResolverArn *string `pulumi:"resolverArn"`
+	// The response mapping template.
+	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+	Runtime *ResolverAppSyncRuntime `pulumi:"runtime"`
+	// The SyncConfig for a resolver attached to a versioned data source.
+	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
 }
 
 func LookupResolverOutput(ctx *pulumi.Context, args LookupResolverOutputArgs, opts ...pulumi.InvokeOption) LookupResolverResultOutput {
@@ -59,7 +67,8 @@ func LookupResolverOutput(ctx *pulumi.Context, args LookupResolverOutputArgs, op
 }
 
 type LookupResolverOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The Amazon Resource Name (ARN) for the resolver.
+	ResolverArn pulumi.StringInput `pulumi:"resolverArn"`
 }
 
 func (LookupResolverOutputArgs) ElementType() reflect.Type {
@@ -86,62 +95,57 @@ func (o LookupResolverResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// The caching configuration for the resolver.
 func (o LookupResolverResultOutput) CachingConfig() ResolverCachingConfigPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *ResolverCachingConfig { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
+// The resolver code that contains the request and response functions. When code is used, the runtime is required.
 func (o LookupResolverResultOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.Code }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverResultOutput) CodeS3Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResolverResult) *string { return v.CodeS3Location }).(pulumi.StringPtrOutput)
-}
-
+// The resolver data source name.
 func (o LookupResolverResultOutput) DataSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.DataSourceName }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResolverResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The resolver type.
 func (o LookupResolverResultOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
 func (o LookupResolverResultOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *int { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
+// Functions linked with the pipeline resolver.
 func (o LookupResolverResultOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *ResolverPipelineConfig { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
 }
 
+// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
 func (o LookupResolverResultOutput) RequestMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverResultOutput) RequestMappingTemplateS3Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResolverResult) *string { return v.RequestMappingTemplateS3Location }).(pulumi.StringPtrOutput)
-}
-
+// The Amazon Resource Name (ARN) for the resolver.
 func (o LookupResolverResultOutput) ResolverArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResolverArn }).(pulumi.StringPtrOutput)
 }
 
+// The response mapping template.
 func (o LookupResolverResultOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupResolverResultOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupResolverResult) *string { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
-}
-
+// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 func (o LookupResolverResultOutput) Runtime() ResolverAppSyncRuntimePtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *ResolverAppSyncRuntime { return v.Runtime }).(ResolverAppSyncRuntimePtrOutput)
 }
 
+// The SyncConfig for a resolver attached to a versioned data source.
 func (o LookupResolverResultOutput) SyncConfig() ResolverSyncConfigPtrOutput {
 	return o.ApplyT(func(v LookupResolverResult) *ResolverSyncConfig { return v.SyncConfig }).(ResolverSyncConfigPtrOutput)
 }

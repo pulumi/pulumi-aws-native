@@ -27,6 +27,15 @@ export interface GetSchemaMappingArgs {
 
 export interface GetSchemaMappingResult {
     readonly createdAt?: string;
+    /**
+     * The description of the SchemaMapping
+     */
+    readonly description?: string;
+    readonly hasWorkflows?: boolean;
+    /**
+     * The SchemaMapping attributes input
+     */
+    readonly mappedInputFields?: outputs.entityresolution.SchemaMappingSchemaInputAttribute[];
     readonly schemaArn?: string;
     readonly tags?: outputs.entityresolution.SchemaMappingTag[];
     readonly updatedAt?: string;

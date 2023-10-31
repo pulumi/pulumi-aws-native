@@ -78,6 +78,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Outputs.IpamTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The tier of the IPAM.
+        /// </summary>
+        [Output("tier")]
+        public Output<Pulumi.AwsNative.Ec2.IpamTier?> Tier { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Ipam resource with the given unique name, arguments, and options.
@@ -149,6 +155,12 @@ namespace Pulumi.AwsNative.Ec2
             get => _tags ?? (_tags = new InputList<Inputs.IpamTagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The tier of the IPAM.
+        /// </summary>
+        [Input("tier")]
+        public Input<Pulumi.AwsNative.Ec2.IpamTier>? Tier { get; set; }
 
         public IpamArgs()
         {

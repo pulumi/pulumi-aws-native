@@ -16,15 +16,25 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
-	Arn                pulumi.StringOutput    `pulumi:"arn"`
-	Description        pulumi.StringPtrOutput `pulumi:"description"`
-	EventBusName       pulumi.StringPtrOutput `pulumi:"eventBusName"`
-	EventPattern       pulumi.AnyOutput       `pulumi:"eventPattern"`
-	Name               pulumi.StringPtrOutput `pulumi:"name"`
-	RoleArn            pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The description of the rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
+	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
+	// The name of the rule.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
+	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
-	State              pulumi.StringPtrOutput `pulumi:"state"`
-	Targets            RuleTargetArrayOutput  `pulumi:"targets"`
+	// The state of the rule.
+	State RuleStateEnumPtrOutput `pulumi:"state"`
+	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+	// Targets are the resources that are invoked when a rule is triggered.
+	Targets RuleTargetArrayOutput `pulumi:"targets"`
 }
 
 // NewRule registers a new resource with the given unique name, arguments, and options.
@@ -35,7 +45,6 @@ func NewRule(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"eventBusName",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -72,26 +81,44 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	Description        *string      `pulumi:"description"`
-	EventBusName       *string      `pulumi:"eventBusName"`
-	EventPattern       interface{}  `pulumi:"eventPattern"`
-	Name               *string      `pulumi:"name"`
-	RoleArn            *string      `pulumi:"roleArn"`
-	ScheduleExpression *string      `pulumi:"scheduleExpression"`
-	State              *string      `pulumi:"state"`
-	Targets            []RuleTarget `pulumi:"targets"`
+	// The description of the rule.
+	Description *string `pulumi:"description"`
+	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+	EventBusName *string `pulumi:"eventBusName"`
+	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+	EventPattern *string `pulumi:"eventPattern"`
+	// The name of the rule.
+	Name *string `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
+	RoleArn *string `pulumi:"roleArn"`
+	// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// The state of the rule.
+	State *RuleStateEnum `pulumi:"state"`
+	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+	// Targets are the resources that are invoked when a rule is triggered.
+	Targets []RuleTarget `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	Description        pulumi.StringPtrInput
-	EventBusName       pulumi.StringPtrInput
-	EventPattern       pulumi.Input
-	Name               pulumi.StringPtrInput
-	RoleArn            pulumi.StringPtrInput
+	// The description of the rule.
+	Description pulumi.StringPtrInput
+	// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+	EventBusName pulumi.StringPtrInput
+	// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+	EventPattern pulumi.StringPtrInput
+	// The name of the rule.
+	Name pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
+	RoleArn pulumi.StringPtrInput
+	// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
 	ScheduleExpression pulumi.StringPtrInput
-	State              pulumi.StringPtrInput
-	Targets            RuleTargetArrayInput
+	// The state of the rule.
+	State RuleStateEnumPtrInput
+	// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+	// Targets are the resources that are invoked when a rule is triggered.
+	Targets RuleTargetArrayInput
 }
 
 func (RuleArgs) ElementType() reflect.Type {
@@ -143,38 +170,48 @@ func (o RuleOutput) ToOutput(ctx context.Context) pulumix.Output[*Rule] {
 	}
 }
 
+// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
 func (o RuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The description of the rule.
 func (o RuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
 func (o RuleOutput) EventBusName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.EventBusName }).(pulumi.StringPtrOutput)
 }
 
-func (o RuleOutput) EventPattern() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Rule) pulumi.AnyOutput { return v.EventPattern }).(pulumi.AnyOutput)
+// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+func (o RuleOutput) EventPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.EventPattern }).(pulumi.StringPtrOutput)
 }
 
+// The name of the rule.
 func (o RuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 func (o RuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
+// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
 func (o RuleOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
-func (o RuleOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+// The state of the rule.
+func (o RuleOutput) State() RuleStateEnumPtrOutput {
+	return o.ApplyT(func(v *Rule) RuleStateEnumPtrOutput { return v.State }).(RuleStateEnumPtrOutput)
 }
 
+// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+// Targets are the resources that are invoked when a rule is triggered.
 func (o RuleOutput) Targets() RuleTargetArrayOutput {
 	return o.ApplyT(func(v *Rule) RuleTargetArrayOutput { return v.Targets }).(RuleTargetArrayOutput)
 }

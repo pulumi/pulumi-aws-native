@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The friendly name identifying the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public string UserName { get; set; } = null!;
 
         public GetUserArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.Iam
 
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The friendly name identifying the user.
+        /// </summary>
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public GetUserInvokeArgs()
         {
@@ -51,14 +57,37 @@ namespace Pulumi.AwsNative.Iam
     [OutputType]
     public sealed class GetUserResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A list of group names to which you want to add the user.
+        /// </summary>
         public readonly ImmutableArray<string> Groups;
-        public readonly string? Id;
+        /// <summary>
+        /// Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+        /// </summary>
         public readonly Outputs.UserLoginProfile? LoginProfile;
+        /// <summary>
+        /// A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+        /// </summary>
         public readonly ImmutableArray<string> ManagedPolicyArns;
+        /// <summary>
+        /// The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The ARN of the policy that is used to set the permissions boundary for the user.
+        /// </summary>
         public readonly string? PermissionsBoundary;
+        /// <summary>
+        /// Adds or updates an inline policy document that is embedded in the specified IAM role.
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserPolicy> Policies;
+        /// <summary>
+        /// A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+        /// </summary>
         public readonly ImmutableArray<Outputs.UserTag> Tags;
 
         [OutputConstructor]
@@ -66,8 +95,6 @@ namespace Pulumi.AwsNative.Iam
             string? arn,
 
             ImmutableArray<string> groups,
-
-            string? id,
 
             Outputs.UserLoginProfile? loginProfile,
 
@@ -83,7 +110,6 @@ namespace Pulumi.AwsNative.Iam
         {
             Arn = arn;
             Groups = groups;
-            Id = id;
             LoginProfile = loginProfile;
             ManagedPolicyArns = managedPolicyArns;
             Path = path;

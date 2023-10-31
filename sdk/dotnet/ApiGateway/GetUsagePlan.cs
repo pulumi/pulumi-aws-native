@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetUsagePlan
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::UsagePlan
+        /// The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+        ///  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
         /// </summary>
         public static Task<GetUsagePlanResult> InvokeAsync(GetUsagePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsagePlanResult>("aws-native:apigateway:getUsagePlan", args ?? new GetUsagePlanArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::UsagePlan
+        /// The ``AWS::ApiGateway::UsagePlan`` resource creates a usage plan for deployed APIs. A usage plan sets a target for the throttling and quota limits on individual client API keys. For more information, see [Creating and Using API Usage Plans in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html) in the *API Gateway Developer Guide*.
+        ///  In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
         /// </summary>
         public static Output<GetUsagePlanResult> Invoke(GetUsagePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsagePlanResult>("aws-native:apigateway:getUsagePlan", args ?? new GetUsagePlanInvokeArgs(), options.WithDefaults());
@@ -58,11 +60,11 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetUsagePlanResult
     {
         /// <summary>
-        /// The API stages to associate with this usage plan.
+        /// The associated API stages of a usage plan.
         /// </summary>
         public readonly ImmutableArray<Outputs.UsagePlanApiStage> ApiStages;
         /// <summary>
-        /// A description of the usage plan.
+        /// The description of a usage plan.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -70,19 +72,19 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Configures the number of requests that users can make within a given interval.
+        /// The target maximum number of permitted requests per a given unit time interval.
         /// </summary>
         public readonly Outputs.UsagePlanQuotaSettings? Quota;
         /// <summary>
-        /// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.UsagePlanTag> Tags;
         /// <summary>
-        /// Configures the overall request rate (average requests per second) and burst capacity.
+        /// A map containing method level throttling information for API stage in a usage plan.
         /// </summary>
         public readonly Outputs.UsagePlanThrottleSettings? Throttle;
         /// <summary>
-        /// A name for the usage plan.
+        /// The name of a usage plan.
         /// </summary>
         public readonly string? UsagePlanName;
 

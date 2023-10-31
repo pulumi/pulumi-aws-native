@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetBasePathMapping
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::BasePathMapping
+        /// The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
         /// </summary>
         public static Task<GetBasePathMappingResult> InvokeAsync(GetBasePathMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBasePathMappingResult>("aws-native:apigateway:getBasePathMapping", args ?? new GetBasePathMappingArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::BasePathMapping
+        /// The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
         /// </summary>
         public static Output<GetBasePathMappingResult> Invoke(GetBasePathMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBasePathMappingResult>("aws-native:apigateway:getBasePathMapping", args ?? new GetBasePathMappingInvokeArgs(), options.WithDefaults());
@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetBasePathMappingArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The base path name that callers of the API must provide in the URL after the domain name.
+        /// The base path name that callers of the API must provide as part of the URL after the domain name.
         /// </summary>
         [Input("basePath", required: true)]
         public string BasePath { get; set; } = null!;
 
         /// <summary>
-        /// The DomainName of an AWS::ApiGateway::DomainName resource.
+        /// The domain name of the BasePathMapping resource to be described.
         /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
@@ -48,13 +48,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetBasePathMappingInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The base path name that callers of the API must provide in the URL after the domain name.
+        /// The base path name that callers of the API must provide as part of the URL after the domain name.
         /// </summary>
         [Input("basePath", required: true)]
         public Input<string> BasePath { get; set; } = null!;
 
         /// <summary>
-        /// The DomainName of an AWS::ApiGateway::DomainName resource.
+        /// The domain name of the BasePathMapping resource to be described.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -70,11 +70,11 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class GetBasePathMappingResult
     {
         /// <summary>
-        /// The ID of the API.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         public readonly string? RestApiId;
         /// <summary>
-        /// The name of the API's stage.
+        /// The name of the associated stage.
         /// </summary>
         public readonly string? Stage;
 

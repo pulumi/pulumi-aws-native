@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::ApiKey
+ * The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
  */
 export function getApiKey(args: GetApiKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetApiKeyResult> {
 
@@ -31,28 +31,28 @@ export interface GetApiKeyResult {
      */
     readonly apiKeyId?: string;
     /**
-     * An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
+     * An MKT customer identifier, when integrating with the AWS SaaS Marketplace.
      */
     readonly customerId?: string;
     /**
-     * A description of the purpose of the API key.
+     * The description of the ApiKey.
      */
     readonly description?: string;
     /**
-     * Indicates whether the API key can be used by clients.
+     * Specifies whether the ApiKey can be used by callers.
      */
     readonly enabled?: boolean;
     /**
-     * A list of stages to associate with this API key.
+     * DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.
      */
     readonly stageKeys?: outputs.apigateway.ApiKeyStageKey[];
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the API key.
+     * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with ``aws:``. The tag value can be up to 256 characters.
      */
     readonly tags?: outputs.apigateway.ApiKeyTag[];
 }
 /**
- * Resource Type definition for AWS::ApiGateway::ApiKey
+ * The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
  */
 export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
     return pulumi.output(args).apply((a: any) => getApiKey(a, opts))

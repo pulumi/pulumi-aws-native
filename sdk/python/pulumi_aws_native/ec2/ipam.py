@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IpamArgs', 'Ipam']
@@ -18,11 +19,13 @@ class IpamArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]] = None,
+                 tier: Optional[pulumi.Input['IpamTier']] = None):
         """
         The set of arguments for constructing a Ipam resource.
         :param pulumi.Input[Sequence[pulumi.Input['IpamOperatingRegionArgs']]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -30,6 +33,8 @@ class IpamArgs:
             pulumi.set(__self__, "operating_regions", operating_regions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -64,6 +69,18 @@ class IpamArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['IpamTier']]:
+        """
+        The tier of the IPAM.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['IpamTier']]):
+        pulumi.set(self, "tier", value)
+
 
 class Ipam(pulumi.CustomResource):
     @overload
@@ -73,6 +90,7 @@ class Ipam(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamTagArgs']]]]] = None,
+                 tier: Optional[pulumi.Input['IpamTier']] = None,
                  __props__=None):
         """
         Resource Schema of AWS::EC2::IPAM Type
@@ -81,6 +99,7 @@ class Ipam(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]] operating_regions: The regions IPAM is enabled for. Allows pools to be created in these regions, as well as enabling monitoring
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['IpamTier'] tier: The tier of the IPAM.
         """
         ...
     @overload
@@ -109,6 +128,7 @@ class Ipam(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamOperatingRegionArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpamTagArgs']]]]] = None,
+                 tier: Optional[pulumi.Input['IpamTier']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -121,6 +141,7 @@ class Ipam(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["operating_regions"] = operating_regions
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tier"] = tier
             __props__.__dict__["arn"] = None
             __props__.__dict__["default_resource_discovery_association_id"] = None
             __props__.__dict__["default_resource_discovery_id"] = None
@@ -162,6 +183,7 @@ class Ipam(pulumi.CustomResource):
         __props__.__dict__["resource_discovery_association_count"] = None
         __props__.__dict__["scope_count"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tier"] = None
         return Ipam(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -248,4 +270,12 @@ class Ipam(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Output[Optional['IpamTier']]:
+        """
+        The tier of the IPAM.
+        """
+        return pulumi.get(self, "tier")
 

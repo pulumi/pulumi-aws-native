@@ -14,28 +14,43 @@ import (
 )
 
 // Resource Type definition for AWS::AppSync::Resolver
-//
-// Deprecated: Resolver is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Resolver struct {
 	pulumi.CustomResourceState
 
-	ApiId                             pulumi.StringOutput             `pulumi:"apiId"`
-	CachingConfig                     ResolverCachingConfigPtrOutput  `pulumi:"cachingConfig"`
-	Code                              pulumi.StringPtrOutput          `pulumi:"code"`
-	CodeS3Location                    pulumi.StringPtrOutput          `pulumi:"codeS3Location"`
-	DataSourceName                    pulumi.StringPtrOutput          `pulumi:"dataSourceName"`
-	FieldName                         pulumi.StringOutput             `pulumi:"fieldName"`
-	Kind                              pulumi.StringPtrOutput          `pulumi:"kind"`
-	MaxBatchSize                      pulumi.IntPtrOutput             `pulumi:"maxBatchSize"`
-	PipelineConfig                    ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
-	RequestMappingTemplate            pulumi.StringPtrOutput          `pulumi:"requestMappingTemplate"`
-	RequestMappingTemplateS3Location  pulumi.StringPtrOutput          `pulumi:"requestMappingTemplateS3Location"`
-	ResolverArn                       pulumi.StringOutput             `pulumi:"resolverArn"`
-	ResponseMappingTemplate           pulumi.StringPtrOutput          `pulumi:"responseMappingTemplate"`
-	ResponseMappingTemplateS3Location pulumi.StringPtrOutput          `pulumi:"responseMappingTemplateS3Location"`
-	Runtime                           ResolverAppSyncRuntimePtrOutput `pulumi:"runtime"`
-	SyncConfig                        ResolverSyncConfigPtrOutput     `pulumi:"syncConfig"`
-	TypeName                          pulumi.StringOutput             `pulumi:"typeName"`
+	// The AWS AppSync GraphQL API to which you want to attach this resolver.
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The caching configuration for the resolver.
+	CachingConfig ResolverCachingConfigPtrOutput `pulumi:"cachingConfig"`
+	// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+	Code pulumi.StringPtrOutput `pulumi:"code"`
+	// The Amazon S3 endpoint.
+	CodeS3Location pulumi.StringPtrOutput `pulumi:"codeS3Location"`
+	// The resolver data source name.
+	DataSourceName pulumi.StringPtrOutput `pulumi:"dataSourceName"`
+	// The GraphQL field on a type that invokes the resolver.
+	FieldName pulumi.StringOutput `pulumi:"fieldName"`
+	// The resolver type.
+	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+	MaxBatchSize pulumi.IntPtrOutput `pulumi:"maxBatchSize"`
+	// Functions linked with the pipeline resolver.
+	PipelineConfig ResolverPipelineConfigPtrOutput `pulumi:"pipelineConfig"`
+	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+	RequestMappingTemplate pulumi.StringPtrOutput `pulumi:"requestMappingTemplate"`
+	// The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+	RequestMappingTemplateS3Location pulumi.StringPtrOutput `pulumi:"requestMappingTemplateS3Location"`
+	// The Amazon Resource Name (ARN) for the resolver.
+	ResolverArn pulumi.StringOutput `pulumi:"resolverArn"`
+	// The response mapping template.
+	ResponseMappingTemplate pulumi.StringPtrOutput `pulumi:"responseMappingTemplate"`
+	// The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+	ResponseMappingTemplateS3Location pulumi.StringPtrOutput `pulumi:"responseMappingTemplateS3Location"`
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+	Runtime ResolverAppSyncRuntimePtrOutput `pulumi:"runtime"`
+	// The SyncConfig for a resolver attached to a versioned data source.
+	SyncConfig ResolverSyncConfigPtrOutput `pulumi:"syncConfig"`
+	// The GraphQL type that invokes this resolver.
+	TypeName pulumi.StringOutput `pulumi:"typeName"`
 }
 
 // NewResolver registers a new resource with the given unique name, arguments, and options.
@@ -93,42 +108,74 @@ func (ResolverState) ElementType() reflect.Type {
 }
 
 type resolverArgs struct {
-	ApiId                             string                  `pulumi:"apiId"`
-	CachingConfig                     *ResolverCachingConfig  `pulumi:"cachingConfig"`
-	Code                              *string                 `pulumi:"code"`
-	CodeS3Location                    *string                 `pulumi:"codeS3Location"`
-	DataSourceName                    *string                 `pulumi:"dataSourceName"`
-	FieldName                         string                  `pulumi:"fieldName"`
-	Kind                              *string                 `pulumi:"kind"`
-	MaxBatchSize                      *int                    `pulumi:"maxBatchSize"`
-	PipelineConfig                    *ResolverPipelineConfig `pulumi:"pipelineConfig"`
-	RequestMappingTemplate            *string                 `pulumi:"requestMappingTemplate"`
-	RequestMappingTemplateS3Location  *string                 `pulumi:"requestMappingTemplateS3Location"`
-	ResponseMappingTemplate           *string                 `pulumi:"responseMappingTemplate"`
-	ResponseMappingTemplateS3Location *string                 `pulumi:"responseMappingTemplateS3Location"`
-	Runtime                           *ResolverAppSyncRuntime `pulumi:"runtime"`
-	SyncConfig                        *ResolverSyncConfig     `pulumi:"syncConfig"`
-	TypeName                          string                  `pulumi:"typeName"`
+	// The AWS AppSync GraphQL API to which you want to attach this resolver.
+	ApiId string `pulumi:"apiId"`
+	// The caching configuration for the resolver.
+	CachingConfig *ResolverCachingConfig `pulumi:"cachingConfig"`
+	// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+	Code *string `pulumi:"code"`
+	// The Amazon S3 endpoint.
+	CodeS3Location *string `pulumi:"codeS3Location"`
+	// The resolver data source name.
+	DataSourceName *string `pulumi:"dataSourceName"`
+	// The GraphQL field on a type that invokes the resolver.
+	FieldName string `pulumi:"fieldName"`
+	// The resolver type.
+	Kind *string `pulumi:"kind"`
+	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+	MaxBatchSize *int `pulumi:"maxBatchSize"`
+	// Functions linked with the pipeline resolver.
+	PipelineConfig *ResolverPipelineConfig `pulumi:"pipelineConfig"`
+	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+	RequestMappingTemplate *string `pulumi:"requestMappingTemplate"`
+	// The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+	RequestMappingTemplateS3Location *string `pulumi:"requestMappingTemplateS3Location"`
+	// The response mapping template.
+	ResponseMappingTemplate *string `pulumi:"responseMappingTemplate"`
+	// The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+	ResponseMappingTemplateS3Location *string `pulumi:"responseMappingTemplateS3Location"`
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+	Runtime *ResolverAppSyncRuntime `pulumi:"runtime"`
+	// The SyncConfig for a resolver attached to a versioned data source.
+	SyncConfig *ResolverSyncConfig `pulumi:"syncConfig"`
+	// The GraphQL type that invokes this resolver.
+	TypeName string `pulumi:"typeName"`
 }
 
 // The set of arguments for constructing a Resolver resource.
 type ResolverArgs struct {
-	ApiId                             pulumi.StringInput
-	CachingConfig                     ResolverCachingConfigPtrInput
-	Code                              pulumi.StringPtrInput
-	CodeS3Location                    pulumi.StringPtrInput
-	DataSourceName                    pulumi.StringPtrInput
-	FieldName                         pulumi.StringInput
-	Kind                              pulumi.StringPtrInput
-	MaxBatchSize                      pulumi.IntPtrInput
-	PipelineConfig                    ResolverPipelineConfigPtrInput
-	RequestMappingTemplate            pulumi.StringPtrInput
-	RequestMappingTemplateS3Location  pulumi.StringPtrInput
-	ResponseMappingTemplate           pulumi.StringPtrInput
+	// The AWS AppSync GraphQL API to which you want to attach this resolver.
+	ApiId pulumi.StringInput
+	// The caching configuration for the resolver.
+	CachingConfig ResolverCachingConfigPtrInput
+	// The resolver code that contains the request and response functions. When code is used, the runtime is required.
+	Code pulumi.StringPtrInput
+	// The Amazon S3 endpoint.
+	CodeS3Location pulumi.StringPtrInput
+	// The resolver data source name.
+	DataSourceName pulumi.StringPtrInput
+	// The GraphQL field on a type that invokes the resolver.
+	FieldName pulumi.StringInput
+	// The resolver type.
+	Kind pulumi.StringPtrInput
+	// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+	MaxBatchSize pulumi.IntPtrInput
+	// Functions linked with the pipeline resolver.
+	PipelineConfig ResolverPipelineConfigPtrInput
+	// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+	RequestMappingTemplate pulumi.StringPtrInput
+	// The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+	RequestMappingTemplateS3Location pulumi.StringPtrInput
+	// The response mapping template.
+	ResponseMappingTemplate pulumi.StringPtrInput
+	// The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 	ResponseMappingTemplateS3Location pulumi.StringPtrInput
-	Runtime                           ResolverAppSyncRuntimePtrInput
-	SyncConfig                        ResolverSyncConfigPtrInput
-	TypeName                          pulumi.StringInput
+	// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+	Runtime ResolverAppSyncRuntimePtrInput
+	// The SyncConfig for a resolver attached to a versioned data source.
+	SyncConfig ResolverSyncConfigPtrInput
+	// The GraphQL type that invokes this resolver.
+	TypeName pulumi.StringInput
 }
 
 func (ResolverArgs) ElementType() reflect.Type {
@@ -180,70 +227,87 @@ func (o ResolverOutput) ToOutput(ctx context.Context) pulumix.Output[*Resolver] 
 	}
 }
 
+// The AWS AppSync GraphQL API to which you want to attach this resolver.
 func (o ResolverOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The caching configuration for the resolver.
 func (o ResolverOutput) CachingConfig() ResolverCachingConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverCachingConfigPtrOutput { return v.CachingConfig }).(ResolverCachingConfigPtrOutput)
 }
 
+// The resolver code that contains the request and response functions. When code is used, the runtime is required.
 func (o ResolverOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Code }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon S3 endpoint.
 func (o ResolverOutput) CodeS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.CodeS3Location }).(pulumi.StringPtrOutput)
 }
 
+// The resolver data source name.
 func (o ResolverOutput) DataSourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.DataSourceName }).(pulumi.StringPtrOutput)
 }
 
+// The GraphQL field on a type that invokes the resolver.
 func (o ResolverOutput) FieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.FieldName }).(pulumi.StringOutput)
 }
 
+// The resolver type.
 func (o ResolverOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
 func (o ResolverOutput) MaxBatchSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.IntPtrOutput { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
 }
 
+// Functions linked with the pipeline resolver.
 func (o ResolverOutput) PipelineConfig() ResolverPipelineConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverPipelineConfigPtrOutput { return v.PipelineConfig }).(ResolverPipelineConfigPtrOutput)
 }
 
+// Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
 func (o ResolverOutput) RequestMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.RequestMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 func (o ResolverOutput) RequestMappingTemplateS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.RequestMappingTemplateS3Location }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the resolver.
 func (o ResolverOutput) ResolverArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.ResolverArn }).(pulumi.StringOutput)
 }
 
+// The response mapping template.
 func (o ResolverOutput) ResponseMappingTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseMappingTemplate }).(pulumi.StringPtrOutput)
 }
 
+// The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
 func (o ResolverOutput) ResponseMappingTemplateS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringPtrOutput { return v.ResponseMappingTemplateS3Location }).(pulumi.StringPtrOutput)
 }
 
+// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 func (o ResolverOutput) Runtime() ResolverAppSyncRuntimePtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverAppSyncRuntimePtrOutput { return v.Runtime }).(ResolverAppSyncRuntimePtrOutput)
 }
 
+// The SyncConfig for a resolver attached to a versioned data source.
 func (o ResolverOutput) SyncConfig() ResolverSyncConfigPtrOutput {
 	return o.ApplyT(func(v *Resolver) ResolverSyncConfigPtrOutput { return v.SyncConfig }).(ResolverSyncConfigPtrOutput)
 }
 
+// The GraphQL type that invokes this resolver.
 func (o ResolverOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resolver) pulumi.StringOutput { return v.TypeName }).(pulumi.StringOutput)
 }

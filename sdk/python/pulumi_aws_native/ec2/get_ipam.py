@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetIpamResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIpamResult:
-    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, ipam_id=None, operating_regions=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, tags=None, tier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +54,9 @@ class GetIpamResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if tier and not isinstance(tier, str):
+            raise TypeError("Expected argument 'tier' to be a str")
+        pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -139,6 +143,14 @@ class GetIpamResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional['IpamTier']:
+        """
+        The tier of the IPAM.
+        """
+        return pulumi.get(self, "tier")
+
 
 class AwaitableGetIpamResult(GetIpamResult):
     # pylint: disable=using-constant-test
@@ -156,7 +168,8 @@ class AwaitableGetIpamResult(GetIpamResult):
             public_default_scope_id=self.public_default_scope_id,
             resource_discovery_association_count=self.resource_discovery_association_count,
             scope_count=self.scope_count,
-            tags=self.tags)
+            tags=self.tags,
+            tier=self.tier)
 
 
 def get_ipam(ipam_id: Optional[str] = None,
@@ -183,7 +196,8 @@ def get_ipam(ipam_id: Optional[str] = None,
         public_default_scope_id=pulumi.get(__ret__, 'public_default_scope_id'),
         resource_discovery_association_count=pulumi.get(__ret__, 'resource_discovery_association_count'),
         scope_count=pulumi.get(__ret__, 'scope_count'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'))
 
 
 @_utilities.lift_output_func(get_ipam)

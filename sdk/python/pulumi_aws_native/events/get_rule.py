@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetRuleResult',
@@ -19,19 +20,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleResult:
-    def __init__(__self__, arn=None, description=None, event_pattern=None, id=None, role_arn=None, schedule_expression=None, state=None, targets=None):
+    def __init__(__self__, arn=None, description=None, event_bus_name=None, event_pattern=None, role_arn=None, schedule_expression=None, state=None, targets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if event_pattern and not isinstance(event_pattern, dict):
-            raise TypeError("Expected argument 'event_pattern' to be a dict")
+        if event_bus_name and not isinstance(event_bus_name, str):
+            raise TypeError("Expected argument 'event_bus_name' to be a str")
+        pulumi.set(__self__, "event_bus_name", event_bus_name)
+        if event_pattern and not isinstance(event_pattern, str):
+            raise TypeError("Expected argument 'event_pattern' to be a str")
         pulumi.set(__self__, "event_pattern", event_pattern)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -48,41 +49,66 @@ class GetRuleResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the rule.
+        """
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="eventPattern")
-    def event_pattern(self) -> Optional[Any]:
-        return pulumi.get(self, "event_pattern")
+    @pulumi.getter(name="eventBusName")
+    def event_bus_name(self) -> Optional[str]:
+        """
+        The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        """
+        return pulumi.get(self, "event_bus_name")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="eventPattern")
+    def event_pattern(self) -> Optional[str]:
+        """
+        The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        """
+        return pulumi.get(self, "event_pattern")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[str]:
+        """
+        The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        """
         return pulumi.get(self, "schedule_expression")
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> Optional['RuleState']:
+        """
+        The state of the rule.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def targets(self) -> Optional[Sequence['outputs.RuleTarget']]:
+        """
+        Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        Targets are the resources that are invoked when a rule is triggered.
+        """
         return pulumi.get(self, "targets")
 
 
@@ -94,29 +120,32 @@ class AwaitableGetRuleResult(GetRuleResult):
         return GetRuleResult(
             arn=self.arn,
             description=self.description,
+            event_bus_name=self.event_bus_name,
             event_pattern=self.event_pattern,
-            id=self.id,
             role_arn=self.role_arn,
             schedule_expression=self.schedule_expression,
             state=self.state,
             targets=self.targets)
 
 
-def get_rule(id: Optional[str] = None,
+def get_rule(arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Resource Type definition for AWS::Events::Rule
+
+
+    :param str arn: The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['arn'] = arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:events:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
+        event_bus_name=pulumi.get(__ret__, 'event_bus_name'),
         event_pattern=pulumi.get(__ret__, 'event_pattern'),
-        id=pulumi.get(__ret__, 'id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         state=pulumi.get(__ret__, 'state'),
@@ -124,9 +153,12 @@ def get_rule(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_rule)
-def get_rule_output(id: Optional[pulumi.Input[str]] = None,
+def get_rule_output(arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Resource Type definition for AWS::Events::Rule
+
+
+    :param str arn: The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
     """
     ...

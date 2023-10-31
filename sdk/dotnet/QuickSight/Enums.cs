@@ -1695,6 +1695,36 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisPivotTableDataPathType : IEquatable<AnalysisPivotTableDataPathType>
+    {
+        private readonly string _value;
+
+        private AnalysisPivotTableDataPathType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisPivotTableDataPathType HierarchyRowsLayoutColumn { get; } = new AnalysisPivotTableDataPathType("HIERARCHY_ROWS_LAYOUT_COLUMN");
+        public static AnalysisPivotTableDataPathType MultipleRowMetricsColumn { get; } = new AnalysisPivotTableDataPathType("MULTIPLE_ROW_METRICS_COLUMN");
+        public static AnalysisPivotTableDataPathType EmptyColumnHeader { get; } = new AnalysisPivotTableDataPathType("EMPTY_COLUMN_HEADER");
+        public static AnalysisPivotTableDataPathType CountMetricColumn { get; } = new AnalysisPivotTableDataPathType("COUNT_METRIC_COLUMN");
+
+        public static bool operator ==(AnalysisPivotTableDataPathType left, AnalysisPivotTableDataPathType right) => left.Equals(right);
+        public static bool operator !=(AnalysisPivotTableDataPathType left, AnalysisPivotTableDataPathType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisPivotTableDataPathType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisPivotTableDataPathType other && Equals(other);
+        public bool Equals(AnalysisPivotTableDataPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisPivotTableFieldCollapseState : IEquatable<AnalysisPivotTableFieldCollapseState>
     {
         private readonly string _value;
@@ -1972,6 +2002,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisReferenceLinePatternType other && Equals(other);
         public bool Equals(AnalysisReferenceLinePatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisReferenceLineSeriesType : IEquatable<AnalysisReferenceLineSeriesType>
+    {
+        private readonly string _value;
+
+        private AnalysisReferenceLineSeriesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisReferenceLineSeriesType Bar { get; } = new AnalysisReferenceLineSeriesType("BAR");
+        public static AnalysisReferenceLineSeriesType Line { get; } = new AnalysisReferenceLineSeriesType("LINE");
+
+        public static bool operator ==(AnalysisReferenceLineSeriesType left, AnalysisReferenceLineSeriesType right) => left.Equals(right);
+        public static bool operator !=(AnalysisReferenceLineSeriesType left, AnalysisReferenceLineSeriesType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisReferenceLineSeriesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisReferenceLineSeriesType other && Equals(other);
+        public bool Equals(AnalysisReferenceLineSeriesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2409,6 +2467,38 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisSimpleNumericalAggregationFunction other && Equals(other);
         public bool Equals(AnalysisSimpleNumericalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisSimpleTotalAggregationFunction : IEquatable<AnalysisSimpleTotalAggregationFunction>
+    {
+        private readonly string _value;
+
+        private AnalysisSimpleTotalAggregationFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSimpleTotalAggregationFunction Default { get; } = new AnalysisSimpleTotalAggregationFunction("DEFAULT");
+        public static AnalysisSimpleTotalAggregationFunction Sum { get; } = new AnalysisSimpleTotalAggregationFunction("SUM");
+        public static AnalysisSimpleTotalAggregationFunction Average { get; } = new AnalysisSimpleTotalAggregationFunction("AVERAGE");
+        public static AnalysisSimpleTotalAggregationFunction Min { get; } = new AnalysisSimpleTotalAggregationFunction("MIN");
+        public static AnalysisSimpleTotalAggregationFunction Max { get; } = new AnalysisSimpleTotalAggregationFunction("MAX");
+        public static AnalysisSimpleTotalAggregationFunction None { get; } = new AnalysisSimpleTotalAggregationFunction("NONE");
+
+        public static bool operator ==(AnalysisSimpleTotalAggregationFunction left, AnalysisSimpleTotalAggregationFunction right) => left.Equals(right);
+        public static bool operator !=(AnalysisSimpleTotalAggregationFunction left, AnalysisSimpleTotalAggregationFunction right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSimpleTotalAggregationFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSimpleTotalAggregationFunction other && Equals(other);
+        public bool Equals(AnalysisSimpleTotalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4958,6 +5048,36 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardPivotTableDataPathType : IEquatable<DashboardPivotTableDataPathType>
+    {
+        private readonly string _value;
+
+        private DashboardPivotTableDataPathType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardPivotTableDataPathType HierarchyRowsLayoutColumn { get; } = new DashboardPivotTableDataPathType("HIERARCHY_ROWS_LAYOUT_COLUMN");
+        public static DashboardPivotTableDataPathType MultipleRowMetricsColumn { get; } = new DashboardPivotTableDataPathType("MULTIPLE_ROW_METRICS_COLUMN");
+        public static DashboardPivotTableDataPathType EmptyColumnHeader { get; } = new DashboardPivotTableDataPathType("EMPTY_COLUMN_HEADER");
+        public static DashboardPivotTableDataPathType CountMetricColumn { get; } = new DashboardPivotTableDataPathType("COUNT_METRIC_COLUMN");
+
+        public static bool operator ==(DashboardPivotTableDataPathType left, DashboardPivotTableDataPathType right) => left.Equals(right);
+        public static bool operator !=(DashboardPivotTableDataPathType left, DashboardPivotTableDataPathType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardPivotTableDataPathType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardPivotTableDataPathType other && Equals(other);
+        public bool Equals(DashboardPivotTableDataPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardPivotTableFieldCollapseState : IEquatable<DashboardPivotTableFieldCollapseState>
     {
         private readonly string _value;
@@ -5235,6 +5355,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardReferenceLinePatternType other && Equals(other);
         public bool Equals(DashboardReferenceLinePatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardReferenceLineSeriesType : IEquatable<DashboardReferenceLineSeriesType>
+    {
+        private readonly string _value;
+
+        private DashboardReferenceLineSeriesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardReferenceLineSeriesType Bar { get; } = new DashboardReferenceLineSeriesType("BAR");
+        public static DashboardReferenceLineSeriesType Line { get; } = new DashboardReferenceLineSeriesType("LINE");
+
+        public static bool operator ==(DashboardReferenceLineSeriesType left, DashboardReferenceLineSeriesType right) => left.Equals(right);
+        public static bool operator !=(DashboardReferenceLineSeriesType left, DashboardReferenceLineSeriesType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardReferenceLineSeriesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardReferenceLineSeriesType other && Equals(other);
+        public bool Equals(DashboardReferenceLineSeriesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5672,6 +5820,38 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSimpleNumericalAggregationFunction other && Equals(other);
         public bool Equals(DashboardSimpleNumericalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSimpleTotalAggregationFunction : IEquatable<DashboardSimpleTotalAggregationFunction>
+    {
+        private readonly string _value;
+
+        private DashboardSimpleTotalAggregationFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSimpleTotalAggregationFunction Default { get; } = new DashboardSimpleTotalAggregationFunction("DEFAULT");
+        public static DashboardSimpleTotalAggregationFunction Sum { get; } = new DashboardSimpleTotalAggregationFunction("SUM");
+        public static DashboardSimpleTotalAggregationFunction Average { get; } = new DashboardSimpleTotalAggregationFunction("AVERAGE");
+        public static DashboardSimpleTotalAggregationFunction Min { get; } = new DashboardSimpleTotalAggregationFunction("MIN");
+        public static DashboardSimpleTotalAggregationFunction Max { get; } = new DashboardSimpleTotalAggregationFunction("MAX");
+        public static DashboardSimpleTotalAggregationFunction None { get; } = new DashboardSimpleTotalAggregationFunction("NONE");
+
+        public static bool operator ==(DashboardSimpleTotalAggregationFunction left, DashboardSimpleTotalAggregationFunction right) => left.Equals(right);
+        public static bool operator !=(DashboardSimpleTotalAggregationFunction left, DashboardSimpleTotalAggregationFunction right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSimpleTotalAggregationFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSimpleTotalAggregationFunction other && Equals(other);
+        public bool Equals(DashboardSimpleTotalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8690,6 +8870,36 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplatePivotTableDataPathType : IEquatable<TemplatePivotTableDataPathType>
+    {
+        private readonly string _value;
+
+        private TemplatePivotTableDataPathType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplatePivotTableDataPathType HierarchyRowsLayoutColumn { get; } = new TemplatePivotTableDataPathType("HIERARCHY_ROWS_LAYOUT_COLUMN");
+        public static TemplatePivotTableDataPathType MultipleRowMetricsColumn { get; } = new TemplatePivotTableDataPathType("MULTIPLE_ROW_METRICS_COLUMN");
+        public static TemplatePivotTableDataPathType EmptyColumnHeader { get; } = new TemplatePivotTableDataPathType("EMPTY_COLUMN_HEADER");
+        public static TemplatePivotTableDataPathType CountMetricColumn { get; } = new TemplatePivotTableDataPathType("COUNT_METRIC_COLUMN");
+
+        public static bool operator ==(TemplatePivotTableDataPathType left, TemplatePivotTableDataPathType right) => left.Equals(right);
+        public static bool operator !=(TemplatePivotTableDataPathType left, TemplatePivotTableDataPathType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplatePivotTableDataPathType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplatePivotTableDataPathType other && Equals(other);
+        public bool Equals(TemplatePivotTableDataPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplatePivotTableFieldCollapseState : IEquatable<TemplatePivotTableFieldCollapseState>
     {
         private readonly string _value;
@@ -8967,6 +9177,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateReferenceLinePatternType other && Equals(other);
         public bool Equals(TemplateReferenceLinePatternType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateReferenceLineSeriesType : IEquatable<TemplateReferenceLineSeriesType>
+    {
+        private readonly string _value;
+
+        private TemplateReferenceLineSeriesType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateReferenceLineSeriesType Bar { get; } = new TemplateReferenceLineSeriesType("BAR");
+        public static TemplateReferenceLineSeriesType Line { get; } = new TemplateReferenceLineSeriesType("LINE");
+
+        public static bool operator ==(TemplateReferenceLineSeriesType left, TemplateReferenceLineSeriesType right) => left.Equals(right);
+        public static bool operator !=(TemplateReferenceLineSeriesType left, TemplateReferenceLineSeriesType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateReferenceLineSeriesType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateReferenceLineSeriesType other && Equals(other);
+        public bool Equals(TemplateReferenceLineSeriesType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -9404,6 +9642,38 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSimpleNumericalAggregationFunction other && Equals(other);
         public bool Equals(TemplateSimpleNumericalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSimpleTotalAggregationFunction : IEquatable<TemplateSimpleTotalAggregationFunction>
+    {
+        private readonly string _value;
+
+        private TemplateSimpleTotalAggregationFunction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSimpleTotalAggregationFunction Default { get; } = new TemplateSimpleTotalAggregationFunction("DEFAULT");
+        public static TemplateSimpleTotalAggregationFunction Sum { get; } = new TemplateSimpleTotalAggregationFunction("SUM");
+        public static TemplateSimpleTotalAggregationFunction Average { get; } = new TemplateSimpleTotalAggregationFunction("AVERAGE");
+        public static TemplateSimpleTotalAggregationFunction Min { get; } = new TemplateSimpleTotalAggregationFunction("MIN");
+        public static TemplateSimpleTotalAggregationFunction Max { get; } = new TemplateSimpleTotalAggregationFunction("MAX");
+        public static TemplateSimpleTotalAggregationFunction None { get; } = new TemplateSimpleTotalAggregationFunction("NONE");
+
+        public static bool operator ==(TemplateSimpleTotalAggregationFunction left, TemplateSimpleTotalAggregationFunction right) => left.Equals(right);
+        public static bool operator !=(TemplateSimpleTotalAggregationFunction left, TemplateSimpleTotalAggregationFunction right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSimpleTotalAggregationFunction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSimpleTotalAggregationFunction other && Equals(other);
+        public bool Equals(TemplateSimpleTotalAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -492,6 +492,15 @@ export const AnalysisPivotTableConditionalFormattingScopeRole = {
 
 export type AnalysisPivotTableConditionalFormattingScopeRole = (typeof AnalysisPivotTableConditionalFormattingScopeRole)[keyof typeof AnalysisPivotTableConditionalFormattingScopeRole];
 
+export const AnalysisPivotTableDataPathType = {
+    HierarchyRowsLayoutColumn: "HIERARCHY_ROWS_LAYOUT_COLUMN",
+    MultipleRowMetricsColumn: "MULTIPLE_ROW_METRICS_COLUMN",
+    EmptyColumnHeader: "EMPTY_COLUMN_HEADER",
+    CountMetricColumn: "COUNT_METRIC_COLUMN",
+} as const;
+
+export type AnalysisPivotTableDataPathType = (typeof AnalysisPivotTableDataPathType)[keyof typeof AnalysisPivotTableDataPathType];
+
 export const AnalysisPivotTableFieldCollapseState = {
     Collapsed: "COLLAPSED",
     Expanded: "EXPANDED",
@@ -566,6 +575,13 @@ export const AnalysisReferenceLinePatternType = {
 } as const;
 
 export type AnalysisReferenceLinePatternType = (typeof AnalysisReferenceLinePatternType)[keyof typeof AnalysisReferenceLinePatternType];
+
+export const AnalysisReferenceLineSeriesType = {
+    Bar: "BAR",
+    Line: "LINE",
+} as const;
+
+export type AnalysisReferenceLineSeriesType = (typeof AnalysisReferenceLineSeriesType)[keyof typeof AnalysisReferenceLineSeriesType];
 
 export const AnalysisReferenceLineValueLabelRelativePosition = {
     BeforeCustomLabel: "BEFORE_CUSTOM_LABEL",
@@ -688,6 +704,17 @@ export const AnalysisSimpleNumericalAggregationFunction = {
 } as const;
 
 export type AnalysisSimpleNumericalAggregationFunction = (typeof AnalysisSimpleNumericalAggregationFunction)[keyof typeof AnalysisSimpleNumericalAggregationFunction];
+
+export const AnalysisSimpleTotalAggregationFunction = {
+    Default: "DEFAULT",
+    Sum: "SUM",
+    Average: "AVERAGE",
+    Min: "MIN",
+    Max: "MAX",
+    None: "NONE",
+} as const;
+
+export type AnalysisSimpleTotalAggregationFunction = (typeof AnalysisSimpleTotalAggregationFunction)[keyof typeof AnalysisSimpleTotalAggregationFunction];
 
 export const AnalysisSmallMultiplesAxisPlacement = {
     Outside: "OUTSIDE",
@@ -1403,6 +1430,15 @@ export const DashboardPivotTableConditionalFormattingScopeRole = {
 
 export type DashboardPivotTableConditionalFormattingScopeRole = (typeof DashboardPivotTableConditionalFormattingScopeRole)[keyof typeof DashboardPivotTableConditionalFormattingScopeRole];
 
+export const DashboardPivotTableDataPathType = {
+    HierarchyRowsLayoutColumn: "HIERARCHY_ROWS_LAYOUT_COLUMN",
+    MultipleRowMetricsColumn: "MULTIPLE_ROW_METRICS_COLUMN",
+    EmptyColumnHeader: "EMPTY_COLUMN_HEADER",
+    CountMetricColumn: "COUNT_METRIC_COLUMN",
+} as const;
+
+export type DashboardPivotTableDataPathType = (typeof DashboardPivotTableDataPathType)[keyof typeof DashboardPivotTableDataPathType];
+
 export const DashboardPivotTableFieldCollapseState = {
     Collapsed: "COLLAPSED",
     Expanded: "EXPANDED",
@@ -1477,6 +1513,13 @@ export const DashboardReferenceLinePatternType = {
 } as const;
 
 export type DashboardReferenceLinePatternType = (typeof DashboardReferenceLinePatternType)[keyof typeof DashboardReferenceLinePatternType];
+
+export const DashboardReferenceLineSeriesType = {
+    Bar: "BAR",
+    Line: "LINE",
+} as const;
+
+export type DashboardReferenceLineSeriesType = (typeof DashboardReferenceLineSeriesType)[keyof typeof DashboardReferenceLineSeriesType];
 
 export const DashboardReferenceLineValueLabelRelativePosition = {
     BeforeCustomLabel: "BEFORE_CUSTOM_LABEL",
@@ -1599,6 +1642,17 @@ export const DashboardSimpleNumericalAggregationFunction = {
 } as const;
 
 export type DashboardSimpleNumericalAggregationFunction = (typeof DashboardSimpleNumericalAggregationFunction)[keyof typeof DashboardSimpleNumericalAggregationFunction];
+
+export const DashboardSimpleTotalAggregationFunction = {
+    Default: "DEFAULT",
+    Sum: "SUM",
+    Average: "AVERAGE",
+    Min: "MIN",
+    Max: "MAX",
+    None: "NONE",
+} as const;
+
+export type DashboardSimpleTotalAggregationFunction = (typeof DashboardSimpleTotalAggregationFunction)[keyof typeof DashboardSimpleTotalAggregationFunction];
 
 export const DashboardSmallMultiplesAxisPlacement = {
     Outside: "OUTSIDE",
@@ -2468,6 +2522,15 @@ export const TemplatePivotTableConditionalFormattingScopeRole = {
 
 export type TemplatePivotTableConditionalFormattingScopeRole = (typeof TemplatePivotTableConditionalFormattingScopeRole)[keyof typeof TemplatePivotTableConditionalFormattingScopeRole];
 
+export const TemplatePivotTableDataPathType = {
+    HierarchyRowsLayoutColumn: "HIERARCHY_ROWS_LAYOUT_COLUMN",
+    MultipleRowMetricsColumn: "MULTIPLE_ROW_METRICS_COLUMN",
+    EmptyColumnHeader: "EMPTY_COLUMN_HEADER",
+    CountMetricColumn: "COUNT_METRIC_COLUMN",
+} as const;
+
+export type TemplatePivotTableDataPathType = (typeof TemplatePivotTableDataPathType)[keyof typeof TemplatePivotTableDataPathType];
+
 export const TemplatePivotTableFieldCollapseState = {
     Collapsed: "COLLAPSED",
     Expanded: "EXPANDED",
@@ -2542,6 +2605,13 @@ export const TemplateReferenceLinePatternType = {
 } as const;
 
 export type TemplateReferenceLinePatternType = (typeof TemplateReferenceLinePatternType)[keyof typeof TemplateReferenceLinePatternType];
+
+export const TemplateReferenceLineSeriesType = {
+    Bar: "BAR",
+    Line: "LINE",
+} as const;
+
+export type TemplateReferenceLineSeriesType = (typeof TemplateReferenceLineSeriesType)[keyof typeof TemplateReferenceLineSeriesType];
 
 export const TemplateReferenceLineValueLabelRelativePosition = {
     BeforeCustomLabel: "BEFORE_CUSTOM_LABEL",
@@ -2664,6 +2734,17 @@ export const TemplateSimpleNumericalAggregationFunction = {
 } as const;
 
 export type TemplateSimpleNumericalAggregationFunction = (typeof TemplateSimpleNumericalAggregationFunction)[keyof typeof TemplateSimpleNumericalAggregationFunction];
+
+export const TemplateSimpleTotalAggregationFunction = {
+    Default: "DEFAULT",
+    Sum: "SUM",
+    Average: "AVERAGE",
+    Min: "MIN",
+    Max: "MAX",
+    None: "NONE",
+} as const;
+
+export type TemplateSimpleTotalAggregationFunction = (typeof TemplateSimpleTotalAggregationFunction)[keyof typeof TemplateSimpleTotalAggregationFunction];
 
 export const TemplateSmallMultiplesAxisPlacement = {
     Outside: "OUTSIDE",

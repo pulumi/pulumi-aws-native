@@ -14,12 +14,14 @@ export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:cognito:getUserPoolClient", {
-        "id": args.id,
+        "clientId": args.clientId,
+        "userPoolId": args.userPoolId,
     }, opts);
 }
 
 export interface GetUserPoolClientArgs {
-    id: string;
+    clientId: string;
+    userPoolId: string;
 }
 
 export interface GetUserPoolClientResult {
@@ -30,13 +32,13 @@ export interface GetUserPoolClientResult {
     readonly analyticsConfiguration?: outputs.cognito.UserPoolClientAnalyticsConfiguration;
     readonly authSessionValidity?: number;
     readonly callbackUrls?: string[];
+    readonly clientId?: string;
     readonly clientName?: string;
     readonly clientSecret?: string;
     readonly defaultRedirectUri?: string;
     readonly enablePropagateAdditionalUserContextData?: boolean;
     readonly enableTokenRevocation?: boolean;
     readonly explicitAuthFlows?: string[];
-    readonly id?: string;
     readonly idTokenValidity?: number;
     readonly logoutUrls?: string[];
     readonly name?: string;
@@ -55,5 +57,6 @@ export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?
 }
 
 export interface GetUserPoolClientOutputArgs {
-    id: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

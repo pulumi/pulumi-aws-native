@@ -10,16 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// ``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
+    /// </summary>
     public sealed class ApiKeyStageKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId")]
         public Input<string>? RestApiId { get; set; }
 
         /// <summary>
-        /// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
+        /// The stage name associated with the stage key.
         /// </summary>
         [Input("stageName")]
         public Input<string>? StageName { get; set; }

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::RequestValidator
+ * The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
  */
 export function getRequestValidator(args: GetRequestValidatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRequestValidatorResult> {
 
@@ -22,7 +22,7 @@ export interface GetRequestValidatorArgs {
      */
     requestValidatorId: string;
     /**
-     * The identifier of the targeted API entity.
+     * The string identifier of the associated RestApi.
      */
     restApiId: string;
 }
@@ -33,16 +33,16 @@ export interface GetRequestValidatorResult {
      */
     readonly requestValidatorId?: string;
     /**
-     * Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+     * A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
      */
     readonly validateRequestBody?: boolean;
     /**
-     * Indicates whether to validate request parameters.
+     * A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
      */
     readonly validateRequestParameters?: boolean;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::RequestValidator
+ * The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
  */
 export function getRequestValidatorOutput(args: GetRequestValidatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequestValidatorResult> {
     return pulumi.output(args).apply((a: any) => getRequestValidator(a, opts))
@@ -54,7 +54,7 @@ export interface GetRequestValidatorOutputArgs {
      */
     requestValidatorId: pulumi.Input<string>;
     /**
-     * The identifier of the targeted API entity.
+     * The string identifier of the associated RestApi.
      */
     restApiId: pulumi.Input<string>;
 }

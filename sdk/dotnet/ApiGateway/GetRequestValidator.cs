@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.ApiGateway
     public static class GetRequestValidator
     {
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::RequestValidator
+        /// The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Task<GetRequestValidatorResult> InvokeAsync(GetRequestValidatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::ApiGateway::RequestValidator
+        /// The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
         /// </summary>
         public static Output<GetRequestValidatorResult> Invoke(GetRequestValidatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorInvokeArgs(), options.WithDefaults());
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public string RequestValidatorId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the targeted API entity.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public string RestApiId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string> RequestValidatorId { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the targeted API entity.
+        /// The string identifier of the associated RestApi.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
@@ -74,11 +74,11 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public readonly string? RequestValidatorId;
         /// <summary>
-        /// Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        /// A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         /// </summary>
         public readonly bool? ValidateRequestBody;
         /// <summary>
-        /// Indicates whether to validate request parameters.
+        /// A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         /// </summary>
         public readonly bool? ValidateRequestParameters;
 

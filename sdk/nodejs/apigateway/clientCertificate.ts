@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::ClientCertificate
+ * The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
  */
 export class ClientCertificate extends pulumi.CustomResource {
     /**
@@ -42,11 +42,11 @@ export class ClientCertificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly clientCertificateId!: pulumi.Output<string>;
     /**
-     * A description of the client certificate.
+     * The description of the client certificate.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     public readonly tags!: pulumi.Output<outputs.apigateway.ClientCertificateTag[] | undefined>;
 
@@ -79,11 +79,11 @@ export class ClientCertificate extends pulumi.CustomResource {
  */
 export interface ClientCertificateArgs {
     /**
-     * A description of the client certificate.
+     * The description of the client certificate.
      */
     description?: pulumi.Input<string>;
     /**
-     * An array of arbitrary tags (key-value pairs) to associate with the client certificate.
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.apigateway.ClientCertificateTagArgs>[]>;
 }

@@ -13,17 +13,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::BasePathMapping
+// The “AWS::ApiGateway::BasePathMapping“ resource creates a base path that clients who call your API must use in the invocation URL.
 type BasePathMapping struct {
 	pulumi.CustomResourceState
 
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath pulumi.StringPtrOutput `pulumi:"basePath"`
-	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The ID of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringPtrOutput `pulumi:"restApiId"`
-	// The name of the API's stage.
+	// The name of the associated stage.
 	Stage pulumi.StringPtrOutput `pulumi:"stage"`
 }
 
@@ -75,25 +75,25 @@ func (BasePathMappingState) ElementType() reflect.Type {
 }
 
 type basePathMappingArgs struct {
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath *string `pulumi:"basePath"`
-	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName string `pulumi:"domainName"`
-	// The ID of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId *string `pulumi:"restApiId"`
-	// The name of the API's stage.
+	// The name of the associated stage.
 	Stage *string `pulumi:"stage"`
 }
 
 // The set of arguments for constructing a BasePathMapping resource.
 type BasePathMappingArgs struct {
-	// The base path name that callers of the API must provide in the URL after the domain name.
+	// The base path name that callers of the API must provide as part of the URL after the domain name.
 	BasePath pulumi.StringPtrInput
-	// The DomainName of an AWS::ApiGateway::DomainName resource.
+	// The domain name of the BasePathMapping resource to be described.
 	DomainName pulumi.StringInput
-	// The ID of the API.
+	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringPtrInput
-	// The name of the API's stage.
+	// The name of the associated stage.
 	Stage pulumi.StringPtrInput
 }
 
@@ -146,22 +146,22 @@ func (o BasePathMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*Bas
 	}
 }
 
-// The base path name that callers of the API must provide in the URL after the domain name.
+// The base path name that callers of the API must provide as part of the URL after the domain name.
 func (o BasePathMappingOutput) BasePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.BasePath }).(pulumi.StringPtrOutput)
 }
 
-// The DomainName of an AWS::ApiGateway::DomainName resource.
+// The domain name of the BasePathMapping resource to be described.
 func (o BasePathMappingOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The ID of the API.
+// The string identifier of the associated RestApi.
 func (o BasePathMappingOutput) RestApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.RestApiId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the API's stage.
+// The name of the associated stage.
 func (o BasePathMappingOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.Stage }).(pulumi.StringPtrOutput)
 }

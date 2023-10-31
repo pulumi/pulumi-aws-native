@@ -11,18 +11,34 @@ export function getVpcGatewayAttachment(args: GetVpcGatewayAttachmentArgs, opts?
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getVpcGatewayAttachment", {
-        "id": args.id,
+        "attachmentType": args.attachmentType,
+        "vpcId": args.vpcId,
     }, opts);
 }
 
 export interface GetVpcGatewayAttachmentArgs {
-    id: string;
+    /**
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     */
+    attachmentType: string;
+    /**
+     * The ID of the VPC.
+     */
+    vpcId: string;
 }
 
 export interface GetVpcGatewayAttachmentResult {
-    readonly id?: string;
+    /**
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     */
+    readonly attachmentType?: string;
+    /**
+     * The ID of the internet gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+     */
     readonly internetGatewayId?: string;
-    readonly vpcId?: string;
+    /**
+     * The ID of the virtual private gateway. You must specify either InternetGatewayId or VpnGatewayId, but not both.
+     */
     readonly vpnGatewayId?: string;
 }
 /**
@@ -33,5 +49,12 @@ export function getVpcGatewayAttachmentOutput(args: GetVpcGatewayAttachmentOutpu
 }
 
 export interface GetVpcGatewayAttachmentOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment 
+     */
+    attachmentType: pulumi.Input<string>;
+    /**
+     * The ID of the VPC.
+     */
+    vpcId: pulumi.Input<string>;
 }

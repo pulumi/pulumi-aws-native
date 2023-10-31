@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly string? CustomLabel;
         public readonly Pulumi.AwsNative.QuickSight.TemplateTableTotalsPlacement? Placement;
         public readonly Pulumi.AwsNative.QuickSight.TemplateTableTotalsScrollStatus? ScrollStatus;
+        public readonly ImmutableArray<Outputs.TemplateTotalAggregationOption> TotalAggregationOptions;
         public readonly Outputs.TemplateTableCellStyle? TotalCellStyle;
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
 
@@ -27,6 +28,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateTableTotalsScrollStatus? scrollStatus,
 
+            ImmutableArray<Outputs.TemplateTotalAggregationOption> totalAggregationOptions,
+
             Outputs.TemplateTableCellStyle? totalCellStyle,
 
             Pulumi.AwsNative.QuickSight.TemplateVisibility? totalsVisibility)
@@ -34,6 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             CustomLabel = customLabel;
             Placement = placement;
             ScrollStatus = scrollStatus;
+            TotalAggregationOptions = totalAggregationOptions;
             TotalCellStyle = totalCellStyle;
             TotalsVisibility = totalsVisibility;
         }

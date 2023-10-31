@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::GatewayResponse
+// The “AWS::ApiGateway::GatewayResponse“ resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
 func LookupGatewayResponse(ctx *pulumi.Context, args *LookupGatewayResponseArgs, opts ...pulumi.InvokeOption) (*LookupGatewayResponseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGatewayResponseResult
@@ -24,14 +24,19 @@ func LookupGatewayResponse(ctx *pulumi.Context, args *LookupGatewayResponseArgs,
 }
 
 type LookupGatewayResponseArgs struct {
+	// A Cloudformation auto generated ID.
 	Id string `pulumi:"id"`
 }
 
 type LookupGatewayResponseResult struct {
-	Id                 *string     `pulumi:"id"`
+	// A Cloudformation auto generated ID.
+	Id *string `pulumi:"id"`
+	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters interface{} `pulumi:"responseParameters"`
-	ResponseTemplates  interface{} `pulumi:"responseTemplates"`
-	StatusCode         *string     `pulumi:"statusCode"`
+	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	// The HTTP status code for this GatewayResponse.
+	StatusCode *string `pulumi:"statusCode"`
 }
 
 func LookupGatewayResponseOutput(ctx *pulumi.Context, args LookupGatewayResponseOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResponseResultOutput {
@@ -48,6 +53,7 @@ func LookupGatewayResponseOutput(ctx *pulumi.Context, args LookupGatewayResponse
 }
 
 type LookupGatewayResponseOutputArgs struct {
+	// A Cloudformation auto generated ID.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -75,18 +81,22 @@ func (o LookupGatewayResponseResultOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// A Cloudformation auto generated ID.
 func (o LookupGatewayResponseResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 func (o LookupGatewayResponseResultOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) interface{} { return v.ResponseParameters }).(pulumi.AnyOutput)
 }
 
+// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
 func (o LookupGatewayResponseResultOutput) ResponseTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) interface{} { return v.ResponseTemplates }).(pulumi.AnyOutput)
 }
 
+// The HTTP status code for this GatewayResponse.
 func (o LookupGatewayResponseResultOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResponseResult) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }

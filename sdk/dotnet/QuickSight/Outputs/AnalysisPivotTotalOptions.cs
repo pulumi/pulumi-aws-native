@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.AnalysisTableCellStyle? MetricHeaderCellStyle;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTableTotalsPlacement? Placement;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisTableTotalsScrollStatus? ScrollStatus;
+        public readonly ImmutableArray<Outputs.AnalysisTotalAggregationOption> TotalAggregationOptions;
         public readonly Outputs.AnalysisTableCellStyle? TotalCellStyle;
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? TotalsVisibility;
         public readonly Outputs.AnalysisTableCellStyle? ValueCellStyle;
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.AnalysisTableTotalsScrollStatus? scrollStatus,
 
+            ImmutableArray<Outputs.AnalysisTotalAggregationOption> totalAggregationOptions,
+
             Outputs.AnalysisTableCellStyle? totalCellStyle,
 
             Pulumi.AwsNative.QuickSight.AnalysisVisibility? totalsVisibility,
@@ -41,6 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             MetricHeaderCellStyle = metricHeaderCellStyle;
             Placement = placement;
             ScrollStatus = scrollStatus;
+            TotalAggregationOptions = totalAggregationOptions;
             TotalCellStyle = totalCellStyle;
             TotalsVisibility = totalsVisibility;
             ValueCellStyle = valueCellStyle;

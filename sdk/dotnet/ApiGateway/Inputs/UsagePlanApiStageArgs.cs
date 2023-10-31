@@ -10,22 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
+    /// <summary>
+    /// API stage name of the associated API stage in a usage plan.
+    /// </summary>
     public sealed class UsagePlanApiStageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+        /// API Id of the associated API stage in a usage plan.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// The name of the stage to associate with the usage plan.
+        /// API stage name of the associated API stage in a usage plan.
         /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 
         /// <summary>
-        /// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+        /// Map containing method level throttling information for API stage in a usage plan.
         /// </summary>
         [Input("throttle")]
         public Input<object>? Throttle { get; set; }

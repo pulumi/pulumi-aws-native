@@ -47,8 +47,9 @@ class ApiKeyStageKeyArgs:
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] rest_api_id: The ID of a RestApi resource that includes the stage with which you want to associate the API key.
-        :param pulumi.Input[str] stage_name: The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
+        ``StageKey`` is a property of the [AWS::ApiGateway::ApiKey](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html) resource that specifies the stage to associate with the API key. This association allows only clients with the key to make requests to methods in that stage.
+        :param pulumi.Input[str] rest_api_id: The string identifier of the associated RestApi.
+        :param pulumi.Input[str] stage_name: The stage name associated with the stage key.
         """
         if rest_api_id is not None:
             pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -59,7 +60,7 @@ class ApiKeyStageKeyArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of a RestApi resource that includes the stage with which you want to associate the API key.
+        The string identifier of the associated RestApi.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -71,7 +72,7 @@ class ApiKeyStageKeyArgs:
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
+        The stage name associated with the stage key.
         """
         return pulumi.get(self, "stage_name")
 
@@ -1831,9 +1832,10 @@ class UsagePlanApiStageArgs:
                  stage: Optional[pulumi.Input[str]] = None,
                  throttle: Optional[Any] = None):
         """
-        :param pulumi.Input[str] api_id: The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
-        :param pulumi.Input[str] stage: The name of the stage to associate with the usage plan.
-        :param Any throttle: Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+        API stage name of the associated API stage in a usage plan.
+        :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
+        :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
+        :param Any throttle: Map containing method level throttling information for API stage in a usage plan.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -1846,7 +1848,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
+        API Id of the associated API stage in a usage plan.
         """
         return pulumi.get(self, "api_id")
 
@@ -1858,7 +1860,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the stage to associate with the usage plan.
+        API stage name of the associated API stage in a usage plan.
         """
         return pulumi.get(self, "stage")
 
@@ -1870,7 +1872,7 @@ class UsagePlanApiStageArgs:
     @pulumi.getter
     def throttle(self) -> Optional[Any]:
         """
-        Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+        Map containing method level throttling information for API stage in a usage plan.
         """
         return pulumi.get(self, "throttle")
 
@@ -1886,9 +1888,11 @@ class UsagePlanQuotaSettingsArgs:
                  offset: Optional[pulumi.Input[int]] = None,
                  period: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] limit: The maximum number of requests that users can make within the specified time period.
-        :param pulumi.Input[int] offset: For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
-        :param pulumi.Input[str] period: The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+        ``QuotaSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies a target for the maximum number of requests users can make to your REST APIs.
+         In some cases clients can exceed the targets that you set. Don’t rely on usage plans to control costs. Consider using [](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html) to monitor costs and [](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) to manage API requests.
+        :param pulumi.Input[int] limit: The target maximum number of requests that can be made in a given time period.
+        :param pulumi.Input[int] offset: The number of requests subtracted from the given limit in the initial time period.
+        :param pulumi.Input[str] period: The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
         """
         if limit is not None:
             pulumi.set(__self__, "limit", limit)
@@ -1901,7 +1905,7 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum number of requests that users can make within the specified time period.
+        The target maximum number of requests that can be made in a given time period.
         """
         return pulumi.get(self, "limit")
 
@@ -1913,7 +1917,7 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[int]]:
         """
-        For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
+        The number of requests subtracted from the given limit in the initial time period.
         """
         return pulumi.get(self, "offset")
 
@@ -1925,7 +1929,7 @@ class UsagePlanQuotaSettingsArgs:
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[str]]:
         """
-        The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
+        The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
         """
         return pulumi.get(self, "period")
 
@@ -1977,8 +1981,9 @@ class UsagePlanThrottleSettingsArgs:
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
         """
-        :param pulumi.Input[int] burst_limit: The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
-        :param pulumi.Input[float] rate_limit: The API request steady-state rate limit (average requests per second over an extended period of time).
+        ``ThrottleSettings`` is a property of the [AWS::ApiGateway::UsagePlan](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html) resource that specifies the overall request rate (average requests per second) and burst capacity when users call your REST APIs.
+        :param pulumi.Input[int] burst_limit: The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
+        :param pulumi.Input[float] rate_limit: The API target request rate limit.
         """
         if burst_limit is not None:
             pulumi.set(__self__, "burst_limit", burst_limit)
@@ -1989,7 +1994,7 @@ class UsagePlanThrottleSettingsArgs:
     @pulumi.getter(name="burstLimit")
     def burst_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
+        The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.
         """
         return pulumi.get(self, "burst_limit")
 
@@ -2001,7 +2006,7 @@ class UsagePlanThrottleSettingsArgs:
     @pulumi.getter(name="rateLimit")
     def rate_limit(self) -> Optional[pulumi.Input[float]]:
         """
-        The API request steady-state rate limit (average requests per second over an extended period of time).
+        The API target request rate limit.
         """
         return pulumi.get(self, "rate_limit")
 

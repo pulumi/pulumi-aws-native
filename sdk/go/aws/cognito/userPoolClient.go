@@ -24,6 +24,7 @@ type UserPoolClient struct {
 	AnalyticsConfiguration                   UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
 	AuthSessionValidity                      pulumi.IntPtrOutput                           `pulumi:"authSessionValidity"`
 	CallbackUrls                             pulumi.StringArrayOutput                      `pulumi:"callbackUrls"`
+	ClientId                                 pulumi.StringOutput                           `pulumi:"clientId"`
 	ClientName                               pulumi.StringPtrOutput                        `pulumi:"clientName"`
 	ClientSecret                             pulumi.StringOutput                           `pulumi:"clientSecret"`
 	DefaultRedirectUri                       pulumi.StringPtrOutput                        `pulumi:"defaultRedirectUri"`
@@ -216,6 +217,10 @@ func (o UserPoolClientOutput) AuthSessionValidity() pulumi.IntPtrOutput {
 
 func (o UserPoolClientOutput) CallbackUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.CallbackUrls }).(pulumi.StringArrayOutput)
+}
+
+func (o UserPoolClientOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
 func (o UserPoolClientOutput) ClientName() pulumi.StringPtrOutput {

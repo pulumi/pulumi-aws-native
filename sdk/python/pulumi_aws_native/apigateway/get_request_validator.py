@@ -41,7 +41,7 @@ class GetRequestValidatorResult:
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> Optional[bool]:
         """
-        Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
         """
         return pulumi.get(self, "validate_request_body")
 
@@ -49,7 +49,7 @@ class GetRequestValidatorResult:
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[bool]:
         """
-        Indicates whether to validate request parameters.
+        A Boolean flag to indicate whether to validate request parameters (``true``) or not (``false``).
         """
         return pulumi.get(self, "validate_request_parameters")
 
@@ -69,11 +69,11 @@ def get_request_validator(request_validator_id: Optional[str] = None,
                           rest_api_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRequestValidatorResult:
     """
-    Resource Type definition for AWS::ApiGateway::RequestValidator
+    The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
 
     :param str request_validator_id: ID of the request validator.
-    :param str rest_api_id: The identifier of the targeted API entity.
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     __args__ = dict()
     __args__['requestValidatorId'] = request_validator_id
@@ -92,10 +92,10 @@ def get_request_validator_output(request_validator_id: Optional[pulumi.Input[str
                                  rest_api_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequestValidatorResult]:
     """
-    Resource Type definition for AWS::ApiGateway::RequestValidator
+    The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
 
     :param str request_validator_id: ID of the request validator.
-    :param str rest_api_id: The identifier of the targeted API entity.
+    :param str rest_api_id: The string identifier of the associated RestApi.
     """
     ...

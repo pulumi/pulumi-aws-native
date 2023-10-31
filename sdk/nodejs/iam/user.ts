@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::IAM::User
- *
- * @deprecated User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class User extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): User {
-        pulumi.log.warn("User is deprecated: User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new User(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,14 +37,41 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that identifies the user. For more information about ARNs and how to use ARNs in policies, see IAM Identifiers in the IAM User Guide.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A list of group names to which you want to add the user.
+     */
     public readonly groups!: pulumi.Output<string[] | undefined>;
+    /**
+     * Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+     */
     public readonly loginProfile!: pulumi.Output<outputs.iam.UserLoginProfile | undefined>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+     */
     public readonly managedPolicyArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+     */
     public readonly path!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM role.
+     */
     public readonly policies!: pulumi.Output<outputs.iam.UserPolicy[] | undefined>;
+    /**
+     * A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+     */
     public readonly tags!: pulumi.Output<outputs.iam.UserTag[] | undefined>;
+    /**
+     * The friendly name identifying the user.
+     */
     public readonly userName!: pulumi.Output<string | undefined>;
 
     /**
@@ -57,9 +81,7 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("User is deprecated: User is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -94,12 +116,36 @@ export class User extends pulumi.CustomResource {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * A list of group names to which you want to add the user.
+     */
     groups?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Creates a password for the specified IAM user. A password allows an IAM user to access AWS services through the AWS Management Console.
+     */
     loginProfile?: pulumi.Input<inputs.iam.UserLoginProfileArgs>;
+    /**
+     * A list of Amazon Resource Names (ARNs) of the IAM managed policies that you want to attach to the role.
+     */
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The path to the user. For more information about paths, see IAM identifiers in the IAM User Guide. The ARN of the policy used to set the permissions boundary for the user.
+     */
     path?: pulumi.Input<string>;
+    /**
+     * The ARN of the policy that is used to set the permissions boundary for the user.
+     */
     permissionsBoundary?: pulumi.Input<string>;
+    /**
+     * Adds or updates an inline policy document that is embedded in the specified IAM role.
+     */
     policies?: pulumi.Input<pulumi.Input<inputs.iam.UserPolicyArgs>[]>;
+    /**
+     * A list of tags that are associated with the user. For more information about tagging, see Tagging IAM resources in the IAM User Guide.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.iam.UserTagArgs>[]>;
+    /**
+     * The friendly name identifying the user.
+     */
     userName?: pulumi.Input<string>;
 }

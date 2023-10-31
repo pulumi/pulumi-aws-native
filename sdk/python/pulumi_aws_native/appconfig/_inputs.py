@@ -28,7 +28,7 @@ class ApplicationTagsArgs:
                  value: pulumi.Input[str]):
         """
         Metadata to assign to the application. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
-        :param pulumi.Input[str] key: The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        :param pulumi.Input[str] key: The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
         :param pulumi.Input[str] value: The tag value can be up to 256 characters.
         """
         pulumi.set(__self__, "key", key)
@@ -38,7 +38,7 @@ class ApplicationTagsArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+        The key-value string map. The valid character set is [a-zA-Z1-9 +-=._:/-]. The tag key can be up to 128 characters and must not start with aws:.
         """
         return pulumi.get(self, "key")
 

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class ResolverAppSyncRuntime
     {
+        /// <summary>
+        /// The name of the runtime to use.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The version of the runtime to use.
+        /// </summary>
         public readonly string RuntimeVersion;
 
         [OutputConstructor]

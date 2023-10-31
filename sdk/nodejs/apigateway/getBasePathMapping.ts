@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::ApiGateway::BasePathMapping
+ * The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
  */
 export function getBasePathMapping(args: GetBasePathMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetBasePathMappingResult> {
 
@@ -18,27 +18,27 @@ export function getBasePathMapping(args: GetBasePathMappingArgs, opts?: pulumi.I
 
 export interface GetBasePathMappingArgs {
     /**
-     * The base path name that callers of the API must provide in the URL after the domain name.
+     * The base path name that callers of the API must provide as part of the URL after the domain name.
      */
     basePath: string;
     /**
-     * The DomainName of an AWS::ApiGateway::DomainName resource.
+     * The domain name of the BasePathMapping resource to be described.
      */
     domainName: string;
 }
 
 export interface GetBasePathMappingResult {
     /**
-     * The ID of the API.
+     * The string identifier of the associated RestApi.
      */
     readonly restApiId?: string;
     /**
-     * The name of the API's stage.
+     * The name of the associated stage.
      */
     readonly stage?: string;
 }
 /**
- * Resource Type definition for AWS::ApiGateway::BasePathMapping
+ * The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
  */
 export function getBasePathMappingOutput(args: GetBasePathMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBasePathMappingResult> {
     return pulumi.output(args).apply((a: any) => getBasePathMapping(a, opts))
@@ -46,11 +46,11 @@ export function getBasePathMappingOutput(args: GetBasePathMappingOutputArgs, opt
 
 export interface GetBasePathMappingOutputArgs {
     /**
-     * The base path name that callers of the API must provide in the URL after the domain name.
+     * The base path name that callers of the API must provide as part of the URL after the domain name.
      */
     basePath: pulumi.Input<string>;
     /**
-     * The DomainName of an AWS::ApiGateway::DomainName resource.
+     * The domain name of the BasePathMapping resource to be described.
      */
     domainName: pulumi.Input<string>;
 }

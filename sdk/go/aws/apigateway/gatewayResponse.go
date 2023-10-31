@@ -13,17 +13,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::ApiGateway::GatewayResponse
+// The “AWS::ApiGateway::GatewayResponse“ resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
 //
 // Deprecated: GatewayResponse is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type GatewayResponse struct {
 	pulumi.CustomResourceState
 
-	ResponseParameters pulumi.AnyOutput       `pulumi:"responseParameters"`
-	ResponseTemplates  pulumi.AnyOutput       `pulumi:"responseTemplates"`
-	ResponseType       pulumi.StringOutput    `pulumi:"responseType"`
-	RestApiId          pulumi.StringOutput    `pulumi:"restApiId"`
-	StatusCode         pulumi.StringPtrOutput `pulumi:"statusCode"`
+	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
+	ResponseParameters pulumi.AnyOutput `pulumi:"responseParameters"`
+	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+	ResponseTemplates pulumi.AnyOutput `pulumi:"responseTemplates"`
+	// The response type of the associated GatewayResponse.
+	ResponseType pulumi.StringOutput `pulumi:"responseType"`
+	// The string identifier of the associated RestApi.
+	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
+	// The HTTP status code for this GatewayResponse.
+	StatusCode pulumi.StringPtrOutput `pulumi:"statusCode"`
 }
 
 // NewGatewayResponse registers a new resource with the given unique name, arguments, and options.
@@ -77,20 +82,30 @@ func (GatewayResponseState) ElementType() reflect.Type {
 }
 
 type gatewayResponseArgs struct {
+	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters interface{} `pulumi:"responseParameters"`
-	ResponseTemplates  interface{} `pulumi:"responseTemplates"`
-	ResponseType       string      `pulumi:"responseType"`
-	RestApiId          string      `pulumi:"restApiId"`
-	StatusCode         *string     `pulumi:"statusCode"`
+	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+	ResponseTemplates interface{} `pulumi:"responseTemplates"`
+	// The response type of the associated GatewayResponse.
+	ResponseType string `pulumi:"responseType"`
+	// The string identifier of the associated RestApi.
+	RestApiId string `pulumi:"restApiId"`
+	// The HTTP status code for this GatewayResponse.
+	StatusCode *string `pulumi:"statusCode"`
 }
 
 // The set of arguments for constructing a GatewayResponse resource.
 type GatewayResponseArgs struct {
+	// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 	ResponseParameters pulumi.Input
-	ResponseTemplates  pulumi.Input
-	ResponseType       pulumi.StringInput
-	RestApiId          pulumi.StringInput
-	StatusCode         pulumi.StringPtrInput
+	// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
+	ResponseTemplates pulumi.Input
+	// The response type of the associated GatewayResponse.
+	ResponseType pulumi.StringInput
+	// The string identifier of the associated RestApi.
+	RestApiId pulumi.StringInput
+	// The HTTP status code for this GatewayResponse.
+	StatusCode pulumi.StringPtrInput
 }
 
 func (GatewayResponseArgs) ElementType() reflect.Type {
@@ -142,22 +157,27 @@ func (o GatewayResponseOutput) ToOutput(ctx context.Context) pulumix.Output[*Gat
 	}
 }
 
+// Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value pairs.
 func (o GatewayResponseOutput) ResponseParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v *GatewayResponse) pulumi.AnyOutput { return v.ResponseParameters }).(pulumi.AnyOutput)
 }
 
+// Response templates of the GatewayResponse as a string-to-string map of key-value pairs.
 func (o GatewayResponseOutput) ResponseTemplates() pulumi.AnyOutput {
 	return o.ApplyT(func(v *GatewayResponse) pulumi.AnyOutput { return v.ResponseTemplates }).(pulumi.AnyOutput)
 }
 
+// The response type of the associated GatewayResponse.
 func (o GatewayResponseOutput) ResponseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayResponse) pulumi.StringOutput { return v.ResponseType }).(pulumi.StringOutput)
 }
 
+// The string identifier of the associated RestApi.
 func (o GatewayResponseOutput) RestApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayResponse) pulumi.StringOutput { return v.RestApiId }).(pulumi.StringOutput)
 }
 
+// The HTTP status code for this GatewayResponse.
 func (o GatewayResponseOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayResponse) pulumi.StringPtrOutput { return v.StatusCode }).(pulumi.StringPtrOutput)
 }

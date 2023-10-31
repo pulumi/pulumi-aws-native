@@ -10,18 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
+    /// <summary>
+    /// The default retention period that you want to apply to new objects placed in the specified bucket.
+    /// </summary>
     [OutputType]
     public sealed class BucketDefaultRetention
     {
         public readonly int? Days;
-        public readonly string? Mode;
+        public readonly Pulumi.AwsNative.S3.BucketDefaultRetentionMode? Mode;
         public readonly int? Years;
 
         [OutputConstructor]
         private BucketDefaultRetention(
             int? days,
 
-            string? mode,
+            Pulumi.AwsNative.S3.BucketDefaultRetentionMode? mode,
 
             int? years)
         {

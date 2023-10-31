@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class ResolverAppSyncRuntimeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the runtime to use.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The version of the runtime to use.
+        /// </summary>
         [Input("runtimeVersion", required: true)]
         public Input<string> RuntimeVersion { get; set; } = null!;
 

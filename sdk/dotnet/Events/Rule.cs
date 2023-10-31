@@ -15,30 +15,58 @@ namespace Pulumi.AwsNative.Events
     [AwsNativeResourceType("aws-native:events:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the rule, such as arn:aws:events:us-east-2:123456789012:rule/example.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        /// </summary>
         [Output("eventBusName")]
         public Output<string?> EventBusName { get; private set; } = null!;
 
+        /// <summary>
+        /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        /// </summary>
         [Output("eventPattern")]
-        public Output<object?> EventPattern { get; private set; } = null!;
+        public Output<string?> EventPattern { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        /// </summary>
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the rule.
+        /// </summary>
         [Output("state")]
-        public Output<string?> State { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Events.RuleState?> State { get; private set; } = null!;
 
+        /// <summary>
+        /// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        /// Targets are the resources that are invoked when a rule is triggered.
+        /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.RuleTarget>> Targets { get; private set; } = null!;
 
@@ -67,7 +95,6 @@ namespace Pulumi.AwsNative.Events
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "eventBusName",
                     "name",
                 },
             };
@@ -92,29 +119,55 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the rule.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+        /// </summary>
         [Input("eventBusName")]
         public Input<string>? EventBusName { get; set; }
 
+        /// <summary>
+        /// The event pattern of the rule. For more information, see Events and Event Patterns in the Amazon EventBridge User Guide.
+        /// </summary>
         [Input("eventPattern")]
-        public Input<object>? EventPattern { get; set; }
+        public Input<string>? EventPattern { get; set; }
 
+        /// <summary>
+        /// The name of the rule.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the role that is used for target invocation.
+        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
+        /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        /// <summary>
+        /// The state of the rule.
+        /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AwsNative.Events.RuleState>? State { get; set; }
 
         [Input("targets")]
         private InputList<Inputs.RuleTargetArgs>? _targets;
+
+        /// <summary>
+        /// Adds the specified targets to the specified rule, or updates the targets if they are already associated with the rule.
+        /// Targets are the resources that are invoked when a rule is triggered.
+        /// </summary>
         public InputList<Inputs.RuleTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.RuleTargetArgs>());

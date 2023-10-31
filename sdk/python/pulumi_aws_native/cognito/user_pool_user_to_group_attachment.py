@@ -52,12 +52,7 @@ class UserPoolUserToGroupAttachmentArgs:
         pulumi.set(self, "username", value)
 
 
-warnings.warn("""UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class UserPoolUserToGroupAttachment(pulumi.CustomResource):
-    warnings.warn("""UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -100,7 +95,6 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""UserPoolUserToGroupAttachment is deprecated: UserPoolUserToGroupAttachment is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

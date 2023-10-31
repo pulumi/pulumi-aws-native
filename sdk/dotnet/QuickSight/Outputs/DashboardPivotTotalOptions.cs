@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DashboardTableCellStyle? MetricHeaderCellStyle;
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableTotalsPlacement? Placement;
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableTotalsScrollStatus? ScrollStatus;
+        public readonly ImmutableArray<Outputs.DashboardTotalAggregationOption> TotalAggregationOptions;
         public readonly Outputs.DashboardTableCellStyle? TotalCellStyle;
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? TotalsVisibility;
         public readonly Outputs.DashboardTableCellStyle? ValueCellStyle;
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.DashboardTableTotalsScrollStatus? scrollStatus,
 
+            ImmutableArray<Outputs.DashboardTotalAggregationOption> totalAggregationOptions,
+
             Outputs.DashboardTableCellStyle? totalCellStyle,
 
             Pulumi.AwsNative.QuickSight.DashboardVisibility? totalsVisibility,
@@ -41,6 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             MetricHeaderCellStyle = metricHeaderCellStyle;
             Placement = placement;
             ScrollStatus = scrollStatus;
+            TotalAggregationOptions = totalAggregationOptions;
             TotalCellStyle = totalCellStyle;
             TotalsVisibility = totalsVisibility;
             ValueCellStyle = valueCellStyle;

@@ -467,7 +467,6 @@
         "cognito/getUserPoolResourceServer.ts",
         "cognito/getUserPoolRiskConfigurationAttachment.ts",
         "cognito/getUserPoolUiCustomizationAttachment.ts",
-        "cognito/getUserPoolUserToGroupAttachment.ts",
         "cognito/identityPool.ts",
         "cognito/identityPoolPrincipalTag.ts",
         "cognito/identityPoolRoleAttachment.ts",

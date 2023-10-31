@@ -14,12 +14,12 @@ export function getAutoScalingGroup(args: GetAutoScalingGroupArgs, opts?: pulumi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:autoscaling:getAutoScalingGroup", {
-        "autoScalingGroupName": args.autoScalingGroupName,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetAutoScalingGroupArgs {
-    autoScalingGroupName: string;
+    id: string;
 }
 
 export interface GetAutoScalingGroupResult {
@@ -32,6 +32,7 @@ export interface GetAutoScalingGroupResult {
     readonly desiredCapacityType?: string;
     readonly healthCheckGracePeriod?: number;
     readonly healthCheckType?: string;
+    readonly id?: string;
     readonly launchConfigurationName?: string;
     readonly launchTemplate?: outputs.autoscaling.AutoScalingGroupLaunchTemplateSpecification;
     readonly lifecycleHookSpecificationList?: outputs.autoscaling.AutoScalingGroupLifecycleHookSpecification[];
@@ -42,7 +43,6 @@ export interface GetAutoScalingGroupResult {
     readonly minSize?: string;
     readonly mixedInstancesPolicy?: outputs.autoscaling.AutoScalingGroupMixedInstancesPolicy;
     readonly newInstancesProtectedFromScaleIn?: boolean;
-    readonly notificationConfiguration?: outputs.autoscaling.AutoScalingGroupNotificationConfiguration;
     readonly notificationConfigurations?: outputs.autoscaling.AutoScalingGroupNotificationConfiguration[];
     readonly placementGroup?: string;
     readonly serviceLinkedRoleArn?: string;
@@ -59,5 +59,5 @@ export function getAutoScalingGroupOutput(args: GetAutoScalingGroupOutputArgs, o
 }
 
 export interface GetAutoScalingGroupOutputArgs {
-    autoScalingGroupName: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }
