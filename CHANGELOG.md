@@ -1,5 +1,66 @@
 ## HEAD (Unreleased)
 
+#### Breaking Changes:
+Resource "aws-native:autoscaling:AutoScalingGroup" missing input "notificationConfiguration"
+Resource "aws-native:autoscaling:AutoScalingGroup" missing output "notificationConfiguration"
+Resource "aws-native:events:Rule" input "state" type changed from "string" to "#/types/aws-native:events:RuleState"
+Resource "aws-native:events:Rule" input "eventPattern" type changed from "pulumi.json#/Any" to "string"
+Resource "aws-native:events:Rule" output "state" type changed from "string" to "#/types/aws-native:events:RuleState"
+Resource "aws-native:events:Rule" output "eventPattern" type changed from "pulumi.json#/Any" to "string"
+Resource "aws-native:s3:Bucket" input "accessControl" type changed from "string" to "#/types/aws-native:s3:BucketAccessControl"
+Resource "aws-native:s3:Bucket" output "accessControl" type changed from "string" to "#/types/aws-native:s3:BucketAccessControl"
+Function "aws-native:s3:getBucket" missing input "id"
+Function "aws-native:s3:getBucket" missing output "id"
+Function "aws-native:s3:getBucket" missing output "accessControl"
+Function "aws-native:cognito:getUserPoolClient" missing input "id"
+Function "aws-native:cognito:getUserPoolClient" missing output "id"
+Function "aws-native:autoscaling:getAutoScalingGroup" missing input "autoScalingGroupName"
+Function "aws-native:autoscaling:getAutoScalingGroup" missing output "notificationConfiguration"
+Function "aws-native:events:getRule" missing input "id"
+Function "aws-native:events:getRule" missing output "id"
+Function "aws-native:events:getRule" output "state" type changed from "string" to "#/types/aws-native:events:RuleState"
+Function "aws-native:events:getRule" output "eventPattern" type changed from "pulumi.json#/Any" to "string"
+Type "aws-native:s3:BucketCorsRule" input "allowedMethods" items type changed from "string" to "#/types/aws-native:s3:BucketCorsRuleAllowedMethodsItem"
+Type "aws-native:s3:BucketMetrics" input "status" type changed from "string" to "#/types/aws-native:s3:BucketMetricsStatus"
+Type "aws-native:s3:BucketInventoryConfiguration" input "includedObjectVersions" type changed from "string" to "#/types/aws-native:s3:BucketInventoryConfigurationIncludedObjectVersions"
+Type "aws-native:s3:BucketInventoryConfiguration" input "optionalFields" items type changed from "string" to "#/types/aws-native:s3:BucketInventoryConfigurationOptionalFieldsItem"
+Type "aws-native:s3:BucketInventoryConfiguration" input "scheduleFrequency" type changed from "string" to "#/types/aws-native:s3:BucketInventoryConfigurationScheduleFrequency"
+Type "aws-native:s3:BucketIntelligentTieringConfiguration" input "status" type changed from "string" to "#/types/aws-native:s3:BucketIntelligentTieringConfigurationStatus"
+Type "aws-native:autoscaling:AutoScalingGroupNotificationConfiguration" input "topicArn" type changed from "string" to "array"
+had no type but now has &{Type:string Ref: AdditionalProperties: Items: OneOf:[]}
+Type "aws-native:s3:BucketRule" input "objectSizeGreaterThan" type changed from "integer" to "string"
+Type "aws-native:s3:BucketRule" input "objectSizeLessThan" type changed from "integer" to "string"
+Type "aws-native:s3:BucketRule" input "status" type changed from "string" to "#/types/aws-native:s3:BucketRuleStatus"
+Type "aws-native:s3:BucketReplicationTime" input "status" type changed from "string" to "#/types/aws-native:s3:BucketReplicationTimeStatus"
+Type "aws-native:s3:BucketVersioningConfiguration" input "status" type changed from "string" to "#/types/aws-native:s3:BucketVersioningConfigurationStatus"
+Type "aws-native:s3:BucketReplicaModifications" input "status" type changed from "string" to "#/types/aws-native:s3:BucketReplicaModificationsStatus"
+Type "aws-native:s3:BucketDestination" input "format" type changed from "string" to "#/types/aws-native:s3:BucketDestinationFormat"
+Type "aws-native:s3:BucketOwnershipControlsRule" input "objectOwnership" type changed from "string" to "#/types/aws-native:s3:BucketOwnershipControlsRuleObjectOwnership"
+Type "aws-native:s3:BucketDefaultRetention" input "mode" type changed from "string" to "#/types/aws-native:s3:BucketDefaultRetentionMode"
+Type "aws-native:s3:BucketNoncurrentVersionTransition" input "storageClass" type changed from "string" to "#/types/aws-native:s3:BucketNoncurrentVersionTransitionStorageClass"
+Type "aws-native:s3:BucketReplicationDestination" input "storageClass" type changed from "string" to "#/types/aws-native:s3:BucketReplicationDestinationStorageClass"
+Type "aws-native:s3:BucketReplicationRule" input "status" type changed from "string" to "#/types/aws-native:s3:BucketReplicationRuleStatus"
+Type "aws-native:s3:BucketServerSideEncryptionByDefault" input "sseAlgorithm" type changed from "string" to "#/types/aws-native:s3:BucketServerSideEncryptionByDefaultSseAlgorithm"
+Type "aws-native:s3:BucketTiering" input "accessTier" type changed from "string" to "#/types/aws-native:s3:BucketTieringAccessTier"
+Type "aws-native:s3:BucketSseKmsEncryptedObjects" input "status" type changed from "string" to "#/types/aws-native:s3:BucketSseKmsEncryptedObjectsStatus"
+Type "aws-native:s3:BucketDeleteMarkerReplication" input "status" type changed from "string" to "#/types/aws-native:s3:BucketDeleteMarkerReplicationStatus"
+Type "aws-native:s3:BucketRedirectAllRequestsTo" input "protocol" type changed from "string" to "#/types/aws-native:s3:BucketRedirectAllRequestsToProtocol"
+Type "aws-native:s3:BucketRedirectRule" input "protocol" type changed from "string" to "#/types/aws-native:s3:BucketRedirectRuleProtocol"
+Type "aws-native:s3:BucketAccelerateConfiguration" input "accelerationStatus" type changed from "string" to "#/types/aws-native:s3:BucketAccelerateConfigurationAccelerationStatus"
+Type "aws-native:s3:BucketTransition" input "storageClass" type changed from "string" to "#/types/aws-native:s3:BucketTransitionStorageClass"
+#### New resources:
+
+    appsync.Resolver
+    cognito.UserPoolUserToGroupAttachment
+    ec2.VpcGatewayAttachment
+    iam.User
+
+#### New functions:
+
+    appsync.getResolver
+    ec2.getVpcGatewayAttachment
+    iam.getUser
+
 ## 0.82.1 (2023-10-30)
 
 Update pulumi version to 3.91.1
