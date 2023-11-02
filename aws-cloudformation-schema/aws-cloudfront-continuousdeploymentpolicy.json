@@ -1,5 +1,6 @@
 {
   "additionalProperties" : false,
+  "deprecatedProperties" : [ "/definitions/ContinuousDeploymentPolicyConfig/properties/Type", "/definitions/ContinuousDeploymentPolicyConfig/properties/SingleHeaderPolicyConfig", "/definitions/ContinuousDeploymentPolicyConfig/properties/SingleWeightPolicyConfig" ],
   "definitions" : {
     "ContinuousDeploymentPolicyConfig" : {
       "additionalProperties" : false,
@@ -148,7 +149,6 @@
       "permissions" : [ "cloudfront:UpdateContinuousDeploymentPolicy", "cloudfront:GetContinuousDeploymentPolicy" ]
     }
   },
-  "deprecatedProperties" : [ "/properties/ContinuousDeploymentPolicyConfig/properties/Type", "/properties/ContinuousDeploymentPolicyConfig/properties/SingleHeaderPolicyConfig", "/properties/ContinuousDeploymentPolicyConfig/properties/SingleWeightPolicyConfig" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "properties" : {
     "ContinuousDeploymentPolicyConfig" : {
