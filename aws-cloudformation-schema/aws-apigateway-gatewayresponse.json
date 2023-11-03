@@ -5,7 +5,7 @@
   "additionalProperties" : false,
   "properties" : {
     "Id" : {
-      "description" : "A Cloudformation auto generated ID.",
+      "description" : "",
       "type" : "string"
     },
     "RestApiId" : {

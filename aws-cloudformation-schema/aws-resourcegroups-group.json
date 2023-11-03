@@ -141,6 +141,13 @@
   "createOnlyProperties" : [ "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Name" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "resource-groups:CreateGroup", "resource-groups:Tag", "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "resource-groups:ListGroupResources", "resource-groups:GroupResources" ]

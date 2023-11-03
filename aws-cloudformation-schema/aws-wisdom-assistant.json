@@ -80,7 +80,10 @@
   "replacementStrategy" : "delete_then_create",
   "handlers" : {
     "create" : {
-      "permissions" : [ "wisdom:CreateAssistant" ]
+      "permissions" : [ "kms:CreateGrant", "kms:DescribeKey", "wisdom:CreateAssistant", "wisdom:TagResource" ]
+    },
+    "update" : {
+      "permissions" : [ ]
     },
     "read" : {
       "permissions" : [ "wisdom:GetAssistant" ]

@@ -5,7 +5,7 @@
   "additionalProperties" : false,
   "properties" : {
     "RequestValidatorId" : {
-      "description" : "ID of the request validator.",
+      "description" : "",
       "type" : "string"
     },
     "Name" : {

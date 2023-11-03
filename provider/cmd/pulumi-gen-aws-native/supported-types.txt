@@ -40,6 +40,7 @@ AWS::ApiGatewayV2::Route
 AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
+AWS::AppConfig::ConfigurationProfile
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
 AWS::AppFlow::Connector
@@ -883,6 +884,7 @@ Dynatrace::Environment::Metric
 Dynatrace::Environment::ServiceLevelObjective
 Dynatrace::Environment::SyntheticLocation
 Dynatrace::Environment::SyntheticMonitor
+Example::Testing::WordPress
 Fastly::Dictionary::Dictionary
 Fastly::Dictionary::DictionaryItem
 Fastly::Logging::S3

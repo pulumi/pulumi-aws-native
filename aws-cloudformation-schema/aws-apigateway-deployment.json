@@ -6,7 +6,7 @@
   "properties" : {
     "DeploymentId" : {
       "type" : "string",
-      "description" : "Primary Id for this resource"
+      "description" : ""
     },
     "DeploymentCanarySettings" : {
       "$ref" : "#/definitions/DeploymentCanarySettings",
@@ -207,7 +207,8 @@
           "type" : "string"
         }
       },
-      "required" : [ "Value", "Key" ]
+      "required" : [ "Value", "Key" ],
+      "description" : ""
     },
     "MethodSetting" : {
       "type" : "object",
