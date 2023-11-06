@@ -28,7 +28,9 @@
   "createOnlyProperties" : [ "/properties/HostedZoneId", "/properties/Name", "/properties/KeyManagementServiceArn" ],
   "required" : [ "Status", "HostedZoneId", "Name", "KeyManagementServiceArn" ],
   "primaryIdentifier" : [ "/properties/HostedZoneId", "/properties/Name" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "route53:CreateKeySigningKey", "kms:DescribeKey", "kms:GetPublicKey", "kms:Sign", "kms:CreateGrant" ]

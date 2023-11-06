@@ -63,19 +63,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:CreateLogGroup", "logs:PutRetentionPolicy", "logs:TagLogGroup", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies" ]
+      "permissions" : [ "logs:DescribeLogGroups", "logs:CreateLogGroup", "logs:PutRetentionPolicy", "logs:TagResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream", "logs:PutResourcePolicy", "logs:DescribeResourcePolicies" ]
     },
     "read" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsLogGroup", "logs:GetDataProtectionPolicy" ]
+      "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsForResource", "logs:GetDataProtectionPolicy" ]
     },
     "update" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:AssociateKmsKey", "logs:DisassociateKmsKey", "logs:PutRetentionPolicy", "logs:DeleteRetentionPolicy", "logs:TagLogGroup", "logs:UntagLogGroup", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream" ]
+      "permissions" : [ "logs:DescribeLogGroups", "logs:AssociateKmsKey", "logs:DisassociateKmsKey", "logs:PutRetentionPolicy", "logs:DeleteRetentionPolicy", "logs:TagResource", "logs:UntagResource", "logs:GetDataProtectionPolicy", "logs:PutDataProtectionPolicy", "logs:CreateLogDelivery", "s3:REST.PUT.OBJECT", "firehose:TagDeliveryStream" ]
     },
     "delete" : {
       "permissions" : [ "logs:DescribeLogGroups", "logs:DeleteLogGroup", "logs:DeleteDataProtectionPolicy" ]
     },
     "list" : {
-      "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsLogGroup" ],
+      "permissions" : [ "logs:DescribeLogGroups", "logs:ListTagsForResource" ],
       "handlerSchema" : {
         "properties" : {
           "LogGroupName" : {

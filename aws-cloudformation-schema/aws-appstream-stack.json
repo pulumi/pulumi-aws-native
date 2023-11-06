@@ -151,6 +151,9 @@
         },
         "Action" : {
           "type" : "string"
+        },
+        "MaximumLength" : {
+          "type" : "integer"
         }
       },
       "required" : [ "Action", "Permission" ]

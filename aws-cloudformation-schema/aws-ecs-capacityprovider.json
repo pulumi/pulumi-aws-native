@@ -75,7 +75,7 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "createOnlyProperties" : [ "/properties/AutoScalingGroupProvider/AutoScalingGroupArn", "/properties/Name" ],
   "propertyTransform" : {
-    "/properties/AutoScalingGroupProvider/AutoScalingGroupArn" : "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
+    "/properties/AutoScalingGroupProvider/AutoScalingGroupArn" : "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1] $OR $split(AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
   },
   "handlers" : {
     "create" : {

@@ -30,6 +30,34 @@
     }
   },
   "definitions" : {
+    "Script" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ExecutionHandlerService" : {
+          "type" : "string"
+        },
+        "ExecutionTimeout" : {
+          "type" : "integer"
+        },
+        "Stages" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "ExecutionHandler" : {
+          "type" : "string"
+        },
+        "MaximumRetryCount" : {
+          "type" : "integer"
+        },
+        "ExecuteOperationOnScriptFailure" : {
+          "type" : "boolean"
+        }
+      }
+    },
     "Action" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -239,8 +267,12 @@
         "IntervalUnit" : {
           "type" : "string"
         },
-        "CronExpression" : {
-          "type" : "string"
+        "Scripts" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Script"
+          }
         },
         "Times" : {
           "type" : "array",
@@ -248,6 +280,9 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "CronExpression" : {
+          "type" : "string"
         },
         "Interval" : {
           "type" : "integer"
