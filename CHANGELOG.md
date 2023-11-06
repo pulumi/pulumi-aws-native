@@ -1,6 +1,29 @@
 ## HEAD (Unreleased)
 
+(None)
+
+## 0.84.0 (2023-11-06)
+
 #### Breaking Changes:
+
+- Function "aws-native:autoscaling:getAutoScalingGroup" missing input "id"
+- Function "aws-native:autoscaling:getAutoScalingGroup" missing output "id"
+- Function "aws-native:appsync:getResolver" missing input "resolverArn"
+- Type "aws-native:autoscaling:AutoScalingGroupNotificationConfiguration" input "topicArn" type changed from "array" to "string"
+had &{Type:string Ref: AdditionalProperties: Items: OneOf:[]} but now has no type
+
+#### New resources:
+
+- `appconfig.ConfigurationProfile`
+
+#### New functions:
+
+- `appconfig.getConfigurationProfile`
+
+## 0.83.0 (2023-10-31)
+
+#### Breaking Changes:
+
 Resource "aws-native:autoscaling:AutoScalingGroup" missing input "notificationConfiguration"
 Resource "aws-native:autoscaling:AutoScalingGroup" missing output "notificationConfiguration"
 Resource "aws-native:events:Rule" input "state" type changed from "string" to "#/types/aws-native:events:RuleState"
@@ -48,6 +71,7 @@ Type "aws-native:s3:BucketRedirectAllRequestsTo" input "protocol" type changed f
 Type "aws-native:s3:BucketRedirectRule" input "protocol" type changed from "string" to "#/types/aws-native:s3:BucketRedirectRuleProtocol"
 Type "aws-native:s3:BucketAccelerateConfiguration" input "accelerationStatus" type changed from "string" to "#/types/aws-native:s3:BucketAccelerateConfigurationAccelerationStatus"
 Type "aws-native:s3:BucketTransition" input "storageClass" type changed from "string" to "#/types/aws-native:s3:BucketTransitionStorageClass"
+
 #### New resources:
 
     appsync.Resolver
